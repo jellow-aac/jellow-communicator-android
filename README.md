@@ -20,13 +20,11 @@ For further information on Jellow and FAQs, please visit www.jellow.org/
 
 Whats new
 ----
-- Addition of Visual accessibility (TalkBack support).
-- Addition of new language: English (Australia)
-- New design for Serial Keyboard.
-- Addition of new language in Serial Keyboard : Bengali (India)
-- Addition of new layouts to support 19 : 9 notch screen ratio devices.
-- Corrected scrolls in intro screen.
-- Bug reported on Crashlytics.
+- User can create board's. Add their own custom icons or choose from existing library to the board. Tap semi-transparent circular "+" icon on the right top to go to create board screen.
+- User can search, icon by typing its English name; In all non English languages. E.g. To search a "Mango" icon, type "mango" in search bar.
+- User will receive language/icon updates on the internet within app.
+- Added compatibility for Android 10 and its new swipe based navigation.
+- Fix the app crashes on update.
 
 Contributing to Jellow
 ---
@@ -46,11 +44,3 @@ The Jellow Communicator application's code is licensed under the [BSD](LICENSE.t
 The Jellow Communicator application's contents including its interface, visual identity, icons and their associated vocabulary are licensed under a [Creative Commons Attribution-Non-Commercial-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-nc-sa/4.0/)  License.
 
 See our [Privacy Policy](http://jellow.org/privacypolicy/index.html).
-
-
-
-Importaint message
----
-
-
-The current repository is now archieved. However, the work on Jellow project is ongoing. If you wated to contribute to the Jellow project, contact us at the e-mail address given in the [Contributing to Jellow](#contributing-to-jellow) section.
