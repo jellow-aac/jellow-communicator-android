@@ -21,12 +21,15 @@ public class SessionManager {
     public final static String ENG_UK = "en-rGB";
     public final static String ENG_IN = "en-rIN";
     public final static String ENG_AU = "en-rAU";
+    public final static String ENG_NG = "en-rNG";
     public final static String HI_IN = "hi-rIN";
     public final static String BN_IN = "bn-rIN";    // BN_IN -> Bengali
     public final static String BE_IN = "be-rIN";    // BE_IN -> Bengali (for some old API devices which return Bengali locale as be-rIN)
+    public final static String BN_BD = "bn-rBD";
     public final static String MR_IN = "mr-rIN";
     public final static String ES_ES = "es-rES";
     public final static String TA_IN = "ta-rIN";
+    public final static String TE_IN = "te-rIN";
     public final static String DE_DE = "de-rDE";
     public final static String FR_FR = "fr-rFR";
     public static final String UNIVERSAL_PACKAGE = "universal";
@@ -39,12 +42,15 @@ public class SessionManager {
             put("English (India)", ENG_IN);
             put("English (United Kingdom)", ENG_UK);
             put("English (United States)", ENG_US);
+            put("English (Nigeria)", ENG_NG);
             put ("French (France)", FR_FR);
             put("Spanish (Spain)", ES_ES);
             put("मराठी (Marathi)", MR_IN);
             put("हिंदी (Hindi)", HI_IN);
-            put("বাংলা (Bengali)", BN_IN);
+            put("বাংলা (India)", BN_IN);
             put("தமிழ் (Tamil)", TA_IN);
+            put("বাংলা (Bangladesh)", BN_BD);
+            put("తెలుగు (Telugu)", TE_IN);
         }
     };
 
@@ -55,12 +61,15 @@ public class SessionManager {
             put(ENG_IN,"English (India)");
             put(ENG_UK,"English (United Kingdom)");
             put(ENG_US,"English (United States)");
+            put(ENG_NG, "English (Nigeria)");
             put(FR_FR, "French (France)");
             put(ES_ES, "Spanish (Spain)");
             put(MR_IN,"मराठी (Marathi)");
             put(HI_IN,"हिंदी (Hindi)");
-            put(BN_IN,"বাংলা (Bengali)");
+            put(BN_IN,"বাংলা (India)");
             put(TA_IN, "தமிழ் (Tamil)");
+            put(BN_BD, "বাংলা (Bangladesh)");
+            put(TE_IN, "తెలుగు (Telugu)");
         }
     };
 
@@ -87,9 +96,9 @@ public class SessionManager {
     private final String GridSize = "GridSize";
     private final String sessionId = "SessionId";
 
-    private SharedPreferences mPreferences;
-    private Editor mEditor;
-    private Context mContext;
+    private final SharedPreferences mPreferences;
+    private final Editor mEditor;
+    private final Context mContext;
 
 
     public SessionManager(Context context) {
@@ -257,6 +266,14 @@ public class SessionManager {
     }
     public void setUserId(String uuid) {
         storePreferenceKeyWithValue(String.class.toString(), sessionId, uuid);
+    }
+
+    public boolean getTextBarVisibility() {
+        return (boolean) retrievePreferenceKeyWithValue(Boolean.class.toString(), mContext.getString(R.string.text_bar_visibility));
+    }
+
+    public void setTextBarVisibility(boolean value) {
+        storePreferenceKeyWithValue(Boolean.class.toString(), mContext.getString(R.string.text_bar_visibility), value);
     }
 
     /**

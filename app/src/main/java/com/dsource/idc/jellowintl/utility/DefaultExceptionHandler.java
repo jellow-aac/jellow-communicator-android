@@ -4,8 +4,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.util.Log;
 
-import com.crashlytics.android.Crashlytics;
 import com.dsource.idc.jellowintl.activities.UserRegistrationActivity;
+import com.google.firebase.crashlytics.FirebaseCrashlytics;
 
 import java.util.Date;
 
@@ -14,7 +14,7 @@ import java.util.Date;
  */
 
 public class DefaultExceptionHandler implements Thread.UncaughtExceptionHandler {
-    private Activity activity;
+    private final Activity activity;
 
     public DefaultExceptionHandler(Activity activity) {
         this.activity = activity;
@@ -23,7 +23,7 @@ public class DefaultExceptionHandler implements Thread.UncaughtExceptionHandler 
     @Override
     public void uncaughtException(Thread thread, Throwable ex) {
         Log.e("Jellow","exception caught", ex);
-        Crashlytics.logException(ex);
+        FirebaseCrashlytics.getInstance().recordException(ex);
         SessionManager session = new SessionManager(activity);
         // Below if checks if previous crash and current crash has more than 10 seconds
         // time difference then only restart the app otherwise close app completely.

@@ -3,9 +3,9 @@ package com.dsource.idc.jellowintl.utility;
 import android.content.Context;
 import android.os.Bundle;
 
-import com.crashlytics.android.Crashlytics;
 import com.dsource.idc.jellowintl.BuildConfig;
 import com.google.firebase.analytics.FirebaseAnalytics;
+import com.google.firebase.crashlytics.FirebaseCrashlytics;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ServerValue;
@@ -30,7 +30,6 @@ public class Analytics {
 
         mDb = FirebaseDatabase.getInstance();
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(context);
-        mFirebaseAnalytics.setMinimumSessionDuration(5*60*1000);
         mRef = mDb.getReference(BuildConfig.DB_TYPE+"/users/"+userId+"/sessions");
         pushId = mRef.push().getKey();
         bundle = new Bundle();
@@ -93,7 +92,7 @@ public class Analytics {
     }
 
     public static void setCrashlyticsCustomKey(String key, String value){
-        Crashlytics.setString(key, value);
+        FirebaseCrashlytics.getInstance().setCustomKey(key, value);
     }
 
     public static void resetAnalytics(Context context, String userId){

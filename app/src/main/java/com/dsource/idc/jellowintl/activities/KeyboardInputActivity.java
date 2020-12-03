@@ -10,11 +10,13 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
 
-import com.crashlytics.android.Crashlytics;
 import com.dsource.idc.jellowintl.R;
+import com.google.firebase.crashlytics.FirebaseCrashlytics;
 
 import static com.dsource.idc.jellowintl.utility.Analytics.isAnalyticsActive;
 import static com.dsource.idc.jellowintl.utility.Analytics.resetAnalytics;
+import static com.dsource.idc.jellowintl.utility.SessionManager.BE_IN;
+import static com.dsource.idc.jellowintl.utility.SessionManager.BN_BD;
 import static com.dsource.idc.jellowintl.utility.SessionManager.BN_IN;
 
 /**
@@ -33,7 +35,7 @@ public class KeyboardInputActivity extends BaseActivity {
         findViewById(R.id.abc).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Crashlytics.log("KeyboardAct SerialABC");
+                FirebaseCrashlytics.getInstance().log("KeyboardAct SerialABC");
                 startActivity(new Intent(android.provider.Settings.ACTION_INPUT_METHOD_SETTINGS));
             }
         });
@@ -41,7 +43,7 @@ public class KeyboardInputActivity extends BaseActivity {
         findViewById(R.id.qwerty).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Crashlytics.log("KeyboardAct Qwerty");
+                FirebaseCrashlytics.getInstance().log("KeyboardAct Qwerty");
                 startActivity(new Intent(android.provider.Settings.ACTION_INPUT_METHOD_SETTINGS));
             }
         });
@@ -49,7 +51,7 @@ public class KeyboardInputActivity extends BaseActivity {
         findViewById(R.id.default_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Crashlytics.log("KeyboardAct Save");
+                FirebaseCrashlytics.getInstance().log("KeyboardAct Save");
                 InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
                 imm.showInputMethodPicker();
                 finish();
@@ -57,11 +59,15 @@ public class KeyboardInputActivity extends BaseActivity {
         });
         int boldTxtLen = 7;
         SpannableString spannedStr = new SpannableString(getString(R.string.step1));
-        if(getSession().getLanguage().equals(BN_IN)) boldTxtLen = 11;
+        if(getSession().getLanguage().equals(BN_IN) ||
+            getSession().getLanguage().equals(BE_IN) ||
+                getSession().getLanguage().equals(BN_BD)) boldTxtLen = 11;
         spannedStr.setSpan(new StyleSpan(Typeface.BOLD),0, boldTxtLen,0);
         ((TextView)findViewById(R.id.t2)).setText(spannedStr);
         spannedStr = new SpannableString(getString(R.string.step2));
-        if(getSession().getLanguage().equals(BN_IN)) boldTxtLen = 13;
+        if(getSession().getLanguage().equals(BN_IN) ||
+            getSession().getLanguage().equals(BE_IN) ||
+                getSession().getLanguage().equals(BN_BD)) boldTxtLen = 13;
         spannedStr.setSpan(new StyleSpan(Typeface.BOLD),0, boldTxtLen,0);
         ((TextView)findViewById(R.id.t3)).setText(spannedStr);
         spannedStr = null;

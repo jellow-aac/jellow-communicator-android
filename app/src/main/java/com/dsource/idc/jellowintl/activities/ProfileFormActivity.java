@@ -17,9 +17,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.crashlytics.android.Crashlytics;
 import com.dsource.idc.jellowintl.BuildConfig;
 import com.dsource.idc.jellowintl.R;
+import com.google.firebase.crashlytics.FirebaseCrashlytics;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ServerValue;
@@ -90,7 +90,7 @@ public class ProfileFormActivity extends SpeechEngineBaseActivity {
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Crashlytics.log("Profile Save");
+                FirebaseCrashlytics.getInstance().log("Profile Save");
                 btnSave.setEnabled(false);
                 if (etChildName.getText().toString().trim().isEmpty()) {
                     Toast.makeText(ProfileFormActivity.this,

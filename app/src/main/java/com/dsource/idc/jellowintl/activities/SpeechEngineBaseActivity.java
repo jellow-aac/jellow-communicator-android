@@ -11,9 +11,9 @@ import android.speech.tts.UtteranceProgressListener;
 import android.speech.tts.Voice;
 import android.util.Log;
 
-import com.crashlytics.android.Crashlytics;
 import com.dsource.idc.jellowintl.utility.SessionManager;
 import com.dsource.idc.jellowintl.utility.interfaces.TextToSpeechCallBacks;
+import com.google.firebase.crashlytics.FirebaseCrashlytics;
 
 import java.io.File;
 import java.io.IOException;
@@ -23,10 +23,12 @@ import java.util.Locale;
 import static com.dsource.idc.jellowintl.factories.PathFactory.UNIVERSAL_FOLDER;
 import static com.dsource.idc.jellowintl.factories.PathFactory.getAudioPath;
 import static com.dsource.idc.jellowintl.utility.SessionManager.BE_IN;
+import static com.dsource.idc.jellowintl.utility.SessionManager.BN_BD;
 import static com.dsource.idc.jellowintl.utility.SessionManager.BN_IN;
 import static com.dsource.idc.jellowintl.utility.SessionManager.DE_DE;
 import static com.dsource.idc.jellowintl.utility.SessionManager.ENG_AU;
 import static com.dsource.idc.jellowintl.utility.SessionManager.ENG_IN;
+import static com.dsource.idc.jellowintl.utility.SessionManager.ENG_NG;
 import static com.dsource.idc.jellowintl.utility.SessionManager.ENG_UK;
 import static com.dsource.idc.jellowintl.utility.SessionManager.ENG_US;
 import static com.dsource.idc.jellowintl.utility.SessionManager.ES_ES;
@@ -34,6 +36,7 @@ import static com.dsource.idc.jellowintl.utility.SessionManager.FR_FR;
 import static com.dsource.idc.jellowintl.utility.SessionManager.HI_IN;
 import static com.dsource.idc.jellowintl.utility.SessionManager.MR_IN;
 import static com.dsource.idc.jellowintl.utility.SessionManager.TA_IN;
+import static com.dsource.idc.jellowintl.utility.SessionManager.TE_IN;
 
 public class SpeechEngineBaseActivity extends BaseActivity{
     private static TextToSpeech sTts;
@@ -68,7 +71,7 @@ public class SpeechEngineBaseActivity extends BaseActivity{
                     if (language.endsWith(MR_IN))
                         createUserProfileRecordingsUsingTTS();
                 } catch (Exception e) {
-                    Crashlytics.logException(e);
+                    FirebaseCrashlytics.getInstance().recordException(e);
                 }
             }
         }, getTTsEngineNameForLanguage(language));
@@ -101,6 +104,7 @@ public class SpeechEngineBaseActivity extends BaseActivity{
             case ENG_UK:
             case ENG_US:
             case ENG_AU:
+            case ENG_NG:
             case HI_IN:
             case ENG_IN:
             case BN_IN:
@@ -110,6 +114,8 @@ public class SpeechEngineBaseActivity extends BaseActivity{
             case TA_IN:
             case DE_DE:
             case FR_FR:
+            case BN_BD:
+            case TE_IN:
             default:
                 return (float) getSession().getPitch()/50;
         }
@@ -120,6 +126,7 @@ public class SpeechEngineBaseActivity extends BaseActivity{
             case ENG_UK:
             case ENG_US:
             case ENG_AU:
+            case ENG_NG:
             case HI_IN:
             case ENG_IN:
             case BN_IN:
@@ -129,6 +136,8 @@ public class SpeechEngineBaseActivity extends BaseActivity{
             case TA_IN:
             case DE_DE:
             case FR_FR:
+            case BN_BD:
+            case TE_IN:
             default:
                 return (float) (getSession().getSpeed()/50);
         }
@@ -139,6 +148,7 @@ public class SpeechEngineBaseActivity extends BaseActivity{
             case ENG_UK:
             case ENG_US:
             case ENG_AU:
+            case ENG_NG:
             case HI_IN:
             case ENG_IN:
             case BN_IN:
@@ -148,6 +158,8 @@ public class SpeechEngineBaseActivity extends BaseActivity{
             case TA_IN:
             case DE_DE:
             case FR_FR:
+            case BN_BD:
+            case TE_IN:
             default:
                 return "com.google.android.tts";
         }
@@ -169,6 +181,9 @@ public class SpeechEngineBaseActivity extends BaseActivity{
                     break;
                 case ENG_AU:
                     sTts.setLanguage(new Locale("en", "AU"));
+                    break;
+                case ENG_NG:
+                    sTts.setLanguage(new Locale("en", "NG"));
                     break;
                 case BN_IN:
                 case BE_IN:
@@ -197,6 +212,12 @@ public class SpeechEngineBaseActivity extends BaseActivity{
                 case FR_FR:
                     sTts.setLanguage(Locale.FRANCE);
                     break;
+                case BN_BD:
+                    sTts.setLanguage(new Locale("bn", "BD"));
+                    break;
+                case TE_IN:
+                    sTts.setLanguage(new Locale("te", "IN"));
+                    break;
                 case HI_IN:
                 case MR_IN:
                 default:
@@ -212,7 +233,7 @@ public class SpeechEngineBaseActivity extends BaseActivity{
                     break;
             }
         }catch (Exception e){
-            Crashlytics.log(e.getMessage());
+            FirebaseCrashlytics.getInstance().log(e.getMessage());
         }
     }
 

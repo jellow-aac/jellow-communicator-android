@@ -211,29 +211,6 @@
     <string name="about_je_intro12">இந்த செயலியின் உள்ளடக்கங்களைப் பிற செயலி பயன்பாடுகளுக்கு பயன்படுத்தும்போது மும்பையிலுள்ள இந்திய தொழில்நுட்ப நிறுவனத்திற்கு தெரியப்படுத்தவும்.</string>
     <string name="about_je_intro13">ஜெல்லோவை _ என்ற வலைத்தளத்திலிருந்தும் பதிவிறக்கலாம்.</string>
     <string name="about_je_intro14">குறியீட்டை மேலும் மேம்படுத்துவதில் அல்லது உங்கள் இடத்தில் ஒரு ஜெல்லோ பட்டறை நடத்த ஆர்வமாக இருந்தால், தயவுசெய்து jellowcommunicator@gmail.com க்கு எழுதுங்கள்</string>
-    <string name="credits">நன்மதிப்பிற்கு உரியோர்:</string>
-    <string name="about_je_intro15">கருத்துருவாக்கம், திட்ட விசாரணை மற்றும் மேலாண்மை:</string>
-    <string name="about_je_intro16">பேராசிரியர் ரவி பூவையா  மற்றும் டாக்டர் அஜந்தா சென்</string>
-    <string name="about_je_intro17">முதற்கட்ட தகவல் மேம்பாடு:</string>
-    <string name="about_je_intro18">அன்ச்சல் குமார், சாம்ராட் சர்தேசாய், பீட்டர் ஜோசப், அண்டாரா ஹசாரிகா</string>
-    <string name="about_je_intro19">மென்பொருள் மேம்பாடு:</string>
-    <string name="about_je_intro20">ராகுல் ரூப்சந்த் ஜிட்கே, அயாஸ் ஆலம், சௌரப் ஜெயின், லானான் குமார், நாராயண ரெட்டி, நிகில் அஹிராவ், ஹர்ஷித் புத்ராஜா, சுமேத் அகர்வால், ரூபா நாராயண் சஹூ, ஸ்ருதி குப்தா, ஆஸ்தா ஜோஷி, தர்யா டான்ட், ப்ரீதம் பெபம்</string>
-    <string name="about_je_intro31">மென்பொருள் மற்றும் பயன்பாட்டு சோதனை:</string>
-    <string name="about_je_intro32">டாக்டர். சுதா சீனிவாசன், வினாயா தவாட், சச்சின் சோனாவன், ரூபா நாராயண் சாஹூ, ராகுல் ரூப்சந்த் ஜிட்கே</string>
-    <string name="about_je_intro21">இணையதள வடிவமைப்பு:</string>
-    <string name="about_je_intro22">பேராசிரியர் ரவி பூவையா, யோகேஷ் மசாயே, சுமேத் கரூட், ரூப் சாஹு</string>
-    <string name="about_je_intro23">சின்னம், சப்தம் மற்றும் கட்சி வடிவமைப்பு:</string>
-    <string name="about_je_intro24">வினையா தவ்டே, ஸ்வேத்தா கௌரிஷ் பத்தரே, அனிஷா மல்ஹோத்ரா, சைமன் சென், நிகிதா ஐயர், கணேஷ் கஜேலா</string>
-    <string name="about_je_intro25">மொழிபெயர்ப்பு:</string>
-    <string name="about_je_intro26">சச்சின் சோனவனே, டாக்டர் சுதா சீனிவாசன், கௌஸ்துப் ராஜ்வாடே, சஷாங்க் கோப்ராகடே, ஜீவாகண்ணன் முத்துகுமார், தீபால் ஷெத்தியா, டாக்டர் ரூபக் மிஸ்ரா</string>
-    <string name="about_je_intro27">ஆராய்ச்சி, சொற்களஞ்சிய மேம்பாடு மற்றும் பயனர் ஆய்வுகள்:</string>
-    <string name="about_je_intro28">டாக்டர் சுதா ஸ்ரீநிவாசன், புஷ்கர் தேஷ்பாண்டே, சாக்ஷி பால், சித்தி படேல்"</string>
-    <string name="about_je_intro29">ஆதரிதோர்:</string>
-    <string name="about_je_intro30">மத்திய மனிதவள மேம்பாட்டு அமைச்சகம், மைக்ரோசாஃப்ட் டிசைன் எக்ஸ்போ 2004 மற்றும் யுனிசெப் கண்டுபிடிப்புகளுக்கான நிதி மூலம் ஒரு வருட மானியத்தால் NMEICT இன் கீழ் இ-கல்பா திட்டத்திற்கு  ஆதரவளிப்பட்டுள்ளது.</string>
-    <string name="about_je_intro38">நீண்டகால பயனர் படிப்புகள் மற்றும் ஜெல்லோ தொடர்பாளரின் புல பரிசோதனை:</string>
-    <string name="about_je_intro39">டோபிவலா தேசிய மருத்துவக் கல்லூரி மற்றும் பி.ஒய்.எல்.நாயர் தொண்டு மருத்துவமனை(மனநல, ஒலி மற்றும் பேச்சு சிகிச்சைத்  துறை)</string>
-    <string name="about_je_intro40">UX / UI வடிவமைப்பு மற்றும் ஒட்டுமொத்த ஒருங்கிணைப்பு:</string>
-    <string name="about_je_intro41">பேராசிரியர் ரவி பூவையா, ரூபா நாராயண் சாஹூ, வினாயா தவாட்</string>
     <string name="feedback_talkback_heading">ஒன்றிலிருந்து ஐந்து  நட்சத்திரங்கள் வரை கீழ்காண்பவற்றிற்காண மதிப்பீட்டை இடவும்</string>
 
     <string name="langauge_correction_message"> \'"-"\' மொழி சரியாக அமைக்கப்படவில்லை. மொழியை சரி செய்ய, \'"_"\' ஐ சொடுக்கவும். அல்லது, நீங்கள் உங்களின் இயல்பான மொழிக்கு \'"$"\' ஐ அழுத்தி மாறலாம்.</string>
@@ -306,8 +283,8 @@
     <string name="access_dialog_title">விருப்பங்களோடு கூடிய உரையாடல்</string>
 
     <string name="acc_lang_marathi">மராத்தி</string>
-    <string name="acc_lang_hindi">இந்தி</string>
-    <string name="acc_lang_bengali">வங்காளம்</string>
+    <string name="acc_lang_hindi">பெங்காலி (இந்தியா)</string>
+    <string name="acc_lang_bengali">பெங்காலி (பங்களாதேஷ்)</string>
     <string name="acc_lang_eng_in">ஆங்கிலம் (இந்தியா)</string>
     <string name="acc_lang_eng_gb">ஆங்கிலம் (யுனைட்டட் கிங்டம்)</string>
     <string name="acc_lang_eng_us">அமெரிக்க ஆங்கிலம்</string>
@@ -454,12 +431,13 @@
     <string name="board_settings">போர்டு அமைப்புகள்</string>
     <string name="add_expression_here">உங்கள் சொந்த வெளிப்பாட்டு வரியைச் சேர்க்கவும்</string>
     <string name="about_je_intro42">மேக் மை போர்டை (எனது பலகைகள்) பயன்படுத்துவதன் மூலம், உங்கள் சொந்த தனிப்பயனாக்கப்பட்ட ஐகான்களையும் அவற்றின் வெளிப்படையான உரையையும் சேர்க்கலாம் அல்லது திருத்தலாம்.</string>
-    <string name="about_je_intro43">எல்லை மற்றும் பதவி உயர்வு:</string>
-    <string name="about_je_intro44">வித்யா உபாத்யா, ஸ்வேத்தா கௌரிஷ் பத்தரே, சன்னதி ஓசூர்</string>
     <string name="about_je_more_info">மேலும் தகவலுக்கு, பின்வரும் வீடியோ பொத்தானைத் தட்டவும்:</string>
     <string name="visual_access_info_video">ஜெல்லோவில் காட்சி அணுகல் குறித்த டெமோவைக் காண, பின்வரும் வீடியோ பொத்தானைத் தட்டவும்:</string>
     <string name="switch_access_info_video">ஜெல்லோவில் சுவிட்ச் அணுகல் குறித்த டெமோவைக் காண, பின்வரும் வீடியோ பொத்தானைத் தட்டவும்:</string>
     <string name="language_not_working">தேர்ந்தெடுக்கப்பட்ட மொழிக்கான பயன்பாடு எந்த குரல் வெளியீட்டையும் உருவாக்கவில்லை என்றால், பின்வரும் படிகளைச் செய்யவும்:</string>
     <string name="txtMoreLangSetting">மேலும் மொழி அமைப்பு:</string>
     <string name="board_place_holder_text">நீங்கள் இதுவரை எந்த பலகைகளையும் சேர்க்கவில்லை.</string>
+    <string name="acc_lang_bengali_bd">பெங்காலி (இந்தியா)</string>
+    <string name="acc_lang_telugu_in">தெலுங்கு (இந்தியா)</string>
+    <string name="acc_lang_eng_ng">ஆங்கிலம் (நைஜீரியா)</string>
 </resources>

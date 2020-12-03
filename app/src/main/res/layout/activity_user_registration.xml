@@ -159,7 +159,7 @@
                 android:orientation="horizontal"
                 android:importantForAccessibility="yes"
                 android:layout_gravity="center_vertical"
-                android:layout_marginTop="@dimen/user_reg_btn_margin_top">
+                android:layout_marginVertical="@dimen/user_reg_btn_margin_top">
                 <CheckBox
                     android:id="@+id/cb_privacy_consent"
                     android:layout_width="wrap_content"

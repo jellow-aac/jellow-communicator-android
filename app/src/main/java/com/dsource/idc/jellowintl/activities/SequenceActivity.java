@@ -27,7 +27,6 @@ import androidx.core.content.res.ResourcesCompat;
 import androidx.core.view.ViewCompat;
 
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.crashlytics.android.Crashlytics;
 import com.dsource.idc.jellowintl.R;
 import com.dsource.idc.jellowintl.TalkBack.TalkbackHints_SingleClick;
 import com.dsource.idc.jellowintl.factories.IconFactory;
@@ -43,6 +42,7 @@ import com.dsource.idc.jellowintl.utility.DialogKeyboardUtterance;
 import com.dsource.idc.jellowintl.utility.GlideApp;
 import com.dsource.idc.jellowintl.utility.LevelUiUtils;
 import com.dsource.idc.jellowintl.utility.UserEventCollector;
+import com.google.firebase.crashlytics.FirebaseCrashlytics;
 
 import static com.dsource.idc.jellowintl.factories.IconFactory.EXTENSION;
 import static com.dsource.idc.jellowintl.factories.PathFactory.getIconPath;
@@ -279,12 +279,12 @@ public class SequenceActivity extends LevelBaseActivity{
      * f) reset category icons</p>
      * */
     private void initCategoryNavNextListener() {
-        Crashlytics.log("Sequence category next");
+        FirebaseCrashlytics.getInstance().log("Sequence category next");
         mBtnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(!isAccessibilityTalkBackOn((AccessibilityManager) getSystemService(ACCESSIBILITY_SERVICE))) {
-                    speak(seqNavigationButtonObjects[1].getSpeech_Label());
+                    speakAndShowTextBar_(seqNavigationButtonObjects[1].getSpeech_Label());
                 }
                 mBtnBack.setEnabled(true);
                 mBtnBack.setAlpha(GlobalConstants.ENABLE_ALPHA);
@@ -387,11 +387,11 @@ public class SequenceActivity extends LevelBaseActivity{
      * f) reset category icons</p>
      * */
     private void initCategoryNavBackListener() {
-        Crashlytics.log("Sequence category back");
+        FirebaseCrashlytics.getInstance().log("Sequence category back");
         mBtnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                speak(seqNavigationButtonObjects[0].getSpeech_Label());
+                speakAndShowTextBar_(seqNavigationButtonObjects[0].getSpeech_Label());
                 mBtnNext.setEnabled(true);
                 mBtnNext.setAlpha(GlobalConstants.ENABLE_ALPHA);
                 count = count - 3;
@@ -481,12 +481,9 @@ public class SequenceActivity extends LevelBaseActivity{
                     // last item in sequence then hide expressive buttons.
                     // The last item in sequence do not have any expression (so all expressive
                     // buttons are hidden).
-                    if (count + mFlgHideExpBtn == seqIconObjects.length)
-                        hideExpressiveBtn(true);
-                    else
-                        hideExpressiveBtn(false);
+                    hideExpressiveBtn(count + mFlgHideExpBtn == seqIconObjects.length);
                     if (!isAccessibilityTalkBackOn((AccessibilityManager) getSystemService(ACCESSIBILITY_SERVICE))) {
-                        speak(seqIconObjects[count].getSpeech_Label());
+                        speakAndShowTextBar_(seqIconObjects[count].getSpeech_Label());
                         mUec.createSendFbEventFromTappedView(12, "VisibleExpr " +
                                 seqIconObjects[count].getDisplay_Label()
                                     , mHeading[mLevelTwoItemPos].toLowerCase());
@@ -543,12 +540,9 @@ public class SequenceActivity extends LevelBaseActivity{
                     // last item in sequence then hide expressive buttons.
                     // The last item in sequence do not have any expression (so all expressive
                     // buttons are hidden).
-                    if (count + mFlgHideExpBtn == seqIconObjects.length)
-                        hideExpressiveBtn(true);
-                    else
-                        hideExpressiveBtn(false);
+                    hideExpressiveBtn(count + mFlgHideExpBtn == seqIconObjects.length);
                     if (!isAccessibilityTalkBackOn((AccessibilityManager) getSystemService(ACCESSIBILITY_SERVICE))) {
-                        speak(seqIconObjects[count+1].getSpeech_Label());
+                        speakAndShowTextBar_(seqIconObjects[count+1].getSpeech_Label());
                         mUec.createSendFbEventFromTappedView(12, "VisibleExpr " +
                                 seqIconObjects[count+1].getDisplay_Label()
                                 , mHeading[mLevelTwoItemPos].toLowerCase());
@@ -605,12 +599,9 @@ public class SequenceActivity extends LevelBaseActivity{
                     // last item in sequence then hide expressive buttons.
                     // The last item in sequence do not have any expression (so all expressive
                     // buttons are hidden).
-                    if (count + mFlgHideExpBtn == seqIconObjects.length)
-                        hideExpressiveBtn(true);
-                    else
-                        hideExpressiveBtn(false);
+                    hideExpressiveBtn(count + mFlgHideExpBtn == seqIconObjects.length);
                     if (!isAccessibilityTalkBackOn((AccessibilityManager) getSystemService(ACCESSIBILITY_SERVICE))) {
-                        speak(seqIconObjects[count+2].getSpeech_Label());
+                        speakAndShowTextBar_(seqIconObjects[count+2].getSpeech_Label());
                         mUec.createSendFbEventFromTappedView(12, "VisibleExpr " +
                                 seqIconObjects[count+2].getDisplay_Label(),
                                 mHeading[mLevelTwoItemPos].toLowerCase());
@@ -641,7 +632,7 @@ public class SequenceActivity extends LevelBaseActivity{
     private void initBackBtnListener() {
         mIvBack.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                speak(mNavigationBtnTxt[1]);
+                speakAndShowTextBar_(mNavigationBtnTxt[1]);
                 //Firebase event
                 singleEvent("Navigation","Back");
                 mUec.createSendFbEventFromTappedView(27, "", "");
@@ -679,7 +670,7 @@ public class SequenceActivity extends LevelBaseActivity{
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        speak(mNavigationBtnTxt[0]);
+                        speakAndShowTextBar_(mNavigationBtnTxt[0]);
                     }
                 }).start();
                 //When home is tapped in this activity it will close all other activities and
@@ -720,7 +711,7 @@ public class SequenceActivity extends LevelBaseActivity{
                 //Firebase event
                 singleEvent("Navigation", "Keyboard");
                 new DialogKeyboardUtterance().show(SequenceActivity.this);
-                speak(mNavigationBtnTxt[2]);
+                speakAndShowTextBar_(mNavigationBtnTxt[2]);
                 mIvKeyboard.setImageResource(R.drawable.keyboard_pressed);
                 mIvBack.setImageResource(R.drawable.back);
                 mIvHome.setImageResource(R.drawable.home);
@@ -752,12 +743,12 @@ public class SequenceActivity extends LevelBaseActivity{
                 //if expressive buttons are hidden then speak expressive button name only
                 if (mFlgHideExpBtn == 0) {
                     if (mFlgLike == GlobalConstants.LONG_SPEECH) {
-                        speak(mExprBtnTxt[1]);
+                        speakAndShowTextBar_(mExprBtnTxt[1]);
                         mFlgLike = GlobalConstants.SHORT_SPEECH;
                         //Firebase event
                         mUec.createSendFbEventFromTappedView(1, "", "");
                     } else {
-                        speak(mExprBtnTxt[0]);
+                        speakAndShowTextBar_(mExprBtnTxt[0]);
                         mFlgLike = GlobalConstants.LONG_SPEECH;
                         //Firebase event
                         mUec.createSendFbEventFromTappedView(0, "", "");
@@ -769,13 +760,13 @@ public class SequenceActivity extends LevelBaseActivity{
                         //Firebase event
                         mUec.createSendFbEventFromTappedView(14, getPrefixTag()
                             +"_"+ mIconCode[count + mFlgHideExpBtn]+"LL", "");
-                        speak(seqIconObjects[count + mFlgHideExpBtn - 1].getLL());
+                        speakAndShowTextBar_(seqIconObjects[count + mFlgHideExpBtn - 1].getLL());
                         mFlgLike = GlobalConstants.SHORT_SPEECH;
                     } else {
                         //Firebase event
                         mUec.createSendFbEventFromTappedView(13, getPrefixTag()
                             +"_"+ mIconCode[count + mFlgHideExpBtn]+"L0", "");
-                        speak(seqIconObjects[count + mFlgHideExpBtn - 1].getL());
+                        speakAndShowTextBar_(seqIconObjects[count + mFlgHideExpBtn - 1].getL());
                         mFlgLike = GlobalConstants.LONG_SPEECH;
                     }
                 }
@@ -808,12 +799,12 @@ public class SequenceActivity extends LevelBaseActivity{
                 //if expressive buttons are hidden then speak expressive button name only
                 if (mFlgHideExpBtn == 0) {
                     if (mFlgDontLike == GlobalConstants.LONG_SPEECH) {
-                        speak(mExprBtnTxt[7]);
+                        speakAndShowTextBar_(mExprBtnTxt[7]);
                         mFlgDontLike = GlobalConstants.SHORT_SPEECH;
                         //Firebase event
                         mUec.createSendFbEventFromTappedView(7, "", "");
                     } else {
-                        speak(mExprBtnTxt[6]);
+                        speakAndShowTextBar_(mExprBtnTxt[6]);
                         mFlgDontLike = GlobalConstants.LONG_SPEECH;
                         //Firebase event
                         mUec.createSendFbEventFromTappedView(6, "", "");
@@ -825,13 +816,13 @@ public class SequenceActivity extends LevelBaseActivity{
                         //Firebase event
                         mUec.createSendFbEventFromTappedView(20, getPrefixTag()
                             +"_"+ mIconCode[count + mFlgHideExpBtn]+"DD", "");
-                        speak(seqIconObjects[count + mFlgHideExpBtn - 1].getDD());
+                        speakAndShowTextBar_(seqIconObjects[count + mFlgHideExpBtn - 1].getDD());
                         mFlgDontLike = GlobalConstants.SHORT_SPEECH;
                     } else {
                         //Firebase event
                         mUec.createSendFbEventFromTappedView(19, getPrefixTag()
                             +"_"+ mIconCode[count + mFlgHideExpBtn]+"D0", "");
-                        speak(seqIconObjects[count + mFlgHideExpBtn - 1].getD());
+                        speakAndShowTextBar_(seqIconObjects[count + mFlgHideExpBtn - 1].getD());
                         mFlgDontLike = GlobalConstants.LONG_SPEECH;
                     }
                 }
@@ -865,12 +856,12 @@ public class SequenceActivity extends LevelBaseActivity{
                 //if expressive buttons are hidden then speak expressive button name only
                 if (mFlgHideExpBtn == 0) {
                     if (mFlgYes == GlobalConstants.LONG_SPEECH) {
-                        speak(mExprBtnTxt[3]);
+                        speakAndShowTextBar_(mExprBtnTxt[3]);
                         mFlgYes = GlobalConstants.SHORT_SPEECH;
                         //Firebase event
                         mUec.createSendFbEventFromTappedView(3, "", "");
                     } else {
-                        speak(mExprBtnTxt[2]);
+                        speakAndShowTextBar_(mExprBtnTxt[2]);
                         mFlgYes = GlobalConstants.LONG_SPEECH;
                         //Firebase event
                         mUec.createSendFbEventFromTappedView(2, "", "");
@@ -882,13 +873,13 @@ public class SequenceActivity extends LevelBaseActivity{
                         //Firebase event
                         mUec.createSendFbEventFromTappedView(16, getPrefixTag()
                             +"_"+ mIconCode[count + mFlgHideExpBtn]+"YY", "");
-                        speak(seqIconObjects[count + mFlgHideExpBtn - 1].getYY());
+                        speakAndShowTextBar_(seqIconObjects[count + mFlgHideExpBtn - 1].getYY());
                         mFlgYes = GlobalConstants.SHORT_SPEECH;
                     } else {
                         //Firebase event
                         mUec.createSendFbEventFromTappedView(15, getPrefixTag()
                             +"_"+ mIconCode[count + mFlgHideExpBtn]+"Y0", "");
-                        speak(seqIconObjects[count + mFlgHideExpBtn - 1].getY());
+                        speakAndShowTextBar_(seqIconObjects[count + mFlgHideExpBtn - 1].getY());
                         mFlgYes = GlobalConstants.LONG_SPEECH;
                     }
                 }
@@ -921,12 +912,12 @@ public class SequenceActivity extends LevelBaseActivity{
                 //if expressive buttons are hidden then speak expressive button name only
                 if (mFlgHideExpBtn == 0) {
                     if (mFlgNo == GlobalConstants.LONG_SPEECH) {
-                        speak(mExprBtnTxt[9]);
+                        speakAndShowTextBar_(mExprBtnTxt[9]);
                         mFlgNo = GlobalConstants.SHORT_SPEECH;
                         //Firebase event
                         mUec.createSendFbEventFromTappedView(9, "", "");
                     } else {
-                        speak(mExprBtnTxt[8]);
+                        speakAndShowTextBar_(mExprBtnTxt[8]);
                         mFlgNo = GlobalConstants.LONG_SPEECH;
                         //Firebase event
                         mUec.createSendFbEventFromTappedView(8, "", "");
@@ -938,13 +929,13 @@ public class SequenceActivity extends LevelBaseActivity{
                         //Firebase event
                         mUec.createSendFbEventFromTappedView(22, getPrefixTag()
                             +"_"+ mIconCode[count + mFlgHideExpBtn]+"NN", "");
-                        speak(seqIconObjects[count + mFlgHideExpBtn - 1].getNN());
+                        speakAndShowTextBar_(seqIconObjects[count + mFlgHideExpBtn - 1].getNN());
                         mFlgNo = GlobalConstants.SHORT_SPEECH;
                     } else {
                         //Firebase event
                         mUec.createSendFbEventFromTappedView(21, getPrefixTag()
                             +"_"+ mIconCode[count + mFlgHideExpBtn]+"N0", "");
-                        speak(seqIconObjects[count + mFlgHideExpBtn - 1].getN());
+                        speakAndShowTextBar_(seqIconObjects[count + mFlgHideExpBtn - 1].getN());
                         mFlgNo = GlobalConstants.LONG_SPEECH;
                     }
                 }
@@ -977,12 +968,12 @@ public class SequenceActivity extends LevelBaseActivity{
                 //if expressive buttons are hidden then speak expressive button name only
                 if (mFlgHideExpBtn == 0) {
                     if (mFlgMore == GlobalConstants.LONG_SPEECH) {
-                        speak(mExprBtnTxt[5]);
+                        speakAndShowTextBar_(mExprBtnTxt[5]);
                         mFlgMore = GlobalConstants.SHORT_SPEECH;
                         //Firebase event
                         mUec.createSendFbEventFromTappedView(5, "", "");
                     } else {
-                        speak(mExprBtnTxt[4]);
+                        speakAndShowTextBar_(mExprBtnTxt[4]);
                         mFlgMore = GlobalConstants.LONG_SPEECH;
                         //Firebase event
                         mUec.createSendFbEventFromTappedView(4, "", "");
@@ -994,13 +985,13 @@ public class SequenceActivity extends LevelBaseActivity{
                         //Firebase event
                         mUec.createSendFbEventFromTappedView(18, getPrefixTag()
                             +"_"+ mIconCode[count + mFlgHideExpBtn]+"MM", "");
-                        speak(seqIconObjects[count + mFlgHideExpBtn - 1].getMM());
+                        speakAndShowTextBar_(seqIconObjects[count + mFlgHideExpBtn - 1].getMM());
                         mFlgMore = GlobalConstants.SHORT_SPEECH;
                     } else {
                         //Firebase event
                         mUec.createSendFbEventFromTappedView(17, getPrefixTag()
                             +"_"+ mIconCode[count + mFlgHideExpBtn]+"M0", "");
-                        speak(seqIconObjects[count + mFlgHideExpBtn - 1].getM());
+                        speakAndShowTextBar_(seqIconObjects[count + mFlgHideExpBtn - 1].getM());
                         mFlgMore = GlobalConstants.LONG_SPEECH;
                     }
                 }
@@ -1033,12 +1024,12 @@ public class SequenceActivity extends LevelBaseActivity{
                 //if expressive buttons are hidden then speak expressive button name only
                 if (mFlgHideExpBtn == 0) {
                     if (mFlgLess == GlobalConstants.LONG_SPEECH) {
-                        speak(mExprBtnTxt[11]);
+                        speakAndShowTextBar_(mExprBtnTxt[11]);
                         mFlgLess = GlobalConstants.SHORT_SPEECH;
                         //Firebase event
                         mUec.createSendFbEventFromTappedView(11, "", "");
                     } else {
-                        speak(mExprBtnTxt[10]);
+                        speakAndShowTextBar_(mExprBtnTxt[10]);
                         mFlgLess = GlobalConstants.LONG_SPEECH;
                         //Firebase event
                         mUec.createSendFbEventFromTappedView(10, "", "");
@@ -1050,13 +1041,13 @@ public class SequenceActivity extends LevelBaseActivity{
                         //Firebase event
                         mUec.createSendFbEventFromTappedView(24, getPrefixTag()
                             +"_"+ mIconCode[count + mFlgHideExpBtn]+"SS", "");
-                        speak(seqIconObjects[count + mFlgHideExpBtn - 1].getSS());
+                        speakAndShowTextBar_(seqIconObjects[count + mFlgHideExpBtn - 1].getSS());
                         mFlgLess = GlobalConstants.SHORT_SPEECH;
                     } else {
                         //Firebase event
                         mUec.createSendFbEventFromTappedView(23, getPrefixTag()
                             +"_"+ mIconCode[count + mFlgHideExpBtn]+"S0", "");
-                        speak(seqIconObjects[count + mFlgHideExpBtn - 1].getS());
+                        speakAndShowTextBar_(seqIconObjects[count + mFlgHideExpBtn - 1].getS());
                         mFlgLess = GlobalConstants.LONG_SPEECH;
                     }
                 }
@@ -1183,7 +1174,7 @@ public class SequenceActivity extends LevelBaseActivity{
         enterCategory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                speak(seqIconObjects[position].getSpeech_Label());
+                speakAndShowTextBar_(seqIconObjects[position].getSpeech_Label());
                 mUec.createSendFbEventFromTappedView(12, seqIconObjects[count].
                     getDisplay_Label(), mHeading[mLevelTwoItemPos].toLowerCase());
             }
@@ -1308,11 +1299,7 @@ public class SequenceActivity extends LevelBaseActivity{
                 concat("  "+Html.fromHtml("&gt;&gt;").toString()));
         mBtnBack.setEnabled(false);
         mBtnBack.setAlpha(GlobalConstants.DISABLE_ALPHA);
-        if (!isAccessibilityTalkBackOn((AccessibilityManager) getSystemService(ACCESSIBILITY_SERVICE))) {
-            mTvHeading.setAllCaps(true);
-        }else{
-            mTvHeading.setAllCaps(false);
-        }
+        mTvHeading.setAllCaps(!isAccessibilityTalkBackOn((AccessibilityManager) getSystemService(ACCESSIBILITY_SERVICE)));
         mTvHeading.setTextColor(Color.rgb(64, 64, 64));
         mTvHeading.setText(mHeading[mLevelTwoItemPos].toLowerCase());
 

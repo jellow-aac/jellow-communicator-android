@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="ratings">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+    <string-array name="arrSequenceActivityHeadingText">
+        <item>బ్రష్ చేయడం</item>
+        <item>టాయిలెట్</item>
+        <item>స్నానం</item>
+        <item>""</item>
+        <item>""</item>
+        <item>""</item>
+        <item>""</item>
+        <item>\tఉదయం చేసే పనులు</item>
+        <item>\tరాత్రి చేసే పనులు</item>
+    </string-array>
+
+    <string name="app_name">జెల్లో</string>
+    <string name="action_settings">సెట్టింగ్స్</string>
+
+    <string name="Language">భాష</string>
+    <string name="saveLanguage">మార్పును ఉపయోగించండి</string>
+
+    <string-array name="bloodgroup">
+        <item>సెలెక్ట్ చేయలేదు</item>
+        <item>ఏ +</item>
+        <item>ఏ -</item>
+        <item>బి +</item>
+        <item>బి -</item>
+        <item>ఏబి+</item>
+        <item>ఏబి-</item>
+        <item>ఓ +</item>
+        <item>ఓ -</item>
+    </string-array>
+
+    <!--add translation here-->
+    <string-array name="bloodgroup_talkback">
+        <item>not selected</item>
+        <item>A positive</item>
+        <item>A negative</item>
+        <item>B positive</item>
+        <item>B negative</item>
+        <item>A B positive</item>
+        <item>A B negative</item>
+        <item>O positive</item>
+        <item>O negative</item>
+    </string-array>
+
+    <string-array name="picture_view_mode">
+        <item>చిత్రము+వర్ణన</item>
+        <item>కేవలం చిత్రము</item>
+    </string-array>
+
+    <string-array name="grid_size">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>9</item>
+    </string-array>
+
+    <string-array name="acc_grid_size">
+        <item>One</item>
+        <item>Two</item>
+        <item>Three</item>
+        <item>Four</item>
+        <item>Nine</item>
+    </string-array>
+
+    <string name="change_language_line2">1 దశ: డౌన్లోడ్ చేయబడిన భాషలలో వక్కటి ఎంచుకోండి:</string>
+    <string name="simple_ime">జెల్లో కీబోర్డ్</string>
+    <string name="subtype_en_US">సీరియల్ ఏబీసీ</string>
+
+    <string name="action_bar_title">హామ్</string>
+    <string name="txtSpeechSpeed">మాట్లాడే వేగం</string>
+    <string name="txtVoiceSpeech">స్వర పిచ్</string>
+    <string name="txtDisplayMode">ప్రదర్శన స్థితి</string>
+    <string name="txtVoiceVolume">మాట తీవ్రత</string>
+    <string name="txtNumOfPerPerScr">స్క్రీన్ పై ఐకాన్స్ సంఖ్యా</string>
+    <string name="txtDemo">ప్రదర్శన</string>
+    <string name="txtSave">గుర్తుంచబడును</string>
+    <string name="demoTtsSpeech">హలో, మీరు జెల్లో అప్ ఉపయోగిస్తున్నారు.</string>
+    <string name="savedSettingsMessage">సెట్టింగ్స్ గుర్తించబడినవి.</string>
+    <string name="languageChanged">భాష మార్చబడింది</string>
+    <string name="checkConnectivity">మీ ఇంటర్నెట్ కనెక్షన్ ని పరిశీలించండి.</string>
+
+    <string name="menuProfile">ప్రొఫైల్</string>
+    <string name="menuAbout">జెల్లో గురించి</string>
+    <string name="menuTutorials">శిక్షణ</string>
+    <string name="menuKeyboardInput">కీబోర్డ్ నియంత్రణ</string>
+    <string name="menuResetPref">ప్రాధాన్యత లో మార్పులు</string>
+    <string name="menuFeedback">అభిప్రాయము</string>
+    <string name="menuUserRegistration">నమోదు పేజీ</string>
+    <string name="menuAccessibility">అందుబాటు</string>
+    <string name="menuClosePopup">ముగింపు జాబితా</string>
+    <string name="labelSplash">జెల్లో లోడ్ అవుతుంది వేచి ఉండండి</string>
+
+    <string name="easyToUse">సులభంగా ఉపయోగించబడును</string>
+    <string name="clearPictures">చిత్రాల స్పష్టత</string>
+    <string name="clearVoice">స్వర స్పష్టత</string>
+    <string name="easyToNavigate">అనుసరించడం సులభం</string>
+    <string name="commentSuggestions">వ్యాఖ్యలు/సలహా</string>
+    <string name="submit">సమర్పించండి</string>
+    <string name="serial_keyboard_title">సీరియల్ కీబోర్డ్:</string>
+    <string name="serial_keyboard_info">జెల్లో కమ్యూనికేటర్ లో సీరియల్ కీబోర్డ్ ఉంది. ఈ కీబోర్డ్ ని స్పెషల్ ఎడ్యుకేటర్ మరియు ఉపాధ్యాయుల సహాయం తో తయారు చేయబడింది. ఇది ఆ అక్షరము నుండు మొదలవుతుంది. సీరియల్ కీబోర్డ్ పిల్లలకు అక్షరాలు వెతకడానికి సులభముగా ఉంది. అక్షర గ్యానమ్ పొందుతునేవారికి కూడా ఉపయోగపడుతుంది. కీబోర్డ్ లో 0 – 9 వరకు అంకిలి చిహ్నాలు ఉన్నాయి. ఇవి రోజువారీ సంభాషణ లో ఉంపయోగపడతాయి.</string>
+    <string name="keyboardControlTxt">మీకు కావలసిన కీబోర్డ్ ని డిఫాల్ట్ గ మార్చుకోడానికి రెండు దశలు పూర్తి చేసుకోవాలి:</string>
+    <string name="step1">దశ 1: సెట్టింగ్స్ కు వెళ్లి కీబోర్డ్ ని ఎనేబుల్ చేయండి.</string>
+    <string name="qwertyKeyboard">దేవనాగరి కీబోర్డ్ డిఫాల్ట్ గ వెంచుకోండి</string>
+    <string name="serialKeyboard">క్రమంలో ఏ బి సి కీబోర్డ్</string>
+    <string name="step2">దశ 2: కీబోర్డ్ ని డిఫాల్ట్ గా సేవ్ చేసుకోండి.</string>
+    <string name="saveAsDefault">కీబోర్డ్ గా సేవ్ చేయండి</string>
+    <string name="getKeyboardControl">కీబోర్డ్ నియంత్రణ</string>
+    <string name="childName">పిల్లవాడి పేరు **</string>
+    <string name="caregiverName">సంరక్షకుని పేరు **</string>
+    <string name="careGiverContact">పిల్లవాడి సంరక్షకుని మొబైల్ నెంబర్ ఈ ఫోన్ లో ఉండే సిం కాకుండా **</string>
+    <string name="homeAddress">ఇంటి చిరునామా **</string>
+    <string name="emailAddress">ఇమెయిల్ చిరునామా **</string>
+    <string name="bloodGroup"> రక్త గ్రూప్ **</string>
+    <string name="detailSaved">వివరాలు రక్షింత బడినవి</string>
+    <string name="invalid_address">తప్పు చిరునామా</string>
+    <string name="invalid_emailId">ఇమెయిల్ చిరునామా తప్పు</string>
+    <string name="enterTheName">మీ బాలుని పేరు రాయండి</string>
+    <string name="search_act_title">జెల్లో లో ఐకాన్ వెతకండి</string>
+
+    <string name="iconsHasBeenReset">మీరు ప్రాధాన్యతలను రీసెట్ చేయబడినవి</string>
+    <string name="speak">చెప్పు</string>
+    <string name="stop">ఆగు</string>
+    <string name="about_jellow_speech">జెల్లో సంభాషణకర్త, ప్రసంగాన్ని ప్రారంభించడానికి చిహ్నాలను ఉపయోగించడం మరియు మాట్లాడటం నేర్చుకునేవారు లేదా ప్రసంగంలో ఇబ్బందులు ఉన్నవారు ఉపయోగించవచ్చు. పిల్లలు మరియు ప్రారంభ అభ్యాసకులు వారి రోజువారీ జీవితంలో తరచుగా ఉపయోగించే పదాలు మరియు వర్గాలను నేర్చుకోవడానికి కూడా పసుపును ఉపయోగించవచ్చు. జెల్లో రంగురంగుల మరియు స్నేహపూర్వక చిహ్నాలు పిల్లలు చిత్రాలు మరియు వాటికి సంబంధించిన పద లేబుళ్ల మధ్య అనుబంధాన్ని పెంపొందించడానికి సహాయపడతాయి. ముంబైలోని ఇండియన్ ఇన్స్టిట్యూట్ ఆఫ్ టెక్నాలజీ బాంబేలోని ఐడిసి స్కూల్ ఆఫ్ డిజైన్‌లో దీనిని అభివృద్ధి చేశారు. ఎల్లో యొక్క భాషా సామర్థ్యాన్ని పెంచడానికి, ఒక నవల ఎమోషనల్ లాంగ్వేజ్ ప్రోటో కాల్ లేదా ELP ను ప్రాజెక్ట్ పరిశోధకులు రూపొందించారు మరియు అభివృద్ధి చేశారు. ELP ఇంటర్ఫేస్ యొక్క ప్రధాన భాగాన్ని రూపొందించే 6 వ్యక్తీకరణ చిహ్నాలను సూచిస్తుంది. ఈ ప్రధాన చిహ్నాలను ఉపయోగించి, పిల్లవాడు వారి ఇష్టాలు, అయిష్టాలు మరియు అవసరాలను ఇతరులతో కమ్యూనికేట్ చేయవచ్చు. నేర్చుకోవటానికి సులభమైన ఇంటర్‌ఫేస్‌తో పసుపు పిల్లలను స్నేహపూర్వకంగా భావిస్తారు. ఆండ్రాయిడ్ టాబ్లెట్ల కోసం అప్లికేషన్ ఆప్టిమైజ్ చేయబడింది.జెల్లో ప్రస్తుతం ఇంగ్లీష్, హిందీ, బెంగాలీ, మరాఠీ, తమిళం, తెలుగు, స్పానిష్, జర్మన్ మరియు ఫ్రెంచ్ భాషలలో అందుబాటులో ఉంది. జెల్లో ప్రస్తుత వెర్షన్ _. అప్లికేషన్ మరింత అభివృద్ధిలో ఉంది. అందువల్ల, మా కోసం మీకు ఏమైనా సూచనలు ఉంటే, దయచేసి దాన్ని ఫీడ్‌బ్యాక్ ట్యాబ్ కింద సమర్పించండి లేదా j e l l o w c o m m u n i c a t o r @ gmail dot c o m లో మాకు వ్రాయండి. జెల్లో క్రియేటివ్ కామన్స్ అట్రిబ్యూషన్ నాన్-కమర్షియల్ షేర్ అలైక్ 4.0 ఇంటర్నేషనల్ లైసెన్స్ క్రింద లైసెన్స్ పొందింది. వర్క్ ఆన్ జెలో ఇండియన్ ఇన్స్టిట్యూట్ ఆఫ్ టెక్నాలజీ బొంబాయికి ఆపాదించబడింది. చిహ్నాలు, లేఅవుట్, ఆర్కిటెక్చర్, విజువల్ ఐడెంటిటీ, ట్రాన్స్‌లేషన్ మరియు సాఫ్ట్‌వేర్ కోడ్‌లతో కూడిన ఈ అనువర్తనంలోని కంటెంట్‌ను భాగస్వామ్యం చేయవచ్చు మరియు స్వీకరించవచ్చు కాని వాణిజ్య ప్రయోజనాల కోసం ఉపయోగించలేరు. కంటెంట్ ఉపయోగించినప్పుడు, ఇండియన్ ఇన్స్టిట్యూట్ ఆఫ్ టెక్నాలజీ బొంబాయిని గుర్తించమని మేము మిమ్మల్ని అభ్యర్థిస్తున్నాము. www dot jellow dot o r g వద్ద పసుపు డౌన్‌లోడ్ కోసం అందుబాటులో ఉంది. కోడ్‌ను మరింత అభివృద్ధి చేయడానికి ఆసక్తి ఉంటే, దయచేసి ప్రొఫెసర్ రవి పూవయ్యకు j e l l o w c o m m u n i c a t o r @ g m a i l వద్ద వ్రాయండి. c o m</string>
+    <string name="catBtnDesc">జెల్లో స్క్రీన్ మధ్యలో 4 ప్రధాన చదరపు బటన్లు మరియు ఇరువైపులా 4 వ్యక్తీకరణ బటన్లు ఉన్నాయి:</string>
+    <string name="catBtn">ప్రముఖ వర్గాల బటన్లు:</string>
+    <string name="expBtn">భావ వ్యక్తీకరించే బటన్లు:</string>
+    <string name="jellowUsageDesc">జెల్లో అప్ ద్వారా మాట్లాడడానికి ముందు ప్రముఖ వర్గాల బట్టన్లు క్లిక్ చేసిన తరువాత భావ వ్యక్తీకరించే బటన్లు క్లిక్ చేయాలి .ఉదాహరణకి కింద బటన్ ప్రెస్ చేస్తే జెల్లో నేను తింటాను అని పలుకుతోంది:</string>
+    <string name="jellowUsageSubCat">  వర్గాల బటన్ ని రెండు సార్లు  క్లిక్ చేసేక ఉపవర్గాలు చూడవచ్చు:</string>
+    <string name="levelOneCat">1 స్థాయి ఉపవర్గాలు:</string>
+    <string name="levelTwoCat">2 స్థాయి ఉపవర్గాలు:</string>
+    <string name="levelThreeCat">3 స్థాయి ఐకాన్ చిత్రము:</string>
+    <string name="settingDesc">అప్లికేషన్ పై కుడి భాగము పై క్లిక్ చేసి అప్లికేషన్ సెట్టింగ్స్ ని మార్చుకోవచ్చు:</string>
+    <string name="seqActDesc">పిల్లలకు రోజువారీ జీవితం క్రియలు దశలుగా నేర్పవచ్చు .ప్రతి దశ పై క్లిక్ చేస్తూ వ్యక్తీకరణ బటన్లు చూడవచ్చు:</string>
+    <string name="toiletSeq">టాయిలెట్ ఉపయోగించే దశలు:</string>
+    <string name="expBtnSeq"> వ్యాకీకరణ బటన్లు క్రమం లో:</string>
+    <string name="ttsDesc">జెల్లో ని ఇంగ్లీష్, హిందీ, బెంగాలీ, తమిళ్, తెలుగు, స్పానిష్, జర్మన్, ఫ్రెంచ్, భాష లో ఉపయోగించుకోడానికి, భాష సెట్టింగ్స్ లో వెళ్లి \'గూగల్  టెక్స్ట్-తో-స్పీచ్ (TTS)\' ని ఆక్టివేట్ చేసుకోండి. గూగల్ టెక్స్ట్ టు స్పీచ్ సెట్టింగ్ ద్వారా ముందు డిఫాల్ట్ భాష ని ఇష్టమైన భాషగా మార్చుకోండి, ఇన్స్టాల్ వాయిస్ డేటా ఆప్షన్ ని సెలెక్ట్ చేసుకొని భాషను డౌన్లోడ్ చేసుకోండి.</string>
+    <string name="resetPrefPointOne">జెల్లో లో త్వరచుగా ప్రయోగించే ఐకాన్స్ ని ఎక్కువగా నచ్చే ఐకాన్ గ స్క్రీన్ పై చూపిస్తుంది</string>
+    <string name="resetPrefPointTwo">ప్రాధాన్యతలు రీసెట్ చేసుకునేక ముదటిలా అన్ని ఐకాన్స్ స్క్రీన్ పై ప్రదర్శించ బడతాయి</string>
+    <string name="resetPrefPointThree">మీరు ప్రాధాన్యతలను రీసెట్ చేసుకుంటారా?</string>
+
+    <string name="downloadErrorMsg">డౌన్లోడ్ చేసేటప్పుడు మీ ఇంటర్నెట్ కనెక్షన్ ని ఆక్టివ్ గ ఉండేటట్లు చూసుకోండి. ప్రోగ్రెస్ బార్ ఆగేటప్పుడు డౌన్లోడ్ మరల మొదలుపెట్టండి.</string>
+    <string name="intro_to_jellow">జెల్లో పరిచయము</string>
+    <string name="rate_jellow">జెల్లో ని అన్ని స్థానాలలో రేట్ చేయండి</string>
+    <string name="keyboard">కీబోర్డ్</string>
+    <string name="txt_intro1_central9btn">జెల్లో లో 6 ప్రముఖ బటన్లు ఉన్నాయి</string>
+    <string name="txt_intro1_categorybtn">ప్రముఖ వర్గాల బటన్లు</string>
+    <string name="txt_intro5_jellowUsageDesc">అప్ కి 6 వ్యక్తీకరణ సైడ్ బటన్లు ఉన్నాయి</string>
+    <string name="txt_intro5_expressiveBtn">వ్యక్తీకరణ బటన్లు</string>
+    <string name="txt_intro2_appUsageDesc">ఉపయోగించేవారు ముందు ప్రముఖ బటన్లు తరువాత వ్యక్తీకరణ బటన్లు ప్రెస్ చేయవచ్చు</string>
+    <string name="txt_intro2_speakUsingJellow">జెల్లో ఉపయోగము</string>
+    <string name="txt_intro3_level2CatDesc">ప్రముఖ బూటోన్లకు ప్రెస్ చేసిన తరువాత ఉప వర్గాలకు వెళ్ళవచ్చు</string>
+    <string name="txt_intro3_navWithJellow">జెల్లో లోపల ప్రయాణము</string>
+    <string name="txt_intro4_customizeAppDesc">స్క్రీన్ కుడు వైపు వేళ్ళు అప్లికేషన్స్ ప్రముఖ సెట్టింగ్స్ ని మార్చవచ్చు</string>
+    <string name="txt_intro4_customizeJellow">జెల్లో లోపల సెట్టింగ్స్</string>
+    <string name="txt_intro7_getStartedDesc">ఇప్పుడు మీరు జెల్లో ని ముదలపెట్టగలరు</string>
+    <string name="txt_intro7_getStarted">మొదలు పెట్టండి</string>
+    <string name="txt_registration_jellowCalluDesc">(జెల్లో మిమ్మల్ని ఈ పేరుతొ పిలుస్తుంది)</string>
+    <string name="txt_registration_emergencynoDesc">(పిల్లలకు అత్యవసర స్థితిలో సంప్రదించడానికి ఉపయోగించవచ్చు)</string>
+    <string name="txt_registration_selectLangDesc">జెల్లో కోసం కొత్త భాషను ఎంచుకోండి **</string>
+    <string name="txt_registration_selectLangDesc_contentDesc">జెల్లో కోసం భాషను ఎంచుకోండి **</string>
+    <string name="txt_registration_registerBtn">రిజిస్టర్ చేసుకోండి</string>
+    <string name="enternonemptycontact">సరైన కాంటాక్ట్ నెంబర్ వేయండి</string>
+    <string name="change_language_line5">3 దశ: _ వాయిస్ డేటా మీ డివైస్ పై ఉన్నట్లు చెక్ చేసుకోండి. లేని దశలో కావలసిన వాయిస్ డేటా డౌన్లోడ్ చేసుకోండి. డౌన్లోడ్ ఆగిన స్థితిలో ఇంటర్నెట్ కనెక్షన్ర చెక్ చేసుకొని మరలా ప్రయత్నించండి.</string>
+    <string name="txtChangeLanguage">డిఫాల్ట్ భాష ను మార్చండి:</string>
+    <string name="txtApplyChanges">4 దశ: కొత్త భాషనీ సెట్ చ్యడానికి అప్లై చేంజెస్ పై క్లిక్ చేయండి</string>
+    <string name="txt_actLangSel_downloadDat">వాయిస్ డేటా ని చెక్ చేసుకోండి</string>
+    <string name="language_downloaded">_ భాష డౌన్లోడ్ అయ్యింది</string>
+    <string name="language_downloading">_ భాష డౌన్లోడ్ అవుతున్నది</string>
+    <string name="granted_call_permission_req">కాల్ అనుమతి ఇవ్వబడింది.</string>
+    <string name="rejected_call_permission_req">కాల్ అనుమతి ఎవ్వబడలేదు.</string>
+    <string name="grant_permission_from_settings">సెట్టింగ్స్ కు వెళ్లి కాల్ చేయడానికి కి అనుమతి సేకరించండి.</string>
+    <string name="txtEnableBuiltInCalling">అత్యవసర కాల్ చేయడానికి జెల్లో అనుమతి తీసుకోండి.</string>
+    <string name="dismiss">ముగించండి</string>
+    <string name="register_user">రిజిస్ట్రేషన్ జరుగుతింది వేచివుండండి…</string>
+    <string name="exit">బయటకు రండి</string>
+    <string name="err_dialog_msg">గూగల్ టెక్స్ట్ టు స్పీచ్ మీ మొబైల్ పై ఇన్స్టాల్ అవ్వలేదు మీరు డోలోడ్ చేసుకుంటారా?</string>
+    <string name="exit_dialog_msg">గూగల్ టెక్స్ట్ టు స్పీచ్ ఇంజిన్ లేకుండా జెల్లో పని చేయదు. మీరు నిజముగా బయటకు రావాలనుకుంటారా?</string>
+
+    <string name="next_slide">తరువాత స్క్రీన్ పై వెళ్ళండి</string>
+    <string name="previous_slide">మునుపటి స్క్రీన్ కి వెళ్ళండి</string>
+
+    <!--Strings related to the Searching capability
+    @AyazAlam
+    -->
+    <string name="search_title">ఐకాన్ వెతకండి…</string>
+    <string name="home">హోమ్</string>
+    <string name="icon_not_found">ఐకాన్ దొరకలేదు</string>
+
+    <!--About Jellow strings-->
+    <string name="info">సాధారణ సమాచారం</string>
+    <string name="about_je_intro1">జెల్లో లో చిత్రాలను ఉపయోగించి సంభాషణ చేయగలము . ఈ అప్ చిన్నపిల్లలకు మాటనేర్పుతుంది మరియు మాట సమస్య ఉన్న వారికీ సహాయ పడుతుంది. రోజువారీ జీవితం లో ఉపయోగిఒంచుకునే అన్ని వర్గాల పేర్లు నేర్చుకోడానికి పిల్లలకు ఉపయోగపడుతుంది.జెల్లో యుక్కా రంగురంగుల ఆకర్షణీయమైన చిత్రాలు మాటకు సంబంధం యర్పరిచాడంటూ లో సహాయ పడుతోంది.</string>
+    <string name="about_je_intro2">జెల్లో అప్ ని ఇండియన్ ఇన్స్టిట్యూట్ అఫ్ టెక్నాలజీ ముంబై వారి ఐ డి సి విభాగము వారు వికసించేరు.</string>
+    <string name="about_je_intro3">జొల్లో లో భాష సామర్ధ్యాన్ని పెంచడమిలి ఎమోషనల్ లాంగ్వేజ్ ప్రోటోకాల్ ELP ని వికసించి వ్యవస్థాపించారు.జెల్లో లో ఆరు వ్యక్తీకరణ చింహాలు ఉన్నాయి.</string>
+    <string name="about_je_intro4">ఈ ప్రధాన చిత్రాలను ఉపయోగించి పిల్లవాడు తన ఇష్టాలను అనిష్టలను అవసరాలను తెలియజేయ గలడు</string>
+    <string name="about_je_intro5">.పిల్లలు జెల్లో ని సులభంగా నేర్చుకోగలరు మరియు ఉపయోగించగలరు</string>
+    <string name="about_je_intro6">ఈ వ్యక్తీకరణ చిహ్నాలు ద్వారా జెల్లో ఉపయోగించినవారు తమ అవసరాలను ఇష్టాలను అనిష్టలను ఇతరాలను తెలియపరచవచ్చు</string>
+    <string name="about_je_intro7">జెల్లో ఇప్పుడు ఇంగ్లీష్, హిందీ, బెంగాలీ మరాఠీ, తమిళ్, తెలుగు, స్పానిష్, జర్మన్, ఫ్రెంచ్, భాష లో లభిస్తుంది</string>
+    <string name="play_video">వీడియొ నడపండి</string>
+    <string name="software_info">సాఫ్ట్వేర్ సంస్కరణ: _</string>
+    <string name="about_je_intro8">జెల్లఓ ప్రస్తుత సంస్కరణ _ జెల్లో ని మరి కొంత వికసిస్తున్నారు. అప్లికేషన్ లో సలహా మీరు దీనికి సంబంధించిన సలహాలు ఇవ్వాలనుకుంటే ఫీడ్బ్యాక్ బాక్స్ లో ఇవ్వవచ్చు. లేదా jellowcommunicator@gmail.com పై రాయవచ్చు</string>
+    <string name="terms_of_use">ఉపయోగించే షరతులు</string>
+    <string name="about_je_intro9">క్రి.యేటివ్  కామన్స్  ఆస్ట్రిబ్యూషన్  Non-కమర్షియల్  షేర్ అలికె  4.0 ఇంటర్నేషనల్  లైసెన్స్ ద్వారా జెల్లో అప్ కి లైసెన్స్ ఇవ్వబడింది.</string>
+    <string name="about_je_intro10">జెల్లో అప్ పై చేయబడిన ప్రతి పరిశోధన శ్రేయము ఇండియన్ ఇన్స్టిట్యూట్ అఫ్ టెక్నాలజీ వారికీ ఇవ్వబడుతుంది.</string>
+    <string name="about_je_intro11">జెల్లో అప్ కి సంబంధించిన చిహ్నాలు, లేఔట్, నిర్మాణము ,అనువాదాలు ఉపయోగించవచ్చు మరియు పంచుకోవచ్చు కానీ వ్యాపారపరము గా వాడుకోరాదు.</string>
+    <string name="about_je_intro12">జెల్లో అప్ అంశాలను వాడుకునేటప్పుడు ఇండియన్ ఇన్స్టిట్యూట్ ఆప్ టెక్నాలజీ బొ IIT-B బాయి వారి అనుమతి తీసుకోవలెను.</string>
+    <string name="about_je_intro13">పై జెల్లో అప్ ని డౌన్లోడ్ చేసుకోవచ్చూ</string>
+    <string name="about_je_intro14"> జెల్లో కోడ్ ని ఇంకా ఎక్కువ వికసించుకోవాలనుకున్నప్పుడు ప్రొఫెసర్  రవి  పూవయ్య అటు  రవి  @ ఐ  ఐ  టీ బి  డాట్    ఏ సి . ఇన్  ఓర  అటు జెల్లో కమ్యూనికేటర్  @ జిమెయిల్ . కామ్పై సంప్రదించవచ్చు.</string>
+    <string name="feedback_talkback_heading">వకటి నుండి ఐదు స్కేల్ లో రేట్ చేయండి</string>
+    <string name="langauge_correction_message">\'"-"\' భాష యొక్క సెటప్ సరైనది కానప్పుడు. భాష సెట్టింగులను పరిష్కరించడానికి \'"_"\' బటన్‌ను నొక్కండి. లేదా మీరు \'"$"\' బటన్‌ను నొక్కడం ద్వారా డిఫాల్ట్ భాషను ఎంచుకోవచ్చు.</string>
+    <string name="changeLanguage">భాష సెట్టింగులను సరిచూసుకోండి</string>
+    <string name="dialog_default_language_option"> డిఫాల్ట్ భాష</string>
+    <string name="txt_data_info">** పై సమాచారం మీ పరికరంలో మాత్రమే నిల్వ చేయబడుతుంది. మీ సమాచారం యొక్క గోప్యతను మేము విలువైనదిగా భావిస్తాము, కాబట్టి ఇది ఏ క్లౌడ్ లేదా సర్వర్‌కు (జెల్లో లేదా థర్డ్ పార్టీ సర్వర్ / క్లౌడ్‌తో సహా) ఉపయోగించబడదు లేదా అప్‌లోడ్ చేయబడదు.</string>
+    <string name="txt_view_privacy_policy">జెల్లో <![CDATA[<font color="#dc5252"><b><u>గోప్యతా విధానాన్ని</u></b></font>]]> చదవండి.</string>
+    <string name="privacy_link_info">నేను జెల్లో <![CDATA[<font color="#dc5252"><b><u>గోప్యతా విధానాన్ని</u></b></font>]]> చదివాను.</string>
+    <string name="consent_privacy">దయచేసి గోప్యతా విధానం యొక్క చెక్ బాక్స్‌పై చదివి క్లిక్ చేయండి.</string>
+
+    <!--Content description-->
+    <string name="language_download_in_process">భాష డౌన్లోడ్ అవుతింది</string>
+
+    <string name="child_s_name">అవసరమైన ఫీల్డ్‌లో పిల్లల పేరు **</string>
+    <string name="enter_home_address">ఇంటి అడ్రస్ రాయండి</string>
+    <string name="enter_caregiver_s_contact_number">కేర్ గివెర్ ఫోన్ నెంబర్ ఇవ్వండి</string>
+    <string name="enter_caregiver_s_name">కేర్ గివెర్ పేరు రాయండి</string>
+    <string name="enter_caregiver_s_email_address">కేర్ గివెర్ ఇమెయిల్ ఇది ఇవ్వండి</string>
+    <string name="category_cd">ఈ చిత్రము లో జెల్లో స్క్రీంషాట్ కనపడుతుంది .హోమ్ పేజీ లో మూడు రౌస్ మూడు కాలమ్స్ లో తొమ్మిది సెంట్రల్ గ్రిడ్స్ కనబడుతున్నాయి .అభినందన అనుభూతి .రోజువారీ క్రియాకలాపాలు.ఈటింగ్ ఫన్ అభ్యాసన వ్యక్తులు   స్థానాలు  సమయము వాతావరణము సహాయము  .బ్యాక్ హోమ్ కీబోర్డ్ మూడు నావిగేషన్ బటన్స్ ఉన్నాయి.సెంట్రల్ ఐకాన్స్ కి కుడి మరియు యడం భాగము లో వ్యక్తీకరణ ఐకాన్స్ ఉన్నాయి .ముఖ్య జాబితా కి  యడము భాగము లో పై నించి కిందకి ఇష్టము అవును   మరియు ఉన్నాయి.ముఖ్య జాబితా కి  యడము భాగము లో పై నించి కిందకి అనిష్టము  కాదు తక్కువ  ఉన్నాయి.హోమ్ స్క్రీన్ కి టాప్ రైట్ చొర్నెర్ లో సెట్టింగ్స్ ఐకాన్ ఉంది..ప్రముఖ జాబితా లో తొమ్మిది ఐకాన్స్ కనబడుతున్నాయి.</string>
+    <string name="expressive_cd">ఈ చిత్రము జెల్లో హోమ్ పేజీ ని చూపెడుతుంది .ఈ చిత్రము లో 6 వ్యక్తీకరణ బటన్స్ స్క్రీన్ రెండు వైపుల ఉంది  . ప్రముఖ వర్గము లో ఇష్టము, అవును ,మరికొంత ను  సంతోష ముఖము,  చెక్  మార్క్  మరియు ప్లస్  సైన్  ద్వారా గుర్తించబడతాయి. ప్రముఖ వర్గము లో విచారంగా ఉండే ముఖము  ను  క్రాస్, మైనస్ ,చిత్రము ద్వారా ఇష్టము లేదు, వద్దు , తక్కువ గుర్తించబడ్డాయి. స్క్రీన్ కింద మూడు నావిగేషన్ బటన్స్ ఉన్నాయి వెనుక, హోమ్, కీబోర్డ్</string>
+    <string name="pic4">ఈ చిత్రము లో జెల్లో యాప్  హోమ్ స్క్రీన్ కనబడుతోంది .పై రెండు ఐకాన్స్ తినటం మరియు  అవును కనపడుతున్నాయి. వేరే బటన్స్ కనబడుటలేదు .జెల్లో ని ఉపయోగించి మాట్లాడడానికి వక బటన్ ప్రెస్ చేయాలి . తరువాత వ్యక్తీకరణ చిత్రము కనపడుతోంది.ఉదాహరణముగా ముందు భోజనం బటన్ పై తరువాత ఆవును బటన్ పై క్లిక్ చేయాలి.ఈవిధముగా జెల్లో ని ఉపయోగించగలరు.ఈ విధముగా జెల్లో ని ఉపయోగించి మాట్లాడగలరు</string>
+    <string name="pic5">ఈ చిత్రము లో జెల్లో అప్ హోమ్ స్క్రీన్ కనబడుతోంది .పై రెండు ఐకాన్స్ తినటం మరియు  అవును కనపడుతున్నాయి. లెవెల్  వకటి లో వేరే బటన్స్ కనబడుటలేదు .జెల్లో ని ఉపయోగించి మాట్లాడడానికి వక బటన్ ప్రెస్ చేయాలి . ఈటింగ్ ప్రెస్ చేసేక వ్యక్తీకరణ చిహ్నాలు అవును కాదు కనబడతాయి</string>
+    <string name="pic6">ఈటింగ్ ఐకాన్ పై డబల్ క్లిక్ చేసేక ఉప వర్గాలు కనబడతాయి పారముఖ జాబితా లో లెవెల్ 2 ఉప వర్గాలు బ్రేక్ఫాస్ట్, లంచ్, డిన్నర్ స్వీట్స్ స్నాక్స్ ఫ్రూప్ట్స్ డ్రింక్స్ కట్లెర్య్త ఆడ్ ఆన్ కనబడుతున్నాయి .బ్రేక్ఫాస్ట్ చిత్రము పై డబల్ క్లిక్ చేయమని చూపించ బడింది.</string>
+    <string name="pic7">మూడోవ దశ స్క్రీంషాట్ ప్రముఖ జాబితా లో ఉన్న ఈటింగ్ లో బ్రేక్ఫాస్ట్ ఉప వర్గం పై క్లిక్ చేయండి. మీకు స్క్రీన్ పై బ్రెడ్, కార్న్ ఫ్లక్స్, ఆలూ పూరి, గుద్దులు, పోహా, ఉప్మా ఖిచిడీ మరియు ఇడ్లి చిత్రాలు కనపడతాయి. స్క్రీన్ రెండు వైపులా వ్యక్తీకరణ చిహ్నాలు కాకుండా కింద గమనాగమనా బటన్స్ మరియు సెట్టింగ్ బుట్టోన్లు స్క్రీన్ కింద కనబడుతున్నాయి.</string>
+    <string name="pic8">హోమ్ స్క్రీన్ కుడి భాగము పై డ్రాప్ డౌన్ కనపడుతుంది. ఇందిలిలో  "ప్రోఫిలీ , "జెల్లో vivaralu, "ట్యుటోరియల్", "కీబోర్డ్  కంట్రోల్", "భాష", "సెట్టింగ్స్", "రీసెట్  ప్రిఫరెన్సెస్", మరియు  "ఫీడ్బ్యాక్". కావలసిన ఒప్షన్స్ పై క్లిక్ చేసి సెట్టింగ్స్ లో మార్పులు  చేసుకోవచ్చు.</string>
+    <string name="pic9">ఇది జెలోలోని వరుస చర్య యొక్క స్క్రీన్ షాట్. "డైలీ యాక్టివిటీస్" ప్రధాన వర్గంలో యాక్సెస్ చేయగల "టాయిలెట్" క్రమాన్ని చిత్రం ప్రత్యేకంగా చూపిస్తుంది. స్క్రీన్ టాయిలెట్కు వెళ్ళే 3 వరుస దశల చిహ్నాలను చూపిస్తుంది. దశ 1 "ప్యాంటు క్రిందికి లాగడం", దశ 2 "మరుగుదొడ్డిపై కూర్చుని", మరియు దశ 3 "దిగువ కడగడం". ప్రక్రియ యొక్క క్రమానుగత స్వభావాన్ని సూచించడానికి ఈ వ్యక్తిగత చిహ్నాల మధ్య బాణాలు ఉన్నాయి. 3 సీక్వెన్స్ చిహ్నాల క్రింద "మునుపటి" మరియు "తదుపరి" యొక్క 2 బటన్లు ఉన్నాయి. "టాయిలెట్" సీక్వెన్స్‌లోని దశల యొక్క మొదటి స్క్రీన్ కనుక, "మునుపటి" బటన్ నిలిపివేయబడింది. ఈ శ్రేణిలోని తదుపరి దశలను వర్ణించే తదుపరి స్క్రీన్‌కు వెళ్లడానికి "తదుపరి” బటన్‌పై క్లిక్ చేసి వేలు చూపబడుతుంది. వ్యక్తీకరణ చిత్రాలు ఈ చిత్రంలో కనిపించవు. "వెనుక", "హోమ్" మరియు "కీబోర్డ్" యొక్క నావిగేషనల్ బటన్లు స్క్రీన్ దిగువన కనిపిస్తాయి.</string>
+    <string name="pic10">రోజువారీ క్రియాకలాపాల వర్గములో టాయిలెట్ వర్గము లో ఉన్న మూడు దశలు కనబడతాయి. రెండో దశ ను క్లిక్ చేయమని చేయ చూపిస్తుంది. ఈ చిత్రాన్ని క్లిక్ చేయగానే వ్యక్తీకరణ చిహ్నాలు స్క్రీన్ రెండు వైపుల కనపడతాయి.</string>
+    <string name="gtts1">"టెక్స్ట్ టు స్పీచ్ ఔట్పుట్" అండ్ "గూగుల్ టెక్స్ట్ టు స్పీచ్ వాయిస్ డేటా" సెట్టింగ్స్ ద్వారా ఈ స్క్రీన్ షాట్ తయారు చేయబడింది. టెక్స్ట్ టు స్పీచ్ ఔట్పుట్ చిత్రములో రెండు ఇంజిన్స్ ఉన్నాయి. మొదటిది సామ్ సన్గ్ టెక్స్ట్ టు స్పీచ్ ఇంజిన్ రెండోవాడి గూగుల్ టెక్స్ట్ టు స్పీచ్ ఇంజిన్. మీరు గూగుల్ టెక్స్ట్ తో స్పీచ్ ని ఎంచుకోండి.</string>
+    <string name="gtts2">రెండొవ చిత్రము  రెండొవ దశను చూపెడుతుంది. గూగుల్ టెక్స్ట్ టు స్పీచ్ సెట్టింగ్స్ క్లో ఉన్న గేర్ చిహ్నాన్ని క్లిక్ చేయండి</string>
+    <string name="gtts3">మీరు  గూగుల్మూ టెక్స్ట్ టు స్పీచ్  మూడో దశలో ఉన్నారు. "ఫ్రెంచ్  (ఫ్రాన్స్)", "జర్మన్ (జర్మనీ)", "హిందీ (ఇండియా)", "హన్గేరియన్ (హన్గేరి)", మరియు "ఇండోనేషియా (ఇండోనేషియా)" స్వర అవకాశాలు ఈ స్క్రీన్ పై ఉన్నాయి. వాయిస్ సెట్ 1 ఆప్షన్ చూపెడుతుంది "హిందీ (ఇండియా) వాయిస్" ఆప్షన్ హైలైట్ చేయబడి ఉంది మరియు దీని సైజు 19 మ్ బి. మీరు హిందీ ఇండియా చిత్రము పై క్లిక్ చేసి ఈ భాష ను డౌన్లోడ్ చేసుకో గలరు.</string>
+    <string name="enter_child_s_name">చైల్డ్  పేరు రాయండి</string>
+    <string name="caregiver_s_contact_number_other_than_this_device_s_sim_number">అవసరమైన స్థానము లో సంరక్షకుని దేవాస్ లో ఉన్న సిం నెంబర్ కాకుండా ఇతర ఫోన్ నెంబర్ ఇవ్వవలెను **</string>
+    <string name="select_country_code">మీ దేశము కోడ్ ని ఎంచుకోండి</string>
+    <string name="caregiver_s_email_address">అవసరమైన స్థానము లో సంరక్షణ ఇచ్చే ఇమెయిల్ ఐడిని నమోదు చేయండి **</string>
+    <string name="like">బాగుంది</string>
+    <string name="yes">అవును</string>
+    <string name="more">మరింత</string>
+    <string name="dont_like">అది ఇష్టం లేదు</string>
+    <string name="no">కాదు</string>
+    <string name="less">తక్కువ</string>
+    <string name="back">తిరిగి</string>
+    <string name="enter_category">వర్గము లో వెళ్ళండి</string>
+    <string name="intro_cd">చిత్రం జెలో యొక్క హోమ్ పేజీ యొక్క స్క్రీన్ షాట్ చూపిస్తుంది. హోమ్ పేజీలో 3 వరుసలు మరియు 3 నిలువు వరుసలలో అమర్చబడిన కేటగిరీ బటన్లు అని పిలువబడే 9 చిహ్నాల సెంట్రల్ గ్రిడ్ ఉంది. 9 వర్గం బటన్లు "గ్రీట్ అండ్ ఫీల్", "డైలీ యాక్టివిటీస్", "ఈటింగ్", "ఫన్", "లెర్నింగ్", "పీపుల్", "స్థలాలు", "సమయం మరియు వాతావరణం" మరియు "సహాయం". వర్గం బటన్ల క్రింద హోమ్ స్క్రీన్ దిగువన "బ్యాక్", "హోమ్" మరియు "కీబోర్డ్" యొక్క 3 నావిగేషన్ బటన్లు ఉన్నాయి. సెంట్రల్ కేటగిరీ చిహ్నాల కుడి మరియు ఎడమ వైపులా 3 వ్యక్తీకరణ చిహ్నాలు ఉన్నాయి. సెంట్రల్ గ్రిడ్ యొక్క ఎడమ వైపున "లైక్", "అవును" మరియు "మరిన్ని" యొక్క 3 వ్యక్తీకరణ బటన్లు ఆ క్రమంలో పై నుండి క్రిందికి అమర్చబడి ఉంటాయి. సెంట్రల్ గ్రిడ్ యొక్క కుడి వైపున, "ఇష్టం లేదు", "లేదు" మరియు "తక్కువ" యొక్క మిగిలిన 3 వ్యక్తీకరణ బటన్లు పై నుండి క్రిందికి అమర్చబడి ఉంటాయి. హోమ్ స్క్రీన్ యొక్క కుడి ఎగువ మూలలో సెట్టింగుల చిహ్నం కనిపిస్తుంది. ఈ చిత్రంలో 9 చిహ్నాల సెంట్రల్ గ్రిడ్ అన్ని ఇతర బటన్లతో క్షీణించింది.</string>
+    <string name="intro2_cd">ఈ చిత్రము లో జెల్లో అప్ హోమ్ స్క్రీన్ కనబడుతోంది .పై రెండు ఐకాన్స్ తినటం మరియు  అవును కనపడుతున్నాయి. లెవెల్  వకటి లో వేరే బటన్స్ కనబడుటలేదు .జెల్లో ని ఉపయోగించి మాట్లాడడానికి వక బటన్ ప్రెస్ చేయాలి . ఈటింగ్ ప్రెస్ చేసేక వ్యక్తీకరణ చిహ్నాలు అవును కాదు కనబడతాయి</string>
+    <string name="intro3_cd">తినటం చిత్రం పై డబల్ క్లిక్ చేసేక ఉప వర్గాలు కనబడతాయి. మధ్య  జాబితా లో  2 స్థాయి ఉప వర్గాలు  బ్రేక్ఫాస్ట్, లంచ్, డిన్నర్ స్వీట్స్ స్నాక్స్ ఫ్రూప్ట్స్ డ్రింక్స్ కట్లెర్య్త ఆడ్ ఆన్ కనబడుతున్నాయి .బ్రేక్ఫాస్ట్ చిత్రము పై డబల్ క్లిక్ చేయమని చూపించ బడింది.</string>
+    <string name="intro4_cd">హోమ్ స్క్రీన్ కుడి భాగము పై డ్రాప్ డౌన్ కనపడుతుంది. ఇందిలిలో  "ప్రోఫిలీ , "జెల్లో vivaralu, "ట్యుటోరియల్", "కీబోర్డ్  కంట్రోల్", "భాష", "సెట్టింగ్స్", "రీసెట్  ప్రిఫరెన్సెస్", మరియు  "ఫీడ్బ్యాక్". కావలసిన ఒప్షన్స్ పై క్లిక్ చేసి సెట్టింగ్స్ లో మార్పులు  చేసుకోవచ్చు</string>
+    <string name="intro5_cd">ఈ చిత్రము జెల్లో హోమ్ పేజీ ని చూపెడుతుంది .ఈ చిత్రము లో 6 వ్యక్తీకరణ బటన్స్ స్క్రీన్ రెండు వైపుల ఉంది  . ప్రముఖ వర్గము లో ఇష్టము, అవును ,మరికొంత ను  సంతోష ముఖము,  చెక్  మార్క్  మరియు ప్లస్  సైన్  ద్వారా గుర్తించబడతాయి. ప్రముఖ వర్గము లో విచారంగా ఉండే ముఖము  ను  క్రాస్, మైనస్ ,చిత్రము ద్వారా ఇష్టము లేదు, వద్దు , తక్కువ గుర్తించబడ్డాయి. స్క్రీన్ కింద మూడు నావిగేషన్ బటన్స్ ఉన్నాయి వెనుక హోమ్ కీబోర్డ్</string>
+    <string name="talkback_single_click">ఎంచుకోండి</string>
+    <string name="talkback_dropdown_menu">దేశాల జాబితా చూడడానికి టైప్ చేయండి</string>
+    <string name="next">తరువాత</string>
+    <string name="previous">వెనకాల</string>
+    <string name="edttxt_msg">చెప్పడానికి టైపు చేయండి</string>
+    <string name="keyboard_open">కీబోర్డ్ ని ఇప్పండి</string>
+    <string name="child_s_name_dialog_btn">నా పేరు</string>
+    <string name="caregiverName_dialog_btn">సంరక్షణ ఇచ్చేవారి పేరు</string>
+    <string name="caregiver_s_email_address_dialog_btn">కేర్ గివర్ ఇమెయిల్ ఐడి</string>
+    <string name="homeAddress_dialog_btn">నా ఇంటి చిరునామా</string>
+    <string name="caregiver_s_contact_number_dialog_btn">సంరక్షణ ఇచ్చేవారి సంప్రదింపు సంఖ్య</string>
+    <string name="bloodGroup_dialog_btn">న బ్లడ్ గ్రూప్</string>
+    <string name="seekbar_speed_cd">మీ మొబైల్ వాల్యూం బటన్స్ మార్చుతూ స్పీచ్ స్పీడ్ ని మార్చుకోండి</string>
+    <string name="seekbar_pitch_cd"> మీ మొబైల్ వాల్యూం బటన్స్ మార్చుతూ స్పీచ్ పిచ్ ని మార్చుకోండి</string>
+    <string name="seekbar_volume_cd"> మీ మొబైల్ వాల్యూం బటన్స్ మార్చుటు స్పీచ్ వాల్యూం  ని మార్చుకోండి</string>
+    <!--end content description-->
+
+    <string name="txt_tts_stting">టెక్స్ట్ టు స్పీచ్ సెట్టింగ్స్</string>
+    <string name="change_language_tts_wifi">2 దశ: గూగుల్ టిటిఎస్ సెట్టింగులకు వెళ్లి \'వై-ఫై మాత్రమే వాడండి\' ఆపివేయండి. ఎంపిక ఇప్పటికే నిలిపివేయబడితే, దయచేసి ఈ దశను దాటవేయండి.</string>
+    <string name="lang_setting_option1_cd">"టెక్స్ట్ టు స్పీచ్ ఔట్పుట్" అండ్ "గూగుల్ టెక్స్ట్ టు స్పీచ్  వాయిస్  డేటా " సెట్టింగ్స్ ద్వారా ఈ స్క్రీన్ షాట్ తయారు చేయబడింది .టెక్స్ట్ తో స్పీచ్ ఔట్పుట్ చిత్రములో రెండు ఎంగిన్స్ ఉన్నాయి మొదటిది శంసుంగ్ టెక్స్ట్ టు స్పీచ్ ఇంజిన్ రెండోవాడి గూగల్ టెక్స్ట్ టు స్పీచ్ ఇంజిన్ . మీరు గూగుల్ టెక్స్ట్ టు స్పీచ్ ని ఎంచుకోండి.</string>
+    <string name="lang_setting_option2_cd">రెండొవ చిత్రము  రెండొవ దశను చూపెడుతుంది. గూగుల్ టెక్స్ట్ టు స్పీచ్ సెట్టింగ్స్ క్లో ఉన్న గేర్ చిహ్నాన్ని క్లిక్ చేయండి</string>
+    <string name="lang_setting_option3_cd">మూడవ చిత్రం ఈ ప్రక్రియలో మూడవ దశ, ఇప్పుడు ఉపయోగించేవారు  "Google TTS ఎంపికలు" స్క్రీన్ వద్ద ఉన్నారు. ఈ స్క్రీన్‌పై రెండవ అంశం "వై-ఫై మాత్రమే వాడండి" కోసం టోగుల్ స్విచ్ ఈ చిత్రంలో హైలైట్ చేయబడింది. ఈ దశలో ఈ స్విచ్‌ను ఆపివేయడానికి లేదా నిలిపివేయమని వినియోగదారుని కోరతారు.</string>
+    <string name="close">డైలాగ్ ముగించండి</string>
+    <string name="access_dialog_title">అవకాశాలు ఉన్న విండో</string>
+
+    <string name="acc_lang_marathi">మరాఠీ ఇండియా</string>
+    <string name="acc_lang_hindi">హిందీ ఇండియా</string>
+    <string name="acc_lang_bengali">బెంగాలీ (ఇండియా)</string>
+    <string name="acc_lang_eng_in">ఇంగ్లీష్ ఇండియా</string>
+    <string name="acc_lang_eng_gb">ఇంగ్లీష్ యునైటెడ్ కింగ్డమ్</string>
+    <string name="acc_lang_eng_us">ఇంగ్లీష్ యునైటెడ్ స్టేట్స్</string>
+    <string name="acc_lang_eng_au">ఇంగ్లీష్ ఆస్ట్రేలియా</string>
+    <string name="acc_lang_span_span">స్పానిష్ (స్పెయిన్)</string>
+    <string name="acc_lang_tamil_in">తమిళ</string>
+    <string name="acc_lang_telugu_in">తెలుగు</string>
+    <string name="acc_lang_german_ger">జర్మన్ (జర్మనీ)</string>
+
+    <string name="_1_icon">1 చిహ్నం</string>
+    <string name="_2_icons">2 చిహ్నాలు</string>
+    <string name="_3_icons">3 చిహ్నాలు</string>
+    <string name="_4_icons">4 చిహ్నాలు</string>
+    <string name="_9_icons">9 చిహ్నాలు</string>
+    <string name="number_of_icons_per_screen">ప్రతి స్క్రీన్‌కు చిహ్నాల సంఖ్య</string>
+
+    <string name="level_1_screen">మొదటి స్థాయి</string>
+    <string name="level_2_screen">రెండొవ స్థాయి</string>
+    <string name="level_3_screen">మూడోవ స్థాయి</string>
+    <string name="sequence_screen">క్రియాకలాపాల క్రమం</string>
+    <string name="close_searchbar">సెర్చ్ బార్ ని ముగుంచండి</string>
+
+
+    <string name="txt_accessibility_setting">సెట్టింగ్స్ అందుబాటు</string>
+    <string name="visual_access_title">దృశ్య అందుబాటు:</string>
+    <string name="visual_access_info_one">దృష్టి లోపం ఉన్న వినియోగదారులు ఇప్పుడు జెల్లో యొక్క దృశ్యమాన ప్రాప్యత లక్షణాన్ని ఉపయోగించవచ్చు.</string>
+    <string name="visual_access_info_two">ఆండ్రాయిడ్ స్మార్ట్‌ఫోన్‌లలోని "టాక్ బ్యాక్" బటన్‌ను ఆన్ చేయడం ద్వారా వినియోగదారులు ఈ లక్షణాన్ని ఉపయోగించవచ్చు</string>
+    <string name="visual_access_info_three">User \'టాక్ బ్యాక్ \' వినియోగదారు పరికరంలో స్విచ్ ఆన్ చేయడంతో, వినియోగదారు ఇప్పుడు వారు తెరపై తాకిన ప్రతిదాన్ని వివరించే ఆడియో ఇన్‌పుట్‌ను పొందగలుగుతారు.</string>
+    <string name="visual_access_info_four">వినియోగదారులు talk \'టాక్ బ్యాక్ \' యొక్క డిఫాల్ట్ సంజ్ఞలను ఉపయోగించవచ్చు లేదా వారికి ఇష్టమైన సంజ్ఞలను కూడా ఎంచుకోవచ్చు.</string>
+    <string name="visual_access_info_five">ఉదాహరణకు, కుడి స్వైప్ సంజ్ఞ వినియోగదారుని స్క్రీన్‌పై చిహ్నాల ద్వారా వరుసగా స్క్రోల్ చేయడానికి అనుమతిస్తుంది. అదేవిధంగా, తెరపై ఎక్కడైనా డబుల్ నొక్కడం వినియోగదారు తమకు నచ్చిన చిహ్నాన్ని ఎంచుకోవడానికి అనుమతిస్తుంది.</string>
+    <string name="switch_access_title">అందుబాటి మార్చండి:</string>
+    <string name="switch_access_info_one">స్విచ్ ప్రాప్యత మోటారు వైకల్యం ఉన్నవారికి అనువర్తనంలో నావిగేషన్ సులభం చేస్తుంది. ఈ లక్షణం ఒకటి లేదా రెండు స్విచ్‌లను ఉపయోగించి నావిగేషన్‌ను అనుమతిస్తుంది</string>
+    <string name="switch_access_info_two">ఫోన్ లో ఉన్న అందుబాటు సెట్టింగ్స్ లో వెళ్లి స్విచ్ ఆక్సిసిబిలిటీ ని సెలెక్ట్ చేసుకోవాలిసింది</string>
+    <string name="switch_access_info_three">శంసుంగ్ ఫోన్ సెట్టింగ్స్ లో డిస్ట్రయిటి మరియు ఇంటరాక్షన్ కు వెళ్లి స్విచ్ ఎక్స్స్ వెంచుకోవచ్చ్</string>
+    <string name="switch_access_info_four">స్విచ్ అందుబాటు మార్చుకోడానికి సెట్టింగ్స్ ఓపెన్ చేయండి ..ఆక్సిసిబిలిటీ కి వెళ్ళండి ..స్విచ్ అచ్చెస్స్ ని ఆన్ చెడియంది ..USB లేదా BLUETOOTH స్విచ్స్ ని సెలెక్ట్ చేసుకోండి.</string>
+    <string name="switch_access_info_five">స్విచ్ అందుబాటు మార్చుకోడానికి సెట్టింగ్స్ ఓపెన్ చేయండి ..ఆక్సిసిబిలిటీ కి వెళ్ళండి ..స్విచ్ అచ్చెస్స్ ని ఆన్ చెడియంది ..USB లేదా BLUETOOTH స్విచ్స్ ని సెలెక్ట్ చేసుకోండి ..సెట్టింగ్స్ కు వెళ్లి స్విచ్స్ ని రెండు స్విచ్స్ గ వెంచుకోండి. స్కానింగ్ రకమును వెంచుకోండి. తరువాత బటన్ ని క్లిక్ చేయండి, రెండు స్విచ్స్ కి ఆక్షన్ ఇచ్చి స్విచ్ టెస్టింగ్ ప్రాసెస్ ని పూర్తిచేయండి</string>
+
+    <!--Language package update strings are here-->
+    <string name="lpu_start_update">Starting Update &#8230;</string>
+    <string name="lpu_parse_update">Parsing Download data &#8230;</string>
+    <string name="lpu_download_icons">Downloading Icons &#8230;</string>
+    <string name="lpu_download_verbiage">Downloading Verbiage &#8230;</string>
+    <string name="lpu_update_success">Language pack successfully updated!!</string>
+    <string name="lpu_toast_update_success">Update Success!!</string>
+    <string name="lpu_toast_check_success">Update Check Success!!</string>
+    <string name="lpu_no_updates_found">No updates found!!</string>
+    <string name="lpu_update_error">Error completing update!! Please try again.</string>
+    <string name="lpu_toast_check_error">Update Failed!!</string>
+    <string name="update_now">Update now</string>
+    <string name="update_later">Later</string>
+    <string name="update_message">New content is available in the app. Do you want to update now?</string>
+    <string name="acc_lang_bengali_bd">బెంగాలీ (బంగ్లాదేశ్)</string>
+    <string name="acc_lang_eng_ng">ఇంగ్లీష్ (నైజీరియా)</string>
+    <string name="menuMyBoards">నా బోర్డులు (My Boards)</string>
+    <string name="yes_btn">అవును (Yes)</string>
+    <string name="app_update_message">జెల్లో అనువర్తనం యొక్క క్రొత్త సంస్కరణ అందుబాటులో ఉంది. మీరు ఇప్పుడు నవీకరించాలనుకుంటున్నారా?</string>
+    <string name="delete_board">\"-\" బోర్డు తొలగించబడుతుందా?</string>
+    <string name="icon_select_exit_warning">మీ ఎంపిక పోతుంది</string>
+    <string name="current_board">చిహ్నాలు జోడించబడ్డాయి</string>
+    <string name="board_name">బోర్డు పేరును ఇక్కడ జోడించండి</string>
+    <string name="select_all">అన్ని ఎంచుకోండి</string>
+    <string name="reset">రీసెట్</string>
+    <string name="select_icon_title">చిహ్నాలను జోడించండి</string>
+    <string name="add_category">వర్గాన్ని జోడించండి</string>
+    <string name="add_icon">చిహ్నాన్ని జోడించండి</string>
+    <string name="addicon_title">చిహ్నాలను జోడించండి / సవరించండి</string>
+    <string name="i_like">నాకు ఇష్టం</string>
+    <string name="really_like">నాకు నిజం గానే ఇష్టం</string>
+    <string name="i_want">నాకు కావాలి</string>
+    <string name="really_want">నాకు నిజంగా కావాలి</string>
+    <string name="want_more">నాకు ఎక్కువ కావాలి</string>
+    <string name="really_want_more">నేను నిజంగా మరింత కోరుకుంటున్నాను</string>
+    <string name="i_dont_like">నాకు ఇష్టం లేదు</string>
+    <string name="really_dont_like">నాకు నిజంగా ఇష్టం లేదు</string>
+    <string name="dont_want">నాకు అక్కరలేదు</string>
+    <string name="really_dont_want">నేను నిజంగా వద్దు</string>
+    <string name="dont_want_more">నాకు ఎక్కువ వద్దు</string>
+    <string name="really_dont_want_more">నేను నిజంగా ఎక్కువ వద్దు</string>
+    <string name="please_enter_name">దయచేసి పేరు నమోదు చేయండి</string>
+    <string name="photos">ఫోటోలు</string>
+    <string name="library">" జెల్లో  లైబ్రరీ"</string>
+    <string name="icon_name">ఐకాన్ పేరు</string>
+    <string name="add_board">బోర్డుని జోడించండి</string>
+    <string name="custom_icon">అనుకూల చిహ్నం</string>
+    <string name="cancel">రద్దు చేయండి</string>
+    <string name="database_not_created_info">భాష కోసం డేటాబేస్ సృష్టిస్తోంది.</string>
+    <string name="icon_already_present">ఐకాన్ ఇప్పటికే ఎంచుకోబడింది</string>
+    <string name="camera_missing">కెమెరా కనుగొనబడలేదు</string>
+    <string name="no_icon_warning">ఇంకా బోర్డు సృష్టించబడలేదు</string>
+    <string name="reposition_text">పున  స్థాపించడానికి ఏదైనా చిహ్నంపై ఎక్కువసేపు నొక్కండి</string>
+    <string name="reposition_complete_msg">చిహ్నం యొక్క క్రొత్త స్థానం సేవ్ చేయబడింది</string>
+    <string name="please_select_icon">దయచేసి మొదట చిత్రాన్ని ఎంచుకోండి</string>
+    <string name="txtContinue">కొనసాగించు (Continue)</string>
+    <string name="expressive_heading1">"వ్యక్తీకరణను ఎంచుకోవడానికి / సవరించడానికి "</string>
+    <string name="expressive_heading3">" బటన్ నొక్కండి"</string>
+    <string name="expressive_heading2">" బటన్ నొక్కండి"</string>
+    <string name="expressive_heading4">వ్యక్తీకరణ ఎంపికను తీసివేయడానికి బటన్ -</string>
+    <string name="icon_delete_warning">నొక్కండి</string>
+    <string name="board_not_found">బోర్డు కనుగొనబడలేదు</string>
+    <string name="setting_up_the_language">భాషను ఏర్పాటు చేస్తోంది, దయచేసి వేచి ఉండండి…</string>
+    <string name="completed_process">భాషా సెటప్ పూర్తయింది.</string>
+    <string name="unable_to_create_board">బోర్డుని సృష్టించడం సాధ్యం కాలేదు, దయచేసి మళ్ళీ ప్రయత్నించండి</string>
+    <string name="board">బోర్డు</string>
+    <string name="press_next_to_select_icons">ఎంచుకున్న చిహ్నాలను జోడించడానికి \"తదుపరి\" నొక్కండి.</string>
+    <string name="edit_board">ప్రస్తుత బోర్డుని సవరించండి</string>
+    <string name="delete_the_board">ప్రస్తుత బోర్డుని తొలగించండి</string>
+    <string name="edit_board_image">బోర్డు చిహ్నం మరియు పేరును సవరించండి</string>
+    <string name="search_board_in_jellow">శోధన బోర్డు</string>
+    <string name="enter_board_name_to_search">శోధించడానికి బోర్డు పేరును నమోదు చేయండి</string>
+    <string name="search_board_screen">శోధన బోర్డుల స్క్రీన్</string>
+    <string name="enter_icon_name">శోధించడానికి చిహ్నం పేరును నమోదు చేయండి</string>
+    <string name="my_boards_screen">నా బోర్డుల స్క్రీన్</string>
+    <string name="select_image_for_board">బోర్డు కోసం చిత్రాన్ని ఎంచుకోండి</string>
+    <string name="select_source_for_image_for_board">బోర్డు చిత్రం కోసం మూలాన్ని ఎంచుకోండి</string>
+    <string name="select_language_for_board">బోర్డు కోసం భాషను ఎంచుకోండి</string>
+    <string name="icon_select_screen">చిహ్నాల స్క్రీన్‌ను జోడించండి</string>
+    <string name="icons_selected">_ చిహ్నాలు ఎంచుకోబడ్డాయి</string>
+    <string name="icon_add_edit_screen">చిహ్నాల స్క్రీన్‌ను జోడించండి లేదా సవరించండి</string>
+    <string name="edit_current_icon">ప్రస్తుత చిహ్నాన్ని సవరించండి</string>
+    <string name="delete_current_icon">ప్రస్తుత చిహ్నాన్ని తొలగించండి</string>
+    <string name="add_edit_icons_dialog">చిహ్నం డైలాగ్‌ను జోడించండి లేదా సవరించండి</string>
+    <string name="select_image_for_icon">చిహ్నం కోసం చిత్రాన్ని ఎంచుకోండి</string>
+    <string name="enable_reposition_icons">చిహ్నాల పున  స్థాపనను ప్రారంభించండి</string>
+    <string name="disable_reposition_icons">చిహ్నాల పున  స్థాపనను నిలిపివేయండి</string>
+    <string name="tap_icon_to_select_expression">వ్యక్తీకరణను జోడించడానికి నొక్కండి</string>
+    <string name="tap_icon_to_deselect_expression">వ్యక్తీకరణను తొలగించడానికి నొక్కండి</string>
+    <string name="tap_add_to_add_expression">వ్యక్తీకరణను ఎంచుకోవడానికి జోడించు బటన్ నొక్కండి</string>
+    <string name="tap_delete_to_delete_expression">వ్యక్తీకరణ ఎంపికను తీసివేయడానికి తొలగించు బటన్ నొక్కండి</string>
+    <string name="open_jellow_privacy_policy">జెల్లో గోప్యతా విధానాన్ని తెరవండి.</string>
+    <string name="board_deleted">\"-\" బోర్డు తొలగించబడింది</string>
+    <string name="search_icon_available_in_jellow">ఎల్లో అందుబాటులో ఉన్న చిహ్నాన్ని శోధించండి</string>
+    <string name="search_icon_the_board">ప్రస్తుత బోర్డులో ఐకాన్ శోధించండి</string>
+    <string name="preparing_language_screen">భాష సెటప్ స్క్రీన్</string>
+    <string name="language_package_update">పసుపు కంటెంట్ నవీకరణ స్క్రీన్</string>
+    <string name="dialog">డైలాగ్</string>
+    <string name="close_content_download_screen">కంటెంట్ డౌన్‌లోడ్ స్క్రీన్‌ను మూసివేయండి</string>
+    <string name="share_jellow_app">జెల్లో అనువర్తనాన్ని భాగస్వామ్యం చేయండి</string>
+    <string name="rate_jellow_app">గూగుల్  ప్లే  స్టోర్‌లో జెల్లో అనువర్తనాన్ని రేట్ చేయండి</string>
+    <string name="received_your_feedback">మీ అభిప్రాయం తెలియచేసినందుకు ధన్యవాదములు</string>
+    <string name="no_btn">లేదు (No)</string>
+    <string name="next_btn">తరువాత (Next)</string>
+    <string name="my_boards">నా బోర్డులు</string>
+    <string name="board_settings">బోర్డు సెట్టింగులు</string>
+    <string name="add_expression_here">మీ స్వంత వ్యక్తీకరణ పంక్తిని జోడించండి</string>
+    <string name="about_je_intro42">మేక్ మై బోర్డ్ (నా బోర్డులు) ఉపయోగించడం ద్వారా, మీరు మీ స్వంత అనుకూలీకరించిన చిహ్నాలను మరియు వాటి వ్యక్తీకరణ వచనాన్ని జోడించవచ్చు లేదా సవరించవచ్చు.</string>
+    <string name="about_je_more_info">మరింత సమాచారం కోసం, కింది వీడియో బటన్‌ను నొక్కండి:</string>
+    <string name="visual_access_info_video">జెల్లో విజువల్ యాక్సెసిబిలిటీపై డెమోని చూడటానికి, కింది వీడియో బటన్‌ను నొక్కండి:</string>
+    <string name="switch_access_info_video">జెల్లో స్విచ్ ప్రాప్యతపై డెమోని చూడటానికి, కింది వీడియో బటన్‌పై నొక్కండి:</string>
+    <string name="my_boards_title">ఎల్లో అప్లికేషన్ ఉపయోగించి, ఒక వినియోగదారు బోర్డుని సృష్టించవచ్చు. బోర్డు బహుళ వినియోగదారు నిర్వచించిన చిహ్నాలను కలిగి ఉంటుంది. వినియోగదారు తమ బోర్డులో ఇప్పటికే ఉన్న జెల్లో చిహ్నాలను కూడా జోడించవచ్చు. ప్రధాన స్క్రీన్‌లో వృత్తాకార ప్లస్ చిహ్నంపై “నా బోర్డులు” స్క్రీన్ నొక్కడానికి. బోర్డులోని చిహ్నాలపై బోర్డు నొక్కడానికి.</string>
+    <string name="my_boards_title_cd">ఎంచుకున్న చిత్రం “నా బోర్డులు” స్క్రీన్‌ను వర్ణిస్తుంది. “నా బోర్డులు” స్క్రీన్‌ను తెరవడానికి, ప్రధాన స్క్రీన్‌లో వృత్తాకార ప్లస్ చిహ్నంపై నొక్కండి. చిత్రం యూజర్ యొక్క ప్రస్తుత బోర్డు జాబితా మరియు “ప్లస్” బటన్‌ను కలిగి ఉంది. “ప్లస్” చిహ్నంపై “బోర్డుని జోడించు” చిహ్నం అని కూడా పిలువబడే కొత్త బోర్డు ట్యాప్‌ను సృష్టించడానికి. బోర్డులోని చిహ్నాలపై బోర్డు నొక్కడానికి</string>
+    <string name="my_boards_info">స్క్రీన్ కుడి వైపున “సవరించు” మెను చిహ్నంపై నొక్కండి. ఇది జాబితాలోని బోర్డుల కోసం లక్షణాలను సవరించడానికి మరియు తొలగించడానికి అనుమతిస్తుంది.</string>
+    <string name="my_boards_info_cd">ఎంచుకున్న చిత్రం “నా బోర్డులు” స్క్రీన్‌లో బోర్డు ఎడిటింగ్ లక్షణాలను వర్ణిస్తుంది. స్క్రీన్ కుడి వైపున “సవరించు” మెను చిహ్నంపై నొక్కండి. ఇది జాబితాలోని బోర్డుల కోసం లక్షణాలను సవరించడానికి మరియు తొలగించడానికి అనుమతిస్తుంది. సవరణ ప్రారంభించబడినప్పుడు, “సవరించు” మరియు “తొలగించు” బటన్లను కనుగొనడానికి జాబితాలోని చిహ్నాల ద్వారా స్వైప్ చేయండి.</string>
+    <string name="my_boards_add_board">క్రొత్త బోర్డుని సృష్టించడానికి “బోర్డుని జోడించు” చిహ్నంపై నొక్కండి. “బోర్డుని జోడించు” తెరపై, మీరు ఒక చిత్రాన్ని ఎంచుకోవచ్చు, బోర్డు పేరును టైప్ చేయవచ్చు మరియు బోర్డు కోసం ఒక భాషను ఎంచుకోవచ్చు.</string>
+    <string name="my_boards_add_board_cd">ఎంచుకున్న చిత్రం “బోర్డుని జోడించు” స్క్రీన్‌ను వర్ణిస్తుంది. క్రొత్త బోర్డుని సృష్టించడానికి “బోర్డుని జోడించు” చిహ్నంపై నొక్కండి. మీరు "బోర్డు కోసం చిత్రాన్ని ఎంచుకోండి" బటన్‌ను ఉపయోగించి బోర్డు కోసం చిత్రాన్ని ఎంచుకోవచ్చు. మీరు బోర్డు పేరును “ఇక్కడ బోర్డు పేరును జోడించు” బాక్స్‌లో టైప్ చేయవచ్చు. అప్పుడు మీరు “బోర్డు కోసం భాషను ఎంచుకోండి” డ్రాప్‌డౌన్ మెనుని ఉపయోగించి బోర్డుని సృష్టించాలనుకునే భాషను ఎంచుకోండి.</string>
+    <string name="my_boards_add_icons">చిహ్నాలను జోడించు” స్క్రీన్‌లో, మీరు మీ బోర్డుకి ఎల్లో లైబ్రరీ నుండి చిహ్నాలను జోడించవచ్చు / ఎంచుకోవచ్చు. ఎల్లో లైబ్రరీలోని చిహ్నాన్ని శోధించడానికి శోధన లక్షణం కూడా అందుబాటులో ఉంది.</string>
+    <string name="my_boards_add_icons_cd">ఎంచుకున్న చిత్రం “చిహ్నాలను జోడించు” స్క్రీన్‌ను వర్ణిస్తుంది. మీ బోర్డులో ఎల్లో లైబ్రరీ చిహ్నాలను జోడించడానికి / ఎంచుకోవడానికి స్క్రీన్ ఉపయోగించబడుతుంది. స్క్రీన్‌లో వర్గం మరియు ఉపవర్గం చిహ్నాల జాబితా ఉంది. విస్తరించదగిన జాబితా స్క్రీన్ ఎడమ వైపున అందుబాటులో ఉంది. నిర్దిష్ట జాబితా లేదా ఉప-వర్గంతో జాబితాలోని చిహ్నాలను ఫిల్టర్ చేయడానికి ఈ జాబితా మీకు సహాయం చేస్తుంది. మీరు కూడా, ఏదైనా చిహ్నం కోసం శోధించవచ్చు. శోధన చిహ్నం స్క్రీన్ కుడి ఎగువ భాగంలో ఉంచబడుతుంది.</string>
+    <string name="my_boards_add_edit_icons">“చిహ్నాలను జోడించు” స్క్రీన్‌లో, మీరు మీ స్వంత అనుకూలీకరించిన చిహ్నాలను జోడించవచ్చు మరియు జాబితాలోని చిహ్నాలను సవరించవచ్చు లేదా తొలగించవచ్చు. మీ స్వంత అనుకూల చిహ్నాన్ని సృష్టించడానికి, జాబితాలోని “చిహ్నాన్ని జోడించు” బటన్ నొక్కండి.</string>
+    <string name="my_boards_add_edit_icons_cd">ఎంచుకున్న చిత్రం “చిహ్నాలను జోడించు” స్క్రీన్‌ను వర్ణిస్తుంది. మీ స్వంత అనుకూల చిహ్నాలను జోడించడానికి స్క్రీన్ ఉపయోగించబడుతుంది. అలాగే, సవరించడానికి, జాబితాలోని ప్రస్తుత చిహ్నాలను తొలగించండి. కస్టమ్ ఐకాన్ జోడించడానికి జాబితాలోని “ఐకాన్ జోడించు” బటన్ పై నొక్కండి. జాబితాలోని చిహ్నాన్ని సవరించడానికి, చిహ్నంలోని “సవరించు” బటన్‌పై నొక్కండి. చిహ్నాన్ని తొలగించడానికి, చిహ్నంలోని “తొలగించు” బటన్‌పై నొక్కండి. మీరు ప్రస్తుత బోర్డు కోసం “ప్రతి స్క్రీన్‌కు చిహ్నాల సంఖ్య” సెట్టింగ్‌ను కూడా సెట్ చేయవచ్చు. స్క్రీన్‌కు కుడి ఎగువన ఉంచబడిన “ప్రతి స్క్రీన్‌కు చిహ్నాల సంఖ్య” మెను చిహ్నం.</string>
+    <string name="my_boards_add_icons_window">“ఐకాన్ జోడించు” విండోలో, మీరు మీ స్వంత కస్టమ్ ఐకాన్‌కు పేరు మరియు చిత్రాన్ని సెట్ చేయవచ్చు.</string>
+    <string name="my_boards_add_icons_window_cd">ఎంచుకున్న చిత్రం “ఐకాన్ జోడించు” విండోను వర్ణిస్తుంది. మీ స్వంత అనుకూల చిహ్నం కోసం పేరు మరియు చిత్రాన్ని సెట్ చేయడానికి విండో ఉపయోగించబడుతుంది. మీరు మీ పరికర కెమెరా నుండి లేదా ఎల్లో లైబ్రరీ నుండి చిత్రాన్ని ఎంచుకోవచ్చు.</string>
+    <string name="my_boards_add_edit_expression">“జోడించు-సవరించు వెర్బియేజ్” విండోలో, మీరు అనుకూల చిహ్నం కోసం వ్యక్తీకరణ బటన్లను ప్రారంభించవచ్చు లేదా నిలిపివేయవచ్చు. ఏదైనా వ్యక్తీకరణను ప్రారంభించడానికి, వృత్తాకార ఆకుపచ్చ ప్లస్ బటన్‌పై నొక్కండి, దానికి అనుబంధిత రెండు వ్యక్తీకరణ పంక్తులను జోడించండి. ఏదైనా వ్యక్తీకరణను నిలిపివేయడానికి, వృత్తాకార ఎరుపు మైనస్ బటన్‌పై నొక్కండి. అప్పుడు “సేవ్” బటన్ నొక్కండి.</string>
+    <string name="my_boards_add_edit_expression_cd">ఎంచుకున్న చిత్రం “జోడించు-సవరించు వెర్బియేజ్” విండోను వర్ణిస్తుంది. అనుకూల చిహ్నం కోసం వ్యక్తీకరణ బటన్లను ప్రారంభించడానికి లేదా నిలిపివేయడానికి స్క్రీన్ ఉపయోగించబడుతుంది. ఏదైనా వ్యక్తీకరణను ప్రారంభించడానికి, వృత్తాకార ఆకుపచ్చ ప్లస్ బటన్‌పై నొక్కండి, దానికి అనుబంధిత రెండు వ్యక్తీకరణ పంక్తులను జోడించండి. ఏదైనా వ్యక్తీకరణను నిలిపివేయడానికి, వృత్తాకార ఎరుపు మైనస్ బటన్‌పై నొక్కండి. అప్పుడు “సేవ్” బటన్ నొక్కండి.</string>
+    <string name="my_boards_board_home_info">బోర్డు హోమ్ స్క్రీన్‌లో, మీరు మీ అనుకూల బోర్డుని ఉపయోగించవచ్చు / ప్లే చేయవచ్చు. మీరు, ప్రస్తుత బోర్డులో ఐకాన్ కోసం శోధించవచ్చు, ప్రస్తుత బోర్డు కోసం “ప్రతి స్క్రీన్‌కు చిహ్నాల సంఖ్య” సెట్టింగ్‌ను మార్చవచ్చు లేదా ప్రస్తుత బోర్డులోని చిహ్నాలను మార్చవచ్చు. ఈ బటన్లు స్క్రీన్ కుడి వైపున అందుబాటులో ఉన్నాయి.</string>
+    <string name="my_boards_board_home_info_cd">ఎంచుకున్న చిత్రం బోర్డుల హోమ్ స్క్రీన్‌ను వర్ణిస్తుంది. ఈ స్క్రీన్‌లో, మీరు సృష్టించిన బోర్డుని ఉపయోగించవచ్చు లేదా ప్లే చేయవచ్చు. అలాగే, మీరు ప్రస్తుత బోర్డ్‌లో ఐకాన్ కోసం శోధించవచ్చు, ప్రస్తుత బోర్డు కోసం “స్క్రీన్‌కు చిహ్నాల సంఖ్య” సెట్టింగ్‌ను మార్చవచ్చు లేదా ప్రస్తుత బోర్డులోని చిహ్నాలను మార్చవచ్చు. ఈ బటన్లు స్క్రీన్ కుడి వైపున అందుబాటులో ఉన్నాయి.</string>
+    <string name="place_holder_no_icons_added">బోర్డుకి ఏ ఐకాన్ లేదు</string>
+    <string name="language_not_working">అనువర్తనం ఎంచుకున్న భాష కోసం వాయిస్ అవుట్‌పుట్‌ను ఉత్పత్తి చేయకపోతే, దయచేసి ఈ క్రింది దశలను చేయండి:</string>
+    <string name="txtMoreLangSetting">మరిన్ని భాషా సెట్టింగ్:</string>
+    <string name="board_place_holder_text">మీరు ఇంకా ఏ బోర్డును జోడించలేదు.</string>
+    <string name="EnableDisplaySpeechText">మాట్లాడే వచనాన్ని టెక్స్ట్ బార్‌లో ప్రదర్శించండి</string>
+    <string name="place_holder_text">చిహ్నాలు ఇంకా ఎంపిక చేయబడలేదు. దయచేసి ఎడమ వర్గం మెను నుండి చిహ్నాలను ఎంచుకోండి</string>
+</resources>

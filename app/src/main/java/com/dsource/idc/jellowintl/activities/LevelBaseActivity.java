@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 
@@ -17,6 +18,7 @@ import com.dsource.idc.jellowintl.utility.interfaces.TextToSpeechCallBacks;
 
 public class LevelBaseActivity extends SpeechEngineBaseActivity implements TextToSpeechCallBacks {
     private String mErrorMessage, mDialogTitle, mLanguageSetting, mSwitchLang;
+    private Toast toast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +46,22 @@ public class LevelBaseActivity extends SpeechEngineBaseActivity implements TextT
             RelativeLayout rl = findViewById(R.id.parent);
             FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) rl.getLayoutParams();
             lp.topMargin = 72;
+        }
+    }
+
+    public void speakAndShowTextBar_(final String text){
+        speak(text);
+        if(getSession().getTextBarVisibility()){
+            if (toast!= null) {
+                toast.cancel();
+            }
+            this.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    toast = Toast.makeText(LevelBaseActivity.this, text, Toast.LENGTH_SHORT);
+                    toast.show();
+                }
+            });
         }
     }
 

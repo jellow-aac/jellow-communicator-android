@@ -80,6 +80,8 @@ public class AddEditActivity extends BaseBoardActivity<IAddEditView, IAddEditPre
             public void onPositiveClickListener() {
                 adapter.remove(adapterPosition);
                 mPresenter.removeIcon(adapterPosition - 1);
+                if(getAdapter().getList().size() == 0)
+                    setVisibility(R.id.place_holder_text, true);
             }
         });
         dialog.setOnNegativeClickListener(new DialogCustom.OnNegativeClickListener() {
@@ -95,6 +97,8 @@ public class AddEditActivity extends BaseBoardActivity<IAddEditView, IAddEditPre
     public void initViewsAndEvents() {
         //Disable Expressive Icons for this activity
         setVisibility(R.id.save_button, true);
+        if(getAdapter().getList().size() == 0)
+            setVisibility(R.id.place_holder_text, true);
         getView(R.id.keyboard).setAlpha(GlobalConstants.DISABLE_ALPHA);
         {
             int []icons = {R.id.ivlike, R.id.ivyes, R.id.ivadd, R.id.ivdislike, R.id.ivno,
@@ -185,6 +189,8 @@ public class AddEditActivity extends BaseBoardActivity<IAddEditView, IAddEditPre
                 mAdapter.add(icon);
                 mRecyclerView.smoothScrollToPosition(mAdapter.getItemCount() - 1);
                 mPresenter.updateBoard(currentBoard);
+                if(getAdapter().getList().size() != 0)
+                    setVisibility(R.id.place_holder_text, false);
             }
 
             @Override

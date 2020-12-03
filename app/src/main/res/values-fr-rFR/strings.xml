@@ -208,29 +208,6 @@
     <string name="about_je_intro12">Lorsque le contenu est utilisé, nous vous demanderons de reconnaître Indian Institute of Technology Bombay.</string>
     <string name="about_je_intro13">Jellow est disponible en téléchargement sur le site _</string>
     <string name="about_je_intro14">Si vous êtes intéressé à développer davantage le code ou à organiser un atelier Jellow dans votre région, veuillez écrire à Prof. Ravi Poovaiah: jellowcommunicator@gmail.com</string>
-    <string name="credits">Crédits:</string>
-    <string name="about_je_intro15">La conception de l\'idée, l\'enquête et la supervision du projet:</string>
-    <string name="about_je_intro16">Professor Ravi Poovaiah et Dr Ajanta Sen</string>
-    <string name="about_je_intro17">Initiale du développement du concept:</string>
-    <string name="about_je_intro18">Anchal Kumar, Samraat Sardesai, Peter Joseph, Antara Hazarika</string>
-    <string name="about_je_intro19">Le développement logiciel:</string>
-    <string name="about_je_intro20">Rahul Rupchand Jidge, Ayaz Alam, Sourabh Jain, Laxman Kumar, Narayana Reddy, Nikhil Ahirrao, Harshit Budhraja, Sumeet Agrawal, Roopa Narayan Sahoo, Shruti Gupta, Aastha Joshi, Dhairya Dand, Pritam Pebam</string>
-    <string name="about_je_intro31">Vérification de logiciels et de convivialité:</string>
-    <string name="about_je_intro32">Dr. Sudha Srinivasan, Vinaya Tawde, Sachin Sonawane, Roopa Narayan Sahoo, Rahul Rupchand Jidge</string>
-    <string name="about_je_intro21">Design du site:</string>
-    <string name="about_je_intro22">Professor Ravi Poovaiah, Yogesh Masaye, Sumedh Garud, Roopa Narayan Sahoo</string>
-    <string name="about_je_intro23">Design des icônes, des audiovisuels et du système visuel:</string>
-    <string name="about_je_intro24">Vinaya Tawde, Shweta Gaurish Pathare, Anisha Malhotra, Simone Sen, Nikita Iyer, Ganesh Gajjela</string>
-    <string name="about_je_intro25">Traduction:</string>
-    <string name="about_je_intro26">Sachin Sonawane, Dr Sudha Srinivasan, Kaustubh Rajwade, Shashank Khobragade, Jeeva Kannan Muthukumar, Deepal Shethia, Dr Rupak Misra</string>
-    <string name="about_je_intro27">La recherche , le développement du vocabulaire et les études sur les utilisateurs:</string>
-    <string name="about_je_intro28">Dr Sudha Srinivasan, Pushkar Deshpande, Sakshi Pal, Siddhi Patel</string>
-    <string name="about_je_intro29">Soutien:</string>
-    <string name="about_je_intro30">Le projet de E-kalpa être parrainés en NMEICT par le Ministère du développement des ressources humaines du Gouvernement (MHRD), Microsoft Design Expo 2004 et  une subvention d\'un an par le UNICEF le Fonds d\'innovation.</string>
-    <string name="about_je_intro38">Les études longitudinales d\'utilisateur et les essais sur Jellow Communicator:</string>
-    <string name="about_je_intro39">Topiwala National Medical College et B.Y.L Nair Charitable Hospital (les départements de psychiatrie, d\'audiologie et d\'orthophonie)</string>
-    <string name="about_je_intro40">La conception UX/UI et coordination générale:</string>
-    <string name="about_je_intro41">Professor Ravi Poovaiah, Roopa Narayan Sahoo, Vinaya Tawde</string>
     <string name="feedback_talkback_heading">Sur une échelle de 1 à 5, veuillez évaluer les aspects suivants</string>
 
     <string name="langauge_correction_message"> La langue \'"-"\' n\'est pas configurée correctement. Veuillez appuyer sur \'"_"\' pour fixer la langage. Ou vous pouvez passer par la langue défaut en appuyant \'"$"\'.</string>
@@ -449,12 +426,13 @@
     <string name="board_settings">le tableau paramètres</string>
     <string name="add_expression_here">Ajoutez votre propre ligne expressive</string>
     <string name="about_je_intro42">En utilisant Make My Board (Mes tableaux), vous pouvez ajouter ou modifier vos propres icônes personnalisées et leur texte expressif.</string>
-    <string name="about_je_intro43">Sensibilisation et promotion:</string>
-    <string name="about_je_intro44">Vidya Upadhya, Shweta Gourish Pathare, Sanmati Hosure</string>
     <string name="about_je_more_info">Pour plus d\'informations, appuyez sur le bouton vidéo suivant:</string>
     <string name="visual_access_info_video">Pour voir la démo sur l\'accessibilité visuelle dans Jellow, appuyez sur le bouton vidéo suivant:</string>
     <string name="switch_access_info_video">Pour voir la démo sur Switch Accessibility dans Jellow, appuyez sur le bouton vidéo suivant:</string>
     <string name="language_not_working">Si l\'application ne produit aucune sortie vocale pour la langue sélectionnée, veuillez suivre les étapes suivantes:</string>
     <string name="txtMoreLangSetting">Plus de paramètres de langue:</string>
     <string name="board_place_holder_text">Vous n\'avez pas encore ajouté de tableaux.</string>
+    <string name="acc_lang_bengali_bd">Bengali (Bangladesh)</string>
+    <string name="acc_lang_telugu_in">Telugu (Inde)</string>
+    <string name="acc_lang_eng_ng">Anglais (Nigéria)</string>
 </resources>

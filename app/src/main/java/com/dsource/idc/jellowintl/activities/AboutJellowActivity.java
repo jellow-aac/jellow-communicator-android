@@ -28,13 +28,10 @@ import static com.dsource.idc.jellowintl.utility.SessionManager.HI_IN;
 public class AboutJellowActivity extends SpeechEngineBaseActivity {
     private Button mBtnSpeak, mBtnStop;
     private TextView tv1, tv2, tv3, tv4, tv5, tv6, tv7, tv8, tv9, tv10, tv11, tv12, tv13, tv14, tv15, tv16,
-            tv17, tv18, tv19, tv20, tv21, tv22, tv23, tv24, tv25, tv26, tv27, tv28, tv29, tv30, tv31,
-            tv32, tv33, tv35, tv36, tv37;
-    private String mSpeechTxt, mGenInfo, mSoftInfo, mTermsOfUse, mCredits,
+            tv35;
+    private String mSpeechTxt, mGenInfo, mSoftInfo, mTermsOfUse,
             mIntro1, mIntro2, mIntro3, mIntro4, mIntro5, mIntro6, mIntro7, mIntro8,
-            mIntro9, mIntro10, mIntro11, mIntro12, mIntro13, mIntro14, mIntro15, mIntro16, mIntro17,
-            mIntro18, mIntro19, mIntro20, mIntro21, mIntro22, mIntro23, mIntro24, mIntro25, mIntro26,
-            mIntro27, mIntro28, mIntro29, mIntro30, mIntro31, mIntro32, mSpeak, mStop;
+            mIntro9, mIntro10, mIntro11, mIntro12, mIntro13, mIntro14, mSpeak, mStop;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -115,26 +112,7 @@ public class AboutJellowActivity extends SpeechEngineBaseActivity {
         tv14= findViewById(R.id.tv14);
         tv15= findViewById(R.id.tv15);
         tv16= findViewById(R.id.tv16);
-        tv17= findViewById(R.id.tv17);
-        tv18= findViewById(R.id.tv18);
-        tv19= findViewById(R.id.tv19);
-        tv20= findViewById(R.id.tv20);
-        tv21= findViewById(R.id.tv21);
-        tv22= findViewById(R.id.tv22);
-        tv23= findViewById(R.id.tv23);
-        tv24= findViewById(R.id.tv24);
-        tv25= findViewById(R.id.tv25);
-        tv26= findViewById(R.id.tv26);
-        tv27= findViewById(R.id.tv27);
-        tv28= findViewById(R.id.tv28);
-        tv29= findViewById(R.id.tv29);
-        tv30= findViewById(R.id.tv30);
-        tv31= findViewById(R.id.tv31);
-        tv32= findViewById(R.id.tv32);
-        tv33= findViewById(R.id.tv33);
         tv35= findViewById(R.id.tv35);
-        tv36= findViewById(R.id.tv36);
-        tv37= findViewById(R.id.tv37);
         mBtnSpeak = findViewById(R.id.speak);
         mBtnStop = findViewById(R.id.stop);
 
@@ -166,27 +144,8 @@ public class AboutJellowActivity extends SpeechEngineBaseActivity {
         mIntro12 = getString(R.string.about_je_intro12);
         mIntro13 = getString(R.string.about_je_intro13).replace("_", getString(R.string.websiteLink));
         mIntro14 = getString(R.string.about_je_intro14);
-        mCredits = getString(R.string.credits);
-        mIntro15 = getString(R.string.about_je_intro15);
-        mIntro16 = getString(R.string.about_je_intro16);
-        mIntro17 = getString(R.string.about_je_intro17);
-        mIntro18 = getString(R.string.about_je_intro18);
-        mIntro19 = getString(R.string.about_je_intro19);
-        mIntro20 = getString(R.string.about_je_intro20);
-        mIntro21 = getString(R.string.about_je_intro21);
-        mIntro22 = getString(R.string.about_je_intro22);
-        mIntro23 = getString(R.string.about_je_intro23);
-        mIntro24 = getString(R.string.about_je_intro24);
-        mIntro25 = getString(R.string.about_je_intro25);
-        mIntro26 = getString(R.string.about_je_intro26);
-        mIntro27 = getString(R.string.about_je_intro27);
-        mIntro28 = getString(R.string.about_je_intro28);
-        mIntro29 = getString(R.string.about_je_intro29);
-        mIntro30 = getString(R.string.about_je_intro30);
-        mIntro31 = getString(R.string.about_je_intro31);
         mSpeak = getString(R.string.speak);
         mStop = getString(R.string.stop);
-        mIntro32 = getString(R.string.about_je_intro32);
 
         mSpeechTxt = getString(R.string.about_jellow_speech);
         if(getSession().getLanguage().equals(HI_IN)) {
@@ -271,26 +230,7 @@ public class AboutJellowActivity extends SpeechEngineBaseActivity {
         tv14.setText(mIntro12);
         tv15.setText(mIntro13);
         tv16.setText(mIntro14);
-        tv17.setText(mCredits);
-        tv18.setText(mIntro15);
-        tv19.setText(mIntro16);
-        tv20.setText(mIntro17);
-        tv21.setText(mIntro18);
-        tv22.setText(mIntro19);
-        tv23.setText(mIntro20);
-        tv24.setText(mIntro21);
-        tv25.setText(mIntro22);
-        tv26.setText(mIntro23);
-        tv27.setText(mIntro24);
-        tv28.setText(mIntro25);
-        tv29.setText(mIntro26);
-        tv30.setText(mIntro27);
-        tv31.setText(mIntro28);
-        tv32.setText(mIntro29);
-        tv33.setText(mIntro30);
         tv35.setText(mIntro6);
-        tv36.setText(mIntro31);
-        tv37.setText(mIntro32);
         mBtnSpeak.setText(mSpeak);
         mBtnStop.setText(mStop);
         Linkify.addLinks(tv15, Linkify.WEB_URLS);

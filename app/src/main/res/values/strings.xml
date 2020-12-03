@@ -181,6 +181,7 @@
     <string name="enable_calling" translatable="false">com.dsource.idc.jellow.enable_calling</string>
     <string name="string_msg" translatable="false">com.dsource.idc.jellow.string_message</string>
     <string name="last_crash_reported" translatable="false">com.dsource.idc.jellow.last_crash_reported</string>
+    <string name="text_bar_visibility" translatable="false">com.dsource.idc.jellow.text_bar_visibility</string>
     <string name="txt_registration_jellowCalluDesc">(This is how Jellow calls you)</string>
     <string name="txt_registration_emergencynoDesc">(To be used for correspondence in case of an emergency involving the child.)</string>
     <string name="txt_registration_selectLangDesc">Select a Language for Jellow **</string>
@@ -197,6 +198,8 @@
     <string name="rejected_call_permission_req">Call permission is denied.</string>
     <string name="grant_permission_from_settings">Enable call permission from settings.</string>
     <string name="txtEnableBuiltInCalling">Enable emergency calling from Jellow</string>
+    <string name="EnableDisplaySpeechText">Display the spoken text on the text bar</string>
+
     <string name="dismiss">Dismiss</string>
     <string name="register_user">Please wait registration is in process…</string>
     <string name="exit">Exit</string>
@@ -244,29 +247,6 @@
     <string name="about_je_intro12">When the content is used, we request you to acknowledge Indian Institute of Technology Bombay.</string>
     <string name="about_je_intro13">Jellow is available for download at _</string>
     <string name="about_je_intro14">If interested in further developing the code or to conduct a Jellow workshop at your place, please write to Professor Ravi Poovaiah at jellowcommunicator@gmail.com</string>
-    <string name="credits">Credits:</string>
-    <string name="about_je_intro15">Idea Conception, Project Investigation and Supervision:</string>
-    <string name="about_je_intro16">Professor Ravi Poovaiah and Dr Ajanta Sen</string>
-    <string name="about_je_intro17">Initial Concept Development:</string>
-    <string name="about_je_intro18">Anchal Kumar, Samraat Sardesai, Peter Joseph, Antara Hazarika</string>
-    <string name="about_je_intro19">Software Development:</string>
-    <string name="about_je_intro20">Rahul Rupchand Jidge, Ayaz Alam, Sourabh Jain, Laxman Kumar, Narayana Reddy, Nikhil Ahirrao, Harshit Budhraja, Sumeet Agrawal, Roopa Narayan Sahoo, Shruti Gupta, Aastha Joshi, Dhairya Dand, Pritam Pebam</string>
-    <string name="about_je_intro31">Software and usability testing:</string>
-    <string name="about_je_intro32">Dr. Sudha Srinivasan, Vinaya Tawde, Sachin Sonawane, Roopa Narayan Sahoo, Rahul Rupchand Jidge</string>
-    <string name="about_je_intro21">Website Design:</string>
-    <string name="about_je_intro22">Professor Ravi Poovaiah, Yogesh Masaye, Sumedh Garud, Roopa Narayan Sahoo</string>
-    <string name="about_je_intro23">Icons, Sound and Visual Design:</string>
-    <string name="about_je_intro24">Vinaya Tawde, Shweta Gaurish Pathare, Anisha Malhotra, Simone Sen, Nikita Iyer, Ganesh Gajjela</string>
-    <string name="about_je_intro25">Translation:</string>
-    <string name="about_je_intro26">Sachin Sonawane, Dr Sudha Srinivasan, Kaustubh Rajwade, Shashank Khobragade, Jeeva Kannan Muthukumar, Deepal Shethia, Dr Rupak Misra</string>
-    <string name="about_je_intro27">Research, Vocabulary Development, and User Studies:</string>
-    <string name="about_je_intro28">Dr Sudha Srinivasan, Pushkar Deshpande, Sakshi Pal, Siddhi Patel</string>
-    <string name="about_je_intro29">Support:</string>
-    <string name="about_je_intro30">E-kalpa project sponsored under NMEICT by MHRD, Microsoft Design Expo 2004 and a 1-year seed grant through the UNICEF Innovation Fund</string>
-    <string name="about_je_intro38">Longitudinal user studies and field testing of Jellow Communicator:</string>
-    <string name="about_je_intro39">Topiwala National Medical College and B.Y.L Nair Charitable Hospital (Departments of Psychiatry and Audiology and Speech Therapy)</string>
-    <string name="about_je_intro40">UX/UI Design and Overall Coordination:</string>
-    <string name="about_je_intro41">Professor Ravi Poovaiah, Roopa Narayan Sahoo and Vinaya Tawde</string>
     <string name="feedback_talkback_heading">On a scale of 1 to 5, please rate the following</string>
 
     <string name="langauge_correction_message"> \'"-"\' language is not setup correctly. Press \'"_"\' to fix the language. \n Or you can switch to default language by pressing \'"$"\'.</string>
@@ -345,12 +325,15 @@
     <string name="acc_lang_marathi">Marathi (India)</string>
     <string name="acc_lang_hindi">Hindi (India)</string>
     <string name="acc_lang_bengali">Bengali (India)</string>
+    <string name="acc_lang_bengali_bd">Bengali (Bangladesh)</string>
     <string name="acc_lang_eng_in">English (India)</string>
     <string name="acc_lang_eng_gb">English (United Kingdom)</string>
     <string name="acc_lang_eng_us">English (United States)</string>
     <string name="acc_lang_eng_au">English (Australia)</string>
+    <string name="acc_lang_eng_ng">English (Nigeria)</string>
     <string name="acc_lang_span_span">Spanish (Spain)</string>
     <string name="acc_lang_tamil_in">Tamil (India)</string>
+    <string name="acc_lang_telugu_in">Telugu (India)</string>
     <string name="acc_lang_german_ger">German (Deutschland)</string>
 
     <string name="_1_icon">1 icon</string>
@@ -428,7 +411,7 @@
     <string name="delete_board">\"-\" board will be deleted?</string>
     <string name="icon_select_exit_warning">Your selection will be lost</string>
     <string name="current_board">Added Icons</string>
-    <string name="place_holder_text">Selected icons will appear here. You have not selected any icons yet !!</string>
+    <string name="place_holder_text">No Icons selected yet. Please select icons from left category menu</string>
     <string name="board_name">Add board name here</string>
     <string name="select_all">Select All</string>
     <string name="reset">Reset</string>
@@ -519,8 +502,6 @@
     <string name="board_settings">Board settings</string>
     <string name="add_expression_here">Add your own expressive line</string>
     <string name="about_je_intro42">By using Make My Board (My Boards), you can add or edit your own customized icons and their expressive text.</string>
-    <string name="about_je_intro43">Outreach and promotion:</string>
-    <string name="about_je_intro44">Vidya Upadhya, Shweta Gourish Pathare, Sanmati Hosure</string>
     <string name="about_je_more_info">For more information, tap on the following video button:</string>
     <string name="visual_access_info_video">To view the demo on Visual Accessibility in Jellow, tap on the following video button:</string>
     <string name="switch_access_info_video">To view the demo on Switch Accessibility in Jellow, tap on the following video button:</string>
@@ -540,7 +521,8 @@
     <string name="my_boards_add_edit_expression_cd">The image selected depicts the “Add-Edit Verbiage” window. The screen is used to enable or disable expressive buttons for the custom icon. To enable any expression, tap on circular green plus button then add associated two expression lines to it. To disable any expression, tap on circular red minus button. Then tap “Save” button.</string>
     <string name="my_boards_board_home_info">In the board home screen, you can use/play your custom board. You can, search for a icon in the current board, change the “Number of Icons per screen” setting for the current board or reposition the icons in the current board. These buttons are available on the right top of the screen.</string>
     <string name="my_boards_board_home_info_cd">The image selected depicts the boards home screen. In this screen, you can use or play the created board. Also, you can search for a icon in the current board, change the “Number of Icons per screen” setting for the current board or reposition the icons in the current board. These buttons are available on the right top of the screen.</string>
+    <string name="place_holder_no_icons_added">The board don\'t have any icon</string>
     <string name="language_not_working">If the app does not produce any voice output for the selected language, please perform the following steps:</string>
     <string name="txtMoreLangSetting">More Language Setting:</string>
-    <string name="board_place_holder_text">You have not added any boards yet.</string>
+    <string name="board_place_holder_text">You have not added any board yet.</string>
 </resources>

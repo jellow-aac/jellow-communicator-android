@@ -211,29 +211,6 @@
     <string name="about_je_intro12">Cuando uses el contenido, agradeceríamos que valoraras la labor de Indian Institute of Technology, Bombay.</string>
     <string name="about_je_intro13">Jellow está disponible para descargar en _</string>
     <string name="about_je_intro14">Si tienes interés en desarrollar más el código o realizar un taller Jellow en su lugar, por favor escribe al Profesor Ravi Poovaiah, jellowcommunicator@gmail.com</string>
-    <string name="credits">Créditos:</string>
-    <string name="about_je_intro15">Concepción de la idea, Investigación del proyecto y Supervisión:</string>
-    <string name="about_je_intro16">Prof. Ravi Poovaiah y Dr. Ajanta Sen</string>
-    <string name="about_je_intro17">Desarrollo del Concepto Inicial:</string>
-    <string name="about_je_intro18">Anchal Kumar, Samraat Sardesai, Peter Joseph, Antara Hazarika</string>
-    <string name="about_je_intro19">Desarrollo de Software:</string>
-    <string name="about_je_intro20">Rahul Rupchand Jidge, Ayaz Alam, Sourabh Jain, Laxman Kumar, Narayana Reddy, Nikhil Ahirrao, Harshit Budhraja, Sumeet Agrawal, Roopa Narayan Sahoo, Shruti Gupta, Aastha Joshi, Dhairya Dand, Pritam Pebam</string>
-    <string name="about_je_intro31">Pruebas de software y de uso:</string>
-    <string name="about_je_intro32">Dra. Sudha Srinivasan, Vinaya Tawde, Sachin Sonawane, Roopa Narayan Sahoo, Rahul Rupchand Jidge</string>
-    <string name="about_je_intro21">Diseño de Sitio Web:</string>
-    <string name="about_je_intro22">Professor Ravi Poovaiah, Yogesh Masaye, Sumedh Garud, Roopa Narayan Sahoo</string>
-    <string name="about_je_intro23">Iconos, diseño visual y de sonido:</string>
-    <string name="about_je_intro24">Vinaya Tawde, Shweta Gaurish Pathare, Anisha Malhotra, Simone Sen, Nikita Iyer, Ganesh Gajjela</string>
-    <string name="about_je_intro25">Traducción:</string>
-    <string name="about_je_intro26">Sachin Sonawane, Dr Sudha Srinivasan, Kaustubh Rajwade, Shashank Khobragade, Jeeva Kannan Muthukumar, Deepal Shethia, Dr Rupak Misra</string>
-    <string name="about_je_intro27">Investigación, Desarrollo de vocabulario y Estudios de usuarios:</string>
-    <string name="about_je_intro28">Dr Sudha Srinivasan, Pushkar Deshpande, Sakshi Pal, Siddhi Patel</string>
-    <string name="about_je_intro29">Patrocinio:</string>
-    <string name="about_je_intro30">El proyecto de E-kalpa es patrocinado por MHRD, Microsoft Design Expo 2004 bajo NMECIT y por UNICEF Innovation Fund con una subvención de un año.</string>
-    <string name="about_je_intro38">Estudio longitudinal y Pruebas de Campo del Jellow Communicator</string>
-    <string name="about_je_intro39">Topiwala National Medical College and B.Y.L Nair Charitable Hospital (Departamentos de Psiquiatría y Audiología y Logopedia)</string>
-    <string name="about_je_intro40">El diseño UX/UI y coordinacíon general:</string>
-    <string name="about_je_intro41">Professor Ravi Poovaiah, Roopa Narayan Sahoo, Vinaya Tawde</string>
     <string name="feedback_talkback_heading">En una escala de 1 a 5, por favor valora los siguientes aspectos</string>
 
     <string name="langauge_correction_message">La idioma de \'"-"\' no se ha configurado correctamente. Pulsar \'"_"\' de corregir la idioma. O puede cambiar a la idioma predeterminado pulsando \'"$"\'</string>
@@ -307,7 +284,7 @@
 
     <string name="acc_lang_marathi">Marathi (India)</string>
     <string name="acc_lang_hindi">Hindi (India)</string>
-    <string name="acc_lang_bengali">Bengali (India)</string>
+    <string name="acc_lang_bengali">Bengalí (India)</string>
     <string name="acc_lang_eng_in">Inglés (India)</string>
     <string name="acc_lang_eng_gb">Inglés (Reino Unido)</string>
     <string name="acc_lang_eng_us">Inglés (Estados Unidos)</string>
@@ -452,12 +429,14 @@
     <string name="board_settings">Configuraciones de tablero</string>
     <string name="add_expression_here">Agrega tu propia línea expresiva</string>
     <string name="about_je_intro42">Al usar Make My Board (Mis tablónes), puede agregar o editar sus propios iconos personalizados y su texto expresivo.</string>
-    <string name="about_je_intro43">Alcance y promoción:</string>
-    <string name="about_je_intro44">Vidya Upadhya, Shweta Gourish Pathare, Sanmati Hosure</string>
     <string name="about_je_more_info">Para obtener más información, toque el siguiente botón de video:</string>
     <string name="visual_access_info_video">Para ver la demostración sobre Accesibilidad visual en Jellow, toque el siguiente botón de video:</string>
     <string name="switch_access_info_video">Para ver la demostración sobre la accesibilidad del interruptor en Jellow, toque el siguiente botón de video:</string>
     <string name="language_not_working">Si la aplicación no produce ninguna salida de voz para el idioma seleccionado, realice los siguientes pasos:</string>
     <string name="txtMoreLangSetting">Más configuración de idioma:</string>
     <string name="board_place_holder_text">Aún no ha agregado ningún tablero.</string>
+    <string name="acc_lang_bengali_bd">Bengalí (Bangladesh)</string>
+    <string name="acc_lang_telugu_in">Telugu (India)</string>
+    <string name="acc_lang_eng_ng">Inglés (Nigeria)</string>
+    <string name="my_boards_title">ఎల్లో అప్లికేషన్ ఉపయోగించి, ఒక వినియోగదారు బోర్డుని సృష్టించవచ్చు. బోర్డు బహుళ వినియోగదారు నిర్వచించిన చిహ్నాలను కలిగి ఉంటుంది. వినియోగదారు తమ బోర్డులో ఇప్పటికే ఉన్న జెల్లో చిహ్నాలను కూడా జోడించవచ్చు. ప్రధాన స్క్రీన్‌లో వృత్తాకార ప్లస్ చిహ్నంపై “నా బోర్డులు” స్క్రీన్ నొక్కడానికి. బోర్డులోని చిహ్నాలపై బోర్డు నొక్కడానికి.</string>
 </resources>

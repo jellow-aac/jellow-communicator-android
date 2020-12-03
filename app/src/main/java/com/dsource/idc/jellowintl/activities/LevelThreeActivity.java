@@ -514,7 +514,7 @@ public class LevelThreeActivity extends LevelBaseActivity{
     private void initBackBtnListener() {
         mIvBack.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                speak(mNavigationBtnTxt[1]);
+                speakAndShowTextBar_(mNavigationBtnTxt[1]);
                 mIvBack.setImageResource(R.drawable.back_pressed);
                 mUec.createSendFbEventFromTappedView(27, "", "");
                 mIvBack.setImageResource(R.drawable.back_pressed);
@@ -553,7 +553,7 @@ public class LevelThreeActivity extends LevelBaseActivity{
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        speak(mNavigationBtnTxt[0]);
+                        speakAndShowTextBar_(mNavigationBtnTxt[0]);
                     }
                 }).start();
                 //When home is tapped in this activity it will close all other activities and
@@ -595,7 +595,7 @@ public class LevelThreeActivity extends LevelBaseActivity{
                 //Firebase event
                 singleEvent("Navigation", "Keyboard");
                 new DialogKeyboardUtterance().show(LevelThreeActivity.this);
-                speak(mNavigationBtnTxt[2]);
+                speakAndShowTextBar_(mNavigationBtnTxt[2]);
                 mIvKeyboard.setImageResource(R.drawable.keyboard_pressed);
                 mIvBack.setImageResource(R.drawable.back);
                 mIvHome.setImageResource(R.drawable.home);
@@ -636,13 +636,13 @@ public class LevelThreeActivity extends LevelBaseActivity{
                 if (!mShouldReadFullSpeech) {
                     // if value of mFlgLike is 1, then should speak "really like".
                     if (mFlgLike == GlobalConstants.LONG_SPEECH) {
-                        speak(mExprBtnTxt[1]);
+                        speakAndShowTextBar_(mExprBtnTxt[1]);
                         mFlgLike = GlobalConstants.SHORT_SPEECH;
                         //Firebase event
                         mUec.createSendFbEventFromTappedView(1, "", "");
                     // if value of mFlgLike is 0, then should speak "like".
                     } else {
-                        speak(mExprBtnTxt[0]);
+                        speakAndShowTextBar_(mExprBtnTxt[0]);
                         mFlgLike = GlobalConstants.LONG_SPEECH;
                         //Firebase event
                         mUec.createSendFbEventFromTappedView(0, "", "");
@@ -666,7 +666,7 @@ public class LevelThreeActivity extends LevelBaseActivity{
                 level3IconObjects[getTagPos()].getEvent_Tag()
                             +"_"+ mIconCode[getTagPos()]+"LL","");
 
-                        speak(level3IconObjects[mArrSort[mLevelThreeItemPos]].getLL());
+                        speakAndShowTextBar_(level3IconObjects[mArrSort[mLevelThreeItemPos]].getLL());
 
                         //reset mFlgLike to speak "like" expression
                         mFlgLike = GlobalConstants.SHORT_SPEECH;
@@ -678,7 +678,7 @@ public class LevelThreeActivity extends LevelBaseActivity{
                 level3IconObjects[getTagPos()].getEvent_Tag()
                             +"_"+ mIconCode[getTagPos()]+"L0","");
 
-                        speak(level3IconObjects[mArrSort[mLevelThreeItemPos]].getL());
+                        speakAndShowTextBar_(level3IconObjects[mArrSort[mLevelThreeItemPos]].getL());
                         //reset mFlgLike to speak "really like" expression
                         mFlgLike = GlobalConstants.LONG_SPEECH;
                     }
@@ -715,13 +715,13 @@ public class LevelThreeActivity extends LevelBaseActivity{
                 if (!mShouldReadFullSpeech) {
                     // if value of mFlgDntLike is 1, then should speak "really dont like".
                     if (mFlgDntLike == GlobalConstants.LONG_SPEECH) {
-                        speak(mExprBtnTxt[7]);
+                        speakAndShowTextBar_(mExprBtnTxt[7]);
                         mFlgDntLike = GlobalConstants.SHORT_SPEECH;
                         //Firebase event
                         mUec.createSendFbEventFromTappedView(7, "", "");
                     // if value of mFlgDntLike is 0, then should speak " dont like".
                     } else {
-                        speak(mExprBtnTxt[6]);
+                        speakAndShowTextBar_(mExprBtnTxt[6]);
                         mFlgDntLike = GlobalConstants.LONG_SPEECH;
                         //Firebase event
                         mUec.createSendFbEventFromTappedView(6, "", "");
@@ -745,7 +745,7 @@ public class LevelThreeActivity extends LevelBaseActivity{
                 level3IconObjects[getTagPos()].getEvent_Tag()
                             +"_"+ mIconCode[getTagPos()]+"DD","");
 
-                        speak(level3IconObjects[mArrSort[mLevelThreeItemPos]].getDD());
+                        speakAndShowTextBar_(level3IconObjects[mArrSort[mLevelThreeItemPos]].getDD());
                         //reset mFlgDntLike to speak "dont like" expression
                         mFlgDntLike = GlobalConstants.SHORT_SPEECH;
                     // if value of mFlgDntLike is 0 then Speak associated don't like expression
@@ -756,7 +756,7 @@ public class LevelThreeActivity extends LevelBaseActivity{
                 level3IconObjects[getTagPos()].getEvent_Tag()
                             +"_"+ mIconCode[getTagPos()]+"D0","");
 
-                        speak(level3IconObjects[mArrSort[mLevelThreeItemPos]].getD());
+                        speakAndShowTextBar_(level3IconObjects[mArrSort[mLevelThreeItemPos]].getD());
                         //reset mFlgDntLike to speak "really don't like" expression
                         mFlgDntLike = GlobalConstants.LONG_SPEECH;
                     }
@@ -793,13 +793,13 @@ public class LevelThreeActivity extends LevelBaseActivity{
                 if (!mShouldReadFullSpeech) {
                     // if value of mFlgYes is 1, then should speak "really yes".
                     if (mFlgYes == GlobalConstants.LONG_SPEECH) {
-                        speak(mExprBtnTxt[3]);
+                        speakAndShowTextBar_(mExprBtnTxt[3]);
                         mFlgYes = GlobalConstants.SHORT_SPEECH;
                         //Firebase event
                         mUec.createSendFbEventFromTappedView(3, "", "");
                     // if value of mFlgYes is 0, then should speak "yes".
                     } else {
-                        speak(mExprBtnTxt[2]);
+                        speakAndShowTextBar_(mExprBtnTxt[2]);
                         mFlgYes = GlobalConstants.LONG_SPEECH;
                         //Firebase event
                         mUec.createSendFbEventFromTappedView(2, "", "");
@@ -822,7 +822,7 @@ public class LevelThreeActivity extends LevelBaseActivity{
                 level3IconObjects[getTagPos()].getEvent_Tag()
                             +"_"+ mIconCode[getTagPos()]+"YY","");
 
-                        speak(level3IconObjects[mArrSort[mLevelThreeItemPos]].getYY());
+                        speakAndShowTextBar_(level3IconObjects[mArrSort[mLevelThreeItemPos]].getYY());
                         //reset mFlgYes to speak "yes" expression
                         mFlgYes = GlobalConstants.SHORT_SPEECH;
                     // if value of mFlgYes is 0 then speak associated really yes expression
@@ -833,7 +833,7 @@ public class LevelThreeActivity extends LevelBaseActivity{
                 level3IconObjects[getTagPos()].getEvent_Tag()
                             +"_"+ mIconCode[getTagPos()]+"Y0","");
 
-                        speak(level3IconObjects[mArrSort[mLevelThreeItemPos]].getY());
+                        speakAndShowTextBar_(level3IconObjects[mArrSort[mLevelThreeItemPos]].getY());
                         //reset mFlgYes to speak "really yes" expression
                         mFlgYes = GlobalConstants.LONG_SPEECH;
                     }
@@ -870,13 +870,13 @@ public class LevelThreeActivity extends LevelBaseActivity{
                 if (!mShouldReadFullSpeech) {
                     // if value of mFlgNo is 1, then should speak "really no".
                     if (mFlgNo == GlobalConstants.LONG_SPEECH) {
-                        speak(mExprBtnTxt[9]);
+                        speakAndShowTextBar_(mExprBtnTxt[9]);
                         mFlgNo = GlobalConstants.SHORT_SPEECH;
                         //Firebase event
                         mUec.createSendFbEventFromTappedView(9, "", "");
                     // if value of mFlgNo is 0, then should speak "no".
                     } else {
-                        speak(mExprBtnTxt[8]);
+                        speakAndShowTextBar_(mExprBtnTxt[8]);
                         mFlgNo = GlobalConstants.LONG_SPEECH;
                         //Firebase event
                         mUec.createSendFbEventFromTappedView(8, "", "");
@@ -899,7 +899,7 @@ public class LevelThreeActivity extends LevelBaseActivity{
                 level3IconObjects[getTagPos()].getEvent_Tag()
                             +"_"+ mIconCode[getTagPos()]+"NN","");
 
-                        speak(level3IconObjects[mArrSort[mLevelThreeItemPos]].getNN());
+                        speakAndShowTextBar_(level3IconObjects[mArrSort[mLevelThreeItemPos]].getNN());
                         //reset mFlgNo to speak "no" expression
                         mFlgNo = GlobalConstants.SHORT_SPEECH;
                     // if value of mFlgNo is 0 then Speak associated no expression
@@ -910,7 +910,7 @@ public class LevelThreeActivity extends LevelBaseActivity{
                 level3IconObjects[getTagPos()].getEvent_Tag()
                             +"_"+ mIconCode[getTagPos()]+"N0","");
 
-                        speak(level3IconObjects[mArrSort[mLevelThreeItemPos]].getN());
+                        speakAndShowTextBar_(level3IconObjects[mArrSort[mLevelThreeItemPos]].getN());
                         //reset mFlgLike to speak "really no" expression
                         mFlgNo = GlobalConstants.LONG_SPEECH;
                     }
@@ -945,13 +945,13 @@ public class LevelThreeActivity extends LevelBaseActivity{
                 if (!mShouldReadFullSpeech) {
                     // if value of mFlgMore is 1, then should speak "really more".
                     if (mFlgMore == GlobalConstants.LONG_SPEECH) {
-                        speak(mExprBtnTxt[5]);
+                        speakAndShowTextBar_(mExprBtnTxt[5]);
                         mFlgMore = GlobalConstants.SHORT_SPEECH;
                         //Firebase event
                         mUec.createSendFbEventFromTappedView(5, "", "");
                     // if value of mFlgMore is 0, then should speak "more".
                     } else {
-                        speak(mExprBtnTxt[4]);
+                        speakAndShowTextBar_(mExprBtnTxt[4]);
                         mFlgMore = GlobalConstants.LONG_SPEECH;
                         //Firebase event
                         mUec.createSendFbEventFromTappedView(4, "", "");
@@ -974,7 +974,7 @@ public class LevelThreeActivity extends LevelBaseActivity{
                 level3IconObjects[getTagPos()].getEvent_Tag()
                             +"_"+ mIconCode[getTagPos()]+"MM","");
 
-                        speak(level3IconObjects[mArrSort[mLevelThreeItemPos]].getMM());
+                        speakAndShowTextBar_(level3IconObjects[mArrSort[mLevelThreeItemPos]].getMM());
                         //reset mFlgMore to speak "more" expression
                         mFlgMore = GlobalConstants.SHORT_SPEECH;
                     // if value of mFlgMore is 0, then should speak "more" expression
@@ -985,7 +985,7 @@ public class LevelThreeActivity extends LevelBaseActivity{
                 level3IconObjects[getTagPos()].getEvent_Tag()
                             +"_"+ mIconCode[getTagPos()]+"M0","");
 
-                        speak(level3IconObjects[mArrSort[mLevelThreeItemPos]].getM());
+                        speakAndShowTextBar_(level3IconObjects[mArrSort[mLevelThreeItemPos]].getM());
                         //reset mFlgMore to speak "really more" expression
                         mFlgMore = GlobalConstants.LONG_SPEECH;
                     }
@@ -1022,13 +1022,13 @@ public class LevelThreeActivity extends LevelBaseActivity{
                 if (!mShouldReadFullSpeech) {
                     // if value of mFlgLess is 1, then should speak "really less".
                     if (mFlgLess == GlobalConstants.LONG_SPEECH) {
-                        speak(mExprBtnTxt[11]);
+                        speakAndShowTextBar_(mExprBtnTxt[11]);
                         mFlgLess = GlobalConstants.SHORT_SPEECH;
                         //Firebase event
                         mUec.createSendFbEventFromTappedView(11, "", "");
                     // if value of mFlgLess is 0, then should speak "less".
                     } else {
-                        speak(mExprBtnTxt[10]);
+                        speakAndShowTextBar_(mExprBtnTxt[10]);
                         mFlgLess = GlobalConstants.LONG_SPEECH;
                         //Firebase event
                         mUec.createSendFbEventFromTappedView(10, "", "");
@@ -1051,7 +1051,7 @@ public class LevelThreeActivity extends LevelBaseActivity{
                 level3IconObjects[getTagPos()].getEvent_Tag()
                             +"_"+ mIconCode[getTagPos()]+"SS","");
 
-                        speak(level3IconObjects[mArrSort[mLevelThreeItemPos]].getSS());
+                        speakAndShowTextBar_(level3IconObjects[mArrSort[mLevelThreeItemPos]].getSS());
                         //reset mFlgLess to speak "less" expression
                         mFlgLess = GlobalConstants.SHORT_SPEECH;
                     // if value of mFlgLess is 0 then Speak associated less expression
@@ -1062,7 +1062,7 @@ public class LevelThreeActivity extends LevelBaseActivity{
                 level3IconObjects[getTagPos()].getEvent_Tag()
                             +"_"+ mIconCode[getTagPos()]+"S0","");
 
-                        speak(level3IconObjects[mArrSort[mLevelThreeItemPos]].getS());
+                        speakAndShowTextBar_(level3IconObjects[mArrSort[mLevelThreeItemPos]].getS());
                         //reset mFlgLess to speak "really less" expression
                         mFlgLess = GlobalConstants.LONG_SPEECH;
                     }
@@ -1116,12 +1116,12 @@ public class LevelThreeActivity extends LevelBaseActivity{
                             mLevelTwoItemPos == 2 || mLevelTwoItemPos == 3 || mLevelTwoItemPos == 4)) ||
                     (mLevelOneItemPos == 4 && mLevelTwoItemPos == 9)) {
                 if (!mSearched)
-                    speak(mSpeechText[mLevelThreeItemPos]);
+                    speakAndShowTextBar_(mSpeechText[mLevelThreeItemPos]);
                 else
                     speakWithDelay(mSpeechText[mLevelThreeItemPos]);
             } else {
                 if (!mSearched)
-                    speak(mSpeechText[mArrSort[mLevelThreeItemPos]]);
+                    speakAndShowTextBar_(mSpeechText[mArrSort[mLevelThreeItemPos]]);
                 else
                     speakWithDelay(mSpeechText[mArrSort[mLevelThreeItemPos]]);
             }
@@ -1203,7 +1203,7 @@ public class LevelThreeActivity extends LevelBaseActivity{
         enterCategory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                speak(mSpeechText[getTagPos()]);
+                speakAndShowTextBar_(mSpeechText[getTagPos()]);
                 mUec.createSendFbEventFromTappedView(12, mDisplayText[getTagPos()]
                         .replace("…",""), "");
             }

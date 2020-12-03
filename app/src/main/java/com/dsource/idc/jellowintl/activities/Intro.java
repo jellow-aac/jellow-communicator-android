@@ -14,12 +14,12 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.crashlytics.android.Crashlytics;
 import com.dsource.idc.jellowintl.R;
 import com.dsource.idc.jellowintl.models.GlobalConstants;
 import com.dsource.idc.jellowintl.utility.DefaultExceptionHandler;
 import com.dsource.idc.jellowintl.utility.LanguageHelper;
 import com.github.paolorotolo.appintro.AppIntro;
+import com.google.firebase.crashlytics.FirebaseCrashlytics;
 
 import java.util.Objects;
 
@@ -80,7 +80,7 @@ public class Intro extends AppIntro {
     @Override
     public void onSlideChanged(@Nullable Fragment oldFragment, @Nullable final Fragment newFragment) {
         super.onSlideChanged(oldFragment, newFragment);
-        Crashlytics.log("Slide visible:"+((SampleSlideFragment) newFragment).getLayoutName());
+        FirebaseCrashlytics.getInstance().log("Slide visible:"+((SampleSlideFragment) newFragment).getLayoutName());
         setupNextSlide((SampleSlideFragment) newFragment);
     }
 
@@ -141,7 +141,7 @@ public class Intro extends AppIntro {
                 ((TextView) parent.getView().findViewById(tv)).setText(text);
             }
         }catch(Exception e){
-            Crashlytics.logException(e);
+            FirebaseCrashlytics.getInstance().recordException(e);
         }
     }
 
@@ -153,7 +153,7 @@ public class Intro extends AppIntro {
                 ((Button) parent.getView().findViewById(btn)).setText(text);
             }
         }catch(Exception e){
-            Crashlytics.logException(e);
+            FirebaseCrashlytics.getInstance().recordException(e);
         }
     }
 

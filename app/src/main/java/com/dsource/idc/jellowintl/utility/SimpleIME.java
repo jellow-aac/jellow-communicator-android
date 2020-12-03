@@ -11,10 +11,12 @@ import android.view.inputmethod.InputConnection;
 import com.dsource.idc.jellowintl.R;
 
 import static com.dsource.idc.jellowintl.utility.SessionManager.BE_IN;
+import static com.dsource.idc.jellowintl.utility.SessionManager.BN_BD;
 import static com.dsource.idc.jellowintl.utility.SessionManager.BN_IN;
 import static com.dsource.idc.jellowintl.utility.SessionManager.DE_DE;
 import static com.dsource.idc.jellowintl.utility.SessionManager.ENG_AU;
 import static com.dsource.idc.jellowintl.utility.SessionManager.ENG_IN;
+import static com.dsource.idc.jellowintl.utility.SessionManager.ENG_NG;
 import static com.dsource.idc.jellowintl.utility.SessionManager.ENG_UK;
 import static com.dsource.idc.jellowintl.utility.SessionManager.ENG_US;
 import static com.dsource.idc.jellowintl.utility.SessionManager.ES_ES;
@@ -22,6 +24,7 @@ import static com.dsource.idc.jellowintl.utility.SessionManager.FR_FR;
 import static com.dsource.idc.jellowintl.utility.SessionManager.HI_IN;
 import static com.dsource.idc.jellowintl.utility.SessionManager.MR_IN;
 import static com.dsource.idc.jellowintl.utility.SessionManager.TA_IN;
+import static com.dsource.idc.jellowintl.utility.SessionManager.TE_IN;
 
 /**
  * Created by ekalpa on 11/22/2016.
@@ -75,17 +78,20 @@ public class SimpleIME extends InputMethodService
                 break;
             case BN_IN:
             case BE_IN:
+            case BN_BD:
                 kv.setKeyboard(keyBengaliConsonants);
                 break;
             case ENG_US:
             case ENG_UK:
             case ENG_AU:
             case ENG_IN:
+            case ENG_NG:
             case MR_IN:
             case TA_IN:
             case ES_ES:
             case DE_DE:
             case FR_FR:
+            case TE_IN:
             default:
                 kv.setKeyboard(keyEnglishAlphabetSmallLetters);
                 break;

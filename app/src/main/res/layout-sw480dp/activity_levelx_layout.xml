@@ -75,6 +75,18 @@
             android:scrollbars="vertical"
             android:scrollbarFadeDuration="0"
             android:layout_marginBottom="95dp"/>
+        <TextView
+            android:id="@+id/place_holder_text"
+            android:layout_width="556dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="4dp"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:visibility="gone"
+            android:text="@string/place_holder_no_icons_added"
+            android:textColor="@color/light_grey"/>
     </RelativeLayout>
     <RelativeLayout
         android:layout_width="match_parent"

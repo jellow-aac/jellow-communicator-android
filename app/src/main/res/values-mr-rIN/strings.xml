@@ -216,29 +216,6 @@
     <string name="about_je_intro12">जेंव्हा कन्टेन्टचा वापर केला जाईल तेंव्हा तुम्हाला विनंती आहे की, तुम्ही इंडियन इंस्टिट्यूट ऑफ टेक्नॉलॉजी बॉम्बे (आयआयटी-बी) प्रति आभार व्यक्त करा.</string>
     <string name="about_je_intro13">जेलो अॅप्लिकेशन _ येथे डाउनलोड करण्यासाठी उपलब्ध आहे.</string>
     <string name="about_je_intro14">जर कोणाला जेलोचा आणखी विकास करायचा असेल किंवा त्यांच्या ठिकाणी जेलोची कार्यशाळा आयोजित करण्याची इच्छा असेल तर त्यांना विनंती आहे की प्रमुख अन्वेषक प्रोफेसर रवी पुवैया यांच्याशी jellowcommunicator@gmail.com या ई-मेल आयडी वर संपर्क साधावा.</string>
-    <string name="credits">आभार सूची:</string>
-    <string name="about_je_intro15"> प्रोजेक्ट अन्वेषण, संकल्पना आणि पर्यवेक्षण:</string>
-    <string name="about_je_intro16">प्राध्यापक रवि पूवैया और डॉ. अजंता सेन</string>
-    <string name="about_je_intro17">आरंभिक संकल्पना विकास:</string>
-    <string name="about_je_intro18">आँचल कुमार, सम्राट सरदेसाई, पीटर जोसेफ, अंतरा हजारिका</string>
-    <string name="about_je_intro19">सॉफ्टवेयरचा विकास:</string>
-    <string name="about_je_intro20">राहूल रूपचंद जिडगे, अयाज़ आलम, सौरभ जैन, लक्ष्मण कुमार, नारायना रेड्डी, निखील अहिरराव, हर्षित बुध्दराजा, सुमित अग्रवाल, रूप नारायन साहू, श्रुति गुप्ता, आस्था जोशी, धैर्य दण्ड, प्रीतम पेबम</string>
-    <string name="about_je_intro31">सॉफ्टवेयर आणि उपयोगिता परीक्षण:</string>
-    <string name="about_je_intro32">डॉ. सुधा श्रीनिवासन, विनया तावड़े, सचिन सोनावणे, रूप नारायन साहू, राहूल रूपचंद जिडगे</string>
-    <string name="about_je_intro21">वेबसाइट डिजाइन:</string>
-    <string name="about_je_intro22">प्राध्यापक. रवि पूवैया, योगेश मासये, सुमेध गरुड़, रूप नारायन साहू</string>
-    <string name="about_je_intro23">आइकॉन, विज्युअल डिज़ाइन आणि आवाज:</string>
-    <string name="about_je_intro24">विनया तावड़े, श्वेता गौरीश पाठारे, अनीषा मल्होत्रा, निकिता अय्यर, सिमोन सेन, गणेश गज्जेला</string>
-    <string name="about_je_intro25">भाषांतर:</string>
-    <string name="about_je_intro26">सचिन सोनावणे, डॉ. सुधा श्रीनिवासन, कौस्तुभ राजवाडे, शशांक खोब्रागडे, जीवा कन्नन मुथुकुमार, दिपल शेठीया, डॉ. रूपक मिश्रा</string>
-    <string name="about_je_intro27">संशोधन, शब्दसंग्रह विकास आणि वापरकर्ता अभ्यास:</string>
-    <string name="about_je_intro28">डॉ. सुधा श्रीनिवासन, पुष्कर देशपांडे, साक्षी पाल, सिद्धी पटेल</string>
-    <string name="about_je_intro29">समर्थन:</string>
-    <string name="about_je_intro30">ई-कालपा प्रोजेक्ट NMEICT च्या अंतर्गत मानव संसाधन विकास मंत्रालय,  माइक्रोसॉफ्ट डिजाईन एक्सपो २००४ आणि यूनिसेफ इनोवेशन फंड (UNICEF) द्वारे प्रायोजित</string>
-    <string name="about_je_intro38">अनुदैर्ध्य वापरकर्ता अध्ययन आणि जेलो कम्युनिकेटरचे क्षेत्र परीक्षण:</string>
-    <string name="about_je_intro39">टोपीवाला नॅशनल मेडिकल कॉलेज आणि बी.वाय.एल. नायर चॅरिटेबल हॉस्पीटल (मनोचिकित्सा, ऑडिओलॉजी आणि भाषण चिकित्सा विभाग)</string>
-    <string name="about_je_intro40">यूएक्स/यूआई डिज़ाइन आणि समन्वय:</string>
-    <string name="about_je_intro41">प्राध्यापक. रवि पूवैया, रूप नारायन साहू, विनया तावड़े</string>
     <string name="feedback_talkback_heading">१ ते ५ च्या प्रमाणात, कृपया खाली रेट करा</string>
 
     <string name="langauge_correction_message"> \'"-"\' भाषेचा सेटअप चुकलेला आहे. भाषेचा सेटअप  अचूक करण्यासाठी \'"_"\' बटन दाबा. किंवा \'"$"\' बटण दाबून तुम्ही डीफॉल्ट भाषा निवडू शकता.</string>
@@ -312,7 +289,7 @@
 
     <string name="acc_lang_marathi">मराठी</string>
     <string name="acc_lang_hindi">हिंदी</string>
-    <string name="acc_lang_bengali">बंगाली</string>
+    <string name="acc_lang_bengali">बंगाली (भारत)</string>
     <string name="acc_lang_eng_in">इंग्रजी (भारत)</string>
     <string name="acc_lang_eng_gb">इंग्रजी (युनायटेड किंगडम)</string>
     <string name="acc_lang_eng_us">इंग्रजी (युनायटेड स्टेट्स)</string>
@@ -459,8 +436,6 @@
     <string name="board_settings">बोर्डची सेटिंग्स</string>
     <string name="add_expression_here">भाववाहक वाक्य येथे लिहा</string>
     <string name="about_je_intro42">मेक माय बोर्ड (माझे बोर्ड) चा उपयोग करून आपण आपली स्वतःची कस्टम आयकॉन आणि त्यांची अर्थपूर्ण वाक्ये जोडू किंवा संपादित करू शकता.</string>
-    <string name="about_je_intro43">आऊटरिच आणि प्रोमोशन:</string>
-    <string name="about_je_intro44">विद्या उपाध्या, श्वेता गौरीश पठारे, सन्मती होसुरे</string>
     <string name="about_je_more_info">अधिक माहितीसाठी खालील व्हिडिओ बटणावर टॅप करा:</string>
     <string name="visual_access_info_video">जेलो मधील विजुअल एक्सेसिबिलिटीवरील डेमो पाहण्यासाठी, खालील व्हिडिओ बटणावर टॅप करा:</string>
     <string name="switch_access_info_video">जेलो मधील स्विच एक्सेसिबिलिटीवरील डेमो पाहण्यासाठी, खालील व्हिडिओ बटणावर टॅप करा:</string>
@@ -483,4 +458,7 @@
     <string name="language_not_working">आपण निवडलेल्या भाषेसाठी कोणतेही व्हॉईस आउटपुट येत नसल्यास, कृपया खालील चरण पूर्ण करा:</string>
     <string name="txtMoreLangSetting">अधिक भाषा सेटिंग:</string>
     <string name="board_place_holder_text">आपण अद्याप कोणताही बोर्ड जोडला नाही.</string>
+    <string name="acc_lang_telugu_in">तेलुगु</string>
+    <string name="acc_lang_bengali_bd">बंगाली (बांग्लादेश)</string>
+    <string name="acc_lang_eng_ng">इंग्रजी (नायजेरिया)</string>
 </resources>

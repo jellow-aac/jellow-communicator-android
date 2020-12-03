@@ -19,7 +19,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.core.view.ViewCompat;
 
-import com.crashlytics.android.Crashlytics;
 import com.dsource.idc.jellowintl.BuildConfig;
 import com.dsource.idc.jellowintl.R;
 import com.dsource.idc.jellowintl.TalkBack.TalkbackHints_DropDownMenu;
@@ -32,6 +31,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.crashlytics.FirebaseCrashlytics;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ServerValue;
@@ -74,7 +74,7 @@ public class UserRegistrationActivity extends BaseActivity implements CheckNetwo
         if (!getSession().getUserId().equals("")) {
             getAnalytics(this, getSession().getUserId());
             getSession().setSessionCreatedAt(new Date().getTime());
-            Crashlytics.setUserIdentifier(getSession().getUserId());
+            FirebaseCrashlytics.getInstance().setUserId(getSession().getUserId());
         }
 
         if (getSession().isUserLoggedIn()) {
@@ -210,7 +210,7 @@ public class UserRegistrationActivity extends BaseActivity implements CheckNetwo
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            Crashlytics.log("User logged in");
+                            FirebaseCrashlytics.getInstance().log("User logged in");
                             getSession().setName(etName.getText().toString().trim());
                             getSession().setCaregiverNumber(mCcp.getFullNumberWithPlus());
                             getSession().setUserCountryCode(mCcp.getSelectedCountryCode());
@@ -240,7 +240,7 @@ public class UserRegistrationActivity extends BaseActivity implements CheckNetwo
                                         setUserProperty("GridSize", "9");
                                         setUserProperty("PictureViewMode", "PictureText");
                                         bundleEvent("Language", bundle);
-                                        Crashlytics.setUserIdentifier(getSession().getUserId());
+                                        FirebaseCrashlytics.getInstance().setUserId(getSession().getUserId());
                                         setCrashlyticsCustomKey("GridSize", "9");
                                         setCrashlyticsCustomKey("PictureViewMode", "PictureText");
                                         bundle.clear();
@@ -251,7 +251,7 @@ public class UserRegistrationActivity extends BaseActivity implements CheckNetwo
                                         finish();
                                     } else {
                                         bRegister.setEnabled(true);
-                                        Crashlytics.log("User data not added.");
+                                        FirebaseCrashlytics.getInstance().log("User data not added.");
                                         Toast.makeText(UserRegistrationActivity.this,
                                                 getString(R.string.checkConnectivity), Toast.LENGTH_LONG).show();
                                     }
@@ -260,8 +260,8 @@ public class UserRegistrationActivity extends BaseActivity implements CheckNetwo
                                 @Override
                                 public void onFailure(@NonNull Exception e) {
                                     bRegister.setEnabled(true);
-                                    Crashlytics.log("User data not added.");
-                                    Crashlytics.logException(e);
+                                    FirebaseCrashlytics.getInstance().log("User data not added.");
+                                    FirebaseCrashlytics.getInstance().recordException(e);
                                     Toast.makeText(UserRegistrationActivity.this,
                                             getString(R.string.error_in_registration), Toast.LENGTH_SHORT).show();
                                 }

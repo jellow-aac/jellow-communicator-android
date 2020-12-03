@@ -412,7 +412,7 @@ public class MainActivity extends LevelBaseActivity{
                 //Firebase event
                 singleEvent("Navigation","Keyboard");
                 new DialogKeyboardUtterance().show(MainActivity.this);
-                speak(mNavigationBtnTxt[2]);
+                speakAndShowTextBar_(mNavigationBtnTxt[2]);
                 mIvKeyboard.setImageResource(R.drawable.keyboard_pressed);
                 mIvBack.setImageResource(R.drawable.back);
                 mIvHome.setImageResource(R.drawable.home);
@@ -447,13 +447,13 @@ public class MainActivity extends LevelBaseActivity{
                 if (!mShouldReadFullSpeech) {
                     // if value of mFlgLike is 1 then should speak "really like".
                     if (mFlgLike == GlobalConstants.LONG_SPEECH) {
-                        speak(mExprBtnTxt[1]);
+                        speakAndShowTextBar_(mExprBtnTxt[1]);
                         mFlgLike = GlobalConstants.SHORT_SPEECH;
                         //Firebase event
                         mUec.createSendFbEventFromTappedView(1, "", "");
                     // if value of mFlgLike is 0, then should speak "like".
                     } else {
-                        speak(mExprBtnTxt[0]);
+                        speakAndShowTextBar_(mExprBtnTxt[0]);
                         mFlgLike = GlobalConstants.LONG_SPEECH;
                         //Firebase event
                         mUec.createSendFbEventFromTappedView(0, "", "");
@@ -472,7 +472,7 @@ public class MainActivity extends LevelBaseActivity{
                     // if value of mFlgLike is 1 then speak associated really like expression
                     // verbiage for selected category icon.
                     if (mFlgLike == GlobalConstants.LONG_SPEECH) {
-                        speak(level1IconObjects[mLevelOneItemPos].getLL());
+                        speakAndShowTextBar_(level1IconObjects[mLevelOneItemPos].getLL());
                         mFlgLike = GlobalConstants.SHORT_SPEECH;
                         //Firebase event
                         mUec.createSendFbEventFromTappedView(14,
@@ -481,7 +481,7 @@ public class MainActivity extends LevelBaseActivity{
                     // if value of mFlgLike is 0 then Speak associated like expression
                     // verbiage to selected category icon.
                     } else {
-                        speak(level1IconObjects[mLevelOneItemPos].getL());
+                        speakAndShowTextBar_(level1IconObjects[mLevelOneItemPos].getL());
                         mFlgLike = GlobalConstants.LONG_SPEECH;
                         //Firebase event
                         mUec.createSendFbEventFromTappedView(13,
@@ -520,13 +520,13 @@ public class MainActivity extends LevelBaseActivity{
                 if (!mShouldReadFullSpeech) {
                 // if value of mFlgDntLike is 1 then should speak "really don't like".
                     if (mFlgDntLike == GlobalConstants.LONG_SPEECH) {
-                        speak(mExprBtnTxt[7]);
+                        speakAndShowTextBar_(mExprBtnTxt[7]);
                         mFlgDntLike = GlobalConstants.SHORT_SPEECH;
                         //Firebase event
                         mUec.createSendFbEventFromTappedView(7, "", "");
                     // if value of mFlgDntLike is 0, then should speak "don't like".
                     } else {
-                        speak(mExprBtnTxt[6]);
+                        speakAndShowTextBar_(mExprBtnTxt[6]);
                         mFlgDntLike = GlobalConstants.LONG_SPEECH;
                         //Firebase event
                         mUec.createSendFbEventFromTappedView(6, "", "");
@@ -544,7 +544,7 @@ public class MainActivity extends LevelBaseActivity{
                     // if value of mFlgDntLike is 1 then speak associated really don't like expression
                     // verbiage for selected category icon.
                     if (mFlgDntLike == GlobalConstants.LONG_SPEECH) {
-                        speak(level1IconObjects[mLevelOneItemPos].getDD());
+                        speakAndShowTextBar_(level1IconObjects[mLevelOneItemPos].getDD());
                         mFlgDntLike = GlobalConstants.SHORT_SPEECH;
                         //Firebase event
                         mUec.createSendFbEventFromTappedView(20,
@@ -553,7 +553,7 @@ public class MainActivity extends LevelBaseActivity{
                     // if value of mFlgDntLike is 0 then Speak associated don't like expression
                     // verbiage to selected category icon.
                     } else {
-                        speak(level1IconObjects[mLevelOneItemPos].getD());
+                        speakAndShowTextBar_(level1IconObjects[mLevelOneItemPos].getD());
                         mFlgDntLike = GlobalConstants.LONG_SPEECH;
                         //Firebase event
                         mUec.createSendFbEventFromTappedView(19,
@@ -592,13 +592,13 @@ public class MainActivity extends LevelBaseActivity{
                 if (!mShouldReadFullSpeech) {
                     // if value of mFlgYes is 1, then should speak "really yes".
                     if (mFlgYes == GlobalConstants.LONG_SPEECH) {
-                        speak(mExprBtnTxt[3]);
+                        speakAndShowTextBar_(mExprBtnTxt[3]);
                         mFlgYes = GlobalConstants.SHORT_SPEECH;
                         //Firebase event
                         mUec.createSendFbEventFromTappedView(3, "", "");
                     // if value of mFlgYes is 0, then should speak "yes".
                     } else {
-                        speak(mExprBtnTxt[2]);
+                        speakAndShowTextBar_(mExprBtnTxt[2]);
                         mFlgYes = GlobalConstants.LONG_SPEECH;
                         //Firebase event
                         mUec.createSendFbEventFromTappedView(2, "", "");
@@ -616,7 +616,7 @@ public class MainActivity extends LevelBaseActivity{
                     // if value of mFlgYes is 1 then speak associated really yes expression
                     // verbiage for selected category icon.
                     if (mFlgYes == GlobalConstants.LONG_SPEECH) {
-                        speak(level1IconObjects[mLevelOneItemPos].getYY());
+                        speakAndShowTextBar_(level1IconObjects[mLevelOneItemPos].getYY());
                         mFlgYes = GlobalConstants.SHORT_SPEECH;
                         //Firebase event
                         mUec.createSendFbEventFromTappedView(16,
@@ -625,7 +625,7 @@ public class MainActivity extends LevelBaseActivity{
                     // if value of mFlgYes is 0 then speak associated yes expression
                     // verbiage for selected category icon.
                     } else {
-                        speak(level1IconObjects[mLevelOneItemPos].getY());
+                        speakAndShowTextBar_(level1IconObjects[mLevelOneItemPos].getY());
                         mFlgYes = GlobalConstants.LONG_SPEECH;
                         //Firebase event
                         mUec.createSendFbEventFromTappedView(15,
@@ -664,13 +664,13 @@ public class MainActivity extends LevelBaseActivity{
                 if (!mShouldReadFullSpeech) {
                     if (mFlgNo == GlobalConstants.LONG_SPEECH) {
                         // if value of mFlgNo is 1, then should speak "really no".
-                        speak(mExprBtnTxt[9]);
+                        speakAndShowTextBar_(mExprBtnTxt[9]);
                         mFlgNo = GlobalConstants.SHORT_SPEECH;
                         //Firebase event
                         mUec.createSendFbEventFromTappedView(9, "", "");
                     } else {
                         // if value of mFlgNo is 0, then should speak "no".
-                        speak(mExprBtnTxt[8]);
+                        speakAndShowTextBar_(mExprBtnTxt[8]);
                         mFlgNo = GlobalConstants.LONG_SPEECH;
                         //Firebase event
                         mUec.createSendFbEventFromTappedView(8, "", "");
@@ -688,7 +688,7 @@ public class MainActivity extends LevelBaseActivity{
                     // if value of mFlgNo is 1 then speak associated really no expression
                     // verbiage for selected category icon.
                     if (mFlgNo == GlobalConstants.LONG_SPEECH) {
-                        speak(level1IconObjects[mLevelOneItemPos].getNN());
+                        speakAndShowTextBar_(level1IconObjects[mLevelOneItemPos].getNN());
                         mFlgNo = GlobalConstants.SHORT_SPEECH;
                         //Firebase event
                         mUec.createSendFbEventFromTappedView(22,
@@ -697,7 +697,7 @@ public class MainActivity extends LevelBaseActivity{
                     // if value of mFlgNo is 0 then Speak associated no expression
                     // verbiage to selected category icon.
                     } else {
-                        speak(level1IconObjects[mLevelOneItemPos].getN());
+                        speakAndShowTextBar_(level1IconObjects[mLevelOneItemPos].getN());
                         mFlgNo = GlobalConstants.LONG_SPEECH;
                         //Firebase event
                         mUec.createSendFbEventFromTappedView(21,
@@ -736,13 +736,13 @@ public class MainActivity extends LevelBaseActivity{
                 if (!mShouldReadFullSpeech) {
                     // if value of mFlgMore is 1, then should speak "really more".
                     if (mFlgMore == GlobalConstants.LONG_SPEECH) {
-                        speak(mExprBtnTxt[5]);
+                        speakAndShowTextBar_(mExprBtnTxt[5]);
                         mFlgMore = GlobalConstants.SHORT_SPEECH;
                         //Firebase event
                         mUec.createSendFbEventFromTappedView(5, "", "");
                     // if value of mFlgMore is 0, then should speak "more".
                     } else {
-                        speak(mExprBtnTxt[4]);
+                        speakAndShowTextBar_(mExprBtnTxt[4]);
                         mFlgMore = GlobalConstants.LONG_SPEECH;
                         //Firebase event
                         mUec.createSendFbEventFromTappedView(4, "", "");
@@ -760,7 +760,7 @@ public class MainActivity extends LevelBaseActivity{
                     // if value of mFlgMore is 1, then should speak "really more" expression
                     // verbiage associated to selected category icon.
                     if (mFlgMore == GlobalConstants.LONG_SPEECH) {
-                        speak(level1IconObjects[mLevelOneItemPos].getMM());
+                        speakAndShowTextBar_(level1IconObjects[mLevelOneItemPos].getMM());
                         mFlgMore = GlobalConstants.SHORT_SPEECH;
                         //Firebase event
                         mUec.createSendFbEventFromTappedView(18,
@@ -769,7 +769,7 @@ public class MainActivity extends LevelBaseActivity{
                     // if value of mFlgMore is 0, then should speak "more" expression
                     // verbiage associated to selected category icon.
                     } else {
-                        speak(level1IconObjects[mLevelOneItemPos].getM());
+                        speakAndShowTextBar_(level1IconObjects[mLevelOneItemPos].getM());
                         mFlgMore = GlobalConstants.LONG_SPEECH;
                         //Firebase event
                         mUec.createSendFbEventFromTappedView(17,
@@ -808,13 +808,13 @@ public class MainActivity extends LevelBaseActivity{
                 if (!mShouldReadFullSpeech) {
                     // if value of mFlgLess is 1, then should speak "really less".
                     if (mFlgLess == GlobalConstants.LONG_SPEECH) {
-                        speak(mExprBtnTxt[11]);
+                        speakAndShowTextBar_(mExprBtnTxt[11]);
                         mFlgLess = GlobalConstants.SHORT_SPEECH;
                         //Firebase event
                         mUec.createSendFbEventFromTappedView(11, "", "");
                     // if value of mFlgLess is 0, then should speak "less".
                     } else {
-                        speak(mExprBtnTxt[10]);
+                        speakAndShowTextBar_(mExprBtnTxt[10]);
                         mFlgLess = GlobalConstants.LONG_SPEECH;
                         //Firebase event
                         mUec.createSendFbEventFromTappedView(10, "", "");
@@ -832,7 +832,7 @@ public class MainActivity extends LevelBaseActivity{
                     // if value of mFlgLess is 1 then speak associated really less expression
                     // verbiage for selected category icon.
                     if (mFlgLess == GlobalConstants.LONG_SPEECH) {
-                        speak(level1IconObjects[mLevelOneItemPos].getSS());
+                        speakAndShowTextBar_(level1IconObjects[mLevelOneItemPos].getSS());
                         mFlgLess = GlobalConstants.SHORT_SPEECH;
                         //Firebase event
                         mUec.createSendFbEventFromTappedView(24,
@@ -841,7 +841,7 @@ public class MainActivity extends LevelBaseActivity{
                     // if value of mFlgLess is 0 then Speak associated less expression
                     // verbiage to selected category icon.
                     } else {
-                        speak(level1IconObjects[mLevelOneItemPos].getS());
+                        speakAndShowTextBar_(level1IconObjects[mLevelOneItemPos].getS());
                         mFlgLess = GlobalConstants.LONG_SPEECH;
                         //Firebase event
                         mUec.createSendFbEventFromTappedView(23,
@@ -900,7 +900,7 @@ public class MainActivity extends LevelBaseActivity{
                 startActivityForResult(intent, REQ_HOME);
             }else {
                 if (!mSearched)
-                    speak(level1IconObjects[position].getSpeech_Label());
+                    speakAndShowTextBar_(level1IconObjects[position].getSpeech_Label());
                 else
                     speakWithDelay(level1IconObjects[position].getSpeech_Label());
                 mSearched = false;
@@ -1108,7 +1108,7 @@ public class MainActivity extends LevelBaseActivity{
         //Firebase event
         singleEvent("Navigation","Home");
         if(!isUserRedirected) {
-            speak(mNavigationBtnTxt[0]);
+            speakAndShowTextBar_(mNavigationBtnTxt[0]);
         }
     }
 

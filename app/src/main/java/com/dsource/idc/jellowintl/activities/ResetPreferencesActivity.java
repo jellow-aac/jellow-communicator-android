@@ -5,9 +5,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import com.crashlytics.android.Crashlytics;
 import com.dsource.idc.jellowintl.Presentor.PreferencesHelper;
 import com.dsource.idc.jellowintl.R;
+import com.google.firebase.crashlytics.FirebaseCrashlytics;
 
 import static com.dsource.idc.jellowintl.utility.Analytics.isAnalyticsActive;
 import static com.dsource.idc.jellowintl.utility.Analytics.resetAnalytics;
@@ -41,7 +41,7 @@ public class ResetPreferencesActivity extends BaseActivity {
                 Toast.makeText(ResetPreferencesActivity.this, strIconsResetMsg, Toast.LENGTH_SHORT).show();
                 PreferencesHelper.clearPreferences(getAppDatabase());
                 startActivity(new Intent(getApplicationContext(), SplashActivity.class));
-                Crashlytics.log("ResetPref Yes");
+                FirebaseCrashlytics.getInstance().log("ResetPref Yes");
                 finishAffinity();
             }
         });

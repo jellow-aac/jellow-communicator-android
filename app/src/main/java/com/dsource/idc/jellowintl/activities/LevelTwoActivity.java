@@ -455,7 +455,7 @@ public class LevelTwoActivity extends LevelBaseActivity{
             public void onClick(View view) {
                 //Firebase event
                 singleEvent("Navigation","Back");
-                speak(mNavigationBtnTxt[1]);
+                speakAndShowTextBar_(mNavigationBtnTxt[1]);
                 mUec.createSendFbEventFromTappedView(27, "", "");
                 mIvBack.setImageResource(R.drawable.back_pressed);
                 String str = getIntent().getExtras().getString(getString(R.string.from_search));
@@ -485,7 +485,7 @@ public class LevelTwoActivity extends LevelBaseActivity{
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        speak(mNavigationBtnTxt[0]);
+                        speakAndShowTextBar_(mNavigationBtnTxt[0]);
                     }
                 }).start();
                 //When home is tapped in this activity it will close all other activities and
@@ -534,7 +534,7 @@ public class LevelTwoActivity extends LevelBaseActivity{
                 //Firebase event
                 singleEvent("Navigation", "Keyboard");
                 new DialogKeyboardUtterance().show(LevelTwoActivity.this);
-                speak(mNavigationBtnTxt[2]);
+                speakAndShowTextBar_(mNavigationBtnTxt[2]);
                 mIvKeyboard.setImageResource(R.drawable.keyboard_pressed);
                 mIvBack.setImageResource(R.drawable.back);
                 mIvHome.setImageResource(R.drawable.home);
@@ -575,13 +575,13 @@ public class LevelTwoActivity extends LevelBaseActivity{
                 if (!mShouldReadFullSpeech) {
                     // if value of mFlgLike is 1, then should speak "really like".
                     if (mFlgLike == GlobalConstants.LONG_SPEECH) {
-                        speak(mExprBtnTxt[1]);
+                        speakAndShowTextBar_(mExprBtnTxt[1]);
                         mFlgLike = GlobalConstants.SHORT_SPEECH;
                         //Firebase event
                         mUec.createSendFbEventFromTappedView(1, "", "");
                     // if value of mFlgLike is 0, then should speak "like".
                     } else {
-                        speak(mExprBtnTxt[0]);
+                        speakAndShowTextBar_(mExprBtnTxt[0]);
                         mFlgLike = GlobalConstants.LONG_SPEECH;
                         //Firebase event
                         mUec.createSendFbEventFromTappedView(0, "", "");
@@ -602,7 +602,7 @@ public class LevelTwoActivity extends LevelBaseActivity{
                         // People and places will have preferences. To speak the correct speech text
                         // preference sort array is used.
                         if (mLevelOneItemPos == CATEGORY_ICON_PEOPLE) {
-                            speak(level2IconObjects[mArrSort[mLevelTwoItemPos]].getLL());
+                            speakAndShowTextBar_(level2IconObjects[mArrSort[mLevelTwoItemPos]].getLL());
                             mUec.createSendFbEventFromTappedView(14,
                     level2IconObjects[mArrSort[mLevelTwoItemPos]].getEvent_Tag()
                                 +"_"+ mIconCode[mLevelTwoItemPos]+"LL","");
@@ -614,13 +614,13 @@ public class LevelTwoActivity extends LevelBaseActivity{
                             }else{
                                 String speechTxt = level2IconObjects[mLevelTwoItemPos].getL()
                                         .replace("_", getSession().getName());
-                                speak(speechTxt);
+                                speakAndShowTextBar_(speechTxt);
                             }
                             mUec.createSendFbEventFromTappedView(14,
                     level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
                                 +"_"+ mIconCode[mLevelTwoItemPos]+"LL","");
                         }else {
-                            speak(level2IconObjects[mLevelTwoItemPos].getLL());
+                            speakAndShowTextBar_(level2IconObjects[mLevelTwoItemPos].getLL());
                             mUec.createSendFbEventFromTappedView(14,
                     level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
                                 +"_"+ mIconCode[mLevelTwoItemPos]+"LL","");
@@ -633,7 +633,7 @@ public class LevelTwoActivity extends LevelBaseActivity{
                         // People and places will have preferences. To speak the correct speech text
                         // preference sort array is used.
                         if (mLevelOneItemPos == CATEGORY_ICON_PEOPLE) {
-                            speak(level2IconObjects[mArrSort[mLevelTwoItemPos]].getL());
+                            speakAndShowTextBar_(level2IconObjects[mArrSort[mLevelTwoItemPos]].getL());
                             mUec.createSendFbEventFromTappedView(13,
                     level2IconObjects[mArrSort[mLevelTwoItemPos]].getEvent_Tag()
                                 +"_"+ mIconCode[mLevelTwoItemPos]+"L0","");
@@ -645,13 +645,13 @@ public class LevelTwoActivity extends LevelBaseActivity{
                             }else {
                                 String speechTxt = level2IconObjects[mLevelTwoItemPos].getL()
                                         .replace("_", getSession().getName());
-                                speak(speechTxt);
+                                speakAndShowTextBar_(speechTxt);
                             }
                             mUec.createSendFbEventFromTappedView(13,
                     level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
                                 +"_"+ mIconCode[mLevelTwoItemPos]+"L0","");
                         }else {
-                            speak(level2IconObjects[mLevelTwoItemPos].getL());
+                            speakAndShowTextBar_(level2IconObjects[mLevelTwoItemPos].getL());
                             mUec.createSendFbEventFromTappedView(13,
                     level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
                                 +"_"+ mIconCode[mLevelTwoItemPos]+"L0","");
@@ -698,13 +698,13 @@ public class LevelTwoActivity extends LevelBaseActivity{
                 if (!mShouldReadFullSpeech) {
                     // if value of mFlgDntLike is 1, then should speak "really dont like".
                     if (mFlgDntLike == GlobalConstants.LONG_SPEECH) {
-                        speak(mExprBtnTxt[7]);
+                        speakAndShowTextBar_(mExprBtnTxt[7]);
                         mFlgDntLike = GlobalConstants.SHORT_SPEECH;
                         //Firebase event
                         mUec.createSendFbEventFromTappedView(7, "", "");
                     // if value of mFlgDntLike is 0, then should speak " dont like".
                     } else {
-                        speak(mExprBtnTxt[6]);
+                        speakAndShowTextBar_(mExprBtnTxt[6]);
                         mFlgDntLike = GlobalConstants.LONG_SPEECH;
                         //Firebase event
                         mUec.createSendFbEventFromTappedView(6, "", "");
@@ -726,7 +726,7 @@ public class LevelTwoActivity extends LevelBaseActivity{
                         // People and places will have preferences. To speak the correct speech text
                         // preference sort array is used.
                         if (mLevelOneItemPos == CATEGORY_ICON_PEOPLE) {
-                            speak(level2IconObjects[mArrSort[mLevelTwoItemPos]].getDD());
+                            speakAndShowTextBar_(level2IconObjects[mArrSort[mLevelTwoItemPos]].getDD());
                             mUec.createSendFbEventFromTappedView(20,
                     level2IconObjects[mArrSort[mLevelTwoItemPos]].getEvent_Tag()
                                 +"_"+ mIconCode[mLevelTwoItemPos]+"DD","");
@@ -738,13 +738,13 @@ public class LevelTwoActivity extends LevelBaseActivity{
                             }else {
                                 String speechTxt = level2IconObjects[mLevelTwoItemPos].getDD()
                                         .replace("_", getSession().getCaregiverName());
-                                speak(speechTxt);
+                                speakAndShowTextBar_(speechTxt);
                             }
                             mUec.createSendFbEventFromTappedView(20,
                     level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
                                 +"_"+ mIconCode[mLevelTwoItemPos]+"DD","");
                         }else {
-                            speak(level2IconObjects[mLevelTwoItemPos].getDD());
+                            speakAndShowTextBar_(level2IconObjects[mLevelTwoItemPos].getDD());
                             mUec.createSendFbEventFromTappedView(20,
                     level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
                                 +"_"+ mIconCode[mLevelTwoItemPos]+"DD","");
@@ -757,7 +757,7 @@ public class LevelTwoActivity extends LevelBaseActivity{
                         // People and places will have preferences. To get correct speech text sort
                         // is applied.
                         if (mLevelOneItemPos == CATEGORY_ICON_PEOPLE){
-                            speak(level2IconObjects[mArrSort[mLevelTwoItemPos]].getD());
+                            speakAndShowTextBar_(level2IconObjects[mArrSort[mLevelTwoItemPos]].getD());
                             mUec.createSendFbEventFromTappedView(19,
                     level2IconObjects[mArrSort[mLevelTwoItemPos]].getEvent_Tag()
                                 +"_"+ mIconCode[mLevelTwoItemPos]+"D0","");
@@ -769,13 +769,13 @@ public class LevelTwoActivity extends LevelBaseActivity{
                             }else {
                                 String speechTxt = level2IconObjects[mLevelTwoItemPos].getDD()
                                         .replace("_", getSession().getCaregiverName());
-                                speak(speechTxt);
+                                speakAndShowTextBar_(speechTxt);
                             }
                             mUec.createSendFbEventFromTappedView(19,
                     level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
                                     +"_"+ mIconCode[mLevelTwoItemPos]+"D0","");
                         }else {
-                            speak(level2IconObjects[mLevelTwoItemPos].getD());
+                            speakAndShowTextBar_(level2IconObjects[mLevelTwoItemPos].getD());
                             mUec.createSendFbEventFromTappedView(19,
                     level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
                                 +"_"+ mIconCode[mLevelTwoItemPos]+"D0","");
@@ -822,13 +822,13 @@ public class LevelTwoActivity extends LevelBaseActivity{
                 if (!mShouldReadFullSpeech) {
                     // if value of mFlgYes is 1, then should speak "really yes".
                     if (mFlgYes == GlobalConstants.LONG_SPEECH) {
-                        speak(mExprBtnTxt[3]);
+                        speakAndShowTextBar_(mExprBtnTxt[3]);
                         mFlgYes = GlobalConstants.SHORT_SPEECH;
                         //Firebase event
                         mUec.createSendFbEventFromTappedView(3, "", "");
                     // if value of mFlgYes is 0, then should speak "yes".
                     } else {
-                        speak(mExprBtnTxt[2]);
+                        speakAndShowTextBar_(mExprBtnTxt[2]);
                         mFlgYes = GlobalConstants.LONG_SPEECH;
                         //Firebase event
                         mUec.createSendFbEventFromTappedView(2, "", "");
@@ -849,7 +849,7 @@ public class LevelTwoActivity extends LevelBaseActivity{
                         // People and places will have preferences. To speak the correct speech text
                         // preference sort array is used.
                         if (mLevelOneItemPos == CATEGORY_ICON_PEOPLE) {
-                            speak(level2IconObjects[mArrSort[mLevelTwoItemPos]].getYY());
+                            speakAndShowTextBar_(level2IconObjects[mArrSort[mLevelTwoItemPos]].getYY());
                             mUec.createSendFbEventFromTappedView(16,
                     level2IconObjects[mArrSort[mLevelTwoItemPos]].getEvent_Tag()
                                 +"_"+ mIconCode[mLevelTwoItemPos]+"YY","");
@@ -862,13 +862,13 @@ public class LevelTwoActivity extends LevelBaseActivity{
                                 String speechTxt = level2IconObjects[mLevelTwoItemPos].getYY();
                                 speechTxt = speechTxt.replace("_", getSession().getEmailId()
                                         .replaceAll(".", ",$0 ").replace(".", "dot"));
-                                speak(speechTxt);
+                                speakAndShowTextBar_(speechTxt);
                             }
                             mUec.createSendFbEventFromTappedView(16,
                     level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
                                 +"_"+ mIconCode[mLevelTwoItemPos]+"YY","");
                         }else{
-                            speak(level2IconObjects[mLevelTwoItemPos].getYY());
+                            speakAndShowTextBar_(level2IconObjects[mLevelTwoItemPos].getYY());
                             mUec.createSendFbEventFromTappedView(16,
                     level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
                                 +"_"+ mIconCode[mLevelTwoItemPos]+"YY","");
@@ -881,7 +881,7 @@ public class LevelTwoActivity extends LevelBaseActivity{
                         // People and places will have preferences. To speak the correct speech text
                         // preference sort array is used.
                         if (mLevelOneItemPos == CATEGORY_ICON_PEOPLE) {
-                            speak(level2IconObjects[mArrSort[mLevelTwoItemPos]].getY());
+                            speakAndShowTextBar_(level2IconObjects[mArrSort[mLevelTwoItemPos]].getY());
                             mUec.createSendFbEventFromTappedView(15,
                     level2IconObjects[mArrSort[mLevelTwoItemPos]].getEvent_Tag()
                                 +"_"+ mIconCode[mLevelTwoItemPos]+"Y0","");
@@ -894,13 +894,13 @@ public class LevelTwoActivity extends LevelBaseActivity{
                                 String speechTxt = level2IconObjects[mLevelTwoItemPos].getY();
                                 speechTxt = speechTxt.replace("_", getSession().getEmailId()
                                         .replaceAll(".", ",$0 ").replace(".", "dot"));
-                                speak(speechTxt);
+                                speakAndShowTextBar_(speechTxt);
                             }
                             mUec.createSendFbEventFromTappedView(15,
                     level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
                                 +"_"+ mIconCode[mLevelTwoItemPos]+"Y0","");
                         }else {
-                            speak(level2IconObjects[mLevelTwoItemPos].getY());
+                            speakAndShowTextBar_(level2IconObjects[mLevelTwoItemPos].getY());
                             mUec.createSendFbEventFromTappedView(15,
                     level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
                                 +"_"+ mIconCode[mLevelTwoItemPos]+"Y0","");
@@ -947,13 +947,13 @@ public class LevelTwoActivity extends LevelBaseActivity{
                 if (!mShouldReadFullSpeech) {
                     // if value of mFlgNo is 1, then should speak "really no".
                     if (mFlgNo == GlobalConstants.LONG_SPEECH) {
-                        speak(mExprBtnTxt[9]);
+                        speakAndShowTextBar_(mExprBtnTxt[9]);
                         mFlgNo = GlobalConstants.SHORT_SPEECH;
                         //Firebase event
                         mUec.createSendFbEventFromTappedView(9, "", "");
                     // if value of mFlgNo is 0, then should speak "no".
                     } else {
-                        speak(mExprBtnTxt[8]);
+                        speakAndShowTextBar_(mExprBtnTxt[8]);
                         mFlgNo = GlobalConstants.LONG_SPEECH;
                         //Firebase event
                         mUec.createSendFbEventFromTappedView(8, "", "");
@@ -974,7 +974,7 @@ public class LevelTwoActivity extends LevelBaseActivity{
                         // People and places will have preferences. To speak the correct speech text
                         // preference sort array is used.
                         if (mLevelOneItemPos == CATEGORY_ICON_PEOPLE) {
-                            speak(level2IconObjects[mArrSort[mLevelTwoItemPos]].getNN());
+                            speakAndShowTextBar_(level2IconObjects[mArrSort[mLevelTwoItemPos]].getNN());
                             mUec.createSendFbEventFromTappedView(22,
                     level2IconObjects[mArrSort[mLevelTwoItemPos]].getEvent_Tag()
                                 +"_"+ mIconCode[mLevelTwoItemPos]+"NN","");
@@ -986,13 +986,13 @@ public class LevelTwoActivity extends LevelBaseActivity{
                             }else {
                                 String speechTxt = level2IconObjects[mLevelTwoItemPos].getNN()
                                         .replace("_", getSession().getAddress());
-                                speak(speechTxt);
+                                speakAndShowTextBar_(speechTxt);
                             }
                             mUec.createSendFbEventFromTappedView(22,
                     level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
                                 +"_"+ mIconCode[mLevelTwoItemPos]+"NN","");
                         }else {
-                            speak(level2IconObjects[mLevelTwoItemPos].getNN());
+                            speakAndShowTextBar_(level2IconObjects[mLevelTwoItemPos].getNN());
                             mUec.createSendFbEventFromTappedView(22,
                     level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
                                 +"_"+ mIconCode[mLevelTwoItemPos]+"NN","");
@@ -1005,7 +1005,7 @@ public class LevelTwoActivity extends LevelBaseActivity{
                         // People and places will have preferences. To speak the correct speech text
                         // preference sort array is used.
                         if (mLevelOneItemPos == CATEGORY_ICON_PEOPLE) {
-                            speak(level2IconObjects[mArrSort[mLevelTwoItemPos]].getN());
+                            speakAndShowTextBar_(level2IconObjects[mArrSort[mLevelTwoItemPos]].getN());
                             mUec.createSendFbEventFromTappedView(21,
                     level2IconObjects[mArrSort[mLevelTwoItemPos]].getEvent_Tag()
                                 +"_"+ mIconCode[mLevelTwoItemPos]+"N0","");
@@ -1017,13 +1017,13 @@ public class LevelTwoActivity extends LevelBaseActivity{
                             }else {
                                 String speechTxt = level2IconObjects[mLevelTwoItemPos].getNN()
                                         .replace("_", getSession().getAddress());
-                                speak(speechTxt);
+                                speakAndShowTextBar_(speechTxt);
                             }
                             mUec.createSendFbEventFromTappedView(21,
                     level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
                                 +"_"+ mIconCode[mLevelTwoItemPos]+"N0","");
                         }else {
-                            speak(level2IconObjects[mLevelTwoItemPos].getN());
+                            speakAndShowTextBar_(level2IconObjects[mLevelTwoItemPos].getN());
                             mUec.createSendFbEventFromTappedView(21,
                     level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
                                 +"_"+ mIconCode[mLevelTwoItemPos]+"N0","");
@@ -1070,13 +1070,13 @@ public class LevelTwoActivity extends LevelBaseActivity{
                 if (!mShouldReadFullSpeech) {
                     // if value of mFlgMore is 1, then should speak "really more".
                     if (mFlgMore == GlobalConstants.LONG_SPEECH) {
-                        speak(mExprBtnTxt[5]);
+                        speakAndShowTextBar_(mExprBtnTxt[5]);
                         mFlgMore = GlobalConstants.SHORT_SPEECH;
                         //Firebase event
                         mUec.createSendFbEventFromTappedView(5, "", "");
                     // if value of mFlgMore is 0, then should speak "more".
                     } else {
-                        speak(mExprBtnTxt[4]);
+                        speakAndShowTextBar_(mExprBtnTxt[4]);
                         mFlgMore = GlobalConstants.LONG_SPEECH;
                         //Firebase event
                         mUec.createSendFbEventFromTappedView(4, "", "");
@@ -1097,7 +1097,7 @@ public class LevelTwoActivity extends LevelBaseActivity{
                         // People and places will have preferences. To speak the correct speech text
                         // preference sort array is used.
                         if (mLevelOneItemPos == CATEGORY_ICON_PEOPLE) {
-                            speak(level2IconObjects[mArrSort[mLevelTwoItemPos]].getMM());
+                            speakAndShowTextBar_(level2IconObjects[mArrSort[mLevelTwoItemPos]].getMM());
                             mUec.createSendFbEventFromTappedView(18,
                     level2IconObjects[mArrSort[mLevelTwoItemPos]].getEvent_Tag()
                                 +"_"+ mIconCode[mLevelTwoItemPos]+"MM","");
@@ -1109,13 +1109,13 @@ public class LevelTwoActivity extends LevelBaseActivity{
                             }else {
                                 String speechTxt = level2IconObjects[mLevelTwoItemPos].getMM();
                                 speechTxt = speechTxt.replace("_", getContactWithSpacesBetweenDigits());
-                                speak(speechTxt);
+                                speakAndShowTextBar_(speechTxt);
                             }
                             mUec.createSendFbEventFromTappedView(18,
                     level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
                                 +"_"+ mIconCode[mLevelTwoItemPos]+"MM","");
                         }else {
-                            speak(level2IconObjects[mLevelTwoItemPos].getMM());
+                            speakAndShowTextBar_(level2IconObjects[mLevelTwoItemPos].getMM());
                             mUec.createSendFbEventFromTappedView(18,
                     level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
                                 +"_"+ mIconCode[mLevelTwoItemPos]+"MM","");
@@ -1128,7 +1128,7 @@ public class LevelTwoActivity extends LevelBaseActivity{
                         // People and places will have preferences. To speak the correct speech text
                         // preference sort array is used.
                         if (mLevelOneItemPos == CATEGORY_ICON_PEOPLE) {
-                            speak(level2IconObjects[mArrSort[mLevelTwoItemPos]].getM());
+                            speakAndShowTextBar_(level2IconObjects[mArrSort[mLevelTwoItemPos]].getM());
                             mUec.createSendFbEventFromTappedView(17,
                     level2IconObjects[mArrSort[mLevelTwoItemPos]].getEvent_Tag()
                                 +"_"+ mIconCode[mLevelTwoItemPos]+"M0","");
@@ -1138,13 +1138,13 @@ public class LevelTwoActivity extends LevelBaseActivity{
                             }else {
                                 String speechTxt = level2IconObjects[mLevelTwoItemPos].getMM();
                                 speechTxt = speechTxt.replace("_", getContactWithSpacesBetweenDigits());
-                                speak(speechTxt);
+                                speakAndShowTextBar_(speechTxt);
                             }
                             mUec.createSendFbEventFromTappedView(17,
                     level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
                                 +"_"+ mIconCode[mLevelTwoItemPos]+"M0","");
                         }else {
-                            speak(level2IconObjects[mLevelTwoItemPos].getM());
+                            speakAndShowTextBar_(level2IconObjects[mLevelTwoItemPos].getM());
                             mUec.createSendFbEventFromTappedView(17,
                     level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
                                 +"_"+ mIconCode[mLevelTwoItemPos]+"M0","");
@@ -1191,13 +1191,13 @@ public class LevelTwoActivity extends LevelBaseActivity{
                 if (!mShouldReadFullSpeech) {
                     // if value of mFlgLess is 1, then should speak "really less".
                     if (mFlgLess == GlobalConstants.LONG_SPEECH) {
-                        speak(mExprBtnTxt[11]);
+                        speakAndShowTextBar_(mExprBtnTxt[11]);
                         mFlgLess = GlobalConstants.SHORT_SPEECH;
                         //Firebase event
                         mUec.createSendFbEventFromTappedView(11, "", "");
                     // if value of mFlgLess is 0, then should speak "less".
                     } else {
-                        speak(mExprBtnTxt[10]);
+                        speakAndShowTextBar_(mExprBtnTxt[10]);
                         mFlgLess = GlobalConstants.LONG_SPEECH;
                         //Firebase event
                         mUec.createSendFbEventFromTappedView(10, "", "");
@@ -1219,7 +1219,7 @@ public class LevelTwoActivity extends LevelBaseActivity{
                         // People and places will have preferences. To speak the correct speech text
                         // preference sort array is used.
                         if (mLevelOneItemPos == CATEGORY_ICON_PEOPLE) {
-                            speak(level2IconObjects[mArrSort[mLevelTwoItemPos]].getSS());
+                            speakAndShowTextBar_(level2IconObjects[mArrSort[mLevelTwoItemPos]].getSS());
                             mUec.createSendFbEventFromTappedView(24,
                     level2IconObjects[mArrSort[mLevelTwoItemPos]].getEvent_Tag()
                                 +"_"+ mIconCode[mLevelTwoItemPos]+"SS","");
@@ -1231,13 +1231,13 @@ public class LevelTwoActivity extends LevelBaseActivity{
                             }else {
                                 String speechTxt = level2IconObjects[mLevelTwoItemPos].getS()
                                         .replace("_", getBloodGroup());
-                                speak(speechTxt);
+                                speakAndShowTextBar_(speechTxt);
                             }
                             mUec.createSendFbEventFromTappedView(24,
                     level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
                                 +"_"+ mIconCode[mLevelTwoItemPos]+"SS","");
                         } else {
-                            speak(level2IconObjects[mLevelTwoItemPos].getSS());
+                            speakAndShowTextBar_(level2IconObjects[mLevelTwoItemPos].getSS());
                             mUec.createSendFbEventFromTappedView(24,
                     level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
                                 +"_"+ mIconCode[mLevelTwoItemPos]+"SS","");
@@ -1250,7 +1250,7 @@ public class LevelTwoActivity extends LevelBaseActivity{
                         // People and places will have preferences. To speak the correct speech text
                         // preference sort array is used.
                         if (mLevelOneItemPos == CATEGORY_ICON_PEOPLE) {
-                            speak(level2IconObjects[mArrSort[mLevelTwoItemPos]].getS());
+                            speakAndShowTextBar_(level2IconObjects[mArrSort[mLevelTwoItemPos]].getS());
                             mUec.createSendFbEventFromTappedView(23,
                     level2IconObjects[mArrSort[mLevelTwoItemPos]].getEvent_Tag()
                                 +"_"+ mIconCode[mLevelTwoItemPos]+"S0","");
@@ -1262,13 +1262,13 @@ public class LevelTwoActivity extends LevelBaseActivity{
                             }else {
                                 String speechTxt = level2IconObjects[mLevelTwoItemPos].getS()
                                         .replace("_", getBloodGroup());
-                                speak(speechTxt);
+                                speakAndShowTextBar_(speechTxt);
                             }
                             mUec.createSendFbEventFromTappedView(23,
                     level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
                                 +"_"+ mIconCode[mLevelTwoItemPos]+"S0","");
                         } else {
-                            speak(level2IconObjects[mLevelTwoItemPos].getS());
+                            speakAndShowTextBar_(level2IconObjects[mLevelTwoItemPos].getS());
                             mUec.createSendFbEventFromTappedView(23,
                     level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
                                 +"_"+ mIconCode[mLevelTwoItemPos]+"S0","");
@@ -1320,7 +1320,7 @@ public class LevelTwoActivity extends LevelBaseActivity{
                 mUec.accessibilityPopupOpenedEvent(mSpeechText[position]);
             }else {
                 if (!mSearched)
-                    speak(mSpeechText[position]);
+                    speakAndShowTextBar_(mSpeechText[position]);
                 else
                     speakWithDelay(mSpeechText[position]);
                 mSearched = false;
@@ -1371,7 +1371,7 @@ public class LevelTwoActivity extends LevelBaseActivity{
                             .replace("…",""), "");
                 }else {
                     if (!mSearched)
-                        speak(mSpeechText[position]);
+                        speakAndShowTextBar_(mSpeechText[position]);
                     else
                         speakWithDelay(mSpeechText[position]);
                     mSearched = false;
@@ -1616,7 +1616,7 @@ public class LevelTwoActivity extends LevelBaseActivity{
             enterCategory.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    speak(mSpeechText[position]);
+                    speakAndShowTextBar_(mSpeechText[position]);
                     //Send People and Help categories events directly to Firebase.
                     mUec.createSendFbEventFromTappedView(12, mDisplayText[position].replace("…", ""), "");
                 }

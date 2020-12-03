@@ -12,13 +12,6 @@ import static com.dsource.idc.jellowintl.utility.SessionManager.LangMap;
 
 public class LanguageFactory {
 
-    /**
-     * This function returns the Language Code of the currently active language
-     * @param context
-     * @return Language code (01- English (India), 02- English (US), 03 – English (UK), 04-
-     * Hindi, 05- Marathi, 06- Bengali, 07- English (AU), 08- Spanish, 09- Tamil, 10- German
-     * and 12- French)
-     ***/
     public static String getCurrentLanguageCode(Context context){
 
         String localeCode = getCurrentLocaleCode(context);
@@ -30,6 +23,14 @@ public class LanguageFactory {
         return sessionManager.getLanguage();
     }
 
+    /**
+     * This function returns the Language Code of the given language.
+     * @param langCode
+     * @return Language code (01- English (India), 02- English (US), 03 – English (UK), 04-
+     * Hindi, 05- Marathi, 06- Bengali, 07- English (AU), 08- Spanish, 09- Tamil, 10- German,
+     * 11- English (South Africa), 12- French, 13- Telugu (India), 14- Gujarati (India),
+     * 15- Kannada (India), 16- Bengali (Bangladesh), 17- English (Nigeria))
+     ***/
     public static String getLanguageCode(String langCode){
         switch (langCode){
             case SessionManager.ENG_IN:
@@ -55,6 +56,12 @@ public class LanguageFactory {
                 return  "10";
             case SessionManager.FR_FR:
                 return  "12";
+            case SessionManager.TE_IN:
+                return  "13";
+            case SessionManager.BN_BD:
+                return  "16";
+            case SessionManager.ENG_NG:
+                return  "17";
             default:
                 return null;
         }

@@ -26,8 +26,8 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
-import com.crashlytics.android.Crashlytics;
 import com.dsource.idc.jellowintl.R;
+import com.google.firebase.crashlytics.FirebaseCrashlytics;
 
 import static com.dsource.idc.jellowintl.utility.Analytics.isAnalyticsActive;
 import static com.dsource.idc.jellowintl.utility.Analytics.resetAnalytics;
@@ -91,6 +91,17 @@ public class SettingActivity extends SpeechEngineBaseActivity {
             findViewById(R.id.switchEnableCall).setVisibility(View.GONE);
         }
 
+        if(getSession().getTextBarVisibility())
+            ((Switch) findViewById(R.id.switchDisplaySpeechText)).setChecked(true);
+
+        ((Switch) findViewById(R.id.switchDisplaySpeechText)).setOnCheckedChangeListener
+                (new CompoundButton.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton compoundButton, boolean enableTextBar) {
+                        getSession().setTextBarVisibility(enableTextBar);
+                    }
+                });
+
         Button btnSave = findViewById(R.id.button4);
         final Button btnDemo = findViewById(R.id.demo);
         mSliderSpeed = findViewById(R.id.speed);
@@ -115,7 +126,7 @@ public class SettingActivity extends SpeechEngineBaseActivity {
             @Override
             public void onClick(View v) {
                 speak(strDemoSpeech);
-                Crashlytics.log("SettingAct Demo");
+                FirebaseCrashlytics.getInstance().log("SettingAct Demo");
             }
         });
 
@@ -205,7 +216,7 @@ public class SettingActivity extends SpeechEngineBaseActivity {
                     getSession().setPitch(mSliderPitch.getProgress());
                 }
                 getSession().setToastMessage(strSettingSaved);
-                Crashlytics.log("SettingAct Save");
+                FirebaseCrashlytics.getInstance().log("SettingAct Save");
                 finish();
             }
         });

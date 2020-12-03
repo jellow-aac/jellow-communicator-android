@@ -17,13 +17,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.crashlytics.android.Crashlytics;
 import com.dsource.idc.jellowintl.R;
 import com.dsource.idc.jellowintl.cache.CacheManager;
 import com.dsource.idc.jellowintl.factories.LanguageFactory;
 import com.dsource.idc.jellowintl.factories.TextFactory;
 import com.dsource.idc.jellowintl.package_updater_module.UpdatePackageCheckUtils;
 import com.dsource.idc.jellowintl.utility.GlideApp;
+import com.google.firebase.crashlytics.FirebaseCrashlytics;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -89,7 +89,7 @@ public class LanguageSelectActivity extends SpeechEngineBaseActivity {
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Crashlytics.log("LanguageSelect Apply");
+                FirebaseCrashlytics.getInstance().log("LanguageSelect Apply");
                 if(selectedLanguage.equals(LangValueMap.get(MR_IN)) && !LanguageFactory.isMarathiPackageAvailable
                         (LanguageSelectActivity.this)){
                     startActivity(new Intent(LanguageSelectActivity.this,
