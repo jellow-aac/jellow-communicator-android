@@ -33,6 +33,7 @@ import static com.dsource.idc.jellowintl.utility.SessionManager.ENG_UK;
 import static com.dsource.idc.jellowintl.utility.SessionManager.ENG_US;
 import static com.dsource.idc.jellowintl.utility.SessionManager.ES_ES;
 import static com.dsource.idc.jellowintl.utility.SessionManager.FR_FR;
+import static com.dsource.idc.jellowintl.utility.SessionManager.GU_IN;
 import static com.dsource.idc.jellowintl.utility.SessionManager.HI_IN;
 import static com.dsource.idc.jellowintl.utility.SessionManager.MR_IN;
 import static com.dsource.idc.jellowintl.utility.SessionManager.TA_IN;
@@ -42,7 +43,6 @@ public class SpeechEngineBaseActivity extends BaseActivity{
     private static TextToSpeech sTts;
     private static int mFailedToSynthesizeTextCount = 0;
 
-    private final String UTTERANCE_ID = "com.dsource.idc.jellowintl.utterence.id";
     private HashMap<String, String> map;
     private static TextToSpeechCallBacks mErrorHandler;
 
@@ -52,10 +52,10 @@ public class SpeechEngineBaseActivity extends BaseActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         map = new HashMap<>();
-        map.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, UTTERANCE_ID);
+        map.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, getPackageName());
     }
 
-    private void setupSpeechEngine(final String language) {
+    private void setupSpeechEngine(final String voice) {
         sTts = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
             @Override
             public void onInit(int status) {
@@ -65,16 +65,17 @@ public class SpeechEngineBaseActivity extends BaseActivity{
                         mErrorHandler.speechEngineNotFoundError();
                         return;
                     }
-                    setSpeechEngineLanguage(language);
-                    sTts.setSpeechRate(getTTsSpeedForLanguage(language));
-                    sTts.setPitch(getTTsPitchForLanguage(language));
-                    if (language.endsWith(MR_IN))
+
+                    sTts.setVoice(getVoiceObject(voice));
+                    sTts.setSpeechRate(getTTsSpeedForLanguage(voice));
+                    sTts.setPitch(getTTsPitchForLanguage(voice));
+                    if (voice.endsWith(MR_IN))
                         createUserProfileRecordingsUsingTTS();
                 } catch (Exception e) {
                     FirebaseCrashlytics.getInstance().recordException(e);
                 }
             }
-        }, getTTsEngineNameForLanguage(language));
+        }, getTTsEngineNameForLanguage(voice));
 
         sTts.setOnUtteranceProgressListener(new UtteranceProgressListener() {
             @Override public void onStart(String utteranceId) {}
@@ -116,6 +117,7 @@ public class SpeechEngineBaseActivity extends BaseActivity{
             case FR_FR:
             case BN_BD:
             case TE_IN:
+            case GU_IN:
             default:
                 return (float) getSession().getPitch()/50;
         }
@@ -138,6 +140,7 @@ public class SpeechEngineBaseActivity extends BaseActivity{
             case FR_FR:
             case BN_BD:
             case TE_IN:
+            case GU_IN:
             default:
                 return (float) (getSession().getSpeed()/50);
         }
@@ -160,6 +163,7 @@ public class SpeechEngineBaseActivity extends BaseActivity{
             case FR_FR:
             case BN_BD:
             case TE_IN:
+            case GU_IN:
             default:
                 return "com.google.android.tts";
         }
@@ -170,71 +174,24 @@ public class SpeechEngineBaseActivity extends BaseActivity{
         mErrorHandler = handler;
     }
 
-    public void setSpeechEngineLanguage(String language) {
-        try {
-            switch (language) {
-                case ENG_UK:
-                    sTts.setLanguage(Locale.UK);
-                    break;
-                case ENG_US:
-                    sTts.setLanguage(Locale.US);
-                    break;
-                case ENG_AU:
-                    sTts.setLanguage(new Locale("en", "AU"));
-                    break;
-                case ENG_NG:
-                    sTts.setLanguage(new Locale("en", "NG"));
-                    break;
-                case BN_IN:
-                case BE_IN:
-                    sTts.setLanguage(new Locale("bn", "IN"));
-                    break;
-                case ES_ES:
-                    sTts.setLanguage(new Locale("es", "ES"));
-                    break;
-                case ENG_IN:
-                    sTts.setLanguage(new Locale("en", "IN"));
-                    if (Build.VERSION.SDK_INT > Build.VERSION_CODES.KITKAT_WATCH) {
-                        for (Voice v : sTts.getVoices()) {
-                            if (v.getName().equals("en-in-x-cxx#female_1-local")) {
-                                sTts.setVoice(v);
-                                break;
-                            }
-                        }
-                    }
-                    break;
-                case TA_IN:
-                    sTts.setLanguage(new Locale("ta", "IN"));
-                    break;
-                case DE_DE:
-                    sTts.setLanguage(Locale.GERMANY);
-                    break;
-                case FR_FR:
-                    sTts.setLanguage(Locale.FRANCE);
-                    break;
-                case BN_BD:
-                    sTts.setLanguage(new Locale("bn", "BD"));
-                    break;
-                case TE_IN:
-                    sTts.setLanguage(new Locale("te", "IN"));
-                    break;
-                case HI_IN:
-                case MR_IN:
-                default:
-                    sTts.setLanguage(new Locale("hi", "IN"));
-                    if (Build.VERSION.SDK_INT > Build.VERSION_CODES.KITKAT_WATCH) {
-                        for (Voice v : sTts.getVoices()) {
-                            if (v.getName().equals("hi-in-x-cfn-local")) {
-                                sTts.setVoice(v);
-                                break;
-                            }
-                        }
-                    }
-                    break;
+    private Voice getVoiceObject(String voice){
+        for (Voice v : sTts.getVoices()) {
+            if (v.getName().equals(voice)){
+                return v;
             }
-        }catch (Exception e){
-            FirebaseCrashlytics.getInstance().log(e.getMessage());
         }
+        return null;
+    }
+
+    public static String getAvailableVoicesForLanguage(String lang){
+        lang = lang.replace("-r","-").toLowerCase();
+        StringBuilder csvVoices = new StringBuilder();
+        for (String voice : voiceGender.keySet()) {
+            if(voice.startsWith(lang)){
+                csvVoices.append(voice).append(",");
+            }
+        }
+        return csvVoices.toString();
     }
 
     public void speak(String speechText){
@@ -330,13 +287,13 @@ public class SpeechEngineBaseActivity extends BaseActivity{
                 Log.i("File : ", String.valueOf(address.createNewFile()));
                 File bloodGroup = new File(path+ "bloodGroup.mp3");
                 Log.i("File : ", String.valueOf(bloodGroup.createNewFile()));
-                sTts.synthesizeToFile(getSession().getName(), null, name, UTTERANCE_ID);
-                sTts.synthesizeToFile(emailId, null, email, UTTERANCE_ID);
-                sTts.synthesizeToFile(contactNo, null, contact, UTTERANCE_ID);
-                sTts.synthesizeToFile(getSession().getCaregiverName(), null, caregiverName, UTTERANCE_ID);
-                sTts.synthesizeToFile(getSession().getAddress(), null, address, UTTERANCE_ID);
+                sTts.synthesizeToFile(getSession().getName(), null, name, getPackageName());
+                sTts.synthesizeToFile(emailId, null, email, getPackageName());
+                sTts.synthesizeToFile(contactNo, null, contact, getPackageName());
+                sTts.synthesizeToFile(getSession().getCaregiverName(), null, caregiverName, getPackageName());
+                sTts.synthesizeToFile(getSession().getAddress(), null, address, getPackageName());
                 sTts.synthesizeToFile(getBloodGroup(getSession().getBlood()), null,
-                        bloodGroup, UTTERANCE_ID);
+                        bloodGroup, getPackageName());
             }else {
                 sTts.synthesizeToFile(getSession().getName(), null, path + "name.mp3");
                 sTts.synthesizeToFile(emailId, null, path + "email.mp3");
@@ -346,7 +303,7 @@ public class SpeechEngineBaseActivity extends BaseActivity{
                 sTts.synthesizeToFile(getBloodGroup(getSession().getBlood()), null,
                         path + "bloodGroup.mp3");
             }
-            setSpeechEngineLanguage(getSession().getLanguage());
+            sTts.setVoice(getVoiceObject(getSession().getAppVoice().split(",")[0]));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -437,7 +394,67 @@ public class SpeechEngineBaseActivity extends BaseActivity{
         return SessionManager.NoTTSLang.contains(getSession().getLanguage());
     }
 
-    public void initiateSpeechEngineWithLanguage(String language){
-        setupSpeechEngine(language);
+    public void initiateSpeechEngineWithLanguage(String voice){
+        if(voice == null || voice.isEmpty()){
+           voice = getAvailableVoicesForLanguage(getSession().getLanguage()).split(",")[0];
+        }
+        setupSpeechEngine(voice);
     }
+
+    static HashMap<String, String> voiceGender = new HashMap<String, String>(){
+        {
+            put("bn-bd-x-ban-local"," (M)");
+            put("bn-in-x-bin-local"," (F)");
+            put("bn-in-x-bnf-local"," (F)");
+            put("bn-in-x-bnm-local"," (M)");
+            put("de-de-x-deb-local"," (M)");
+            put("de-de-x-deg-local"," (M)");
+            put("de-de-x-nfh-local"," (F)");
+            put("en-au-x-afh-local"," (F)");
+            put("en-au-x-aua-local"," (F)");
+            put("en-au-x-aub-local"," (M)");
+            put("en-au-x-auc-local"," (F)");
+            put("en-au-x-aud-local"," (M)");
+            put("en-gb-x-fis-local"," (F)");
+            put("en-gb-x-gba-local"," (F)");
+            put("en-gb-x-gbb-local"," (M)");
+            put("en-gb-x-gbc-local"," (F)");
+            put("en-gb-x-gbd-local"," (M)");
+            put("en-gb-x-gbg-local"," (F)");
+            put("en-gb-x-rjs-local"," (M)");
+            put("en-in-x-ahp-local"," (F)");
+            put("en-in-x-cxx-local"," (F)");
+            put("en-in-x-ena-local"," (F)");
+            put("en-in-x-enc-local"," (F)");
+            put("en-in-x-end-local"," (M)");
+            put("en-in-x-ene-local"," (M)");
+            put("en-ng-x-tfn-local"," (F)");
+            put("en-us-x-iob-local"," (F)");
+            put("en-us-x-iog-local"," (F)");
+            put("en-us-x-iol-local"," (M)");
+            put("en-us-x-iom-local"," (M)");
+            put("en-us-x-sfg-local"," (F)");
+            put("en-us-x-tpc-local"," (F)");
+            put("en-us-x-tpd-local"," (M)");
+            put("en-us-x-tpf-local"," (F)");
+            put("es-es-x-ana-local"," (F)");
+            put("fr-fr-x-fra-local"," (F)");
+            put("fr-fr-x-frb-local"," (M)");
+            put("fr-fr-x-frc-local"," (F)");
+            put("fr-fr-x-frd-local"," (M)");
+            put("fr-fr-x-vlf-local"," (F)");
+            put("gu-in-x-guf-local"," (F)");
+            put("gu-in-x-gum-local"," (F)");
+            put("hi-in-x-cfn-local"," (F)");
+            put("hi-in-x-hia-local"," (F)");
+            put("hi-in-x-hic-local"," (F)");
+            put("hi-in-x-hid-local"," (M)");
+            put("hi-in-x-hie-local"," (M)");
+            put("mr-in-x-mrf-local"," (F)");
+            put("ta-in-x-taf-local"," (F)");
+            put("ta-in-x-tag-local"," (F)");
+            put("te-in-x-tef-local"," (F)");
+            put("te-in-x-tem-local"," (F)");
+        }
+    };
 }

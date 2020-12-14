@@ -347,7 +347,7 @@
 
 <!--Dimensions related to the Board List activity-->
     <dimen name="list_recycler_margin">16dp</dimen>
-    <dimen name="add_board_dialog_width">460dp</dimen>
+    <dimen name="add_board_dialog_width">550dp</dimen>
     <dimen name="board_dialog_edit_text">18sp</dimen>
     <dimen name="camera_mar_left">4dp</dimen>
     <dimen name="camera_drop_down_width">194dp</dimen>

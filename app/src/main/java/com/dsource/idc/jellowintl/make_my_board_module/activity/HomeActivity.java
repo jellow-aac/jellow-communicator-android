@@ -410,7 +410,10 @@ public class HomeActivity extends SpeechEngineBaseActivity implements TextToSpee
     }
 
     private void exitToBoardListScreen() {
-        if (getSession() != null) getSession().setCurrentBoardLanguage("");
+        if (getSession() != null){
+            getSession().setCurrentBoardLanguage("");
+            getSession().setBoardVoice("");
+        }
         startActivities(new Intent[]{
                 new Intent(getApplicationContext(), MainActivity.class),
                 new Intent(getApplicationContext(), BoardListActivity.class)
@@ -636,7 +639,7 @@ public class HomeActivity extends SpeechEngineBaseActivity implements TextToSpee
     @Override
     protected void onResume() {
         super.onResume();
-        setSpeechEngineLanguage(getSession().getCurrentBoardLanguage());
+        initiateSpeechEngineWithLanguage(getSession().getBoardVoice().split(",")[0]);
         setVisibleAct(HomeActivity.class.getSimpleName());
         if (!getSession().getToastMessage().isEmpty()) {
             Toast.makeText(getApplicationContext(),

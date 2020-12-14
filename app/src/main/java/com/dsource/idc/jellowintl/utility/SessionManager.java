@@ -30,6 +30,7 @@ public class SessionManager {
     public final static String ES_ES = "es-rES";
     public final static String TA_IN = "ta-rIN";
     public final static String TE_IN = "te-rIN";
+    public final static String GU_IN = "gu-rIN";
     public final static String DE_DE = "de-rDE";
     public final static String FR_FR = "fr-rFR";
     public static final String UNIVERSAL_PACKAGE = "universal";
@@ -51,6 +52,7 @@ public class SessionManager {
             put("தமிழ் (Tamil)", TA_IN);
             put("বাংলা (Bangladesh)", BN_BD);
             put("తెలుగు (Telugu)", TE_IN);
+            put("ગુજરાતી (Gujarati)", GU_IN);
         }
     };
 
@@ -70,15 +72,12 @@ public class SessionManager {
             put(TA_IN, "தமிழ் (Tamil)");
             put(BN_BD, "বাংলা (Bangladesh)");
             put(TE_IN, "తెలుగు (Telugu)");
+            put(GU_IN, "ગુજરાતી (Gujarati)");
         }
     };
 
     public final static ArrayList<String> NoTTSLang = new ArrayList<String>(){{
         add(MR_IN);
-    }};
-
-    public final static ArrayList<String> NOT_SUPPORTED_API_BELOW_21 = new ArrayList<String>(){{
-        add(TA_IN);
     }};
 
     private final String PREF_NAME = "JellowPreferences";
@@ -92,6 +91,8 @@ public class SessionManager {
     private final String Language = "lang";
     private final String Speed = "speechspeed";
     private final String Pitch = "voicepitch";
+    private final String Voice = "appVoice";
+    private final String BoardVoice = "boardVoice";
     private final String PictureViewMode = "PictureViewMode";
     private final String GridSize = "GridSize";
     private final String sessionId = "SessionId";
@@ -165,6 +166,14 @@ public class SessionManager {
 
     public void setLanguage(String lang){
         storePreferenceKeyWithValue(String.class.toString(), Language, lang);
+    }
+
+    public String getAppVoice() {
+        return (String) retrievePreferenceKeyWithValue(String.class.toString(), Voice);
+    }
+
+    public void setAppVoice(String voice) {
+        storePreferenceKeyWithValue(String.class.toString(), Voice, voice);
     }
 
     public String getLanguage(){
@@ -318,6 +327,14 @@ public class SessionManager {
     public void setCurrentBoardLanguage(String language){
         String Tag = "cur_board_lang";
         storePreferenceKeyWithValue(String.class.toString(),Tag,language);
+    }
+
+    public String getBoardVoice() {
+        return (String) retrievePreferenceKeyWithValue(String.class.toString(), BoardVoice);
+    }
+
+    public void setBoardVoice(String voice) {
+        storePreferenceKeyWithValue(String.class.toString(), BoardVoice, voice);
     }
 
     public void changePreferencesFile(Context context){

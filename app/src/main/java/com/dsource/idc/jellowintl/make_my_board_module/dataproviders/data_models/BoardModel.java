@@ -40,10 +40,11 @@ public class BoardModel implements Serializable {
     @ColumnInfo(name = "language_code")
     private String language= SessionManager.ENG_IN;
 
+    @ColumnInfo(name = "board_voice")
+    private String boardVoice;
+
     @ColumnInfo(name = "timestamp")
     private long timestamp;
-
-
 
     @ColumnInfo(name = "custom_icons")
     private ArrayList<String> customIconList;
@@ -124,5 +125,13 @@ public class BoardModel implements Serializable {
     public void addCustomIconID(String customId) {
         if(customIconList==null) customIconList = new ArrayList<>();
         customIconList.add(customId);
+    }
+
+    public String getBoardVoice() {
+        return boardVoice;
+    }
+
+    public void setBoardVoice(String boardVoice) {
+        this.boardVoice = boardVoice;
     }
 }

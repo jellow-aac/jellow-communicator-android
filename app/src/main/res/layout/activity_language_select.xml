@@ -48,6 +48,24 @@
                 android:drawableEnd="@drawable/sharp_arrow_drop_down_black_18dp"
                 android:drawableRight="@drawable/sharp_arrow_drop_down_black_18dp" />
             <TextView
+                android:id="@+id/tv_voic_step_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/change_language_voice"
+                android:layout_marginBottom="@dimen/lang_sel_tv_margin_bottom"
+                style="@style/defaultTextViewStyle"/>
+            <Button
+                android:id="@+id/btn_voic_select"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/lang_sel_spinner_height"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:layout_marginBottom="@dimen/lang_sel_tv_margin_bottom"
+                android:textSize="@dimen/lang_sel_btn_txt_size"
+                android:onClick="showVoiceSelectDialog"
+                android:drawableEnd="@drawable/sharp_arrow_drop_down_black_18dp"
+                android:drawableRight="@drawable/sharp_arrow_drop_down_black_18dp" />
+            <TextView
                 android:id="@+id/tv_step4_info"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

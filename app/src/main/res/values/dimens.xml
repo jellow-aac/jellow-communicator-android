@@ -293,7 +293,7 @@
 
     <!--Dimensions related to the Board List activity-->
     <dimen name="list_recycler_margin">4dp</dimen>
-    <dimen name="add_board_dialog_width">400dp</dimen>
+    <dimen name="add_board_dialog_width">550dp</dimen>
     <dimen name="board_dialog_edit_text">14sp</dimen>
 
 <!--Dimensions related to the icon select in my board-->
@@ -311,7 +311,7 @@
     <dimen name="header_edit_icon_size">20dp</dimen>
 
     <!--Edit board dialog dimensions-->
-    <dimen name="board_add_edit_icon_size">196dp</dimen>
+    <dimen name="board_add_edit_icon_size">238dp</dimen>
     <dimen name="board_edit_icon_size">122dp</dimen>
     <dimen name="board_edit_dialog_width">240dp</dimen>
     <dimen name="edit_board_dialog_side_margin">16dp</dimen>

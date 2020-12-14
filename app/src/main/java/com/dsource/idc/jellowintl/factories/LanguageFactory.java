@@ -58,6 +58,8 @@ public class LanguageFactory {
                 return  "12";
             case SessionManager.TE_IN:
                 return  "13";
+            case SessionManager.GU_IN:
+                return  "14";
             case SessionManager.BN_BD:
                 return  "16";
             case SessionManager.ENG_NG:

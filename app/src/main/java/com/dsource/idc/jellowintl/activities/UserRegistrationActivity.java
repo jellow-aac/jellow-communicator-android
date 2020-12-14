@@ -24,6 +24,7 @@ import com.dsource.idc.jellowintl.R;
 import com.dsource.idc.jellowintl.TalkBack.TalkbackHints_DropDownMenu;
 import com.dsource.idc.jellowintl.factories.LanguageFactory;
 import com.dsource.idc.jellowintl.models.GlobalConstants;
+import com.dsource.idc.jellowintl.utility.SessionManager;
 import com.dsource.idc.jellowintl.utility.async.InternetTest;
 import com.dsource.idc.jellowintl.utility.interfaces.CheckNetworkStatus;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -55,6 +56,7 @@ import static com.dsource.idc.jellowintl.utility.SessionManager.UNIVERSAL_PACKAG
  */
 public class UserRegistrationActivity extends BaseActivity implements CheckNetworkStatus {
     public static final String LCODE = "lcode";
+    public static final String VCODE = "voiceCode";
     public static final String TUTORIAL = "tutorial";
     private Button bRegister;
     private EditText etName, etEmergencyContact, etAddress;
@@ -70,6 +72,7 @@ public class UserRegistrationActivity extends BaseActivity implements CheckNetwo
         getSession().changePreferencesFile(this);
         //Reset Board Language
         getSession().setCurrentBoardLanguage("");
+        getSession().setBoardVoice("");
 
         if (!getSession().getUserId().equals("")) {
             getAnalytics(this, getSession().getUserId());
@@ -232,6 +235,10 @@ public class UserRegistrationActivity extends BaseActivity implements CheckNetwo
                                     if (task.isSuccessful()) {
                                         getSession().setUserLoggedIn(true);
                                         getSession().setLanguage(LangMap.get(selectedLanguage));
+                                        String voice = SpeechEngineBaseActivity.getAvailableVoicesForLanguage(
+                                                SessionManager.LangMap.get(selectedLanguage));
+                                        getSession().setAppVoice(voice.split(",")[0]
+                                                +", Voice I"+getGender(voice.split(",")[0]));
                                         getSession().setGridSize(GlobalConstants.NINE_ICONS_PER_SCREEN);
                                         Bundle bundle = new Bundle();
                                         bundle.putString("LanguageSet", "First time "+ LangMap.get(selectedLanguage));

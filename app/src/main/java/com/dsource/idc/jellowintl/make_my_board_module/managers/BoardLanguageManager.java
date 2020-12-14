@@ -15,13 +15,14 @@ import com.dsource.idc.jellowintl.models.AppDatabase;
 import com.dsource.idc.jellowintl.utility.SessionManager;
 
 import static com.dsource.idc.jellowintl.activities.UserRegistrationActivity.LCODE;
+import static com.dsource.idc.jellowintl.activities.UserRegistrationActivity.VCODE;
 import static com.dsource.idc.jellowintl.make_my_board_module.utility.BoardConstants.BOARD_ID;
 
 public class BoardLanguageManager {
 
-    private BoardModel currentBoard;
-    private Context context;
-    private AppDatabase appDatabase;
+    private final BoardModel currentBoard;
+    private final Context context;
+    private final AppDatabase appDatabase;
 
     public BoardLanguageManager(BoardModel board, Context context, AppDatabase appDatabase){
         this.currentBoard = board;
@@ -52,7 +53,11 @@ public class BoardLanguageManager {
                     }
                     intent.putExtra(BOARD_ID, currentBoard.getBoardId());
                     context.startActivity(intent);
-                    new SessionManager(context).setCurrentBoardLanguage(currentBoard.getLanguage());
+                    {
+                        SessionManager sManager = new SessionManager(context);
+                        sManager.setCurrentBoardLanguage(currentBoard.getLanguage());
+                        sManager.setBoardVoice(currentBoard.getBoardVoice());
+                    }
                 }
             }
             else {
@@ -61,6 +66,7 @@ public class BoardLanguageManager {
                 Intent intent = new Intent(context, SetupMMB.class);
                 intent.putExtra(BOARD_ID, currentBoard.getBoardId());
                 intent.putExtra(LCODE, currentBoard.getLanguage());
+                intent.putExtra(VCODE, currentBoard.getBoardVoice());
                 context.startActivity(intent);
             }
     }

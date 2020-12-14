@@ -46,11 +46,12 @@ import static com.dsource.idc.jellowintl.utility.SessionManager.MR_IN;
 import static com.dsource.idc.jellowintl.utility.SessionManager.TA_IN;
 
 public class LanguageSelectActivity extends SpeechEngineBaseActivity {
-    String selectedLanguage, mLangChanged;
-    Button save, languageSelect;
+    private String selectedLanguage, mLangChanged, availVoices, selectedVoice;
+    private Button save, languageSelect, voiceSelect;
     // Variable hold strings from regional string.xml file.
     private String mStep2, mStep3;
     String[] langList = new String[LangValueMap.size()];
+    String[] voiceList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,8 +76,24 @@ public class LanguageSelectActivity extends SpeechEngineBaseActivity {
                 langList[i] = rawLangList.get(i);
             }
         }
+        voiceSelect = findViewById(R.id.btn_voic_select);
+        {
+            availVoices = getAvailableVoicesForLanguage(getSession().getLanguage());
+            voiceList = new String[availVoices.split(",").length];
+            for (int i = 0; i < availVoices.split(",").length; i++) {
+                voiceList[i] = "Voice "+ getRomanNumber(i+1)+getGender(availVoices.split(",")[i]);
+            }
+        }
+
         languageSelect.setText(langList[0]);
         selectedLanguage = langList[0];
+        if(getSession().getAppVoice().split(",").length != 2) {
+            voiceSelect.setText(voiceList[0]);
+            selectedVoice = availVoices.split(",")[0];
+        }else {
+            selectedVoice = getSession().getAppVoice().split(",")[0];
+            voiceSelect.setText(getSession().getAppVoice().split(",")[1]);
+        }
 
         setImageUsingGlide(R.drawable.tts_wifi_1, ((ImageView) findViewById(R.id.ivAddLang1)));
         setImageUsingGlide(R.drawable.tts_wifi_2, ((ImageView) findViewById(R.id.ivAddLang2)));
@@ -101,41 +118,6 @@ public class LanguageSelectActivity extends SpeechEngineBaseActivity {
             }
         });
         updateViewsForNewLangSelect();
-    }
-
-    private void updateViewsForNewLangSelect() {
-        if (selectedLanguage.equals(LangValueMap.get(MR_IN))) {
-            findViewById(R.id.ll_hidden_view).setVisibility(View.GONE);
-            findViewById(R.id.tv_language_not_working_info).setVisibility(View.GONE);
-            return;
-        }
-
-        findViewById(R.id.ll_hidden_view).setVisibility(View.VISIBLE);
-        findViewById(R.id.tv_language_not_working_info).setVisibility(View.VISIBLE);
-
-        /*step 2*/
-        SpannableString spannedStr = new SpannableString(mStep2);
-        spannedStr.setSpan(new StyleSpan(Typeface.BOLD),0, getDelimitedStringLength(mStep2),0);
-        spannedStr.setSpan(new UnderlineSpan(), 0, getDelimitedStringLength(mStep2), 0);
-        ((TextView)findViewById(R.id.tv_step2_info)).setText(spannedStr);
-
-        /*step 3*/
-        spannedStr = new SpannableString(mStep3.replace("_", getTTsLanguage()));
-        spannedStr.setSpan(new StyleSpan(Typeface.BOLD),0, getDelimitedStringLength(mStep3),0);
-        spannedStr.setSpan(new UnderlineSpan(), 0, getDelimitedStringLength(mStep3), 0);
-        int start = spannedStr.toString().indexOf(getTTsLanguage()),
-            end = start + getTTsLanguage().length();
-        spannedStr.setSpan(new StyleSpan(Typeface.BOLD), start, end,0);
-        ((TextView)findViewById(R.id.tv_step3_info)).setText(spannedStr);
-    }
-
-    private void setImageUsingGlide(int image, ImageView imgView) {
-        GlideApp.with(this)
-                .load(image)
-                .diskCacheStrategy(DiskCacheStrategy.NONE)
-                .skipMemoryCache(false)
-                .dontAnimate()
-                .into(imgView);
     }
 
     @Override
@@ -177,8 +159,62 @@ public class LanguageSelectActivity extends SpeechEngineBaseActivity {
         super.onUserInteraction();
     }
 
+    public void showAvailableLanguageDialog(View view) {
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setSingleChoiceItems(langList, 0, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                selectedLanguage = langList[which];
+                languageSelect.setText(selectedLanguage);
+                availVoices = getAvailableVoicesForLanguage(LangMap.get(selectedLanguage));
+                voiceList = new String[availVoices.split(",").length];
+                for (int i = 0; i < availVoices.split(",").length; i++) {
+                    voiceList[i] = "Voice "+getRomanNumber(i+1)+getGender(availVoices.split(",")[i]);
+                }
+                voiceSelect.setText(voiceList[0]);
+                updateViewsForNewLangSelect();
+                dialog.dismiss();
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.show();
+        dialog.getListView().setScrollbarFadingEnabled(false);
+        dialog.getListView().setScrollBarSize(12);
+    }
+
+    public void showVoiceSelectDialog(View view) {
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setSingleChoiceItems(voiceList, 0, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                selectedVoice = availVoices.split(",")[which];
+                voiceSelect.setText(voiceList[which]);
+                dialog.dismiss();
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.show();
+        dialog.getListView().setScrollbarFadingEnabled(false);
+        dialog.getListView().setScrollBarSize(12);
+    }
+
+    public void openSpeechDataSetting(View view){
+        Intent intent = new Intent();
+        intent.setAction(TextToSpeech.Engine.ACTION_INSTALL_TTS_DATA);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+    }
+
+    public void openSpeechSetting(View view){
+        startActivity(new Intent().setAction("com.android.settings.TTS_SETTINGS"));
+    }
+
     private void saveLanguage() {
         getSession().setLanguage(LangMap.get(selectedLanguage));
+        getSession().setAppVoice(selectedVoice
+                +","+voiceSelect.getText().toString().trim());
         Bundle bundle = new Bundle();
         bundle.putString("LanguageSet", "Switched to "+ LangMap.get(selectedLanguage));
         bundleEvent("Language",bundle);
@@ -207,30 +243,38 @@ public class LanguageSelectActivity extends SpeechEngineBaseActivity {
                 text.indexOf("ঃ")+1 : text.indexOf(":")+1;
     }
 
-    public void showAvailableLanguageDialog(View view) {
-        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setSingleChoiceItems(langList, 0, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                selectedLanguage = langList[which];
-                languageSelect.setText(selectedLanguage);
-                updateViewsForNewLangSelect();
-                dialog.dismiss();
-            }
-        });
-        AlertDialog dialog = builder.create();
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.show();
+    private void updateViewsForNewLangSelect() {
+        if (selectedLanguage.equals(LangValueMap.get(MR_IN))) {
+            findViewById(R.id.ll_hidden_view).setVisibility(View.GONE);
+            findViewById(R.id.tv_language_not_working_info).setVisibility(View.GONE);
+            return;
+        }
+
+        findViewById(R.id.ll_hidden_view).setVisibility(View.VISIBLE);
+        findViewById(R.id.tv_language_not_working_info).setVisibility(View.VISIBLE);
+
+        /*step 2*/
+        SpannableString spannedStr = new SpannableString(mStep2);
+        spannedStr.setSpan(new StyleSpan(Typeface.BOLD),0, getDelimitedStringLength(mStep2),0);
+        spannedStr.setSpan(new UnderlineSpan(), 0, getDelimitedStringLength(mStep2), 0);
+        ((TextView)findViewById(R.id.tv_step2_info)).setText(spannedStr);
+
+        /*step 3*/
+        spannedStr = new SpannableString(mStep3.replace("_", getTTsLanguage()));
+        spannedStr.setSpan(new StyleSpan(Typeface.BOLD),0, getDelimitedStringLength(mStep3),0);
+        spannedStr.setSpan(new UnderlineSpan(), 0, getDelimitedStringLength(mStep3), 0);
+        int start = spannedStr.toString().indexOf(getTTsLanguage()),
+                end = start + getTTsLanguage().length();
+        spannedStr.setSpan(new StyleSpan(Typeface.BOLD), start, end,0);
+        ((TextView)findViewById(R.id.tv_step3_info)).setText(spannedStr);
     }
 
-    public void openSpeechDataSetting(View view){
-        Intent intent = new Intent();
-        intent.setAction(TextToSpeech.Engine.ACTION_INSTALL_TTS_DATA);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(intent);
-    }
-
-    public void openSpeechSetting(View view){
-        startActivity(new Intent().setAction("com.android.settings.TTS_SETTINGS"));
+    private void setImageUsingGlide(int image, ImageView imgView) {
+        GlideApp.with(this)
+                .load(image)
+                .diskCacheStrategy(DiskCacheStrategy.NONE)
+                .skipMemoryCache(false)
+                .dontAnimate()
+                .into(imgView);
     }
 }

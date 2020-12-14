@@ -56,6 +56,16 @@ public class BaseActivity extends AppCompatActivity{
             }
         }
     };
+    static final Migration MIGRATION_2_3 = new Migration(2, 3) {
+        @Override
+        public void migrate(SupportSQLiteDatabase database) {
+            try{
+                database.execSQL("ALTER TABLE `BoardModel` ADD COLUMN `board_voice` TEXT");
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+        }
+    };
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -78,6 +88,7 @@ public class BaseActivity extends AppCompatActivity{
             sAppDatabase = Room.databaseBuilder(this, AppDatabase.class, APP_DB_NAME)
                     .allowMainThreadQueries()
                     .addMigrations(MIGRATION_1_2)
+                    .addMigrations(MIGRATION_2_3)
                     .build();
     }
 
@@ -376,5 +387,22 @@ public class BaseActivity extends AppCompatActivity{
 
     public boolean hasCameraHardware(){
         return getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_ANY);
+    }
+
+    public String getRomanNumber(int num){
+        int[] values = {100,90,50,40,10,9,5,4,1};
+        String[] romanLiterals = {"C","XC","L","XL","X","IX","V","IV","I"};
+        StringBuilder romanNumber = new StringBuilder();
+        for(int i=0;i<values.length;i++) {
+            while(num >= values[i]) {
+                num -= values[i];
+                romanNumber.append(romanLiterals[i]);
+            }
+        }
+        return romanNumber.toString();
+    }
+
+    public String getGender(String voice) {
+        return SpeechEngineBaseActivity.voiceGender.get(voice);
     }
 }

@@ -376,7 +376,7 @@ public class IconSelectActivity extends BaseBoardActivity<ISelectIconView, ISele
                     SelectionManager.getInstance().addIconToList(icon);
                     searchScrollManager.setSearchedIcon(icon);
                     /*If user searched an icon from level two*/
-                    if(icon.getVerbiageId().substring(6,10).equals("0000")){
+                    if(icon.getVerbiageId().startsWith("0000", 6)){
                         levelManager.updateSelection((icon.getParent0() + 1), icon.getParent2());
                         levelManager.highlightSelection((icon.getParent0() + 1), icon.getParent2());
                     }else {
@@ -398,7 +398,10 @@ public class IconSelectActivity extends BaseBoardActivity<ISelectIconView, ISele
             @Override
             public void onPositiveClickListener() {
                 SelectionManager.getInstance().delete();
-                if(getSession()!=null) getSession().setCurrentBoardLanguage("");
+                if(getSession()!=null){
+                    getSession().setCurrentBoardLanguage("");
+                    getSession().setBoardVoice("");
+                }
                 startActivities(new Intent[]{
                         new Intent(getApplicationContext(), MainActivity.class),
                         new Intent(getApplicationContext(), BoardListActivity.class)

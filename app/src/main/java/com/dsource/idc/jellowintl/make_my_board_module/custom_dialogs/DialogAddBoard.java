@@ -35,6 +35,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 import com.dsource.idc.jellowintl.R;
 import com.dsource.idc.jellowintl.activities.BaseActivity;
+import com.dsource.idc.jellowintl.activities.SpeechEngineBaseActivity;
 import com.dsource.idc.jellowintl.factories.LanguageFactory;
 import com.dsource.idc.jellowintl.make_my_board_module.activity.BoardSearchActivity;
 import com.dsource.idc.jellowintl.make_my_board_module.datamodels.BoardIconModel;
@@ -129,6 +130,7 @@ public class DialogAddBoard extends BaseActivity implements IAddBoardDialogView,
         final ImageView imageChange = findViewById(R.id.edit_image);
         final EditText boardName = findViewById(R.id.board_name);
         final Spinner languageSelect = findViewById(R.id.langSelectSpinner);
+        final Spinner voiceSelect = findViewById(R.id.voiceSelectSpinner);
 
         findViewById(R.id.parent).setOnClickListener(this);
         findViewById(R.id.touch_inside).setOnClickListener(this);
@@ -137,20 +139,42 @@ public class DialogAddBoard extends BaseActivity implements IAddBoardDialogView,
 
         boardName.setFilters(new InputFilter[]{new InputFilter.LengthFilter(60)});
         listView = findViewById(R.id.camera_list);
-        ArrayList<String> languageList = new ArrayList<>(Arrays.asList(LanguageFactory.getAvailableLanguages()));
+        {
+            final ArrayList<String> languageList = new ArrayList<>(Arrays.asList(LanguageFactory.getAvailableLanguages()));
+            ArrayAdapter<String> langAdapter = new ArrayAdapter<>(this,
+                    android.R.layout.simple_spinner_item, languageList);
+            langAdapter.setDropDownViewResource(R.layout.popup_menu_item);
+            languageSelect.setAdapter(langAdapter);
 
-        for (String lang : SessionManager.NoTTSLang)
-            languageList.remove(SessionManager.LangValueMap.get(lang));
+            String voices = SpeechEngineBaseActivity.getAvailableVoicesForLanguage(
+                    SessionManager.LangMap.get(languageList.get(0)));
+            ArrayList<String> voiceList = new ArrayList<>(voices.split(",").length);
+            for (int i = 0; i < voices.split(",").length; i++) {
+                voiceList.add(i,"Voice "+ getRomanNumber(i+1)+getGender(voices.split(",")[i]));
+            }
+            ArrayAdapter<String> voiceAdapter = new ArrayAdapter<>(this,
+                    android.R.layout.simple_spinner_item, voiceList);
+            voiceAdapter.setDropDownViewResource(R.layout.popup_menu_item);
+            voiceSelect.setAdapter(voiceAdapter);
+            languageSelect.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                    String voices = SpeechEngineBaseActivity.getAvailableVoicesForLanguage(
+                            SessionManager.LangMap.get(languageList.get(position)));
+                    ArrayList<String> voiceList = new ArrayList<>(voices.split(",").length);
+                    for (int i = 0; i < voices.split(",").length; i++) {
+                        voiceList.add(i,"Voice "+ getRomanNumber(i+1)+getGender(voices.split(",")[i]));
+                    }
+                    ArrayAdapter<String> voiceAdapter = new ArrayAdapter<>(DialogAddBoard.this,
+                            android.R.layout.simple_spinner_item, voiceList);
+                    voiceAdapter.setDropDownViewResource(R.layout.popup_menu_item);
+                    voiceSelect.setAdapter(voiceAdapter);
+                }
 
-        if(Build.VERSION.SDK_INT< Build.VERSION_CODES.LOLLIPOP){
-            for (String lang : SessionManager.NOT_SUPPORTED_API_BELOW_21)
-                languageList.remove(SessionManager.LangValueMap.get(lang));
+                @Override
+                public void onNothingSelected(AdapterView<?> parent) {}
+            });
         }
-        ArrayAdapter arrayAdapter = new ArrayAdapter<>(this,
-                android.R.layout.simple_spinner_item, languageList);
-        arrayAdapter.setDropDownViewResource(R.layout.popup_menu_item);
-        languageSelect.setAdapter(arrayAdapter);
-
         if (board != null) {
             boardName.setText(board.getBoardName());
             File en_dir = mContext.getDir(SessionManager.BOARD_ICON_LOCATION, Context.MODE_PRIVATE);
@@ -167,16 +191,14 @@ public class DialogAddBoard extends BaseActivity implements IAddBoardDialogView,
                     .transform(new CircleCrop())
                     .dontAnimate()
                     .into(boardIcon);
-            int position = 0;
-            for (int i = 0; i < languageList.size(); i++) {
-                if (board.getLanguage().equals(SessionManager.LangMap.get(languageList.get(i))))
-                    position = i;
-            }
-            languageSelect.setSelection(position);
             languageSelect.setVisibility(View.GONE);
+            voiceSelect.setVisibility(View.GONE);
             TextView tvLanguage = findViewById(R.id.tv_language);
+            TextView tvVoice = findViewById(R.id.tv_voice);
             tvLanguage.setVisibility(View.VISIBLE);
+            tvVoice.setVisibility(View.VISIBLE);
             tvLanguage.setText(SessionManager.LangValueMap.get(board.getLanguage()));
+            tvVoice.setText(board.getBoardVoice().split(",")[1]);
             saveButton.setText(getString(R.string.txtSave));
         }
 
@@ -196,8 +218,12 @@ public class DialogAddBoard extends BaseActivity implements IAddBoardDialogView,
 
                 //Returns code for each language in board
                 String langCode = languageSelect.getSelectedItem().toString();
+                String voiceList =  SpeechEngineBaseActivity.
+                        getAvailableVoicesForLanguage(SessionManager.LangMap.get(langCode));
+                String voice = voiceList.split(",")[voiceSelect.getSelectedItemPosition()]+","
+                        +voiceSelect.getSelectedItem().toString().trim();
                 if (board == null)
-                    saveNewBoard(boardName.getText().toString().trim(), ((BitmapDrawable) boardIcon.getDrawable()).getBitmap(), langCode);
+                    saveNewBoard(boardName.getText().toString().trim(), ((BitmapDrawable) boardIcon.getDrawable()).getBitmap(), langCode, voice);
                 else
                     updateBoardDetails(board, boardName.getText().toString().trim(), ((BitmapDrawable) boardIcon.getDrawable()).getBitmap());
                 finish();
@@ -280,10 +306,8 @@ public class DialogAddBoard extends BaseActivity implements IAddBoardDialogView,
             }
         };
 
-
         languageSelect.setOnTouchListener(spinnerOnTouch);
         languageSelect.setOnKeyListener(spinnerOnKey);
-
     }
 
 
@@ -389,7 +413,7 @@ public class DialogAddBoard extends BaseActivity implements IAddBoardDialogView,
         }
     }
 
-    private void saveNewBoard(String boardName, Bitmap boardIcon, String langCode) {
+    private void saveNewBoard(String boardName, Bitmap boardIcon, String langCode, String voice) {
         String boardID = (int) Calendar.getInstance().getTime().getTime() + "";
 
         if (iconImageSelected)
@@ -399,6 +423,7 @@ public class DialogAddBoard extends BaseActivity implements IAddBoardDialogView,
         newBoard.setBoardId(boardID);
         newBoard.setGridSize(4);
         newBoard.setLanguage(SessionManager.LangMap.get(langCode));
+        newBoard.setBoardVoice(voice);
         newBoard.setIconModel(new BoardIconModel(new JellowIcon("", "", -1, -1, -1)));
         mPresenter.saveBoard(newBoard);
     }

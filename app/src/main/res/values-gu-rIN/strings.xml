@@ -73,7 +73,6 @@
     <string name="change_language_line2">Select any language from the dropdown below:</string>
     <string name="simple_ime">Jellow Keyboard</string>
     <string name="subtype_en_US">Serial ABC</string>
-    <string name="perform_db_update" translatable="false">com.dsource.idc.jellow.perform_db_update</string>
 
     <string name="action_bar_title">Home</string>
     <string name="txtSpeechSpeed">Speech Speed</string>
@@ -98,17 +97,8 @@
     <string name="menuUserRegistration">Registration Page</string>
     <string name="menuAccessibility">Accessibility</string>
     <string name="menuClosePopup">Close menu</string>
-    <string name="language_download_screen" translatable="false">Jellow content download screen</string>
     <string name="labelSplash">Jellow is loading. Please wait!</string>
 
-    <string name="aPos" translatable="false">A, Positive</string>
-    <string name="aNeg" translatable="false">A, Negative</string>
-    <string name="bPos" translatable="false">B, Positive</string>
-    <string name="bNeg" translatable="false">B, Negative</string>
-    <string name="abPos" translatable="false">A B, Positive</string>
-    <string name="abNeg" translatable="false">A B, Negative</string>
-    <string name="oPos" translatable="false">O, Positive</string>
-    <string name="oNeg" translatable="false">O, Negative</string>
     <string name="easyToUse">Easy to Use</string>
     <string name="clearPictures">Clear Pictures</string>
     <string name="clearVoice">Clear Voice</string>
@@ -125,7 +115,6 @@
     <string name="saveAsDefault">SAVE AS DEFAULT</string>
     <string name="getKeyboardControl">Keyboard Control</string>
     <string name="childName">Child\'s Name **</string>
-    <string name="websiteLink" translatable="false">http://www.jellow.org</string>
     <string name="caregiverName">Caregiver\'s Name **</string>
     <string name="careGiverContact">Caregiver\'s Contact number other than this device\'s sim number **</string>
     <string name="homeAddress">Home Address **</string>
@@ -157,13 +146,11 @@
     <string name="resetPrefPointOne">Jellow remembers the user’s “most-used or preferred” icons and displays them as the top choices on the screen</string>
     <string name="resetPrefPointTwo">By resetting preferences, the icons will be set to the original order in which they were displayed the first time the application was opened</string>
     <string name="resetPrefPointThree">Do you want to reset preferences?</string>
-    <string name="bullet" translatable="false">●</string>
 
     <string name="downloadErrorMsg">Please ensure an active Internet connection during the entire download process. In case the progress bar is stalled, kindly restart the app or try again</string>
     <string name="intro_to_jellow">Introduction to Jellow</string>
     <string name="rate_jellow">Kindly rate Jellow in all fields.</string>
     <string name="keyboard">Keyboard</string>
-    <string name="user_country_code" translatable="false">com.dsource.idc.jellow.user_country_code</string>
     <string name="txt_intro1_central9btn">Jellow has 9 central category buttons</string>
     <string name="txt_intro1_categorybtn">Category buttons</string>
     <string name="txt_intro5_jellowUsageDesc">The application also has 6 expressive side buttons</string>
@@ -176,12 +163,6 @@
     <string name="txt_intro4_customizeJellow">Settings within Jellow</string>
     <string name="txt_intro7_getStartedDesc">Now you are ready to get started with Jellow</string>
     <string name="txt_intro7_getStarted">GET STARTED</string>
-    <string name="completed_intro" translatable="false">com.dsource.idc.jellow.completed_intro</string>
-    <string name="last_session_created" translatable="false">com.dsource.idc.jellow.last_session_created</string>
-    <string name="enable_calling" translatable="false">com.dsource.idc.jellow.enable_calling</string>
-    <string name="string_msg" translatable="false">com.dsource.idc.jellow.string_message</string>
-    <string name="last_crash_reported" translatable="false">com.dsource.idc.jellow.last_crash_reported</string>
-    <string name="text_bar_visibility" translatable="false">com.dsource.idc.jellow.text_bar_visibility</string>
     <string name="txt_registration_jellowCalluDesc">(This is how Jellow calls you)</string>
     <string name="txt_registration_emergencynoDesc">(To be used for correspondence in case of an emergency involving the child.)</string>
     <string name="txt_registration_selectLangDesc">Select a Language for Jellow **</string>
@@ -206,10 +187,6 @@
     <string name="err_dialog_msg">Google TTS engine is not installed on your device. Do you want to install TTS engine?</string>
     <string name="exit_dialog_msg">Jellow will not work without Google Text-to-speech engine. Do you really want to exit?</string>
 
-    <string name="level_one_intent_pos_tag" translatable="false">mLevelOneItemPos</string>
-    <string name="intent_menu_path_tag" translatable="false">selectedMenuItemPath</string>
-    <string name="level_2_item_pos_tag" translatable="false">mLevelTwoItemPos</string>
-
     <string name="next_slide">Next slide</string>
     <string name="previous_slide">Previous slide</string>
 
@@ -217,15 +194,8 @@
     @AyazAlam
     -->
     <string name="search_title">Search icon</string>
-    <string name="search_parent_0" translatable="false">parent_0</string>
-    <string name="search_parent_1" translatable="false">parent_1</string>
-    <string name="search_parent_2" translatable="false">parent_2</string>
     <string name="home">Home</string>
-    <string name="from_search" translatable="false">FROM_SEARCH</string>
-    <string name="search_tag" translatable="false">SEARCH</string>
     <string name="icon_not_found">Icon not found</string>
-    <string name="not_found" translatable="false">NOT_FOUND</string>
-    <string name="goto_home" translatable="false">goto_home</string>
 
 
     <!--About Jellow strings-->
@@ -255,7 +225,6 @@
     <string name="txt_data_info">** The data above will only be stored on your device. We value your privacy hence it will not be used or uploaded to any server/cloud (including Jellow\'s or third party\'s).</string>
     <string name="txt_view_privacy_policy">Read Jellow <![CDATA[<font color="#dc5252"><b><u>privacy policy.</u></b></font>]]></string>
     <string name="privacy_link_info">I have read Jellow <![CDATA[<font color="#dc5252"><b><u>privacy policy.</u></b></font>]]></string>
-    <string name="privacy_link" translatable="false">http://jellow.org/privacypolicy/index.php</string>
     <string name="consent_privacy">Please read and then check privacy policy consent.</string>
 
     <!--Content description-->
@@ -314,11 +283,9 @@
 
     <string name="txt_tts_stting">TTS SETTINGS</string>
     <string name="change_language_tts_wifi">Step 1: Go to settings of Google TTS and turn off \'Use Wi-Fi only\' by tapping below \'TTS SETTINGS\' button. If option is already disabled, please skip this step.</string>
-    <string name="error_in_registration" translatable="false">Registration process is failed, please retry.</string>
     <string name="lang_setting_option1_cd">“The image below shows the 3 steps involved in setting up the Google text-to-speech engine that is used by Jellow. The image is made up of 3 screenshots of the, “Text to speech output” and “Google TTS settings” within a user’s device. In the first image corresponding to “Text-to-speech output”, there are 2 preferred engines visible, first, the, “Samsung Text-to-Speech engine” and second, the, “Google Text-to-Speech engine”. The user is seen to select the, “Google Text-to-Speech engine” as the first step.</string>
     <string name="lang_setting_option2_cd">The second image corresponds to the second step in this process where the user is seen to now click on the, “Gear” symbol corresponding to the, “Settings” of the, “Google Text-to-Speech engine”</string>
     <string name="lang_setting_option3_cd">The third image is the third step in this process where now the user is at the, “Google TTS options” screen. The second item on this screen which is a toggle switch for “Use Wi-Fi only” has been highlighted in this image. The user is asked to turn off or disable this switch in this step.”</string>
-    <string name="retry" translatable="false">RETRY</string>
     <string name="close">close dialog</string>
     <string name="access_dialog_title">dialog with options.</string>
 
@@ -364,7 +331,6 @@
     <string name="switch_access_info_three">Samsung users can find the switch access in  “dexterity and interaction” option in the accessibility category in the phone setting.</string>
     <string name="switch_access_info_four">To use switch accessibility with one switch - Open settings -> Go to accessibility -> Turn on the switch access -> Choose switches either USB or Bluetooth switches -> Go to settings and Choose number of switches as one switch.</string>
     <string name="switch_access_info_five">To use switch accessibility with two switches - Open settings -> Go to accessibility -> Turn on the switch access -> Choose switches either USB or Bluetooth switches -> Go to settings and Choose number of switches as two switches, then Choose the type of scanning, Click on next and Assign the action to both the switches and complete the process by testing the switches.</string>
-    <string name="share_string" translatable="false"> Hi! To get Jellow app follow the link: <a href="www.jellow.org/share">http://jellow.org/share</a></string>
 
   <!--Language package update strings are here-->
     <string name="lpu_start_update">Started language package update</string>
@@ -384,30 +350,6 @@
 
 
     <!--String resources for MMB-->
-    <string name="search_result" translatable="false">search_result</string>
-    <string name="search_board" translatable="false">0</string>
-
-    <array name="expressive_icon_pressed">
-        <item>@drawable/like_pressed</item>
-        <item>@drawable/yes_pressed</item>
-        <item>@drawable/more_pressed</item>
-        <item>@drawable/dontlike_pressed</item>
-        <item>@drawable/no_pressed</item>
-        <item>@drawable/less_pressed</item>
-    </array>
-    <array name="expressive_icon_unpressed">
-        <item>@drawable/like</item>
-        <item>@drawable/yes</item>
-        <item>@drawable/more</item>
-        <item>@drawable/dontlike</item>
-        <item>@drawable/no</item>
-        <item>@drawable/less</item>
-    </array>
-    <string-array name="add_photo_option">
-        <item>@drawable/ic_photo_camera</item>
-        <item>@drawable/ic_jellow_library</item>
-    </string-array>
-
     <string name="delete_board">\"-\" board will be deleted?</string>
     <string name="icon_select_exit_warning">Your selection will be lost</string>
     <string name="current_board">Added Icons</string>
@@ -458,7 +400,6 @@
 
     <string name="board">Board</string>
     <string name="press_next_to_select_icons">Press \"Next\" to add selected icons.</string>
-    <string name="limiter" translatable="false"> . . ></string>
     <string name="edit_board">Edit the current board</string>
     <string name="delete_the_board">Delete the current board</string>
     <string name="edit_board_image">Edit the board icon and name</string>
@@ -525,5 +466,4 @@
     <string name="language_not_working">If the app does not produce any voice output for the selected language, please perform the following steps:</string>
     <string name="txtMoreLangSetting">More Language Setting:</string>
     <string name="board_place_holder_text">You have not added any board yet.</string>
-    <string name="change_language_voice">Select the accent (voice) for the language:</string>
 </resources>

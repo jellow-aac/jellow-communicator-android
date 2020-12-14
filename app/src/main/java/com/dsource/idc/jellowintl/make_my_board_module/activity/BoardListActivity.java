@@ -90,6 +90,7 @@ public class BoardListActivity extends BaseBoardActivity<IBoardListView, IBoardL
         BoardModel board = mAdapter.getItem(position);
         mPresenter.openBoard(mContext, board);
         getSession().setCurrentBoardLanguage(board.getLanguage());
+        getSession().setBoardVoice(board.getBoardVoice());
     }
 
     @Override
@@ -127,6 +128,7 @@ public class BoardListActivity extends BaseBoardActivity<IBoardListView, IBoardL
     @Override
     public void onBoardEdit(int position) {
         getSession().setCurrentBoardLanguage(mAdapter.getList().get(position).getLanguage());
+        getSession().setBoardVoice(mAdapter.getList().get(position).getBoardVoice());
         Intent intent = new Intent(this, IconSelectActivity.class);
         intent.putExtra(BOARD_ID,mAdapter.getList().get(position).getBoardId());
         startActivity(intent);
@@ -144,6 +146,7 @@ public class BoardListActivity extends BaseBoardActivity<IBoardListView, IBoardL
         startMeasuring();
         SelectionManager.getInstance().delete();
         getSession().setCurrentBoardLanguage("");
+        getSession().setBoardVoice("");
         initViewsAndEvents();
     }
 
@@ -163,8 +166,10 @@ public class BoardListActivity extends BaseBoardActivity<IBoardListView, IBoardL
 
     @Override
     public void onBackPressed() {
-        if(getSession()!=null)
+        if(getSession()!=null) {
             getSession().setCurrentBoardLanguage("");
+            getSession().setBoardVoice("");
+        }
         finish();
     }
 

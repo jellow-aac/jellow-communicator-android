@@ -57,8 +57,15 @@ public class BoardAdapter extends BaseRecyclerAdapter<BoardModel> {
             });
             return;
         }
-
-        spannedStr = new SpannableString(board.getBoardName()+"\n"+ LangValueMap.get(board.getLanguage()));
+        try{
+            spannedStr = new SpannableString(board.getBoardName()+"\n"+
+                    LangValueMap.get(board.getLanguage())+"\n"+
+                    board.getBoardVoice().split(",")[1]);
+        }catch(Exception e) {
+            /*This block will execute for upgrading users with no voices.*/
+            spannedStr = new SpannableString(board.getBoardName() + "\n" +
+                    LangValueMap.get(board.getLanguage()));
+        }
         spannedStr.setSpan(new ForegroundColorSpan (ContextCompat.getColor(getContext(),
                 R.color.colorPrimary)), 0, board.getBoardName().length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         viewHolder.setText(R.id.board_title, spannedStr);

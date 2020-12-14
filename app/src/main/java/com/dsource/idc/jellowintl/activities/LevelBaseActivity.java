@@ -38,7 +38,7 @@ public class LevelBaseActivity extends SpeechEngineBaseActivity implements TextT
     @Override
     protected void onResume() {
         super.onResume();
-        initiateSpeechEngineWithLanguage(getSession().getLanguage());
+        initiateSpeechEngineWithLanguage(getSession().getAppVoice().split(",")[0]);
     }
 
     public void adjustTopMarginForNavigationUi() {
