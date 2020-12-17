@@ -11,7 +11,6 @@ import android.content.SharedPreferences.Editor;
 import com.dsource.idc.jellowintl.R;
 import com.dsource.idc.jellowintl.models.GlobalConstants;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -76,9 +75,9 @@ public class SessionManager {
         }
     };
 
-    public final static ArrayList<String> NoTTSLang = new ArrayList<String>(){{
+    /*public final static ArrayList<String> NoTTSLang = new ArrayList<String>(){{
         add(MR_IN);
-    }};
+    }};*/
 
     private final String PREF_NAME = "JellowPreferences";
     private final String KEY_IS_LOGGEDIN = "isLoggedIn";

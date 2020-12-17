@@ -11,7 +11,6 @@ import android.speech.tts.UtteranceProgressListener;
 import android.speech.tts.Voice;
 import android.util.Log;
 
-import com.dsource.idc.jellowintl.utility.SessionManager;
 import com.dsource.idc.jellowintl.utility.interfaces.TextToSpeechCallBacks;
 import com.google.firebase.crashlytics.FirebaseCrashlytics;
 
@@ -69,8 +68,8 @@ public class SpeechEngineBaseActivity extends BaseActivity{
                     sTts.setVoice(getVoiceObject(voice));
                     sTts.setSpeechRate(getTTsSpeedForLanguage(voice));
                     sTts.setPitch(getTTsPitchForLanguage(voice));
-                    if (voice.endsWith(MR_IN))
-                        createUserProfileRecordingsUsingTTS();
+                    /*if (voice.endsWith(MR_IN))
+                        createUserProfileRecordingsUsingTTS();*/
                 } catch (Exception e) {
                     FirebaseCrashlytics.getInstance().recordException(e);
                 }
@@ -200,10 +199,10 @@ public class SpeechEngineBaseActivity extends BaseActivity{
         *Extra symbol '-' is appended to end of every string from make my board speak request.
         * Hence utterances will use tts engine to speak irrespective of type of language
         * (tts language or non tts) */
-        if (speechText.contains("_") || speechText.contains("-") || !isNoTTSLanguage())
+        //if (speechText.contains("_") || speechText.contains("-")/* || !isNoTTSLanguage()*/)
             sTts.speak(speechText.replace("_","").replace("-",""), TextToSpeech.QUEUE_FLUSH, map);
-        else
-            playAudio(getAudioPath(this)+speechText);
+        /*else
+            playAudio(getAudioPath(this)+speechText);*/
     }
 
     public void speakWithDelay(final String speechText){
@@ -216,7 +215,7 @@ public class SpeechEngineBaseActivity extends BaseActivity{
                  *Extra symbol '-' is appended to end of every string from make my board speak request.
                  * Hence utterances will use tts engine to speak irrespective of type of language
                  * (tts language or non tts) */
-                if (speechText.contains("_") || speechText.contains("-") || !isNoTTSLanguage())
+                if (speechText.contains("_") || speechText.contains("-")/* || !isNoTTSLanguage()*/)
                     sTts.speak(speechText.replace("_","").
                             replace("-",""), TextToSpeech.QUEUE_FLUSH, map);
                 else
@@ -390,9 +389,9 @@ public class SpeechEngineBaseActivity extends BaseActivity{
         playInQueue(speechData);
     }
 
-    public boolean isNoTTSLanguage(){
+    /*public boolean isNoTTSLanguage(){
         return SessionManager.NoTTSLang.contains(getSession().getLanguage());
-    }
+    }*/
 
     public void initiateSpeechEngineWithLanguage(String voice){
         if(voice == null || voice.isEmpty()){

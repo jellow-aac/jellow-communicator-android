@@ -155,12 +155,12 @@ public class SettingActivity extends SpeechEngineBaseActivity {
             @Override public void onStopTrackingTouch(SeekBar seekBar) {}
         });
 
-        if(isNoTTSLanguage()){
+        /*if(isNoTTSLanguage()){
             mSliderSpeed.setVisibility(View.GONE);
             mTxtViewSpeechSpeed.setVisibility(View.GONE);
             mSliderPitch.setVisibility(View.GONE);
             mTxtViewVoicePitch.setVisibility(View.GONE);
-        }
+        }*/
 
         final AudioManager audio = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
 

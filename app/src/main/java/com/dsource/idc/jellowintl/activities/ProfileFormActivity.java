@@ -30,7 +30,7 @@ import static com.dsource.idc.jellowintl.utility.Analytics.resetAnalytics;
 import static com.dsource.idc.jellowintl.utility.Analytics.startMeasuring;
 import static com.dsource.idc.jellowintl.utility.Analytics.stopMeasuring;
 import static com.dsource.idc.jellowintl.utility.Analytics.validatePushId;
-import static com.dsource.idc.jellowintl.utility.SessionManager.MR_IN;
+//import static com.dsource.idc.jellowintl.utility.SessionManager.MR_IN;
 
 public class ProfileFormActivity extends SpeechEngineBaseActivity {
     private Button btnSave;
@@ -192,9 +192,9 @@ public class ProfileFormActivity extends SpeechEngineBaseActivity {
         else
             getSession().setBlood(-1);
         getSession().setToastMessage(mDetailSaved);
-        if(getSession().getLanguage().endsWith(MR_IN)) {
+        /*if(getSession().getLanguage().endsWith(MR_IN)) {
             createUserProfileRecordingsUsingTTS();
-        }
+        }*/
         FirebaseDatabase mDB = FirebaseDatabase.getInstance();
         DatabaseReference mRef = mDB.getReference(BuildConfig.DB_TYPE+"/users/"+getSession().getUserId());
         mRef.child("updatedOn").setValue(ServerValue.TIMESTAMP);

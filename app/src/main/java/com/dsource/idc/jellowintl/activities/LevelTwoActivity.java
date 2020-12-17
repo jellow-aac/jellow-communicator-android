@@ -609,13 +609,13 @@ public class LevelTwoActivity extends LevelBaseActivity{
                         // If Help -> About me category icon is selected,
                         // "really like" expression will speak child's name
                         }else if(mLevelOneItemPos == 8 && mLevelTwoItemPos == 1) {
-                            if(isNoTTSLanguage()) {
+                            /*if(isNoTTSLanguage()) {
                                 speakInQueue(level2IconObjects[mLevelTwoItemPos].getLL());
-                            }else{
+                            }else{*/
                                 String speechTxt = level2IconObjects[mLevelTwoItemPos].getL()
                                         .replace("_", getSession().getName());
                                 speakAndShowTextBar_(speechTxt);
-                            }
+                            //}
                             mUec.createSendFbEventFromTappedView(14,
                     level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
                                 +"_"+ mIconCode[mLevelTwoItemPos]+"LL","");
@@ -640,13 +640,13 @@ public class LevelTwoActivity extends LevelBaseActivity{
                             // If Help -> About me category icon is selected,
                             // "really like" expression will speak child's name
                         }else if(mLevelOneItemPos == 8 && mLevelTwoItemPos == 1) {
-                            if(isNoTTSLanguage()) {
+                            /*if(isNoTTSLanguage()) {
                                 speakInQueue(level2IconObjects[mLevelTwoItemPos].getL());
-                            }else {
+                            }else {*/
                                 String speechTxt = level2IconObjects[mLevelTwoItemPos].getL()
                                         .replace("_", getSession().getName());
                                 speakAndShowTextBar_(speechTxt);
-                            }
+                            //}
                             mUec.createSendFbEventFromTappedView(13,
                     level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
                                 +"_"+ mIconCode[mLevelTwoItemPos]+"L0","");
@@ -733,13 +733,13 @@ public class LevelTwoActivity extends LevelBaseActivity{
                         // If Help -> About me category icon is selected,
                         // "really don't like" expression will speak child's caregiver's name
                         }else if(mLevelOneItemPos == 8 && mLevelTwoItemPos == 1) {
-                            if(isNoTTSLanguage()) {
+                            /*if(isNoTTSLanguage()) {
                                 speakInQueue(level2IconObjects[mLevelTwoItemPos].getDD());
-                            }else {
+                            }else {*/
                                 String speechTxt = level2IconObjects[mLevelTwoItemPos].getDD()
                                         .replace("_", getSession().getCaregiverName());
                                 speakAndShowTextBar_(speechTxt);
-                            }
+                            //}
                             mUec.createSendFbEventFromTappedView(20,
                     level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
                                 +"_"+ mIconCode[mLevelTwoItemPos]+"DD","");
@@ -764,13 +764,13 @@ public class LevelTwoActivity extends LevelBaseActivity{
                         // If Help -> About me category icon is selected,
                         // "really don't like" expression will speak child's caregiver name
                         }else if(mLevelOneItemPos == 8 && mLevelTwoItemPos == 1) {
-                            if(isNoTTSLanguage()) {
+                            /*if(isNoTTSLanguage()) {
                                 speakInQueue(level2IconObjects[mLevelTwoItemPos].getDD());
-                            }else {
+                            }else {*/
                                 String speechTxt = level2IconObjects[mLevelTwoItemPos].getDD()
                                         .replace("_", getSession().getCaregiverName());
                                 speakAndShowTextBar_(speechTxt);
-                            }
+                            //}
                             mUec.createSendFbEventFromTappedView(19,
                     level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
                                     +"_"+ mIconCode[mLevelTwoItemPos]+"D0","");
@@ -856,14 +856,14 @@ public class LevelTwoActivity extends LevelBaseActivity{
                         // If Help -> About me category icon is selected,
                         // "really yes" expression will speak caregivers email id
                         }else if(mLevelOneItemPos == 8 && mLevelTwoItemPos == 1) {
-                            if(isNoTTSLanguage()) {
+                            /*if(isNoTTSLanguage()) {
                                 speakInQueue(level2IconObjects[mLevelTwoItemPos].getYY());
-                            }else {
+                            }else {*/
                                 String speechTxt = level2IconObjects[mLevelTwoItemPos].getYY();
                                 speechTxt = speechTxt.replace("_", getSession().getEmailId()
                                         .replaceAll(".", ",$0 ").replace(".", "dot"));
                                 speakAndShowTextBar_(speechTxt);
-                            }
+                            //}
                             mUec.createSendFbEventFromTappedView(16,
                     level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
                                 +"_"+ mIconCode[mLevelTwoItemPos]+"YY","");
@@ -888,14 +888,14 @@ public class LevelTwoActivity extends LevelBaseActivity{
                         // If Help -> About me category icon is selected,
                         // "yes" expression will speak caregivers email id
                         }else if(mLevelOneItemPos == 8 && mLevelTwoItemPos == 1) {
-                            if(isNoTTSLanguage()) {
+                            /*if(isNoTTSLanguage()) {
                                 speakInQueue(level2IconObjects[mLevelTwoItemPos].getY());
-                            }else {
+                            }else {*/
                                 String speechTxt = level2IconObjects[mLevelTwoItemPos].getY();
                                 speechTxt = speechTxt.replace("_", getSession().getEmailId()
                                         .replaceAll(".", ",$0 ").replace(".", "dot"));
                                 speakAndShowTextBar_(speechTxt);
-                            }
+                            //}
                             mUec.createSendFbEventFromTappedView(15,
                     level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
                                 +"_"+ mIconCode[mLevelTwoItemPos]+"Y0","");
@@ -981,13 +981,13 @@ public class LevelTwoActivity extends LevelBaseActivity{
                             // If Help -> About me category icon is selected,
                             // "really no" expression will speak child's address
                         }else if(mLevelOneItemPos == 8 && mLevelTwoItemPos == 1) {
-                            if(isNoTTSLanguage()) {
+                            /*if(isNoTTSLanguage()) {
                                 speakInQueue(level2IconObjects[mLevelTwoItemPos].getNN());
-                            }else {
+                            }else {*/
                                 String speechTxt = level2IconObjects[mLevelTwoItemPos].getNN()
                                         .replace("_", getSession().getAddress());
                                 speakAndShowTextBar_(speechTxt);
-                            }
+                            //}
                             mUec.createSendFbEventFromTappedView(22,
                     level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
                                 +"_"+ mIconCode[mLevelTwoItemPos]+"NN","");
@@ -1012,13 +1012,13 @@ public class LevelTwoActivity extends LevelBaseActivity{
                             // If Help -> About me category icon is selected,
                             // "really no" expression will speak child's address
                         }else if(mLevelOneItemPos == 8 && mLevelTwoItemPos == 1) {
-                            if(isNoTTSLanguage()) {
+                            /*if(isNoTTSLanguage()) {
                                 speakInQueue(level2IconObjects[mLevelTwoItemPos].getN());
-                            }else {
+                            }else {*/
                                 String speechTxt = level2IconObjects[mLevelTwoItemPos].getNN()
                                         .replace("_", getSession().getAddress());
                                 speakAndShowTextBar_(speechTxt);
-                            }
+                            //}
                             mUec.createSendFbEventFromTappedView(21,
                     level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
                                 +"_"+ mIconCode[mLevelTwoItemPos]+"N0","");
@@ -1104,13 +1104,13 @@ public class LevelTwoActivity extends LevelBaseActivity{
                         // If Help -> About me category icon is selected,
                         // "really more" expression will speak caregivers number
                         }else if(mLevelOneItemPos == 8 && mLevelTwoItemPos == 1) {
-                            if(isNoTTSLanguage()) {
+                            /*if(isNoTTSLanguage()) {
                                 speakInQueue(level2IconObjects[mLevelTwoItemPos].getMM());
-                            }else {
+                            }else {*/
                                 String speechTxt = level2IconObjects[mLevelTwoItemPos].getMM();
                                 speechTxt = speechTxt.replace("_", getContactWithSpacesBetweenDigits());
                                 speakAndShowTextBar_(speechTxt);
-                            }
+                            //}
                             mUec.createSendFbEventFromTappedView(18,
                     level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
                                 +"_"+ mIconCode[mLevelTwoItemPos]+"MM","");
@@ -1133,13 +1133,13 @@ public class LevelTwoActivity extends LevelBaseActivity{
                     level2IconObjects[mArrSort[mLevelTwoItemPos]].getEvent_Tag()
                                 +"_"+ mIconCode[mLevelTwoItemPos]+"M0","");
                         }else if(mLevelOneItemPos == 8 && mLevelTwoItemPos == 1) {
-                            if(isNoTTSLanguage()) {
+                            /*if(isNoTTSLanguage()) {
                                 speakInQueue(level2IconObjects[mLevelTwoItemPos].getM());
-                            }else {
+                            }else {*/
                                 String speechTxt = level2IconObjects[mLevelTwoItemPos].getMM();
                                 speechTxt = speechTxt.replace("_", getContactWithSpacesBetweenDigits());
                                 speakAndShowTextBar_(speechTxt);
-                            }
+                            //}
                             mUec.createSendFbEventFromTappedView(17,
                     level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
                                 +"_"+ mIconCode[mLevelTwoItemPos]+"M0","");
@@ -1226,13 +1226,13 @@ public class LevelTwoActivity extends LevelBaseActivity{
                         // If Help -> About me category icon is selected,
                         // "really less" expression will speak child's blood group
                         }else if(mLevelOneItemPos == 8 && mLevelTwoItemPos == 1){
-                            if(isNoTTSLanguage()) {
+                            /*if(isNoTTSLanguage()) {
                                 speakInQueue(level2IconObjects[mLevelTwoItemPos].getSS());
-                            }else {
+                            }else {*/
                                 String speechTxt = level2IconObjects[mLevelTwoItemPos].getS()
                                         .replace("_", getBloodGroup());
                                 speakAndShowTextBar_(speechTxt);
-                            }
+                            //}
                             mUec.createSendFbEventFromTappedView(24,
                     level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
                                 +"_"+ mIconCode[mLevelTwoItemPos]+"SS","");
@@ -1257,13 +1257,13 @@ public class LevelTwoActivity extends LevelBaseActivity{
                         // If Help -> About me category icon is selected,
                         // "really less" expression will speak child's blood group
                         }else if(mLevelOneItemPos == 8 && mLevelTwoItemPos == 1){
-                            if(isNoTTSLanguage()) {
+                            /*if(isNoTTSLanguage()) {
                                 speakInQueue(level2IconObjects[mLevelTwoItemPos].getS());
-                            }else {
+                            }else {*/
                                 String speechTxt = level2IconObjects[mLevelTwoItemPos].getS()
                                         .replace("_", getBloodGroup());
                                 speakAndShowTextBar_(speechTxt);
-                            }
+                            //}
                             mUec.createSendFbEventFromTappedView(23,
                     level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
                                 +"_"+ mIconCode[mLevelTwoItemPos]+"S0","");

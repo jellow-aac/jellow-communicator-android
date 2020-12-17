@@ -28,8 +28,6 @@ import com.google.firebase.crashlytics.FirebaseCrashlytics;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import static com.dsource.idc.jellowintl.activities.LanguageDownloadActivity.CLOSE;
-import static com.dsource.idc.jellowintl.activities.UserRegistrationActivity.LCODE;
 import static com.dsource.idc.jellowintl.utility.Analytics.bundleEvent;
 import static com.dsource.idc.jellowintl.utility.Analytics.isAnalyticsActive;
 import static com.dsource.idc.jellowintl.utility.Analytics.resetAnalytics;
@@ -42,8 +40,9 @@ import static com.dsource.idc.jellowintl.utility.SessionManager.BN_IN;
 import static com.dsource.idc.jellowintl.utility.SessionManager.HI_IN;
 import static com.dsource.idc.jellowintl.utility.SessionManager.LangMap;
 import static com.dsource.idc.jellowintl.utility.SessionManager.LangValueMap;
-import static com.dsource.idc.jellowintl.utility.SessionManager.MR_IN;
 import static com.dsource.idc.jellowintl.utility.SessionManager.TA_IN;
+
+//import static com.dsource.idc.jellowintl.utility.SessionManager.MR_IN;
 
 public class LanguageSelectActivity extends SpeechEngineBaseActivity {
     private String selectedLanguage, mLangChanged, availVoices, selectedVoice;
@@ -107,14 +106,14 @@ public class LanguageSelectActivity extends SpeechEngineBaseActivity {
             @Override
             public void onClick(View v) {
                 FirebaseCrashlytics.getInstance().log("LanguageSelect Apply");
-                if(selectedLanguage.equals(LangValueMap.get(MR_IN)) && !LanguageFactory.isMarathiPackageAvailable
+                /*if(selectedLanguage.equals(LangValueMap.get(MR_IN)) && !LanguageFactory.isMarathiPackageAvailable
                         (LanguageSelectActivity.this)){
                     startActivity(new Intent(LanguageSelectActivity.this,
                             LanguageDownloadActivity.class)
                             .putExtra(LCODE, MR_IN).putExtra(CLOSE, true));
-                } else {
+                } else {*/
                     saveLanguage();
-                }
+                //}
             }
         });
         updateViewsForNewLangSelect();
@@ -244,11 +243,11 @@ public class LanguageSelectActivity extends SpeechEngineBaseActivity {
     }
 
     private void updateViewsForNewLangSelect() {
-        if (selectedLanguage.equals(LangValueMap.get(MR_IN))) {
+        /*if (selectedLanguage.equals(LangValueMap.get(MR_IN))) {
             findViewById(R.id.ll_hidden_view).setVisibility(View.GONE);
             findViewById(R.id.tv_language_not_working_info).setVisibility(View.GONE);
             return;
-        }
+        }*/
 
         findViewById(R.id.ll_hidden_view).setVisibility(View.VISIBLE);
         findViewById(R.id.tv_language_not_working_info).setVisibility(View.VISIBLE);

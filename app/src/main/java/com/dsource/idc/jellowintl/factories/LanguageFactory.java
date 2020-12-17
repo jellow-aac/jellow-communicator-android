@@ -81,7 +81,7 @@ public class LanguageFactory {
         return languages;
     }
 
-    public static boolean isMarathiPackageAvailable(Context context){
+    /*public static boolean isMarathiPackageAvailable(Context context){
         try{
             File file = context.getDir(SessionManager.UNIVERSAL_PACKAGE, Context.MODE_PRIVATE);
             File packageZip = new File(file.getPath(),SessionManager.MR_IN+".zip");
@@ -93,7 +93,7 @@ public class LanguageFactory {
             e.printStackTrace();
         }
         return false;
-    }
+    }*/
 
     /** If zip is exist then data is not completely extracted from zip.
      *  If zip does is exist then data is extracted from zip successfully, the zip file is deleted.
