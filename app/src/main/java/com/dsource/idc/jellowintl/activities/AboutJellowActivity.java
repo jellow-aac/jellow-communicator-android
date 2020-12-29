@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 import com.dsource.idc.jellowintl.BuildConfig;
 import com.dsource.idc.jellowintl.R;
+import com.dsource.idc.jellowintl.factories.PathFactory;
+import com.dsource.idc.jellowintl.utility.SessionManager;
 
 import java.util.HashMap;
 
@@ -44,13 +46,13 @@ public class AboutJellowActivity extends SpeechEngineBaseActivity {
         mBtnSpeak.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*if (getSession().getLanguage().equals(SessionManager.MR_IN)){
+                if (getSession().getLanguage().equals(SessionManager.MR_IN)){
                     String mediaPath = PathFactory.getAudioPath(AboutJellowActivity.this)
                             + getString(R.string.about_jellow_speech);
                     playAudio(mediaPath);
-                }else {*/
+                }else {
                     speak(mSpeechTxt);
-                //}
+                }
             }
         });
 

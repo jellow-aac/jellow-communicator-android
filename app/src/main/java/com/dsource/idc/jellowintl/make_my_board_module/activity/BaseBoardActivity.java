@@ -72,7 +72,7 @@ public abstract class BaseBoardActivity<V extends IBaseView, P extends IBasePres
             if (getIntent().getExtras() != null)
                 boardId = getIntent().getExtras().getString(BOARD_ID);
             BoardDatabase database = new BoardDatabase(getAppDatabase());
-            currentBoard = database.getBoardById(boardId);
+             currentBoard = database.getBoardById(boardId);
         } catch (NullPointerException e) {
             Toast.makeText(this, "Some error occurred", Toast.LENGTH_LONG).show();
         }
@@ -82,6 +82,7 @@ public abstract class BaseBoardActivity<V extends IBaseView, P extends IBasePres
         BoardDatabase database = new BoardDatabase(getAppDatabase());
         String boardId = getIntent().getExtras().getString(BOARD_ID);
         currentBoard.setBoardName(database.getBoardName(boardId));
+        currentBoard.setBoardVoice(database.getBoardVoice(boardId));
     }
 
     @Override

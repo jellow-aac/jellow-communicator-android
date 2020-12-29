@@ -28,7 +28,7 @@ public class LanguageFactory {
      * @param langCode
      * @return Language code (01- English (India), 02- English (US), 03 – English (UK), 04-
      * Hindi, 05- Marathi, 06- Bengali, 07- English (AU), 08- Spanish, 09- Tamil, 10- German,
-     * 11- English (South Africa), 12- French, 13- Telugu (India), 14- Gujarati (India),
+     * 11- English (South Africa), 12- French, 13- Telugu (India),
      * 15- Kannada (India), 16- Bengali (Bangladesh), 17- English (Nigeria))
      ***/
     public static String getLanguageCode(String langCode){
@@ -58,8 +58,6 @@ public class LanguageFactory {
                 return  "12";
             case SessionManager.TE_IN:
                 return  "13";
-            case SessionManager.GU_IN:
-                return  "14";
             case SessionManager.BN_BD:
                 return  "16";
             case SessionManager.ENG_NG:
@@ -81,7 +79,7 @@ public class LanguageFactory {
         return languages;
     }
 
-    /*public static boolean isMarathiPackageAvailable(Context context){
+    public static boolean isMarathiPackageAvailable(Context context){
         try{
             File file = context.getDir(SessionManager.UNIVERSAL_PACKAGE, Context.MODE_PRIVATE);
             File packageZip = new File(file.getPath(),SessionManager.MR_IN+".zip");
@@ -93,7 +91,7 @@ public class LanguageFactory {
             e.printStackTrace();
         }
         return false;
-    }*/
+    }
 
     /** If zip is exist then data is not completely extracted from zip.
      *  If zip does is exist then data is extracted from zip successfully, the zip file is deleted.

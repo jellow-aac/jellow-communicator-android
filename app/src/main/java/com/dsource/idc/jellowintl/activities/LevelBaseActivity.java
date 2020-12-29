@@ -4,9 +4,15 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.CountDownTimer;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
@@ -19,6 +25,7 @@ import com.dsource.idc.jellowintl.utility.interfaces.TextToSpeechCallBacks;
 public class LevelBaseActivity extends SpeechEngineBaseActivity implements TextToSpeechCallBacks {
     private String mErrorMessage, mDialogTitle, mLanguageSetting, mSwitchLang;
     private Toast toast;
+    private CountDownTimer timer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,14 +59,33 @@ public class LevelBaseActivity extends SpeechEngineBaseActivity implements TextT
     public void speakAndShowTextBar_(final String text){
         speak(text);
         if(getSession().getTextBarVisibility()){
-            if (toast!= null) {
-                toast.cancel();
-            }
+            if(toast!=null) toast.cancel();
+            if(timer!= null) timer.cancel();
             this.runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    toast = Toast.makeText(LevelBaseActivity.this, text, Toast.LENGTH_SHORT);
-                    toast.show();
+                    LayoutInflater inflater = getLayoutInflater();
+                    View layout = inflater.inflate(R.layout.toast_layout,
+                            (ViewGroup) findViewById(R.id.toast_layout_root));
+                    TextView textView = layout.findViewById(R.id.text);
+                    textView.setText(text);
+                    toast = new Toast(LevelBaseActivity.this);
+                    toast.setDuration(Toast.LENGTH_SHORT);
+                    toast.setGravity(Gravity.BOTTOM, 0,0);
+                    toast.setView(layout);
+
+                    timer = new CountDownTimer(6000, 75) {
+                        @Override
+                        public void onFinish() {
+                            toast.cancel();
+                        }
+
+                        @Override
+                        public void onTick(long millisUntilFinished) {
+                            toast.show();
+                        }
+                    };
+                    timer.start();
                 }
             });
         }

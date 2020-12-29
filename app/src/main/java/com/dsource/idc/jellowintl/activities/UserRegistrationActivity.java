@@ -48,9 +48,8 @@ import static com.dsource.idc.jellowintl.utility.Analytics.getAnalytics;
 import static com.dsource.idc.jellowintl.utility.Analytics.setCrashlyticsCustomKey;
 import static com.dsource.idc.jellowintl.utility.Analytics.setUserProperty;
 import static com.dsource.idc.jellowintl.utility.SessionManager.LangMap;
+import static com.dsource.idc.jellowintl.utility.SessionManager.MR_IN;
 import static com.dsource.idc.jellowintl.utility.SessionManager.UNIVERSAL_PACKAGE;
-
-//import static com.dsource.idc.jellowintl.utility.SessionManager.MR_IN;
 
 /**
  * Created by Rahul on 12 Nov, 2019.
@@ -94,12 +93,12 @@ public class UserRegistrationActivity extends BaseActivity implements CheckNetwo
                     getSession().setGridSize(GlobalConstants.THREE_ICONS_PER_SCREEN);
                 else
                     getSession().setGridSize(GlobalConstants.NINE_ICONS_PER_SCREEN);
-            }else /*if(getSession().getLanguage().equals(MR_IN) && !LanguageFactory.
+            }else if(getSession().getLanguage().equals(MR_IN) && !LanguageFactory.
                     isMarathiPackageAvailable(this)){
                 startActivity(new Intent(UserRegistrationActivity.this,
                         LanguageDownloadActivity.class)
                         .putExtra(LCODE, MR_IN).putExtra(TUTORIAL, true));
-            } else*/ if (LanguageFactory.isLanguageDataAvailable(this) &&
+            } else if (LanguageFactory.isLanguageDataAvailable(this) &&
                     !getSession().isCompletedIntro()) {
                 startActivity(new Intent(this, Intro.class));
             }
@@ -176,12 +175,12 @@ public class UserRegistrationActivity extends BaseActivity implements CheckNetwo
                     return;
                 }
 
-                if (etAddress.getText().toString().trim().isEmpty()){
+                /*if (etAddress.getText().toString().trim().isEmpty()){
                     bRegister.setEnabled(true);
                     Toast.makeText(UserRegistrationActivity.this,getString(R.string.invalid_address),
                             Toast.LENGTH_SHORT).show();
                     return;
-                }
+                }*/
 
                 CheckBox cb = findViewById(R.id.cb_privacy_consent);
                 if (!cb.isChecked()){

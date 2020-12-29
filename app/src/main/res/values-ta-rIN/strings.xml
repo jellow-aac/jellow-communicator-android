@@ -148,7 +148,7 @@
     <string name="intro_to_jellow">ஜெல்லோவிற்கான அறிமுகம்</string>
     <string name="rate_jellow">கனிவுடன் ஜெல்லோவை அணைத்து வகையிலும் மதிப்பிடுக</string>
     <string name="keyboard">விசைப்பலகை</string>
-    <string name="txt_intro1_central9btn">ஜெல்லோ</string>
+    <string name="txt_intro1_central9btn">மஞ்சள் 9 மத்திய வகை பொத்தான்களைக் கொண்டுள்ளது</string>
     <string name="txt_intro1_categorybtn">வகைப் பொத்தான்கள்</string>
     <string name="txt_intro5_jellowUsageDesc">மேலும் செயலியானது 6 வெளிப்பாட்டு பொத்தான்களை பக்கவாட்டில் கொண்டுள்ளது</string>
     <string name="txt_intro5_expressiveBtn">வெளிப்பாட்டுப்  பொத்தான்கள்</string>
@@ -169,7 +169,7 @@
     <string name="change_language_line5">படி 2: உங்கள் சாதனத்தில் _ மொழிக்கான குரல் தரவு உள்ளதா எனக் காண்க. இல்லையெனில் தேர்ந்தெடுத்த மொழிக்கான குரல் தரவினை பதிவிறக்கம் செய்க.</string>
     <string name="txtChangeLanguage">பயன்பாட்டு மொழியை மாற்றவும்:</string>
 
-    <string name="txtApplyChanges">தேர்ந்தெடுக்கப்பட்ட மொழியைச் சேமிக்க \'மாற்றங்களை செயல்படுத்தவும் என்பதைக் கிளிக் செய்க</string>
+    <string name="txtApplyChanges">தேர்ந்தெடுக்கப்பட்ட மொழியைச் மற்றும் குரல் சேமிக்க \'மாற்றங்களை செயல்படுத்தவும் என்பதைக் கிளிக் செய்க</string>
     <string name="txt_actLangSel_downloadDat">குரல் தரவினை சரிபார்க்கவும் (Check voice data)</string>
     <string name="language_downloaded">_ மொழி பதிவிறக்கப்பட்டது</string>
     <string name="language_downloading">_ மொழி பதிவிறக்கப்படுகிறது</string>
@@ -440,4 +440,9 @@
     <string name="acc_lang_bengali_bd">பெங்காலி (இந்தியா)</string>
     <string name="acc_lang_telugu_in">தெலுங்கு (இந்தியா)</string>
     <string name="acc_lang_eng_ng">ஆங்கிலம் (நைஜீரியா)</string>
+    <string name="EnableDisplaySpeechText">பேசும் உரையை உரை பட்டியில் காண்பி</string>
+    <string name="enableBoardDelete">"எனது பலகைகள்" திரையில் போர்டு நீக்குதல் அம்சத்தை இயக்கவும்</string>
+    <string name="board_delete">போர்டு நீக்கு</string>
+    <string name="change_language_voice">மொழிக்கான உச்சரிப்பு (குரல்) ஐத் தேர்ந்தெடுக்கவும்:</string>
+    <string name="place_holder_no_icons_added">போர்டில் எந்த ஐகானும் இல்லை</string>
 </resources>

@@ -166,7 +166,7 @@
     <string name="enternonemptycontact">Veuillez entrez votre numèro de téléphone</string>
     <string name="change_language_line5">Étape 2: Assurez-vous que la donnée vocale d\'_ est disponibles sur votre terminal. Si non, veuillez télécharger la donnée vocale  pour la langue choisie. Au cas où la processus aurait retardé, veuillez vérifier votre connexion Internet et réessayez</string>
     <string name="txtChangeLanguage">Changer la langue de l\'application:</string>
-    <string name="txtApplyChanges">Cliquez sur \"Appliquer les changements\" pour enregistrer la langue sélectionnée</string>
+    <string name="txtApplyChanges">Cliquez sur \"Appliquer les changements\" pour enregistrer la langue et la voix sélectionnées</string>
     <string name="txt_actLangSel_downloadDat">Vérifier la donnée vocale (Check voice data)</string>
     <string name="language_downloaded">_ La langue est télécharger</string>
     <string name="language_downloading">Téléchargement de la Langue _</string>
@@ -452,4 +452,8 @@
     <string name="my_boards_board_home_info">Dans l\'écran d\'accueil des tableaux, vous pouvez utiliser/jouer votre tableau personalisé. Vous pouvez chercher un icône dans le tableau actuel, changez le paramètre de \"Número des icônes dans chaque écran\" pour le tableau actuel ou repositionnez les icônes dans le tableau actuel. Ces boutons sont disponibles en haut à droite à l\'écran.</string>
     <string name="my_boards_board_home_info_cd">L\'image séléctionée représente l\'écran d\'accueil des tableaux. Dans cette écran, vouz pouvez utlisier ou jouer avec le tableau créé. De plus, vouz pouvez chercher un icône dans le tableau actuel, changez le paramètre de \"Numéro des icônes dans chaque écran\" pour le tableau actuel ou répositionnez les icônes dans le tableau actuel. Ces boutons sont disponibles en haut à droite à l\'écran.</string>
     <string name="place_holder_no_icons_added">Le tableau n\'a pas d\'icône</string>
+    <string name="EnableDisplaySpeechText">Afficher le texte parlé dans la barre de texte</string>
+    <string name="enableBoardDelete">Activer la fonction de suppression de tableau dans l\'écran Mes tableaux</string>
+    <string name="board_delete">Suppression du tableau</string>
+    <string name="change_language_voice">Sélectionnez l\'accent (voix) pour la langue:</string>
 </resources>

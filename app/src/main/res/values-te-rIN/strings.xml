@@ -20,9 +20,9 @@
     </string-array>
 
     <string name="app_name">జెల్లో</string>
-    <string name="action_settings">సెట్టింగ్స్</string>
+    <string name="action_settings">సెట్టింగ్స్ (Settings)</string>
 
-    <string name="Language">భాష</string>
+    <string name="Language">భాష (Language)</string>
     <string name="saveLanguage">మార్పును ఉపయోగించండి</string>
 
     <string-array name="bloodgroup">
@@ -71,7 +71,7 @@
         <item>Nine</item>
     </string-array>
 
-    <string name="change_language_line2">1 దశ: డౌన్లోడ్ చేయబడిన భాషలలో వక్కటి ఎంచుకోండి:</string>
+    <string name="change_language_line2">డౌన్లోడ్ చేయబడిన భాషలలో వక్కటి ఎంచుకోండి:</string>
     <string name="simple_ime">జెల్లో కీబోర్డ్</string>
     <string name="subtype_en_US">సీరియల్ ఏబీసీ</string>
 
@@ -81,21 +81,21 @@
     <string name="txtDisplayMode">ప్రదర్శన స్థితి</string>
     <string name="txtVoiceVolume">మాట తీవ్రత</string>
     <string name="txtNumOfPerPerScr">స్క్రీన్ పై ఐకాన్స్ సంఖ్యా</string>
-    <string name="txtDemo">ప్రదర్శన</string>
-    <string name="txtSave">గుర్తుంచబడును</string>
+    <string name="txtDemo">ప్రదర్శన (SPEECH DEMO)</string>
+    <string name="txtSave">గుర్తుంచబడును (Save)</string>
     <string name="demoTtsSpeech">హలో, మీరు జెల్లో అప్ ఉపయోగిస్తున్నారు.</string>
     <string name="savedSettingsMessage">సెట్టింగ్స్ గుర్తించబడినవి.</string>
     <string name="languageChanged">భాష మార్చబడింది</string>
     <string name="checkConnectivity">మీ ఇంటర్నెట్ కనెక్షన్ ని పరిశీలించండి.</string>
 
-    <string name="menuProfile">ప్రొఫైల్</string>
-    <string name="menuAbout">జెల్లో గురించి</string>
-    <string name="menuTutorials">శిక్షణ</string>
-    <string name="menuKeyboardInput">కీబోర్డ్ నియంత్రణ</string>
-    <string name="menuResetPref">ప్రాధాన్యత లో మార్పులు</string>
-    <string name="menuFeedback">అభిప్రాయము</string>
+    <string name="menuProfile">ప్రొఫైల్ (Profile)</string>
+    <string name="menuAbout">జెల్లో గురించి (About Jellow)</string>
+    <string name="menuTutorials">శిక్షణ (Tutorial)</string>
+    <string name="menuKeyboardInput">కీబోర్డ్ నియంత్రణ (Keyboard Control)</string>
+    <string name="menuResetPref">ప్రాధాన్యత లో మార్పులు (Reset Preferences)</string>
+    <string name="menuFeedback">అభిప్రాయము (Feedback)</string>
     <string name="menuUserRegistration">నమోదు పేజీ</string>
-    <string name="menuAccessibility">అందుబాటు</string>
+    <string name="menuAccessibility">అందుబాటు (Accessibility)</string>
     <string name="menuClosePopup">ముగింపు జాబితా</string>
     <string name="labelSplash">జెల్లో లోడ్ అవుతుంది వేచి ఉండండి</string>
 
@@ -104,13 +104,13 @@
     <string name="clearVoice">స్వర స్పష్టత</string>
     <string name="easyToNavigate">అనుసరించడం సులభం</string>
     <string name="commentSuggestions">వ్యాఖ్యలు/సలహా</string>
-    <string name="submit">సమర్పించండి</string>
+    <string name="submit">సమర్పించండి (SUBMIT)</string>
     <string name="serial_keyboard_title">సీరియల్ కీబోర్డ్:</string>
     <string name="serial_keyboard_info">జెల్లో కమ్యూనికేటర్ లో సీరియల్ కీబోర్డ్ ఉంది. ఈ కీబోర్డ్ ని స్పెషల్ ఎడ్యుకేటర్ మరియు ఉపాధ్యాయుల సహాయం తో తయారు చేయబడింది. ఇది ఆ అక్షరము నుండు మొదలవుతుంది. సీరియల్ కీబోర్డ్ పిల్లలకు అక్షరాలు వెతకడానికి సులభముగా ఉంది. అక్షర గ్యానమ్ పొందుతునేవారికి కూడా ఉపయోగపడుతుంది. కీబోర్డ్ లో 0 – 9 వరకు అంకిలి చిహ్నాలు ఉన్నాయి. ఇవి రోజువారీ సంభాషణ లో ఉంపయోగపడతాయి.</string>
     <string name="keyboardControlTxt">మీకు కావలసిన కీబోర్డ్ ని డిఫాల్ట్ గ మార్చుకోడానికి రెండు దశలు పూర్తి చేసుకోవాలి:</string>
     <string name="step1">దశ 1: సెట్టింగ్స్ కు వెళ్లి కీబోర్డ్ ని ఎనేబుల్ చేయండి.</string>
     <string name="qwertyKeyboard">దేవనాగరి కీబోర్డ్ డిఫాల్ట్ గ వెంచుకోండి</string>
-    <string name="serialKeyboard">క్రమంలో ఏ బి సి కీబోర్డ్</string>
+    <string name="serialKeyboard">క్రమంలో ఏ బి సి కీబోర్డ్ (SERIAL ABC)</string>
     <string name="step2">దశ 2: కీబోర్డ్ ని డిఫాల్ట్ గా సేవ్ చేసుకోండి.</string>
     <string name="saveAsDefault">కీబోర్డ్ గా సేవ్ చేయండి</string>
     <string name="getKeyboardControl">కీబోర్డ్ నియంత్రణ</string>
@@ -127,10 +127,10 @@
     <string name="search_act_title">జెల్లో లో ఐకాన్ వెతకండి</string>
 
     <string name="iconsHasBeenReset">మీరు ప్రాధాన్యతలను రీసెట్ చేయబడినవి</string>
-    <string name="speak">చెప్పు</string>
-    <string name="stop">ఆగు</string>
+    <string name="speak">చెప్పు (Speak)</string>
+    <string name="stop">ఆగు (Stop)</string>
     <string name="about_jellow_speech">జెల్లో సంభాషణకర్త, ప్రసంగాన్ని ప్రారంభించడానికి చిహ్నాలను ఉపయోగించడం మరియు మాట్లాడటం నేర్చుకునేవారు లేదా ప్రసంగంలో ఇబ్బందులు ఉన్నవారు ఉపయోగించవచ్చు. పిల్లలు మరియు ప్రారంభ అభ్యాసకులు వారి రోజువారీ జీవితంలో తరచుగా ఉపయోగించే పదాలు మరియు వర్గాలను నేర్చుకోవడానికి కూడా పసుపును ఉపయోగించవచ్చు. జెల్లో రంగురంగుల మరియు స్నేహపూర్వక చిహ్నాలు పిల్లలు చిత్రాలు మరియు వాటికి సంబంధించిన పద లేబుళ్ల మధ్య అనుబంధాన్ని పెంపొందించడానికి సహాయపడతాయి. ముంబైలోని ఇండియన్ ఇన్స్టిట్యూట్ ఆఫ్ టెక్నాలజీ బాంబేలోని ఐడిసి స్కూల్ ఆఫ్ డిజైన్‌లో దీనిని అభివృద్ధి చేశారు. ఎల్లో యొక్క భాషా సామర్థ్యాన్ని పెంచడానికి, ఒక నవల ఎమోషనల్ లాంగ్వేజ్ ప్రోటో కాల్ లేదా ELP ను ప్రాజెక్ట్ పరిశోధకులు రూపొందించారు మరియు అభివృద్ధి చేశారు. ELP ఇంటర్ఫేస్ యొక్క ప్రధాన భాగాన్ని రూపొందించే 6 వ్యక్తీకరణ చిహ్నాలను సూచిస్తుంది. ఈ ప్రధాన చిహ్నాలను ఉపయోగించి, పిల్లవాడు వారి ఇష్టాలు, అయిష్టాలు మరియు అవసరాలను ఇతరులతో కమ్యూనికేట్ చేయవచ్చు. నేర్చుకోవటానికి సులభమైన ఇంటర్‌ఫేస్‌తో పసుపు పిల్లలను స్నేహపూర్వకంగా భావిస్తారు. ఆండ్రాయిడ్ టాబ్లెట్ల కోసం అప్లికేషన్ ఆప్టిమైజ్ చేయబడింది.జెల్లో ప్రస్తుతం ఇంగ్లీష్, హిందీ, బెంగాలీ, మరాఠీ, తమిళం, తెలుగు, స్పానిష్, జర్మన్ మరియు ఫ్రెంచ్ భాషలలో అందుబాటులో ఉంది. జెల్లో ప్రస్తుత వెర్షన్ _. అప్లికేషన్ మరింత అభివృద్ధిలో ఉంది. అందువల్ల, మా కోసం మీకు ఏమైనా సూచనలు ఉంటే, దయచేసి దాన్ని ఫీడ్‌బ్యాక్ ట్యాబ్ కింద సమర్పించండి లేదా j e l l o w c o m m u n i c a t o r @ gmail dot c o m లో మాకు వ్రాయండి. జెల్లో క్రియేటివ్ కామన్స్ అట్రిబ్యూషన్ నాన్-కమర్షియల్ షేర్ అలైక్ 4.0 ఇంటర్నేషనల్ లైసెన్స్ క్రింద లైసెన్స్ పొందింది. వర్క్ ఆన్ జెలో ఇండియన్ ఇన్స్టిట్యూట్ ఆఫ్ టెక్నాలజీ బొంబాయికి ఆపాదించబడింది. చిహ్నాలు, లేఅవుట్, ఆర్కిటెక్చర్, విజువల్ ఐడెంటిటీ, ట్రాన్స్‌లేషన్ మరియు సాఫ్ట్‌వేర్ కోడ్‌లతో కూడిన ఈ అనువర్తనంలోని కంటెంట్‌ను భాగస్వామ్యం చేయవచ్చు మరియు స్వీకరించవచ్చు కాని వాణిజ్య ప్రయోజనాల కోసం ఉపయోగించలేరు. కంటెంట్ ఉపయోగించినప్పుడు, ఇండియన్ ఇన్స్టిట్యూట్ ఆఫ్ టెక్నాలజీ బొంబాయిని గుర్తించమని మేము మిమ్మల్ని అభ్యర్థిస్తున్నాము. www dot jellow dot o r g వద్ద పసుపు డౌన్‌లోడ్ కోసం అందుబాటులో ఉంది. కోడ్‌ను మరింత అభివృద్ధి చేయడానికి ఆసక్తి ఉంటే, దయచేసి ప్రొఫెసర్ రవి పూవయ్యకు j e l l o w c o m m u n i c a t o r @ g m a i l వద్ద వ్రాయండి. c o m</string>
-    <string name="catBtnDesc">జెల్లో స్క్రీన్ మధ్యలో 4 ప్రధాన చదరపు బటన్లు మరియు ఇరువైపులా 4 వ్యక్తీకరణ బటన్లు ఉన్నాయి:</string>
+    <string name="catBtnDesc">జెల్లో స్క్రీన్ మధ్యలో 9 ప్రధాన చదరపు బటన్లు మరియు ఇరువైపులా 6 వ్యక్తీకరణ బటన్లు ఉన్నాయి:</string>
     <string name="catBtn">ప్రముఖ వర్గాల బటన్లు:</string>
     <string name="expBtn">భావ వ్యక్తీకరించే బటన్లు:</string>
     <string name="jellowUsageDesc">జెల్లో అప్ ద్వారా మాట్లాడడానికి ముందు ప్రముఖ వర్గాల బట్టన్లు క్లిక్ చేసిన తరువాత భావ వ్యక్తీకరించే బటన్లు క్లిక్ చేయాలి .ఉదాహరణకి కింద బటన్ ప్రెస్ చేస్తే జెల్లో నేను తింటాను అని పలుకుతోంది:</string>
@@ -151,7 +151,7 @@
     <string name="intro_to_jellow">జెల్లో పరిచయము</string>
     <string name="rate_jellow">జెల్లో ని అన్ని స్థానాలలో రేట్ చేయండి</string>
     <string name="keyboard">కీబోర్డ్</string>
-    <string name="txt_intro1_central9btn">జెల్లో లో 6 ప్రముఖ బటన్లు ఉన్నాయి</string>
+    <string name="txt_intro1_central9btn">జెల్లో లో 9 ప్రముఖ బటన్లు ఉన్నాయి</string>
     <string name="txt_intro1_categorybtn">ప్రముఖ వర్గాల బటన్లు</string>
     <string name="txt_intro5_jellowUsageDesc">అప్ కి 6 వ్యక్తీకరణ సైడ్ బటన్లు ఉన్నాయి</string>
     <string name="txt_intro5_expressiveBtn">వ్యక్తీకరణ బటన్లు</string>
@@ -169,9 +169,9 @@
     <string name="txt_registration_selectLangDesc_contentDesc">జెల్లో కోసం భాషను ఎంచుకోండి **</string>
     <string name="txt_registration_registerBtn">రిజిస్టర్ చేసుకోండి</string>
     <string name="enternonemptycontact">సరైన కాంటాక్ట్ నెంబర్ వేయండి</string>
-    <string name="change_language_line5">3 దశ: _ వాయిస్ డేటా మీ డివైస్ పై ఉన్నట్లు చెక్ చేసుకోండి. లేని దశలో కావలసిన వాయిస్ డేటా డౌన్లోడ్ చేసుకోండి. డౌన్లోడ్ ఆగిన స్థితిలో ఇంటర్నెట్ కనెక్షన్ర చెక్ చేసుకొని మరలా ప్రయత్నించండి.</string>
+    <string name="change_language_line5">2 దశ: _ వాయిస్ డేటా మీ డివైస్ పై ఉన్నట్లు చెక్ చేసుకోండి. లేని దశలో కావలసిన వాయిస్ డేటా డౌన్లోడ్ చేసుకోండి. డౌన్లోడ్ ఆగిన స్థితిలో ఇంటర్నెట్ కనెక్షన్ర చెక్ చేసుకొని మరలా ప్రయత్నించండి.</string>
     <string name="txtChangeLanguage">డిఫాల్ట్ భాష ను మార్చండి:</string>
-    <string name="txtApplyChanges">4 దశ: కొత్త భాషనీ సెట్ చ్యడానికి అప్లై చేంజెస్ పై క్లిక్ చేయండి</string>
+    <string name="txtApplyChanges">కొత్త భాషనీ మరియు వాయిస్ సెట్ చ్యడానికి అప్లై చేంజెస్ పై క్లిక్ చేయండి</string>
     <string name="txt_actLangSel_downloadDat">వాయిస్ డేటా ని చెక్ చేసుకోండి</string>
     <string name="language_downloaded">_ భాష డౌన్లోడ్ అయ్యింది</string>
     <string name="language_downloading">_ భాష డౌన్లోడ్ అవుతున్నది</string>
@@ -204,7 +204,7 @@
     <string name="about_je_intro5">.పిల్లలు జెల్లో ని సులభంగా నేర్చుకోగలరు మరియు ఉపయోగించగలరు</string>
     <string name="about_je_intro6">ఈ వ్యక్తీకరణ చిహ్నాలు ద్వారా జెల్లో ఉపయోగించినవారు తమ అవసరాలను ఇష్టాలను అనిష్టలను ఇతరాలను తెలియపరచవచ్చు</string>
     <string name="about_je_intro7">జెల్లో ఇప్పుడు ఇంగ్లీష్, హిందీ, బెంగాలీ మరాఠీ, తమిళ్, తెలుగు, స్పానిష్, జర్మన్, ఫ్రెంచ్, భాష లో లభిస్తుంది</string>
-    <string name="play_video">వీడియొ నడపండి</string>
+    <string name="play_video">వీడియొ నడపండి (Play video)</string>
     <string name="software_info">సాఫ్ట్వేర్ సంస్కరణ: _</string>
     <string name="about_je_intro8">జెల్లఓ ప్రస్తుత సంస్కరణ _ జెల్లో ని మరి కొంత వికసిస్తున్నారు. అప్లికేషన్ లో సలహా మీరు దీనికి సంబంధించిన సలహాలు ఇవ్వాలనుకుంటే ఫీడ్బ్యాక్ బాక్స్ లో ఇవ్వవచ్చు. లేదా jellowcommunicator@gmail.com పై రాయవచ్చు</string>
     <string name="terms_of_use">ఉపయోగించే షరతులు</string>
@@ -277,8 +277,8 @@
     <string name="seekbar_volume_cd"> మీ మొబైల్ వాల్యూం బటన్స్ మార్చుటు స్పీచ్ వాల్యూం  ని మార్చుకోండి</string>
     <!--end content description-->
 
-    <string name="txt_tts_stting">టెక్స్ట్ టు స్పీచ్ సెట్టింగ్స్</string>
-    <string name="change_language_tts_wifi">2 దశ: గూగుల్ టిటిఎస్ సెట్టింగులకు వెళ్లి \'వై-ఫై మాత్రమే వాడండి\' ఆపివేయండి. ఎంపిక ఇప్పటికే నిలిపివేయబడితే, దయచేసి ఈ దశను దాటవేయండి.</string>
+    <string name="txt_tts_stting">టెక్స్ట్ టు స్పీచ్ సెట్టింగ్స్ (TTS SETTINGS)</string>
+    <string name="change_language_tts_wifi">1 దశ: గూగుల్ టిటిఎస్ సెట్టింగులకు వెళ్లి \'వై-ఫై మాత్రమే వాడండి\' ఆపివేయండి. ఎంపిక ఇప్పటికే నిలిపివేయబడితే, దయచేసి ఈ దశను దాటవేయండి.</string>
     <string name="lang_setting_option1_cd">"టెక్స్ట్ టు స్పీచ్ ఔట్పుట్" అండ్ "గూగుల్ టెక్స్ట్ టు స్పీచ్  వాయిస్  డేటా " సెట్టింగ్స్ ద్వారా ఈ స్క్రీన్ షాట్ తయారు చేయబడింది .టెక్స్ట్ తో స్పీచ్ ఔట్పుట్ చిత్రములో రెండు ఎంగిన్స్ ఉన్నాయి మొదటిది శంసుంగ్ టెక్స్ట్ టు స్పీచ్ ఇంజిన్ రెండోవాడి గూగల్ టెక్స్ట్ టు స్పీచ్ ఇంజిన్ . మీరు గూగుల్ టెక్స్ట్ టు స్పీచ్ ని ఎంచుకోండి.</string>
     <string name="lang_setting_option2_cd">రెండొవ చిత్రము  రెండొవ దశను చూపెడుతుంది. గూగుల్ టెక్స్ట్ టు స్పీచ్ సెట్టింగ్స్ క్లో ఉన్న గేర్ చిహ్నాన్ని క్లిక్ చేయండి</string>
     <string name="lang_setting_option3_cd">మూడవ చిత్రం ఈ ప్రక్రియలో మూడవ దశ, ఇప్పుడు ఉపయోగించేవారు  "Google TTS ఎంపికలు" స్క్రీన్ వద్ద ఉన్నారు. ఈ స్క్రీన్‌పై రెండవ అంశం "వై-ఫై మాత్రమే వాడండి" కోసం టోగుల్ స్విచ్ ఈ చిత్రంలో హైలైట్ చేయబడింది. ఈ దశలో ఈ స్విచ్‌ను ఆపివేయడానికి లేదా నిలిపివేయమని వినియోగదారుని కోరతారు.</string>
@@ -286,15 +286,15 @@
     <string name="access_dialog_title">అవకాశాలు ఉన్న విండో</string>
 
     <string name="acc_lang_marathi">మరాఠీ ఇండియా</string>
-    <string name="acc_lang_hindi">హిందీ ఇండియా</string>
+    <string name="acc_lang_hindi">హిందీ (ఇండియా)</string>
     <string name="acc_lang_bengali">బెంగాలీ (ఇండియా)</string>
-    <string name="acc_lang_eng_in">ఇంగ్లీష్ ఇండియా</string>
+    <string name="acc_lang_eng_in">ఇంగ్లీష్ (ఇండియా)</string>
     <string name="acc_lang_eng_gb">ఇంగ్లీష్ యునైటెడ్ కింగ్డమ్</string>
     <string name="acc_lang_eng_us">ఇంగ్లీష్ యునైటెడ్ స్టేట్స్</string>
     <string name="acc_lang_eng_au">ఇంగ్లీష్ ఆస్ట్రేలియా</string>
     <string name="acc_lang_span_span">స్పానిష్ (స్పెయిన్)</string>
-    <string name="acc_lang_tamil_in">తమిళ</string>
-    <string name="acc_lang_telugu_in">తెలుగు</string>
+    <string name="acc_lang_tamil_in">తమిళ (ఇండియా)</string>
+    <string name="acc_lang_telugu_in">తెలుగు (ఇండియా)</string>
     <string name="acc_lang_german_ger">జర్మన్ (జర్మనీ)</string>
 
     <string name="_1_icon">1 చిహ్నం</string>
@@ -311,7 +311,7 @@
     <string name="close_searchbar">సెర్చ్ బార్ ని ముగుంచండి</string>
 
 
-    <string name="txt_accessibility_setting">సెట్టింగ్స్ అందుబాటు</string>
+    <string name="txt_accessibility_setting">సెట్టింగ్స్ అందుబాటు (Accessibility Setting)</string>
     <string name="visual_access_title">దృశ్య అందుబాటు:</string>
     <string name="visual_access_info_one">దృష్టి లోపం ఉన్న వినియోగదారులు ఇప్పుడు జెల్లో యొక్క దృశ్యమాన ప్రాప్యత లక్షణాన్ని ఉపయోగించవచ్చు.</string>
     <string name="visual_access_info_two">ఆండ్రాయిడ్ స్మార్ట్‌ఫోన్‌లలోని "టాక్ బ్యాక్" బటన్‌ను ఆన్ చేయడం ద్వారా వినియోగదారులు ఈ లక్షణాన్ని ఉపయోగించవచ్చు</string>
@@ -326,19 +326,6 @@
     <string name="switch_access_info_five">స్విచ్ అందుబాటు మార్చుకోడానికి సెట్టింగ్స్ ఓపెన్ చేయండి ..ఆక్సిసిబిలిటీ కి వెళ్ళండి ..స్విచ్ అచ్చెస్స్ ని ఆన్ చెడియంది ..USB లేదా BLUETOOTH స్విచ్స్ ని సెలెక్ట్ చేసుకోండి ..సెట్టింగ్స్ కు వెళ్లి స్విచ్స్ ని రెండు స్విచ్స్ గ వెంచుకోండి. స్కానింగ్ రకమును వెంచుకోండి. తరువాత బటన్ ని క్లిక్ చేయండి, రెండు స్విచ్స్ కి ఆక్షన్ ఇచ్చి స్విచ్ టెస్టింగ్ ప్రాసెస్ ని పూర్తిచేయండి</string>
 
     <!--Language package update strings are here-->
-    <string name="lpu_start_update">Starting Update &#8230;</string>
-    <string name="lpu_parse_update">Parsing Download data &#8230;</string>
-    <string name="lpu_download_icons">Downloading Icons &#8230;</string>
-    <string name="lpu_download_verbiage">Downloading Verbiage &#8230;</string>
-    <string name="lpu_update_success">Language pack successfully updated!!</string>
-    <string name="lpu_toast_update_success">Update Success!!</string>
-    <string name="lpu_toast_check_success">Update Check Success!!</string>
-    <string name="lpu_no_updates_found">No updates found!!</string>
-    <string name="lpu_update_error">Error completing update!! Please try again.</string>
-    <string name="lpu_toast_check_error">Update Failed!!</string>
-    <string name="update_now">Update now</string>
-    <string name="update_later">Later</string>
-    <string name="update_message">New content is available in the app. Do you want to update now?</string>
     <string name="acc_lang_bengali_bd">బెంగాలీ (బంగ్లాదేశ్)</string>
     <string name="acc_lang_eng_ng">ఇంగ్లీష్ (నైజీరియా)</string>
     <string name="menuMyBoards">నా బోర్డులు (My Boards)</string>
@@ -349,7 +336,7 @@
     <string name="current_board">చిహ్నాలు జోడించబడ్డాయి</string>
     <string name="board_name">బోర్డు పేరును ఇక్కడ జోడించండి</string>
     <string name="select_all">అన్ని ఎంచుకోండి</string>
-    <string name="reset">రీసెట్</string>
+    <string name="reset">రీసెట్ (Reset)</string>
     <string name="select_icon_title">చిహ్నాలను జోడించండి</string>
     <string name="add_category">వర్గాన్ని జోడించండి</string>
     <string name="add_icon">చిహ్నాన్ని జోడించండి</string>
@@ -372,7 +359,7 @@
     <string name="icon_name">ఐకాన్ పేరు</string>
     <string name="add_board">బోర్డుని జోడించండి</string>
     <string name="custom_icon">అనుకూల చిహ్నం</string>
-    <string name="cancel">రద్దు చేయండి</string>
+    <string name="cancel">రద్దు చేయండి (Cancel)</string>
     <string name="database_not_created_info">భాష కోసం డేటాబేస్ సృష్టిస్తోంది.</string>
     <string name="icon_already_present">ఐకాన్ ఇప్పటికే ఎంచుకోబడింది</string>
     <string name="camera_missing">కెమెరా కనుగొనబడలేదు</string>
@@ -458,4 +445,20 @@
     <string name="board_place_holder_text">మీరు ఇంకా ఏ బోర్డును జోడించలేదు.</string>
     <string name="EnableDisplaySpeechText">మాట్లాడే వచనాన్ని టెక్స్ట్ బార్‌లో ప్రదర్శించండి</string>
     <string name="place_holder_text">చిహ్నాలు ఇంకా ఎంపిక చేయబడలేదు. దయచేసి ఎడమ వర్గం మెను నుండి చిహ్నాలను ఎంచుకోండి</string>
+    <string name="enableBoardDelete">నా బోర్డుల స్క్రీన్‌లో బోర్డు తొలగింపు లక్షణాన్ని ప్రారంభించండి</string>
+    <string name="lpu_start_update">భాషా ప్యాకేజీ నవీకరణ ప్రారంభమైంది</string>
+    <string name="lpu_parse_update">డౌన్‌లోడ్ చేసిన డేటాను ప్రాసెస్ చేస్తోంది</string>
+    <string name="lpu_download_verbiage">ప్రసంగ ఫైళ్ళను డౌన్‌లోడ్ చేస్తోంది</string>
+    <string name="lpu_download_icons">ఐకాన్ ఫైళ్ళను డౌన్‌లోడ్ చేస్తోంది</string>
+    <string name="lpu_update_success">భాషా ప్యాక్ విజయవంతంగా నవీకరించబడింది.</string>
+    <string name="lpu_toast_update_success">నవీకరణ విజయవంతమైంది.</string>
+    <string name="lpu_toast_check_success">నవీకరణ విజయాన్ని తనిఖీ చేస్తోంది.</string>
+    <string name="lpu_no_updates_found">నవీకరణలు కనుగొనబడలేదు.</string>
+    <string name="lpu_update_error">నవీకరణను పూర్తి చేయడంలో లోపం. దయచేసి మళ్ళీ ప్రయత్నించండి.</string>
+    <string name="lpu_toast_check_error">భాషా ప్యాకేజీ నవీకరణ విఫలమైంది.</string>
+    <string name="update_now">ఇప్పుడే నవీకరించండి</string>
+    <string name="update_later">తర్వాత</string>
+    <string name="update_message">అనువర్తనంలో క్రొత్త కంటెంట్ అందుబాటులో ఉంది. మీరు ఇప్పుడు నవీకరించాలనుకుంటున్నారా?</string>
+    <string name="board_delete">బోర్డు తొలగించు</string>
+    <string name="change_language_voice">భాష కోసం యాస (వాయిస్) ఎంచుకోండి:</string>
 </resources>

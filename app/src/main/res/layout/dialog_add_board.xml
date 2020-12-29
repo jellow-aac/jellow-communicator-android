@@ -117,13 +117,17 @@
                     android:paddingHorizontal="@dimen/spinner_horizontal_padding"
                     android:contentDescription="@string/select_language_for_board"/>
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/board_add_edit_icon_size"
+                    android:layout_height="@dimen/profile_save_btn_height"
+                    android:visibility="gone"
                     android:layout_marginTop="@dimen/edit_board_dialog_side_margin"
                     android:id="@+id/tv_language"
                     android:text="@string/Language"
-                    android:visibility="gone"
-                    android:textColor="@color/black_80"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/board_lang_name"
+                    android:paddingHorizontal="6dp"
+                    android:background="@drawable/button_background"
                     android:focusable="true" />
                 <Spinner
                     android:id="@+id/voiceSelectSpinner"
@@ -135,15 +139,6 @@
                     android:paddingVertical="@dimen/spinner_vertical_padding"
                     android:paddingHorizontal="@dimen/spinner_horizontal_padding"
                     android:contentDescription="@string/select_language_for_board"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/edit_board_dialog_side_margin"
-                    android:id="@+id/tv_voice"
-                    android:text="@string/Language"
-                    android:visibility="gone"
-                    android:textColor="@color/black_80"
-                    android:focusable="true" />
             </LinearLayout>
         </LinearLayout>
         <androidx.appcompat.widget.LinearLayoutCompat
@@ -157,6 +152,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/profile_save_btn_height"
                 android:layout_marginHorizontal="8dp"
+                android:paddingHorizontal="@dimen/mmb_btn_pad"
                 android:background="@drawable/button_background"
                 android:text="@string/cancel"
                 android:textAllCaps="false"

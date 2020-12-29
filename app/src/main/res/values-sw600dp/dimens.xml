@@ -305,6 +305,7 @@
     <dimen name="edit_board_dialog_internal_margin_top">16dp</dimen>
     <dimen name="lang_popup_item_height">40dp</dimen>
     <dimen name="lang_popup_item_divider_top">39dp</dimen>
+    <dimen name="board_lang_name">16sp</dimen>
     <dimen name="header_icon_size">70dp</dimen>
     <dimen name="header_title_size">19sp</dimen>
     <dimen name="header_edit_icon_size">32dp</dimen>
@@ -377,6 +378,9 @@
     <dimen name="custom_keyboard_iv_speak_size">56dp</dimen>
     <dimen name="custom_keyboard_layout_margin_top">48dp</dimen>
     <dimen name="custom_keyboard_toolbar_height">66dp</dimen>
+
+    <!--Spoken Text Bar Toast-->
+    <dimen name="spoken_text_text_bar">22sp</dimen>
 
 
 </resources>

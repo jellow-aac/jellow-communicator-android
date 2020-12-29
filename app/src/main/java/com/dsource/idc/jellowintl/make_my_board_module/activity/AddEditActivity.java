@@ -127,7 +127,9 @@ public class AddEditActivity extends BaseBoardActivity<IAddEditView, IAddEditPre
                 if(currentBoard.getIconModel().getAllIcons().size()==0)
                     Toast.makeText(mContext, getString(R.string.no_icon_warning),Toast.LENGTH_LONG).show();
                 else {
+                    getSession().setBoardVoice(currentBoard.getBoardVoice());
                     mPresenter.nextPressed(mContext);
+
                     finish();
                 }
             }

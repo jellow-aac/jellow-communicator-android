@@ -169,7 +169,7 @@
     <string name="enternonemptycontact">Por favor, escribe un número de contacto válido</string>
     <string name="change_language_line5">2da Paso: Comprueba si los datos de voz para _ están disponibles en tu dispositivo. Si no, por favor, descarga los datos de voz para el idioma seleccionado. En caso de que la barra de progreso se atasque, por favor reinica la aplicación o inténtalo de nuevo.</string>
     <string name="txtChangeLanguage">Cambiar el idioma de la aplicación:</string>
-    <string name="txtApplyChanges">Haga clic en \'Guardar cambios\' para guardar el idioma seleccionado</string>
+    <string name="txtApplyChanges">Haga clic en \'Guardar cambios\' para guardar el idioma y voz seleccionado</string>
     <string name="txt_actLangSel_downloadDat">Comprueba los datos de voz (Check voice data)</string>
     <string name="language_downloaded">_ Idioma descargado</string>
     <string name="language_downloading">Descargando _</string>
@@ -455,4 +455,8 @@
     <string name="my_boards_info_cd">La imagen ha seleccionado muestra la pantalla de “Mes tablones”. Toca en el icono de menú de “Editar” en la parte superior derecha de la pantalla. Esto permite editar y eliminar las características por el tablón en la lista.  Cuándo la edición se activa, deslízate por los iconos en la lista para encontrar los botones \"Editar\" y \"Eliminar\".</string>
     <string name="my_boards_info">Toca en el icono de menú de “Editar” en la parte superior derecha de la pantalla. Esto permite editar y eliminar las características por el tablón en la lista.</string>
     <string name="my_boards_title_cd">La imagen ha seleccionado muestra la pantalla de “Mes tablones”. Para abrir la pantalla de \"Mis tablones\", toca en un icono circular y más en la pantalla principal. La imagen tiene la lista de tablón existente del usario y un botón de \"Más\". Para crear un nuevo tablón, toca en un icono de \"Más\" también llamado como el icono de \"Añadir tablón\". Para abrir el tablón toca en los iconos en la lista.</string>
+    <string name="EnableDisplaySpeechText">Mostrar el texto hablado en la barra de texto</string>
+    <string name="enableBoardDelete">Habilitar la función de eliminación de tableros en la pantalla Mis tableros</string>
+    <string name="board_delete">Eliminar tablero</string>
+    <string name="change_language_voice">Seleccione el acento (voz) del idioma:</string>
 </resources>

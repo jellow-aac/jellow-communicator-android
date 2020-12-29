@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/toast_layout_root"
+    android:orientation="horizontal"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="10dp">
+    <TextView android:id="@+id/text"
+        android:layout_width="480dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:paddingVertical="6dp"
+        android:paddingHorizontal="4dp"
+        android:textSize="@dimen/spoken_text_text_bar"
+        android:textColor="@color/black_80"
+        android:text="hello"
+        android:background="@drawable/text_bar_corners"/>
+</LinearLayout>

@@ -44,6 +44,7 @@ public class BaseActivity extends AppCompatActivity{
     private static SessionManager sSession;
     private static String sVisibleAct ="";
     private static AppDatabase sAppDatabase;
+    private Menu menu;
 
     static final Migration MIGRATION_1_2 = new Migration(1, 2) {
         @Override
@@ -105,7 +106,9 @@ public class BaseActivity extends AppCompatActivity{
             menu.findItem(R.id.my_boards_icon).setVisible(false);
             menu.findItem(R.id.number_of_icons).setVisible(false);
         }else if(getVisibleAct().contains(getBoardListClass())){
+            setMenu(menu);
             menu.findItem(R.id.enable_edit).setVisible(true);
+            menu.findItem(R.id.enable_delete).setVisible(getSession().isBoardDeletionEnabled());
             menu.findItem(R.id.my_boards_icon).setVisible(false);
             menu.findItem(R.id.number_of_icons).setVisible(false);
             menu.findItem(R.id.search).setTitle(R.string.search_board_in_jellow);
@@ -294,7 +297,7 @@ public class BaseActivity extends AppCompatActivity{
             FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) view.getLayoutParams();
             lp.topMargin = 68;
             getWindow().setNavigationBarColor(getColor(R.color.transparent));
-        }else if(Build.VERSION.SDK_INT > Build.VERSION_CODES.KITKAT_WATCH){
+        }else{
             getWindow().setNavigationBarColor(getResources().getColor(R.color.navigation_bar_color));
         }
     }
@@ -404,5 +407,13 @@ public class BaseActivity extends AppCompatActivity{
 
     public String getGender(String voice) {
         return SpeechEngineBaseActivity.voiceGender.get(voice);
+    }
+
+    public Menu getMenu() {
+        return menu;
+    }
+
+    public void setMenu(Menu menu) {
+        this.menu = menu;
     }
 }

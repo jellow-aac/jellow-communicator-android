@@ -82,6 +82,7 @@
                 android:paddingRight="@dimen/lang_sel_btn_padding_horizontal"
                 android:text="@string/saveLanguage" />
             <TextView
+                android:id="@+id/more_setting_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/txtMoreLangSetting"

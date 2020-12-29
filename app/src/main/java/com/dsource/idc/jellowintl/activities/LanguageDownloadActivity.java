@@ -11,13 +11,16 @@ import androidx.core.content.ContextCompat;
 
 import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
 import com.dsource.idc.jellowintl.R;
+import com.dsource.idc.jellowintl.factories.LanguageFactory;
 import com.dsource.idc.jellowintl.utility.DownloadManager;
+import com.dsource.idc.jellowintl.utility.SessionManager;
 
 import static com.dsource.idc.jellowintl.activities.UserRegistrationActivity.LCODE;
 import static com.dsource.idc.jellowintl.activities.UserRegistrationActivity.TUTORIAL;
 import static com.dsource.idc.jellowintl.utility.Analytics.isAnalyticsActive;
 import static com.dsource.idc.jellowintl.utility.Analytics.resetAnalytics;
-//import static com.dsource.idc.jellowintl.utility.SessionManager.MR_IN;
+import static com.dsource.idc.jellowintl.utility.SessionManager.LangValueMap;
+import static com.dsource.idc.jellowintl.utility.SessionManager.MR_IN;
 
 public class LanguageDownloadActivity extends BaseActivity {
     public static final String SPLASH = "SPLASH";
@@ -56,19 +59,19 @@ public class LanguageDownloadActivity extends BaseActivity {
         progressBar.setMax(1);
         {
             String str = getString(R.string.language_downloaded);
-            /*if (langCode.equals(MR_IN)){
+            if (langCode.equals(MR_IN)){
                 str = str.replace("_", LangValueMap.get(langCode));
                 strLanguageDownloaded = str;
                 str = getString(R.string.language_downloading);
                 str = str.replace("_",  LangValueMap.get(langCode));
                 strLanguageDownloading = str;
-            }else{*/
+            }else{
                 str = str.replace("_", "");
                 strLanguageDownloaded = str;
                 str = getString(R.string.language_downloading);
                 str = str.replace("_",  "");
                 strLanguageDownloading = str;
-            //}
+            }
         }
 
         mCheckConn = getString(R.string.checkConnectivity);
@@ -83,7 +86,7 @@ public class LanguageDownloadActivity extends BaseActivity {
                 Toast.makeText(LanguageDownloadActivity.this, strLanguageDownloaded,
                         Toast.LENGTH_SHORT).show();
 
-                /*if(getSession().getLanguage().equals(MR_IN) && !LanguageFactory.
+                if(getSession().getLanguage().equals(MR_IN) && !LanguageFactory.
                         isMarathiPackageAvailable(LanguageDownloadActivity.this)){
                     progressBar.setProgress(0);
                     progressBar.invalidate();
@@ -95,7 +98,7 @@ public class LanguageDownloadActivity extends BaseActivity {
                     strLanguageDownloaded = strLanguageDownloaded.replace(SessionManager.UNIVERSAL_PACKAGE,
                             LangValueMap.get(MR_IN));
                     manager.start();
-                }else */if(tutorial) {
+                }else if(tutorial) {
                     startActivity(new Intent(LanguageDownloadActivity.this, Intro.class));
                     finish();
                 }else if(close){

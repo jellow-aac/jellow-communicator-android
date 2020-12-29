@@ -11,6 +11,7 @@ import android.content.SharedPreferences.Editor;
 import com.dsource.idc.jellowintl.R;
 import com.dsource.idc.jellowintl.models.GlobalConstants;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -29,7 +30,6 @@ public class SessionManager {
     public final static String ES_ES = "es-rES";
     public final static String TA_IN = "ta-rIN";
     public final static String TE_IN = "te-rIN";
-    public final static String GU_IN = "gu-rIN";
     public final static String DE_DE = "de-rDE";
     public final static String FR_FR = "fr-rFR";
     public static final String UNIVERSAL_PACKAGE = "universal";
@@ -51,7 +51,6 @@ public class SessionManager {
             put("தமிழ் (Tamil)", TA_IN);
             put("বাংলা (Bangladesh)", BN_BD);
             put("తెలుగు (Telugu)", TE_IN);
-            put("ગુજરાતી (Gujarati)", GU_IN);
         }
     };
 
@@ -71,13 +70,12 @@ public class SessionManager {
             put(TA_IN, "தமிழ் (Tamil)");
             put(BN_BD, "বাংলা (Bangladesh)");
             put(TE_IN, "తెలుగు (Telugu)");
-            put(GU_IN, "ગુજરાતી (Gujarati)");
         }
     };
 
-    /*public final static ArrayList<String> NoTTSLang = new ArrayList<String>(){{
+    public final static ArrayList<String> NoTTSLang = new ArrayList<String>(){{
         add(MR_IN);
-    }};*/
+    }};
 
     private final String PREF_NAME = "JellowPreferences";
     private final String KEY_IS_LOGGEDIN = "isLoggedIn";
@@ -282,6 +280,14 @@ public class SessionManager {
 
     public void setTextBarVisibility(boolean value) {
         storePreferenceKeyWithValue(Boolean.class.toString(), mContext.getString(R.string.text_bar_visibility), value);
+    }
+
+    public boolean isBoardDeletionEnabled() {
+        return (boolean) retrievePreferenceKeyWithValue(Boolean.class.toString(), mContext.getString(R.string.my_board_delete_enabled));
+    }
+
+    public void setBoardDeletionEnabled(boolean value) {
+        storePreferenceKeyWithValue(Boolean.class.toString(), mContext.getString(R.string.my_board_delete_enabled), value);
     }
 
     /**

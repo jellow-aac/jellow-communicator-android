@@ -182,15 +182,16 @@
     <string name="string_msg" translatable="false">com.dsource.idc.jellow.string_message</string>
     <string name="last_crash_reported" translatable="false">com.dsource.idc.jellow.last_crash_reported</string>
     <string name="text_bar_visibility" translatable="false">com.dsource.idc.jellow.text_bar_visibility</string>
+    <string name="my_board_delete_enabled" translatable="false">com.dsource.idc.jellow.board_deletion</string>
     <string name="txt_registration_jellowCalluDesc">(This is how Jellow calls you)</string>
-    <string name="txt_registration_emergencynoDesc">(To be used for correspondence in case of an emergency involving the child.)</string>
+    <string name="txt_registration_emergencynoDesc">(To be used for calling  in case of an emergency situation with the child.)</string>
     <string name="txt_registration_selectLangDesc">Select a Language for Jellow **</string>
     <string name="txt_registration_selectLangDesc_contentDesc">Select a Language for Jellow. Required field. **</string>
     <string name="txt_registration_registerBtn">REGISTER</string>
     <string name="enternonemptycontact">Please enter valid contact number</string>
     <string name="change_language_line5">Step 2: Check if voice data for _ is available on your device. If not please turn on internet and download voice data for selected language. In case process is stalled please check your internet connection and retry</string>
     <string name="txtChangeLanguage">Change the app Language:</string>
-    <string name="txtApplyChanges">Click \'Apply change\' to save the selected language</string>
+    <string name="txtApplyChanges">Click \'Apply change\' to save the selected language and voice</string>
     <string name="txt_actLangSel_downloadDat">Check voice data</string>
     <string name="language_downloaded">_ language downloaded</string>
     <string name="language_downloading">Downloading _ language</string>
@@ -199,6 +200,7 @@
     <string name="grant_permission_from_settings">Enable call permission from settings.</string>
     <string name="txtEnableBuiltInCalling">Enable emergency calling from Jellow</string>
     <string name="EnableDisplaySpeechText">Display the spoken text on the text bar</string>
+    <string name="enableBoardDelete">Enable board delete feature in "My Boards" screen</string>
 
     <string name="dismiss">Dismiss</string>
     <string name="register_user">Please wait registration is in process…</string>
@@ -249,7 +251,7 @@
     <string name="about_je_intro14">If interested in further developing the code or to conduct a Jellow workshop at your place, please write to Professor Ravi Poovaiah at jellowcommunicator@gmail.com</string>
     <string name="feedback_talkback_heading">On a scale of 1 to 5, please rate the following</string>
 
-    <string name="langauge_correction_message"> \'"-"\' language is not setup correctly. Press \'"_"\' to fix the language. \n Or you can switch to default language by pressing \'"$"\'.</string>
+    <string name="langauge_correction_message">" '-' language is not setup correctly. Press '_' to fix the language.   Or you can switch to default language by pressing '$'."</string>
     <string name="changeLanguage">Fix The Language</string>
     <string name="dialog_default_language_option">Default Language</string>
     <string name="txt_data_info">** The data above will only be stored on your device. We value your privacy hence it will not be used or uploaded to any server/cloud (including Jellow\'s or third party\'s).</string>
@@ -500,6 +502,7 @@
     <string name="next_btn">Next</string>
     <string name="my_boards">My Boards</string>
     <string name="board_settings">Board settings</string>
+    <string name="board_delete">Board delete</string>
     <string name="add_expression_here">Add your own expressive line</string>
     <string name="about_je_intro42">By using Make My Board (My Boards), you can add or edit your own customized icons and their expressive text.</string>
     <string name="about_je_more_info">For more information, tap on the following video button:</string>

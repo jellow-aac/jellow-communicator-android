@@ -280,7 +280,7 @@ public class HomeActivity extends SpeechEngineBaseActivity implements TextToSpee
             public void onClick(View v) {
                 ivKeyboard.setImageDrawable(getResources().getDrawable(R.drawable.keyboard));
                 selectedIconVerbiage = null;
-                speakFromMMB(getString(R.string.home));
+                speakFromMMB(currentBoard.getBoardName()+" "+getString(R.string.board)+" "+getString(R.string.home));
                 ActivateView(ivHome, true);
                 ActivateView(ivBack, false);
                 expIconManager.resetSelection();

@@ -204,7 +204,7 @@
     <dimen name="setting_scroll_margin_left">32dp</dimen>
     <dimen name="setting_scroll_margin_right">16dp</dimen>
     <dimen name="setting_tv_margin_bottom">19dp</dimen>
-    <dimen name="setting_seekbar_width">370dp</dimen>
+    <dimen name="setting_seekbar_width">555dp</dimen>
     <dimen name="setting_seekbar_margin_bottom">19dp</dimen>
     <dimen name="setting_spinner_width">@dimen/custom_wrap_content</dimen>
     <dimen name="setting_spinner_height">40dp</dimen>
@@ -300,6 +300,7 @@
     <dimen name="edit_board_dialog_internal_margin_top">16dp</dimen>
     <dimen name="lang_popup_item_height">40dp</dimen>
     <dimen name="lang_popup_item_divider_top">39dp</dimen>
+    <dimen name="board_lang_name">16sp</dimen>
     <dimen name="header_icon_size">75dp</dimen>
     <dimen name="header_title_size">20sp</dimen>
     <dimen name="header_edit_icon_size">24dp</dimen>
@@ -378,4 +379,7 @@
     <dimen name="custom_keyboard_iv_speak_size">72dp</dimen>
     <dimen name="custom_keyboard_layout_margin_top">48dp</dimen>
     <dimen name="custom_keyboard_toolbar_height">66dp</dimen>
+
+    <!--Spoken Text Bar Toast-->
+    <dimen name="spoken_text_text_bar">22sp</dimen>
 </resources>

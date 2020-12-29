@@ -169,7 +169,7 @@
     <string name="enternonemptycontact">Eine gültige Handynummer eingeben</string>
     <string name="change_language_line5">Schritt 2: Die Verfügbarkeit der Stimme für _ prüfen. Wenn nicht vorhanden, dann herunterladen. Falls der Download-Vorgang angehalten wird, wiederholen.</string>
     <string name="txtChangeLanguage">Ändern Sie die Anwendungssprache:</string>
-    <string name="txtApplyChanges">Klicken Sie auf \"Änderungen speichern\", um die ausgewählte Sprache zu speichern</string>
+    <string name="txtApplyChanges">Klicken Sie auf \"Änderungen speichern\", um die ausgewählteSprache und Stimme zu speichern</string>
     <string name="txt_actLangSel_downloadDat">Sprachdaten prüfen (Check voice data)</string>
     <string name="language_downloaded">_ Sprachdaten heruntergeladen</string>
     <string name="language_downloading">_ wird heruntergeladen</string>
@@ -442,4 +442,8 @@
     <string name="acc_lang_bengali_bd">Bengali (Bangladesch)</string>
     <string name="acc_lang_telugu_in">Telugu (Indien)</string>
     <string name="acc_lang_eng_ng">Englisch (Nigeria)</string>
+    <string name="EnableDisplaySpeechText">Zeigen Sie den gesprochenen Text in der Textleiste an</string>
+    <string name="enableBoardDelete">Aktivieren Sie die Funktion zum Löschen von Karten im Bildschirm \"Meine Boards\"</string>
+    <string name="board_delete">Board löschen</string>
+    <string name="change_language_voice">Wählen Sie den Akzent (Stimme) für die Sprache:</string>
 </resources>

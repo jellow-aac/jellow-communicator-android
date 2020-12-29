@@ -438,7 +438,7 @@
     <string name="visual_access_info_video">জেলোতে ভিজ্যুয়াল অ্যাক্সেসিবিলিটির ডেমোটি দেখতে, নীচের ভিডিও বোতামে আলতো চাপুনঃ</string>
     <string name="switch_access_info_video">জেলোতে স্যুইচ অ্যাক্সেসিবিলিটির ডেমোটি দেখতে, নীচের ভিডিও বোতামে আলতো চাপুনঃ</string>
     <string name="txtChangeLanguage">অ্যাপ্লিকেশন ভাষা পরিবর্তন করুনঃ</string>
-    <string name="txtApplyChanges">নির্বাচিত ভাষা সংরক্ষণ করতে \'বদলগুলি প্রয়োগ করুন\' এ ক্লিক করুন</string>
+    <string name="txtApplyChanges">নির্বাচিত ভাষা এবং ভয়েস সংরক্ষণ করতে \'বদলগুলি প্রয়োগ করুন\' এ ক্লিক করুন</string>
     <string name="language_not_working">অ্যাপ্লিকেশন যদি নির্বাচিত ভাষার জন্য কোনও ভয়েস আউটপুট তৈরি না করে তবে দয়া করে নিম্নলিখিত পদক্ষেপগুলি সম্পাদন করুনঃ</string>
     <string name="txtMoreLangSetting">আরও ভাষা নির্ধারণঃ</string>
     <string name="board_place_holder_text">আপনি এখনও কোনও বোর্ড যোগ করেন নি।</string>
@@ -446,4 +446,8 @@
     <string name="acc_lang_telugu_in">তেলেগু</string>
     <string name="acc_lang_eng_ng">ইংরেজি (নাইজেরিয়া)</string>
     <string name="EnableDisplaySpeechText">পাঠ্য বারে কথ্য পাঠ্য প্রদর্শন করুন</string>
+    <string name="enableBoardDelete">আমার বোর্ডগুলির স্ক্রিনে বোর্ড মোছার বৈশিষ্ট্য সক্ষম করুন</string>
+    <string name="board_delete">বোর্ড মোছা</string>
+    <string name="change_language_voice">ভাষার জন্য অ্যাকসেন্ট (ভয়েস) নির্বাচন করুন:</string>
+    <string name="place_holder_no_icons_added">বোর্ডের কোনও আইকন নেই</string>
 </resources>

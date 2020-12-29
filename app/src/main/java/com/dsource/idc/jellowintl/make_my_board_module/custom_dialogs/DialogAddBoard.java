@@ -139,12 +139,15 @@ public class DialogAddBoard extends BaseActivity implements IAddBoardDialogView,
 
         boardName.setFilters(new InputFilter[]{new InputFilter.LengthFilter(60)});
         listView = findViewById(R.id.camera_list);
+        int voiceSelectPos = 0;
         {
             final ArrayList<String> languageList = new ArrayList<>(Arrays.asList(LanguageFactory.getAvailableLanguages()));
             ArrayAdapter<String> langAdapter = new ArrayAdapter<>(this,
                     android.R.layout.simple_spinner_item, languageList);
             langAdapter.setDropDownViewResource(R.layout.popup_menu_item);
             languageSelect.setAdapter(langAdapter);
+            for (String lang : SessionManager.NoTTSLang)
+                languageList.remove(SessionManager.LangValueMap.get(lang));
 
             String voices = SpeechEngineBaseActivity.getAvailableVoicesForLanguage(
                     SessionManager.LangMap.get(languageList.get(0)));
@@ -152,10 +155,20 @@ public class DialogAddBoard extends BaseActivity implements IAddBoardDialogView,
             for (int i = 0; i < voices.split(",").length; i++) {
                 voiceList.add(i,"Voice "+ getRomanNumber(i+1)+getGender(voices.split(",")[i]));
             }
+            if(board != null) {
+                String selectVoice = board.getBoardVoice().split(",")[1].trim();
+                for (int i = 0; i < voiceList.size(); i++) {
+                    if (voiceList.get(i).contains(selectVoice)) {
+                        voiceSelectPos = i;
+                        break;
+                    }
+                }
+            }
             ArrayAdapter<String> voiceAdapter = new ArrayAdapter<>(this,
                     android.R.layout.simple_spinner_item, voiceList);
             voiceAdapter.setDropDownViewResource(R.layout.popup_menu_item);
             voiceSelect.setAdapter(voiceAdapter);
+            voiceSelect.setSelection(voiceSelectPos);
             languageSelect.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -192,13 +205,9 @@ public class DialogAddBoard extends BaseActivity implements IAddBoardDialogView,
                     .dontAnimate()
                     .into(boardIcon);
             languageSelect.setVisibility(View.GONE);
-            voiceSelect.setVisibility(View.GONE);
             TextView tvLanguage = findViewById(R.id.tv_language);
-            TextView tvVoice = findViewById(R.id.tv_voice);
             tvLanguage.setVisibility(View.VISIBLE);
-            tvVoice.setVisibility(View.VISIBLE);
             tvLanguage.setText(SessionManager.LangValueMap.get(board.getLanguage()));
-            tvVoice.setText(board.getBoardVoice().split(",")[1]);
             saveButton.setText(getString(R.string.txtSave));
         }
 
@@ -224,8 +233,10 @@ public class DialogAddBoard extends BaseActivity implements IAddBoardDialogView,
                         +voiceSelect.getSelectedItem().toString().trim();
                 if (board == null)
                     saveNewBoard(boardName.getText().toString().trim(), ((BitmapDrawable) boardIcon.getDrawable()).getBitmap(), langCode, voice);
-                else
+                else {
+                    board.setBoardVoice(voice);
                     updateBoardDetails(board, boardName.getText().toString().trim(), ((BitmapDrawable) boardIcon.getDrawable()).getBitmap());
+                }
                 finish();
             }
         });

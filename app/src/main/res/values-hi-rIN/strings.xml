@@ -169,7 +169,7 @@
     <string name="enternonemptycontact">कृपया संपर्क सही नंबर दर्ज करें</string>
     <string name="change_language_line5">चरण २: देखिये, _ के लिये वॉइस डेटा उपलब्ध है क्या? यदि वॉइस डेटा उपलब्ध नहीं हैं, तो कृपया इंटरनेट चालू करें और चुनी हुई भाषा के लिए वॉयस डेटा डाउनलोड करें। यदि प्रक्रिया रुक गई हैं, तो कृपया अपने इंटरनेट कनेक्शन की जाँच करें और फिर से कोशिश करें.</string>
     <string name="txtChangeLanguage">एप्लिकेशन की भाषा बदलें:</string>
-    <string name="txtApplyChanges">चुनी गयी भाषा को सेव करने के लिये \'भाषा बदलें\' पर क्लिक करें</string>
+    <string name="txtApplyChanges">चुनी गयी भाषा और वॉइस को सेव करने के लिये \'भाषा बदलें\' पर क्लिक करें</string>
     <string name="txt_actLangSel_downloadDat">वॉयस डेटा की जांच करें (Check voice data)</string>
     <string name="language_downloaded">_ भाषा डाउनलोड हो गई हैं</string>
     <string name="language_downloading">_ भाषा डाउनलोड हो रही हैं</string>
@@ -457,4 +457,9 @@
     <string name="acc_lang_bengali_bd">बंगाली (बांग्लादेश)</string>
     <string name="acc_lang_telugu_in">तेलुगु</string>
     <string name="acc_lang_eng_ng">अंग्रेज़ी (नाइजीरिया)</string>
+    <string name="board_delete">बोर्ड डिलीट करें</string>
+    <string name="EnableDisplaySpeechText">बोले गए टेक्स्ट को टेक्स्ट बार पर प्रदर्शित करें</string>
+    <string name="enableBoardDelete">मेरे बोर्ड स्क्रीन में बोर्ड डिलीट करने की सुविधा को सक्षम करें</string>
+    <string name="place_holder_no_icons_added">बोर्ड में कोई आइकन नहीं है</string>
+    <string name="change_language_voice">भाषा के लिए उच्चारण (आवाज) का चयन करें</string>
 </resources>

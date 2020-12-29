@@ -33,8 +33,10 @@ import static com.dsource.idc.jellowintl.utility.Analytics.validatePushId;
 public class BoardListActivity extends BaseBoardActivity<IBoardListView, IBoardListPresenter, BoardAdapter> implements IBoardListView, BoardClickListener {
     public static final boolean EDIT_ENABLED = true;
     public static final boolean EDIT_DISABLED = false;
+    public static final boolean DELETE_DISABLED = false;
+    public static final boolean DELETE_ENABLED = true;
+    private boolean deleteMode = DELETE_DISABLED;
     private boolean editMode = EDIT_DISABLED;
-    private MenuItem editMenu;
 
     @Override
     public int getLayoutId() {
@@ -81,7 +83,7 @@ public class BoardListActivity extends BaseBoardActivity<IBoardListView, IBoardL
 
     @Override
     public void onItemClick(int position) {
-        if (editMode == EDIT_ENABLED)
+        if (editMode == EDIT_ENABLED || deleteMode == DELETE_ENABLED)
             return;
         if (position == 0){
             startActivity(new Intent(getApplicationContext(), DialogAddBoard.class));
@@ -117,7 +119,10 @@ public class BoardListActivity extends BaseBoardActivity<IBoardListView, IBoardL
                     findViewById(R.id.place_holder_text).setVisibility(View.VISIBLE);
                     mAdapter.setEditMode(EDIT_DISABLED);
                     editMode = EDIT_DISABLED;
-                    editMenu.setIcon(R.drawable.ic_edit_icon_disabled);
+                    getMenu().findItem(R.id.enable_edit).setIcon(R.drawable.ic_edit_icon_disabled);
+                    deleteMode = DELETE_DISABLED;
+                    mAdapter.setDeleteMode(DELETE_DISABLED);
+                    getMenu().findItem(R.id.enable_delete).setVisible(false);
                 }
                 dialog.dismiss();
             }
@@ -199,12 +204,14 @@ public class BoardListActivity extends BaseBoardActivity<IBoardListView, IBoardL
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if(item.getItemId() == R.id.enable_edit){
-            this.editMenu = item;
             if(editMode==EDIT_DISABLED){
                 item.setTitle("Enabled board edit");
                 mAdapter.setEditMode(EDIT_ENABLED);
                 editMode = EDIT_ENABLED;
                 item.setIcon(R.drawable.ic_edit_icon_enabled);
+                mAdapter.setDeleteMode(DELETE_DISABLED);
+                deleteMode = DELETE_DISABLED;
+                getMenu().findItem(R.id.enable_delete).setIcon(R.drawable.ic_board_delete_disabled);
             }else{
                 item.setTitle("Disabled board edit");
                 mAdapter.setEditMode(EDIT_DISABLED);
@@ -212,7 +219,25 @@ public class BoardListActivity extends BaseBoardActivity<IBoardListView, IBoardL
                 item.setIcon(R.drawable.ic_edit_icon_disabled);
             }
             mAdapter.notifyDataSetChanged();
+        }else if(item.getItemId() == R.id.enable_delete){
+            if(deleteMode==DELETE_DISABLED){
+                item.setTitle("Enabled board delete");
+                mAdapter.setDeleteMode(DELETE_ENABLED);
+                deleteMode = DELETE_ENABLED;
+                item.setIcon(R.drawable.ic_board_delete_enabled);
+                mAdapter.setEditMode(EDIT_DISABLED);
+                editMode = EDIT_DISABLED;
+                getMenu().findItem(R.id.enable_edit).setIcon(R.drawable.ic_edit_icon_disabled);
+            }else{
+                item.setTitle("Disabled board delete");
+                mAdapter.setDeleteMode(DELETE_DISABLED);
+                deleteMode = DELETE_DISABLED;
+                item.setIcon(R.drawable.ic_board_delete_disabled);
+            }
+            mAdapter.notifyDataSetChanged();
         }
         return super.onOptionsItemSelected(item);
     }
+
+    public void setMenuItem(MenuItem item, boolean state){}
 }

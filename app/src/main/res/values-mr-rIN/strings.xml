@@ -173,7 +173,7 @@
     <string name="enternonemptycontact">कृपया संपर्क नंबर नोदंवा</string>
     <string name="change_language_line5">चरण २: आपल्या डिव्हाइसवर _ साठी व्हॉइस डेटा उपलब्ध आहे का हे तपासा. नसल्यास व्हॉइस डेटा डाउनलोड करा. व्हॉइस डेटा उपलब्ध नसल्यास, कृपया इंटरनेट चालू करा आणि निवडलेल्या भाषेसाठी व्हॉइस डेटा डाउनलोड करा. प्रक्रिया थांबली असेल तर, कृपया आपले इंटरनेट कनेक्शन तपासा आणि पुन्हा प्रयत्न करा.</string>
     <string name="txtChangeLanguage">अॅप्लिकेशनची भाषा बदला:</string>
-    <string name="txtApplyChanges">निवडलेल्या भाषेला सेव करण्यासाठी भाषा बदला\' बटनावर क्लिक करा</string>
+    <string name="txtApplyChanges">निवडलेली भाषा आणि व्हॉईसला सेव करण्यासाठी \'भाषा बदला\' बटनावर क्लिक करा</string>
     <string name="txt_actLangSel_downloadDat">व्हॉइस डेटा तपासा (Check voice data)</string>
     <string name="language_downloaded">_ भाषा डाउनलोड झाली आहे</string>
     <string name="language_downloading">_ भाषा डाउनलोड होत आहे</string>
@@ -461,4 +461,9 @@
     <string name="acc_lang_telugu_in">तेलुगु</string>
     <string name="acc_lang_bengali_bd">बंगाली (बांग्लादेश)</string>
     <string name="acc_lang_eng_ng">इंग्रजी (नायजेरिया)</string>
+    <string name="board_delete">बोर्ड डिलीट करा</string>
+    <string name="EnableDisplaySpeechText">बोललेल्या टेक्स्ट ला टेक्स्ट बार वर प्रदर्शित करा</string>
+    <string name="enableBoardDelete">माझे बोर्ड स्क्रीन मध्ये बोर्ड डिलिट करा ही सुविधा सक्षम करा</string>
+    <string name="place_holder_no_icons_added">बोर्ड मध्ये कोणतेही आयकॉन नाही</string>
+    <string name="change_language_voice">भाषेसाठी उच्चारण (आवाज) निवडा</string>
 </resources>

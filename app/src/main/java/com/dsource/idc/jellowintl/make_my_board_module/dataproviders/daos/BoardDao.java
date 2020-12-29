@@ -32,10 +32,12 @@ public interface BoardDao {
     @Update
     void updateBoard(BoardModel boardModel);
 
-
     @Delete
     void deleteBoard(BoardModel boardModel);
 
     @Query("SELECT board_name from BoardModel where board_id = (:boardId)")
     String getBoardNameFromId(String boardId);
+
+    @Query("SELECT board_voice from BoardModel where board_id = (:boardId)")
+    String getBoardVoiceFromId(String boardId);
 }

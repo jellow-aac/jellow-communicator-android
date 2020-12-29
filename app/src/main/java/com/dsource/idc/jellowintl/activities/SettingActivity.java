@@ -102,6 +102,17 @@ public class SettingActivity extends SpeechEngineBaseActivity {
                     }
                 });
 
+        if(getSession().isBoardDeletionEnabled())
+            ((Switch) findViewById(R.id.switchEnableBoardDelete)).setChecked(true);
+
+        ((Switch) findViewById(R.id.switchEnableBoardDelete)).setOnCheckedChangeListener
+                (new CompoundButton.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton compoundButton, boolean enableDelete) {
+                        getSession().setBoardDeletionEnabled(enableDelete);
+                    }
+                });
+
         Button btnSave = findViewById(R.id.button4);
         final Button btnDemo = findViewById(R.id.demo);
         mSliderSpeed = findViewById(R.id.speed);
@@ -155,12 +166,12 @@ public class SettingActivity extends SpeechEngineBaseActivity {
             @Override public void onStopTrackingTouch(SeekBar seekBar) {}
         });
 
-        /*if(isNoTTSLanguage()){
+        if(isNoTTSLanguage()){
             mSliderSpeed.setVisibility(View.GONE);
             mTxtViewSpeechSpeed.setVisibility(View.GONE);
             mSliderPitch.setVisibility(View.GONE);
             mTxtViewVoicePitch.setVisibility(View.GONE);
-        }*/
+        }
 
         final AudioManager audio = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
 

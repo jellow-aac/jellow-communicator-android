@@ -28,6 +28,8 @@ import com.google.firebase.crashlytics.FirebaseCrashlytics;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import static com.dsource.idc.jellowintl.activities.LanguageDownloadActivity.CLOSE;
+import static com.dsource.idc.jellowintl.activities.UserRegistrationActivity.LCODE;
 import static com.dsource.idc.jellowintl.utility.Analytics.bundleEvent;
 import static com.dsource.idc.jellowintl.utility.Analytics.isAnalyticsActive;
 import static com.dsource.idc.jellowintl.utility.Analytics.resetAnalytics;
@@ -40,9 +42,8 @@ import static com.dsource.idc.jellowintl.utility.SessionManager.BN_IN;
 import static com.dsource.idc.jellowintl.utility.SessionManager.HI_IN;
 import static com.dsource.idc.jellowintl.utility.SessionManager.LangMap;
 import static com.dsource.idc.jellowintl.utility.SessionManager.LangValueMap;
+import static com.dsource.idc.jellowintl.utility.SessionManager.MR_IN;
 import static com.dsource.idc.jellowintl.utility.SessionManager.TA_IN;
-
-//import static com.dsource.idc.jellowintl.utility.SessionManager.MR_IN;
 
 public class LanguageSelectActivity extends SpeechEngineBaseActivity {
     private String selectedLanguage, mLangChanged, availVoices, selectedVoice;
@@ -106,14 +107,14 @@ public class LanguageSelectActivity extends SpeechEngineBaseActivity {
             @Override
             public void onClick(View v) {
                 FirebaseCrashlytics.getInstance().log("LanguageSelect Apply");
-                /*if(selectedLanguage.equals(LangValueMap.get(MR_IN)) && !LanguageFactory.isMarathiPackageAvailable
+                if(selectedLanguage.equals(LangValueMap.get(MR_IN)) && !LanguageFactory.isMarathiPackageAvailable
                         (LanguageSelectActivity.this)){
                     startActivity(new Intent(LanguageSelectActivity.this,
                             LanguageDownloadActivity.class)
                             .putExtra(LCODE, MR_IN).putExtra(CLOSE, true));
-                } else {*/
+                } else {
                     saveLanguage();
-                //}
+                }
             }
         });
         updateViewsForNewLangSelect();
@@ -170,6 +171,7 @@ public class LanguageSelectActivity extends SpeechEngineBaseActivity {
                 for (int i = 0; i < availVoices.split(",").length; i++) {
                     voiceList[i] = "Voice "+getRomanNumber(i+1)+getGender(availVoices.split(",")[i]);
                 }
+                selectedVoice = availVoices.split(",")[0];
                 voiceSelect.setText(voiceList[0]);
                 updateViewsForNewLangSelect();
                 dialog.dismiss();
@@ -184,7 +186,17 @@ public class LanguageSelectActivity extends SpeechEngineBaseActivity {
 
     public void showVoiceSelectDialog(View view) {
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setSingleChoiceItems(voiceList, 0, new DialogInterface.OnClickListener() {
+        int selectPos = 0;
+        {
+            String selectVoice = voiceSelect.getText().toString().trim();
+            for (int i=0; i< voiceList.length;i++){
+                if(voiceList[i].contains(selectVoice)) {
+                    selectPos = i;
+                    break;
+                }
+            }
+        }
+        builder.setSingleChoiceItems(voiceList, selectPos, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 selectedVoice = availVoices.split(",")[which];
@@ -243,14 +255,19 @@ public class LanguageSelectActivity extends SpeechEngineBaseActivity {
     }
 
     private void updateViewsForNewLangSelect() {
-        /*if (selectedLanguage.equals(LangValueMap.get(MR_IN))) {
+        if (selectedLanguage.equals(LangValueMap.get(MR_IN))) {
             findViewById(R.id.ll_hidden_view).setVisibility(View.GONE);
             findViewById(R.id.tv_language_not_working_info).setVisibility(View.GONE);
+            findViewById(R.id.tv_voic_step_info).setVisibility(View.GONE);
+            findViewById(R.id.btn_voic_select).setVisibility(View.GONE);
+            findViewById(R.id.more_setting_title).setVisibility(View.GONE);
             return;
-        }*/
-
+        }
         findViewById(R.id.ll_hidden_view).setVisibility(View.VISIBLE);
         findViewById(R.id.tv_language_not_working_info).setVisibility(View.VISIBLE);
+        findViewById(R.id.tv_voic_step_info).setVisibility(View.VISIBLE);
+        findViewById(R.id.btn_voic_select).setVisibility(View.VISIBLE);
+        findViewById(R.id.more_setting_title).setVisibility(View.VISIBLE);
 
         /*step 2*/
         SpannableString spannedStr = new SpannableString(mStep2);

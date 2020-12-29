@@ -25,6 +25,7 @@ public class BoardAdapter extends BaseRecyclerAdapter<BoardModel> {
     private BoardClickListener listener;
     private int selectedPosition = -1;
     private boolean enableEditMode = BoardListActivity.EDIT_DISABLED;
+    private boolean enableDeleteMode = BoardListActivity.DELETE_DISABLED;
 
     /**
      * public constructor
@@ -72,7 +73,6 @@ public class BoardAdapter extends BaseRecyclerAdapter<BoardModel> {
 
         if (enableEditMode){
             viewHolder.getView(R.id.edit_board).setVisibility(View.VISIBLE);
-            viewHolder.getView(R.id.remove_board).setVisibility(View.VISIBLE);
             viewHolder.setOnClickListener(R.id.edit_board, new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -80,6 +80,11 @@ public class BoardAdapter extends BaseRecyclerAdapter<BoardModel> {
                         listener.onBoardEdit(viewHolder.getAdapterPosition());
                 }
             });
+        }else{
+            viewHolder.getView(R.id.edit_board).setVisibility(View.GONE);
+        }
+        if(enableDeleteMode){
+            viewHolder.getView(R.id.remove_board).setVisibility(View.VISIBLE);
             viewHolder.setOnClickListener(R.id.remove_board, new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -89,7 +94,6 @@ public class BoardAdapter extends BaseRecyclerAdapter<BoardModel> {
                 }
             });
         }else{
-            viewHolder.getView(R.id.edit_board).setVisibility(View.GONE);
             viewHolder.getView(R.id.remove_board).setVisibility(View.GONE);
         }
 
@@ -125,5 +129,9 @@ public class BoardAdapter extends BaseRecyclerAdapter<BoardModel> {
 
     public void setEditMode(boolean edit_disabled) {
         enableEditMode = edit_disabled;
+    }
+
+    public void setDeleteMode(boolean delete_disabled) {
+        enableDeleteMode = delete_disabled;
     }
 }

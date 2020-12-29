@@ -11,6 +11,14 @@
             app:showAsAction="always"
             android:orderInCategory="1"/>
         <item
+            android:id="@+id/enable_delete"
+            android:title="@string/board_delete"
+            android:icon="@drawable/ic_board_delete_disabled"
+            android:checked="true"
+            android:visible="false"
+            app:showAsAction="always"
+            android:orderInCategory="1"/>
+        <item
             android:id="@+id/search"
             android:title="@string/search_title"
             android:icon="@drawable/ic_search_large"

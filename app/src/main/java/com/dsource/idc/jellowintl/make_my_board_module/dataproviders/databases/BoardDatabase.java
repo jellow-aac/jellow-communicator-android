@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class BoardDatabase{
 
 
-    private AppDatabase database;
+    private final AppDatabase database;
 
     public BoardDatabase(AppDatabase context) {
         this.database = context;
@@ -47,5 +47,9 @@ public class BoardDatabase{
 
     public String getBoardName(String boardId) {
         return database.boardDao().getBoardNameFromId(boardId);
+    }
+
+    public String getBoardVoice(String boardId) {
+        return database.boardDao().getBoardVoiceFromId(boardId);
     }
 }
