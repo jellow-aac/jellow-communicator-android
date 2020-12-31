@@ -175,13 +175,6 @@ public class UserRegistrationActivity extends BaseActivity implements CheckNetwo
                     return;
                 }
 
-                /*if (etAddress.getText().toString().trim().isEmpty()){
-                    bRegister.setEnabled(true);
-                    Toast.makeText(UserRegistrationActivity.this,getString(R.string.invalid_address),
-                            Toast.LENGTH_SHORT).show();
-                    return;
-                }*/
-
                 CheckBox cb = findViewById(R.id.cb_privacy_consent);
                 if (!cb.isChecked()){
                     bRegister.setEnabled(true);

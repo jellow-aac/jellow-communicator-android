@@ -93,6 +93,17 @@ public class LanguageFactory {
         return false;
     }
 
+    public static boolean checkIfVerbiageAvailableForTheLanguage(Context context, String language){
+        try{
+            File file = context.getDir(SessionManager.UNIVERSAL_PACKAGE, Context.MODE_PRIVATE);
+            File verbiageFile = new File(file.getPath(),language+".json");
+            return verbiageFile.exists();
+        }catch (NullPointerException e){
+            e.printStackTrace();
+        }
+        return false;
+    }
+
     /** If zip is exist then data is not completely extracted from zip.
      *  If zip does is exist then data is extracted from zip successfully, the zip file is deleted.
      *  So when zip is exist we can consider the data is unavailable and when zip does not exist then

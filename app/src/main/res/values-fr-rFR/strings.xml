@@ -456,4 +456,5 @@
     <string name="enableBoardDelete">Activer la fonction de suppression de tableau dans l\'écran Mes tableaux</string>
     <string name="board_delete">Suppression du tableau</string>
     <string name="change_language_voice">Sélectionnez l\'accent (voix) pour la langue:</string>
+    <string name="update_the_package">Mettez à jour le package de langue pour activer la langue sélectionnée.</string>
 </resources>

@@ -223,6 +223,10 @@ public class LanguageSelectActivity extends SpeechEngineBaseActivity {
     }
 
     private void saveLanguage() {
+        if(!LanguageFactory.checkIfVerbiageAvailableForTheLanguage(this, LangMap.get(selectedLanguage))){
+            Toast.makeText(this, getString(R.string.update_the_package), Toast.LENGTH_SHORT).show();
+            return;
+        }
         getSession().setLanguage(LangMap.get(selectedLanguage));
         getSession().setAppVoice(selectedVoice
                 +","+voiceSelect.getText().toString().trim());

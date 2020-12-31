@@ -72,7 +72,7 @@ public class Intro extends AppIntro {
         }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && isNotchDevice()) {
             getWindow().setNavigationBarColor(getColor(R.color.app_background));
-        }else if(Build.VERSION.SDK_INT > Build.VERSION_CODES.KITKAT_WATCH){
+        }else {
             getWindow().setNavigationBarColor(getResources().getColor(R.color.navigation_bar_color));
         }
     }
@@ -135,11 +135,7 @@ public class Intro extends AppIntro {
 
     private void setText2TextView(SampleSlideFragment parent, int tv, String text) {
         try {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                ((TextView) Objects.requireNonNull(parent.getView()).findViewById(tv)).setText(text);
-            } else {
-                ((TextView) parent.getView().findViewById(tv)).setText(text);
-            }
+            ((TextView) Objects.requireNonNull(parent.getView()).findViewById(tv)).setText(text);
         }catch(Exception e){
             FirebaseCrashlytics.getInstance().recordException(e);
         }
@@ -147,11 +143,7 @@ public class Intro extends AppIntro {
 
     private void setText2Button(SampleSlideFragment parent, int btn, String text) {
         try {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                ((Button) Objects.requireNonNull(parent.getView()).findViewById(btn)).setText(text);
-            } else {
-                ((Button) parent.getView().findViewById(btn)).setText(text);
-            }
+            ((Button) Objects.requireNonNull(parent.getView()).findViewById(btn)).setText(text);
         }catch(Exception e){
             FirebaseCrashlytics.getInstance().recordException(e);
         }

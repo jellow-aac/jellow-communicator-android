@@ -8,7 +8,6 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Movie;
-import android.os.Build;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -31,9 +30,7 @@ public class PlayGifView extends View{
          * Starting from HONEYCOMB have to turn off HardWare acceleration to draw
          * Movie on Canvas.
          */
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-            setLayerType(View.LAYER_TYPE_SOFTWARE, null);
-        }
+        setLayerType(View.LAYER_TYPE_SOFTWARE, null);
     }
 
     public void setImageResource(int mvId){

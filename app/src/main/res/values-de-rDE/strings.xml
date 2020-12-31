@@ -446,4 +446,5 @@
     <string name="enableBoardDelete">Aktivieren Sie die Funktion zum Löschen von Karten im Bildschirm \"Meine Boards\"</string>
     <string name="board_delete">Board löschen</string>
     <string name="change_language_voice">Wählen Sie den Akzent (Stimme) für die Sprache:</string>
+    <string name="update_the_package">Aktualisieren Sie das Sprachpaket, um die ausgewählte Sprache zu aktivieren.</string>
 </resources>

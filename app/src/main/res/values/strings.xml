@@ -529,4 +529,5 @@
     <string name="txtMoreLangSetting">More Language Setting:</string>
     <string name="board_place_holder_text">You have not added any board yet.</string>
     <string name="change_language_voice">Select the accent (voice) for the language:</string>
+    <string name="update_the_package">Update language package to enable the selected language.</string>
 </resources>

@@ -104,13 +104,8 @@ public class ProfileFormActivity extends SpeechEngineBaseActivity {
                     btnSave.setEnabled(true);
                     return;
                 }
-                /*if (etAddress.getText().toString().trim().isEmpty()) {
-                    Toast.makeText(ProfileFormActivity.this,
-                            strInvalidAddress, Toast.LENGTH_SHORT).show();
-                    btnSave.setEnabled(true);
-                    return;
-                }*/
-                if (!isValidEmail(etEmailId.getText().toString().trim())) {
+                if (!etEmailId.getText().toString().trim().isEmpty() &&
+                        !isValidEmail(etEmailId.getText().toString().trim())) {
                     Toast.makeText(ProfileFormActivity.this,
                             strInvalidEmail, Toast.LENGTH_SHORT).show();
                     btnSave.setEnabled(true);

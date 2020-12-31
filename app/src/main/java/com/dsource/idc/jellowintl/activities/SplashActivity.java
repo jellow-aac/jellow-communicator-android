@@ -43,6 +43,7 @@ public class SplashActivity extends BaseActivity implements CheckNetworkStatus, 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         getSupportActionBar().hide();
+        setNavigationUiConditionally();
 
         PlayGifView pGif = findViewById(R.id.viewGif);
         pGif.setImageResource(R.drawable.jellow_j);
@@ -76,16 +77,12 @@ public class SplashActivity extends BaseActivity implements CheckNetworkStatus, 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P && isNotchDevice()) {
             findViewById(R.id.parent).
                     setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION);
-        }else if(Build.VERSION.SDK_INT > Build.VERSION_CODES.KITKAT_WATCH){
+        }else {
             getWindow().setNavigationBarColor(getResources().getColor(R.color.navigation_bar_color));
         }
 
         setUserParameters();
-        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.KITKAT_WATCH) {
-            new AppUpdateUtil().
-                    executeUpdateFlow(
-                            AppUpdateUtil.UpdateStatus.RUNNING,this);
-        }
+        new AppUpdateUtil().executeUpdateFlow(AppUpdateUtil.UpdateStatus.RUNNING,this);
     }
 
     @Override

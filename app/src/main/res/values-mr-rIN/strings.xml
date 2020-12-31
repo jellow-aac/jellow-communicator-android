@@ -466,4 +466,5 @@
     <string name="enableBoardDelete">माझे बोर्ड स्क्रीन मध्ये बोर्ड डिलिट करा ही सुविधा सक्षम करा</string>
     <string name="place_holder_no_icons_added">बोर्ड मध्ये कोणतेही आयकॉन नाही</string>
     <string name="change_language_voice">भाषेसाठी उच्चारण (आवाज) निवडा</string>
+    <string name="update_the_package">निवडलेली भाषा सक्षम करण्यासाठी भाषा पॅकेज अपडेट करा.</string>
 </resources>

@@ -461,4 +461,5 @@
     <string name="update_message">అనువర్తనంలో క్రొత్త కంటెంట్ అందుబాటులో ఉంది. మీరు ఇప్పుడు నవీకరించాలనుకుంటున్నారా?</string>
     <string name="board_delete">బోర్డు తొలగించు</string>
     <string name="change_language_voice">భాష కోసం యాస (వాయిస్) ఎంచుకోండి:</string>
+    <string name="update_the_package">ఎంచుకున్న భాషను ప్రారంభించడానికి భాషా ప్యాకేజీని నవీకరించండి.</string>
 </resources>
