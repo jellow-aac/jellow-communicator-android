@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="ratings">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+    <string-array name="arrSequenceActivityHeadingText">
+        <item>brushing</item>
+        <item>toilet</item>
+        <item>bathing</item>
+        <item>""</item>
+        <item>""</item>
+        <item>""</item>
+        <item>""</item>
+        <item>\tmorning routine</item>
+        <item>\tbed time routine</item>
+    </string-array>
+
+    <string name="app_name">જેલો</string>
+    <string name="action_settings">ગોઠવણી (Settings)</string>
+
+    <string name="Language">ભાષા (Language)</string>
+    <string name="saveLanguage">ફેરફાર લાગુ કરો (Apply Changes)</string>
+
+    <string-array name="bloodgroup">
+        <item>પસંદ કરેલું નથી</item>
+        <item>એ+ve</item>
+        <item>એ-ve</item>
+        <item>બ+ve</item>
+        <item>બ-ve</item>
+        <item>અબ+ve</item>
+        <item>અબ-ve</item>
+        <item>ઓ+ve</item>
+        <item>ઓ-ve</item>
+    </string-array>
+
+    <string-array name="bloodgroup_talkback">
+        <item>not selected</item>
+        <item>A positive</item>
+        <item>A negative</item>
+        <item>B positive</item>
+        <item>B negative</item>
+        <item>A B positive</item>
+        <item>A B negative</item>
+        <item>O positive</item>
+        <item>O negative</item>
+    </string-array>
+
+    <string-array name="picture_view_mode">
+        <item>ચિત્ર અને વર્ણન</item>
+        <item>ફક્ત ચિત્ર</item>
+    </string-array>
+
+    <string-array name="grid_size">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>9</item>
+    </string-array>
+
+    <string-array name="acc_grid_size">
+        <item>One</item>
+        <item>Two</item>
+        <item>Three</item>
+        <item>Four</item>
+        <item>Nine</item>
+    </string-array>
+
+    <string name="change_language_line2">નીચે આવતા વિકલ્પોમાંથી કોઈપણ ડાઉનલોડ કરેલી ભાષા પસંદ કરો:</string>
+    <string name="simple_ime">જેલો કીબોર્ડ</string>
+    <string name="subtype_en_US">ક્રમિક અક્ષરમાળા</string>
+
+    <string name="action_bar_title">હોમ</string>
+    <string name="txtSpeechSpeed">વાણીની ગતિ</string>
+    <string name="txtVoiceSpeech">વાણીનું સ્તર</string>
+    <string name="txtDisplayMode">પ્રદર્શન ઢબ</string>
+    <string name="txtVoiceVolume">વાણીની  પ્રબલતા</string>
+    <string name="txtNumOfPerPerScr">સ્ક્રીન દીઠ વિભાગ ચિત્રની સંખ્યા</string>
+    <string name="txtDemo">વાણીનું પ્રદર્શન (SPEECH DEMO)</string>
+    <string name="txtSave">સાચવો (Save)</string>
+    <string name="demoTtsSpeech">નમસ્તે! તમે જેલો કમ્યુનિકેટરનો ઉપયોગ કરી રહ્યાં છો.</string>
+    <string name="savedSettingsMessage">ગોઠવણી સાચવી છે</string>
+    <string name="languageChanged">ભાષા બદલાઈ છે</string>
+    <string name="checkConnectivity">તમે ઇન્ટરનેટથી જોડાયેલા નથી. કૃપા કરીને તમારું ઇન્ટરનેટ ચાલુ કરો.</string>
+
+    <string name="menuMyBoards">મારું બોર્ડ (My Boards)</string>
+    <string name="menuAbout">જેલો વિશે (About Jellow)</string>
+    <string name="menuTutorials">ઉપશિક્ષણ (Tutorial)</string>
+    <string name="menuKeyboardInput">કીબોર્ડ નિયંત્રણ (Keyboard Control)</string>
+    <string name="menuResetPref">પસંદગીઓ ફરીથી રજુ કરો (Reset Preferences)</string>
+    <string name="menuFeedback">પ્રતિભાવ (Feedback)</string>
+    <string name="menuUserRegistration">નોંધણી સ્ક્રીન</string>
+    <string name="menuAccessibility">સુલભતા કે એક્સેસબીલીટી (Accessibility)</string>
+    <string name="menuClosePopup">બંદ કરો (Close menu)</string>
+    <string name="labelSplash">જેલો શરૂ થાય છે. કૃપા કરી રાહ જુવો</string>
+
+    <string name="easyToUse">ઉપયોગમાં સરળ</string>
+    <string name="clearPictures">સ્પષ્ટ ચિત્ર</string>
+    <string name="clearVoice">સ્પષ્ટ અવાજ</string>
+    <string name="easyToNavigate">દિશાદર્શન સરળતા</string>
+    <string name="commentSuggestions">ટિપ્પણી/સૂચના</string>
+    <string name="submit">પ્રસ્તુત કરો (SUBMIT)</string>
+    <string name="serial_keyboard_title">ક્રમિક કીબોર્ડ:</string>
+    <string name="serial_keyboard_info">જેલો કમ્યુનિકેટર તેના પોતાના  \'ક્રમિક જેલો કીબોર્ડ\' થી સજ્જ છે. આ કીબોર્ડ વિશેષ શિક્ષણશાસ્ત્રીઓ અને શિક્ષકોના પ્રતિભાવના આધારે બનાવવામાં આવ્યો છે . આ કીબોર્ડમાં પત્રોનો મૂળાક્ષર ક્રમ રાખવામાં આવ્યો છે,તેથી, વપરાશકર્તાઓ અનુક્રમિક કીબોર્ડપર પત્રોની ચોક્કસ સ્થાનનો સરળતાથી અંદાજ લગાવી શકે છે. મૂળાક્ષર, \\ક\\ થી શરૂ કરીને, અનુક્રમે મૂકવામાં આવે છે ,તેથી પ્રારંભિક સાક્ષરતા કુશળતા શીખતા બાળકો માટે તે ખૂબ ઉપયોગી છે. કીબોર્ડમાં  0-૯ અંક અને પ્રતીકોની કી  પણ છે. આ પ્રતીકો રોજિંદા વાર્તાલાપ માટે ઉપયુક્ત છે.</string>
+    <string name="keyboardControlTxt">"તમારી પસંદગીના કીબોર્ડને સક્ષમ કરવા અને તેને મૂળભૂત રૂપે બનાવવા માટે, તમારે 2 પગલા પૂર્ણ કરવાની જરૂર છે:  "</string>
+    <string name="step1">"પગલું 1: ઉપકરણના ગોઠવણીથી કીબોર્ડ સક્ષમ કરો "</string>
+    <string name="qwertyKeyboard">મૂળભૂત કીબોર્ડ (QWERTY)</string>
+    <string name="serialKeyboard">ક્રમિક \'કખગ\' કીબોર્ડ (SERIAL ABC)</string>
+    <string name="step2">પગલું 2: સક્ષમ કરેલા કીબોર્ડને મૂળભૂત વિકલ્પ તરીકે સાચવો</string>
+    <string name="saveAsDefault">મૂળભૂત તરીકે સાચવો (SAVE AS DEFAULT)</string>
+    <string name="getKeyboardControl">કીબોર્ડ નિયંત્રણ</string>
+    <string name="childName">બાળકનું નામ**</string>
+    <string name="caregiverName">સંભાળ કરનારનું નામ**</string>
+    <string name="careGiverContact">આ ઉપકરણનો સિમ ક્રમાંક સિવાયનો સંભાળ કરનારનો સંપર્ક ક્રમાંક**  સિમ ક્રમાંક**</string>
+    <string name="homeAddress">ઘરનું સરનામું**</string>
+    <string name="emailAddress">ઇ- મેઇલ ઓળખ**</string>
+    <string name="bloodGroup">રક્ત વર્ગ**</string>
+    <string name="detailSaved">વિગતો સાચવી છે</string>
+    <string name="invalid_address">અમાન્ય સરનામું</string>
+    <string name="invalid_emailId">અમાન્ય ઇ-મેઇલ ઓળખ</string>
+    <string name="enterTheName">કૃપા કરીને તમારા બાળકનું નામ નોંધવો</string>
+    <string name="search_act_title">જેલોમાં ચિહ્નો શોધો</string>
+
+    <string name="iconsHasBeenReset">પસંદગીઓ ફરીથી રજુ કરવામાં આવી છે.</string>
+    <string name="speak">બોલવું (Speak)</string>
+    <string name="stop">થોભવું (Stop)</string>
+    <string name="about_jellow_speech">"જેલો એક સંદેશવ્યહવાર તંત્ર છે. તે વાણીને સક્ષમ કરવા માટે ચિહ્નોનો અને ચિત્રોનો ઉપયોગ કરીને વાતચીતમાં મદદ કરે છે. જે બોલવાનું શીખી રહ્યાં છે, અથવા જેમને બોલવામાં તકલીફ છે, તે જેલોનો ઉપયોગ કરી શકે છે.  બાળકો અને પ્રારંભિક શીખનારાઓ તેમના રોજિંદા જીવનમાં વારંવાર ઉપયોગમાં લેવામાં આવતા શબ્દો અને વર્ગીકરણ શીખવા માટે પણ જેલોનો ઉપયોગ કરી શકે છે. આ સિવાય, જેલોના રંગબેરંગી અને સરળ ચિહ્નો લીધે, બાળકો ચિત્ર અને તેમના અનુરૂપ નામ વચ્ચેનું જોડાણ વિકસાવી શકે છે. જેલો મુંબઇ સ્થિત આઈડીસી સ્કૂલ ઑફ ડિઝાઇન, ભારતીય ટેકનોલોજી સંસ્થા,મુંબઇમાં (IIT, Mumbai)  વિકસિત કરવામાં આવ્યું છે. જેલોની ભાષા ક્ષમતા વધારવા માટે, પહેલિવાર એક ઇમોશનલ લેંગ્વેજ પ્રોટોકોલ  (ભાવાનાત્મક ભાષા રચના ) અથવા ઇએલપીની કલ્પના કરવામાં અને પરિયોજનાનાં તપાસકર્તાઓ દ્વારા વિકસાવવામાં આવી હતી. આ ઇએલપી ૬ સ્પષ્ટ હાવભાવ દર્શાવનારા ચિહ્નોનું પ્રતિનિધિત્વ કરે છે અને માધ્યમનો મુળભુત ભાગ  છે.આ મુખ્ય ચિહ્નોની મદદથી, જેલોના વપરાશકર્તાઓ તેમની પસંદ, નાપસંદ અને જરૂરિયાતો અન્ય લોકોને બતાવી શકે છે. જેલોની બાળકો માટે અનુકૂળ હોવા સાથે ,એક શીખવા માટે સરળ માધ્યમ તરીકે કલ્પના કરવામાં આવી છે .આ તંત્ર Android ટીકડી માટે અનુકુલીત છે. જેલો હાલમાં અંગ્રેજી, હિન્દી, બંગાળી, મરાઠી, તામિલ, સ્પેનિશ, જર્મન અને ફ્રેન્ચમાં ઉપલબ્ધ છે. જેલોનું વર્તમાન સંસ્કરણ _ છે. જેલો હાલમાં વધુ વિકાસ હેઠળ છે. જો તમારી પાસે આ તંત્રની સુધારણા સંબંધિત કોઈ સૂચના હોય, તો કૃપા કરીને તેમને \\ \"પ્રતિભાવ \\\" હેઠળ આપો. જેલો પાસે ક્રિએટિવ કોમન્સ એટ્રીબ્યુશન નોન-કમર્શિયલ શેર એલાઇક ૪.૦ હેઠળ પરવાનો પ્રાપ્ત છે. જેલો તંત્ર પરના તમામ સંશોધન કાર્યનું શ્રેય ભારતીય ટેકનોલોજી સંસ્થા,મુંબઈને આપવામાં આવે છે. આ તંત્રની સામગ્રીમાં શામેલ ચિન્હો, માંડણી,સ્થાપત્ય,દ્રશ્ય ઓળખ, અનુવાદ અને સંગણક ના સમગ્ર કાર્યક્રમો અપનાવી અથવા વહેંચી શકો છો પરંતુ તેનો ઉપયોગ વાણિજ્યક હેતુ માટે કરી શકાતા નથી. જ્યારે સામગ્રીનો ઉપયોગ થાય છે, ત્યારે વિનંતી છે કે,ભારતીય ટેકનોલોજી સંસ્થા, મુંબઇ નો આભાર વ્યક્ત કરો. જેલો  www.jellow.org  પર ઉપલબ્ધ છે. જો  સંહિતાને વધુ વિકસિત કરવામાં રુચિ હોય, તો કૃપા કરીને પ્રોફેસર રવિ પૂવૈયા  સાથે jellowommunicator@gmail.com પર સંપર્ક કરો                "</string>
+    <string name="catBtnDesc">જેલો પાસે સ્ક્રીનપર ૯ વર્ગના પ્રતિકો  કેન્દ્રિત છે અને તેમની બાજુમાં ૬ અર્થસભર ચિન્હ છે:</string>
+    <string name="catBtn">વર્ગના ચિત્ર:</string>
+    <string name="expBtn">અર્થસભર ચિહ્ન:</string>
+    <string name="jellowUsageDesc">જેલોનો ઉપયોગ કરીને બોલવા માટે, વપરાશકર્તા પ્રથમ કોઈપણ વર્ગનું  પ્રતીક અને પછી ભાવનાત્મક પ્રતિક પસંદ કરશે. ઉદાહરણ તરીકે, જેલો નીચેના વિકલ્પોનો ક્રમબદ્ધ રીતે ઉપયોગ કરીને \"હું ખાવા માંગુ છું\" કહેશે:</string>
+    <string name="jellowUsageSubCat">વર્ગનું  ચિત્ર બે વાર દાબીને અથવા ડબલ ક્લિક કરીને વપરાશકર્તા વધુ પેટા વર્ગમાં પ્રવેશ કરી શકે છે:</string>
+    <string name="levelOneCat">વર્ગ સ્તર ૧:</string>
+    <string name="levelTwoCat">વર્ગ સ્તર ૨:</string>
+    <string name="settingDesc">વપરાશકર્તા સ્ક્રીનપર ઉપરના જમણા ખૂણા પર દબાવીને અથવા ક્લિક કરીને તેમની વ્યક્તિગત રૂપરેખાને અંકિત કરી શકે છે અને તંત્રની મૂળભૂત અવાજ ગોઠવી શકે છે.</string>
+    <string name="seqActDesc">જેલોનો ઉપયોગ બાળકોને રોજિંદા પ્રવૃત્તિઓના ક્રમિક પગલાઓ શીખવવા માટે પણ કરી શકાય છે. કોઈપણ વ્યક્તિગત પગલાને પસંદ કરીને વપરાશકર્તા અર્થસભર ચિન્હોં જોઈ શકે છે:</string>
+    <string name="toiletSeq">શૌચાલય ક્રમ:</string>
+    <string name="expBtnSeq">ક્રમમાં અર્થસભર ચિન્હો :</string>
+    <string name="ttsDesc">જેલોનો ઉપયોગ અંગ્રેજી, હિન્દી, બંગાલી, તમિલ, સ્પેનિશ, જર્મન, ફ્રેન્ચ, ઇટાલિયનમાં કરવા માટે, કૃપા કરીને તમારા ઉપકરણની \'ભાષા\' ગોઠવણીમાં \'ગૂગલ ટેક્સ્ટ-ટુ-સ્પીચ (ટીટીએસ)\' સક્રિય કરો. ગૂગલ ટીટીએસ ગોઠવણીમાં, પહેલા મૂળભૂત ભાષાને પ્રાધાન્યવાળી ભાષામાં બદલો અને પછી “અવાજ માહિતી સ્થાપિત કરો” વિકલ્પ દ્વારા પસંદગીની ભાષા માટે અવાજ બદલો.</string>
+    <string name="resetPrefPointOne">જેલો વપરાશકર્તાના \"સૌથી વધુ ઉપયોગમાં લેવાતા અથવા પસંદ કરેલા\" ચિહ્નોને યાદ રાખે છે અને તેમને સ્ક્રીન પર ખાસ પસંદગીઓ તરીકે દર્શાવે છે</string>
+    <string name="resetPrefPointTwo">જો તમે પસંદગીઓ ફરીથી રજુ કરો છો, તો ચિહ્નો મૂળ ક્રમમાં રજૂ કરવામાં આવશે જેમાં તેઓ ઉપકરણ પર પ્રથમ પ્રદર્શિત થયા હતા.</string>
+    <string name="resetPrefPointThree">શું તમે પસંદગીઓને ફરીથી રજુ કરવા માંગો છો ?</string>
+
+    <string name="downloadErrorMsg">"કૃપા કરીને તંત્ર શરુ કરવાના સંપૂર્ણ પ્રક્રિયા દરમિયાન સક્રિય ઇન્ટરનેટ જોડાણની ખાતરી કરો. જો પ્રગતિ પટ્ટી અટકે છે, તો કૃપા કરીને તંત્રને ફરીથી શરુ કરો અથવા ફરીથી પ્રયાસ કરો  "</string>
+    <string name="intro_to_jellow">જેલોની ઓળખ</string>
+    <string name="rate_jellow">બધા ક્ષેત્રોમાં કૃપા કરીને મૂલ્યાંકન કરો.</string>
+    <string name="keyboard">કીબોર્ડ અથવા કુંચીપાટ</string>
+    <string name="txt_intro1_central9btn">જેલો પાસે ૯ વિભાગનાં ચિત્ર કેંદ્રિત છે</string>
+    <string name="txt_intro1_categorybtn">વિભાગનાં ચિત્ર</string>
+    <string name="txt_intro5_jellowUsageDesc">તંત્રમાં બાજુમાં ૬ અર્થસભર ચિન્હ પણ છે</string>
+    <string name="txt_intro5_expressiveBtn">અર્થસભર ચિન્હ</string>
+    <string name="txt_intro2_appUsageDesc">વપરાશકર્તા પ્રથમ વિભાગનું ચિત્ર પસંદ કરે છે અને પછી અર્થસભર  ચિન્હ પસંદ કરે  છે</string>
+    <string name="txt_intro2_speakUsingJellow">જેલોના મદદથી બોલવું</string>
+    <string name="txt_intro3_level2CatDesc">વિભાગનાં કોઈપણ ચિત્રને ડબલ ક્લિક કરીને વપરાશકર્તાઓ તેમના વિકલ્પો અને પેટા વિકલ્પો પર જઈ શકે છે.</string>
+    <string name="txt_intro3_navWithJellow">જેલોના ઉપયોગ માટે સૂચનો</string>
+    <string name="txt_intro4_customizeAppDesc">વપરાશકર્તાઓ સ્ક્રીનપર ઉપરના જમણા ખૂણા પર ક્લિક કરીને મુખ્ય ગોઠવણી બદલી શકે છે.</string>
+    <string name="txt_intro4_customizeJellow">"જેલોની ગોઠવણી "</string>
+    <string name="txt_intro7_getStartedDesc">હવે તમે જેલો સાથે શરૂઆત કરવા માટે તૈયાર છો</string>
+    <string name="txt_intro7_getStarted">શરૂ કરો</string>
+    <string name="txt_registration_jellowCalluDesc">"(આ રીતે જેલો તમને બોલાવે છે)  "</string>
+    <string name="txt_registration_emergencynoDesc">(બાળક સંબંધિત કટોકટીના કિસ્સામાં પત્રવ્યવહાર માટે વપરાય છે)</string>
+    <string name="txt_registration_selectLangDesc">જેલો માટે એક ભાષા પસંદ કરો. **</string>
+    <string name="txt_registration_selectLangDesc_contentDesc">"જેલો માટે એક ભાષા પસંદ કરો. આવશ્યક ક્ષેત્ર. **  "</string>
+    <string name="txt_registration_registerBtn">નોંધણી કરો</string>
+    <string name="enternonemptycontact">કૃપા કરી સંપર્કમાટે ક્રમાંક દાખલ કરો</string>
+    <string name="change_language_line5">પગલું 2: તમારા ઉપકરણ પર _ માટે અવાજ વિગતો ઉપલબ્ધ છે કે નહીં તે તપાસો. જો નહીં, તો કૃપા કરી પસંદ કરેલી ભાષા માટે અવાજ વિગતો ડાઉનલોડ કરો. જો પ્રક્રિયા અટકી હોય, તો કૃપા કરીને તમારું ઇન્ટરનેટ જોડાણ તપાસો અને ફરીથી પ્રયાસ કરો</string>
+    <string name="txtChangeLanguage">મૂળભૂત ભાષા બદલો :</string>
+    <string name="txtApplyChanges">નવી ભાષાને અને અવાજ મૂળભૂત ભાષા તરીકે રજૂ કરવા માટે \'ફેરફાર લાગુ કરો\' પસંદ કરો</string>
+    <string name="txt_actLangSel_downloadDat">અવાજ વિગતો તપાસો</string>
+    <string name="language_downloaded">_ ભાષા ડાઉનલોડ કરી</string>
+    <string name="language_downloading">_ ભાષા ડાઉનલોડ કરવામાં આવે છે</string>
+    <string name="granted_call_permission_req">"સંપર્કની પરવાનગી આપવામાં આવી છે "</string>
+    <string name="rejected_call_permission_req">"સંપર્કની પરવાનગી નામંજૂર "</string>
+    <string name="grant_permission_from_settings">ગોઠવણીથી સંપર્કની પરવાનગીને સક્ષમ કરો.</string>
+    <string name="txtEnableBuiltInCalling">કટોકટી દરમિયાન જેલો તરફતી સંપર્કને સક્ષમ કરો</string>
+    <string name="EnableDisplaySpeechText">"ટેક્સ્ટ બાર પર બોલેલો હવાલો દર્શાવો "</string>
+
+    <string name="dismiss">રદ કરવું</string>
+    <string name="register_user">કૃપા કરી પ્રતીક્ષા કરો નોંધણી પ્રક્રિયા ચાલુ છે ...</string>
+    <string name="exit">બહાર નિકળો</string>
+    <string name="err_dialog_msg">ગૂગલ ટીટીએસ એન્જિન તમારા ઉપકરણપર સથાપિત કરેલુ નથી. શું તમે ટીટીએસ એન્જિન સ્થાપિત કરવા માંગો છો?</string>
+    <string name="exit_dialog_msg">"જેલો ગૂગલ ટેક્સ્ટ-ટુ-સ્પીચ એન્જિન વિના કાર્ય કરશે નહીં. શું તમે ખરેખર બહાર નીકળવા માંગો છો?   "</string>
+
+    <string name="next_slide">આગળની સ્લાઇડ</string>
+    <string name="previous_slide">પહેલાની સ્લાઇડ</string>
+
+    <!--Strings related to the Searching capability
+    @AyazAlam
+    -->
+    <string name="search_title">ચિન્હ શોધો</string>
+    <string name="home">હોમ</string>
+    <string name="icon_not_found">ચિહ્ન મળ્યું નથી</string>
+
+
+    <!--About Jellow strings-->
+    <string name="info">સામાન્ય માહિતી</string>
+    <string name="about_je_intro1">"જેલો એક સંદેશવ્યહવાર તંત્ર છે,જે,વાણીને સક્ષમ કરવા માટે ચિહ્નોનો અને ચિત્રોનો ઉપયોગ કરીને વાતચીતમાં મદદ કરે છે. જે બોલવાનું શીખી રહ્યાં હોય,અથવા જેમને બોલવામાં તકલીફ હોય,તે જેલોનો ઉપયોગ કરી શકે છે.   બાળકો અને પ્રારંભિક શીખનારાઓ તેમના રોજિંદા જીવનમાં વારંવાર ઉપયોગમાં લેવામાં આવતા શબ્દો અને વર્ગીકરણ શીખવા માટે પણ જેલોનો ઉપયોગ કરી શકે છે. આ સિવાય, જેલોના રંગબેરંગી અને સરળ ચિહ્નો લીધે, બાળકો ચિત્ર અને તેમના અનુરૂપ નામ વચ્ચેનું જોડાણ વિકસાવી શકે છે.  "</string>
+    <string name="about_je_intro2">"જેલો મુંબઇ સ્થિત આઈડીસી સ્કૂલ ઑફ ડિઝાઇન, ભારતીય ટેકનોલોજી સંસ્થા,(IIT, Mumbai)  મુંબઇમાં વિકસિત કરવામાં આવ્યું છે. "</string>
+    <string name="about_je_intro3">" જેલોની ભાષા ક્ષમતા વધારવા માટે, પહેલિવાર એક ઇમોશનલ લેંગ્વેજ પ્રોટોકોલ  (ભાવાનાત્મક ભાષા રચના ) અથવા ઇએલપીની કલ્પના કરવામાં આવી અને પરિયોજનાનાં તપાસકર્તાઓ દ્વારા વિકસાવવામાં આવી હતી.  આ ઇએલપી ૬ સ્પષ્ટ ભાવાત્મક ચિહ્નોનું પ્રતિનિધિત્વ કરે છે અને માધ્યમનો મુળભુત ભાગ છે."</string>
+    <string name="about_je_intro4">"આ મુખ્ય ચિહ્નોની મદદથી, જેલોના વપરાશકર્તાઓ તેમની પસંદ, નાપસંદ અને જરૂરિયાતો અન્ય લોકોને બતાવી શકે છે. "</string>
+    <string name="about_je_intro5">"જેલોની બાળકો માટે અનુકૂળ હોવા સાથે ,એક શીખવા માટે સરળ માધયમ તરીકે કલ્પના કરવામાં આવી છે . "</string>
+    <string name="about_je_intro6">"જેલો તંત્ર Android ટીકડી માટે અનુકુલીત છે.  "</string>
+    <string name="about_je_intro7">"જેલો હાલમાં અંગ્રેજી, હિન્દી, બંગાળી, મરાઠી, તામિલ, સ્પેનિશ, જર્મન અને ફ્રેન્ચમાં ઉપલબ્ધ છે. "</string>
+    <string name="play_video">વીંડિઓ  ચલાવો (Play video)</string>
+    <string name="software_info">Sજેલોનું વર્તમાન સંસ્કરણ _ છે.</string>
+    <string name="about_je_intro8">"જેલોનું વર્તમાન સંસ્કરણ _ છે. જેલો હાલમાં વધુ વિકાસ હેઠળ છે. જો તમારી પાસે આ તંત્રની સુધારણા સંબંધિત કોઈ સૂચના હોય, તો કૃપા કરીને તેમને \\ \"પ્રતિભાવ \\\" હેઠળ આપો.  "</string>
+    <string name="terms_of_use">નિયમો અને ઉપયોગની શરતો</string>
+    <string name="about_je_intro9">"જેલો પાસે ક્રિએટિવ કોમન્સ એટ્રીબ્યુશન નોન-કમર્શિયલ શેર એલાઇક ૪.૦ હેઠળ પરવાનો પ્રાપ્ત છે. "</string>
+    <string name="about_je_intro10">"જેલો તંત્ર પરના તમામ સંશોધન કાર્યનું શ્રેય ભારતીય ટેકનોલોજી સંસ્થા,મુંબઈને  (IIT, Mumbai ) આપવામાં આવે છે. "</string>
+    <string name="about_je_intro11">"આ તંત્રની સામગ્રીમાં શામેલ ચિન્હો, માંડણી,સ્થાપત્ય,દ્રશ્ય ઓળખ, અનુવાદ અને સંગણક ના સમગ્ર કાર્યક્રમો અપનાવી અથવા વહેંચી શકો છો, પરંતુ તેનો ઉપયોગ વાણિજ્યક હેતુ માટે કરી શકાતા નથી. "</string>
+    <string name="about_je_intro12">"જ્યારે આ સામગ્રીનો ઉપયોગ થાય છે, ત્યારે વિનંતી છે કે,ભારતીય ટેકનોલોજી સંસ્થા, મુંબઇ નો આભાર વ્યક્ત કરો. "</string>
+    <string name="about_je_intro13">"જેલો  _  પર ઉપલબ્ધ છે. "</string>
+    <string name="about_je_intro14">"જો જેલોની સંહિતાને વધુ વિકસિત કરવામાં રુચિ હોય, તો કૃપા કરીને પ્રોફેસર રવિ પૂવૈયા સાથે jellowommunicator@gmail.com પર સંપર્ક કરો      "</string>
+    <string name="feedback_talkback_heading">1 થી 5 ના સ્તર પર, કૃપા કરીને મુલ્યાંકન કરો</string>
+
+    <string name="langauge_correction_message">\'-\' ભાષા યોગ્ય રીતે ગોઠવેલી નથી. ભાષા ઠીક કરવા માટે તમે \"_\" અથવા \"$\" વિકલ્પ પસંદ કરો</string>
+    <string name="changeLanguage">ભાષાને ઠીક કરો</string>
+    <string name="dialog_default_language_option">મૂળભૂત ભાષા</string>
+    <string name="txt_data_info">** ઉપરના વિગતો ફક્ત તમારા ઉપકરણ પર જ સંગ્રહિત કરવામાં આવશે. અમે તમારી ગોપનીયતાને મહત્ત્વ આપીએ છીએ તેથી તેનો ઉપયોગ કોઈપણ સર્વર / મેઘ પર કરવામાં આવશે નહીં અથવા અપલોડ કરવામાં આવશે નહીં (જેલોની અથવા તૃતીય પક્ષનો સમાવેશ કરીને).</string>
+    <string name="txt_view_privacy_policy">કૃપા કરીને જેલોની<![CDATA[<font color="#dc5252"><b><u> ગોપનીયતા નીતિ </u></b></font>]]>વાંચો</string>
+    <string name="privacy_link_info">મેં જેલોની<![CDATA[<font color="#dc5252"><b><u> ગોપનીયતા નીતિ </u></b></font>]]>વાંચી છે.</string>
+    <string name="consent_privacy">કૃપા કરીને વાંચો અને પછી ગોપનીયતા નીતિથી સંમત થાઓ.</string>
+
+    <!--Content description-->
+    <string name="language_download_in_process">ભાષા ડાઉનલોડ કરવાની પ્રક્રિયા ચાલુ છે</string>
+    <string name="child_s_name">બાળકનું નામ. આવશ્યક ક્ષેત્ર **</string>
+    <string name="enter_home_address">ઘરનું સરનામું દાખલ કરો</string>
+    <string name="enter_caregiver_s_contact_number">સંભાળ રાખનારનો સંપર્ક ક્રમાંક દાખલ કરો</string>
+    <string name="enter_caregiver_s_name">સંભાળ રાખનારનું નામ દાખલ કરો</string>
+    <string name="enter_caregiver_s_email_address">સંભાળ રાખનારનું ઇમેલ ઓળખ દાખલ કરો</string>
+    <string name="category_cd">"ચિત્ર જેલોનું મૂળ પૃષ્ઠ અથવા હોમ પેજ બતાવે છે. હોમ પેજ ૯ ચિત્રોની કેન્દ્રિય ગ્રીડ ધરાવે છે જે  વિભાગના પ્રતિકો તરીકે ઓળખાતા છે. તેઓ 3 પંક્તિઓ અને ૩ સ્તંભોમાં ગોઠવાયેલા છે. ૯ ચિત્રો \"અભિવાદન અને લાગણી\", \"દૈનિક પ્રવૃત્તિઓ\", \"ખાવું\", \"મજા”, “શિખવું”, “લોકો\", \"સ્થાન”, “સમય અને હવામાન\" અન “મદદ\" વિભાગના છે. તસવીરના તળિયે તે ક્રમમાં ગોઠવેલ  ૩ દિશાદર્શન ચિત્ર છે, \"પાછળ\", \"હોમ\" અને \"કીબોર્ડ\". કેન્દ્રિય વિભાગના ચિત્રોની જમણી અને ડાબી બાજુએ પ્રત્યેક ૩ અર્થસભર ચિહ્ન છે.કેન્દ્રિય ચોરસની ડાબી બાજુ ક્રમમાં ઉપરથી નીચે સુધી ગોઠવાયેલા છે - \"ગમે છે\", \"હા\" અને \"વધુ\" ના અર્થપૂર્ણ પ્રતીકો.મધ્ય ચોરસની જમણી તરફ, ઉપરથી નીચે સુધી, \"ગમતું નથી\", \"ના\" અને \"ઓછું\" ના ૩ અર્થપૂર્ણ પ્રતિકો ગોઠવાયેલા છે. ગોઠવણીનું ચિહ્ન છબીના ઉપરના જમણા ખૂણામાં દેખાય છે.આ ચિત્રમાં ચિત્રોનું કેન્દ્રિય ચોરસ પ્રકાશિત થયું છે અને અન્ય તમામ પ્રતિકો ઝાંખા પડી ગયા છે. "</string>
+    <string name="expressive_cd">આ ચિત્ર ફરીથી જેલોનું મૂળ પૃષ્ઠ અથવા હોમ પેજ બતાવે છે .  ગોઠવણીનું ચિહ્ન છબીના ઉપરના જમણા ખૂણામાં દેખાય છે .અન્ય તમામ ચિત્ર ઝાંખા થઈ ગયા છે. વિભાગ ચિત્રોની કેંદ્રિય ગ્રીડની ડાબી બાજુ,  \"ગમે છે \" ના ૩ અર્થસભર ચિન્હ છે જે \"સ્માઇલી ચહેરો\"  દ્વારા ઉપરથી નીચે ગોઠવાયેલા છે. \"બરોબર\" ચિન્હ \"હા\"  સૂચવે છે અને \"વત્તા\" ચિહ્ન \"વધુ\" રજૂ કરે છે. વિભાગ ચિત્રોની જમણી બાજુએ, \"ગમતું નથી\" એ ઉપરથી નીચેની તરફ ગોઠવાયેલા \"ઉદાસી ચહેરો\" દ્વારા રજૂ થાય છે. \"ચોકડી\" ચિહ્ન દ્વારા \"ના\" રજૂ કરવામાં આવે છે. \"બાદબાકી\" ચિન્હ \"ઓછું\" સૂચવે છે. આ ઉપરાંત, ચિત્રમાં સ્ક્રીનના તળિયે ૩ દિશાદર્શન ચિન્હ છે. ડાબેથી જમણે આ છે \"પાછળ\", \"હોમ\" અને \"કીબોર્ડ\".</string>
+    <string name="pic4">ચિત્રમાં જેલોની હોમ સ્ક્રીન પર ફક્ત \"ખાવું\" અને \"હા\" ના 2 ચિહ્ન પ્રકાશિત છે.બાકીના ચિત્ર ઝાંખા પડી ગયા છે.ચિત્ર બતાવે છે કે જેલોનો ઉપયોગ કરવા માટે, વપરાશકર્તાએ કોઈપણ વિભાગના પ્રતિક પર પહેલા દબાવવું આવશ્યક છે, ઉદાહરણ તરીકે, \"ખાવું\" અને પછી અર્થસભર ચિન્હ પર, ઉદાહરણ તરીકે, \"હા\". આ રીતે વપરાશકર્તા જુલોની મદદથી બોલી શકે છે.</string>
+    <string name="pic5">આ છબીમાં જેલની હોમ સ્ક્રીન ફક્ત \"ખાવું\" ચિહ્ન સાથે છે. સ્તર 1 સ્ક્રીનપરના બાકીના ચિત્ર ઝાંખાં થઇ ગયા છે. આંગળી બતાવે છે કે,મુખ્ય વિભાગથી પેટા વિભાગમાં જવા માટે, \"ખાવું\" ચિહ્ન પર ડબલ ક્લિક કરો.</string>
+    <string name="pic6">આ પૃષ્ઠ ઉપરની ચિત્રમાં બતાવેલ \"ખાવું\" ચિત્ર પર બે વાર દબાવ્યા પછી(Double click કરીને) પહોંચેલી સ્ક્રીન બતાવે છે. આ ચિત્રમાં, \"ખાવું\" વિભાગનો પેટા  વિભાગ બતાવવામાં આવે છે. સ્તર 2 સ્ક્રીનપર મધ્યમાં દેખાતા પેટા વિભાગના  ચિત્રો, 3 પંક્તિઓ અને 3 સ્તંભોમાં  છે. આ ચિત્રો “શિરામણ\", \"ભોજન/રાત્રિભોજન\", \"મીઠાઈઓ\", \"નાસ્તા\", \"ફળો\", \"પીણાં\", \"કટલરી\" અને \"એડ-ઓન્સ\"  વિભાગને રજુ કરે છે. આ વિભાગના આગલા પેટા વિભાગમાં પહોંચવા માટે, વપરાશકર્તાની આંગળી \"નાસ્તા\" ચિહ્ન પર ડબલ ક્લિક કરે છે.</string>
+    <string name="pic7">આ ચિત્ર સ્તર 3 સ્ક્રીનનો સ્ક્રીન શોટ બતાવે છે જે . \"ખાવું\" ની મુખ્ય વિભાગની અંદર \"નાસ્તો\"   પેટા વિભાગના ચિત્રને દબાવીને ઉપલબ્ધ થયુ છે.આ સ્ક્રીન પર દેખાતા કેન્દ્રીય ગ્રીડમાં \"બ્રેડ\", \"કોર્નફ્લેક્સ\", \"બટાકાનું શાક અને પુરી\", \"ઇંડા\", \"પોહા\", \"ઉપમા\", \"ખિચડી\" અને \"ઇડલી\" ના ચિત્રો છે.  સ્ક્રીનની બંને બાજુ અર્થસભર ચિહ્ન ઉપરાંત, સ્ક્રીનપર તળિયે દિશાદર્શન ચિત્ર અને સ્ક્રીનના ઉપરના જમણા ખૂણા પર ગોઠવણીનું ચિન્હ પણ દેખાય છે.</string>
+    <string name="pic8">"આ ચિત્ર જેલોની હોમ સ્ક્રીનના ઉપરના જમણા ખૂણા પર નીચે ઉતરતા વિકલ્પો બતાવે છે.આમા \"વપરાશકર્તા વિશે\", \"જેલો વિશે\", \"ઉપશિક્ષણ\", \"કીબોર્ડ નિયંત્રણ\", \"ભાષા\",\"ગોઠવણી\", \"પસંદગીઓ ફરીથી રજુ કરો\"અને \"પ્રતિસાદ\" ના વિકલ્પો બતાવે છે.આમાંના કોઈપણ વિકલ્પો પર દબાવીને વપરાશકર્તા તંત્રની ગોઠવણીમાં તેમની જરૂરિયાતો અનુસાર બદલ કરી શકે છે. "</string>
+    <string name="pic9">આ જેલો તંત્રની અંદરના ક્રમિક કાર્યોનો સ્ક્રીનશોટ છે. આ ચિત્રો \"શૌચાલય\" નો ક્રમ બતાવે છે જે \"દૈનિક પ્રવૃત્તિઓ\" વિભાગનો ભાગ છે. આ સ્ક્રીન પર, શૌચાલય જવા માટે 3 ક્રમિક પગલાં બતાવવામાં આવ્યા છે. પગલું 1 એ \"પેન્ટ્સ નીચે ખેંચીને\" છે, પગલું 2 એ \"સંડાસમાં બેસો\" છે, અને પગલું 3 એ \"નિતંબ ને ધોવું” છે. પગલાઓ વચ્ચે એક તીર બતાવવામાં આવે છે જેથી વપરાશકર્તા આ ક્રમને સમજી શકે.  ચિત્રોની  નીચે બે ચિન્હ \"ગત\" અને \"આગામી\" છે. આ પ્રવૃત્તિના આ પ્રથમ સ્ક્રીન પર આ ત્રણ તબક્કાઓ છે, તેથી \"ગત\" ચિન્હ સ્ક્રીન પર અસ્પષ્ટ છે. વપરાશકર્તાની આંગળી આગલી સ્ક્રીન પર જવા માટે “આગામી\" ચિન્હને ક્લિક કરતી બતાવવામાં આવે છે. આ સ્ક્રીન પર અભિવ્યક્ત બટનો અસ્પષ્ટ છે. સ્ક્રીનના તળિયે 3 દિશાદર્શનના ચિત્ર છે, \"પાછળ\", \"હોમ\" અને \"કીબોર્ડ</string>
+    <string name="pic10">આ છબી \"દૈનિક પ્રવૃત્તિઓ\" ની અંદર, “શૌચાલય” સિક્વન્સમાં પ્રથમ 3 પગલાઓનું ચિત્રણ કરતી ઉપર બતાવેલ છબી જેવી જ છે.  જો કે આ છબીમાં, વપરાશકર્તાની આંગળી \"સંડાસ પર બેસો\" ને અનુરૂપ પગલા 2 ચિહ્ન પર ક્લિક કરતી જોવા મળે છે.  આ ચિહ્ન પર ક્લિક કરીને, હવે એપ્લિકેશનની અંદર સ્ક્રીનની બંને બાજુ અભિવ્યક્ત બટનો દૃશ્યમાન છે.</string>
+    <string name="gtts1">ચિત્ર, વપરાશકર્તાના ઉપકરણમાં \"ટેક્સ્ટ ટુ સ્પીચ આઉટપુટ\" અને \"ગૂગલ ટીટીએસ વોઇસ ડેટા\" ગોઠવણીના 3 સ્ક્રીનશોટથી બનેલી છે. “ટેક્સ્ટ-ટુ-સ્પીચ આઉટપુટ” ને અનુરૂપ પ્રથમ ચિત્રમાં,  2 પસંદીદા એન્જિન્સ દેખાય છે, પ્રથમ, “સેમસંગ ટેક્સ્ટ-થી-સ્પીચ એન્જિન” અને બીજું, “ગૂગલ ટેક્સ્ટ-ટુ-સ્પીચ એન્જિન”. વપરાશકર્તાને પ્રથમ પગલા તરીકે, \"ગૂગલ ટેક્સ્ટ-ટુ-સ્પીચ એન્જિન\" પસંદ કરવા માટે જોવામાં આવે છે.</string>
+    <string name="gtts2">બીજું ચિત્ર આ પ્રક્રિયાના બીજા પગલાને અનુરૂપ છે જ્યાં વપરાશકર્તા હવે, “ગિયર” પ્રતીક પસંદ કરે છે ,જે \"ગૂગલ ટેક્સ્ટ-ટુ-સ્પીચ એન્જિન” ની “સેટિંગ્સ” ને અનુરૂપ છે.</string>
+    <string name="gtts3">ત્રીજું  ચિત્ર આ પ્રક્રિયાના ત્રીજા તબક્કાની છે જ્યાં વપરાશકર્તા હવે \"ગૂગલ ટીટીએસ વોઇસ  ડેટા\" સ્ક્રીન પર છે. સ્ક્રીનમાં \"ફ્રેન્ચ (ફ્રાંસ)\", \"જર્મન (જર્મની)\", \"હિન્દી (ભારત)\", \"હંગેરિયન (હંગેરિયન)\" અને \"ઇન્ડોનેશિયન (ઇન્ડોનેશિયા)\" સહિત ઘણા અવાજ વિકલ્પો પ્રસ્તુત છે. \"હિન્દી (ભારત) વોઇસ\" વિકલ્પ પ્રકાશિત થાય છે અને તે 19 એમબીના કદનો  \"વોઇસ સેટ 1\" નો વિકલ્પ બતાવે છે જે ડાઉનલોડ માટે ઉપલબ્ધ છે. વપરાશકર્તાની આંગળી \"વોઇસ હિન્દી (ભારત)\" માટે વોઇસ સેટ 1 ના ડાઉનલોડ ચિહ્ન પસંદ કરતી જોવા મળે છે.</string>
+    <string name="enter_child_s_name">બાળકનું નામ દાખલ કરો</string>
+    <string name="caregiver_s_contact_number_other_than_this_device_s_sim_number">આ ઉપકરણના સિમ ક્રમાંક સિવાય સંભાળ રાખનારનો સંપર્ક નંબર. આવશ્યક ક્ષેત્ર. **</string>
+    <string name="select_country_code">"તમારા દેશનું કોડ પસંદ કરો "</string>
+    <string name="caregiver_s_email_address">સંભાળ રાખનારનું ઇમેલ ઓળખ.  આવશ્યક ક્ષેત્ર **</string>
+    <string name="like">ગમે છે</string>
+    <string name="yes">હા</string>
+    <string name="more">વધુ</string>
+    <string name="dont_like">ગમતું નથી</string>
+    <string name="no">ના</string>
+    <string name="less">ઓછું</string>
+    <string name="back">પાછળ</string>
+    <string name="yes_btn">હા</string>
+    <string name="enter_category">વિભાગ દાખલ કરો</string>
+    <string name="intro_cd">"ચિત્ર જેલોનું મૂળ પૃષ્ઠ અથવા હોમ પેજ બતાવે છે. હોમ પેજ ૯ ચિત્રોની કેન્દ્રિય ગ્રીડ ધરાવે છે જે  વિભાગના પ્રતિકો તરીકે ઓળખાતા છે. તેઓ 3 પંક્તિઓ અને ૩ સ્તંભોમાં ગોઠવાયેલા છે. ૯ ચિત્રો \"અભિવાદન અને લાગણી\", \"દૈનિક પ્રવૃત્તિઓ\", \"ખાવું\", \"મજા”, “શિખવું”, “લોકો\", \"સ્થાન”, “સમય અને હવામાન\" અન “મદદ\" વિભાગના છે. તસવીરના તળિયે તે ક્રમમાં ગોઠવેલ  ૩ દિશાદર્શન ચિત્ર છે, \"પાછળ\", \"હોમ\" અને \"કીબોર્ડ\". કેન્દ્રિય વિભાગના ચિત્રોની જમણી અને ડાબી બાજુએ પ્રત્યેક ૩ અર્થસભર ચિહ્ન છે.કેન્દ્રિય ચોરસની ડાબી બાજુ ક્રમમાં ઉપરથી નીચે સુધી ગોઠવાયેલા છે - \"ગમે છે\", \"હા\" અને \"વધુ\" ના અર્થપૂર્ણ પ્રતીકો.મધ્ય ચોરસની જમણી તરફ, ઉપરથી નીચે સુધી, \"ગમતું નથી\", \"ના\" અને \"ઓછું\" ના ૩ અર્થપૂર્ણ પ્રતિકો ગોઠવાયેલા છે. ગોઠવણીનું ચિહ્ન છબીના ઉપરના જમણા ખૂણામાં દેખાય છે.આ ચિત્રમાં ચિત્રોનું કેન્દ્રિય ચોરસ પ્રકાશિત થયું છે અને અન્ય તમામ પ્રતિકો ઝાંખા પડી ગયા છે. "</string>
+    <string name="intro2_cd">આ ચિત્રમાં જેલોની મૂળપૃષ્ઠપર \"ખાવું\" અને \"હા\" ના ફક્ત 2 ચિત્ર પ્રકાશિત કરવામાં આવ્યા છે. બાકીના ચિત્રો ઝાંખા પડી ગયા છે. છબી બતાવે છે કે જેલોનો ઉપયોગ કરવા માટે, વપરાશકર્તાએ કોઈપણ વિભાગના ચિત્રને પસંદ કરવું આવશ્યક છે, ઉદાહરણ તરીકે, \"ખાવું\" અને પછી અભિવ્યક્ત ચિન્હ , ઉદાહરણ તરીકે, \"હા\". આ રીતે વપરાશકર્તા જેલોની મદદથી બોલી શકે છે.</string>
+    <string name="intro3_cd">આ તસવીર જેલોના  “ખાવું\"  વિભાગના પેટા વિભાગનો સ્ક્રીનશોટ બતાવે છે. કેન્દ્રીય ગ્રીડમાં દેખાતા ચિહ્નોને \"નાશ્તો\", \"ભોજન/રાત્રિભોજન\", \"મીઠાઈઓ\", \"અલ્પાહાર\", \"ફળો\", \"પીણાં\", \"કટલરી\" અને \"એડ-ઓન” 3 બાય 3 ગ્રીડ બંધારણમાં ગોઠવાય છે. આ તસવીરમાં પેટા વિકલ્પોને ઉપલબ્ધ કરવા માટે વપરાશકર્તાની આંગળી \"નાશ્તો\" ચિહ્ન પર ડબલ ક્લિક કરે છે.</string>
+    <string name="intro4_cd">આ ચિત્ર જેલોની મૂળપૃષ્ઠના ઉપરના જમણા ખૂણે ડ્રોપ-ડાઉન કે નીચે ઉતરતા વિક્લપો બતાવે છે.આ ડ્રોપ-ડાઉન \"વપરાશકર્તા વિશે\",\"જલો વિશે\", \"ઉપશિક્ષણ\", \"કીબોર્ડ નિયંત્રણ\", \"ભાષા\", \"ગોઠવણી\", \"પસંદગીઓ ફરીથી સ્થાપિત કરો અને \"પ્રતિસાદ\" માટેનાં વિકલ્પો બતાવે છે.આમાંથી કોઈપણ વિકલ્પો પસંદ કરીને, વપરાશકર્તા તંત્રની ગોઠવણીમાં તેમની જરૂરિયાતો અનુસાર બદલ કરી શકે છે.</string>
+    <string name="intro5_cd">આ ચિત્ર ફરીથી જેલોનું મૂળપૃષ્ઠ બતાવે છે. આ ચિત્રમાં, કેન્દ્રિય-વિભાગના ચિત્રોની બંને બાજુ 3 તરીકે ગોઠવાયેલા 6 અભિવ્યક્ત ચિન્હ પ્રકાશિત કરવામાં આવ્યા છે અને અન્ય તમામ ચિત્ર ઝાંખા કર્યા છે.વિભાગ ચિત્રની મધ્યમ ગ્રીડની ડાબી બાજુ \"ગમે છે\" ના 3 અર્થસભર ચિન્હ છે, જે ઉપરથી નીચે ગોઠવાયેલા \"સ્માઇલી ચહેરો\" દ્વારા રજૂ થાય છે.\"બરોબર\" ચિહ્ન અને \"વત્તા” ચિહ્ન દ્વારા “હા” અને “વધુ” દર્શાવવામાં આવે છે.વિભાગ ચિત્રની જમણી તરફ, ઉપરથી નીચે ગોઠવાયેલા અર્થસભર ચિન્હ, “ઉદાસી ચહેરો” દ્વારા \"ગમતું નથી\" રજુ કરે છે ,\"ચોકડી\" નું ચિહ્ન  દ્વારા “નહી” અને \"બાદબાકી ચિન્હ\" દ્વારા “ઓછું” રજૂ થાય છે. ચિત્રમાં નીચે 3 દિશા દર્શનના ચિત્ર છે. ડાબેથી જમણે આ છે \"પાછળ\",\"હોમ\" અને \"કીબોર્ડ\".</string>
+    <string name="talkback_single_click">પસંદ કરો</string>
+    <string name="talkback_dropdown_menu">"દેશની સૂચિ ઉપલબ્ધ કરો  "</string>
+    <string name="next">આગળ</string>
+    <string name="previous">પહેલુ</string>
+    <string name="edttxt_msg">બોલવા માટે અહીં ટાઇપ કરો</string>
+    <string name="keyboard_open">"કીબોર્ડ ખોલો  "</string>
+    <string name="child_s_name_dialog_btn">મારુ નામ</string>
+    <string name="caregiverName_dialog_btn">સંભાળ રાખનારનું નામ</string>
+    <string name="caregiver_s_email_address_dialog_btn">સંભાળ રાખનારનું ઇમેલ ઓળખ</string>
+    <string name="homeAddress_dialog_btn">મારા ઘરનું સરનામું</string>
+    <string name="caregiver_s_contact_number_dialog_btn">સંભાળ રાખનારનો સંપર્ક નંબર</string>
+    <string name="bloodGroup_dialog_btn">"મારું બ્લડ ગ્રુપ "</string>
+    <string name="seekbar_speed_cd">વાણીની ગતિ બદલવા માટે કૃપા કરીને તમારા ઉપકરણનાં વોલ્યુમ બટનોનો ઉપયોગ કરો.</string>
+    <string name="seekbar_pitch_cd">અવાજનો સ્તર બદલવા માટે કૃપા કરીને તમારા ઉપકરણના વોલ્યુમ બટનોનો ઉપયોગ કરો</string>
+    <string name="seekbar_volume_cd">"વાણીનું સ્તર બદલવા માટે કૃપા કરીને તમારા ઉપકરણના વોલ્યુમ બટનનો ઉપયોગ કરો.  "</string>
+    <!--end content description-->
+
+    <string name="txt_tts_stting">ટેક્સ્ટ ટુ સ્પીચ સેટિંગ્સ (TTS SETTINGS)</string>
+    <string name="change_language_tts_wifi">પગલું 1: ગૂગલ ટીટીએસ ગોઠવણી પર જાઓ અને \'ફક્ત Wi-Fi નો ઉપયોગ કરો\' બંધ કરો. જો વિકલ્પ પહેલેથી જ અક્ષમ હોય,તો કૃપા કરીને આ પગલું અવગણો.</string>
+    <string name="lang_setting_option1_cd">નીચેની ચિત્ર જેલો દ્વારા ઉપયોગમાં લેવામાં આવતા ગૂગલ ટેક્સ્ટ-ટુ-સ્પીચ એન્જિનને સ્થાપિત કરવાંમા સામેલ ૩ પગલાં બતાવે છે.  ચિત્ર વપરાશકર્તાના ઉપકરણમાં \"ટેક્સટ-ટુ-સ્પીચ આઉટપુટ\" અને \"ગૂગલ ટીટીએસ સેટિંગ્સ\" ના 3 સ્ક્રીનશોટથી બનેલી છે.   \"ટેક્સ્ટ-ટુ-સ્પીચ આઉટપુટ\" ને અનુરૂપ પ્રથમ ચિત્રમાં, ૨ પસંદ કરેલા એન્જિન દેખાય છે, પ્રથમ, \"સેમસંગ ટેક્સ્ટ-ટુ-સ્પીચ એન્જિન\" અને બીજું, \"ગૂગલ ટેક્સ્ટ-ટુ-સ્પીચ એન્જિન\".  વપરાશકર્તા \"ગૂગલ ટેક્સ્ટ-ટુ-સ્પીક\" પસંદ કરવા માટે જોવામાં આવે છે</string>
+    <string name="lang_setting_option2_cd">બીજી તસ્વીર આ પ્રક્રિયાના બીજા પગલાને અનુરૂપ છે જ્યાં વપરાશકર્તા હવે, “ગૂગલ ટેક્સ્ટ-ટુ-સ્પીચ એન્જિન” ની “સેટિંગ્સ” ને અનુરૂપ \"ગિયર” પ્રતીક પસંદ કરે છે.</string>
+    <string name="lang_setting_option3_cd">ત્રીજી તસ્વીર પ્રક્રિયાનો ત્રીજો તબક્કો છે જ્યાં વપરાશકર્તા હવે \"ગૂગલ ટીટીએસ વિકલ્પો\" સ્ક્રીન પર છે. આ સ્ક્રીન પરની બીજી વસ્તુ છે \"ફક્ત Wi-Fi નો ઉપયોગ કરો\" વિકલ્પ ,જે ,આ તસ્વીરમાં પ્રકાશિત કરવામાં આવી છે. વપરાશકર્તાને આ તબક્કે આ વિકલ્પને બંધ અથવા અક્ષમ કરવાનું કહેવામાં આવે છે. \"</string>
+    <string name="close">સંવાદ બંદ કરો</string>
+    <string name="access_dialog_title">વિકલ્પોસાથે સંવાદ</string>
+
+    <string name="acc_lang_marathi">મરાઠી (ભારત)</string>
+    <string name="acc_lang_hindi">હિંદી (ભારત)"</string>
+    <string name="acc_lang_bengali">બંગાલી (ભારત)</string>
+    <string name="acc_lang_eng_in">અંગ્રેજી (ભારત)</string>
+    <string name="acc_lang_eng_gb">અંગ્રેજી (યુનાઇટેડ કિંગડમ)</string>
+    <string name="acc_lang_eng_us">અંગ્રેજી (યુનાઈટેડ સ્ટેટ્સ)</string>
+    <string name="acc_lang_eng_au">અંગ્રેજી (ઓસ્ટ્રેલિયા)</string>
+    <string name="acc_lang_span_span">સ્પેનિશ (સ્પેન)</string>
+    <string name="acc_lang_tamil_in">તામિલ (ભારત)</string>
+    <string name="acc_lang_german_ger">જર્મન (જર્મની)</string>
+
+    <string name="_1_icon">1 ચિન્હ</string>
+    <string name="_2_icons">2 ચિન્હ</string>
+    <string name="_3_icons">3 ચિન્હ</string>
+    <string name="_4_icons">4 ચિન્હ</string>
+    <string name="_9_icons">9 ચિન્હ</string>
+    <string name="number_of_icons_per_screen">સ્ક્રીન દીઠ ચિહ્નોની સંખ્યા</string>
+
+    <string name="level_1_screen">સ્તર એક સ્ક્રીન</string>
+    <string name="level_2_screen">સ્તર બે સ્ક્રીન</string>
+    <string name="level_3_screen">સ્તર ત્રણ સ્ક્રીન</string>
+    <string name="sequence_screen">"પ્રવૃત્તિ ક્રમ "</string>
+    <string name="close_searchbar">શોધ ખિડકી બંધ કરો</string>
+
+
+
+    <string name="txt_accessibility_setting">સુલભતા ગોઠવણી (Accessibility Setting)</string>
+    <string name="visual_access_title">દ્રશ્ય સુલભતા:</string>
+    <string name="visual_access_info_one">હવે જેલોની દ્રશ્ય સુલભતા, ઓછી દ્રષ્ટિ અથવા અંધત્વ ધરાવતા વપરાશકર્તાઓને જોલીનો ઉપયોગ કરવા અને અન્ય લોકો સાથે વાતચીત કરવા સહાય કરે છે.</string>
+    <string name="visual_access_info_two">"તંત્ર દ્વારા શોધખોળ કરવામાં સહાય માટે તે Android સ્માર્ટફોન પર “\\ટોક બેક\\”સુવિધાનો ઉપયોગ કરે છે.  "</string>
+    <string name="visual_access_info_three">"ઉપકરણમાં ”\\ટોકબેક\\” સક્ષમ કરીને, વપરાશકર્તાઓ હવે તેઓ સ્ક્રીનપર જે પણ સ્પર્શ કરે છે તેની બધી વિગતો સાંભળી શકે છે. "</string>
+    <string name="visual_access_info_four">જેલોકનો ઉપયોગ કરતી વખતે વપરાશકર્તાઓ વ્યક્તિગત હાવભાવ સોંપી શકે છે અથવા \\ ટોક બેક\\ ना મૂળભૂત હાવભાવનો ઉપયોગ કરી શકે છે.</string>
+    <string name="visual_access_info_five">ઉદાહરણ તરીકે, ઉપકરણના સ્ક્રીનપર આંગળી જમણી તરફ સંચળ કરવાથી ચિહ્નોને ક્રમિક રીતે વાંચવામાં આવશે. તેવી જ રીતે, વપરાશકર્તાઓ સાંભળતી વખતે સ્ક્રીનપર ગમે ત્યાં બે વાર દબાવીને તેમની પસંદની પ્રવૃત્તિ પસંદ કરી શકશે.</string>
+    <string name="switch_access_title">સ્વીચની ઉપલબ્ધતા કે એકસેસિબિલિટી:</string>
+    <string name="switch_access_info_one">સ્વીચ એકસેસિબિલિટી શારિરીક રૂપે અક્ષમ લોકોને તંત્રમાં શોધખોળ કરવાનું સરળ બનાવે છે. આ સુવિધા વપરાશકર્તાને એક અથવા બે સ્વીચોનો ઉપયોગ કરવાની મંજૂરી આપે છે.</string>
+    <string name="switch_access_info_two">આ સુવિધાને સક્ષમ કરવા માટે, વપરાશકર્તાએ ફોન ગોઠવણીમાં એક્સેસિબિલીટી વિકલ્પમાં \"સ્વીચ એક્સેસ\" ચાલુ કરવું આવશ્યક છે.</string>
+    <string name="switch_access_info_three">સેમસંગ વપરાશકર્તાઓ ફોન ગોઠવણીમાં એકસેસિબિલીટી શ્રેણીમાં \"કુશળતા અને ક્રિયાપ્રતિક્રિયા\" વિકલ્પમાં \"સ્વિચ એકસેસ\" શોધી શકે છે.</string>
+    <string name="switch_access_info_four">એક સ્વીચ સાથે સ્વીચ એકસેસિબિલિટીનો ઉપયોગ કરવા માટે - ગોઠવણી ખોલો -> એકસેસિબિલિટી પર જાઓ ->\" સ્વીચ એક્સેસ\" ચાલુ કરો -> યુએસબી અથવા બ્લૂટૂથ સ્વીચ  પસંદ કરો -> ગોઠવણી પર જાઓ અને સ્વીચોની સંખ્યા તરીકે એક સ્વીચ પસંદ કરો.</string>
+    <string name="switch_access_info_five">બે સ્વીચો સાથે સ્વીચ એક્સેસિબિલિટીનો ઉપયોગ કરવા માટે - ગોઠવણી ખોલો ->\" એક્સેસિબિલિટી\" પર જાઓ -> સ્વીચ એક્સેસ ચાલુ કરો ->  યુએસબી અથવા બ્લૂટૂથ સ્વીચ પસંદ કરો -> ગોઠવણી પર જાઓ અને  સ્વીચોની સંખ્યા તરીકે\" બે સ્વીચો\" પસંદ કરો, પછી શોધ પ્રકાર પસંદ કરો ,\"આગળ\" વિકલ્પ  પસંદ કરો અને બંને સ્વીચોને ક્રિયા સોંપો અને સ્વીચો ચકાસીને પ્રક્રિયા પૂર્ણ કરો.</string>
+
+  <!--Language package update strings are here-->
+    <string name="lpu_start_update">ભાષા સંગ્રહ અપડેટ કરવાનું શરૂ કર્યું</string>
+    <string name="lpu_parse_update">કરેલી માહિતી પર પ્રક્રિયા કરી રહ્યું છે</string>
+    <string name="lpu_download_icons">ચિન્હનો સંગ્રહ ડાઉનલોડ કરી રહ્યાં છે</string>
+    <string name="lpu_download_verbiage">વાણીનો સંગ્રહ ડાઉનલોડ કરી રહ્યાં છે</string>
+    <string name="lpu_update_success">ભાષા સંગ્રહ સફળતાપૂર્વક અપડેટ કર્યુ</string>
+    <string name="lpu_toast_update_success">અપડેટ કે અદ્યતન સફળ</string>
+    <string name="lpu_toast_check_success">અપડેટની સફળતા તપાસી રહ્યું છે</string>
+    <string name="lpu_no_updates_found">"કોઈ અપડેટ્સ મળ્યાં નથી!  "</string>
+    <string name="lpu_update_error">અપડેટ પૂર્ણ કરવામાં ભૂલ !! મેહરબાની કરી ને ફરી થી પ્રયાસ કરો.</string>
+    <string name="lpu_toast_check_error">ભાષા સંગ્રહ અપડેટ નિષ્ફળ થયું</string>
+    <string name="update_now">હવે અપડેટ કરો</string>
+    <string name="update_later">પછી</string>
+    <string name="update_message">"તંત્રમાં નવી સામગ્રી ઉપલબ્ધ છે. શું તમે હવે અપડેટ કરવા માંગો છો?  "</string>
+
+
+    <!--String resources for MMB-->
+    <string name="icon_select_exit_warning">તમારી પસંદગી ખોવાઈ જશે</string>
+    <string name="board_name">બોર્ડનું નામ અહીં ઉમેરો</string>
+    <string name="select_all">"બધા પસંદ કરો "</string>
+    <string name="reset">પૂનર્સ્થાપિત કરો</string>
+    <string name="select_icon_title">ચિન્હ પસંદ કરો</string>
+    <string name="add_category">વિભાગ ઉમેરો</string>
+    <string name="add_icon">ચિન્હ ઉમેરો</string>
+    <string name="addicon_title">ચિન્હ ઉમેરો/સંપાદિત કરો</string>
+    <string name="i_like">મને ગમે છે</string>
+    <string name="really_like">મને ખરેખર ગમે છે</string>
+    <string name="i_want">મને જોઈએ છે</string>
+    <string name="really_want">મને ખરેખર જોઈએ છે</string>
+    <string name="want_more">મને વધુ જોઈએ છે</string>
+    <string name="really_want_more">મને ખરેખર વધુ જોઈએ છે</string>
+    <string name="i_dont_like">"મને ગમતું નથી "</string>
+    <string name="really_dont_like">મને ખરેખર ગમતું નથી</string>
+    <string name="dont_want">મને નથી જોઈતું</string>
+    <string name="really_dont_want">મને ખરેખર નથી જોઈતું</string>
+    <string name="dont_want_more">મને વધુ નથી જોઈતું</string>
+    <string name="really_dont_want_more">મને ખરેખર વધુ નથી જોઈતું</string>
+    <string name="please_enter_name">કૃપા કરી નામ દાખલ કરો</string>
+    <string name="photos">ફોટો</string>
+    <string name="library">સંગ્રહ</string>
+    <string name="icon_name">ચિન્હનું નામ</string>
+    <string name="add_board">બોર્ડ્સ ઉમેરો</string>
+    <string name="custom_icon">વ્યક્તિગત ચિન્હ</string>
+    <string name="cancel">રદ્દ કરો (Cancel)</string>
+    <string name="database_not_created_info">ભાષા માટે માહિતી સંગઠીત કરી રહ્યા છે.</string>
+    <string name="icon_already_present">ચિહ્ન પહેલેથી જ પસંદ કરેલું છે</string>
+    <string name="camera_missing">કેમેરા મળ્યો નથી</string>
+    <string name="no_icon_warning">કૃપા કરીને આગળ વધવા માટે ઓછામાં ઓછું એક ચિહ્ન ઉમેરો</string>
+    <string name="reposition_text">કોઈ પણ ચિહ્ન  ફરીથી ગોઠવવા માટે તેને લાંબા સમય સુધી દબાવો</string>
+    <string name="reposition_complete_msg">ચિન્હનું નવું સ્થાન સાચવવામાં આવ્યું છે</string>
+    <string name="please_select_icon">કૃપા કરીને એક ચિત્ર પહેલા પસંદ કરો</string>
+    <string name="txtContinue">ચાલુ રાખો (Continue)</string>
+    <string name="expressive_heading1">"અભિવ્યક્તિ પસંદ કરવા માટે "</string>
+    <string name="icon_delete_warning">\"-\" ચિહ્ન કાઢી નાખવામાં આવશે ?</string>
+    <string name="board_not_found">બોર્ડ મળ્યું નહી</string>
+    <string name="setting_up_the_language">ભાષા સુયોજિત કરી રહ્યા છે, કૃપા કરીને રાહ જુઓ..</string>
+    <string name="completed_process">ભાષા સુયોજન પૂર્ણ</string>
+    <string name="unable_to_create_board">ભાષા સુયોજન પૂર્ણ.</string>
+
+    <string name="board">બોર્ડ્</string>
+
+    <!--Content Description-->
+    <string name="dialog">સંવાદ</string>
+    <string name="no_btn">ના (No)</string>
+    <string name="next_btn">આગળ (Next)</string>
+    <string name="my_boards">મારું બોર્ડ</string>
+    <string name="my_boards_title">જેલો એપ્લિકેશનનો ઉપયોગ કરીને, વપરાશકર્તા બોર્ડ બનાવી શકે છે. બોર્ડમાં ઘણાં વપરાશકર્તા નિર્ધારિત પ્રતીકો હોઈ શકે છે. વપરાશકર્તા તેમના બોર્ડમાં હાલના જેલોના સંગ્રહમાંથી ચિહ્ન પણ ઉમેરી શકે છે. \"મારા બોર્ડ્સ\" સ્ક્રીન ખોલવા માટે મુખ્ય સ્ક્રીન પર ગોળ વત્તા ચિહ્નને સ્પર્શ કરો. બોર્ડ ખોલવા માટે સૂચિમાંના ચિહ્નને સ્પર્શ કરો.</string>
+    <string name="my_boards_title_cd">પસંદ કરેલી છબી \"માય બોર્ડ\" સ્ક્રીન પ્રદર્શિત કરે છે. \"માય બોર્ડ\" સ્ક્રીન ખોલવા માટે, મુખ્ય સ્ક્રીન પર ગોળાકાર “વત્તા” ચિહ્નને સ્પર્શ કરો. છબીમાં વપરાશકર્તાની હાલની બોર્ડ સૂચિ અને \"વત્તા\" બટન શામેલ છે. નવું બોર્ડ બનાવવા માટે, \"વત્તા\" અથવા “બોર્ડ જોડો” ચિહ્નને સ્પર્શ કરો. બોર્ડ ખોલવા માટે સૂચિમાંના ચિહ્નને સ્પર્શ કરો.</string>
+    <string name="my_boards_info">" સ્ક્રીનના જમણી ટોચ પર \"સંપાદિત કરો\"  ચિહ્નને સ્પર્શ કરો.આ તમને બોર્ડની સુવિધાઓને સંપાદિત કરવા અને કાઢી નાખવા માટે સક્ષમ બનાવે છે"</string>
+    <string name="my_boards_info_cd">"પસંદ કરેલી છબી \"મારા બોર્ડ્સ\" સ્ક્રીનની બોર્ડ સંપાદન સુવિધાઓને બતાવે છે. સ્ક્રીનના જમણી ટોચ પર \"સંપાદિત કરો\" ચિહ્ને સ્પર્શ કરો. આ બોર્ડ માટે સુવિધાઓને સંપાદિત કરવા અને કાઢવા સક્ષમ કરે છે. જ્યારે સંપાદન સક્ષમ થાય છે, ત્યારે \"સંપાદન\" અને \"કાઢી નાંખો\" બટનો શોધવા માટે ચિહ્નોની સૂચિમાં જૂઓ "</string>
+    <string name="my_boards_add_board">નવું બોર્ડ બનાવવા માટે “બોર્ડ ઉમેરો” ચિહ્નને સ્પર્શ કરો. “બોર્ડ ઉમેરો” સ્ક્રીન પર, તમે કોઈ છબી પસંદ કરી શકો છો, બોર્ડનું નામ લખી શકો છો અને બોર્ડ માટે કોઈ ભાષા પસંદ કરી શકો છો.</string>
+    <string name="my_boards_add_board_cd">પસંદ કરેલી છબી \"બોર્ડ ઉમેરો\" સ્ક્રીન બતાવે છે. નવું બોર્ડ બનાવવા માટે “બોર્ડ ઉમેરો” ચિહ્નને સ્પર્શ કરો. તમે \"બોર્ડ માટે છબી પસંદ કરો\" બટનનો ઉપયોગ કરીને બોર્ડ માટે છબી પસંદ કરી શકો છો. તમે \"બોર્ડનું નામ અહીં ઉમેરો\" ખોખામાં બોર્ડ માટે નામ લખી શકો છો. જે ભાષામાં તમે બોર્ડ બનાવવા માંગો છો એ ભાષા “બોર્ડ માટે ભાષા પસંદ કરો\" આ નીચે ઊતરતા વિકલ્પનો ઉપયોગ કરીને પસંદ કરી શકો છો.</string>
+    <string name="my_boards_add_icons">\"ચિહ્નો ઉમેરો\" સ્ક્રીનમાં, તમે તમારા બોર્ડ પર જેલો સંગ્રહમાંથી ચિહ્નો ઉમેરી / પસંદ કરી શકો છો.જેલો  સંગ્રહમાં ચિહ્ન શોધવા માટે શોધ સુવિધા પણ ઉપલબ્ધ છે.</string>
+    <string name="my_boards_add_icons_cd">પસંદ કરેલી છબી \"ચિહ્નો ઉમેરો\" સ્ક્રીન દર્શાવે છે. જેલો સંગ્રહમાંથી તમારા બોર્ડમાં ચિહ્નો ઉમેરવા / પસંદ કરવા માટે સ્ક્રીનનો ઉપયોગ થાય છે. સ્ક્રીનમાં વર્ગ અને પેટાવર્ગ ચિહ્નોની સૂચિ શામેલ છે.  વિસ્તૃત કરી શકાય તેવી સૂચિ સ્ક્રીનની ડાબી બાજુએ ઉપલબ્ધ છે. આ સૂચિ તમને કોઈ વિશિષ્ટ વર્ગ અથવા પેટા-વર્ગ સૂચિમાં ચિહ્નોને પસંદ કરવામાં સહાય કરશે. તમે કોઈપણ ચિહ્ન માટે પણ શોધી શકો છો. શોધ  ચિહ્ન સ્ક્રીનની ઉપર જમણી બાજુએ મૂકવામાં આવ્યું છે.</string>
+    <string name="my_boards_add_edit_icons">\"ચિહ્ન ઉમેરો-સંપાદિત કરો” સ્ક્રીનમાં, તમે તમારા પોતાના નિર્ધારિત ચિહ્નને ઉમેરી શકો છો અને સૂચિમાં ચિહ્નોને સંપાદિત કરી અથવા કાઢી શકો છો. તમારું પોતાનું નિર્ધારિત ચિહ્ન બનાવવા માટે, સૂચિમાં \"ચિહ્ન ઉમેરો\" બટનને સ્પર્શ કરો.</string>
+    <string name="my_boards_add_edit_icons_cd">પસંદ કરેલી છબી \"ચિહ્ન ઉમેરો-સંપાદિત કરો” નો સ્ક્રીન દર્શાવે છે. તમારા પોતાના નિર્ધારિત ચિહ્નો ઉમેરવા માટે, ફેરફાર કરવા માટે અને સૂચિમાં વર્તમાન ચિહ્નો કાઢી નાખવા માટે પણ સ્ક્રીનનો ઉપયોગ થાય છે. વપરાશકર્તા નિર્ધારિત ચિહ્નો ઉમેરવા માટે સૂચિમાંના \"ચિહ્ન ઉમેરો\" બટનને સ્પર્શ કરો. સૂચિમાં ચિહ્નને સંપાદિત કરવા માટે, ચિહ્ન પરના “સંપાદિત કરો” બટનને સ્પર્શ કરો. ચિહ્નને કાઢી નાખવા માટે, ચિહ્ન પરનાં “કાઢી નાંખો” બટનને સ્પર્શ કરો. તમે વર્તમાન બોર્ડ માટે \"સ્ક્રીન દીઠ ચિહ્નોની સંખ્યા\" વ્યવસ્થા પણ સ્થાપિત કરી શકો છો. \"સ્ક્રીન દીઠ ચિહ્નોની સંખ્યા\" સૂચિનો ચિહ્ન, સ્ક્રીનના જમણા શીર્ષ પર સ્થિત છે.</string>
+    <string name="my_boards_add_icons_window">"\"ચિહ્ન ઉમેરો\" ખિડકીમાં તમે તમારા પોતાના વૈવિધ્યપૂર્ણ ચિહ્ન પર નામ અને છબી સ્થાપન કરી શકો છો. "</string>
+    <string name="my_boards_add_icons_window_cd">પસંદ કરેલી છબીમાં “ચિહ્ન ઉમેરો\" ખિડકી દર્શાવવામાં આવી છે. ખિડકીનો ઉપયોગ તમારા પોતાના નિર્ધારિત ચિહ્ન માટે નામ અને છબી વ્યવસ્થિત કરવા માટે થાય છે. તમે તમારા  ઉપકરણના કેમેરામાંથી અથવા જેલો સંગ્રહમાંથી છબી પસંદ કરી શકો છો.</string>
+    <string name="my_boards_add_edit_expression">"\"શબ્દકોશ ઉમેરો-સંપાદિત કરો” ખિડકીમાં ,તમે નિર્ધારિત ચિહ્નો માટે અર્થસભર બટનને સક્ષમ અથવા અક્ષમ કરી શકો છો. કોઈપણ અર્થસભર વાક્યને સક્ષમ કરવા માટે, ગોળાકાર લીલા વત્તા બટનને સ્પર્શ કરો અને પછી તેંમા, તેની સાથે સંકળાયેલ બંને અર્થસભર વાક્યો ઉમેરો. કોઈપણ અભિવ્યક્ત વાક્યોને અક્ષમ કરવા માટે પરિપત્ર લાલ બાદબાકી બટનને સ્પર્શ કરો. પછી \"સાચવો\" બટનને સ્પર્શ કરો. "</string>
+    <string name="my_boards_add_edit_expression_cd">પસંદ કરેલી છબી “શબ્દકોશ ઉમેરો-સંપાદિત કરો \" ખિડકી બતાવે છે. આ સ્ક્રીનનો ઉપયોગ નિર્ધારિત ચિહ્નો માટે અર્થસભર બટનોને સક્ષમ અથવા અક્ષમ કરવા કરી શકો છો. કોઈપણ અભિવ્યક્તિને સક્ષમ કરવા માટે, ગોળાકાર લીલા વત્તા બટનને સ્પર્શ કરો અને ત્યારબાદ તેની સાથે સંકળાયેલ બે અભિવ્યક્તિ રેખાઓ ઉમેરો. કોઈપણ અભિવ્યક્તિને અક્ષમ કરવા માટે, પરિપત્ર લાલ બાદબાકી બટનને સ્પર્શ કરો. પછી \"સાચવો\" બટનને સ્પર્શ કરો.</string>
+    <string name="my_boards_board_home_info">તમે તમારા નિર્ધારિત બોર્ડનો ઉપયોગ બોર્ડ હોમ સ્ક્રીન પર કરી શકો છો. તમે, વર્તમાન બોર્ડમાં ચિહ્ન શોધી શકો છો, વર્તમાન બોર્ડ માટે \"સ્ક્રીન દીઠ ચિહ્નોની સંખ્યા\" વ્યવસ્થા બદલી શકો છો અથવા વર્તમાન બોર્ડમાં ચિહ્નોની જગ્ગ્યા બદલી શકો છો. આ બટનો સ્ક્રીનની જમણી ટોચ પર ઉપલબ્ધ છે.</string>
+    <string name="my_boards_board_home_info_cd">પસંદ કરેલી છબી બોર્ડ્સ હોમ સ્ક્રીનને દર્શાવે છે. આ સ્ક્રીનમાં, તમે બનાવેલા બોર્ડનો ઉપયોગ કરી શકો છો. ઉપરાંત, તમે વર્તમાન બોર્ડમાં ચિહ્ન શોધી શકો છો, વર્તમાન બોર્ડ માટે \"સ્ક્રીન દીઠ ચિહ્નોની સંખ્યા\" ગોઠવણી બદલી શકો છો અથવા વર્તમાન બોર્ડમાં ચિહ્નો સ્થાવી શકો છો. આ બટનો સ્ક્રીનની જમણી ટોચ પર ઉપલબ્ધ છે.</string>
+    <string name="place_holder_no_icons_added">બોર્ડમાં કોઈ ચિહ્ન નથી</string>
+    <string name="acc_lang_eng_ng">અંગ્રેજી (નિગેરીએ)</string>
+    <string name="acc_lang_bengali_bd">બંગાલી (બાંગ્લાદેશ)</string>
+    <string name="acc_lang_telugu_in">તેલુગુ  (ભારત)</string>
+    <string name="expressive_heading3">"અભિવ્યક્તિ પસંદ કરવા માટે "</string>
+</resources>
