@@ -109,7 +109,6 @@ public class MainActivity extends LevelBaseActivity{
         setContentView(R.layout.activity_levelx_layout);
         setupActionBarTitle(View.GONE, getString(R.string.action_bar_title));
         setNavigationUiConditionally();
-        adjustTopMarginForNavigationUi();
         mUec = new UserEventCollector();
         loadArraysFromResources();
         // Set the capacity of mRecyclerItemsViewList list to total number of category icons to be

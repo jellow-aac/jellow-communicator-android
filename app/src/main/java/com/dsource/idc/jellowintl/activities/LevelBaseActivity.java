@@ -2,14 +2,11 @@ package com.dsource.idc.jellowintl.activities;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.FrameLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,6 +16,9 @@ import com.dsource.idc.jellowintl.R;
 import com.dsource.idc.jellowintl.utility.SessionManager;
 import com.dsource.idc.jellowintl.utility.TextToSpeechErrorUtils;
 import com.dsource.idc.jellowintl.utility.interfaces.TextToSpeechCallBacks;
+
+import static com.dsource.idc.jellowintl.models.GlobalConstants.SCREEN_SIZE_SEVEN_INCH_TAB;
+import static com.dsource.idc.jellowintl.models.GlobalConstants.SCREEN_SIZE_TEN_INCH_TAB;
 
 public class LevelBaseActivity extends SpeechEngineBaseActivity implements TextToSpeechCallBacks {
     private String mErrorMessage, mDialogTitle, mLanguageSetting, mSwitchLang;
@@ -46,13 +46,13 @@ public class LevelBaseActivity extends SpeechEngineBaseActivity implements TextT
         initiateSpeechEngineWithLanguage(getSession().getAppVoice().split(",")[0]);
     }
 
-    public void adjustTopMarginForNavigationUi() {
+    /*public void adjustTopMarginForNavigationUi() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P && isNotchDevice()) {
             RelativeLayout rl = findViewById(R.id.parent);
             FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) rl.getLayoutParams();
-            lp.topMargin = 72;
+            //lp.topMargin = 72;
         }
-    }
+    }*/
 
     public void speakAndShowTextBar_(String text){
         speak(text);
@@ -71,7 +71,17 @@ public class LevelBaseActivity extends SpeechEngineBaseActivity implements TextT
                         textView.setText(txt);
                         toast = new Toast(getApplicationContext());
                         toast.setDuration(Toast.LENGTH_SHORT);
-                        toast.setGravity(Gravity.BOTTOM, 0, 2);
+                        int yOff;
+                        switch (getScreenSize()){
+                            case SCREEN_SIZE_SEVEN_INCH_TAB:
+                            case SCREEN_SIZE_TEN_INCH_TAB:
+                                yOff  = 62;
+                                break;
+                            default:
+                                yOff  = 2;
+                                break;
+                        }
+                        toast.setGravity(Gravity.BOTTOM, 0, yOff);
                         toast.setView(layout);
 
                         timer = new CountDownTimer(5000, 75) {

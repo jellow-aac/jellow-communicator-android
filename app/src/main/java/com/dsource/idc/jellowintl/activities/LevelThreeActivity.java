@@ -104,7 +104,6 @@ public class LevelThreeActivity extends LevelBaseActivity{
         txtKeyboard = getString(R.string.keyboard);
         setupActionBarTitle(View.GONE, txtActionBarTitle);
         setNavigationUiConditionally();
-        adjustTopMarginForNavigationUi();
 
         // when layout is loaded on activity, using the tag attribute of a parent view in layout
         // the device size is identified. If device size is large (10' tablets) enable the

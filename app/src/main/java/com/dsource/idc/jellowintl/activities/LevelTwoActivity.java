@@ -120,7 +120,6 @@ public class LevelTwoActivity extends LevelBaseActivity{
         txtActionBarTitle = getIntent().getExtras().getString(getString(R.string.intent_menu_path_tag));
         setupActionBarTitle(View.GONE, txtActionBarTitle);
         setNavigationUiConditionally();
-        adjustTopMarginForNavigationUi();
         // when layout is loaded on activity, using the tag attribute of a parent view in layout
         // the device size is identified. If device size is large (10' tablets) enable the
         // hardware acceleration. As seen in testing device, scrolling recycler items on 10' tab

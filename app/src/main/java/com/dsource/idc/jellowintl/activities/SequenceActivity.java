@@ -103,7 +103,6 @@ public class SequenceActivity extends LevelBaseActivity{
         txtKeyboard = getString(R.string.keyboard);
         setupActionBarTitle(View.GONE, txtActionBarTitle);
         setNavigationUiConditionally();
-        adjustTopMarginForNavigationUi();
 
         mUec = new UserEventCollector();
         /*get position of category icon selected in level two*/

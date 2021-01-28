@@ -61,4 +61,10 @@ public class GlobalConstants {
     public static final int STATUS_SUCCESS = 0;
 
     public static final int STATUS_FAILED = 1;
+
+    public static final int SCREEN_SIZE_PHONE = 0;
+
+    public static final int SCREEN_SIZE_SEVEN_INCH_TAB = 1;
+
+    public static final int SCREEN_SIZE_TEN_INCH_TAB = 2;
 }

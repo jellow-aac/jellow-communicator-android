@@ -6,9 +6,9 @@ import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.telephony.TelephonyManager;
+import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -36,6 +36,9 @@ import com.dsource.idc.jellowintl.utility.LanguageHelper;
 import com.dsource.idc.jellowintl.utility.SessionManager;
 
 import static com.dsource.idc.jellowintl.make_my_board_module.utility.BoardConstants.GRID_SIZE;
+import static com.dsource.idc.jellowintl.models.GlobalConstants.SCREEN_SIZE_PHONE;
+import static com.dsource.idc.jellowintl.models.GlobalConstants.SCREEN_SIZE_SEVEN_INCH_TAB;
+import static com.dsource.idc.jellowintl.models.GlobalConstants.SCREEN_SIZE_TEN_INCH_TAB;
 import static com.dsource.idc.jellowintl.utility.Analytics.setCrashlyticsCustomKey;
 import static com.dsource.idc.jellowintl.utility.Analytics.setUserProperty;
 
@@ -269,6 +272,26 @@ public class BaseActivity extends AppCompatActivity{
         return (aspectRatio >= 2.0 && aspectRatio <= 2.15);
     }
 
+    public int getScreenSize(){
+        DisplayMetrics metrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(metrics);
+        int widthPixels = metrics.widthPixels;
+        int heightPixels = metrics.heightPixels;
+        float scaleFactor = metrics.density;
+        float widthDp = widthPixels / scaleFactor;
+        float heightDp = heightPixels / scaleFactor;
+        float smallestWidth = Math.min(widthDp, heightDp);
+
+        if (smallestWidth > 720) {
+            //Device is a 10" tablet
+            return SCREEN_SIZE_TEN_INCH_TAB;
+        }else if (smallestWidth > 600) {
+            //Device is a 7" tablet
+            return SCREEN_SIZE_SEVEN_INCH_TAB;
+        }else
+            return SCREEN_SIZE_PHONE;
+    }
+
 
     public void setupActionBarTitle(String title) {
         ((TextView) findViewById(R.id.tvActionbarTitle)).setText(title);
@@ -291,12 +314,13 @@ public class BaseActivity extends AppCompatActivity{
     }
 
     public void setNavigationUiConditionally() {
-        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.O_MR1 && isNotchDevice()) {
+        int resourceId = getResources().getIdentifier("config_navBarInteractionMode", "integer", "android");
+        if(getResources().getInteger(resourceId) == 2){
             View view = findViewById(R.id.parent);
             view.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION);
             FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) view.getLayoutParams();
             lp.topMargin = 68;
-            getWindow().setNavigationBarColor(getColor(R.color.transparent));
+            getWindow().setNavigationBarColor(getResources().getColor(R.color.transparent));
         }else{
             getWindow().setNavigationBarColor(getResources().getColor(R.color.navigation_bar_color));
         }
@@ -308,8 +332,12 @@ public class BaseActivity extends AppCompatActivity{
     }
 
     public void openPrivacyPolicyPage(View view){
-        startActivity(new Intent("android.intent.action.VIEW",
+        try{
+         startActivity(new Intent("android.intent.action.VIEW",
                 Uri.parse(getString(R.string.privacy_link))));
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     /**

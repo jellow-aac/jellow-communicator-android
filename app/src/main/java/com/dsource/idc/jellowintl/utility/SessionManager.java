@@ -30,6 +30,7 @@ public class SessionManager {
     public final static String ES_ES = "es-rES";
     public final static String TA_IN = "ta-rIN";
     public final static String TE_IN = "te-rIN";
+    public final static String GU_IN = "gu-rIN";
     public final static String DE_DE = "de-rDE";
     public final static String FR_FR = "fr-rFR";
     public static final String UNIVERSAL_PACKAGE = "universal";
@@ -51,6 +52,7 @@ public class SessionManager {
             put("தமிழ் (Tamil)", TA_IN);
             put("বাংলা (Bangladesh)", BN_BD);
             put("తెలుగు (Telugu)", TE_IN);
+            put("ગુજરાતી (Gujarati)", GU_IN);
         }
     };
 
@@ -70,6 +72,7 @@ public class SessionManager {
             put(TA_IN, "தமிழ் (Tamil)");
             put(BN_BD, "বাংলা (Bangladesh)");
             put(TE_IN, "తెలుగు (Telugu)");
+            put(GU_IN, "ગુજરાતી (Gujarati)");
         }
     };
 
