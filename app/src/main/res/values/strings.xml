@@ -530,5 +530,5 @@
     <string name="board_place_holder_text">You have not added any board yet.</string>
     <string name="change_language_voice">Select the accent (voice) for the language:</string>
     <string name="update_the_package">Update language package to enable the selected language.</string>
-    <string name="voice_warning">If voice(s) of the selected languages are not available under the voice drop down or show null, then download and install the voice data for languages by choosing options in the settings of device.</string>
+    <string name="voice_warning">If voices(s) of the selected language(s) are not available or showing null under the voice drop down, then update the Google text to speech app from the Google Play Store and install voice data for the language(s) on your device.</string>
 </resources>
