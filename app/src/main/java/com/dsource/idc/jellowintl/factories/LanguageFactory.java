@@ -26,10 +26,11 @@ public class LanguageFactory {
     /**
      * This function returns the Language Code of the given language.
      * @param langCode
-     * @return Language code (01- English (India), 02- English (US), 03 – English (UK), 04-
-     * Hindi, 05- Marathi, 06- Bengali, 07- English (AU), 08- Spanish, 09- Tamil, 10- German,
+     * @return Language codes (01- English (India), 02- English (US), 03- English (UK), 04- Hindi,
+     * 05- Marathi, 06- Bengali (India), 07- English (AU), 08- Spanish, 09- Tamil, 10- German,
      * 11- English (South Africa), 12- French, 13- Telugu (India), 14- Gujarati (India),
-     * 15- Kannada (India), 16- Bengali (Bangladesh), 17- English (Nigeria))
+     * 15- Kannada (India), 16- Bengali (Bangladesh), 17- English (Nigeria), 18- Punjabi (India)),
+     * 19- Khasi (India)
      ***/
     public static String getLanguageCode(String langCode){
         switch (langCode){
@@ -59,11 +60,15 @@ public class LanguageFactory {
             case SessionManager.TE_IN:
                 return  "13";
             case SessionManager.GU_IN:
-                return  "18";
+                return  "14";
             case SessionManager.BN_BD:
                 return  "16";
             case SessionManager.ENG_NG:
                 return  "17";
+            case SessionManager.PA_IN:
+                return  "18";
+            case SessionManager.KHA_IN:
+                return  "19";
             default:
                 return null;
         }

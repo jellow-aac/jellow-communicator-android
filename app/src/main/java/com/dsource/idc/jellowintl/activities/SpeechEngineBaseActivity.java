@@ -35,7 +35,9 @@ import static com.dsource.idc.jellowintl.utility.SessionManager.ES_ES;
 import static com.dsource.idc.jellowintl.utility.SessionManager.FR_FR;
 import static com.dsource.idc.jellowintl.utility.SessionManager.GU_IN;
 import static com.dsource.idc.jellowintl.utility.SessionManager.HI_IN;
+import static com.dsource.idc.jellowintl.utility.SessionManager.KHA_IN;
 import static com.dsource.idc.jellowintl.utility.SessionManager.MR_IN;
+import static com.dsource.idc.jellowintl.utility.SessionManager.PA_IN;
 import static com.dsource.idc.jellowintl.utility.SessionManager.TA_IN;
 import static com.dsource.idc.jellowintl.utility.SessionManager.TE_IN;
 
@@ -55,7 +57,7 @@ public class SpeechEngineBaseActivity extends BaseActivity{
         map.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, getPackageName());
     }
 
-    private void setupSpeechEngine(final String voice) {
+    private void setupSpeechEngine(final String voice, String language) {
         sTts = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
             @Override
             public void onInit(int status) {
@@ -69,15 +71,15 @@ public class SpeechEngineBaseActivity extends BaseActivity{
                         return;
 
                     sTts.setVoice(getVoiceObject(voice));
-                    sTts.setSpeechRate(getTTsSpeedForLanguage(voice));
-                    sTts.setPitch(getTTsPitchForLanguage(voice));
+                    sTts.setSpeechRate(getTTsSpeedForLanguage(language));
+                    sTts.setPitch(getTTsPitchForLanguage(language));
                     if (voice.endsWith(MR_IN))
                         createUserProfileRecordingsUsingTTS();
                 } catch (Exception e) {
                     FirebaseCrashlytics.getInstance().recordException(e);
                 }
             }
-        }, getTTsEngineNameForLanguage(voice));
+        }, getTTsEngineNameForLanguage(language));
 
         sTts.setOnUtteranceProgressListener(new UtteranceProgressListener() {
             @Override public void onStart(String utteranceId) {}
@@ -120,6 +122,8 @@ public class SpeechEngineBaseActivity extends BaseActivity{
             case BN_BD:
             case TE_IN:
             case GU_IN:
+            case PA_IN:
+            case KHA_IN:
             default:
                 return (float) getSession().getPitch()/50;
         }
@@ -143,6 +147,8 @@ public class SpeechEngineBaseActivity extends BaseActivity{
             case BN_BD:
             case TE_IN:
             case GU_IN:
+            case PA_IN:
+            case KHA_IN:
             default:
                 return (float) (getSession().getSpeed()/50);
         }
@@ -150,6 +156,8 @@ public class SpeechEngineBaseActivity extends BaseActivity{
 
     private String getTTsEngineNameForLanguage(String language) {
         switch(language){
+            case PA_IN:
+                return  "org.hear2read.Punjabi";
             case ENG_UK:
             case ENG_US:
             case ENG_AU:
@@ -166,6 +174,7 @@ public class SpeechEngineBaseActivity extends BaseActivity{
             case BN_BD:
             case TE_IN:
             case GU_IN:
+            case KHA_IN:
             default:
                 return "com.google.android.tts";
         }
@@ -177,6 +186,8 @@ public class SpeechEngineBaseActivity extends BaseActivity{
     }
 
     private Voice getVoiceObject(String voice){
+        if(voice.equals(PA_IN))
+            voice = "pan-IND";
         for (Voice v : sTts.getVoices()) {
             if (v.getName().equals(voice)){
                 return v;
@@ -186,6 +197,8 @@ public class SpeechEngineBaseActivity extends BaseActivity{
     }
 
     public static String getAvailableVoicesForLanguage(String lang){
+        if(lang.equals(KHA_IN))
+            lang=BN_IN;
         lang = lang.replace("-r","-").toLowerCase();
         StringBuilder csvVoices = new StringBuilder();
         for (String voice : voiceGender.keySet()) {
@@ -388,16 +401,19 @@ public class SpeechEngineBaseActivity extends BaseActivity{
     }
 
     public void initiateSpeechEngineWithLanguage(String voice){
-        if(voice == null || voice.isEmpty()){
+        if(getSession().getLanguage().equals(PA_IN)){
+            voice = PA_IN;
+        } else if(voice == null || voice.isEmpty()){
            voice = getAvailableVoicesForLanguage(getSession().getLanguage()).split(",")[0];
         }
-        setupSpeechEngine(voice);
+
+        setupSpeechEngine(voice, getSession().getLanguage());
     }
 
     static HashMap<String, String> voiceGender = new HashMap<String, String>(){
         {
             put("bn-bd-x-ban-local"," (M)");
-            put("bn-in-x-bin-local"," (F)");
+            put("bn-in-x-bin-local"," (M)");
             put("bn-in-x-bnf-local"," (F)");
             put("bn-in-x-bnm-local"," (M)");
             put("de-de-x-deb-local"," (M)");

@@ -10,23 +10,6 @@ import android.view.inputmethod.InputConnection;
 
 import com.dsource.idc.jellowintl.R;
 
-import static com.dsource.idc.jellowintl.utility.SessionManager.BE_IN;
-import static com.dsource.idc.jellowintl.utility.SessionManager.BN_BD;
-import static com.dsource.idc.jellowintl.utility.SessionManager.BN_IN;
-import static com.dsource.idc.jellowintl.utility.SessionManager.DE_DE;
-import static com.dsource.idc.jellowintl.utility.SessionManager.ENG_AU;
-import static com.dsource.idc.jellowintl.utility.SessionManager.ENG_IN;
-import static com.dsource.idc.jellowintl.utility.SessionManager.ENG_NG;
-import static com.dsource.idc.jellowintl.utility.SessionManager.ENG_UK;
-import static com.dsource.idc.jellowintl.utility.SessionManager.ENG_US;
-import static com.dsource.idc.jellowintl.utility.SessionManager.ES_ES;
-import static com.dsource.idc.jellowintl.utility.SessionManager.FR_FR;
-import static com.dsource.idc.jellowintl.utility.SessionManager.GU_IN;
-import static com.dsource.idc.jellowintl.utility.SessionManager.HI_IN;
-import static com.dsource.idc.jellowintl.utility.SessionManager.MR_IN;
-import static com.dsource.idc.jellowintl.utility.SessionManager.TA_IN;
-import static com.dsource.idc.jellowintl.utility.SessionManager.TE_IN;
-
 /**
  * Created by ekalpa on 11/22/2016.
  */
@@ -74,26 +57,28 @@ public class SimpleIME extends InputMethodService
         keyBengaliNumeric = new Keyboard(this, R.xml.serial_bengali_numeric);
 
         switch (new SessionManager(this).getLanguage()){
-            case HI_IN:
+            case SessionManager.HI_IN:
                 kv.setKeyboard(keyHindiConsonants);
                 break;
-            case BN_IN:
-            case BE_IN:
-            case BN_BD:
+            case SessionManager.BN_IN:
+            case SessionManager.BE_IN:
+            case SessionManager.BN_BD:
                 kv.setKeyboard(keyBengaliConsonants);
                 break;
-            case ENG_US:
-            case ENG_UK:
-            case ENG_AU:
-            case ENG_IN:
-            case ENG_NG:
-            case MR_IN:
-            case TA_IN:
-            case ES_ES:
-            case DE_DE:
-            case FR_FR:
-            case TE_IN:
-            case GU_IN:
+            case SessionManager.ENG_US:
+            case SessionManager.ENG_UK:
+            case SessionManager.ENG_AU:
+            case SessionManager.ENG_IN:
+            case SessionManager.ENG_NG:
+            case SessionManager.MR_IN:
+            case SessionManager.TA_IN:
+            case SessionManager.ES_ES:
+            case SessionManager.DE_DE:
+            case SessionManager.FR_FR:
+            case SessionManager.TE_IN:
+            case SessionManager.GU_IN:
+            case SessionManager.PA_IN:
+            case SessionManager.KHA_IN:
             default:
                 kv.setKeyboard(keyEnglishAlphabetSmallLetters);
                 break;

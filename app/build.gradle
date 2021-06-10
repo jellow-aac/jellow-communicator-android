@@ -84,8 +84,8 @@ dependencies {
         transitive = true
     }
 
-    implementation 'androidx.room:room-runtime:2.2.2'
-    annotationProcessor 'android.arch.persistence.room:compiler:2.1.0-beta01'
+    implementation 'androidx.room:room-runtime:2.3.0'
+    annotationProcessor "androidx.room:room-compiler:2.3.0"
 
     // Optional -- JUnit test framework
     androidTestImplementation 'junit:junit:4.13'

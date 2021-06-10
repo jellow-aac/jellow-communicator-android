@@ -314,15 +314,19 @@ public class BaseActivity extends AppCompatActivity{
     }
 
     public void setNavigationUiConditionally() {
-        int resourceId = getResources().getIdentifier("config_navBarInteractionMode", "integer", "android");
-        if(getResources().getInteger(resourceId) == 2){
-            View view = findViewById(R.id.parent);
-            view.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION);
-            FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) view.getLayoutParams();
-            lp.topMargin = 68;
-            getWindow().setNavigationBarColor(getResources().getColor(R.color.transparent));
-        }else{
-            getWindow().setNavigationBarColor(getResources().getColor(R.color.navigation_bar_color));
+        try {
+            int resourceId = getResources().getIdentifier("config_navBarInteractionMode", "integer", "android");
+            if (getResources().getInteger(resourceId) == 2) {
+                View view = findViewById(R.id.parent);
+                view.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION);
+                FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) view.getLayoutParams();
+                lp.topMargin = 68;
+                getWindow().setNavigationBarColor(getResources().getColor(R.color.transparent));
+            } else {
+                getWindow().setNavigationBarColor(getResources().getColor(R.color.navigation_bar_color));
+            }
+        }catch(Exception e){
+            e.printStackTrace();
         }
     }
 
