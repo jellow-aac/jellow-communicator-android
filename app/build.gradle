@@ -1,12 +1,13 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion 30
 
     defaultConfig {
         applicationId "com.dsource.idc.jellowintl"
         minSdkVersion 21
-        targetSdkVersion 29
+        targetSdkVersion 30
         versionCode 80
         versionName "3.1.0"
         multiDexEnabled true
@@ -54,6 +55,7 @@ dependencies {
     implementation 'com.google.android.material:material:1.0.0'
     /*----*/
 
+    implementation "androidx.constraintlayout:constraintlayout:2.1.0"
     implementation 'com.google.android.play:core:1.9.0'
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
     implementation 'androidx.legacy:legacy-support-core-utils:1.0.0'
@@ -83,6 +85,7 @@ dependencies {
     implementation('com.h6ah4i.android.widget.advrecyclerview:advrecyclerview:0.11.0@aar') {
         transitive = true
     }
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.23'
 
     implementation 'androidx.room:room-runtime:2.3.0'
     annotationProcessor "androidx.room:room-compiler:2.3.0"
@@ -106,6 +109,8 @@ dependencies {
     testImplementation "org.robolectric:shadows-multidex:4.0.1"
     androidTestImplementation 'org.mockito:mockito-android:2.7.22'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    implementation "androidx.core:core-ktx:+"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
 
 apply plugin: 'com.google.gms.google-services'
@@ -141,4 +146,7 @@ task jacocoUnifiedUnitInstrumentationTestReport(type: JacocoReport, dependsOn: [
     getSourceDirectories().setFrom([mainSrc])
     getClassDirectories().setFrom([debugTree])
     getExecutionData().setFrom([execDataTree])
+}
+repositories {
+    mavenCentral()
 }

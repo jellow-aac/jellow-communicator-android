@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/animFish"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:layout_marginEnd="@dimen/margin_fish_end"
+        android:layout_marginBottom="@dimen/margin_fish_bottom"
+        android:layout_gravity="bottom|center_horizontal"
+        android:contentDescription="animation" />
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/animDolphin"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:layout_marginBottom="@dimen/margin_dolphin_bottom"
+        android:layout_gravity="bottom|center_horizontal"
+        android:contentDescription="animation" />
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/animWhale"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:layout_marginBottom="@dimen/margin_whale_bottom"
+        android:layout_gravity="bottom|center_horizontal"
+        android:contentDescription="animation" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

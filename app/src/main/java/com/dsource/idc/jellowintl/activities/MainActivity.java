@@ -1,5 +1,13 @@
 package com.dsource.idc.jellowintl.activities;
 
+import static com.dsource.idc.jellowintl.utility.Analytics.bundleEvent;
+import static com.dsource.idc.jellowintl.utility.Analytics.isAnalyticsActive;
+import static com.dsource.idc.jellowintl.utility.Analytics.resetAnalytics;
+import static com.dsource.idc.jellowintl.utility.Analytics.singleEvent;
+import static com.dsource.idc.jellowintl.utility.Analytics.startMeasuring;
+import static com.dsource.idc.jellowintl.utility.Analytics.stopMeasuring;
+import static com.dsource.idc.jellowintl.utility.Analytics.validatePushId;
+
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -48,14 +56,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
-
-import static com.dsource.idc.jellowintl.utility.Analytics.bundleEvent;
-import static com.dsource.idc.jellowintl.utility.Analytics.isAnalyticsActive;
-import static com.dsource.idc.jellowintl.utility.Analytics.resetAnalytics;
-import static com.dsource.idc.jellowintl.utility.Analytics.singleEvent;
-import static com.dsource.idc.jellowintl.utility.Analytics.startMeasuring;
-import static com.dsource.idc.jellowintl.utility.Analytics.stopMeasuring;
-import static com.dsource.idc.jellowintl.utility.Analytics.validatePushId;
 
 public class MainActivity extends LevelBaseActivity{
     private final int REQ_HOME = 0;
@@ -164,13 +164,10 @@ public class MainActivity extends LevelBaseActivity{
             scrollListener = getListener(iconIndex);
             mRecyclerView.addOnScrollListener(scrollListener);
             mRecyclerView.getLayoutManager().smoothScrollToPosition(mRecyclerView,null,iconIndex);
-
         }
-        else
-            {
+        else{
             setSearchHighlight(iconIndex);
-            }
-
+        }
     }
 
     /**
@@ -898,6 +895,7 @@ public class MainActivity extends LevelBaseActivity{
                 intent.putExtra(getString(R.string.intent_menu_path_tag), title + "/");
                 startActivityForResult(intent, REQ_HOME);
             }else {
+                animateIfEnabled();
                 if (!mSearched)
                     speakAndShowTextBar_(level1IconObjects[position].getSpeech_Label());
                 else

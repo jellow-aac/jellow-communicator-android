@@ -1,5 +1,13 @@
 package com.dsource.idc.jellowintl.activities;
 
+import static com.dsource.idc.jellowintl.factories.IconFactory.getIconCode;
+import static com.dsource.idc.jellowintl.utility.Analytics.isAnalyticsActive;
+import static com.dsource.idc.jellowintl.utility.Analytics.resetAnalytics;
+import static com.dsource.idc.jellowintl.utility.Analytics.singleEvent;
+import static com.dsource.idc.jellowintl.utility.Analytics.startMeasuring;
+import static com.dsource.idc.jellowintl.utility.Analytics.stopMeasuring;
+import static com.dsource.idc.jellowintl.utility.Analytics.validatePushId;
+
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
@@ -41,14 +49,6 @@ import com.dsource.idc.jellowintl.utility.UserEventCollector;
 
 import java.util.ArrayList;
 import java.util.StringTokenizer;
-
-import static com.dsource.idc.jellowintl.factories.IconFactory.getIconCode;
-import static com.dsource.idc.jellowintl.utility.Analytics.isAnalyticsActive;
-import static com.dsource.idc.jellowintl.utility.Analytics.resetAnalytics;
-import static com.dsource.idc.jellowintl.utility.Analytics.singleEvent;
-import static com.dsource.idc.jellowintl.utility.Analytics.startMeasuring;
-import static com.dsource.idc.jellowintl.utility.Analytics.stopMeasuring;
-import static com.dsource.idc.jellowintl.utility.Analytics.validatePushId;
 
 public class LevelThreeActivity extends LevelBaseActivity{
 
@@ -1103,6 +1103,7 @@ public class LevelThreeActivity extends LevelBaseActivity{
             showAccessibleDialog(view);
             view.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
         }else {
+            animateIfEnabled();
             // Below categories which does not have preferences enabled, their speech text directly
             // retained from speech array otherwise speech text is retained using preference sort array
             // and then text is sent to synthesis.

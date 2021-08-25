@@ -462,4 +462,6 @@
     <string name="board_delete">బోర్డు తొలగించు</string>
     <string name="change_language_voice">భాష కోసం యాస (వాయిస్) ఎంచుకోండి:</string>
     <string name="update_the_package">ఎంచుకున్న భాషను ప్రారంభించడానికి భాషా ప్యాకేజీని నవీకరించండి.</string>
+    <string name="enableFishAnimation">Turn on fish animation</string>
+    <string name="enableIconAddition">Show \"Add icon\" button</string>
 </resources>

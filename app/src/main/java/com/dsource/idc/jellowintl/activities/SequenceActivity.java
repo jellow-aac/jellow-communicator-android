@@ -1,5 +1,14 @@
 package com.dsource.idc.jellowintl.activities;
 
+import static com.dsource.idc.jellowintl.factories.IconFactory.EXTENSION;
+import static com.dsource.idc.jellowintl.factories.PathFactory.getIconPath;
+import static com.dsource.idc.jellowintl.utility.Analytics.isAnalyticsActive;
+import static com.dsource.idc.jellowintl.utility.Analytics.resetAnalytics;
+import static com.dsource.idc.jellowintl.utility.Analytics.singleEvent;
+import static com.dsource.idc.jellowintl.utility.Analytics.startMeasuring;
+import static com.dsource.idc.jellowintl.utility.Analytics.stopMeasuring;
+import static com.dsource.idc.jellowintl.utility.Analytics.validatePushId;
+
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -43,15 +52,6 @@ import com.dsource.idc.jellowintl.utility.GlideApp;
 import com.dsource.idc.jellowintl.utility.LevelUiUtils;
 import com.dsource.idc.jellowintl.utility.UserEventCollector;
 import com.google.firebase.crashlytics.FirebaseCrashlytics;
-
-import static com.dsource.idc.jellowintl.factories.IconFactory.EXTENSION;
-import static com.dsource.idc.jellowintl.factories.PathFactory.getIconPath;
-import static com.dsource.idc.jellowintl.utility.Analytics.isAnalyticsActive;
-import static com.dsource.idc.jellowintl.utility.Analytics.resetAnalytics;
-import static com.dsource.idc.jellowintl.utility.Analytics.singleEvent;
-import static com.dsource.idc.jellowintl.utility.Analytics.startMeasuring;
-import static com.dsource.idc.jellowintl.utility.Analytics.stopMeasuring;
-import static com.dsource.idc.jellowintl.utility.Analytics.validatePushId;
 
 
 /**
@@ -482,6 +482,7 @@ public class SequenceActivity extends LevelBaseActivity{
                     // buttons are hidden).
                     hideExpressiveBtn(count + mFlgHideExpBtn == seqIconObjects.length);
                     if (!isAccessibilityTalkBackOn((AccessibilityManager) getSystemService(ACCESSIBILITY_SERVICE))) {
+                        animateIfEnabled();
                         speakAndShowTextBar_(seqIconObjects[count].getSpeech_Label());
                         mUec.createSendFbEventFromTappedView(12, "VisibleExpr " +
                                 seqIconObjects[count].getDisplay_Label()
@@ -541,6 +542,7 @@ public class SequenceActivity extends LevelBaseActivity{
                     // buttons are hidden).
                     hideExpressiveBtn(count + mFlgHideExpBtn == seqIconObjects.length);
                     if (!isAccessibilityTalkBackOn((AccessibilityManager) getSystemService(ACCESSIBILITY_SERVICE))) {
+                        animateIfEnabled();
                         speakAndShowTextBar_(seqIconObjects[count+1].getSpeech_Label());
                         mUec.createSendFbEventFromTappedView(12, "VisibleExpr " +
                                 seqIconObjects[count+1].getDisplay_Label()
@@ -600,6 +602,7 @@ public class SequenceActivity extends LevelBaseActivity{
                     // buttons are hidden).
                     hideExpressiveBtn(count + mFlgHideExpBtn == seqIconObjects.length);
                     if (!isAccessibilityTalkBackOn((AccessibilityManager) getSystemService(ACCESSIBILITY_SERVICE))) {
+                        animateIfEnabled();
                         speakAndShowTextBar_(seqIconObjects[count+2].getSpeech_Label());
                         mUec.createSendFbEventFromTappedView(12, "VisibleExpr " +
                                 seqIconObjects[count+2].getDisplay_Label(),

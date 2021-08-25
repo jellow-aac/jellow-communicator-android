@@ -20,6 +20,14 @@
         <item name="android:height">30dp</item>
     </style>
 
+    <style name="animActivityTheme" parent="Theme.AppCompat.Translucent">
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:activityCloseEnterAnimation">@null</item>
+        <item name="android:activityCloseExitAnimation">@null</item>
+        <item name="android:activityOpenEnterAnimation">@null</item>
+        <item name="android:activityOpenExitAnimation">@null</item>
+    </style>
+
 
     <style name="spinnerDropDownItemStyle">
         <item name="android:padding">8dp</item>

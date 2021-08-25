@@ -460,4 +460,6 @@
     <string name="board_delete">Eliminar tablero</string>
     <string name="change_language_voice">Seleccione el acento (voz) del idioma:</string>
     <string name="update_the_package">Actualice el paquete de idiomas para habilitar el idioma seleccionado.</string>
+    <string name="enableFishAnimation">Turn on fish animation</string>
+    <string name="enableIconAddition">Show \"Add icon\" button</string>
 </resources>

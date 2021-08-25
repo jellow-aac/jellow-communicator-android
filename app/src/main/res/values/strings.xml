@@ -113,7 +113,7 @@
     <string name="clearPictures">Clear Pictures</string>
     <string name="clearVoice">Clear Voice</string>
     <string name="easyToNavigate">Easy to Navigate</string>
-    <string name="commentSuggestions">Comments and Suggestions</string>
+    <string name="commentSuggestions">Comments, Suggestions or Request for support</string>
     <string name="submit">SUBMIT</string>
     <string name="serial_keyboard_title">Serial Keyboard:</string>
     <string name="serial_keyboard_info">Jellow communicator is equipped with its own \'Serial Jellow keyboard\'. This keyboard was designed based on feedback from special educators and teachers and features alphabets placed in a serial manner starting form the alphabet \'A\'. The serial keyboard makes it easy for the user to anticipate the place of a particular alphabet on the keyboard and is especially very useful for children learning early literacy skills. Similarly, the keyboard also features numeral keys from 0–9 and symbols, which are most relevant to every day communication.</string>
@@ -182,6 +182,8 @@
     <string name="string_msg" translatable="false">com.dsource.idc.jellow.string_message</string>
     <string name="last_crash_reported" translatable="false">com.dsource.idc.jellow.last_crash_reported</string>
     <string name="text_bar_visibility" translatable="false">com.dsource.idc.jellow.text_bar_visibility</string>
+    <string name="enable_fish_animation" translatable="false">com.dsource.idc.jellow.fish_animation</string>
+    <string name="enable_icon_add" translatable="false">com.dsource.idc.jellow.basic_icon_add</string>
     <string name="my_board_delete_enabled" translatable="false">com.dsource.idc.jellow.board_deletion</string>
     <string name="txt_registration_jellowCalluDesc">(This is how Jellow calls you)</string>
     <string name="txt_registration_emergencynoDesc">(To be used for calling  in case of an emergency situation with the child.)</string>
@@ -352,7 +354,6 @@
     <string name="close_searchbar">Close search bar</string>
 
 
-
     <string name="txt_accessibility_setting">Accessibility Setting</string>
     <string name="visual_access_title">Visual Accessibility:</string>
     <string name="visual_access_info_one">The Visual accessibility feature of Jellow now allows users with additional visual difficulties including low vision or blindness to use Jellow and communicate effectively with others.</string>
@@ -368,7 +369,7 @@
     <string name="switch_access_info_five">To use switch accessibility with two switches - Open settings -> Go to accessibility -> Turn on the switch access -> Choose switches either USB or Bluetooth switches -> Go to settings and Choose number of switches as two switches, then Choose the type of scanning, Click on next and Assign the action to both the switches and complete the process by testing the switches.</string>
     <string name="share_string" translatable="false"> Hi! To get Jellow app follow the link: <a href="www.jellow.org/share">http://jellow.org/share</a></string>
 
-  <!--Language package update strings are here-->
+    <!--Language package update strings are here-->
     <string name="lpu_start_update">Started language package update</string>
     <string name="lpu_parse_update">Processing the downloaded data</string>
     <string name="lpu_download_icons">Downloading icon files</string>
@@ -531,4 +532,6 @@
     <string name="change_language_voice">Select the accent (voice) for the language:</string>
     <string name="update_the_package">Update language package to enable the selected language.</string>
     <string name="voice_warning">If voices(s) of the selected language(s) are not available or showing null under the voice drop down, then update the Google text to speech app from the Google Play Store and install voice data for the language(s) on your device.</string>
+    <string name="enableFishAnimation">Turn on fish animation</string>
+    <string name="enableIconAddition">Show \"Add icon\" button</string>
 </resources>

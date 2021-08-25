@@ -1,34 +1,48 @@
 package com.dsource.idc.jellowintl.activities;
 
+import static com.dsource.idc.jellowintl.models.GlobalConstants.SCREEN_SIZE_SEVEN_INCH_TAB;
+import static com.dsource.idc.jellowintl.models.GlobalConstants.SCREEN_SIZE_TEN_INCH_TAB;
+
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.AssetFileDescriptor;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 
 import com.dsource.idc.jellowintl.R;
+import com.dsource.idc.jellowintl.utility.Fish;
 import com.dsource.idc.jellowintl.utility.SessionManager;
 import com.dsource.idc.jellowintl.utility.TextToSpeechErrorUtils;
 import com.dsource.idc.jellowintl.utility.interfaces.TextToSpeechCallBacks;
 
-import static com.dsource.idc.jellowintl.models.GlobalConstants.SCREEN_SIZE_SEVEN_INCH_TAB;
-import static com.dsource.idc.jellowintl.models.GlobalConstants.SCREEN_SIZE_TEN_INCH_TAB;
+import java.util.Timer;
+import java.util.TimerTask;
 
-public class LevelBaseActivity extends SpeechEngineBaseActivity implements TextToSpeechCallBacks {
+import pl.droidsonroids.gif.GifDrawable;
+
+public class LevelBaseActivity extends SpeechEngineBaseActivity implements TextToSpeechCallBacks{
     private String mErrorMessage, mDialogTitle, mLanguageSetting, mSwitchLang;
     private Toast toast;
     private CountDownTimer timer;
+
+    /*animation variable*/
+    private static int animationCounter=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         registerSpeechEngineErrorHandle(this);
+
+
         mErrorMessage = getString(R.string.langauge_correction_message);
         String lang = SessionManager.LangValueMap.get(getSession().getLanguage()) != null ?
                 SessionManager.LangValueMap.get(getSession().getLanguage()): "";
@@ -53,6 +67,80 @@ public class LevelBaseActivity extends SpeechEngineBaseActivity implements TextT
             //lp.topMargin = 72;
         }
     }*/
+
+    public void animateIfEnabled(){
+        if (getSession().getAnimationState()) {
+            /*animationCounter++;
+            int fish = 0, dolphin = 1, whale = 2;
+            if (animationCounter % 50 == 0) {
+                showAnimation(whale);
+                animationCounter = 0;
+            } else if (animationCounter % 10 == 0)
+                showAnimation(dolphin);
+            else if (animationCounter % 5 == 0)
+                showAnimation(fish);*/
+            showAnimation((++animationCounter)%3);
+        }
+    }
+
+    private void showAnimation(int fishType) {
+        Fish fish;
+        switch(fishType){
+            case 1:
+                fish = Fish.Companion.getDolphin(findViewById(R.id.parent).getTag().toString().trim());
+                break;
+            case 2:
+                fish = Fish.Companion.getWhale(findViewById(R.id.parent).getTag().toString().trim());
+                break;
+            case 0:
+            default:
+                fish = Fish.Companion.getFish(findViewById(R.id.parent).getTag().toString().trim());
+        }
+
+        try {
+            GifDrawable gifFromResource = new GifDrawable(getResources(), fish.getFishType());
+            gifFromResource.setSpeed(.5f);
+            findViewById(fish.getView()[0]).setVisibility(View.VISIBLE);
+            ((ImageView)findViewById(fish.getView()[0])).setImageDrawable(gifFromResource);
+
+            findViewById(fish.getView()[1]).setVisibility(View.GONE);
+            findViewById(fish.getView()[2]).setVisibility(View.GONE);
+            final MediaPlayer mp = new MediaPlayer();
+            new Timer().schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    try {
+                        AssetFileDescriptor afd = getAssets().openFd(fish.getAnimSound());
+                        mp.setDataSource(afd.getFileDescriptor(), afd.getStartOffset(), afd.getLength());
+                        mp.prepare();
+                        mp.start();
+                        this.cancel();
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
+                    new Timer().schedule(new TimerTask() {
+                        @Override
+                        public void run() {
+                            runOnUiThread(() -> {
+                                mp.release();
+                                findViewById(fish.getView()[0]).setVisibility(View.GONE);
+                                gifFromResource.stop();
+                            });
+                            this.cancel();
+                        }
+                    }, fish.getEndTime());
+                }
+
+                @Override
+                public long scheduledExecutionTime() {
+                    return super.scheduledExecutionTime();
+                }
+            },fish.getSoundTime());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 
     public void speakAndShowTextBar_(String text){
         speak(text);

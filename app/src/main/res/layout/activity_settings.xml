@@ -124,7 +124,7 @@
                     android:text="@string/txtEnableBuiltInCalling"
                     style="@style/defaultTextViewStyle"
                     android:fontFamily="@font/mukta_semibold"/>
-                <Switch
+                <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/switchEnableCall"
                     style="@style/Material.Widget.Switch"
                     android:layout_width="wrap_content"
@@ -137,7 +137,7 @@
                     android:text="@string/EnableDisplaySpeechText"
                     style="@style/defaultTextViewStyle"
                     android:fontFamily="@font/mukta_semibold"/>
-                <Switch
+                <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/switchDisplaySpeechText"
                     style="@style/Material.Widget.Switch"
                     android:layout_width="wrap_content"
@@ -150,8 +150,34 @@
                     android:text="@string/enableBoardDelete"
                     style="@style/defaultTextViewStyle"
                     android:fontFamily="@font/mukta_semibold"/>
-                <Switch
+                <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/switchEnableBoardDelete"
+                    style="@style/Material.Widget.Switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:importantForAccessibility="yes"/>
+                <TextView
+                    android:id="@+id/tv8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/enableFishAnimation"
+                    style="@style/defaultTextViewStyle"
+                    android:fontFamily="@font/mukta_semibold"/>
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/switchEnableAnimation"
+                    style="@style/Material.Widget.Switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:importantForAccessibility="yes"/>
+                <TextView
+                    android:id="@+id/tv9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/enableIconAddition"
+                    style="@style/defaultTextViewStyle"
+                    android:fontFamily="@font/mukta_semibold"/>
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/switchEnableIconAddition"
                     style="@style/Material.Widget.Switch"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

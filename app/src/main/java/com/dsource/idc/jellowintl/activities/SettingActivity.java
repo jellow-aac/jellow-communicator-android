@@ -1,5 +1,13 @@
 package com.dsource.idc.jellowintl.activities;
 
+import static com.dsource.idc.jellowintl.utility.Analytics.isAnalyticsActive;
+import static com.dsource.idc.jellowintl.utility.Analytics.resetAnalytics;
+import static com.dsource.idc.jellowintl.utility.Analytics.setCrashlyticsCustomKey;
+import static com.dsource.idc.jellowintl.utility.Analytics.setUserProperty;
+import static com.dsource.idc.jellowintl.utility.Analytics.startMeasuring;
+import static com.dsource.idc.jellowintl.utility.Analytics.stopMeasuring;
+import static com.dsource.idc.jellowintl.utility.Analytics.validatePushId;
+
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -15,7 +23,6 @@ import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.Switch;
@@ -23,19 +30,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.widget.SwitchCompat;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.dsource.idc.jellowintl.R;
 import com.google.firebase.crashlytics.FirebaseCrashlytics;
-
-import static com.dsource.idc.jellowintl.utility.Analytics.isAnalyticsActive;
-import static com.dsource.idc.jellowintl.utility.Analytics.resetAnalytics;
-import static com.dsource.idc.jellowintl.utility.Analytics.setCrashlyticsCustomKey;
-import static com.dsource.idc.jellowintl.utility.Analytics.setUserProperty;
-import static com.dsource.idc.jellowintl.utility.Analytics.startMeasuring;
-import static com.dsource.idc.jellowintl.utility.Analytics.stopMeasuring;
-import static com.dsource.idc.jellowintl.utility.Analytics.validatePushId;
 
 public class SettingActivity extends SpeechEngineBaseActivity {
     private final int MY_PERMISSIONS_REQUEST_CALL_PHONE = 0;
@@ -72,46 +72,36 @@ public class SettingActivity extends SpeechEngineBaseActivity {
 
         // If user have sim device and ready to call, only then showDialog "enable call switch".
         if(isDeviceReadyToCall((TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE))) {
-            if(getSession().isCallingEnabled())
-                ((Switch) findViewById(R.id.switchEnableCall)).setChecked(true);
-
-            ((Switch) findViewById(R.id.switchEnableCall)).setOnCheckedChangeListener
-                    (new CompoundButton.OnCheckedChangeListener() {
-                        @Override
-                        public void onCheckedChanged(CompoundButton compoundButton, boolean enableCall) {
-                            if(enableCall)
-                                //request call permission here.
-                                requestCallPermissionToUser();
-                            else
-                                getSession().setEnableCalling(false);
-                        }
+            ((SwitchCompat) findViewById(R.id.switchEnableCall)).setChecked(getSession().isCallingEnabled());
+            ((SwitchCompat) findViewById(R.id.switchEnableCall)).setOnCheckedChangeListener
+                    ((compoundButton, enableCall) -> {
+                        if(enableCall)
+                            //request call permission here.
+                            requestCallPermissionToUser();
+                        else
+                            getSession().setEnableCalling(false);
                     });
         }else{
             findViewById(R.id.tv5).setVisibility(View.GONE);
             findViewById(R.id.switchEnableCall).setVisibility(View.GONE);
         }
 
-        if(getSession().getTextBarVisibility())
-            ((Switch) findViewById(R.id.switchDisplaySpeechText)).setChecked(true);
+        ((SwitchCompat) findViewById(R.id.switchDisplaySpeechText)).setChecked(getSession().getTextBarVisibility());
+        ((SwitchCompat) findViewById(R.id.switchDisplaySpeechText)).setOnCheckedChangeListener
+                ((compoundButton, enableTextBar) -> getSession().setTextBarVisibility(enableTextBar));
 
-        ((Switch) findViewById(R.id.switchDisplaySpeechText)).setOnCheckedChangeListener
-                (new CompoundButton.OnCheckedChangeListener() {
-                    @Override
-                    public void onCheckedChanged(CompoundButton compoundButton, boolean enableTextBar) {
-                        getSession().setTextBarVisibility(enableTextBar);
-                    }
-                });
+        ((SwitchCompat) findViewById(R.id.switchEnableBoardDelete)).setChecked(getSession().isBoardDeletionEnabled());
+        ((SwitchCompat) findViewById(R.id.switchEnableBoardDelete)).setOnCheckedChangeListener
+                ((compoundButton, enableDelete) -> getSession().setBoardDeletionEnabled(enableDelete));
 
-        if(getSession().isBoardDeletionEnabled())
-            ((Switch) findViewById(R.id.switchEnableBoardDelete)).setChecked(true);
+        ((SwitchCompat) findViewById(R.id.switchEnableAnimation)).setChecked(getSession().getAnimationState());
+        ((SwitchCompat) findViewById(R.id.switchEnableAnimation)).setOnCheckedChangeListener
+                ((compoundButton, enableDelete) -> getSession().setAnimationState(enableDelete));
 
-        ((Switch) findViewById(R.id.switchEnableBoardDelete)).setOnCheckedChangeListener
-                (new CompoundButton.OnCheckedChangeListener() {
-                    @Override
-                    public void onCheckedChanged(CompoundButton compoundButton, boolean enableDelete) {
-                        getSession().setBoardDeletionEnabled(enableDelete);
-                    }
-                });
+        ((SwitchCompat) findViewById(R.id.switchEnableIconAddition)).setChecked(getSession().getIconAddState());
+        ((SwitchCompat) findViewById(R.id.switchEnableIconAddition)).setOnCheckedChangeListener
+                ((compoundButton, enableDelete) -> getSession().setIconAddState(enableDelete));
+
 
         Button btnSave = findViewById(R.id.button4);
         final Button btnDemo = findViewById(R.id.demo);

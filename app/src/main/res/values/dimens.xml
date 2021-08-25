@@ -404,4 +404,10 @@
     <!--Spoken Text Bar Toast-->
     <dimen name="spoken_text_text_bar">13sp</dimen>
 
+    <!--animations-->
+    <dimen name="margin_fish_end">150dp</dimen>
+    <dimen name="margin_fish_bottom">0dp</dimen>
+    <dimen name="margin_dolphin_bottom">-72dp</dimen>
+    <dimen name="margin_whale_bottom">-8dp</dimen>
+
 </resources>

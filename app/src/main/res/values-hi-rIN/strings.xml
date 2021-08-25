@@ -463,4 +463,6 @@
     <string name="place_holder_no_icons_added">बोर्ड में कोई आइकन नहीं है</string>
     <string name="change_language_voice">भाषा के लिए उच्चारण (आवाज) का चयन करें</string>
     <string name="update_the_package">चयनित भाषा को सक्षम करने के लिए भाषा का पैकेज अपडेट करें।</string>
+    <string name="enableFishAnimation">Turn on fish animation</string>
+    <string name="enableIconAddition">Show \"Add icon\" button</string>
 </resources>

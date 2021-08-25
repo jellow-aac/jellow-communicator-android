@@ -1,5 +1,14 @@
 package com.dsource.idc.jellowintl.activities;
 
+import static com.dsource.idc.jellowintl.factories.IconFactory.getIconCode;
+import static com.dsource.idc.jellowintl.utility.Analytics.bundleEvent;
+import static com.dsource.idc.jellowintl.utility.Analytics.isAnalyticsActive;
+import static com.dsource.idc.jellowintl.utility.Analytics.resetAnalytics;
+import static com.dsource.idc.jellowintl.utility.Analytics.singleEvent;
+import static com.dsource.idc.jellowintl.utility.Analytics.startMeasuring;
+import static com.dsource.idc.jellowintl.utility.Analytics.stopMeasuring;
+import static com.dsource.idc.jellowintl.utility.Analytics.validatePushId;
+
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -45,15 +54,6 @@ import com.dsource.idc.jellowintl.utility.UserEventCollector;
 
 import java.util.ArrayList;
 import java.util.StringTokenizer;
-
-import static com.dsource.idc.jellowintl.factories.IconFactory.getIconCode;
-import static com.dsource.idc.jellowintl.utility.Analytics.bundleEvent;
-import static com.dsource.idc.jellowintl.utility.Analytics.isAnalyticsActive;
-import static com.dsource.idc.jellowintl.utility.Analytics.resetAnalytics;
-import static com.dsource.idc.jellowintl.utility.Analytics.singleEvent;
-import static com.dsource.idc.jellowintl.utility.Analytics.startMeasuring;
-import static com.dsource.idc.jellowintl.utility.Analytics.stopMeasuring;
-import static com.dsource.idc.jellowintl.utility.Analytics.validatePushId;
 
 public class LevelTwoActivity extends LevelBaseActivity{
     private final int REQ_HOME = 0;
@@ -1309,7 +1309,7 @@ public class LevelTwoActivity extends LevelBaseActivity{
         // set true to speak verbiage associated with category icon
         mShouldReadFullSpeech = true;
         String title = getIntent().getExtras().getString(getString(R.string.intent_menu_path_tag))+ " ";
-        // if user is in people or places category and user pressed any of the category icon then
+        // if user is in people category and user pressed any of the category icon then
         // create bundle for firebase event.
         // bundle has values category icon position (index), "level two"
         if (mLevelOneItemPos == CATEGORY_ICON_PEOPLE) {
@@ -1318,6 +1318,7 @@ public class LevelTwoActivity extends LevelBaseActivity{
                 view.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
                 mUec.accessibilityPopupOpenedEvent(mSpeechText[position]);
             }else {
+                animateIfEnabled();
                 if (!mSearched)
                     speakAndShowTextBar_(mSpeechText[position]);
                 else
@@ -1369,6 +1370,7 @@ public class LevelTwoActivity extends LevelBaseActivity{
                     mUec.createSendFbEventFromTappedView(12, mDisplayText[position]
                             .replace("…",""), "");
                 }else {
+                    animateIfEnabled();
                     if (!mSearched)
                         speakAndShowTextBar_(mSpeechText[position]);
                     else

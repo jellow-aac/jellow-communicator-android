@@ -55,11 +55,11 @@
 
     <!--9 icons configuration-->
     <dimen name="nineIcon_parentHorizontal">0dp</dimen>
-    <dimen name="nineIcon_width">136dp</dimen>
+    <dimen name="nineIcon_width">138dp</dimen>
     <dimen name="nineIcon_textWidth">245dp</dimen>
     <dimen name="nineIcon_textSize">20sp</dimen>
     <dimen name="nineIcon_borderThickness">8.5dp</dimen>
-    <dimen name="nineIcon_innerRadius">59dp</dimen>
+    <dimen name="nineIcon_innerRadius">60.3dp</dimen>
 
     <!--activity_user_registration.xml dimensions-->
     <dimen name="user_reg_parent_padding">10dp</dimen>
@@ -382,4 +382,8 @@
 
     <!--Spoken Text Bar Toast-->
     <dimen name="spoken_text_text_bar">22sp</dimen>
+    <dimen name="margin_fish_end">200dp</dimen>
+    <dimen name="margin_fish_bottom">-56dp</dimen>
+    <dimen name="margin_dolphin_bottom">-192dp</dimen>
+    <dimen name="margin_whale_bottom">-76dp</dimen>
 </resources>

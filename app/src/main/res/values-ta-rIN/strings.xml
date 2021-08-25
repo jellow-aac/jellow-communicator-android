@@ -446,4 +446,6 @@
     <string name="change_language_voice">மொழிக்கான உச்சரிப்பு (குரல்) ஐத் தேர்ந்தெடுக்கவும்:</string>
     <string name="place_holder_no_icons_added">போர்டில் எந்த ஐகானும் இல்லை</string>
     <string name="update_the_package">தேர்ந்தெடுக்கப்பட்ட மொழியை இயக்க மொழி தொகுப்பைப் புதுப்பிக்கவும்.</string>
+    <string name="enableFishAnimation">Turn on fish animation</string>
+    <string name="enableIconAddition">Show \"Add icon\" button</string>
 </resources>

@@ -457,4 +457,6 @@
     <string name="board_delete">Suppression du tableau</string>
     <string name="change_language_voice">Sélectionnez l\'accent (voix) pour la langue:</string>
     <string name="update_the_package">Mettez à jour le package de langue pour activer la langue sélectionnée.</string>
+    <string name="enableFishAnimation">Turn on fish animation</string>
+    <string name="enableIconAddition">Show \"Add icon\" button</string>
 </resources>

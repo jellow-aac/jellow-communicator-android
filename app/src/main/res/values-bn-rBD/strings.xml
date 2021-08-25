@@ -451,4 +451,6 @@
     <string name="change_language_voice">ভাষার জন্য অ্যাকসেন্ট (ভয়েস) নির্বাচন করুন:</string>
     <string name="place_holder_no_icons_added">বোর্ডের কোনও আইকন নেই</string>
     <string name="update_the_package">নির্বাচিত ভাষা সক্ষম করতে ভাষা প্যাকেজ আপডেট করুন।</string>
+    <string name="enableFishAnimation">Turn on fish animation</string>
+    <string name="enableIconAddition">Show \"Add icon\" button</string>
 </resources>
