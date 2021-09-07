@@ -462,4 +462,7 @@
     <string name="update_the_package">Actualice el paquete de idiomas para habilitar el idioma seleccionado.</string>
     <string name="enableFishAnimation">Turn on fish animation</string>
     <string name="enableIconAddition">Show \"Add icon\" button</string>
+    <string name="createHomeCustomIcon">Create icon</string>
+    <string name="createHomeCustomCategory">Create Category</string>
+    <string name="home_custom_icon_place_holder_text">No custom are added here.</string>
 </resources>

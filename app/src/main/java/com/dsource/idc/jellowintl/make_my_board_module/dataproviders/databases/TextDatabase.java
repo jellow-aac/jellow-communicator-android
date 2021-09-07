@@ -18,9 +18,9 @@ import java.util.Arrays;
 
 public class TextDatabase {
 
-    private String langCode;
-    private Context context;
-    private AppDatabase database;
+    private final String langCode;
+    private final Context context;
+    private final AppDatabase database;
     private ProgressUpdates handler;
 
     public TextDatabase(Context context, String langCode, AppDatabase appDatabase) {

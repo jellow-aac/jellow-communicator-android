@@ -11,12 +11,15 @@
         android:layout_centerInParent="true"
         android:background="@drawable/white_rounded_back"
         android:importantForAccessibility="yes">
+
         <RelativeLayout
             android:id="@+id/touch_inside"
             android:layout_width="@dimen/board_edit_dialog_width"
+            android:layout_marginBottom="@dimen/edit_board_dialog_internal_margin_top"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:importantForAccessibility="yes">
+
             <RelativeLayout
                 android:id="@+id/icon_container"
                 android:layout_width="wrap_content"
@@ -24,26 +27,29 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="@dimen/edit_board_dialog_side_margin"
                 android:importantForAccessibility="yes">
+
                 <ImageView
                     android:id="@+id/board_icon"
                     android:layout_width="@dimen/board_edit_icon_size"
                     android:layout_height="@dimen/board_edit_icon_size"
                     android:layout_centerHorizontal="true"
                     android:background="@drawable/board_list_back"
+                    android:importantForAccessibility="no"
                     android:padding="8dp"
-                    android:src="@drawable/ic_board_person"
-                    android:importantForAccessibility="no" />
+                    android:src="@drawable/ic_board_person" />
+
                 <ImageView
+                    android:id="@+id/edit_board"
                     android:layout_width="@dimen/my_board_dialog_camera_icon_size"
                     android:layout_height="@dimen/my_board_dialog_camera_icon_size"
                     android:layout_marginStart="@dimen/camera_mar_left"
                     android:layout_marginLeft="@dimen/camera_mar_left"
                     android:layout_marginTop="@dimen/camera_mar_right"
-                    android:id="@+id/edit_board"
-                    android:src="@drawable/camera_symbol"
                     android:contentDescription="@string/select_image_for_icon"
                     android:focusable="true"
-                    android:importantForAccessibility="yes"/>
+                    android:importantForAccessibility="yes"
+                    android:src="@drawable/camera_symbol" />
+
                 <ListView
                     android:id="@+id/camera_list"
                     android:layout_width="@dimen/camera_drop_down_width"
@@ -53,17 +59,45 @@
                     android:layout_marginTop="-12dp"
                     android:divider="@drawable/divider"
                     android:dividerHeight=".5px"
-                    android:visibility="gone"
-                    android:importantForAccessibility="yes" />
+                    android:importantForAccessibility="yes"
+                    android:visibility="gone" />
             </RelativeLayout>
         </RelativeLayout>
-        <LinearLayout
+        <RadioGroup
+            android:id="@+id/rgIconOptions"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/touch_inside"
+            android:visibility="gone"
+            android:padding="8dp"
+            android:layout_marginBottom="@dimen/edit_board_dialog_side_margin"
+            android:background="@drawable/edit_board_dialog_edit_text"
+            android:layout_centerHorizontal="true"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rbIsIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/colorAccent"
+                android:textColor="@color/light_grey"
+                android:textSize="@dimen/dialog_btn_txt_size"
+                android:text="@string/createHomeCustomIcon" />
+            <RadioButton
+                android:id="@+id/rbIsCategory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/colorAccent"
+                android:textColor="@color/light_grey"
+                android:textSize="@dimen/dialog_btn_txt_size"
+                android:text="@string/createHomeCustomCategory"/>
+        </RadioGroup>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rgIconOptions"
             android:layout_centerHorizontal="true"
             android:gravity="center_horizontal"
-            android:layout_marginTop="@dimen/edit_board_dialog_internal_margin_top"
             android:layout_marginBottom="@dimen/edit_board_dialog_side_margin"
             android:orientation="vertical">
             <EditText
@@ -71,7 +105,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="@dimen/edit_board_dialog_internal_margin_top"
                 android:layout_marginBottom="@dimen/edit_board_dialog_internal_margin_top"
                 android:background="@drawable/edit_board_dialog_edit_text"
                 android:ems="10"

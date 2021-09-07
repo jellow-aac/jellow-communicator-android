@@ -1,5 +1,12 @@
 package com.dsource.idc.jellowintl.activities;
 
+import static com.dsource.idc.jellowintl.make_my_board_module.utility.BoardConstants.GRID_SIZE;
+import static com.dsource.idc.jellowintl.models.GlobalConstants.SCREEN_SIZE_PHONE;
+import static com.dsource.idc.jellowintl.models.GlobalConstants.SCREEN_SIZE_SEVEN_INCH_TAB;
+import static com.dsource.idc.jellowintl.models.GlobalConstants.SCREEN_SIZE_TEN_INCH_TAB;
+import static com.dsource.idc.jellowintl.utility.Analytics.setCrashlyticsCustomKey;
+import static com.dsource.idc.jellowintl.utility.Analytics.setUserProperty;
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -16,6 +23,7 @@ import android.view.accessibility.AccessibilityManager;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.MenuCompat;
@@ -34,13 +42,6 @@ import com.dsource.idc.jellowintl.models.GlobalConstants;
 import com.dsource.idc.jellowintl.utility.DefaultExceptionHandler;
 import com.dsource.idc.jellowintl.utility.LanguageHelper;
 import com.dsource.idc.jellowintl.utility.SessionManager;
-
-import static com.dsource.idc.jellowintl.make_my_board_module.utility.BoardConstants.GRID_SIZE;
-import static com.dsource.idc.jellowintl.models.GlobalConstants.SCREEN_SIZE_PHONE;
-import static com.dsource.idc.jellowintl.models.GlobalConstants.SCREEN_SIZE_SEVEN_INCH_TAB;
-import static com.dsource.idc.jellowintl.models.GlobalConstants.SCREEN_SIZE_TEN_INCH_TAB;
-import static com.dsource.idc.jellowintl.utility.Analytics.setCrashlyticsCustomKey;
-import static com.dsource.idc.jellowintl.utility.Analytics.setUserProperty;
 
 public class BaseActivity extends AppCompatActivity{
     final private String APP_DB_NAME = "jellow_app_database";
@@ -62,7 +63,7 @@ public class BaseActivity extends AppCompatActivity{
     };
     static final Migration MIGRATION_2_3 = new Migration(2, 3) {
         @Override
-        public void migrate(SupportSQLiteDatabase database) {
+        public void migrate(@NonNull SupportSQLiteDatabase database) {
             try{
                 database.execSQL("ALTER TABLE `BoardModel` ADD COLUMN `board_voice` TEXT");
             }catch(Exception e){
@@ -71,6 +72,16 @@ public class BaseActivity extends AppCompatActivity{
         }
     };
 
+    static final Migration MIGRATION_3_4 = new Migration(3, 4) {
+        @Override
+        public void migrate(@NonNull SupportSQLiteDatabase database) {
+            try{
+                database.execSQL("CREATE TABLE IF NOT EXISTS `CustomIconsModel` (`iconId` TEXT NOT NULL, `iconLanguage` TEXT NOT NULL, `iconLocation` TEXT NOT NULL, `iconVerbiage` TEXT NOT NULL, PRIMARY KEY(`iconId`))");
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+        }
+    };
     @Override
     protected void attachBaseContext(Context newBase) {
        SessionManager s = new SessionManager(newBase);
@@ -93,6 +104,7 @@ public class BaseActivity extends AppCompatActivity{
                     .allowMainThreadQueries()
                     .addMigrations(MIGRATION_1_2)
                     .addMigrations(MIGRATION_2_3)
+                    .addMigrations(MIGRATION_3_4)
                     .build();
     }
 

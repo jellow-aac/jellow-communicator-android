@@ -1,9 +1,15 @@
 package com.dsource.idc.jellowintl.activities.adapters;
 
+import static android.content.Context.ACCESSIBILITY_SERVICE;
+import static com.dsource.idc.jellowintl.factories.IconFactory.EXTENSION;
+import static com.dsource.idc.jellowintl.factories.PathFactory.getBasicCustomIconsPath;
+import static com.dsource.idc.jellowintl.factories.PathFactory.getIconPath;
+import static com.dsource.idc.jellowintl.models.GlobalConstants.ADD_BASIC_CUSTOM_ICON;
+
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +17,7 @@ import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.core.content.ContextCompat;
@@ -22,7 +29,6 @@ import com.bumptech.glide.RequestManager;
 import com.dsource.idc.jellowintl.R;
 import com.dsource.idc.jellowintl.TalkBack.TalkbackHints_SingleClick;
 import com.dsource.idc.jellowintl.activities.MainActivity;
-import com.dsource.idc.jellowintl.cache.MemoryCache;
 import com.dsource.idc.jellowintl.factories.IconFactory;
 import com.dsource.idc.jellowintl.factories.TextFactory;
 import com.dsource.idc.jellowintl.models.GlobalConstants;
@@ -30,19 +36,16 @@ import com.dsource.idc.jellowintl.models.Icon;
 import com.dsource.idc.jellowintl.utility.GlideApp;
 import com.dsource.idc.jellowintl.utility.SessionManager;
 
-import static android.content.Context.ACCESSIBILITY_SERVICE;
-import static com.dsource.idc.jellowintl.factories.IconFactory.EXTENSION;
-import static com.dsource.idc.jellowintl.factories.PathFactory.getIconPath;
-
 /**
  * Created by ekalpa on 4/19/2016.
  */
 public class MainActivityAdapter extends RecyclerView.Adapter<MainActivityAdapter.MyViewHolder> {
-    private MainActivity mAct;
-    private SessionManager mSession;
-    private String[] iconNameArray;
-    private String[] belowTextArray;
-    private RequestManager glide;
+    private final MainActivity mAct;
+    private final SessionManager mSession;
+    private final String[] iconNameArray;
+    private final String[] belowTextArray;
+    private final RequestManager glide;
+    private final int libIconSize=9;
 
     public MainActivityAdapter(Context context, Icon[] level1IconObjects) {
         mAct = ((MainActivity) context);
@@ -81,13 +84,35 @@ public class MainActivityAdapter extends RecyclerView.Adapter<MainActivityAdapte
 
         holder.menuItemBelowText.setText(belowTextArray[position]);
 
-        Bitmap iconBitmap = MemoryCache.getBitmapFromMemCache(iconNameArray[position]+EXTENSION);
-
+        /*Bitmap iconBitmap = MemoryCache.getBitmapFromMemCache(iconNameArray[position]+EXTENSION);
         if (iconBitmap != null) {
             holder.menuItemImage.setImageBitmap(iconBitmap);
-        } else {
-            glide.load(getIconPath(mAct, iconNameArray[position]+EXTENSION))
-                    .into(holder.menuItemImage);
+        } else {}*/
+
+        glide
+                .load(getIconPath(mAct, iconNameArray[position] + EXTENSION))
+                .error(Drawable.createFromPath(getBasicCustomIconsPath(mAct, iconNameArray[position] + EXTENSION)))
+                .into(holder.menuItemImage);
+        if (iconNameArray[position].equals(ADD_BASIC_CUSTOM_ICON)){
+            glide.load(R.drawable.ic_plus).into(holder.menuItemImage);
+        }
+
+        if(position >=libIconSize
+                && !iconNameArray[position].equals(ADD_BASIC_CUSTOM_ICON)
+                && mSession.getBasicCustomIconAddState()){
+            holder.listItemEditLayout.setVisibility(View.VISIBLE);
+            holder.listItemEdit.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mAct.onEditIconClicked(position);
+                }
+            });
+            holder.listItemDelete.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mAct.onDeleteIconClicked(position);
+                }
+            });
         }
 
         holder.menuItemLinearLayout.setContentDescription(belowTextArray[position]);
@@ -105,20 +130,23 @@ public class MainActivityAdapter extends RecyclerView.Adapter<MainActivityAdapte
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder {
-        private LinearLayout menuItemLinearLayout;
-        private ImageView menuItemImage;
-        private TextView menuItemBelowText;
+        private final LinearLayout menuItemLinearLayout;
+        private final RelativeLayout listItemEditLayout;
+        private final ImageView menuItemImage;
+        private final ImageView listItemDelete;
+        private final ImageView listItemEdit;
+        private final TextView menuItemBelowText;
 
         MyViewHolder(final View view) {
             super(view);
             menuItemImage = view.findViewById(R.id.icon1);
             menuItemLinearLayout = view.findViewById(R.id.linearlayout_icon1);
             menuItemBelowText = view.findViewById(R.id.te1);
-            if (mSession.getLanguage().equals(SessionManager.DE_DE)) {
-                menuItemBelowText.setAllCaps(false);
-            }else {
-                menuItemBelowText.setAllCaps(true);
-            }
+            listItemEditLayout=view.findViewById(R.id.edit_remove_container);
+            listItemEdit = view.findViewById(R.id.edit_icons);
+            listItemDelete = view.findViewById(R.id.delete_icons);
+
+            menuItemBelowText.setAllCaps(!mSession.getLanguage().equals(SessionManager.DE_DE));
             if(mAct.isAccessibilityTalkBackOn((AccessibilityManager) mAct.getSystemService(ACCESSIBILITY_SERVICE))) {
                 Typeface tf = ResourcesCompat.getFont(mAct, R.font.mukta_semibold);
                 menuItemBelowText.setTypeface(tf);

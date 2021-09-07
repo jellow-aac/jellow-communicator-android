@@ -72,7 +72,7 @@ public class LevelBaseActivity extends SpeechEngineBaseActivity implements TextT
         if (getSession().getAnimationState()) {
             /*animationCounter++;
             int fish = 0, dolphin = 1, whale = 2;
-            if (animationCounter % 50 == 0) {
+            if (animationCounter % 25 == 0) {
                 showAnimation(whale);
                 animationCounter = 0;
             } else if (animationCounter % 10 == 0)
@@ -84,21 +84,21 @@ public class LevelBaseActivity extends SpeechEngineBaseActivity implements TextT
     }
 
     private void showAnimation(int fishType) {
-        Fish fish;
+        final Fish fish;
         switch(fishType){
             case 1:
-                fish = Fish.Companion.getDolphin(findViewById(R.id.parent).getTag().toString().trim());
+                fish = Fish.getDolphin(findViewById(R.id.parent).getTag().toString().trim());
                 break;
             case 2:
-                fish = Fish.Companion.getWhale(findViewById(R.id.parent).getTag().toString().trim());
+                fish = Fish.getWhale(findViewById(R.id.parent).getTag().toString().trim());
                 break;
             case 0:
             default:
-                fish = Fish.Companion.getFish(findViewById(R.id.parent).getTag().toString().trim());
+                fish = Fish.getFish(findViewById(R.id.parent).getTag().toString().trim());
         }
 
         try {
-            GifDrawable gifFromResource = new GifDrawable(getResources(), fish.getFishType());
+            final GifDrawable gifFromResource = new GifDrawable(getResources(), fish.getFishType());
             gifFromResource.setSpeed(.5f);
             findViewById(fish.getView()[0]).setVisibility(View.VISIBLE);
             ((ImageView)findViewById(fish.getView()[0])).setImageDrawable(gifFromResource);
@@ -121,10 +121,14 @@ public class LevelBaseActivity extends SpeechEngineBaseActivity implements TextT
                     new Timer().schedule(new TimerTask() {
                         @Override
                         public void run() {
-                            runOnUiThread(() -> {
-                                mp.release();
-                                findViewById(fish.getView()[0]).setVisibility(View.GONE);
-                                gifFromResource.stop();
+
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    mp.release();
+                                    findViewById(fish.getView()[0]).setVisibility(View.GONE);
+                                    gifFromResource.stop();
+                                }
                             });
                             this.cancel();
                         }
@@ -135,7 +139,7 @@ public class LevelBaseActivity extends SpeechEngineBaseActivity implements TextT
                 public long scheduledExecutionTime() {
                     return super.scheduledExecutionTime();
                 }
-            },fish.getSoundTime());
+            }, fish.getSoundTime());
         } catch (Exception e) {
             e.printStackTrace();
         }

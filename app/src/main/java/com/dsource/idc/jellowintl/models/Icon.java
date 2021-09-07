@@ -51,6 +51,8 @@ public class Icon {
     @SerializedName("SS")
     private String SS;
 
+    //private boolean isBasicCustomIcon=false;
+
     public String getDisplay_Label() {
         return Display_Label;
     }
@@ -178,4 +180,12 @@ public class Icon {
     public void setSS(String SS) {
         this.SS = SS;
     }
+
+    /*public boolean isBasicCustomIcon() {
+        return isBasicCustomIcon;
+    }
+
+    public void setBasicCustomIcon(boolean basicCustomIcon) {
+        isBasicCustomIcon = basicCustomIcon;
+    }*/
 }

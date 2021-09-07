@@ -464,4 +464,7 @@
     <string name="update_the_package">ఎంచుకున్న భాషను ప్రారంభించడానికి భాషా ప్యాకేజీని నవీకరించండి.</string>
     <string name="enableFishAnimation">Turn on fish animation</string>
     <string name="enableIconAddition">Show \"Add icon\" button</string>
+    <string name="createHomeCustomIcon">Create icon</string>
+    <string name="createHomeCustomCategory">Create Category</string>
+    <string name="home_custom_icon_place_holder_text">No custom are added here.</string>
 </resources>

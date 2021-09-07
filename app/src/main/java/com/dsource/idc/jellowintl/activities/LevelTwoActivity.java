@@ -1,6 +1,10 @@
 package com.dsource.idc.jellowintl.activities;
 
 import static com.dsource.idc.jellowintl.factories.IconFactory.getIconCode;
+import static com.dsource.idc.jellowintl.make_my_board_module.custom_dialogs.DialogAddVerbiage.JELLOW_ID;
+import static com.dsource.idc.jellowintl.models.GlobalConstants.ADD_BASIC_CUSTOM_ICON;
+import static com.dsource.idc.jellowintl.models.GlobalConstants.BASIC_ICON_ID;
+import static com.dsource.idc.jellowintl.models.GlobalConstants.IS_HOME_CUSTOM_ICON;
 import static com.dsource.idc.jellowintl.utility.Analytics.bundleEvent;
 import static com.dsource.idc.jellowintl.utility.Analytics.isAnalyticsActive;
 import static com.dsource.idc.jellowintl.utility.Analytics.resetAnalytics;
@@ -25,6 +29,7 @@ import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityManager;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
@@ -32,6 +37,7 @@ import androidx.core.view.ViewCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.dsource.idc.jellowintl.Presentor.CustomBasicIconHelper;
 import com.dsource.idc.jellowintl.Presentor.PreferencesHelper;
 import com.dsource.idc.jellowintl.R;
 import com.dsource.idc.jellowintl.TalkBack.TalkbackHints_SingleClick;
@@ -41,9 +47,13 @@ import com.dsource.idc.jellowintl.factories.IconFactory;
 import com.dsource.idc.jellowintl.factories.LanguageFactory;
 import com.dsource.idc.jellowintl.factories.PathFactory;
 import com.dsource.idc.jellowintl.factories.TextFactory;
+import com.dsource.idc.jellowintl.make_my_board_module.custom_dialogs.DialogAddEditIcon;
+import com.dsource.idc.jellowintl.make_my_board_module.custom_dialogs.DialogCustom;
+import com.dsource.idc.jellowintl.make_my_board_module.interfaces.AddIconCallback;
 import com.dsource.idc.jellowintl.models.ExpressiveIcon;
 import com.dsource.idc.jellowintl.models.GlobalConstants;
 import com.dsource.idc.jellowintl.models.Icon;
+import com.dsource.idc.jellowintl.models.JellowIcon;
 import com.dsource.idc.jellowintl.models.MiscellaneousIcon;
 import com.dsource.idc.jellowintl.utility.CustomGridLayoutManager;
 import com.dsource.idc.jellowintl.utility.DialogKeyboardUtterance;
@@ -51,11 +61,13 @@ import com.dsource.idc.jellowintl.utility.IndexSorter;
 import com.dsource.idc.jellowintl.utility.LevelUiUtils;
 import com.dsource.idc.jellowintl.utility.SessionManager;
 import com.dsource.idc.jellowintl.utility.UserEventCollector;
+import com.dsource.idc.jellowintl.utility.interfaces.BasicCustomIconsChangedListener;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class LevelTwoActivity extends LevelBaseActivity{
+public class LevelTwoActivity extends LevelBaseActivity implements BasicCustomIconsChangedListener {
     private final int REQ_HOME = 0;
     private final int CATEGORY_ICON_PEOPLE = 5;
     private final int CATEGORY_ICON_HELP = 8;
@@ -110,10 +122,20 @@ public class LevelTwoActivity extends LevelBaseActivity{
 
     private ImageView[] expressiveBtn;
 
+    private AddIconCallback callback;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_levelx_layout);
+        /*{
+            ColorMatrix cm = new ColorMatrix();
+            cm.setSaturation(0f);
+            Paint greyscalePaint = new Paint();
+            greyscalePaint.setColorFilter(new ColorMatrixColorFilter(cm));
+            // Create a hardware layer with the greyscale paint
+            findViewById(R.id.parent).setLayerType(LAYER_TYPE_HARDWARE, greyscalePaint);
+        }*/
         // Get index of category icons (position in recycler view) selected in level one.
         mLevelOneItemPos = getIntent().getExtras().getInt(getString(R.string.level_one_intent_pos_tag));
         // Get and set title of category icons selected in level one.
@@ -139,6 +161,7 @@ public class LevelTwoActivity extends LevelBaseActivity{
         initializeViewListeners();
         mSpeak = getString(R.string.speak);
         mEnterCat = getString(R.string.enter_category);
+
         /*Event recorded: Event{appId='com.dsource.idc.jellowintl.debug'*/ /*GridExpressiveIcon*/
         /**
          * If the intent is fired from the {@link SearchActivity} then disable the back button
@@ -153,6 +176,13 @@ public class LevelTwoActivity extends LevelBaseActivity{
                 highlightSearchedItem();
             }
         }
+
+        /*session parameter denotes custom icon add/edit/delete is enabled*/
+        if(getSession().getBasicCustomIconAddState())
+            for (ImageView view : expressiveBtn) {
+                view.setAlpha(GlobalConstants.DISABLE_ALPHA);
+                view.setEnabled(false);
+            }
     }
 
     //A scrollListener field to listen when recycler view have done populating the data
@@ -252,6 +282,7 @@ public class LevelTwoActivity extends LevelBaseActivity{
             Toast.makeText(this, getSession().getToastMessage(), Toast.LENGTH_SHORT).show();
             getSession().setToastMessage("");
         }
+        DialogAddEditIcon.subscribe(callback);
     }
 
     @Override
@@ -358,6 +389,14 @@ public class LevelTwoActivity extends LevelBaseActivity{
         mRecyclerView.setVerticalScrollBarEnabled(true);
         mRecyclerView.setScrollbarFadingEnabled(false);
         expressiveBtn = new ImageView[]{ mIvLike, mIvYes, mIvMore, mIvDontLike, mIvNo, mIvLess };
+
+        if((getSession().getBasicCustomIconAddState() && level2IconObjects.length==1)||
+                (!getSession().getBasicCustomIconAddState() && level2IconObjects.length==0)){
+            ((TextView)findViewById(R.id.place_holder_text)).setText(R.string.home_custom_icon_place_holder_text);
+            findViewById(R.id.place_holder_text).setVisibility(View.VISIBLE);
+        }else{
+            findViewById(R.id.place_holder_text).setVisibility(View.GONE);
+        }
     }
 
     /**
@@ -370,9 +409,9 @@ public class LevelTwoActivity extends LevelBaseActivity{
      * */
     private void initializeRecyclerViewAdapter() {
         if(mLevelOneItemPos != CATEGORY_ICON_PEOPLE) {
-            mRecyclerView.setAdapter(new LevelTwoAdapter(this, level2IconObjects));
+            mRecyclerView.setAdapter(new LevelTwoAdapter(this, level2IconObjects, mIconCode.length));
         }else{
-            mRecyclerView.setAdapter(new PeopleAdapter(this, level2IconObjects, mArrSort));
+            mRecyclerView.setAdapter(new PeopleAdapter(this, level2IconObjects, mArrSort, mIconCode.length));
         }
     }
 
@@ -391,6 +430,51 @@ public class LevelTwoActivity extends LevelBaseActivity{
         initNoBtnListener();
         initMoreBtnListener();
         initLessBtnListener();
+        initCustomBasicListeners();
+    }
+
+    private void initCustomBasicListeners() {
+        callback = new AddIconCallback() {
+            @Override
+            public void onAddedSuccessfully(JellowIcon icon) {
+                Icon customIcon = CustomBasicIconHelper.getCustomBasicIcon(getAppDatabase(), icon.getVerbiageId());
+                ArrayList<Icon> iconsList = new ArrayList<>(Arrays.asList(level2IconObjects));
+                iconsList.add(customIcon);
+                level2IconObjects = TextFactory.getAllIconsArray(
+                        mIconCode,
+                        CustomBasicIconHelper.getCustomBasicIcons(
+                                getAppDatabase(),
+                                getSession().getLanguage(),
+                                "00,"+(mLevelOneItemPos< 10 ? "0"+mLevelOneItemPos : mLevelOneItemPos)),
+                        getSession().getBasicCustomIconAddState());
+
+                mDisplayText = TextFactory.getDisplayText(level2IconObjects);
+                mSpeechText = TextFactory.getSpeechText(level2IconObjects);
+
+                /*Check here people or help adapter to be plugged.*/
+                initializeRecyclerViewAdapter();
+
+                mRecyclerView.getAdapter().notifyItemRangeChanged(0, level2IconObjects.length);
+                mRecyclerItemsViewList.clear();
+                while (mRecyclerItemsViewList.size() < level2IconObjects.length)
+                    mRecyclerItemsViewList.add(null);
+
+                // Show place holder text when editing mode and only '+' icon is visible or
+                // when not in the editing mode and no icons in the category.
+                if((getSession().getBasicCustomIconAddState() && level2IconObjects.length==1)||
+                        (!getSession().getBasicCustomIconAddState() && level2IconObjects.length==0)){
+                    ((TextView)findViewById(R.id.place_holder_text)).setText(R.string.home_custom_icon_place_holder_text);
+                    findViewById(R.id.place_holder_text).setVisibility(View.VISIBLE);
+                }else{
+                    findViewById(R.id.place_holder_text).setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void onFailure(String msg) {
+                Toast.makeText(LevelTwoActivity.this, msg, Toast.LENGTH_LONG).show();
+            }
+        };
     }
 
     /**
@@ -566,7 +650,7 @@ public class LevelTwoActivity extends LevelBaseActivity{
                 // If selected category icon is Help -> About me, then showDialog
                 // expressive icons of About me category.
                 // and set like button icon to pressed using mFlgImage.
-                if (mLevelOneItemPos == 8 && mLevelTwoItemPos == 1)
+                if (mLevelOneItemPos == CATEGORY_ICON_HELP && mLevelTwoItemPos == 1)
                     setExpressiveButtonToAboutMe(mFlgImage);
                 else
                     LevelUiUtils.setExpressiveIconPressedState(expressiveBtn, mFlgImage);
@@ -598,16 +682,17 @@ public class LevelTwoActivity extends LevelBaseActivity{
                     // if value of mFlgLike is 1, then should speak "really like" expression
                     // verbiage associated to selected category icon.
                     if (mFlgLike == GlobalConstants.LONG_SPEECH) {
-                        // People and places will have preferences. To speak the correct speech text
+                        // People will have preferences. To speak the correct speech text
                         // preference sort array is used.
                         if (mLevelOneItemPos == CATEGORY_ICON_PEOPLE) {
                             speakAndShowTextBar_(level2IconObjects[mArrSort[mLevelTwoItemPos]].getLL());
-                            mUec.createSendFbEventFromTappedView(14,
-                    level2IconObjects[mArrSort[mLevelTwoItemPos]].getEvent_Tag()
-                                +"_"+ mIconCode[mLevelTwoItemPos]+"LL","");
+                            if(mLevelTwoItemPos<mIconCode.length)
+                                mUec.createSendFbEventFromTappedView(14,
+                        level2IconObjects[mArrSort[mLevelTwoItemPos]].getEvent_Tag()
+                                    +"_"+ mIconCode[mLevelTwoItemPos]+"LL","");
                         // If Help -> About me category icon is selected,
                         // "really like" expression will speak child's name
-                        }else if(mLevelOneItemPos == 8 && mLevelTwoItemPos == 1) {
+                        }else if(mLevelOneItemPos == CATEGORY_ICON_HELP && mLevelTwoItemPos == 1) {
                             if(isNoTTSLanguage()) {
                                 speakInQueue(level2IconObjects[mLevelTwoItemPos].getLL());
                             }else{
@@ -615,30 +700,33 @@ public class LevelTwoActivity extends LevelBaseActivity{
                                         .replace("_", getSession().getName());
                                 speakAndShowTextBar_(speechTxt);
                             }
-                            mUec.createSendFbEventFromTappedView(14,
-                    level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
-                                +"_"+ mIconCode[mLevelTwoItemPos]+"LL","");
+                            if(mLevelTwoItemPos<mIconCode.length)
+                                mUec.createSendFbEventFromTappedView(14,
+                        level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
+                                    +"_"+ mIconCode[mLevelTwoItemPos]+"LL","");
                         }else {
                             speakAndShowTextBar_(level2IconObjects[mLevelTwoItemPos].getLL());
-                            mUec.createSendFbEventFromTappedView(14,
-                    level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
-                                +"_"+ mIconCode[mLevelTwoItemPos]+"LL","");
+                            if(mLevelTwoItemPos<mIconCode.length)
+                                mUec.createSendFbEventFromTappedView(14,
+                        level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
+                                    +"_"+ mIconCode[mLevelTwoItemPos]+"LL","");
                         }
                         //reset mFlgLike to speak "like" expression
                         mFlgLike = GlobalConstants.SHORT_SPEECH;
                     // if value of mFlgLike is 0 then Speak associated like expression
                     // verbiage to selected category icon.
                     } else {
-                        // People and places will have preferences. To speak the correct speech text
+                        // People will have preferences. To speak the correct speech text
                         // preference sort array is used.
                         if (mLevelOneItemPos == CATEGORY_ICON_PEOPLE) {
                             speakAndShowTextBar_(level2IconObjects[mArrSort[mLevelTwoItemPos]].getL());
-                            mUec.createSendFbEventFromTappedView(13,
-                    level2IconObjects[mArrSort[mLevelTwoItemPos]].getEvent_Tag()
-                                +"_"+ mIconCode[mLevelTwoItemPos]+"L0","");
+                            if(mLevelTwoItemPos<mIconCode.length)
+                                mUec.createSendFbEventFromTappedView(13,
+                        level2IconObjects[mArrSort[mLevelTwoItemPos]].getEvent_Tag()
+                                    +"_"+ mIconCode[mLevelTwoItemPos]+"L0","");
                             // If Help -> About me category icon is selected,
                             // "really like" expression will speak child's name
-                        }else if(mLevelOneItemPos == 8 && mLevelTwoItemPos == 1) {
+                        }else if(mLevelOneItemPos == CATEGORY_ICON_HELP && mLevelTwoItemPos == 1) {
                             if(isNoTTSLanguage()) {
                                 speakInQueue(level2IconObjects[mLevelTwoItemPos].getL());
                             }else {
@@ -646,14 +734,16 @@ public class LevelTwoActivity extends LevelBaseActivity{
                                         .replace("_", getSession().getName());
                                 speakAndShowTextBar_(speechTxt);
                             }
-                            mUec.createSendFbEventFromTappedView(13,
-                    level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
-                                +"_"+ mIconCode[mLevelTwoItemPos]+"L0","");
+                            if(mLevelTwoItemPos<mIconCode.length)
+                                mUec.createSendFbEventFromTappedView(13,
+                        level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
+                                    +"_"+ mIconCode[mLevelTwoItemPos]+"L0","");
                         }else {
                             speakAndShowTextBar_(level2IconObjects[mLevelTwoItemPos].getL());
-                            mUec.createSendFbEventFromTappedView(13,
-                    level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
-                                +"_"+ mIconCode[mLevelTwoItemPos]+"L0","");
+                            if(mLevelTwoItemPos<mIconCode.length)
+                                mUec.createSendFbEventFromTappedView(13,
+                        level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
+                                    +"_"+ mIconCode[mLevelTwoItemPos]+"L0","");
                         }
                         //reset mFlgLike to speak "really like" expression
                         mFlgLike = GlobalConstants.LONG_SPEECH;
@@ -689,7 +779,7 @@ public class LevelTwoActivity extends LevelBaseActivity{
                 // If selected category icon is Help -> About me, then showDialog
                 // expressive icons of About me category.
                 // and set don't like button icon to pressed using mFlgImage.
-                if (mLevelOneItemPos == 8 && mLevelTwoItemPos == 1)
+                if (mLevelOneItemPos == CATEGORY_ICON_HELP && mLevelTwoItemPos == 1)
                     setExpressiveButtonToAboutMe(mFlgImage);
                 else
                     LevelUiUtils.setExpressiveIconPressedState(expressiveBtn, mFlgImage);
@@ -722,16 +812,17 @@ public class LevelTwoActivity extends LevelBaseActivity{
                     // if value of mFlgDntLike is 1, then should speak "really don't like" expression
                     // verbiage associated to selected category icon.
                     if (mFlgDntLike == GlobalConstants.LONG_SPEECH) {
-                        // People and places will have preferences. To speak the correct speech text
+                        // People will have preferences. To speak the correct speech text
                         // preference sort array is used.
                         if (mLevelOneItemPos == CATEGORY_ICON_PEOPLE) {
                             speakAndShowTextBar_(level2IconObjects[mArrSort[mLevelTwoItemPos]].getDD());
-                            mUec.createSendFbEventFromTappedView(20,
-                    level2IconObjects[mArrSort[mLevelTwoItemPos]].getEvent_Tag()
-                                +"_"+ mIconCode[mLevelTwoItemPos]+"DD","");
+                            if(mLevelTwoItemPos<mIconCode.length)
+                                mUec.createSendFbEventFromTappedView(20,
+                        level2IconObjects[mArrSort[mLevelTwoItemPos]].getEvent_Tag()
+                                    +"_"+ mIconCode[mLevelTwoItemPos]+"DD","");
                         // If Help -> About me category icon is selected,
                         // "really don't like" expression will speak child's caregiver's name
-                        }else if(mLevelOneItemPos == 8 && mLevelTwoItemPos == 1) {
+                        }else if(mLevelOneItemPos == CATEGORY_ICON_HELP && mLevelTwoItemPos == 1) {
                             if(isNoTTSLanguage()) {
                                 speakInQueue(level2IconObjects[mLevelTwoItemPos].getDD());
                             }else {
@@ -739,30 +830,33 @@ public class LevelTwoActivity extends LevelBaseActivity{
                                         .replace("_", getSession().getCaregiverName());
                                 speakAndShowTextBar_(speechTxt);
                             }
-                            mUec.createSendFbEventFromTappedView(20,
-                    level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
-                                +"_"+ mIconCode[mLevelTwoItemPos]+"DD","");
+                            if(mLevelTwoItemPos<mIconCode.length)
+                                mUec.createSendFbEventFromTappedView(20,
+                        level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
+                                    +"_"+ mIconCode[mLevelTwoItemPos]+"DD","");
                         }else {
                             speakAndShowTextBar_(level2IconObjects[mLevelTwoItemPos].getDD());
-                            mUec.createSendFbEventFromTappedView(20,
-                    level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
-                                +"_"+ mIconCode[mLevelTwoItemPos]+"DD","");
+                            if(mLevelTwoItemPos<mIconCode.length)
+                                mUec.createSendFbEventFromTappedView(20,
+                        level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
+                                    +"_"+ mIconCode[mLevelTwoItemPos]+"DD","");
                         }
                         //reset mFlgDntLike to speak "don't like" expression
                         mFlgDntLike = GlobalConstants.SHORT_SPEECH;
                     // if value of mFlgDntLike is 0 then Speak associated don't like expression
                     // verbiage to selected category icon.
                     } else {
-                        // People and places will have preferences. To get correct speech text sort
+                        // People will have preferences. To get correct speech text sort
                         // is applied.
                         if (mLevelOneItemPos == CATEGORY_ICON_PEOPLE){
                             speakAndShowTextBar_(level2IconObjects[mArrSort[mLevelTwoItemPos]].getD());
-                            mUec.createSendFbEventFromTappedView(19,
-                    level2IconObjects[mArrSort[mLevelTwoItemPos]].getEvent_Tag()
-                                +"_"+ mIconCode[mLevelTwoItemPos]+"D0","");
+                            if(mLevelTwoItemPos<mIconCode.length)
+                                mUec.createSendFbEventFromTappedView(19,
+                        level2IconObjects[mArrSort[mLevelTwoItemPos]].getEvent_Tag()
+                                    +"_"+ mIconCode[mLevelTwoItemPos]+"D0","");
                         // If Help -> About me category icon is selected,
                         // "really don't like" expression will speak child's caregiver name
-                        }else if(mLevelOneItemPos == 8 && mLevelTwoItemPos == 1) {
+                        }else if(mLevelOneItemPos == CATEGORY_ICON_HELP && mLevelTwoItemPos == 1) {
                             if(isNoTTSLanguage()) {
                                 speakInQueue(level2IconObjects[mLevelTwoItemPos].getDD());
                             }else {
@@ -770,14 +864,16 @@ public class LevelTwoActivity extends LevelBaseActivity{
                                         .replace("_", getSession().getCaregiverName());
                                 speakAndShowTextBar_(speechTxt);
                             }
-                            mUec.createSendFbEventFromTappedView(19,
-                    level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
-                                    +"_"+ mIconCode[mLevelTwoItemPos]+"D0","");
+                            if(mLevelTwoItemPos<mIconCode.length)
+                                mUec.createSendFbEventFromTappedView(19,
+                        level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
+                                        +"_"+ mIconCode[mLevelTwoItemPos]+"D0","");
                         }else {
                             speakAndShowTextBar_(level2IconObjects[mLevelTwoItemPos].getD());
-                            mUec.createSendFbEventFromTappedView(19,
-                    level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
-                                +"_"+ mIconCode[mLevelTwoItemPos]+"D0","");
+                            if(mLevelTwoItemPos<mIconCode.length)
+                                mUec.createSendFbEventFromTappedView(19,
+                        level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
+                                    +"_"+ mIconCode[mLevelTwoItemPos]+"D0","");
                         }
                         //reset mFlgDntLike to speak "really don't like" expression
                         mFlgDntLike = GlobalConstants.LONG_SPEECH;
@@ -813,7 +909,7 @@ public class LevelTwoActivity extends LevelBaseActivity{
                 // If selected category icon is Help -> About me, then showDialog
                 // expressive icons of About me category.
                 // and set yes button icon to pressed using mFlgImage.
-                if (mLevelOneItemPos == 8 && mLevelTwoItemPos == 1)
+                if (mLevelOneItemPos == CATEGORY_ICON_HELP && mLevelTwoItemPos == 1)
                     setExpressiveButtonToAboutMe(mFlgImage);
                 else
                     LevelUiUtils.setExpressiveIconPressedState(expressiveBtn, mFlgImage);
@@ -845,16 +941,17 @@ public class LevelTwoActivity extends LevelBaseActivity{
                     // if value of mFlgYes is 1, then should speak "really yes" expression
                     // verbiage associated to selected category icon.
                     if (mFlgYes == GlobalConstants.LONG_SPEECH) {
-                        // People and places will have preferences. To speak the correct speech text
+                        // People will have preferences. To speak the correct speech text
                         // preference sort array is used.
                         if (mLevelOneItemPos == CATEGORY_ICON_PEOPLE) {
                             speakAndShowTextBar_(level2IconObjects[mArrSort[mLevelTwoItemPos]].getYY());
-                            mUec.createSendFbEventFromTappedView(16,
-                    level2IconObjects[mArrSort[mLevelTwoItemPos]].getEvent_Tag()
-                                +"_"+ mIconCode[mLevelTwoItemPos]+"YY","");
+                            if(mLevelTwoItemPos<mIconCode.length)
+                                mUec.createSendFbEventFromTappedView(16,
+                        level2IconObjects[mArrSort[mLevelTwoItemPos]].getEvent_Tag()
+                                    +"_"+ mIconCode[mLevelTwoItemPos]+"YY","");
                         // If Help -> About me category icon is selected,
                         // "really yes" expression will speak caregivers email id
-                        }else if(mLevelOneItemPos == 8 && mLevelTwoItemPos == 1) {
+                        }else if(mLevelOneItemPos == CATEGORY_ICON_HELP && mLevelTwoItemPos == 1) {
                             if(isNoTTSLanguage()) {
                                 speakInQueue(level2IconObjects[mLevelTwoItemPos].getYY());
                             }else {
@@ -863,30 +960,33 @@ public class LevelTwoActivity extends LevelBaseActivity{
                                         .replaceAll(".", ",$0 ").replace(".", "dot"));
                                 speakAndShowTextBar_(speechTxt);
                             }
-                            mUec.createSendFbEventFromTappedView(16,
-                    level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
-                                +"_"+ mIconCode[mLevelTwoItemPos]+"YY","");
+                            if(mLevelTwoItemPos<mIconCode.length)
+                                mUec.createSendFbEventFromTappedView(16,
+                        level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
+                                    +"_"+ mIconCode[mLevelTwoItemPos]+"YY","");
                         }else{
                             speakAndShowTextBar_(level2IconObjects[mLevelTwoItemPos].getYY());
-                            mUec.createSendFbEventFromTappedView(16,
-                    level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
-                                +"_"+ mIconCode[mLevelTwoItemPos]+"YY","");
+                            if(mLevelTwoItemPos<mIconCode.length)
+                                mUec.createSendFbEventFromTappedView(16,
+                        level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
+                                    +"_"+ mIconCode[mLevelTwoItemPos]+"YY","");
                         }
                         //reset mFlgYes to speak "yes" expression
                         mFlgYes = GlobalConstants.SHORT_SPEECH;
                     // if value of mFlgYes is 0 then Speak associated yes expression
                     // verbiage to selected category icon.
                     } else {
-                        // People and places will have preferences. To speak the correct speech text
+                        // People will have preferences. To speak the correct speech text
                         // preference sort array is used.
                         if (mLevelOneItemPos == CATEGORY_ICON_PEOPLE) {
                             speakAndShowTextBar_(level2IconObjects[mArrSort[mLevelTwoItemPos]].getY());
-                            mUec.createSendFbEventFromTappedView(15,
-                    level2IconObjects[mArrSort[mLevelTwoItemPos]].getEvent_Tag()
-                                +"_"+ mIconCode[mLevelTwoItemPos]+"Y0","");
+                            if(mLevelTwoItemPos<mIconCode.length)
+                                mUec.createSendFbEventFromTappedView(15,
+                        level2IconObjects[mArrSort[mLevelTwoItemPos]].getEvent_Tag()
+                                    +"_"+ mIconCode[mLevelTwoItemPos]+"Y0","");
                         // If Help -> About me category icon is selected,
                         // "yes" expression will speak caregivers email id
-                        }else if(mLevelOneItemPos == 8 && mLevelTwoItemPos == 1) {
+                        }else if(mLevelOneItemPos == CATEGORY_ICON_HELP && mLevelTwoItemPos == 1) {
                             if(isNoTTSLanguage()) {
                                 speakInQueue(level2IconObjects[mLevelTwoItemPos].getY());
                             }else {
@@ -895,14 +995,16 @@ public class LevelTwoActivity extends LevelBaseActivity{
                                         .replaceAll(".", ",$0 ").replace(".", "dot"));
                                 speakAndShowTextBar_(speechTxt);
                             }
-                            mUec.createSendFbEventFromTappedView(15,
-                    level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
-                                +"_"+ mIconCode[mLevelTwoItemPos]+"Y0","");
+                            if(mLevelTwoItemPos<mIconCode.length)
+                                mUec.createSendFbEventFromTappedView(15,
+                        level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
+                                    +"_"+ mIconCode[mLevelTwoItemPos]+"Y0","");
                         }else {
                             speakAndShowTextBar_(level2IconObjects[mLevelTwoItemPos].getY());
-                            mUec.createSendFbEventFromTappedView(15,
-                    level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
-                                +"_"+ mIconCode[mLevelTwoItemPos]+"Y0","");
+                            if(mLevelTwoItemPos<mIconCode.length)
+                                mUec.createSendFbEventFromTappedView(15,
+                        level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
+                                    +"_"+ mIconCode[mLevelTwoItemPos]+"Y0","");
                         }
                         //reset mFlgYes to speak "really yes" expression
                         mFlgYes = GlobalConstants.LONG_SPEECH;
@@ -938,7 +1040,7 @@ public class LevelTwoActivity extends LevelBaseActivity{
                 // If selected category icon is Help -> About me, then showDialog
                 // expressive icons of About me category.
                 // and set no button icon to pressed using mFlgImage.
-                if (mLevelOneItemPos == 8 && mLevelTwoItemPos == 1)
+                if (mLevelOneItemPos == CATEGORY_ICON_HELP && mLevelTwoItemPos == 1)
                     setExpressiveButtonToAboutMe(mFlgImage);
                 else
                     LevelUiUtils.setExpressiveIconPressedState(expressiveBtn, mFlgImage);
@@ -970,16 +1072,17 @@ public class LevelTwoActivity extends LevelBaseActivity{
                     // if value of mFlgNo is 1, then should speak "really no" expression
                     // verbiage associated to selected category icon.
                     if (mFlgNo == GlobalConstants.LONG_SPEECH) {
-                        // People and places will have preferences. To speak the correct speech text
+                        // People will have preferences. To speak the correct speech text
                         // preference sort array is used.
                         if (mLevelOneItemPos == CATEGORY_ICON_PEOPLE) {
                             speakAndShowTextBar_(level2IconObjects[mArrSort[mLevelTwoItemPos]].getNN());
-                            mUec.createSendFbEventFromTappedView(22,
-                    level2IconObjects[mArrSort[mLevelTwoItemPos]].getEvent_Tag()
-                                +"_"+ mIconCode[mLevelTwoItemPos]+"NN","");
+                            if(mLevelTwoItemPos<mIconCode.length)
+                                mUec.createSendFbEventFromTappedView(22,
+                        level2IconObjects[mArrSort[mLevelTwoItemPos]].getEvent_Tag()
+                                    +"_"+ mIconCode[mLevelTwoItemPos]+"NN","");
                             // If Help -> About me category icon is selected,
                             // "really no" expression will speak child's address
-                        }else if(mLevelOneItemPos == 8 && mLevelTwoItemPos == 1) {
+                        }else if(mLevelOneItemPos == CATEGORY_ICON_HELP && mLevelTwoItemPos == 1) {
                             if(isNoTTSLanguage()) {
                                 speakInQueue(level2IconObjects[mLevelTwoItemPos].getNN());
                             }else {
@@ -987,30 +1090,33 @@ public class LevelTwoActivity extends LevelBaseActivity{
                                         .replace("_", getSession().getAddress());
                                 speakAndShowTextBar_(speechTxt);
                             }
-                            mUec.createSendFbEventFromTappedView(22,
-                    level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
-                                +"_"+ mIconCode[mLevelTwoItemPos]+"NN","");
+                            if(mLevelTwoItemPos<mIconCode.length)
+                                mUec.createSendFbEventFromTappedView(22,
+                        level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
+                                    +"_"+ mIconCode[mLevelTwoItemPos]+"NN","");
                         }else {
                             speakAndShowTextBar_(level2IconObjects[mLevelTwoItemPos].getNN());
-                            mUec.createSendFbEventFromTappedView(22,
-                    level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
-                                +"_"+ mIconCode[mLevelTwoItemPos]+"NN","");
+                            if(mLevelTwoItemPos<mIconCode.length)
+                                mUec.createSendFbEventFromTappedView(22,
+                        level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
+                                    +"_"+ mIconCode[mLevelTwoItemPos]+"NN","");
                         }
                         //reset mFlgNo to speak "no" expression
                         mFlgNo = GlobalConstants.SHORT_SPEECH;
                     // if value of mFlgNo is 0 then Speak associated like expression
                     // verbiage to selected category icon.
                     } else {
-                        // People and places will have preferences. To speak the correct speech text
+                        // People will have preferences. To speak the correct speech text
                         // preference sort array is used.
                         if (mLevelOneItemPos == CATEGORY_ICON_PEOPLE) {
                             speakAndShowTextBar_(level2IconObjects[mArrSort[mLevelTwoItemPos]].getN());
-                            mUec.createSendFbEventFromTappedView(21,
-                    level2IconObjects[mArrSort[mLevelTwoItemPos]].getEvent_Tag()
-                                +"_"+ mIconCode[mLevelTwoItemPos]+"N0","");
+                            if(mLevelTwoItemPos<mIconCode.length)
+                                mUec.createSendFbEventFromTappedView(21,
+                        level2IconObjects[mArrSort[mLevelTwoItemPos]].getEvent_Tag()
+                                    +"_"+ mIconCode[mLevelTwoItemPos]+"N0","");
                             // If Help -> About me category icon is selected,
                             // "really no" expression will speak child's address
-                        }else if(mLevelOneItemPos == 8 && mLevelTwoItemPos == 1) {
+                        }else if(mLevelOneItemPos == CATEGORY_ICON_HELP && mLevelTwoItemPos == 1) {
                             if(isNoTTSLanguage()) {
                                 speakInQueue(level2IconObjects[mLevelTwoItemPos].getN());
                             }else {
@@ -1018,14 +1124,16 @@ public class LevelTwoActivity extends LevelBaseActivity{
                                         .replace("_", getSession().getAddress());
                                 speakAndShowTextBar_(speechTxt);
                             }
-                            mUec.createSendFbEventFromTappedView(21,
-                    level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
-                                +"_"+ mIconCode[mLevelTwoItemPos]+"N0","");
+                            if(mLevelTwoItemPos<mIconCode.length)
+                                mUec.createSendFbEventFromTappedView(21,
+                        level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
+                                    +"_"+ mIconCode[mLevelTwoItemPos]+"N0","");
                         }else {
                             speakAndShowTextBar_(level2IconObjects[mLevelTwoItemPos].getN());
-                            mUec.createSendFbEventFromTappedView(21,
-                    level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
-                                +"_"+ mIconCode[mLevelTwoItemPos]+"N0","");
+                            if(mLevelTwoItemPos<mIconCode.length)
+                                mUec.createSendFbEventFromTappedView(21,
+                        level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
+                                    +"_"+ mIconCode[mLevelTwoItemPos]+"N0","");
                         }
                         //reset mFlgLike to speak "really no" expression
                         mFlgNo = GlobalConstants.LONG_SPEECH;
@@ -1061,7 +1169,7 @@ public class LevelTwoActivity extends LevelBaseActivity{
                 // If selected category icon is Help -> About me, then showDialog
                 // expressive icons of About me category.
                 // and set more button icon to pressed using mFlgImage.
-                if (mLevelOneItemPos == 8 && mLevelTwoItemPos == 1)
+                if (mLevelOneItemPos == CATEGORY_ICON_HELP && mLevelTwoItemPos == 1)
                     setExpressiveButtonToAboutMe(mFlgImage);
                 else
                     LevelUiUtils.setExpressiveIconPressedState(expressiveBtn, mFlgImage);
@@ -1093,16 +1201,17 @@ public class LevelTwoActivity extends LevelBaseActivity{
                     // if value of mFlgmore is 1, then should speak "really more" expression
                     // verbiage associated to selected category icon.
                     if (mFlgMore == GlobalConstants.LONG_SPEECH) {
-                        // People and places will have preferences. To speak the correct speech text
+                        // People will have preferences. To speak the correct speech text
                         // preference sort array is used.
                         if (mLevelOneItemPos == CATEGORY_ICON_PEOPLE) {
                             speakAndShowTextBar_(level2IconObjects[mArrSort[mLevelTwoItemPos]].getMM());
-                            mUec.createSendFbEventFromTappedView(18,
-                    level2IconObjects[mArrSort[mLevelTwoItemPos]].getEvent_Tag()
-                                +"_"+ mIconCode[mLevelTwoItemPos]+"MM","");
+                            if(mLevelTwoItemPos<mIconCode.length)
+                                mUec.createSendFbEventFromTappedView(18,
+                        level2IconObjects[mArrSort[mLevelTwoItemPos]].getEvent_Tag()
+                                    +"_"+ mIconCode[mLevelTwoItemPos]+"MM","");
                         // If Help -> About me category icon is selected,
                         // "really more" expression will speak caregivers number
-                        }else if(mLevelOneItemPos == 8 && mLevelTwoItemPos == 1) {
+                        }else if(mLevelOneItemPos == CATEGORY_ICON_HELP && mLevelTwoItemPos == 1) {
                             if(isNoTTSLanguage()) {
                                 speakInQueue(level2IconObjects[mLevelTwoItemPos].getMM());
                             }else {
@@ -1110,28 +1219,31 @@ public class LevelTwoActivity extends LevelBaseActivity{
                                 speechTxt = speechTxt.replace("_", getContactWithSpacesBetweenDigits());
                                 speakAndShowTextBar_(speechTxt);
                             }
-                            mUec.createSendFbEventFromTappedView(18,
-                    level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
-                                +"_"+ mIconCode[mLevelTwoItemPos]+"MM","");
+                            if(mLevelTwoItemPos<mIconCode.length)
+                                mUec.createSendFbEventFromTappedView(18,
+                        level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
+                                    +"_"+ mIconCode[mLevelTwoItemPos]+"MM","");
                         }else {
                             speakAndShowTextBar_(level2IconObjects[mLevelTwoItemPos].getMM());
-                            mUec.createSendFbEventFromTappedView(18,
-                    level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
-                                +"_"+ mIconCode[mLevelTwoItemPos]+"MM","");
+                            if(mLevelTwoItemPos<mIconCode.length)
+                                mUec.createSendFbEventFromTappedView(18,
+                        level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
+                                    +"_"+ mIconCode[mLevelTwoItemPos]+"MM","");
                         }
                         //reset mFlgMore to speak "more" expression
                         mFlgMore = GlobalConstants.SHORT_SPEECH;
                     // if value of mFlgMore is 0 then Speak associated more expression
                     // verbiage to selected category icon.
                     } else {
-                        // People and places will have preferences. To speak the correct speech text
+                        // People will have preferences. To speak the correct speech text
                         // preference sort array is used.
                         if (mLevelOneItemPos == CATEGORY_ICON_PEOPLE) {
                             speakAndShowTextBar_(level2IconObjects[mArrSort[mLevelTwoItemPos]].getM());
-                            mUec.createSendFbEventFromTappedView(17,
-                    level2IconObjects[mArrSort[mLevelTwoItemPos]].getEvent_Tag()
-                                +"_"+ mIconCode[mLevelTwoItemPos]+"M0","");
-                        }else if(mLevelOneItemPos == 8 && mLevelTwoItemPos == 1) {
+                            if(mLevelTwoItemPos<mIconCode.length)
+                                mUec.createSendFbEventFromTappedView(17,
+                        level2IconObjects[mArrSort[mLevelTwoItemPos]].getEvent_Tag()
+                                    +"_"+ mIconCode[mLevelTwoItemPos]+"M0","");
+                        }else if(mLevelOneItemPos == CATEGORY_ICON_HELP && mLevelTwoItemPos == 1) {
                             if(isNoTTSLanguage()) {
                                 speakInQueue(level2IconObjects[mLevelTwoItemPos].getM());
                             }else {
@@ -1139,14 +1251,16 @@ public class LevelTwoActivity extends LevelBaseActivity{
                                 speechTxt = speechTxt.replace("_", getContactWithSpacesBetweenDigits());
                                 speakAndShowTextBar_(speechTxt);
                             }
-                            mUec.createSendFbEventFromTappedView(17,
-                    level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
-                                +"_"+ mIconCode[mLevelTwoItemPos]+"M0","");
+                            if(mLevelTwoItemPos<mIconCode.length)
+                                mUec.createSendFbEventFromTappedView(17,
+                        level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
+                                    +"_"+ mIconCode[mLevelTwoItemPos]+"M0","");
                         }else {
                             speakAndShowTextBar_(level2IconObjects[mLevelTwoItemPos].getM());
-                            mUec.createSendFbEventFromTappedView(17,
-                    level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
-                                +"_"+ mIconCode[mLevelTwoItemPos]+"M0","");
+                            if(mLevelTwoItemPos<mIconCode.length)
+                                mUec.createSendFbEventFromTappedView(17,
+                        level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
+                                    +"_"+ mIconCode[mLevelTwoItemPos]+"M0","");
                         }
                         //reset mFlgMore to speak "really more" expression
                         mFlgMore = GlobalConstants.LONG_SPEECH;
@@ -1182,7 +1296,7 @@ public class LevelTwoActivity extends LevelBaseActivity{
                 // If selected category icon is Help -> About me, then showDialog
                 // expressive icons of About me category.
                 // and set less button icon to pressed using mFlgImage.
-                if (mLevelOneItemPos == 8 && mLevelTwoItemPos == 1)
+                if (mLevelOneItemPos == CATEGORY_ICON_HELP && mLevelTwoItemPos == 1)
                     setExpressiveButtonToAboutMe(mFlgImage);
                 else
                     LevelUiUtils.setExpressiveIconPressedState(expressiveBtn, mFlgImage);
@@ -1215,16 +1329,17 @@ public class LevelTwoActivity extends LevelBaseActivity{
                     // if value of mFlgLess is 1, then should speak "really less" expression
                     // verbiage associated to selected category icon.
                     if (mFlgLess == GlobalConstants.LONG_SPEECH) {
-                        // People and places will have preferences. To speak the correct speech text
+                        // People will have preferences. To speak the correct speech text
                         // preference sort array is used.
                         if (mLevelOneItemPos == CATEGORY_ICON_PEOPLE) {
                             speakAndShowTextBar_(level2IconObjects[mArrSort[mLevelTwoItemPos]].getSS());
-                            mUec.createSendFbEventFromTappedView(24,
-                    level2IconObjects[mArrSort[mLevelTwoItemPos]].getEvent_Tag()
-                                +"_"+ mIconCode[mLevelTwoItemPos]+"SS","");
+                            if(mLevelTwoItemPos<mIconCode.length)
+                                mUec.createSendFbEventFromTappedView(24,
+                        level2IconObjects[mArrSort[mLevelTwoItemPos]].getEvent_Tag()
+                                    +"_"+ mIconCode[mLevelTwoItemPos]+"SS","");
                         // If Help -> About me category icon is selected,
                         // "really less" expression will speak child's blood group
-                        }else if(mLevelOneItemPos == 8 && mLevelTwoItemPos == 1){
+                        }else if(mLevelOneItemPos == CATEGORY_ICON_HELP && mLevelTwoItemPos == 1){
                             if(isNoTTSLanguage()) {
                                 speakInQueue(level2IconObjects[mLevelTwoItemPos].getSS());
                             }else {
@@ -1232,30 +1347,33 @@ public class LevelTwoActivity extends LevelBaseActivity{
                                         .replace("_", getBloodGroup());
                                 speakAndShowTextBar_(speechTxt);
                             }
-                            mUec.createSendFbEventFromTappedView(24,
-                    level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
-                                +"_"+ mIconCode[mLevelTwoItemPos]+"SS","");
+                            if(mLevelTwoItemPos<mIconCode.length)
+                                mUec.createSendFbEventFromTappedView(24,
+                        level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
+                                    +"_"+ mIconCode[mLevelTwoItemPos]+"SS","");
                         } else {
                             speakAndShowTextBar_(level2IconObjects[mLevelTwoItemPos].getSS());
-                            mUec.createSendFbEventFromTappedView(24,
-                    level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
-                                +"_"+ mIconCode[mLevelTwoItemPos]+"SS","");
+                            if(mLevelTwoItemPos<mIconCode.length)
+                                mUec.createSendFbEventFromTappedView(24,
+                        level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
+                                    +"_"+ mIconCode[mLevelTwoItemPos]+"SS","");
                         }
                         //reset mFlgLess to speak "less" expression
                         mFlgLess = GlobalConstants.SHORT_SPEECH;
                     // if value of mFlgLess is 0 then Speak associated less expression
                     // verbiage to selected category icon.
                     } else {
-                        // People and places will have preferences. To speak the correct speech text
+                        // People will have preferences. To speak the correct speech text
                         // preference sort array is used.
                         if (mLevelOneItemPos == CATEGORY_ICON_PEOPLE) {
                             speakAndShowTextBar_(level2IconObjects[mArrSort[mLevelTwoItemPos]].getS());
-                            mUec.createSendFbEventFromTappedView(23,
-                    level2IconObjects[mArrSort[mLevelTwoItemPos]].getEvent_Tag()
-                                +"_"+ mIconCode[mLevelTwoItemPos]+"S0","");
+                            if(mLevelTwoItemPos<mIconCode.length)
+                                mUec.createSendFbEventFromTappedView(23,
+                        level2IconObjects[mArrSort[mLevelTwoItemPos]].getEvent_Tag()
+                                    +"_"+ mIconCode[mLevelTwoItemPos]+"S0","");
                         // If Help -> About me category icon is selected,
                         // "really less" expression will speak child's blood group
-                        }else if(mLevelOneItemPos == 8 && mLevelTwoItemPos == 1){
+                        }else if(mLevelOneItemPos == CATEGORY_ICON_HELP && mLevelTwoItemPos == 1){
                             if(isNoTTSLanguage()) {
                                 speakInQueue(level2IconObjects[mLevelTwoItemPos].getS());
                             }else {
@@ -1263,14 +1381,16 @@ public class LevelTwoActivity extends LevelBaseActivity{
                                         .replace("_", getBloodGroup());
                                 speakAndShowTextBar_(speechTxt);
                             }
-                            mUec.createSendFbEventFromTappedView(23,
-                    level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
-                                +"_"+ mIconCode[mLevelTwoItemPos]+"S0","");
+                            if(mLevelTwoItemPos<mIconCode.length)
+                                mUec.createSendFbEventFromTappedView(23,
+                        level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
+                                    +"_"+ mIconCode[mLevelTwoItemPos]+"S0","");
                         } else {
                             speakAndShowTextBar_(level2IconObjects[mLevelTwoItemPos].getS());
-                            mUec.createSendFbEventFromTappedView(23,
-                    level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
-                                +"_"+ mIconCode[mLevelTwoItemPos]+"S0","");
+                            if(mLevelTwoItemPos<mIconCode.length)
+                                mUec.createSendFbEventFromTappedView(23,
+                        level2IconObjects[mLevelTwoItemPos].getEvent_Tag()
+                                    +"_"+ mIconCode[mLevelTwoItemPos]+"S0","");
                         }
                         //reset mFlgLess to speak "really less" expression
                         mFlgLess = GlobalConstants.LONG_SPEECH;
@@ -1296,9 +1416,17 @@ public class LevelTwoActivity extends LevelBaseActivity{
      *             g) Increment preference count of tapped category icon.</p>
      * */
     public void tappedCategoryItemEvent(View view, int position) {
+        if(level2IconObjects[position].getEvent_Tag().equals(ADD_BASIC_CUSTOM_ICON)){
+            Intent intent = new Intent(LevelTwoActivity.this, DialogAddEditIcon.class);
+            intent.putExtra(IS_HOME_CUSTOM_ICON, true);
+            intent.putExtra(getString(R.string.level_one_intent_pos_tag), mLevelOneItemPos);
+            startActivity(intent);
+            return;
+        }
         mFlgLike = mFlgYes = mFlgMore = mFlgDntLike = mFlgNo = mFlgLess = GlobalConstants.SHORT_SPEECH;
         // Clear the last expressive button selection. Set each expressive button to unpressed.
-        LevelUiUtils.setExpressiveIconPressedState(expressiveBtn, GlobalConstants.NO_EXPR);
+        if(!getSession().getBasicCustomIconAddState())
+            LevelUiUtils.setExpressiveIconPressedState(expressiveBtn, GlobalConstants.NO_EXPR);
         // reset every populated category icon before setting the border to selected icon.
         LevelUiUtils.resetRecyclerAllItems(LevelTwoActivity.this, mRecyclerView,
                 mActionBtnClickCount, mFlgImage);
@@ -1329,7 +1457,13 @@ public class LevelTwoActivity extends LevelBaseActivity{
         // In below if category icon selected in level one is neither people nor help.
         // Also, mLevelTwoItemPos == position is true it means user taps twice on same category icon.
         // If above both conditions are true then open category icon selected in level three.
-        }else if(mLevelTwoItemPos == position && mLevelOneItemPos != CATEGORY_ICON_HELP){
+        }else if(
+                (mLevelTwoItemPos == position && mLevelOneItemPos < 9 && mLevelOneItemPos != CATEGORY_ICON_HELP) ||
+                (mLevelTwoItemPos == position && CustomBasicIconHelper.givenCustomIconIsCategory(
+                            getAppDatabase(), level2IconObjects[position].getEvent_Tag()
+                        )
+                )
+        ){
             if(isAccessibilityTalkBackOn((AccessibilityManager) getSystemService(ACCESSIBILITY_SERVICE))){
                 showAccessibleDialog(position, view);
                 view.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
@@ -1393,8 +1527,10 @@ public class LevelTwoActivity extends LevelBaseActivity{
                     (0, mDisplayText[mLevelTwoItemPos].length()-1);
         mActionBarTitle = title;
 
-        // increment preference count an item if people or place category is selected in level one
-        if(mLevelOneItemPos == CATEGORY_ICON_PEOPLE)
+        /// Increment preferences count an item if people category is selected in level one and
+        /// the category have library icons icons only.
+        /// (level2IconObjects.length == mIconCode.length) depicts the category has only library icons
+        if(mLevelOneItemPos == CATEGORY_ICON_PEOPLE && level2IconObjects.length == mIconCode.length)
             LevelUiUtils.incrementTouchCountOfItem(mArrPeopleTapCount, mArrSort,
                     mLevelTwoItemPos, mLevelOneItemPos, -1,
                     LanguageFactory.getCurrentLanguageCode(this), getAppDatabase());
@@ -1411,7 +1547,8 @@ public class LevelTwoActivity extends LevelBaseActivity{
             LevelUiUtils.startCall(LevelTwoActivity.this,
                     "tel:" + getSession().getCaregiverNumber());
         }
-        LevelUiUtils.setExpressiveIconConditionally(expressiveBtn, level2IconObjects[mLevelTwoItemPos]);
+        if(!getSession().getBasicCustomIconAddState())
+            LevelUiUtils.setExpressiveIconConditionally(expressiveBtn, level2IconObjects[mLevelTwoItemPos]);
         mIvBack.setImageResource(R.drawable.back);
     }
 
@@ -1448,11 +1585,19 @@ public class LevelTwoActivity extends LevelBaseActivity{
                 getLevel2IconCode(mLevelOneItemPos)
         );
 
-        level2IconObjects = TextFactory.getIconObjects(mIconCode);
+        level2IconObjects = TextFactory.getAllIconsArray(
+                mIconCode,
+                CustomBasicIconHelper.getCustomBasicIcons(
+                        getAppDatabase(),
+                        getSession().getLanguage(),
+                        "00,"+ (mLevelOneItemPos< 10 ? "0"+mLevelOneItemPos : mLevelOneItemPos)
+                ),
+                getSession().getBasicCustomIconAddState()
+        );
         mDisplayText = TextFactory.getDisplayText(level2IconObjects);
         mSpeechText = TextFactory.getSpeechText(level2IconObjects);
 
-        if(mLevelOneItemPos == 5){
+        if(mLevelOneItemPos == CATEGORY_ICON_PEOPLE && level2IconObjects.length == mIconCode.length){
             useSortToLoadArray(mSpeechText, mDisplayText, mIconCode);
         }
 
@@ -1863,7 +2008,6 @@ public class LevelTwoActivity extends LevelBaseActivity{
                 return i;
         }
         return -1;
-
     }
 
     private String getLevel2IconCode(int level1Position) {
@@ -1877,5 +2021,69 @@ public class LevelTwoActivity extends LevelBaseActivity{
     public void hideCustomKeyboardDialog() {
         mIvKeyboard.setImageResource(R.drawable.keyboard);
         mIvBack.setImageResource(R.drawable.back);
+    }
+
+    /**
+     * @param position is position in the grid in which user tapped edit.
+     * This method open the position item in DialogAddEditIcon class.**/
+    @Override
+    public void onEditIconClicked(int position) {
+        Intent intent = new Intent(LevelTwoActivity.this, DialogAddEditIcon.class);
+        intent.putExtra(IS_HOME_CUSTOM_ICON, true);
+        intent.putExtra(getString(R.string.level_one_intent_pos_tag), mLevelOneItemPos);
+        intent.putExtra(BASIC_ICON_ID, level2IconObjects[position].getEvent_Tag());
+        JellowIcon icon = new JellowIcon(
+                level2IconObjects[position].getDisplay_Label(),
+                level2IconObjects[position].getEvent_Tag(),
+                -1, -1,-1
+        );
+        Bundle bundle = new Bundle();
+        bundle.putSerializable(JELLOW_ID, icon);
+        intent.putExtras(bundle);
+        startActivity(intent);
+    }
+
+    /**
+     * @param position is position in the grid in which user tapped edit.
+     * This method remove the icon from the database and from the internal folder.**/
+    @Override
+    public void onDeleteIconClicked(int position) {
+        final DialogCustom dialog = new DialogCustom(this);
+        dialog.setText(getString(R.string.icon_delete_warning).replace("-",
+                level2IconObjects[position].getDisplay_Label()));
+        dialog.setOnPositiveClickListener(new DialogCustom.OnPositiveClickListener() {
+            @Override
+            public void onPositiveClickListener() {
+                CustomBasicIconHelper.deleteCustomBasicIcon(
+                        LevelTwoActivity.this,
+                        getAppDatabase(),
+                        level2IconObjects[position].getEvent_Tag(),
+                        position
+                );
+                ArrayList<Icon> temp = new ArrayList<>(Arrays.asList(level2IconObjects));
+                temp.remove(position);
+                level2IconObjects= new Icon[temp.size()];
+                temp.toArray(level2IconObjects);
+                mDisplayText = TextFactory.getDisplayText(level2IconObjects);
+                mSpeechText = TextFactory.getSpeechText(level2IconObjects);
+                initializeRecyclerViewAdapter();
+                mRecyclerView.getAdapter().notifyItemRemoved(position);
+                mRecyclerItemsViewList.remove(position);
+                mRecyclerView.smoothScrollToPosition(position);
+
+                if((getSession().getBasicCustomIconAddState() && level2IconObjects.length==1)||
+                        (!getSession().getBasicCustomIconAddState() && level2IconObjects.length==0)){
+                    ((TextView)findViewById(R.id.place_holder_text)).setText(R.string.home_custom_icon_place_holder_text);
+                    findViewById(R.id.place_holder_text).setVisibility(View.VISIBLE);
+                }
+            }
+        });
+        dialog.setOnNegativeClickListener(new DialogCustom.OnNegativeClickListener() {
+            @Override
+            public void onNegativeClickListener() {
+                dialog.cancel();
+            }
+        });
+        dialog.show();
     }
 }

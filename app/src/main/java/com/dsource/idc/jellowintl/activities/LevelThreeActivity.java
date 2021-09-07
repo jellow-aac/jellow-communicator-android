@@ -1,6 +1,10 @@
 package com.dsource.idc.jellowintl.activities;
 
 import static com.dsource.idc.jellowintl.factories.IconFactory.getIconCode;
+import static com.dsource.idc.jellowintl.make_my_board_module.custom_dialogs.DialogAddVerbiage.JELLOW_ID;
+import static com.dsource.idc.jellowintl.models.GlobalConstants.ADD_BASIC_CUSTOM_ICON;
+import static com.dsource.idc.jellowintl.models.GlobalConstants.BASIC_ICON_ID;
+import static com.dsource.idc.jellowintl.models.GlobalConstants.IS_HOME_CUSTOM_ICON;
 import static com.dsource.idc.jellowintl.utility.Analytics.isAnalyticsActive;
 import static com.dsource.idc.jellowintl.utility.Analytics.resetAnalytics;
 import static com.dsource.idc.jellowintl.utility.Analytics.singleEvent;
@@ -22,6 +26,7 @@ import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityManager;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
@@ -29,6 +34,7 @@ import androidx.core.view.ViewCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.dsource.idc.jellowintl.Presentor.CustomBasicIconHelper;
 import com.dsource.idc.jellowintl.Presentor.PreferencesHelper;
 import com.dsource.idc.jellowintl.R;
 import com.dsource.idc.jellowintl.TalkBack.TalkbackHints_SingleClick;
@@ -37,20 +43,26 @@ import com.dsource.idc.jellowintl.factories.IconFactory;
 import com.dsource.idc.jellowintl.factories.LanguageFactory;
 import com.dsource.idc.jellowintl.factories.PathFactory;
 import com.dsource.idc.jellowintl.factories.TextFactory;
+import com.dsource.idc.jellowintl.make_my_board_module.custom_dialogs.DialogAddEditIcon;
+import com.dsource.idc.jellowintl.make_my_board_module.custom_dialogs.DialogCustom;
+import com.dsource.idc.jellowintl.make_my_board_module.interfaces.AddIconCallback;
 import com.dsource.idc.jellowintl.models.ExpressiveIcon;
 import com.dsource.idc.jellowintl.models.GlobalConstants;
 import com.dsource.idc.jellowintl.models.Icon;
+import com.dsource.idc.jellowintl.models.JellowIcon;
 import com.dsource.idc.jellowintl.models.MiscellaneousIcon;
 import com.dsource.idc.jellowintl.utility.CustomGridLayoutManager;
 import com.dsource.idc.jellowintl.utility.DialogKeyboardUtterance;
 import com.dsource.idc.jellowintl.utility.IndexSorter;
 import com.dsource.idc.jellowintl.utility.LevelUiUtils;
 import com.dsource.idc.jellowintl.utility.UserEventCollector;
+import com.dsource.idc.jellowintl.utility.interfaces.BasicCustomIconsChangedListener;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class LevelThreeActivity extends LevelBaseActivity{
+public class LevelThreeActivity extends LevelBaseActivity implements BasicCustomIconsChangedListener {
 
     /* This flags are used to identify respective expressive button is pressed either
       once or twice. eg. mFlgLike used to identify Like expressive button pressed once or twice.*/
@@ -100,6 +112,14 @@ public class LevelThreeActivity extends LevelBaseActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_levelx_layout);
+        /*{
+            ColorMatrix cm = new ColorMatrix();
+            cm.setSaturation(0f);
+            Paint greyscalePaint = new Paint();
+            greyscalePaint.setColorFilter(new ColorMatrixColorFilter(cm));
+            // Create a hardware layer with the greyscale paint
+            findViewById(R.id.parent).setLayerType(LAYER_TYPE_HARDWARE, greyscalePaint);
+        }*/
         txtActionBarTitle = getIntent().getExtras().getString(getString(R.string.intent_menu_path_tag));
         txtKeyboard = getString(R.string.keyboard);
         setupActionBarTitle(View.GONE, txtActionBarTitle);
@@ -216,7 +236,7 @@ public class LevelThreeActivity extends LevelBaseActivity{
                     return;
                     }
                 //When view is found remove the scrollListener and manually tap the icon.
-                tappedCategoryItemEvent(searchedView);
+                tappedCategoryItemEvent(searchedView, pos);
                 mRecyclerView.removeOnScrollListener(scrollListener);
                 mRecyclerView.getViewTreeObserver().removeOnGlobalLayoutListener(populationDoneListener);
                 if (isAccessibilityTalkBackOn((AccessibilityManager) getSystemService(ACCESSIBILITY_SERVICE))) {
@@ -306,6 +326,13 @@ public class LevelThreeActivity extends LevelBaseActivity{
         mRecyclerView.setVerticalScrollBarEnabled(true);
         mRecyclerView.setScrollbarFadingEnabled(false);
         expressiveBtn = new ImageView[]{ mIvLike, mIvYes, mIvMore, mIvDontLike, mIvNo, mIvLess };
+
+        /*session parameter denotes custom icon add/edit/delete is enabled*/
+        if(getSession().getBasicCustomIconAddState())
+            for (ImageView view : expressiveBtn) {
+                view.setAlpha(GlobalConstants.DISABLE_ALPHA);
+                view.setEnabled(false);
+            }
     }
 
     /**
@@ -346,7 +373,27 @@ public class LevelThreeActivity extends LevelBaseActivity{
         // otherwise it will return value "false".
 
         // load speech array directly.
-        retrieveSpeechArrays(mLevelOneItemPos, mLevelTwoItemPos);
+        //Retrieve icon names from json file for Level 1
+        mIconCode = IconFactory.getL3IconCodes(
+                PathFactory.getJSONFile(this),
+                LanguageFactory.getCurrentLanguageCode(this),
+                getLevel2_3IconCode(mLevelOneItemPos),
+                getLevel2_3IconCode(mLevelTwoItemPos)
+        );
+
+        level3IconObjects = TextFactory.getAllIconsArray(
+                mIconCode,
+                CustomBasicIconHelper.getCustomBasicIcons(
+                        getAppDatabase(),
+                        getSession().getLanguage(),
+                        "00,"+(mLevelOneItemPos< 10 ? "0"+mLevelOneItemPos : mLevelOneItemPos) +","+
+                                (mLevelTwoItemPos< 10 ? "0"+mLevelTwoItemPos : mLevelTwoItemPos)
+                ),
+                getSession().getBasicCustomIconAddState()
+        );
+
+        mDisplayText = TextFactory.getDisplayText(level3IconObjects);
+        mSpeechText = TextFactory.getSpeechText(level3IconObjects);
 
 
         // Set the capacity of mRecyclerItemsViewList list to total number of category icons to be
@@ -362,12 +409,14 @@ public class LevelThreeActivity extends LevelBaseActivity{
         // Extra 0's are concat ed at the end of "savedString" variable. This
         // will make length of array and length of savedString to equal to load category.
         if(savedString.isEmpty() && savedString.split(",").length != level3IconObjects.length){
-            while (savedString.split(",").length != level3IconObjects.length)
+            while (savedString.split(",").length < level3IconObjects.length)
                 savedString = savedString.concat("0,");
         }
         mArrSort = new Integer[level3IconObjects.length];
-        // savedString is equal to "false" then load level three category icons without any sort/preferences
-        if (isCategoryWithPreference()) {
+
+        /// If category uses preferences to position icons and the category has only basic icons or
+        /// library icons then use preferences other wise do not use preferences position icons
+        if (isCategoryWithPreference() && level3IconObjects.length == mIconCode.length) {
             count_flag = 1;
             mArrIconTapCount = new Integer[level3IconObjects.length];
             // convert savedString into individual tokens.
@@ -395,7 +444,17 @@ public class LevelThreeActivity extends LevelBaseActivity{
 
             //setup adapter.
             mRecyclerView.setAdapter(new LevelThreeAdapter(this, mIconCode,
-                    level3IconObjects, mArrSort));
+                    level3IconObjects, mArrSort, mIconCode.length));
+
+        /// If the category has basic icons as well as custom icons then do not use
+        /// preferences to position icons
+        }else if (level3IconObjects.length != mIconCode.length) {
+            // create sort array to sequentially arrange icons without any preferences
+            for (int i=0; i< level3IconObjects.length;i++)
+                mArrSort[i] = i;
+            //setup adapter.
+            mRecyclerView.setAdapter(new LevelThreeAdapter(this, mIconCode,
+                    level3IconObjects, mArrSort, mIconCode.length));
 
         // saved string is == "false" then load level three category icons without sort/preferences.
         // Categories given below are in if condition respectively:
@@ -412,9 +471,17 @@ public class LevelThreeActivity extends LevelBaseActivity{
                 mArrSort[i] = i;
             //setup adapter
             mRecyclerView.setAdapter(new LevelThreeAdapter(this, mIconCode,
-                    level3IconObjects, mArrSort));
+                    level3IconObjects, mArrSort, mIconCode.length));
         } else {
             count_flag = 0;
+        }
+
+        if((getSession().getBasicCustomIconAddState() && level3IconObjects.length==1)||
+                (!getSession().getBasicCustomIconAddState() && level3IconObjects.length==0)){
+            ((TextView)findViewById(R.id.place_holder_text)).setText(R.string.home_custom_icon_place_holder_text);
+            findViewById(R.id.place_holder_text).setVisibility(View.VISIBLE);
+        }else{
+            findViewById(R.id.place_holder_text).setVisibility(View.GONE);
         }
     }
 
@@ -452,6 +519,47 @@ public class LevelThreeActivity extends LevelBaseActivity{
         initNoBtnListener();
         initMoreBtnListener();
         initLessBtnListener();
+        initCustomBasicListeners();
+    }
+
+    private void initCustomBasicListeners() {
+        DialogAddEditIcon.subscribe(new AddIconCallback() {
+            @Override
+            public void onAddedSuccessfully(JellowIcon icon) {
+                Icon customIcon = CustomBasicIconHelper.getCustomBasicIcon(getAppDatabase(), icon.getVerbiageId());
+                ArrayList<Icon> iconsList = new ArrayList<>(Arrays.asList(level3IconObjects));
+                iconsList.add(customIcon);
+                level3IconObjects = TextFactory.getAllIconsArray(
+                        mIconCode,
+                        CustomBasicIconHelper.getCustomBasicIcons(
+                                getAppDatabase(),
+                                getSession().getLanguage(),
+                                "00,"+(mLevelOneItemPos< 10 ? "0"+mLevelOneItemPos : mLevelOneItemPos) +","+
+                                        (mLevelTwoItemPos< 10 ? "0"+mLevelTwoItemPos : mLevelTwoItemPos)),
+                        getSession().getBasicCustomIconAddState());
+
+                /*Check here people or help adapter to be plugged.*/
+                initializeRecyclerViewAdapter();
+
+                mRecyclerView.getAdapter().notifyItemRangeChanged(0, level3IconObjects.length);
+                mRecyclerItemsViewList.clear();
+                while (mRecyclerItemsViewList.size() < level3IconObjects.length)
+                    mRecyclerItemsViewList.add(null);
+
+                if((getSession().getBasicCustomIconAddState() && level3IconObjects.length==1)||
+                        (!getSession().getBasicCustomIconAddState() && level3IconObjects.length==0)){
+                    ((TextView)findViewById(R.id.place_holder_text)).setText(R.string.home_custom_icon_place_holder_text);
+                    findViewById(R.id.place_holder_text).setVisibility(View.VISIBLE);
+                }else{
+                    findViewById(R.id.place_holder_text).setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void onFailure(String msg) {
+                Toast.makeText(LevelThreeActivity.this, msg, Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
     /**
@@ -660,10 +768,11 @@ public class LevelThreeActivity extends LevelBaseActivity{
                     // if value of mFlgLike is 1 then speak associated really like expression
                     // verbiage for selected category icon.
                     if (mFlgLike == GlobalConstants.LONG_SPEECH) {
-                        //Firebase event
-                        mUec.createSendFbEventFromTappedView(14,
-                level3IconObjects[getTagPos()].getEvent_Tag()
-                            +"_"+ mIconCode[getTagPos()]+"LL","");
+                        if(mLevelThreeItemPos<mIconCode.length)
+                            //Firebase event
+                            mUec.createSendFbEventFromTappedView(14,
+                    level3IconObjects[getTagPos()].getEvent_Tag()
+                                +"_"+ mIconCode[getTagPos()]+"LL","");
 
                         speakAndShowTextBar_(level3IconObjects[mArrSort[mLevelThreeItemPos]].getLL());
 
@@ -672,10 +781,11 @@ public class LevelThreeActivity extends LevelBaseActivity{
                     // if value of mFlgLike is 0 then Speak associated like expression
                     // verbiage for selected category icon.
                     } else {
-                        //Firebase event
-                        mUec.createSendFbEventFromTappedView(13,
-                level3IconObjects[getTagPos()].getEvent_Tag()
-                            +"_"+ mIconCode[getTagPos()]+"L0","");
+                        if(mLevelThreeItemPos<mIconCode.length)
+                            //Firebase event
+                            mUec.createSendFbEventFromTappedView(13,
+                    level3IconObjects[getTagPos()].getEvent_Tag()
+                                +"_"+ mIconCode[getTagPos()]+"L0","");
 
                         speakAndShowTextBar_(level3IconObjects[mArrSort[mLevelThreeItemPos]].getL());
                         //reset mFlgLike to speak "really like" expression
@@ -739,10 +849,11 @@ public class LevelThreeActivity extends LevelBaseActivity{
                     // if value of mFlgDntLike is 1 then speak associated really don't like expression
                     // verbiage for selected category icon.
                     if (mFlgDntLike == GlobalConstants.LONG_SPEECH) {
-                        //Firebase event
-                        mUec.createSendFbEventFromTappedView(20,
-                level3IconObjects[getTagPos()].getEvent_Tag()
-                            +"_"+ mIconCode[getTagPos()]+"DD","");
+                        if(mLevelThreeItemPos<mIconCode.length)
+                            //Firebase event
+                            mUec.createSendFbEventFromTappedView(20,
+                    level3IconObjects[getTagPos()].getEvent_Tag()
+                                +"_"+ mIconCode[getTagPos()]+"DD","");
 
                         speakAndShowTextBar_(level3IconObjects[mArrSort[mLevelThreeItemPos]].getDD());
                         //reset mFlgDntLike to speak "dont like" expression
@@ -750,10 +861,11 @@ public class LevelThreeActivity extends LevelBaseActivity{
                     // if value of mFlgDntLike is 0 then Speak associated don't like expression
                     // verbiage for selected category icon.
                     } else {
-                        //Firebase event
-                        mUec.createSendFbEventFromTappedView(19,
-                level3IconObjects[getTagPos()].getEvent_Tag()
-                            +"_"+ mIconCode[getTagPos()]+"D0","");
+                        if(mLevelThreeItemPos<mIconCode.length)
+                            //Firebase event
+                            mUec.createSendFbEventFromTappedView(19,
+                    level3IconObjects[getTagPos()].getEvent_Tag()
+                                +"_"+ mIconCode[getTagPos()]+"D0","");
 
                         speakAndShowTextBar_(level3IconObjects[mArrSort[mLevelThreeItemPos]].getD());
                         //reset mFlgDntLike to speak "really don't like" expression
@@ -816,10 +928,12 @@ public class LevelThreeActivity extends LevelBaseActivity{
                     // if value of mFlgYes is 1 then speak associated really yes expression
                     // verbiage for selected category icon.
                     if (mFlgYes == GlobalConstants.LONG_SPEECH) {
-                        //Firebase event
-                        mUec.createSendFbEventFromTappedView(16,
-                level3IconObjects[getTagPos()].getEvent_Tag()
-                            +"_"+ mIconCode[getTagPos()]+"YY","");
+
+                        if(mLevelThreeItemPos<mIconCode.length)
+                            //Firebase event
+                            mUec.createSendFbEventFromTappedView(16,
+                    level3IconObjects[getTagPos()].getEvent_Tag()
+                                +"_"+ mIconCode[getTagPos()]+"YY","");
 
                         speakAndShowTextBar_(level3IconObjects[mArrSort[mLevelThreeItemPos]].getYY());
                         //reset mFlgYes to speak "yes" expression
@@ -827,10 +941,12 @@ public class LevelThreeActivity extends LevelBaseActivity{
                     // if value of mFlgYes is 0 then speak associated really yes expression
                     // verbiage for selected category icon.
                     } else {
-                        //Firebase event
-                        mUec.createSendFbEventFromTappedView(15,
-                level3IconObjects[getTagPos()].getEvent_Tag()
-                            +"_"+ mIconCode[getTagPos()]+"Y0","");
+
+                        if(mLevelThreeItemPos<mIconCode.length)
+                            //Firebase event
+                            mUec.createSendFbEventFromTappedView(15,
+                    level3IconObjects[getTagPos()].getEvent_Tag()
+                                +"_"+ mIconCode[getTagPos()]+"Y0","");
 
                         speakAndShowTextBar_(level3IconObjects[mArrSort[mLevelThreeItemPos]].getY());
                         //reset mFlgYes to speak "really yes" expression
@@ -893,10 +1009,11 @@ public class LevelThreeActivity extends LevelBaseActivity{
                     // if value of mFlgNo is 1, then should speak "really no" expression
                     // verbiage associated for selected category icon.
                     if (mFlgNo == GlobalConstants.LONG_SPEECH) {
-                        //Firebase event
-                        mUec.createSendFbEventFromTappedView(22,
-                level3IconObjects[getTagPos()].getEvent_Tag()
-                            +"_"+ mIconCode[getTagPos()]+"NN","");
+                        if(mLevelThreeItemPos<mIconCode.length)
+                            //Firebase event
+                            mUec.createSendFbEventFromTappedView(22,
+                    level3IconObjects[getTagPos()].getEvent_Tag()
+                                +"_"+ mIconCode[getTagPos()]+"NN","");
 
                         speakAndShowTextBar_(level3IconObjects[mArrSort[mLevelThreeItemPos]].getNN());
                         //reset mFlgNo to speak "no" expression
@@ -904,10 +1021,11 @@ public class LevelThreeActivity extends LevelBaseActivity{
                     // if value of mFlgNo is 0 then Speak associated no expression
                     // verbiage for selected category icon.
                     } else {
-                        //Firebase event
-                        mUec.createSendFbEventFromTappedView(21,
-                level3IconObjects[getTagPos()].getEvent_Tag()
-                            +"_"+ mIconCode[getTagPos()]+"N0","");
+                        if(mLevelThreeItemPos<mIconCode.length)
+                            //Firebase event
+                            mUec.createSendFbEventFromTappedView(21,
+                    level3IconObjects[getTagPos()].getEvent_Tag()
+                                +"_"+ mIconCode[getTagPos()]+"N0","");
 
                         speakAndShowTextBar_(level3IconObjects[mArrSort[mLevelThreeItemPos]].getN());
                         //reset mFlgLike to speak "really no" expression
@@ -968,10 +1086,11 @@ public class LevelThreeActivity extends LevelBaseActivity{
                     // if value of mFlgMore is 1, then should speak "really more" expression
                     // verbiage associated to selected category icon.
                     if (mFlgMore == GlobalConstants.LONG_SPEECH) {
-                        //Firebase event
-                        mUec.createSendFbEventFromTappedView(18,
-                level3IconObjects[getTagPos()].getEvent_Tag()
-                            +"_"+ mIconCode[getTagPos()]+"MM","");
+                        if(mLevelThreeItemPos<mIconCode.length)
+                            //Firebase event
+                            mUec.createSendFbEventFromTappedView(18,
+                    level3IconObjects[getTagPos()].getEvent_Tag()
+                                +"_"+ mIconCode[getTagPos()]+"MM","");
 
                         speakAndShowTextBar_(level3IconObjects[mArrSort[mLevelThreeItemPos]].getMM());
                         //reset mFlgMore to speak "more" expression
@@ -979,10 +1098,11 @@ public class LevelThreeActivity extends LevelBaseActivity{
                     // if value of mFlgMore is 0, then should speak "more" expression
                     // verbiage associated to selected category icon.
                     } else {
-                        //Firebase event
-                        mUec.createSendFbEventFromTappedView(17,
-                level3IconObjects[getTagPos()].getEvent_Tag()
-                            +"_"+ mIconCode[getTagPos()]+"M0","");
+                        if(mLevelThreeItemPos<mIconCode.length)
+                            //Firebase event
+                            mUec.createSendFbEventFromTappedView(17,
+                    level3IconObjects[getTagPos()].getEvent_Tag()
+                                +"_"+ mIconCode[getTagPos()]+"M0","");
 
                         speakAndShowTextBar_(level3IconObjects[mArrSort[mLevelThreeItemPos]].getM());
                         //reset mFlgMore to speak "really more" expression
@@ -1045,10 +1165,11 @@ public class LevelThreeActivity extends LevelBaseActivity{
                     // if value of mFlgLess is 1 then speak associated really less expression
                     // verbiage for selected category icon.
                     if (mFlgLess == GlobalConstants.LONG_SPEECH) {
-                        //Firebase event
-                        mUec.createSendFbEventFromTappedView(24,
-                level3IconObjects[getTagPos()].getEvent_Tag()
-                            +"_"+ mIconCode[getTagPos()]+"SS","");
+                        if(mLevelThreeItemPos<mIconCode.length)
+                            //Firebase event
+                            mUec.createSendFbEventFromTappedView(24,
+                    level3IconObjects[getTagPos()].getEvent_Tag()
+                                +"_"+ mIconCode[getTagPos()]+"SS","");
 
                         speakAndShowTextBar_(level3IconObjects[mArrSort[mLevelThreeItemPos]].getSS());
                         //reset mFlgLess to speak "less" expression
@@ -1056,10 +1177,11 @@ public class LevelThreeActivity extends LevelBaseActivity{
                     // if value of mFlgLess is 0 then Speak associated less expression
                     // verbiage to selected category icon.
                     } else {
-                        //Firebase event
-                        mUec.createSendFbEventFromTappedView(23,
-                level3IconObjects[getTagPos()].getEvent_Tag()
-                            +"_"+ mIconCode[getTagPos()]+"S0","");
+                        if(mLevelThreeItemPos<mIconCode.length)
+                            //Firebase event
+                            mUec.createSendFbEventFromTappedView(23,
+                    level3IconObjects[getTagPos()].getEvent_Tag()
+                                +"_"+ mIconCode[getTagPos()]+"S0","");
 
                         speakAndShowTextBar_(level3IconObjects[mArrSort[mLevelThreeItemPos]].getS());
                         //reset mFlgLess to speak "really less" expression
@@ -1081,11 +1203,20 @@ public class LevelThreeActivity extends LevelBaseActivity{
      *             c) Reset category icon views
      *             d) Set the border to selected category icon
      *             e) Increment preference mArrIconTapCount of tapped category icon.</p>
-     * */
-    public void tappedCategoryItemEvent(View view) {
+     * @param position*/
+    public void tappedCategoryItemEvent(View view, int position) {
+        if(level3IconObjects[position].getEvent_Tag().equals(ADD_BASIC_CUSTOM_ICON)){
+            Intent intent = new Intent(LevelThreeActivity.this, DialogAddEditIcon.class);
+            intent.putExtra(IS_HOME_CUSTOM_ICON, true);
+            intent.putExtra(getString(R.string.level_one_intent_pos_tag), mLevelOneItemPos);
+            intent.putExtra(getString(R.string.level_2_item_pos_tag), mLevelTwoItemPos);
+            startActivity(intent);
+            return;
+    }
         mFlgLike = mFlgYes = mFlgMore = mFlgDntLike = mFlgNo = mFlgLess = GlobalConstants.SHORT_SPEECH;
         // Clear the last expressive button selection. Set each expressive button to unpressed.
-        LevelUiUtils.setExpressiveIconPressedState(expressiveBtn, GlobalConstants.NO_EXPR);
+        if(!getSession().getBasicCustomIconAddState())
+            LevelUiUtils.setExpressiveIconPressedState(expressiveBtn, GlobalConstants.NO_EXPR);
         // reset every populated category icon before setting the border to selected icon.
         LevelUiUtils.resetRecyclerAllItems(LevelThreeActivity.this, mRecyclerView,
                 mActionBtnClickCount, mFlgImage);
@@ -1128,13 +1259,15 @@ public class LevelThreeActivity extends LevelBaseActivity{
             mSearched = false;
             mUec.createSendFbEventFromTappedView(12, mDisplayText[getTagPos()], "");
         }
-        // increment category item touch count
-        if (count_flag == 1)
+        /// Increment category item touch count if count_flag == 1 i.e. category uses the preferences and
+        /// the category has only basic icons or Jellow library icons
+        if (count_flag == 1 && level3IconObjects.length == mIconCode.length)
             LevelUiUtils.incrementTouchCountOfItem(mArrIconTapCount, mArrSort,
                 mLevelThreeItemPos, mLevelOneItemPos, mLevelTwoItemPos,
                     LanguageFactory.getCurrentLanguageCode(this), getAppDatabase());
-        // retain state of expressive button when particular type category icon pressed
-        LevelUiUtils.setExpressiveIconConditionally(expressiveBtn, level3IconObjects[mArrSort[mLevelThreeItemPos]]);
+        if(!getSession().getBasicCustomIconAddState())
+            // retain state of expressive button when particular type category icon pressed
+            LevelUiUtils.setExpressiveIconConditionally(expressiveBtn, level3IconObjects[mArrSort[mLevelThreeItemPos]]);
         mIvBack.setImageResource(R.drawable.back);
     }
 
@@ -1343,31 +1476,6 @@ public class LevelThreeActivity extends LevelBaseActivity{
         mFlgImage = GlobalConstants.NO_EXPR;
     }
 
-    /**
-     * <p>This function retrieve speech text array from arrays
-     * resource using category icon index selected in {@link MainActivity} and
-     * {@link LevelTwoActivity}.
-     * @param levelOneItemPos is a index (position of category icon in recycler view)
-     * of category icon selected in {@link MainActivity}.
-     * @param levelTwoItemPos is a index (position of category icon in recycler view)
-     * of category icon selected in {@link LevelTwoActivity}.</p>
-     * */
-    private void retrieveSpeechArrays(int levelOneItemPos, int levelTwoItemPos) {
-
-        //Retrieve icon names from json file for Level 1
-        mIconCode = IconFactory.getL3IconCodes(
-                PathFactory.getJSONFile(this),
-                LanguageFactory.getCurrentLanguageCode(this),
-                getLevel2_3IconCode(levelOneItemPos),
-                getLevel2_3IconCode(levelTwoItemPos)
-        );
-
-        level3IconObjects = TextFactory.getIconObjects(mIconCode);
-
-        mDisplayText = TextFactory.getDisplayText(level3IconObjects);
-        mSpeechText = TextFactory.getSpeechText(level3IconObjects);
-    }
-
     /**<p> This function will returns the index of the item searched item in the sorted list
      * it takes default index of the searched item and returns the actual sorted index of the element.
      * @Author AyazAlam</p>
@@ -1394,5 +1502,69 @@ public class LevelThreeActivity extends LevelBaseActivity{
     public void hideCustomKeyboardDialog() {
         mIvKeyboard.setImageResource(R.drawable.keyboard);
         mIvBack.setImageResource(R.drawable.back);
+    }
+
+    /**
+     * @param position is position in the grid in which user tapped edit.
+     * This method open the position item in DialogAddEditIcon class.**/
+    @Override
+    public void onEditIconClicked(int position) {
+        Intent intent = new Intent(LevelThreeActivity.this, DialogAddEditIcon.class);
+        intent.putExtra(IS_HOME_CUSTOM_ICON, true);
+        intent.putExtra(getString(R.string.level_one_intent_pos_tag), mLevelOneItemPos);
+        intent.putExtra(getString(R.string.level_2_item_pos_tag), mLevelTwoItemPos);
+        intent.putExtra(BASIC_ICON_ID, level3IconObjects[position].getEvent_Tag());
+        JellowIcon icon = new JellowIcon(
+                level3IconObjects[position].getDisplay_Label(),
+                level3IconObjects[position].getEvent_Tag(),
+                -1, -1,-1
+        );
+        Bundle bundle = new Bundle();
+        bundle.putSerializable(JELLOW_ID, icon);
+        intent.putExtras(bundle);
+        startActivity(intent);
+    }
+
+    /**
+     * @param position is position in the grid in which user tapped edit.
+     * This method remove the icon from the database and from the internal folder.**/
+    @Override
+    public void onDeleteIconClicked(int position) {
+        final DialogCustom dialog = new DialogCustom(this);
+        dialog.setText(getString(R.string.icon_delete_warning).replace("-",
+                level3IconObjects[position].getDisplay_Label()));
+        dialog.setOnPositiveClickListener(new DialogCustom.OnPositiveClickListener() {
+            @Override
+            public void onPositiveClickListener() {
+                CustomBasicIconHelper.deleteCustomBasicIcon(LevelThreeActivity.this,
+                        getAppDatabase(), level3IconObjects[position].getEvent_Tag(),
+                        position
+                );
+                ArrayList<Icon> temp = new ArrayList<>(Arrays.asList(level3IconObjects));
+                temp.remove(position);
+                level3IconObjects= new Icon[temp.size()];
+                temp.toArray(level3IconObjects);
+                initializeRecyclerViewAdapter();
+                mRecyclerView.getAdapter().notifyItemRemoved(position);
+                mRecyclerItemsViewList.remove(position);
+                LevelUiUtils.enableAllExpressiveIcon(expressiveBtn);
+                mRecyclerView.smoothScrollToPosition(position);
+
+                if((getSession().getBasicCustomIconAddState() && level3IconObjects.length==1)||
+                        (!getSession().getBasicCustomIconAddState() && level3IconObjects.length==0)){
+                    ((TextView)findViewById(R.id.place_holder_text)).setText(R.string.home_custom_icon_place_holder_text);
+                    findViewById(R.id.place_holder_text).setVisibility(View.VISIBLE);
+                }else{
+                    findViewById(R.id.place_holder_text).setVisibility(View.GONE);
+                }
+            }
+        });
+        dialog.setOnNegativeClickListener(new DialogCustom.OnNegativeClickListener() {
+            @Override
+            public void onNegativeClickListener() {
+                dialog.cancel();
+            }
+        });
+        dialog.show();
     }
 }

@@ -299,11 +299,11 @@ public class SessionManager {
         storePreferenceKeyWithValue(Boolean.class.toString(), mContext.getString(R.string.enable_fish_animation), value);
     }
 
-    public boolean getIconAddState() {
+    public boolean getBasicCustomIconAddState() {
         return (boolean) retrievePreferenceKeyWithValue(Boolean.class.toString(), mContext.getString(R.string.enable_icon_add));
     }
 
-    public void setIconAddState(boolean value) {
+    public void setBasicCustomIconAddState(boolean value) {
         storePreferenceKeyWithValue(Boolean.class.toString(), mContext.getString(R.string.enable_icon_add), value);
     }
 

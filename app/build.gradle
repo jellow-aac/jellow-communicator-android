@@ -1,13 +1,12 @@
 apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 29
 
     defaultConfig {
         applicationId "com.dsource.idc.jellowintl"
         minSdkVersion 21
-        targetSdkVersion 30
+        targetSdkVersion 29
         versionCode 80
         versionName "3.1.0"
         multiDexEnabled true
@@ -42,6 +41,11 @@ android {
     }
     testOptions{
         unitTests.returnDefaultValues = true
+    }
+
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
     }
 }
 
@@ -109,8 +113,6 @@ dependencies {
     testImplementation "org.robolectric:shadows-multidex:4.0.1"
     androidTestImplementation 'org.mockito:mockito-android:2.7.22'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    implementation "androidx.core:core-ktx:+"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
 
 apply plugin: 'com.google.gms.google-services'
@@ -146,7 +148,4 @@ task jacocoUnifiedUnitInstrumentationTestReport(type: JacocoReport, dependsOn: [
     getSourceDirectories().setFrom([mainSrc])
     getClassDirectories().setFrom([debugTree])
     getExecutionData().setFrom([execDataTree])
-}
-repositories {
-    mavenCentral()
 }

@@ -19,6 +19,19 @@ public class GlobalConstants {
     public final static int DISPLAY_PICTURE_ONLY = 1;
 
 
+    public final static String ADD_BASIC_CUSTOM_ICON = "add_icon";
+
+    public static final String IS_HOME_CUSTOM_ICON ="isCustomHomeIcon";
+
+    public static final String IS_HOME_CATEGORY ="isHomeCategory";
+
+    public static final String ICON_POSITION ="iconPosition";
+
+    public static final String BASIC_ICON_ID="home_icon_id";
+
+    public static final String BASIC_IS_CATEGORY="is_category";
+
+
 
     /*EXPRESSIVE ICONS STATES*/
     public final static String NA = "NA";

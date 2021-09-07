@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.Environment;
 
+import com.dsource.idc.jellowintl.factories.PathFactory;
 import com.dsource.idc.jellowintl.make_my_board_module.datamodels.BoardIconModel;
 import com.dsource.idc.jellowintl.utility.SessionManager;
 
@@ -33,9 +34,12 @@ public class ImageStorageHelper {
 
     }
 
-    public static void storeImageToStorage(Bitmap bitmap, String fileID, Context context) {
+    public static void storeImageToStorage(Bitmap bitmap, String fileID, Context context, boolean isCustomizedHomeIcon) {
         FileOutputStream fos;
-        File en_dir = context.getDir(SessionManager.BOARD_ICON_LOCATION, Context.MODE_PRIVATE);
+        File en_dir = isCustomizedHomeIcon ?
+                PathFactory.getBasicCustomIconsDirectory(context)
+                :
+                context.getDir(SessionManager.BOARD_ICON_LOCATION, Context.MODE_PRIVATE);
         String path = en_dir.getAbsolutePath();
         String status = Environment.getExternalStorageState();
         if (status.equals(Environment.MEDIA_MOUNTED)) {

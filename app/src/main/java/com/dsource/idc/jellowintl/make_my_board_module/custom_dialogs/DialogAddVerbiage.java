@@ -1,5 +1,15 @@
 package com.dsource.idc.jellowintl.make_my_board_module.custom_dialogs;
 
+import static com.dsource.idc.jellowintl.make_my_board_module.utility.BoardConstants.BOARD_ID;
+import static com.dsource.idc.jellowintl.models.GlobalConstants.BASIC_IS_CATEGORY;
+import static com.dsource.idc.jellowintl.models.GlobalConstants.ICON_POSITION;
+import static com.dsource.idc.jellowintl.models.GlobalConstants.IS_HOME_CUSTOM_ICON;
+import static com.dsource.idc.jellowintl.utility.Analytics.isAnalyticsActive;
+import static com.dsource.idc.jellowintl.utility.Analytics.resetAnalytics;
+import static com.dsource.idc.jellowintl.utility.Analytics.startMeasuring;
+import static com.dsource.idc.jellowintl.utility.Analytics.stopMeasuring;
+import static com.dsource.idc.jellowintl.utility.Analytics.validatePushId;
+
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -12,24 +22,20 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.dsource.idc.jellowintl.Presentor.CustomBasicIconHelper;
 import com.dsource.idc.jellowintl.R;
 import com.dsource.idc.jellowintl.activities.BaseActivity;
 import com.dsource.idc.jellowintl.make_my_board_module.dataproviders.data_models.BoardModel;
 import com.dsource.idc.jellowintl.make_my_board_module.dataproviders.databases.BoardDatabase;
 import com.dsource.idc.jellowintl.make_my_board_module.dataproviders.databases.TextDatabase;
+import com.dsource.idc.jellowintl.models.CustomIconsModel;
 import com.dsource.idc.jellowintl.models.GlobalConstants;
 import com.dsource.idc.jellowintl.models.Icon;
 import com.dsource.idc.jellowintl.models.JellowIcon;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
-
-import static com.dsource.idc.jellowintl.make_my_board_module.utility.BoardConstants.BOARD_ID;
-import static com.dsource.idc.jellowintl.utility.Analytics.isAnalyticsActive;
-import static com.dsource.idc.jellowintl.utility.Analytics.resetAnalytics;
-import static com.dsource.idc.jellowintl.utility.Analytics.startMeasuring;
-import static com.dsource.idc.jellowintl.utility.Analytics.stopMeasuring;
-import static com.dsource.idc.jellowintl.utility.Analytics.validatePushId;
 
 public class DialogAddVerbiage extends BaseActivity implements View.OnClickListener {
 
@@ -53,6 +59,7 @@ public class DialogAddVerbiage extends BaseActivity implements View.OnClickListe
     private Icon presentVerbiage = null;
     private TextDatabase database;
     private boolean iconUpdate = false;
+    private boolean isCustomizedHomeIcon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,15 +67,15 @@ public class DialogAddVerbiage extends BaseActivity implements View.OnClickListe
         setContentView(R.layout.dialog_add_verbiage);
         context = this;
 
+        isCustomizedHomeIcon = getIntent().hasExtra(IS_HOME_CUSTOM_ICON);
         if (getIntent().getStringExtra(BOARD_ID) != null) {
             id = getIntent().getStringExtra(BOARD_ID);
-            Bundle d = getIntent().getExtras();
-            if (d != null)
-                thisIcon = (JellowIcon) d.getSerializable(JELLOW_ID);
-            initViews();
-            setUpFields();
         }
-
+        Bundle d = getIntent().getExtras();
+        if (d != null)
+            thisIcon = (JellowIcon) d.getSerializable(JELLOW_ID);
+        initViews();
+        setUpFields();
     }
 
     @Override
@@ -96,33 +103,41 @@ public class DialogAddVerbiage extends BaseActivity implements View.OnClickListe
     }
 
     private void setUpFields() {
+        //Setup icon home custom icon here.
+        if(isCustomizedHomeIcon){
+            /*Icon drawable is same as icon id or verbiage*/
+            presentVerbiage = CustomBasicIconHelper.getCustomBasicIcon(getAppDatabase(), thisIcon.getIconDrawable());
+            updateUI(presentVerbiage);
+            iconUpdate = presentVerbiage != null;
         //Setup database
-        BoardDatabase boardDatabase = new BoardDatabase(getAppDatabase());
-        BoardModel thisBoard = boardDatabase.getBoardById(id);
-        this.database = new TextDatabase(this, thisBoard.getLanguage(), getAppDatabase());
+        }else {
+            BoardDatabase boardDatabase = new BoardDatabase(getAppDatabase());
+            BoardModel thisBoard = boardDatabase.getBoardById(id);
+            this.database = new TextDatabase(this, thisBoard.getLanguage(), getAppDatabase());
 
-        String fetchFlag = getIntent().getStringExtra(FETCH_FLAG);
-        String primaryFlag = getIntent().getStringExtra(IS_PRIMARY_FLAG);
+            String fetchFlag = getIntent().getStringExtra(FETCH_FLAG);
+            String primaryFlag = getIntent().getStringExtra(IS_PRIMARY_FLAG);
 
-        if (fetchFlag != null && primaryFlag != null)
-            //Condition one: New icon or category to be saved
-            if (fetchFlag.equals("NULL") && primaryFlag.equals("NULL")) {
-                presentVerbiage = null;
-                updateUI(null);
-                iconUpdate = false;
-            }
-            //Condition two: Custom icon is being edited
-            else if (!fetchFlag.equals("NULL") && primaryFlag.equals("NULL")) {
-                presentVerbiage = database.getVerbiageById(fetchFlag);
-                updateUI(presentVerbiage);
-                iconUpdate = true;
-            }
-            //Condition three: Primary icon is being edited
-            else {
-                presentVerbiage = database.getVerbiageById(fetchFlag);
-                updateUI(presentVerbiage);
-                iconUpdate = false;
-            }
+            if (fetchFlag != null && primaryFlag != null)
+                //Condition one: New icon or category to be saved
+                if (fetchFlag.equals("NULL") && primaryFlag.equals("NULL")) {
+                    presentVerbiage = null;
+                    updateUI(null);
+                    iconUpdate = false;
+                }
+                //Condition two: Custom icon is being edited
+                else if (!fetchFlag.equals("NULL") && primaryFlag.equals("NULL")) {
+                    presentVerbiage = database.getVerbiageById(fetchFlag);
+                    updateUI(presentVerbiage);
+                    iconUpdate = true;
+                }
+                //Condition three: Primary icon is being edited
+                else {
+                    presentVerbiage = database.getVerbiageById(fetchFlag);
+                    updateUI(presentVerbiage);
+                    iconUpdate = false;
+                }
+        }
     }
 
     private void updateUI(Icon currentVerbiage) {
@@ -151,7 +166,7 @@ public class DialogAddVerbiage extends BaseActivity implements View.OnClickListe
                 .setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        //Do nothing
+
                     }
                 });
         btnReset.setOnClickListener(new View.OnClickListener() {
@@ -179,11 +194,21 @@ public class DialogAddVerbiage extends BaseActivity implements View.OnClickListe
     }
 
     private void saveToDatabase() {
+        if(isCustomizedHomeIcon){
+            CustomBasicIconHelper.insertCustomBasicIcon(getAppDatabase(),
+                    new CustomIconsModel(
+                            thisIcon.getVerbiageId(),
+                            getIntent().getStringExtra(ICON_POSITION),
+                            getSession().getLanguage(),
+                            new Gson().toJson(saveVerbiage(true)),
+                            getIntent().getBooleanExtra(BASIC_IS_CATEGORY, false)
+                    )
+            );
         //If icon is new and to be inserted to database
-        if (!iconUpdate) {
-            database.addNewVerbiage(thisIcon.getVerbiageId(), saveVerbiage());
+        }else if (!iconUpdate) {
+            database.addNewVerbiage(thisIcon.getVerbiageId(), saveVerbiage(false));
         } else //if the icon is already a custom icon and need to updated
-            database.updateVerbiage(thisIcon.getVerbiageId(), saveVerbiage());
+            database.updateVerbiage(thisIcon.getVerbiageId(), saveVerbiage(false));
         callback.onSuccess("Success");
     }
 
@@ -219,7 +244,7 @@ public class DialogAddVerbiage extends BaseActivity implements View.OnClickListe
             View view = LayoutInflater.from(context).inflate(R.layout.verbiage_list_item, null);
 
             if (isAccessibilityTalkBackOn((AccessibilityManager) getSystemService(ACCESSIBILITY_SERVICE))) {
-                ImageView iv = ((LinearLayout) view).findViewById(R.id.add_remove);
+                ImageView iv = view.findViewById(R.id.add_remove);
                 ((LinearLayout) view).removeViewAt(3);
                 ((LinearLayout) view).addView(iv, 1);
             }
@@ -277,7 +302,7 @@ public class DialogAddVerbiage extends BaseActivity implements View.OnClickListe
     }
 
 
-    private Icon saveVerbiage() {
+    private Icon saveVerbiage(boolean isBasicCustomIcon) {
 
         for (int i = 0; i < 6; i++) {
             //if view is enabled use it'getS() verbiage
@@ -311,6 +336,9 @@ public class DialogAddVerbiage extends BaseActivity implements View.OnClickListe
         Icon newIcon = new Icon();
         newIcon.setDisplay_Label(thisIcon.getText());
         newIcon.setSpeech_Label(thisIcon.getText());
+        newIcon.setSearchTag(thisIcon.getText());
+        newIcon.setEvent_Tag(String.valueOf(thisIcon.getIconDrawable()));
+        //newIcon.setBasicCustomIcon(isBasicCustomIcon);
         newIcon.setL(verbiageList.get(0));
         newIcon.setLL(verbiageList.get(1));
         newIcon.setY(verbiageList.get(2));

@@ -1,5 +1,17 @@
 package com.dsource.idc.jellowintl.make_my_board_module.custom_dialogs;
 
+import static com.dsource.idc.jellowintl.factories.IconFactory.EXTENSION;
+import static com.dsource.idc.jellowintl.factories.PathFactory.getIconPath;
+import static com.dsource.idc.jellowintl.make_my_board_module.utility.BoardConstants.BOARD_ID;
+import static com.dsource.idc.jellowintl.make_my_board_module.utility.BoardConstants.CAMERA_REQUEST;
+import static com.dsource.idc.jellowintl.make_my_board_module.utility.BoardConstants.LIBRARY_REQUEST;
+import static com.dsource.idc.jellowintl.make_my_board_module.utility.ImageStorageHelper.storeImageToStorage;
+import static com.dsource.idc.jellowintl.utility.Analytics.isAnalyticsActive;
+import static com.dsource.idc.jellowintl.utility.Analytics.resetAnalytics;
+import static com.dsource.idc.jellowintl.utility.Analytics.startMeasuring;
+import static com.dsource.idc.jellowintl.utility.Analytics.stopMeasuring;
+import static com.dsource.idc.jellowintl.utility.Analytics.validatePushId;
+
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -59,18 +71,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
-
-import static com.dsource.idc.jellowintl.factories.IconFactory.EXTENSION;
-import static com.dsource.idc.jellowintl.factories.PathFactory.getIconPath;
-import static com.dsource.idc.jellowintl.make_my_board_module.utility.BoardConstants.BOARD_ID;
-import static com.dsource.idc.jellowintl.make_my_board_module.utility.BoardConstants.CAMERA_REQUEST;
-import static com.dsource.idc.jellowintl.make_my_board_module.utility.BoardConstants.LIBRARY_REQUEST;
-import static com.dsource.idc.jellowintl.make_my_board_module.utility.ImageStorageHelper.storeImageToStorage;
-import static com.dsource.idc.jellowintl.utility.Analytics.isAnalyticsActive;
-import static com.dsource.idc.jellowintl.utility.Analytics.resetAnalytics;
-import static com.dsource.idc.jellowintl.utility.Analytics.startMeasuring;
-import static com.dsource.idc.jellowintl.utility.Analytics.stopMeasuring;
-import static com.dsource.idc.jellowintl.utility.Analytics.validatePushId;
 
 public class DialogAddBoard extends BaseActivity implements IAddBoardDialogView,View.OnClickListener, View.OnFocusChangeListener {
 
@@ -419,7 +419,7 @@ public class DialogAddBoard extends BaseActivity implements IAddBoardDialogView,
             if (!name.equals(""))
                 board.setBoardName(name);
             if (iconImageSelected)
-                storeImageToStorage(boardIcon, board.getBoardId(), this);
+                storeImageToStorage(boardIcon, board.getBoardId(), this, false);
             mPresenter.updateBoard(board);
         }
     }
@@ -428,7 +428,7 @@ public class DialogAddBoard extends BaseActivity implements IAddBoardDialogView,
         String boardID = (int) Calendar.getInstance().getTime().getTime() + "";
 
         if (iconImageSelected)
-            storeImageToStorage(boardIcon, boardID, this);
+            storeImageToStorage(boardIcon, boardID, this, false);
         BoardModel newBoard = new BoardModel();
         newBoard.setBoardName(boardName);
         newBoard.setBoardId(boardID);

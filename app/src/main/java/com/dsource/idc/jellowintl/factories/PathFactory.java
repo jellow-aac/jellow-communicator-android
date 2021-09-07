@@ -12,13 +12,14 @@ public class PathFactory {
     public static final String DRAWABLE_FOLDER = "drawables";
     public static final String AUDIO_FOLDER = "audio";
     public static final String UNIVERSAL_FOLDER = "universal";
+    public static final String BASIC_CUSTOM_ICON_FOLDER = "basic_custom_icons";
     public static String basePath;
     public static File iconDirectory;
     public static File jsonMap;
 
     //Used loading Glide images
     public static String getIconPath(Context context, String iconName){
-        return getBaseDirectoryPath(context)+ "/" + DRAWABLE_FOLDER + "/" + iconName;
+        return getBaseDirectoryPath(context) + DRAWABLE_FOLDER + "/" + iconName;
     }
 
     public static String getBaseDirectoryPath(Context context){
@@ -55,6 +56,18 @@ public class PathFactory {
             jsonMap = new File(path + "/" + LCode+JSON_EXTENSION);
         }
         return jsonMap;
+    }
+
+    public static File getBasicCustomIconsDirectory(Context context){
+        if(iconDirectory == null){
+            iconDirectory = new File(context.getDir(UNIVERSAL_FOLDER, Context.MODE_PRIVATE)+ "/" + BASIC_CUSTOM_ICON_FOLDER + "/");
+        }
+        return  iconDirectory;
+    }
+
+    //Used loading Glide images
+    public static String getBasicCustomIconsPath(Context context, String iconName){
+        return getBaseDirectoryPath(context)+ BASIC_CUSTOM_ICON_FOLDER + "/" + iconName;
     }
 
     public static void clearPathCache(){

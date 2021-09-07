@@ -1,5 +1,26 @@
 package com.dsource.idc.jellowintl.make_my_board_module.custom_dialogs;
 
+import static com.dsource.idc.jellowintl.factories.IconFactory.EXTENSION;
+import static com.dsource.idc.jellowintl.factories.PathFactory.getBasicCustomIconsDirectory;
+import static com.dsource.idc.jellowintl.factories.PathFactory.getIconPath;
+import static com.dsource.idc.jellowintl.make_my_board_module.custom_dialogs.DialogAddVerbiage.JELLOW_ID;
+import static com.dsource.idc.jellowintl.make_my_board_module.utility.BoardConstants.BOARD_ID;
+import static com.dsource.idc.jellowintl.make_my_board_module.utility.BoardConstants.CAMERA_REQUEST;
+import static com.dsource.idc.jellowintl.make_my_board_module.utility.BoardConstants.LIBRARY_REQUEST;
+import static com.dsource.idc.jellowintl.make_my_board_module.utility.ImageStorageHelper.storeImageToStorage;
+import static com.dsource.idc.jellowintl.models.GlobalConstants.BASIC_ICON_ID;
+import static com.dsource.idc.jellowintl.models.GlobalConstants.BASIC_IS_CATEGORY;
+import static com.dsource.idc.jellowintl.models.GlobalConstants.DISABLE_ALPHA;
+import static com.dsource.idc.jellowintl.models.GlobalConstants.ENABLE_ALPHA;
+import static com.dsource.idc.jellowintl.models.GlobalConstants.ICON_POSITION;
+import static com.dsource.idc.jellowintl.models.GlobalConstants.IS_HOME_CATEGORY;
+import static com.dsource.idc.jellowintl.models.GlobalConstants.IS_HOME_CUSTOM_ICON;
+import static com.dsource.idc.jellowintl.utility.Analytics.isAnalyticsActive;
+import static com.dsource.idc.jellowintl.utility.Analytics.resetAnalytics;
+import static com.dsource.idc.jellowintl.utility.Analytics.startMeasuring;
+import static com.dsource.idc.jellowintl.utility.Analytics.stopMeasuring;
+import static com.dsource.idc.jellowintl.utility.Analytics.validatePushId;
+
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -19,6 +40,7 @@ import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,6 +50,7 @@ import androidx.core.app.ActivityCompat;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
+import com.dsource.idc.jellowintl.Presentor.CustomBasicIconHelper;
 import com.dsource.idc.jellowintl.R;
 import com.dsource.idc.jellowintl.activities.BaseActivity;
 import com.dsource.idc.jellowintl.make_my_board_module.activity.BoardSearchActivity;
@@ -48,19 +71,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-import static com.dsource.idc.jellowintl.factories.IconFactory.EXTENSION;
-import static com.dsource.idc.jellowintl.factories.PathFactory.getIconPath;
-import static com.dsource.idc.jellowintl.make_my_board_module.custom_dialogs.DialogAddVerbiage.JELLOW_ID;
-import static com.dsource.idc.jellowintl.make_my_board_module.utility.BoardConstants.BOARD_ID;
-import static com.dsource.idc.jellowintl.make_my_board_module.utility.BoardConstants.CAMERA_REQUEST;
-import static com.dsource.idc.jellowintl.make_my_board_module.utility.BoardConstants.LIBRARY_REQUEST;
-import static com.dsource.idc.jellowintl.make_my_board_module.utility.ImageStorageHelper.storeImageToStorage;
-import static com.dsource.idc.jellowintl.utility.Analytics.isAnalyticsActive;
-import static com.dsource.idc.jellowintl.utility.Analytics.resetAnalytics;
-import static com.dsource.idc.jellowintl.utility.Analytics.startMeasuring;
-import static com.dsource.idc.jellowintl.utility.Analytics.stopMeasuring;
-import static com.dsource.idc.jellowintl.utility.Analytics.validatePushId;
-
 public class DialogAddEditIcon extends BaseActivity implements View.OnClickListener, View.OnFocusChangeListener {
 
     //Static variables to set the modes
@@ -78,23 +88,99 @@ public class DialogAddEditIcon extends BaseActivity implements View.OnClickListe
     private String boardId;
     private OnPhotoResultCallBack revListener;
     private boolean addIcon = true;
+    private boolean isCustomizedHomeIcon=false;
+    private RadioGroup radioGroup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dialog_add_edit_icon);
-
+        isCustomizedHomeIcon = getIntent().hasExtra(IS_HOME_CUSTOM_ICON);
         boardId = getIntent().getStringExtra(BOARD_ID);
         context = this;
 
         initViews();
         initAddEditDialog();
-
+        if(isCustomizedHomeIcon){
+            setupRadioGroup();
+        }
+        /*If editing existing icon custom home icons*/
         if (getIntent().getExtras() != null && getIntent().getExtras().getSerializable(JELLOW_ID) != null) {
             JellowIcon icon = (JellowIcon) getIntent().getExtras().getSerializable(JELLOW_ID);
-            if (icon != null)
-                setAlreadyPresentIcon(icon);
+            if (icon != null && isCustomizedHomeIcon) {
+                setAlreadyPresentIcon(icon, true);
+                radioGroup.setClickable(false);
+                radioGroup.setAlpha(DISABLE_ALPHA);
+                radioGroup.getChildAt(0).setEnabled(false);
+                radioGroup.getChildAt(1).setEnabled(false);
+            }else if (icon != null) {
+                setAlreadyPresentIcon(icon, false);
+            }
         }
+    }
+
+    /**
+     * This method setup the radio group on the dialog.
+     * Follow are conditions:-
+     * if user creating a new custom icon or editing an existing custom icon at in the
+     *      home (iconLocation ="00") or
+     *      inside categories such as :- Greet and feel (iconLocation ="0001"),
+     *          Daily Activities (iconLocation ="0002"), Eating (iconLocation ="0003"),
+     *          Fun (iconLocation ="0004"), Learning ( iconLocation= "0005"),
+     *          Places (iconLocation ="0007"), Time and Weather (iconLocation ="0008")
+     *      then set radio as category and disable its selection, alpha
+     * else if user creating a new custom icon or editing an existing custom icon at in any
+     *      level 3 (iconLocation.length =6) or People (iconLocation ="0005"),
+     *      Help (iconLocation ="0009")
+     *      then set radio as icon and disable its selection, alpha
+     * else if user creating a new custom icon or editing an existing custom icon at level 2
+     *      which parent is also custom icon
+     *      then set its radio based on the icons attribute "isCategory". This case is special case,
+     *      here user can either create a simple icon or category icon. If received
+     *      //@param icon, is empty it means, user creating a new icon, so no radio buttons are set;
+     *                   And all radio buttons are enabled.
+     *
+     ***/
+    private void setupRadioGroup() {
+        boolean isHomeIcon = getIntent().getBooleanExtra(IS_HOME_CATEGORY, false);
+        int levelOneIconPosition= getIntent().getIntExtra(getString(R.string.level_one_intent_pos_tag), -1);
+        int levelTwoIconPosition= getIntent().getIntExtra(getString(R.string.level_2_item_pos_tag), -1);
+        String iconId= getIntent().getStringExtra(BASIC_ICON_ID) != null ? getIntent().getStringExtra(BASIC_ICON_ID) : "";
+        radioGroup = findViewById(R.id.rgIconOptions);
+        radioGroup.setVisibility(View.VISIBLE);
+
+        boolean radioState=false;
+        float radioAlpha=DISABLE_ALPHA;
+        // Adding an custom icon at home screen then user can add only categories there.
+        if(isHomeIcon){
+            radioGroup.check(R.id.rbIsCategory);
+        // Adding an custom icon inside People or Help category then user can add only icons there.
+        }else if (levelOneIconPosition == 5 || levelOneIconPosition == 8){
+            radioGroup.check(R.id.rbIsIcon);
+        // Adding an custom icon anywhere at level 3 then user can add only icons there.
+        }else if(levelOneIconPosition < 9 && levelTwoIconPosition != -1){
+            radioGroup.check(R.id.rbIsIcon);
+        // Adding an custom icon anywhere inside level 2 apart from People and Help categories
+        // then user can add only categories there.
+        }else if (levelOneIconPosition < 9) {
+            radioGroup.check(R.id.rbIsCategory);
+        // Adding an custom icon at level 3 of any custom subcategory then user can add only icons there.
+        }else if(levelOneIconPosition > 8 && levelTwoIconPosition != -1){
+            radioGroup.check(R.id.rbIsIcon);
+        // Adding an custom icon anywhere inside level 2 inside home screen custom icon
+        // then user can add categories as well as icons there.
+        }else{
+            radioState = true;
+            radioAlpha = ENABLE_ALPHA;
+            if(CustomBasicIconHelper.givenCustomIconIsCategory(getAppDatabase(), iconId))
+                radioGroup.check(R.id.rbIsCategory);
+            else
+                radioGroup.check(R.id.rbIsIcon);
+        }
+        radioGroup.setClickable(radioState);
+        radioGroup.setAlpha(radioAlpha);
+        radioGroup.getChildAt(0).setEnabled(radioState);
+        radioGroup.getChildAt(1).setEnabled(radioState);
     }
 
     @Override
@@ -125,24 +211,22 @@ public class DialogAddEditIcon extends BaseActivity implements View.OnClickListe
         callback = addIconCallback;
     }
 
-
-    public void setAlreadyPresentIcon(JellowIcon Icon) {
+    public void setAlreadyPresentIcon(JellowIcon Icon, boolean isCustomizedHomeIcon) {
         this.thisIcon = Icon;
         this.addIcon = false;
-        setIconImage();
+        setIconImage(isCustomizedHomeIcon);
         setTitleText(thisIcon.getIconTitle());
     }
 
     @SuppressLint("ResourceType")
     public void initAddEditDialog() {
-
-
         titleText.setOnFocusChangeListener(this);
-        iconImage.setOnClickListener(this);
-        //List on the dialog.
-        listView.setVisibility(View.INVISIBLE);
         titleText.setHint(context.getResources().getString(R.string.icon_name));
         titleText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(100)});
+        iconImage.setOnClickListener(this);
+
+        //List on the dialog.
+        listView.setVisibility(View.INVISIBLE);
         //The list that will be shown with camera options
         final ArrayList<ListItem> list = new ArrayList<>();
         @SuppressLint("Recycle") TypedArray mArray = context.getResources().obtainTypedArray(R.array.add_photo_option);
@@ -150,6 +234,14 @@ public class DialogAddEditIcon extends BaseActivity implements View.OnClickListe
         list.add(new ListItem(context.getResources().getString(R.string.library), mArray.getDrawable(1)));
         SimpleListAdapter adapter = new SimpleListAdapter(context, list);
         listView.setAdapter(adapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                listView.setVisibility(View.INVISIBLE);
+                firePhotoIntent(position);
+            }
+        });
+
         revListener = new OnPhotoResultCallBack() {
             @Override
             public void onPhotoResult(Bitmap bitmap, int code, String fileName) {
@@ -169,24 +261,13 @@ public class DialogAddEditIcon extends BaseActivity implements View.OnClickListe
                 iconImage.setBackground(context.getResources().getDrawable(R.drawable.icon_back_grey));
             }
         };
-
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                listView.setVisibility(View.INVISIBLE);
-                firePhotoIntent(position);
-            }
-        });
-
     }
 
     public void setTitleText(String name) {
         if (titleText != null) titleText.setText(name);
     }
 
-
     private void initViews() {
-
         //Views related to the Dialogs
         titleText = findViewById(R.id.board_name);
         saveButton = findViewById(R.id.save_board);
@@ -196,12 +277,11 @@ public class DialogAddEditIcon extends BaseActivity implements View.OnClickListe
         listView = findViewById(R.id.camera_list);
         findViewById(R.id.parent).setOnClickListener(this);
         findViewById(R.id.icon_container).setOnClickListener(this);
-
         iconImage.setOnClickListener(this);
 
         //Setting the image icon
-        if (thisIcon != null)
-            setIconImage();
+        /*if (thisIcon != null)
+            setIconImage(isCustomizedHomeIcon);*/
 
         //Click Listeners
         saveButton.setOnClickListener(this);
@@ -213,7 +293,7 @@ public class DialogAddEditIcon extends BaseActivity implements View.OnClickListe
 
     /**
      * This funtion takes name and bitmap array of a icon to be added and generates
-     * an icon for it and adds it to the postion and scrolls to it.
+     * an icon for it and adds it to the position and scrolls to it.
      *
      * @param name   Name of the Icon
      * @param bitmap bitmap array holding the image
@@ -222,7 +302,7 @@ public class DialogAddEditIcon extends BaseActivity implements View.OnClickListe
         JellowIcon icon = new JellowIcon(name, "" + id, -1, -1, id);
         icon.setVerbiageId(id + "");
         if (iconImageSelected)
-            storeImageToStorage(bitmap, id + "", this);
+            storeImageToStorage(bitmap, id + "", this, isCustomizedHomeIcon);
         if (callback != null)
             callback.onAddedSuccessfully(icon);
     }
@@ -230,7 +310,7 @@ public class DialogAddEditIcon extends BaseActivity implements View.OnClickListe
     private void saveEditedIcon(String id, String name, Bitmap bitmapArray) {
         JellowIcon icon = new JellowIcon(name, id, -1, -1, Integer.parseInt(id));
         icon.setVerbiageId(id);
-        storeImageToStorage(bitmapArray, id + "", this);
+        storeImageToStorage(bitmapArray, id + "", this, isCustomizedHomeIcon);
         if (callback != null)
             callback.onAddedSuccessfully(icon);
         callback = null;
@@ -238,29 +318,38 @@ public class DialogAddEditIcon extends BaseActivity implements View.OnClickListe
 
     /**
      * Sets image for the Dialog
+     * @param isCustomizedHomeIcon
      */
-    private void setIconImage() {
-
-        if (thisIcon.isCustomIcon())//Is a custom Icon
-        {
-            File en_dir = context.getDir(SessionManager.BOARD_ICON_LOCATION, Context.MODE_PRIVATE);
+    private void setIconImage(boolean isCustomizedHomeIcon) {
+        if(isCustomizedHomeIcon) {
+            File en_dir = getBasicCustomIconsDirectory(this);
             String path = en_dir.getAbsolutePath();
             GlideApp.with(context)
-                    .load(path + "/" + thisIcon.getIconDrawable() + ".png")
+                    .load(path + "/" + thisIcon.getIconDrawable() + EXTENSION)
                     .diskCacheStrategy(DiskCacheStrategy.NONE)
                     .skipMemoryCache(true)
                     .centerCrop()
                     .dontAnimate()
                     .placeholder(R.drawable.ic_board_person)
                     .into(iconImage);
-            iconImageSelected = true;
+        //Is a custom Icon
+        }else if (thisIcon.isCustomIcon()){
+            File en_dir = context.getDir(SessionManager.BOARD_ICON_LOCATION, Context.MODE_PRIVATE);
+            String path = en_dir.getAbsolutePath();
+            GlideApp.with(context)
+                    .load(path + "/" + thisIcon.getIconDrawable() + EXTENSION)
+                    .diskCacheStrategy(DiskCacheStrategy.NONE)
+                    .skipMemoryCache(true)
+                    .centerCrop()
+                    .dontAnimate()
+                    .placeholder(R.drawable.ic_board_person)
+                    .into(iconImage);
         } else {
             GlideApp.with(context).load(getIconPath(context, thisIcon.getIconDrawable() + EXTENSION))
                     .skipMemoryCache(true)
                     .into(iconImage);
-            iconImageSelected = true;
         }
-
+        iconImageSelected = true;
     }
 
 
@@ -273,12 +362,14 @@ public class DialogAddEditIcon extends BaseActivity implements View.OnClickListe
 
         if (v == null) return;
 
-        if (v == editBoardIconButton) {
+        if (v == editBoardIconButton && !isCustomizedHomeIcon) {
             if (isVisible)
                 listView.setVisibility(View.INVISIBLE);
             else
                 listView.setVisibility(View.VISIBLE);
             isVisible = !isVisible;
+        }else if (v == editBoardIconButton && isCustomizedHomeIcon) {
+            firePhotoIntent(0);
         } else if (v == saveButton)
             initSave();
         else if (v == cancelSaveBoard) {
@@ -289,41 +380,40 @@ public class DialogAddEditIcon extends BaseActivity implements View.OnClickListe
     }
 
     private void initSave() {
-
         if(!iconImageSelected) {
             Toast.makeText(context,getString(R.string.please_select_icon),Toast.LENGTH_SHORT).show();
             return;
         }
 
-        final int id = (int) Calendar.getInstance().getTimeInMillis();
-
-        String FETCH_ENABLED;
-        String IS_PRIMARY;
-
-
-        Intent intent = new Intent(context, DialogAddVerbiage.class);
-        Bundle bundle = new Bundle();
-        intent.putExtra(BOARD_ID, boardId);
-
-
-        final Bitmap bitmap = ((BitmapDrawable) iconImage.getDrawable()).getBitmap();
-
         if (titleText.getText().toString().equals("")) {
             Toast.makeText(context, context.getResources().getString(R.string.please_enter_name), Toast.LENGTH_SHORT).show();
             return;
         }
+        final int id = (int) Calendar.getInstance().getTimeInMillis();
+        String FETCH_ENABLED;
+        String IS_PRIMARY;
+        Intent intent = new Intent(context, DialogAddVerbiage.class);
+        Bundle bundle = new Bundle();
+        if(isCustomizedHomeIcon) {
+            intent.putExtra(ICON_POSITION, getIconPosition());
+            boolean isCategory = (radioGroup.getCheckedRadioButtonId() == R.id.rbIsCategory);
+            intent.putExtra(BASIC_IS_CATEGORY, isCategory);
+            intent.putExtra(IS_HOME_CUSTOM_ICON, getIntent().hasExtra(IS_HOME_CUSTOM_ICON));
+        }else
+            intent.putExtra(BOARD_ID, boardId);
 
+        final Bitmap bitmap = ((BitmapDrawable) iconImage.getDrawable()).getBitmap();
         final String name = titleText.getText().toString();
-
         if (addIcon) {
-
             FETCH_ENABLED = "NULL";
             IS_PRIMARY = "NULL";
-            bundle.putSerializable(JELLOW_ID, new JellowIcon(name, "" + id, -1, -1, id));
-
+            bundle.putSerializable(JELLOW_ID, new JellowIcon(name, String.valueOf(id), -1, -1, id));
         } else {
-
-            if (thisIcon.isCustomIcon()) {
+            if(thisIcon.isCustomIcon() && isCustomizedHomeIcon){
+                FETCH_ENABLED = thisIcon.getVerbiageId();
+                IS_PRIMARY = "NULL";
+                thisIcon.setIconTitle(name);
+            }else if (thisIcon.isCustomIcon()) {
                 //Fetch flag is set for custom icon update.
                 FETCH_ENABLED = thisIcon.getVerbiageId();
                 IS_PRIMARY = "NULL";
@@ -335,8 +425,6 @@ public class DialogAddEditIcon extends BaseActivity implements View.OnClickListe
                 thisIcon.setVerbiageId(id + "");
                 thisIcon.setDrawable(id + "");
                 thisIcon.setIconTitle(name);
-
-
             }
             bundle.putSerializable(JELLOW_ID, thisIcon);
         }
@@ -358,6 +446,22 @@ public class DialogAddEditIcon extends BaseActivity implements View.OnClickListe
                     saveEditedIcon(thisIcon.getVerbiageId(), name, bitmap);
             }
         };
+    }
+
+    private String getIconPosition() {
+        boolean isHomeIcon = getIntent().getBooleanExtra(IS_HOME_CATEGORY, false);
+        int levelOneIconPosition= getIntent().getIntExtra(getString(R.string.level_one_intent_pos_tag), -1);
+        int levelTwoIconPosition= getIntent().getIntExtra(getString(R.string.level_2_item_pos_tag), -1);
+        if(isHomeIcon)
+            return  "00";
+        else if(levelOneIconPosition != -1 && levelTwoIconPosition == -1)
+            return  "00,"+ (levelOneIconPosition < 10 ? "0"+levelOneIconPosition : levelOneIconPosition);
+        else if(levelOneIconPosition != -1)
+            return  "00," +
+                    (levelOneIconPosition < 10 ? "0"+levelOneIconPosition : levelOneIconPosition) +","+
+                    (levelTwoIconPosition < 10 ? "0"+levelTwoIconPosition : levelTwoIconPosition);
+        else
+            return "";
     }
 
 
@@ -404,23 +508,20 @@ public class DialogAddEditIcon extends BaseActivity implements View.OnClickListe
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-
-
         if (requestCode == CAMERA_REQUEST)
             // If request is cancelled, the result arrays are empty.
             if (grantResults.length > 0
-                    && grantResults[0] == PackageManager.PERMISSION_GRANTED && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
+                    && grantResults[0] == PackageManager.PERMISSION_GRANTED &&
+                        grantResults[1] == PackageManager.PERMISSION_GRANTED) {
                 CropImage.activity()
                         .setAspectRatio(1, 1)
                         .setGuidelines(CropImageView.Guidelines.ON)
                         .setFixAspectRatio(true)
                         .start(this);
             } else {
-
                 Toast.makeText(this, "Permission denied", Toast.LENGTH_SHORT).show();
             }
     }
-
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -441,12 +542,11 @@ public class DialogAddEditIcon extends BaseActivity implements View.OnClickListe
                 if (bitmap1 != null) {
                     revListener.onPhotoResult(result.getBitmap(), requestCode, null);
                     iconImageSelected = true;
-                    //mPhotoIntentResult.onPhotoIntentResult(result.getBitmap(), requestCode,null);
                 } else {
                     try {
                         iconImageSelected = true;
                         bitmap1 = MediaStore.Images.Media.getBitmap(getContentResolver(), resultUri);
-                        revListener.onPhotoResult(bitmap1, requestCode, null);// mPhotoIntentResult.onPhotoIntentResult(bitmap1,requestCode,null);
+                        revListener.onPhotoResult(bitmap1, requestCode, null);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -457,8 +557,5 @@ public class DialogAddEditIcon extends BaseActivity implements View.OnClickListe
                     Log.d("CROP_IMAGE_ERROR", error.getMessage());
             }
         }
-
     }
-
-
 }

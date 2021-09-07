@@ -17,6 +17,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.List;
 
 public class TextFactory {
 
@@ -43,7 +44,6 @@ public class TextFactory {
         }
 
         return text.toString();
-
     }
 
     public static String[] getDisplayText(Icon[] iconObjects){
@@ -107,6 +107,38 @@ public class TextFactory {
             } catch (Exception e) {
                 Log.d("JSON", e.getMessage());
             }
+        }
+
+        Icon[] generalIconObjects = new Icon[iconObjects.size()];
+        iconObjects.toArray(generalIconObjects);
+        return generalIconObjects;
+    }
+
+    /*RAHUL*/
+    public static ArrayList<Icon> getIconArray(@NotNull String[] iconNames) {
+        ArrayList<Icon> iconObjects = new ArrayList<>();
+        for (String iconName : iconNames) {
+            try {
+                String jsonString = JSON.getJSONObject(iconName).toString();
+                Icon icon = new Gson().fromJson(jsonString, Icon.class);
+                iconObjects.add(icon);
+            } catch (Exception e) {
+                Log.d("JSON", e.getMessage());
+            }
+        }
+        return iconObjects;
+    }
+
+    /*RAHUL*/
+    public static Icon[] getAllIconsArray(String[] mIconCode, List<Icon> customBasicIcons, boolean basicCustomIconAddState) {
+        ArrayList<Icon> iconObjects= TextFactory.getIconArray(mIconCode);
+        iconObjects.addAll(customBasicIcons);
+        if(basicCustomIconAddState){
+            Icon icon = new Icon();
+            icon.setDisplay_Label("Add Icon");
+            icon.setSpeech_Label("Add Icon");
+            icon.setEvent_Tag("add_icon");
+            iconObjects.add(icon);
         }
 
         Icon[] generalIconObjects = new Icon[iconObjects.size()];

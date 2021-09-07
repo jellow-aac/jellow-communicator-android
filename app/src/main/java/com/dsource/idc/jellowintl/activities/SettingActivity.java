@@ -23,6 +23,7 @@ import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.Switch;
@@ -42,7 +43,7 @@ public class SettingActivity extends SpeechEngineBaseActivity {
     private Spinner mSpinnerViewMode, mSpinnerGridSize;
     private TextView mTxtViewSpeechSpeed, mTxtViewVoicePitch;
     private SeekBar mSliderSpeed, mSliderPitch, mSliderVolume;
-    private boolean mOpenSetting;
+    private boolean mOpenSetting, mEnabledBasicCustomAdditionSwitch;
     private String  mCalPerMsg, mCalPerGranted,mCalPerRejected, mSettings, mDismiss;
 
     @Override
@@ -69,38 +70,60 @@ public class SettingActivity extends SpeechEngineBaseActivity {
         }
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mSpinnerGridSize.setAdapter(adapter);
+        mEnabledBasicCustomAdditionSwitch= getSession().getBasicCustomIconAddState();
 
         // If user have sim device and ready to call, only then showDialog "enable call switch".
         if(isDeviceReadyToCall((TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE))) {
             ((SwitchCompat) findViewById(R.id.switchEnableCall)).setChecked(getSession().isCallingEnabled());
-            ((SwitchCompat) findViewById(R.id.switchEnableCall)).setOnCheckedChangeListener
-                    ((compoundButton, enableCall) -> {
-                        if(enableCall)
-                            //request call permission here.
-                            requestCallPermissionToUser();
-                        else
-                            getSession().setEnableCalling(false);
-                    });
+            ((SwitchCompat) findViewById(R.id.switchEnableCall)).setOnCheckedChangeListener(
+                new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    if(isChecked)
+                        //request call permission here.
+                        requestCallPermissionToUser();
+                    else
+                        getSession().setEnableCalling(false);
+                }
+            });
         }else{
             findViewById(R.id.tv5).setVisibility(View.GONE);
             findViewById(R.id.switchEnableCall).setVisibility(View.GONE);
         }
 
         ((SwitchCompat) findViewById(R.id.switchDisplaySpeechText)).setChecked(getSession().getTextBarVisibility());
-        ((SwitchCompat) findViewById(R.id.switchDisplaySpeechText)).setOnCheckedChangeListener
-                ((compoundButton, enableTextBar) -> getSession().setTextBarVisibility(enableTextBar));
+        ((SwitchCompat) findViewById(R.id.switchDisplaySpeechText)).setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                getSession().setTextBarVisibility(isChecked);
+            }
+        });
 
         ((SwitchCompat) findViewById(R.id.switchEnableBoardDelete)).setChecked(getSession().isBoardDeletionEnabled());
-        ((SwitchCompat) findViewById(R.id.switchEnableBoardDelete)).setOnCheckedChangeListener
-                ((compoundButton, enableDelete) -> getSession().setBoardDeletionEnabled(enableDelete));
+        ((SwitchCompat) findViewById(R.id.switchEnableBoardDelete)).setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                getSession().setBoardDeletionEnabled(isChecked);
+            }
+        });
 
         ((SwitchCompat) findViewById(R.id.switchEnableAnimation)).setChecked(getSession().getAnimationState());
-        ((SwitchCompat) findViewById(R.id.switchEnableAnimation)).setOnCheckedChangeListener
-                ((compoundButton, enableDelete) -> getSession().setAnimationState(enableDelete));
+        ((SwitchCompat) findViewById(R.id.switchEnableAnimation)).setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                getSession().setAnimationState(isChecked);
+            }
+        });
 
-        ((SwitchCompat) findViewById(R.id.switchEnableIconAddition)).setChecked(getSession().getIconAddState());
-        ((SwitchCompat) findViewById(R.id.switchEnableIconAddition)).setOnCheckedChangeListener
-                ((compoundButton, enableDelete) -> getSession().setIconAddState(enableDelete));
+        ((SwitchCompat) findViewById(R.id.switchEnableIconAddition)).setChecked(getSession().getBasicCustomIconAddState());
+        ((SwitchCompat) findViewById(R.id.switchEnableIconAddition)).setOnCheckedChangeListener(
+                new CompoundButton.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                        mEnabledBasicCustomAdditionSwitch=isChecked;
+                    }
+                }
+        );
 
 
         Button btnSave = findViewById(R.id.button4);
@@ -184,8 +207,8 @@ public class SettingActivity extends SpeechEngineBaseActivity {
             public void onClick(View v) {
                 /*Identify if language is changed, to app needs to restart from splash*/
                 if(getSession().getPictureViewMode() != mSpinnerViewMode.getSelectedItemPosition() ||
-                            getSession().getGridSize() != mSpinnerGridSize.getSelectedItemPosition()) {
-
+                            getSession().getGridSize() != mSpinnerGridSize.getSelectedItemPosition() ||
+                getSession().getBasicCustomIconAddState() != mEnabledBasicCustomAdditionSwitch) {
 
                     if(getSession().getPictureViewMode() != mSpinnerViewMode.getSelectedItemPosition()) {
                         setUserProperty("PictureViewMode",
@@ -205,6 +228,9 @@ public class SettingActivity extends SpeechEngineBaseActivity {
                         }
                         getSession().setGridSize(mSpinnerGridSize.getSelectedItemPosition());
                     }
+                    if(getSession().getBasicCustomIconAddState() != mEnabledBasicCustomAdditionSwitch)
+                        getSession().setBasicCustomIconAddState(mEnabledBasicCustomAdditionSwitch);
+
                     startActivity(new Intent(getApplicationContext(), SplashActivity.class));
                     finishAffinity();
                 }

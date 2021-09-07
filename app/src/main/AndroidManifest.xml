@@ -131,6 +131,7 @@
             android:name=".activities.LevelThreeActivity"
             android:label="@string/level_3_screen"
             android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustPan"
             tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".activities.LanguageDownloadActivity"
@@ -266,5 +267,4 @@
             </intent-filter>
         </service>
     </application>
-
 </manifest>

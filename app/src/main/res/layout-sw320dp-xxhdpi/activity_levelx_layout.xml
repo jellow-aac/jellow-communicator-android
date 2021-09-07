@@ -140,10 +140,10 @@
             android:src="@drawable/keyboard" />
     </LinearLayout>
     <ImageView
+        android:id="@+id/jellow_logo"
         android:layout_width="90dp"
         android:layout_height="45dp"
         android:src="@drawable/jellow"
-        android:clickable="false"
         android:elevation="8dp"
         android:layout_marginStart="4dp"
         android:layout_marginBottom="-2dp"
