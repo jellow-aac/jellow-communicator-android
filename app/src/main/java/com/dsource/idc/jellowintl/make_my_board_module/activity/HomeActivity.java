@@ -1,5 +1,13 @@
 package com.dsource.idc.jellowintl.make_my_board_module.activity;
 
+import static com.dsource.idc.jellowintl.make_my_board_module.utility.BoardConstants.BOARD_ID;
+import static com.dsource.idc.jellowintl.make_my_board_module.utility.BoardConstants.ENABLE_DROPDOWN_SPEAKER;
+import static com.dsource.idc.jellowintl.utility.Analytics.isAnalyticsActive;
+import static com.dsource.idc.jellowintl.utility.Analytics.resetAnalytics;
+import static com.dsource.idc.jellowintl.utility.Analytics.startMeasuring;
+import static com.dsource.idc.jellowintl.utility.Analytics.stopMeasuring;
+import static com.dsource.idc.jellowintl.utility.Analytics.validatePushId;
+
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
@@ -53,14 +61,6 @@ import com.h6ah4i.android.widget.advrecyclerview.draggable.RecyclerViewDragDropM
 import com.h6ah4i.android.widget.advrecyclerview.utils.WrapperAdapterUtils;
 
 import java.util.ArrayList;
-
-import static com.dsource.idc.jellowintl.make_my_board_module.utility.BoardConstants.BOARD_ID;
-import static com.dsource.idc.jellowintl.make_my_board_module.utility.BoardConstants.ENABLE_DROPDOWN_SPEAKER;
-import static com.dsource.idc.jellowintl.utility.Analytics.isAnalyticsActive;
-import static com.dsource.idc.jellowintl.utility.Analytics.resetAnalytics;
-import static com.dsource.idc.jellowintl.utility.Analytics.startMeasuring;
-import static com.dsource.idc.jellowintl.utility.Analytics.stopMeasuring;
-import static com.dsource.idc.jellowintl.utility.Analytics.validatePushId;
 
 public class HomeActivity extends SpeechEngineBaseActivity implements TextToSpeechCallBacks {
 
@@ -130,6 +130,7 @@ public class HomeActivity extends SpeechEngineBaseActivity implements TextToSpee
             setupActionBarTitle(View.VISIBLE, getString(R.string.home) + "/" +
                     getString(R.string.my_boards) + "/" +
                     currentBoard.getBoardName()+" "+getString(R.string.board));
+            applyBlackAndWhiteColor();
             getSupportActionBar().setBackgroundDrawable(getResources().getDrawable(R.drawable.action_bar_background));
         }
         findViewById(R.id.iv_action_bar_back).setOnClickListener(new View.OnClickListener() {
@@ -563,6 +564,7 @@ public class HomeActivity extends SpeechEngineBaseActivity implements TextToSpee
 
         dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation_2; //style id
         dialog.show();
+        applyBlackAndWhiteColorToViews(mView);
         WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
         lp.copyFrom(dialog.getWindow().getAttributes());
         lp.width = WindowManager.LayoutParams.MATCH_PARENT;

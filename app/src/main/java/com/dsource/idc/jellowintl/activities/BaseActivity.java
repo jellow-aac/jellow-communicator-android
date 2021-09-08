@@ -1,5 +1,6 @@
 package com.dsource.idc.jellowintl.activities;
 
+import static android.view.View.LAYER_TYPE_HARDWARE;
 import static com.dsource.idc.jellowintl.make_my_board_module.utility.BoardConstants.GRID_SIZE;
 import static com.dsource.idc.jellowintl.models.GlobalConstants.SCREEN_SIZE_PHONE;
 import static com.dsource.idc.jellowintl.models.GlobalConstants.SCREEN_SIZE_SEVEN_INCH_TAB;
@@ -10,6 +11,9 @@ import static com.dsource.idc.jellowintl.utility.Analytics.setUserProperty;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.ColorMatrix;
+import android.graphics.ColorMatrixColorFilter;
+import android.graphics.Paint;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
@@ -19,6 +23,7 @@ import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.view.accessibility.AccessibilityManager;
 import android.widget.FrameLayout;
 import android.widget.TextView;
@@ -459,5 +464,56 @@ public class BaseActivity extends AppCompatActivity{
 
     public void setMenu(Menu menu) {
         this.menu = menu;
+    }
+
+    public void applyBlackAndWhiteColor(){
+        if(getSession().getMonochromeDisplayState()) {
+            ColorMatrix cm = new ColorMatrix();
+            cm.setSaturation(0f);
+            Paint greyscalePaint = new Paint();
+            greyscalePaint.setColorFilter(new ColorMatrixColorFilter(cm));
+            final View decor = getWindow().getDecorView();
+            decor.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
+                @Override
+                public boolean onPreDraw() {
+                    decor.getViewTreeObserver().removeOnPreDrawListener(this);
+                    View statusBar = decor.findViewById(android.R.id.statusBarBackground);
+                    statusBar.setLayerType(LAYER_TYPE_HARDWARE, greyscalePaint);
+                    return true;
+                }
+            });
+            findViewById(R.id.parent).setLayerType(LAYER_TYPE_HARDWARE, greyscalePaint);
+            try {
+                ((View) getSupportActionBar().getCustomView().getParent().getParent()).setLayerType(LAYER_TYPE_HARDWARE, greyscalePaint);
+            }catch (NullPointerException e){
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void applyBlackAndWhiteColorToViews(View view){
+        if(getSession().getMonochromeDisplayState()) {
+            ColorMatrix cm = new ColorMatrix();
+            cm.setSaturation(0f);
+            Paint greyscalePaint = new Paint();
+            greyscalePaint.setColorFilter(new ColorMatrixColorFilter(cm));
+            view.setLayerType(LAYER_TYPE_HARDWARE, greyscalePaint);
+            /*final View decor = getWindow().getDecorView();
+            decor.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
+                @Override
+                public boolean onPreDraw() {
+                    decor.getViewTreeObserver().removeOnPreDrawListener(this);
+                    View statusBar = decor.findViewById(android.R.id.statusBarBackground);
+                    statusBar.setLayerType(LAYER_TYPE_HARDWARE, greyscalePaint);
+                    return true;
+                }
+            });
+            findViewById(R.id.parent).setLayerType(LAYER_TYPE_HARDWARE, greyscalePaint);
+            try {
+                ((View) getSupportActionBar().getCustomView().getParent().getParent()).setLayerType(LAYER_TYPE_HARDWARE, greyscalePaint);
+            }catch (NullPointerException e){
+                e.printStackTrace();
+            }*/
+        }
     }
 }

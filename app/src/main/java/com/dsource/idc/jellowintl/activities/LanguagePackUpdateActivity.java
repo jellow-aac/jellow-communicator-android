@@ -1,5 +1,11 @@
 package com.dsource.idc.jellowintl.activities;
 
+import static com.dsource.idc.jellowintl.utility.Analytics.isAnalyticsActive;
+import static com.dsource.idc.jellowintl.utility.Analytics.resetAnalytics;
+import static com.dsource.idc.jellowintl.utility.Analytics.startMeasuring;
+import static com.dsource.idc.jellowintl.utility.Analytics.stopMeasuring;
+import static com.dsource.idc.jellowintl.utility.Analytics.validatePushId;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -16,12 +22,6 @@ import com.dsource.idc.jellowintl.package_updater_module.UpdateManager;
 import com.dsource.idc.jellowintl.package_updater_module.interfaces.ProgressReceiver;
 import com.dsource.idc.jellowintl.utility.SessionManager;
 
-import static com.dsource.idc.jellowintl.utility.Analytics.isAnalyticsActive;
-import static com.dsource.idc.jellowintl.utility.Analytics.resetAnalytics;
-import static com.dsource.idc.jellowintl.utility.Analytics.startMeasuring;
-import static com.dsource.idc.jellowintl.utility.Analytics.stopMeasuring;
-import static com.dsource.idc.jellowintl.utility.Analytics.validatePushId;
-
 public class LanguagePackUpdateActivity extends BaseActivity implements ProgressReceiver{
 
     UpdateManager updateManager;
@@ -33,6 +33,7 @@ public class LanguagePackUpdateActivity extends BaseActivity implements Progress
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_language_pack_update_activity);
+        applyBlackAndWhiteColor();
         setNavigationUiConditionally();
         updateManager = new UpdateManager(this);
         statusText = findViewById(R.id.status);

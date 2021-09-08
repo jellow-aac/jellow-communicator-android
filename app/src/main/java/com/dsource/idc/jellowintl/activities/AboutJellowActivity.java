@@ -1,5 +1,10 @@
 package com.dsource.idc.jellowintl.activities;
 
+import static com.dsource.idc.jellowintl.utility.Analytics.isAnalyticsActive;
+import static com.dsource.idc.jellowintl.utility.Analytics.resetAnalytics;
+import static com.dsource.idc.jellowintl.utility.SessionManager.BN_IN;
+import static com.dsource.idc.jellowintl.utility.SessionManager.HI_IN;
+
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -15,11 +20,6 @@ import com.dsource.idc.jellowintl.factories.PathFactory;
 import com.dsource.idc.jellowintl.utility.SessionManager;
 
 import java.util.HashMap;
-
-import static com.dsource.idc.jellowintl.utility.Analytics.isAnalyticsActive;
-import static com.dsource.idc.jellowintl.utility.Analytics.resetAnalytics;
-import static com.dsource.idc.jellowintl.utility.SessionManager.BN_IN;
-import static com.dsource.idc.jellowintl.utility.SessionManager.HI_IN;
 
 /**
  * Created by user on 5/27/2016.
@@ -39,6 +39,7 @@ public class AboutJellowActivity extends SpeechEngineBaseActivity {
         setContentView(R.layout.activity_about_jellow);
         enableNavigationBack();
         setupActionBarTitle(View.VISIBLE, getString(R.string.home)+"/ "+getString(R.string.menuAbout));
+        applyBlackAndWhiteColor();
         setNavigationUiConditionally();
         initializeViews();
         loadStrings();

@@ -1,5 +1,12 @@
 package com.dsource.idc.jellowintl.make_my_board_module.activity;
 
+import static com.dsource.idc.jellowintl.make_my_board_module.utility.BoardConstants.BOARD_ID;
+import static com.dsource.idc.jellowintl.utility.Analytics.isAnalyticsActive;
+import static com.dsource.idc.jellowintl.utility.Analytics.resetAnalytics;
+import static com.dsource.idc.jellowintl.utility.Analytics.startMeasuring;
+import static com.dsource.idc.jellowintl.utility.Analytics.stopMeasuring;
+import static com.dsource.idc.jellowintl.utility.Analytics.validatePushId;
+
 import android.content.Intent;
 import android.view.MenuItem;
 import android.view.View;
@@ -22,13 +29,6 @@ import com.dsource.idc.jellowintl.make_my_board_module.view_interfaces.IBoardLis
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
-
-import static com.dsource.idc.jellowintl.make_my_board_module.utility.BoardConstants.BOARD_ID;
-import static com.dsource.idc.jellowintl.utility.Analytics.isAnalyticsActive;
-import static com.dsource.idc.jellowintl.utility.Analytics.resetAnalytics;
-import static com.dsource.idc.jellowintl.utility.Analytics.startMeasuring;
-import static com.dsource.idc.jellowintl.utility.Analytics.stopMeasuring;
-import static com.dsource.idc.jellowintl.utility.Analytics.validatePushId;
 
 public class BoardListActivity extends BaseBoardActivity<IBoardListView, IBoardListPresenter, BoardAdapter> implements IBoardListView, BoardClickListener {
     public static final boolean EDIT_ENABLED = true;
@@ -54,6 +54,7 @@ public class BoardListActivity extends BaseBoardActivity<IBoardListView, IBoardL
         mAdapter.setOnItemClickListener(this);
         enableNavigationBack();
         setupActionBarTitle(View.VISIBLE, getString(R.string.home) + "/ "+ getString(R.string.menuMyBoards));
+        applyBlackAndWhiteColor();
         setNavigationUiConditionally();
         getSupportActionBar().setBackgroundDrawable(getResources().getDrawable(R.drawable.yellow_bg));
         findViewById(R.id.iv_action_bar_back).setOnClickListener(new View.OnClickListener() {

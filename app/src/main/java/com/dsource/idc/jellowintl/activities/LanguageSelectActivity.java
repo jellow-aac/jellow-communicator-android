@@ -1,5 +1,22 @@
 package com.dsource.idc.jellowintl.activities;
 
+import static com.dsource.idc.jellowintl.activities.LanguageDownloadActivity.CLOSE;
+import static com.dsource.idc.jellowintl.activities.UserRegistrationActivity.LCODE;
+import static com.dsource.idc.jellowintl.utility.Analytics.bundleEvent;
+import static com.dsource.idc.jellowintl.utility.Analytics.isAnalyticsActive;
+import static com.dsource.idc.jellowintl.utility.Analytics.resetAnalytics;
+import static com.dsource.idc.jellowintl.utility.Analytics.setCrashlyticsCustomKey;
+import static com.dsource.idc.jellowintl.utility.Analytics.setUserProperty;
+import static com.dsource.idc.jellowintl.utility.Analytics.startMeasuring;
+import static com.dsource.idc.jellowintl.utility.Analytics.stopMeasuring;
+import static com.dsource.idc.jellowintl.utility.Analytics.validatePushId;
+import static com.dsource.idc.jellowintl.utility.SessionManager.BN_IN;
+import static com.dsource.idc.jellowintl.utility.SessionManager.HI_IN;
+import static com.dsource.idc.jellowintl.utility.SessionManager.LangMap;
+import static com.dsource.idc.jellowintl.utility.SessionManager.LangValueMap;
+import static com.dsource.idc.jellowintl.utility.SessionManager.MR_IN;
+import static com.dsource.idc.jellowintl.utility.SessionManager.TA_IN;
+
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -28,23 +45,6 @@ import com.google.firebase.crashlytics.FirebaseCrashlytics;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import static com.dsource.idc.jellowintl.activities.LanguageDownloadActivity.CLOSE;
-import static com.dsource.idc.jellowintl.activities.UserRegistrationActivity.LCODE;
-import static com.dsource.idc.jellowintl.utility.Analytics.bundleEvent;
-import static com.dsource.idc.jellowintl.utility.Analytics.isAnalyticsActive;
-import static com.dsource.idc.jellowintl.utility.Analytics.resetAnalytics;
-import static com.dsource.idc.jellowintl.utility.Analytics.setCrashlyticsCustomKey;
-import static com.dsource.idc.jellowintl.utility.Analytics.setUserProperty;
-import static com.dsource.idc.jellowintl.utility.Analytics.startMeasuring;
-import static com.dsource.idc.jellowintl.utility.Analytics.stopMeasuring;
-import static com.dsource.idc.jellowintl.utility.Analytics.validatePushId;
-import static com.dsource.idc.jellowintl.utility.SessionManager.BN_IN;
-import static com.dsource.idc.jellowintl.utility.SessionManager.HI_IN;
-import static com.dsource.idc.jellowintl.utility.SessionManager.LangMap;
-import static com.dsource.idc.jellowintl.utility.SessionManager.LangValueMap;
-import static com.dsource.idc.jellowintl.utility.SessionManager.MR_IN;
-import static com.dsource.idc.jellowintl.utility.SessionManager.TA_IN;
-
 public class LanguageSelectActivity extends SpeechEngineBaseActivity {
     private String selectedLanguage, mLangChanged, availVoices, selectedVoice;
     private Button save, languageSelect, voiceSelect;
@@ -59,6 +59,7 @@ public class LanguageSelectActivity extends SpeechEngineBaseActivity {
         setContentView(R.layout.activity_language_select);
         enableNavigationBack();
         setupActionBarTitle(View.VISIBLE, getString(R.string.home)+"/ "+getString(R.string.Language));
+        applyBlackAndWhiteColor();
         setNavigationUiConditionally();
         LanguageFactory.deleteOldLanguagePackagesInBackground(this);
         new UpdatePackageCheckUtils().checkLanguagePackageUpdateAvailable(this);
@@ -95,12 +96,12 @@ public class LanguageSelectActivity extends SpeechEngineBaseActivity {
             voiceSelect.setText(getSession().getAppVoice().split(",")[1]);
         }
 
-        setImageUsingGlide(R.drawable.tts_wifi_1, ((ImageView) findViewById(R.id.ivAddLang1)));
-        setImageUsingGlide(R.drawable.tts_wifi_2, ((ImageView) findViewById(R.id.ivAddLang2)));
-        setImageUsingGlide(R.drawable.tts_wifi_3, ((ImageView) findViewById(R.id.ivAddLang3)));
-        setImageUsingGlide(R.drawable.gtts3, ((ImageView) findViewById(R.id.ivTtsVoiceDat)));
-        setImageUsingGlide(R.drawable.arrow, ((ImageView) findViewById(R.id.ivArrow1)));
-        setImageUsingGlide(R.drawable.arrow, ((ImageView) findViewById(R.id.ivArrow2)));
+        setImageUsingGlide(R.drawable.tts_wifi_1, findViewById(R.id.ivAddLang1));
+        setImageUsingGlide(R.drawable.tts_wifi_2, findViewById(R.id.ivAddLang2));
+        setImageUsingGlide(R.drawable.tts_wifi_3, findViewById(R.id.ivAddLang3));
+        setImageUsingGlide(R.drawable.gtts3, findViewById(R.id.ivTtsVoiceDat));
+        setImageUsingGlide(R.drawable.arrow, findViewById(R.id.ivArrow1));
+        setImageUsingGlide(R.drawable.arrow, findViewById(R.id.ivArrow2));
 
         save = findViewById(R.id.saveBut);
         save.setOnClickListener(new View.OnClickListener() {

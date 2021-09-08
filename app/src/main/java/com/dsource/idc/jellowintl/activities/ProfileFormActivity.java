@@ -4,6 +4,13 @@ package com.dsource.idc.jellowintl.activities;
  * Created by Rahul on 12 Nov, 2019.
  **/
 
+import static com.dsource.idc.jellowintl.utility.Analytics.isAnalyticsActive;
+import static com.dsource.idc.jellowintl.utility.Analytics.resetAnalytics;
+import static com.dsource.idc.jellowintl.utility.Analytics.startMeasuring;
+import static com.dsource.idc.jellowintl.utility.Analytics.stopMeasuring;
+import static com.dsource.idc.jellowintl.utility.Analytics.validatePushId;
+import static com.dsource.idc.jellowintl.utility.SessionManager.MR_IN;
+
 import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
@@ -25,13 +32,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ServerValue;
 import com.hbb20.CountryCodePicker;
 
-import static com.dsource.idc.jellowintl.utility.Analytics.isAnalyticsActive;
-import static com.dsource.idc.jellowintl.utility.Analytics.resetAnalytics;
-import static com.dsource.idc.jellowintl.utility.Analytics.startMeasuring;
-import static com.dsource.idc.jellowintl.utility.Analytics.stopMeasuring;
-import static com.dsource.idc.jellowintl.utility.Analytics.validatePushId;
-import static com.dsource.idc.jellowintl.utility.SessionManager.MR_IN;
-
 public class ProfileFormActivity extends SpeechEngineBaseActivity {
     private Button btnSave;
     private EditText etChildName, etCaregiverContact, etCaregiverName, etAddress, etEmailId;
@@ -44,6 +44,7 @@ public class ProfileFormActivity extends SpeechEngineBaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_form);
         setupActionBarTitle(View.VISIBLE, getString(R.string.home)+"/ "+getString(R.string.menuProfile));
+        applyBlackAndWhiteColor();
         setNavigationUiConditionally();
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
         etChildName = findViewById(R.id.etName);

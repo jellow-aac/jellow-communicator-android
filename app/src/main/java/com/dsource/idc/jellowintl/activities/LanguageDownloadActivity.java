@@ -1,9 +1,15 @@
 package com.dsource.idc.jellowintl.activities;
 
+import static com.dsource.idc.jellowintl.activities.UserRegistrationActivity.LCODE;
+import static com.dsource.idc.jellowintl.activities.UserRegistrationActivity.TUTORIAL;
+import static com.dsource.idc.jellowintl.utility.Analytics.isAnalyticsActive;
+import static com.dsource.idc.jellowintl.utility.Analytics.resetAnalytics;
+import static com.dsource.idc.jellowintl.utility.SessionManager.LangValueMap;
+import static com.dsource.idc.jellowintl.utility.SessionManager.MR_IN;
+
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
-import android.os.Build;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -14,13 +20,6 @@ import com.dsource.idc.jellowintl.R;
 import com.dsource.idc.jellowintl.factories.LanguageFactory;
 import com.dsource.idc.jellowintl.utility.DownloadManager;
 import com.dsource.idc.jellowintl.utility.SessionManager;
-
-import static com.dsource.idc.jellowintl.activities.UserRegistrationActivity.LCODE;
-import static com.dsource.idc.jellowintl.activities.UserRegistrationActivity.TUTORIAL;
-import static com.dsource.idc.jellowintl.utility.Analytics.isAnalyticsActive;
-import static com.dsource.idc.jellowintl.utility.Analytics.resetAnalytics;
-import static com.dsource.idc.jellowintl.utility.SessionManager.LangValueMap;
-import static com.dsource.idc.jellowintl.utility.SessionManager.MR_IN;
 
 public class LanguageDownloadActivity extends BaseActivity {
     public static final String SPLASH = "SPLASH";
@@ -40,9 +39,9 @@ public class LanguageDownloadActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_language_download);
+        applyBlackAndWhiteColor();
         setNavigationUiConditionally();
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
-            getWindow().setStatusBarColor(ContextCompat.getColor(this,R.color.colorPrimary));
+        getWindow().setStatusBarColor(ContextCompat.getColor(this,R.color.colorPrimary));
 
         try {
 

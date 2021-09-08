@@ -1,5 +1,11 @@
 package com.dsource.idc.jellowintl.activities;
 
+import static com.dsource.idc.jellowintl.utility.Analytics.isAnalyticsActive;
+import static com.dsource.idc.jellowintl.utility.Analytics.resetAnalytics;
+import static com.dsource.idc.jellowintl.utility.SessionManager.BE_IN;
+import static com.dsource.idc.jellowintl.utility.SessionManager.BN_BD;
+import static com.dsource.idc.jellowintl.utility.SessionManager.BN_IN;
+
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -13,12 +19,6 @@ import android.widget.TextView;
 import com.dsource.idc.jellowintl.R;
 import com.google.firebase.crashlytics.FirebaseCrashlytics;
 
-import static com.dsource.idc.jellowintl.utility.Analytics.isAnalyticsActive;
-import static com.dsource.idc.jellowintl.utility.Analytics.resetAnalytics;
-import static com.dsource.idc.jellowintl.utility.SessionManager.BE_IN;
-import static com.dsource.idc.jellowintl.utility.SessionManager.BN_BD;
-import static com.dsource.idc.jellowintl.utility.SessionManager.BN_IN;
-
 /**
  * Created by user on 5/27/2016.
  */
@@ -30,6 +30,7 @@ public class KeyboardInputActivity extends BaseActivity {
         setContentView(R.layout.activity_keyboard_input);
         enableNavigationBack();
         setupActionBarTitle(View.VISIBLE, getString(R.string.home)+"/ "+getString(R.string.getKeyboardControl));
+        applyBlackAndWhiteColor();
         setNavigationUiConditionally();
 
         findViewById(R.id.abc).setOnClickListener(new View.OnClickListener() {

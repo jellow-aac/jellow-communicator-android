@@ -1,5 +1,10 @@
 package com.dsource.idc.jellowintl.activities;
 
+import static com.dsource.idc.jellowintl.utility.Analytics.isAnalyticsActive;
+import static com.dsource.idc.jellowintl.utility.Analytics.resetAnalytics;
+import static com.dsource.idc.jellowintl.utility.Analytics.setCrashlyticsCustomKey;
+import static com.dsource.idc.jellowintl.utility.Analytics.setUserProperty;
+
 import android.Manifest;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
@@ -26,11 +31,6 @@ import com.dsource.idc.jellowintl.utility.async.InternetTest;
 import com.dsource.idc.jellowintl.utility.interfaces.CheckNetworkStatus;
 import com.dsource.idc.jellowintl.utility.interfaces.CompletionCallback;
 
-import static com.dsource.idc.jellowintl.utility.Analytics.isAnalyticsActive;
-import static com.dsource.idc.jellowintl.utility.Analytics.resetAnalytics;
-import static com.dsource.idc.jellowintl.utility.Analytics.setCrashlyticsCustomKey;
-import static com.dsource.idc.jellowintl.utility.Analytics.setUserProperty;
-
 /**
  * Created by ekalpa on 7/12/2016.
  */
@@ -43,6 +43,7 @@ public class SplashActivity extends BaseActivity implements CheckNetworkStatus, 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         getSupportActionBar().hide();
+        applyBlackAndWhiteColor();
         setNavigationUiConditionally();
 
         PlayGifView pGif = findViewById(R.id.viewGif);

@@ -307,6 +307,14 @@ public class SessionManager {
         storePreferenceKeyWithValue(Boolean.class.toString(), mContext.getString(R.string.enable_icon_add), value);
     }
 
+    public boolean getMonochromeDisplayState() {
+        return (boolean) retrievePreferenceKeyWithValue(Boolean.class.toString(), mContext.getString(R.string.enable_monochrome));
+    }
+
+    public void setMonochromeDisplayState(boolean value) {
+        storePreferenceKeyWithValue(Boolean.class.toString(), mContext.getString(R.string.enable_monochrome), value);
+    }
+
     public boolean isBoardDeletionEnabled() {
         return (boolean) retrievePreferenceKeyWithValue(Boolean.class.toString(), mContext.getString(R.string.my_board_delete_enabled));
     }

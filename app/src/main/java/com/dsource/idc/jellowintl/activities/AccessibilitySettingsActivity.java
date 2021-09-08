@@ -1,16 +1,16 @@
 package com.dsource.idc.jellowintl.activities;
 
+import static com.dsource.idc.jellowintl.utility.Analytics.isAnalyticsActive;
+import static com.dsource.idc.jellowintl.utility.Analytics.resetAnalytics;
+import static com.dsource.idc.jellowintl.utility.Analytics.stopMeasuring;
+import static com.dsource.idc.jellowintl.utility.Analytics.validatePushId;
+
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 
 import com.dsource.idc.jellowintl.R;
-
-import static com.dsource.idc.jellowintl.utility.Analytics.isAnalyticsActive;
-import static com.dsource.idc.jellowintl.utility.Analytics.resetAnalytics;
-import static com.dsource.idc.jellowintl.utility.Analytics.stopMeasuring;
-import static com.dsource.idc.jellowintl.utility.Analytics.validatePushId;
 
 public class AccessibilitySettingsActivity extends BaseActivity {
 
@@ -20,6 +20,7 @@ public class AccessibilitySettingsActivity extends BaseActivity {
         setContentView(R.layout.activity_accessibility_settings);
         enableNavigationBack();
         setupActionBarTitle(View.VISIBLE, getString(R.string.home)+"/ "+getString(R.string.menuAccessibility));
+        applyBlackAndWhiteColor();
         setNavigationUiConditionally();
     }
 

@@ -128,19 +128,12 @@ public class LevelTwoActivity extends LevelBaseActivity implements BasicCustomIc
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_levelx_layout);
-        /*{
-            ColorMatrix cm = new ColorMatrix();
-            cm.setSaturation(0f);
-            Paint greyscalePaint = new Paint();
-            greyscalePaint.setColorFilter(new ColorMatrixColorFilter(cm));
-            // Create a hardware layer with the greyscale paint
-            findViewById(R.id.parent).setLayerType(LAYER_TYPE_HARDWARE, greyscalePaint);
-        }*/
         // Get index of category icons (position in recycler view) selected in level one.
         mLevelOneItemPos = getIntent().getExtras().getInt(getString(R.string.level_one_intent_pos_tag));
         // Get and set title of category icons selected in level one.
         txtActionBarTitle = getIntent().getExtras().getString(getString(R.string.intent_menu_path_tag));
         setupActionBarTitle(View.GONE, txtActionBarTitle);
+        applyBlackAndWhiteColor();
         setNavigationUiConditionally();
         // when layout is loaded on activity, using the tag attribute of a parent view in layout
         // the device size is identified. If device size is large (10' tablets) enable the
@@ -1821,6 +1814,7 @@ public class LevelTwoActivity extends LevelBaseActivity implements BasicCustomIc
 
         dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation_2; //style id
         dialog.show();
+        applyBlackAndWhiteColorToViews(mView);
         WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
         lp.copyFrom(dialog.getWindow().getAttributes());
         lp.width = WindowManager.LayoutParams.MATCH_PARENT;

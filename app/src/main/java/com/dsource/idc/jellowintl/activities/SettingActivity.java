@@ -43,7 +43,7 @@ public class SettingActivity extends SpeechEngineBaseActivity {
     private Spinner mSpinnerViewMode, mSpinnerGridSize;
     private TextView mTxtViewSpeechSpeed, mTxtViewVoicePitch;
     private SeekBar mSliderSpeed, mSliderPitch, mSliderVolume;
-    private boolean mOpenSetting, mEnabledBasicCustomAdditionSwitch;
+    private boolean mOpenSetting, mEnabledBasicCustomAdditionSwitch, mEnableMonochromeDisplay;
     private String  mCalPerMsg, mCalPerGranted,mCalPerRejected, mSettings, mDismiss;
 
     @Override
@@ -52,6 +52,7 @@ public class SettingActivity extends SpeechEngineBaseActivity {
         setContentView(R.layout.activity_settings);
         enableNavigationBack();
         setupActionBarTitle(View.VISIBLE, getString(R.string.home)+"/ "+getString(R.string.action_settings));
+        applyBlackAndWhiteColor();
         setNavigationUiConditionally();
 
         mOpenSetting = false;
@@ -71,6 +72,7 @@ public class SettingActivity extends SpeechEngineBaseActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mSpinnerGridSize.setAdapter(adapter);
         mEnabledBasicCustomAdditionSwitch= getSession().getBasicCustomIconAddState();
+        mEnableMonochromeDisplay=getSession().getMonochromeDisplayState();
 
         // If user have sim device and ready to call, only then showDialog "enable call switch".
         if(isDeviceReadyToCall((TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE))) {
@@ -121,6 +123,16 @@ public class SettingActivity extends SpeechEngineBaseActivity {
                     @Override
                     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                         mEnabledBasicCustomAdditionSwitch=isChecked;
+                    }
+                }
+        );
+
+        ((SwitchCompat) findViewById(R.id.switchEnablemonochromeDisplay)).setChecked(getSession().getMonochromeDisplayState());
+        ((SwitchCompat) findViewById(R.id.switchEnablemonochromeDisplay)).setOnCheckedChangeListener(
+                new CompoundButton.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                        mEnableMonochromeDisplay=isChecked;
                     }
                 }
         );
@@ -207,8 +219,9 @@ public class SettingActivity extends SpeechEngineBaseActivity {
             public void onClick(View v) {
                 /*Identify if language is changed, to app needs to restart from splash*/
                 if(getSession().getPictureViewMode() != mSpinnerViewMode.getSelectedItemPosition() ||
-                            getSession().getGridSize() != mSpinnerGridSize.getSelectedItemPosition() ||
-                getSession().getBasicCustomIconAddState() != mEnabledBasicCustomAdditionSwitch) {
+                    getSession().getGridSize() != mSpinnerGridSize.getSelectedItemPosition() ||
+                        getSession().getBasicCustomIconAddState() != mEnabledBasicCustomAdditionSwitch ||
+                            getSession().getMonochromeDisplayState() != mEnableMonochromeDisplay) {
 
                     if(getSession().getPictureViewMode() != mSpinnerViewMode.getSelectedItemPosition()) {
                         setUserProperty("PictureViewMode",
@@ -230,6 +243,9 @@ public class SettingActivity extends SpeechEngineBaseActivity {
                     }
                     if(getSession().getBasicCustomIconAddState() != mEnabledBasicCustomAdditionSwitch)
                         getSession().setBasicCustomIconAddState(mEnabledBasicCustomAdditionSwitch);
+
+                    if(getSession().getMonochromeDisplayState() !=mEnableMonochromeDisplay)
+                        getSession().setMonochromeDisplayState(mEnableMonochromeDisplay);
 
                     startActivity(new Intent(getApplicationContext(), SplashActivity.class));
                     finishAffinity();

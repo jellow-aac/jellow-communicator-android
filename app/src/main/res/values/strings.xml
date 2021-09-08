@@ -184,6 +184,7 @@
     <string name="text_bar_visibility" translatable="false">com.dsource.idc.jellow.text_bar_visibility</string>
     <string name="enable_fish_animation" translatable="false">com.dsource.idc.jellow.fish_animation</string>
     <string name="enable_icon_add" translatable="false">com.dsource.idc.jellow.basic_icon_add</string>
+    <string name="enable_monochrome" translatable="false">com.dsource.idc.jellow.monochrome_state</string>
     <string name="my_board_delete_enabled" translatable="false">com.dsource.idc.jellow.board_deletion</string>
     <string name="txt_registration_jellowCalluDesc">(This is how Jellow calls you)</string>
     <string name="txt_registration_emergencynoDesc">(To be used for calling  in case of an emergency situation with the child.)</string>
@@ -537,4 +538,5 @@
     <string name="createHomeCustomIcon">Create icon</string>
     <string name="createHomeCustomCategory">Create category</string>
     <string name="home_custom_icon_place_holder_text">No custom are added here.</string>
+    <string name="enableBlackWhiteColor">Enable Monochrome display (Black and white)</string>
 </resources>

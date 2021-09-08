@@ -1,5 +1,8 @@
 package com.dsource.idc.jellowintl.activities;
 
+import static com.dsource.idc.jellowintl.utility.Analytics.isAnalyticsActive;
+import static com.dsource.idc.jellowintl.utility.Analytics.resetAnalytics;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -8,9 +11,6 @@ import android.widget.Toast;
 import com.dsource.idc.jellowintl.Presentor.PreferencesHelper;
 import com.dsource.idc.jellowintl.R;
 import com.google.firebase.crashlytics.FirebaseCrashlytics;
-
-import static com.dsource.idc.jellowintl.utility.Analytics.isAnalyticsActive;
-import static com.dsource.idc.jellowintl.utility.Analytics.resetAnalytics;
 
 /**
  * Created by ekalpa on 15-Jun-16.
@@ -23,6 +23,7 @@ public class ResetPreferencesActivity extends BaseActivity {
         setContentView(R.layout.activity_reset_preferences);
         enableNavigationBack();
         setupActionBarTitle(View.VISIBLE, getString(R.string.home)+"/ "+getString(R.string.menuResetPref));
+        applyBlackAndWhiteColor();
         setNavigationUiConditionally();
 
         findViewById(R.id.no).setOnClickListener(new View.OnClickListener() {

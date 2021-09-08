@@ -1,5 +1,8 @@
 package com.dsource.idc.jellowintl.activities;
 
+import static com.dsource.idc.jellowintl.utility.Analytics.isAnalyticsActive;
+import static com.dsource.idc.jellowintl.utility.Analytics.resetAnalytics;
+
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
@@ -25,9 +28,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.HashMap;
 import java.util.List;
 
-import static com.dsource.idc.jellowintl.utility.Analytics.isAnalyticsActive;
-import static com.dsource.idc.jellowintl.utility.Analytics.resetAnalytics;
-
 public class FeedbackActivityTalkBack extends BaseActivity{
     Spinner mEasyToUse, mClearPicture, mClearVoice, mEaseToNavigate;
     ArrayAdapter<CharSequence> adapter;
@@ -39,6 +39,7 @@ public class FeedbackActivityTalkBack extends BaseActivity{
         setContentView(R.layout.activity_feedback_talkback);
         enableNavigationBack();
         setupActionBarTitle(View.VISIBLE, getString(R.string.home)+"/ "+getString(R.string.menuFeedback));
+        applyBlackAndWhiteColor();
         setNavigationUiConditionally();
 
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);

@@ -1,5 +1,11 @@
 package com.dsource.idc.jellowintl.activities;
 
+import static com.dsource.idc.jellowintl.utility.Analytics.isAnalyticsActive;
+import static com.dsource.idc.jellowintl.utility.Analytics.resetAnalytics;
+import static com.dsource.idc.jellowintl.utility.Analytics.startMeasuring;
+import static com.dsource.idc.jellowintl.utility.Analytics.stopMeasuring;
+import static com.dsource.idc.jellowintl.utility.Analytics.validatePushId;
+
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -10,12 +16,6 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.dsource.idc.jellowintl.R;
 import com.dsource.idc.jellowintl.utility.GlideApp;
 import com.dsource.idc.jellowintl.utility.LanguageHelper;
-
-import static com.dsource.idc.jellowintl.utility.Analytics.isAnalyticsActive;
-import static com.dsource.idc.jellowintl.utility.Analytics.resetAnalytics;
-import static com.dsource.idc.jellowintl.utility.Analytics.startMeasuring;
-import static com.dsource.idc.jellowintl.utility.Analytics.stopMeasuring;
-import static com.dsource.idc.jellowintl.utility.Analytics.validatePushId;
 
 /**
  * Created by user on 6/6/2016.
@@ -28,6 +28,7 @@ public class TutorialActivity extends BaseActivity {
         setContentView(R.layout.activity_tutorial);
         enableNavigationBack();
         setupActionBarTitle(View.VISIBLE, getString(R.string.home)+"/ "+getString(R.string.menuTutorials));
+        applyBlackAndWhiteColor();
         setNavigationUiConditionally();
         setImagesToImageViewUsingGlide();
     }
@@ -38,27 +39,27 @@ public class TutorialActivity extends BaseActivity {
     }
 
     private void setImagesToImageViewUsingGlide() {
-        setImageUsingGlide(getResources().getDrawable(R.drawable.categorybuttons), ((ImageView)findViewById(R.id.pic1)));
-        setImageUsingGlide(getResources().getDrawable(R.drawable.expressivebuttons), ((ImageView)findViewById(R.id.pic2)));
-        setImageUsingGlide(getResources().getDrawable(R.drawable.speakingwithjellowimage2), ((ImageView)findViewById(R.id.pic4)));
-        setImageUsingGlide(getResources().getDrawable(R.drawable.eatingcategory1), ((ImageView)findViewById(R.id.pic5)));
-        setImageUsingGlide(getResources().getDrawable(R.drawable.eatingcategory2), ((ImageView)findViewById(R.id.pic6)));
-        setImageUsingGlide(getResources().getDrawable(R.drawable.eatingcategory3), ((ImageView)findViewById(R.id.pic7)));
-        setImageUsingGlide(getResources().getDrawable(R.drawable.settings), ((ImageView)findViewById(R.id.pic8)));
-        setImageUsingGlide(getResources().getDrawable(R.drawable.sequencewithoutexpressivebuttons), ((ImageView)findViewById(R.id.pic9)));
-        setImageUsingGlide(getResources().getDrawable(R.drawable.sequencewithexpressivebuttons), ((ImageView)findViewById(R.id.pic10)));
-        setImageUsingGlide(getResources().getDrawable(R.drawable.gtts1), ((ImageView)findViewById(R.id.gtts1)));
-        setImageUsingGlide(getResources().getDrawable(R.drawable.gtts2), ((ImageView)findViewById(R.id.gtts2)));
-        setImageUsingGlide(getResources().getDrawable(R.drawable.gtts3), ((ImageView)findViewById(R.id.gtts3)));
+        setImageUsingGlide(getResources().getDrawable(R.drawable.categorybuttons), findViewById(R.id.pic1));
+        setImageUsingGlide(getResources().getDrawable(R.drawable.expressivebuttons), findViewById(R.id.pic2));
+        setImageUsingGlide(getResources().getDrawable(R.drawable.speakingwithjellowimage2), findViewById(R.id.pic4));
+        setImageUsingGlide(getResources().getDrawable(R.drawable.eatingcategory1), findViewById(R.id.pic5));
+        setImageUsingGlide(getResources().getDrawable(R.drawable.eatingcategory2), findViewById(R.id.pic6));
+        setImageUsingGlide(getResources().getDrawable(R.drawable.eatingcategory3), findViewById(R.id.pic7));
+        setImageUsingGlide(getResources().getDrawable(R.drawable.settings), findViewById(R.id.pic8));
+        setImageUsingGlide(getResources().getDrawable(R.drawable.sequencewithoutexpressivebuttons), findViewById(R.id.pic9));
+        setImageUsingGlide(getResources().getDrawable(R.drawable.sequencewithexpressivebuttons), findViewById(R.id.pic10));
+        setImageUsingGlide(getResources().getDrawable(R.drawable.gtts1), findViewById(R.id.gtts1));
+        setImageUsingGlide(getResources().getDrawable(R.drawable.gtts2), findViewById(R.id.gtts2));
+        setImageUsingGlide(getResources().getDrawable(R.drawable.gtts3), findViewById(R.id.gtts3));
 
-        setImageUsingGlide(getResources().getDrawable(R.drawable.my_boards), ((ImageView)findViewById(R.id.pic11)));
-        setImageUsingGlide(getResources().getDrawable(R.drawable.my_boards_edit), ((ImageView)findViewById(R.id.pic12)));
-        setImageUsingGlide(getResources().getDrawable(R.drawable.add_boards), ((ImageView)findViewById(R.id.pic13)));
-        setImageUsingGlide(getResources().getDrawable(R.drawable.add_icons), ((ImageView)findViewById(R.id.pic14)));
-        setImageUsingGlide(getResources().getDrawable(R.drawable.add_edit_icon), ((ImageView)findViewById(R.id.pic15)));
-        setImageUsingGlide(getResources().getDrawable(R.drawable.edit_icon), ((ImageView)findViewById(R.id.pic16)));
-        setImageUsingGlide(getResources().getDrawable(R.drawable.edit_verbiage), ((ImageView)findViewById(R.id.pic17)));
-        setImageUsingGlide(getResources().getDrawable(R.drawable.board_home), ((ImageView)findViewById(R.id.pic18)));
+        setImageUsingGlide(getResources().getDrawable(R.drawable.my_boards), findViewById(R.id.pic11));
+        setImageUsingGlide(getResources().getDrawable(R.drawable.my_boards_edit), findViewById(R.id.pic12));
+        setImageUsingGlide(getResources().getDrawable(R.drawable.add_boards), findViewById(R.id.pic13));
+        setImageUsingGlide(getResources().getDrawable(R.drawable.add_icons), findViewById(R.id.pic14));
+        setImageUsingGlide(getResources().getDrawable(R.drawable.add_edit_icon), findViewById(R.id.pic15));
+        setImageUsingGlide(getResources().getDrawable(R.drawable.edit_icon), findViewById(R.id.pic16));
+        setImageUsingGlide(getResources().getDrawable(R.drawable.edit_verbiage), findViewById(R.id.pic17));
+        setImageUsingGlide(getResources().getDrawable(R.drawable.board_home), findViewById(R.id.pic18));
     }
 
     private void setImageUsingGlide(Drawable image, ImageView imgView) {

@@ -1,5 +1,13 @@
 package com.dsource.idc.jellowintl.activities;
 
+import static com.dsource.idc.jellowintl.factories.PathFactory.getIconPath;
+import static com.dsource.idc.jellowintl.utility.Analytics.bundleEvent;
+import static com.dsource.idc.jellowintl.utility.Analytics.isAnalyticsActive;
+import static com.dsource.idc.jellowintl.utility.Analytics.resetAnalytics;
+import static com.dsource.idc.jellowintl.utility.Analytics.startMeasuring;
+import static com.dsource.idc.jellowintl.utility.Analytics.stopMeasuring;
+import static com.dsource.idc.jellowintl.utility.Analytics.validatePushId;
+
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -30,14 +38,6 @@ import com.dsource.idc.jellowintl.utility.GlideApp;
 import com.dsource.idc.jellowintl.utility.SessionManager;
 
 import java.util.ArrayList;
-
-import static com.dsource.idc.jellowintl.factories.PathFactory.getIconPath;
-import static com.dsource.idc.jellowintl.utility.Analytics.bundleEvent;
-import static com.dsource.idc.jellowintl.utility.Analytics.isAnalyticsActive;
-import static com.dsource.idc.jellowintl.utility.Analytics.resetAnalytics;
-import static com.dsource.idc.jellowintl.utility.Analytics.startMeasuring;
-import static com.dsource.idc.jellowintl.utility.Analytics.stopMeasuring;
-import static com.dsource.idc.jellowintl.utility.Analytics.validatePushId;
 
 
 /*
@@ -70,6 +70,7 @@ public class SearchActivity extends SpeechEngineBaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
+        applyBlackAndWhiteColor();
         database = new IconDatabaseFacade(getSession().getLanguage(), getAppDatabase());
         EditText searchEditText = findViewById(R.id.search_auto_complete);
         if (!isAccessibilityTalkBackOn((AccessibilityManager) getSystemService(ACCESSIBILITY_SERVICE))) {
@@ -205,9 +206,9 @@ public class SearchActivity extends SpeechEngineBaseActivity {
  * */
 class SearchViewIconAdapter extends RecyclerView.Adapter<SearchViewIconAdapter.ViewHolder> {
 
-    private Context mContext;
+    private final Context mContext;
     // private LayoutInflater mInflater;
-    private ArrayList<JellowIcon> mDataSource;
+    private final ArrayList<JellowIcon> mDataSource;
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         //Each data item is just a string in this case
         ImageView iconImage;
