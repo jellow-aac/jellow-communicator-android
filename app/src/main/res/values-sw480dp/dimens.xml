@@ -38,11 +38,11 @@
 
     <!--9 icons configuration-->
     <dimen name="nineIcon_parentHorizontal">8dp</dimen>
-    <dimen name="nineIcon_width">90dp</dimen>
+    <dimen name="nineIcon_width">88dp</dimen>
     <dimen name="nineIcon_textWidth">162dp</dimen>
     <dimen name="nineIcon_textSize">13sp</dimen>
     <dimen name="nineIcon_borderThickness">5dp</dimen>
-    <dimen name="nineIcon_innerRadius">40.1dp</dimen>
+    <dimen name="nineIcon_innerRadius">38.8dp</dimen>
 
     <!--Dimensions related to the Board List activity & Add Board dialog-->
     <dimen name="add_board_dialog_width">510dp</dimen>

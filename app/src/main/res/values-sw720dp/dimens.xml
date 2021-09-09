@@ -51,7 +51,7 @@
     <dimen name="fourIcon_textWidth">@dimen/custom_wrap_content</dimen>   <!--It has to be wrap content-->
     <dimen name="fourIcon_textSize">22sp</dimen>
     <dimen name="fourIcon_borderThickness">9dp</dimen>
-    <dimen name="fourIcon_innerRadius">82dp</dimen>
+    <dimen name="fourIcon_innerRadius">81.8dp</dimen>
 
     <!--9 icons configuration-->
     <dimen name="nineIcon_parentHorizontal">0dp</dimen>
@@ -59,7 +59,7 @@
     <dimen name="nineIcon_textWidth">245dp</dimen>
     <dimen name="nineIcon_textSize">20sp</dimen>
     <dimen name="nineIcon_borderThickness">8.5dp</dimen>
-    <dimen name="nineIcon_innerRadius">60.3dp</dimen>
+    <dimen name="nineIcon_innerRadius">60.4dp</dimen>
 
     <!--activity_user_registration.xml dimensions-->
     <dimen name="user_reg_parent_padding">10dp</dimen>

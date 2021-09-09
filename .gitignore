@@ -12,9 +12,7 @@ java_pid5956.hprof
 java_pid7765.hprof
 java_pid81921.hprof
 gradle.properties
-gradle.properties
 *.properties
-gradle.properties
 *.aab
 app/src/debug/google-services.json
 app/src/release/google-services.json

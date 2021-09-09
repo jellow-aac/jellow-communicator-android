@@ -26,7 +26,6 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.SeekBar;
 import android.widget.Spinner;
-import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -278,7 +277,7 @@ public class SettingActivity extends SpeechEngineBaseActivity {
         if (requestCode == MY_PERMISSIONS_REQUEST_CALL_PHONE){
             if (grantResults.length == 1 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
                 getSession().setEnableCalling(true);
-                ((Switch) findViewById(R.id.switchEnableCall)).setChecked(true);
+                ((SwitchCompat) findViewById(R.id.switchEnableCall)).setChecked(true);
                 Toast.makeText(this, mCalPerGranted , Toast.LENGTH_SHORT).show();
             } else {
                 if(!ActivityCompat.shouldShowRequestPermissionRationale(
@@ -288,7 +287,7 @@ public class SettingActivity extends SpeechEngineBaseActivity {
                     getSession().setEnableCalling(false);
                     Toast.makeText(this, mCalPerRejected, Toast.LENGTH_SHORT).show();
                 }
-                ((Switch) findViewById(R.id.switchEnableCall)).setChecked(false);
+                ((SwitchCompat) findViewById(R.id.switchEnableCall)).setChecked(false);
             }
         }
     }
@@ -378,7 +377,7 @@ public class SettingActivity extends SpeechEngineBaseActivity {
         if (requestCode == 99 && ActivityCompat.checkSelfPermission(this,
                 android.Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED) {
             getSession().setEnableCalling(true);
-            ((Switch) findViewById(R.id.switchEnableCall)).setChecked(true);
+            ((SwitchCompat) findViewById(R.id.switchEnableCall)).setChecked(true);
             mOpenSetting = false;
         }
     }
@@ -398,7 +397,7 @@ public class SettingActivity extends SpeechEngineBaseActivity {
             && ActivityCompat.checkSelfPermission(this,
                 android.Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED) {
             getSession().setEnableCalling(true);
-            ((Switch) findViewById(R.id.switchEnableCall)).setChecked(true);
+            ((SwitchCompat) findViewById(R.id.switchEnableCall)).setChecked(true);
             mOpenSetting = false;
         }
         AudioManager audio = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
