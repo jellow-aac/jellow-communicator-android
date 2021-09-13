@@ -26,7 +26,6 @@ import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityManager;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -75,8 +74,6 @@ public class SequenceActivity extends LevelBaseActivity{
     /* Heading, caption text for category icon respectively .*/
     private TextView mTvHeading, mTvCategory1Caption, mTvCategory2Caption, mTvCategory3Caption;
     private ImageView mIvArrowLeft, mIvArrowRight;
-    /*Category icon parent view*/
-    private RelativeLayout mRelativeLayCategory;
     /*navigation next, back button in category*/
     private Button mBtnNext, mBtnBack;
     private String txtActionBarTitle, txtKeyboard;
@@ -176,7 +173,6 @@ public class SequenceActivity extends LevelBaseActivity{
     @Override
     public void onDestroy() {
         super.onDestroy();
-        mRelativeLayCategory = null;
         mHeading = null;
         mExprBtnTxt = null;
         mNavigationBtnTxt = null;
@@ -203,7 +199,6 @@ public class SequenceActivity extends LevelBaseActivity{
         mIvBack = findViewById(R.id.ivback);
         mIvHome = findViewById(R.id.ivhome);
         mIvKeyboard = findViewById(R.id.keyboard);
-        mRelativeLayCategory = findViewById(R.id.relativeLayout);
         mBtnNext = findViewById(R.id.forward);
         mBtnBack = findViewById(R.id.backward);
         mTvHeading = findViewById(R.id.tt1);
