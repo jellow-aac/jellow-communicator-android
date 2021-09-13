@@ -1,5 +1,13 @@
 package com.dsource.idc.jellowintl.make_my_board_module.activity;
 
+import static com.dsource.idc.jellowintl.make_my_board_module.utility.BoardConstants.BOARD_ID;
+import static com.dsource.idc.jellowintl.make_my_board_module.utility.BoardConstants.ENABLE_DROPDOWN_SPEAKER;
+import static com.dsource.idc.jellowintl.utility.Analytics.isAnalyticsActive;
+import static com.dsource.idc.jellowintl.utility.Analytics.resetAnalytics;
+import static com.dsource.idc.jellowintl.utility.Analytics.startMeasuring;
+import static com.dsource.idc.jellowintl.utility.Analytics.stopMeasuring;
+import static com.dsource.idc.jellowintl.utility.Analytics.validatePushId;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -28,14 +36,6 @@ import com.dsource.idc.jellowintl.models.JellowIcon;
 
 import java.util.ArrayList;
 
-import static com.dsource.idc.jellowintl.make_my_board_module.utility.BoardConstants.BOARD_ID;
-import static com.dsource.idc.jellowintl.make_my_board_module.utility.BoardConstants.ENABLE_DROPDOWN_SPEAKER;
-import static com.dsource.idc.jellowintl.utility.Analytics.isAnalyticsActive;
-import static com.dsource.idc.jellowintl.utility.Analytics.resetAnalytics;
-import static com.dsource.idc.jellowintl.utility.Analytics.startMeasuring;
-import static com.dsource.idc.jellowintl.utility.Analytics.stopMeasuring;
-import static com.dsource.idc.jellowintl.utility.Analytics.validatePushId;
-
 public class BoardSearchActivity extends SpeechEngineBaseActivity {
     public static final String BASE_ICON_SEARCH = "base_icon_search";
     private RecyclerView mRecyclerView;
@@ -54,6 +54,7 @@ public class BoardSearchActivity extends SpeechEngineBaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
+        applyMonochromeColor();
         EditText SearchEditText = findViewById(R.id.search_auto_complete);
         currentBoard = new BoardDatabase(getAppDatabase()).getBoardById(getIntent().getStringExtra(BOARD_ID));
         initFields();

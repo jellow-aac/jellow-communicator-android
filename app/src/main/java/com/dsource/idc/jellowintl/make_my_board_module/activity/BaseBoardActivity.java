@@ -1,5 +1,7 @@
 package com.dsource.idc.jellowintl.make_my_board_module.activity;
 
+import static com.dsource.idc.jellowintl.make_my_board_module.utility.BoardConstants.BOARD_ID;
+
 import android.content.Context;
 import android.os.Bundle;
 import android.util.SparseArray;
@@ -16,8 +18,6 @@ import com.dsource.idc.jellowintl.make_my_board_module.dataproviders.databases.B
 import com.dsource.idc.jellowintl.make_my_board_module.presenter_interfaces.IBasePresenter;
 import com.dsource.idc.jellowintl.make_my_board_module.view_interfaces.IBaseView;
 import com.dsource.idc.jellowintl.models.GlobalConstants;
-
-import static com.dsource.idc.jellowintl.make_my_board_module.utility.BoardConstants.BOARD_ID;
 
 public abstract class BaseBoardActivity<V extends IBaseView, P extends IBasePresenter<V>, A extends RecyclerView.Adapter> extends SpeechEngineBaseActivity {
 
@@ -43,6 +43,8 @@ public abstract class BaseBoardActivity<V extends IBaseView, P extends IBasePres
         super.onCreate(savedInstanceState);
 
         setContentView(getLayoutId());
+        setupActionBarTitle(View.VISIBLE, "");
+        applyMonochromeColor();
 
         mViewList = new SparseArray<>();
 

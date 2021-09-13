@@ -130,7 +130,7 @@ public class HomeActivity extends SpeechEngineBaseActivity implements TextToSpee
             setupActionBarTitle(View.VISIBLE, getString(R.string.home) + "/" +
                     getString(R.string.my_boards) + "/" +
                     currentBoard.getBoardName()+" "+getString(R.string.board));
-            applyBlackAndWhiteColor();
+            applyMonochromeColor();
             getSupportActionBar().setBackgroundDrawable(getResources().getDrawable(R.drawable.action_bar_background));
         }
         findViewById(R.id.iv_action_bar_back).setOnClickListener(new View.OnClickListener() {
@@ -458,6 +458,8 @@ public class HomeActivity extends SpeechEngineBaseActivity implements TextToSpee
         ViewCompat.setAccessibilityDelegate(enterCategory, new TalkbackHints_SingleClick());
         ViewCompat.setAccessibilityDelegate(closeDialog, new TalkbackHints_SingleClick());
         mBuilder.setView(mView);
+        applyMonochromeColor(mView);
+
         final AlertDialog dialog = mBuilder.create();
         dialog.setCancelable(false);
         dialog.setCanceledOnTouchOutside(false);
@@ -564,7 +566,6 @@ public class HomeActivity extends SpeechEngineBaseActivity implements TextToSpee
 
         dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation_2; //style id
         dialog.show();
-        applyBlackAndWhiteColorToViews(mView);
         WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
         lp.copyFrom(dialog.getWindow().getAttributes());
         lp.width = WindowManager.LayoutParams.MATCH_PARENT;

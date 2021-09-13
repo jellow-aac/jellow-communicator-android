@@ -70,7 +70,7 @@ public class SearchActivity extends SpeechEngineBaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
-        applyBlackAndWhiteColor();
+        applyMonochromeColor();
         database = new IconDatabaseFacade(getSession().getLanguage(), getAppDatabase());
         EditText searchEditText = findViewById(R.id.search_auto_complete);
         if (!isAccessibilityTalkBackOn((AccessibilityManager) getSystemService(ACCESSIBILITY_SERVICE))) {

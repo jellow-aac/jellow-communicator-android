@@ -70,7 +70,7 @@ public class LevelBaseActivity extends SpeechEngineBaseActivity implements TextT
 
     public void animateIfEnabled(){
         if (getSession().getAnimationState()) {
-            /*animationCounter++;
+            animationCounter++;
             int fish = 0, dolphin = 1, whale = 2;
             if (animationCounter % 25 == 0) {
                 showAnimation(whale);
@@ -78,8 +78,7 @@ public class LevelBaseActivity extends SpeechEngineBaseActivity implements TextT
             } else if (animationCounter % 10 == 0)
                 showAnimation(dolphin);
             else if (animationCounter % 5 == 0)
-                showAnimation(fish);*/
-            showAnimation((++animationCounter)%3);
+                showAnimation(fish);
         }
     }
 
@@ -233,6 +232,9 @@ public class LevelBaseActivity extends SpeechEngineBaseActivity implements TextT
                 negative.setTextColor(LevelBaseActivity.this.getResources().getColor(R.color.colorAccent));
                 Button neutral = dialog.getButton(DialogInterface.BUTTON_NEUTRAL);
                 neutral.setTextColor(LevelBaseActivity.this.getResources().getColor(R.color.colorAccent));
+                applyMonochromeColor(positive);
+                applyMonochromeColor(negative);
+                applyMonochromeColor(neutral);
             }
         });
     }

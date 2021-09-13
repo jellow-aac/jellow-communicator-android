@@ -1,5 +1,12 @@
 package com.dsource.idc.jellowintl.package_updater_module;
 
+import static com.dsource.idc.jellowintl.package_updater_module.LogUtils.logFileDownloadFailed;
+import static com.dsource.idc.jellowintl.package_updater_module.LogUtils.logFileDownloadSuccess;
+import static com.dsource.idc.jellowintl.package_updater_module.LogUtils.logGeneralEvents;
+import static com.dsource.idc.jellowintl.package_updater_module.UpdateFileFactory.getOldVersionCodeMapJSON;
+import static com.dsource.idc.jellowintl.package_updater_module.UpdateFileFactory.getVersionCodeMapJSON;
+import static com.dsource.idc.jellowintl.package_updater_module.UpdateRefFactory.getVersionCodeJSONRef;
+
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -9,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 
 import com.dsource.idc.jellowintl.R;
+import com.dsource.idc.jellowintl.activities.BaseActivity;
 import com.dsource.idc.jellowintl.activities.LanguagePackUpdateActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -22,13 +30,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.lang.reflect.Type;
 import java.util.HashMap;
-
-import static com.dsource.idc.jellowintl.package_updater_module.LogUtils.logFileDownloadFailed;
-import static com.dsource.idc.jellowintl.package_updater_module.LogUtils.logFileDownloadSuccess;
-import static com.dsource.idc.jellowintl.package_updater_module.LogUtils.logGeneralEvents;
-import static com.dsource.idc.jellowintl.package_updater_module.UpdateFileFactory.getOldVersionCodeMapJSON;
-import static com.dsource.idc.jellowintl.package_updater_module.UpdateFileFactory.getVersionCodeMapJSON;
-import static com.dsource.idc.jellowintl.package_updater_module.UpdateRefFactory.getVersionCodeJSONRef;
 
 public class UpdatePackageCheckUtils {
     private static final String KEY_VERSION_CODE = "versionCode";
@@ -131,6 +132,10 @@ public class UpdatePackageCheckUtils {
             Button negativeButton = dialog.getButton(AlertDialog.BUTTON_NEGATIVE);
             negativeButton.setTextColor(context.getResources().getColor(R.color.colorAccent));
             negativeButton.setTextSize(18f);
+            if(context instanceof BaseActivity){
+                ((BaseActivity)context).applyMonochromeColor(positiveButton);
+                ((BaseActivity)context).applyMonochromeColor(negativeButton);
+            }
         }catch(Exception e){
             e.printStackTrace();
         }

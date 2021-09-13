@@ -1,5 +1,7 @@
 package com.dsource.idc.jellowintl.make_my_board_module.custom_dialogs;
 
+import static com.dsource.idc.jellowintl.make_my_board_module.utility.BoardConstants.GRID_SIZE;
+
 import android.os.Bundle;
 import android.view.View;
 import android.view.accessibility.AccessibilityManager;
@@ -10,8 +12,6 @@ import com.dsource.idc.jellowintl.activities.BaseActivity;
 import com.dsource.idc.jellowintl.make_my_board_module.interfaces.GridSelectListener;
 import com.dsource.idc.jellowintl.models.GlobalConstants;
 
-import static com.dsource.idc.jellowintl.make_my_board_module.utility.BoardConstants.GRID_SIZE;
-
 public class DialogNoOfIconPerScreen extends BaseActivity {
 
     public static GridSelectListener mGridSelectionListener;
@@ -20,6 +20,7 @@ public class DialogNoOfIconPerScreen extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dialog_grid_selection);
+        applyMonochromeColor();
         setUpGridDialog(getIntent().getIntExtra(GRID_SIZE, GlobalConstants.NINE_ICONS_PER_SCREEN));
     }
 

@@ -115,7 +115,7 @@ public class LevelThreeActivity extends LevelBaseActivity implements BasicCustom
         txtActionBarTitle = getIntent().getExtras().getString(getString(R.string.intent_menu_path_tag));
         txtKeyboard = getString(R.string.keyboard);
         setupActionBarTitle(View.GONE, txtActionBarTitle);
-        applyBlackAndWhiteColor();
+        applyMonochromeColor();
         setNavigationUiConditionally();
 
         // when layout is loaded on activity, using the tag attribute of a parent view in layout
@@ -1321,6 +1321,8 @@ public class LevelThreeActivity extends LevelBaseActivity implements BasicCustom
         ViewCompat.setAccessibilityDelegate(enterCategory, new TalkbackHints_SingleClick());
         ViewCompat.setAccessibilityDelegate(closeDialog, new TalkbackHints_SingleClick());
         mBuilder.setView(mView);
+        applyMonochromeColor(mView);
+
         final AlertDialog dialog = mBuilder.create();
         dialog.setCancelable(false);
         dialog.setCanceledOnTouchOutside(false);
@@ -1448,7 +1450,6 @@ public class LevelThreeActivity extends LevelBaseActivity implements BasicCustom
 
         dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation_2; //style id
         dialog.show();
-        applyBlackAndWhiteColorToViews(mView);
         WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
         lp.copyFrom(dialog.getWindow().getAttributes());
         lp.width = WindowManager.LayoutParams.MATCH_PARENT;

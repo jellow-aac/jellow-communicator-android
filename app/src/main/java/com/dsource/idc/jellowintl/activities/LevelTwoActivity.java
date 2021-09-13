@@ -133,7 +133,7 @@ public class LevelTwoActivity extends LevelBaseActivity implements BasicCustomIc
         // Get and set title of category icons selected in level one.
         txtActionBarTitle = getIntent().getExtras().getString(getString(R.string.intent_menu_path_tag));
         setupActionBarTitle(View.GONE, txtActionBarTitle);
-        applyBlackAndWhiteColor();
+        applyMonochromeColor();
         setNavigationUiConditionally();
         // when layout is loaded on activity, using the tag attribute of a parent view in layout
         // the device size is identified. If device size is large (10' tablets) enable the
@@ -1642,6 +1642,8 @@ public class LevelTwoActivity extends LevelBaseActivity implements BasicCustomIc
         ViewCompat.setAccessibilityDelegate(enterCategory, new TalkbackHints_SingleClick());
         ViewCompat.setAccessibilityDelegate(closeDialog, new TalkbackHints_SingleClick());
         mBuilder.setView(mView);
+        applyMonochromeColor(mView);
+
         final AlertDialog dialog = mBuilder.create();
         dialog.setCancelable(false);
         dialog.setCanceledOnTouchOutside(false);
@@ -1814,7 +1816,6 @@ public class LevelTwoActivity extends LevelBaseActivity implements BasicCustomIc
 
         dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation_2; //style id
         dialog.show();
-        applyBlackAndWhiteColorToViews(mView);
         WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
         lp.copyFrom(dialog.getWindow().getAttributes());
         lp.width = WindowManager.LayoutParams.MATCH_PARENT;

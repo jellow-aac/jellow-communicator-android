@@ -81,7 +81,7 @@ public class BaseActivity extends AppCompatActivity{
         @Override
         public void migrate(@NonNull SupportSQLiteDatabase database) {
             try{
-                database.execSQL("CREATE TABLE IF NOT EXISTS `CustomIconsModel` (`iconId` TEXT NOT NULL, `iconLanguage` TEXT NOT NULL, `iconLocation` TEXT NOT NULL, `iconVerbiage` TEXT NOT NULL, PRIMARY KEY(`iconId`))");
+                database.execSQL("CREATE TABLE IF NOT EXISTS `CustomIconsModel` (`iconId` TEXT NOT NULL, `iconLanguage` TEXT NOT NULL, `iconLocation` TEXT NOT NULL, `isCategory` INTEGER NOT NULL, `iconVerbiage` TEXT NOT NULL, PRIMARY KEY(`iconId`))");
             }catch(Exception e){
                 e.printStackTrace();
             }
@@ -466,7 +466,7 @@ public class BaseActivity extends AppCompatActivity{
         this.menu = menu;
     }
 
-    public void applyBlackAndWhiteColor(){
+    public void applyMonochromeColor(){
         if(getSession().getMonochromeDisplayState()) {
             ColorMatrix cm = new ColorMatrix();
             cm.setSaturation(0f);
@@ -491,29 +491,13 @@ public class BaseActivity extends AppCompatActivity{
         }
     }
 
-    public void applyBlackAndWhiteColorToViews(View view){
+    public void applyMonochromeColor(View view){
         if(getSession().getMonochromeDisplayState()) {
             ColorMatrix cm = new ColorMatrix();
             cm.setSaturation(0f);
             Paint greyscalePaint = new Paint();
             greyscalePaint.setColorFilter(new ColorMatrixColorFilter(cm));
             view.setLayerType(LAYER_TYPE_HARDWARE, greyscalePaint);
-            /*final View decor = getWindow().getDecorView();
-            decor.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
-                @Override
-                public boolean onPreDraw() {
-                    decor.getViewTreeObserver().removeOnPreDrawListener(this);
-                    View statusBar = decor.findViewById(android.R.id.statusBarBackground);
-                    statusBar.setLayerType(LAYER_TYPE_HARDWARE, greyscalePaint);
-                    return true;
-                }
-            });
-            findViewById(R.id.parent).setLayerType(LAYER_TYPE_HARDWARE, greyscalePaint);
-            try {
-                ((View) getSupportActionBar().getCustomView().getParent().getParent()).setLayerType(LAYER_TYPE_HARDWARE, greyscalePaint);
-            }catch (NullPointerException e){
-                e.printStackTrace();
-            }*/
         }
     }
 }

@@ -9,11 +9,12 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.dsource.idc.jellowintl.R;
+import com.dsource.idc.jellowintl.activities.BaseActivity;
 import com.rey.material.app.Dialog;
 
 public class DialogCustom extends Dialog {
 
-    private Context context;
+    private final Context context;
     private Dialog dialog;
     private OnPositiveClickListener mPositiveClickListener;
     private OnNegativeClickListener mNegativeClickListener;
@@ -28,6 +29,9 @@ public class DialogCustom extends Dialog {
     {
         final LayoutInflater dialogLayout = LayoutInflater.from(context);
         @SuppressLint("InflateParams") View dialogContainerView = dialogLayout.inflate(R.layout.dialog_custom_alert, null);
+        if(context instanceof BaseActivity){
+            ((BaseActivity) context).applyMonochromeColor(dialogContainerView);
+        }
         Button positiveButton = dialogContainerView.findViewById(R.id.positive);
         Button negativeButton = dialogContainerView.findViewById(R.id.negative);
         positiveButton.setText(R.string.yes);

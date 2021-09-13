@@ -39,7 +39,7 @@ public class FeedbackActivityTalkBack extends BaseActivity{
         setContentView(R.layout.activity_feedback_talkback);
         enableNavigationBack();
         setupActionBarTitle(View.VISIBLE, getString(R.string.home)+"/ "+getString(R.string.menuFeedback));
-        applyBlackAndWhiteColor();
+        applyMonochromeColor();
         setNavigationUiConditionally();
 
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);

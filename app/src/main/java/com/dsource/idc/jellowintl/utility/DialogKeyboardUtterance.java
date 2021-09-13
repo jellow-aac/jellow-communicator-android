@@ -1,5 +1,7 @@
 package com.dsource.idc.jellowintl.utility;
 
+import static com.dsource.idc.jellowintl.utility.Analytics.bundleEvent;
+
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -17,7 +19,10 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import androidx.core.content.ContextCompat;
+
 import com.dsource.idc.jellowintl.R;
+import com.dsource.idc.jellowintl.activities.LevelBaseActivity;
 import com.dsource.idc.jellowintl.activities.LevelThreeActivity;
 import com.dsource.idc.jellowintl.activities.LevelTwoActivity;
 import com.dsource.idc.jellowintl.activities.MainActivity;
@@ -26,15 +31,14 @@ import com.dsource.idc.jellowintl.activities.SpeechEngineBaseActivity;
 import com.dsource.idc.jellowintl.make_my_board_module.activity.HomeActivity;
 import com.dsource.idc.jellowintl.utility.interfaces.TextToSpeechCallBacks;
 
-import static com.dsource.idc.jellowintl.utility.Analytics.bundleEvent;
-
 public class DialogKeyboardUtterance{
 
     public void show(Context context) {
         final SpeechEngineBaseActivity activity = (SpeechEngineBaseActivity) context;
-        final Drawable speaker=activity.getResources().getDrawable(R.drawable.ic_search_list_speaker);
+        final Drawable speaker= ContextCompat.getDrawable(activity,R.drawable.ic_search_list_speaker);
         AlertDialog.Builder builder = new AlertDialog.Builder(activity);
         final View dialogView = LayoutInflater.from(activity).inflate(R.layout.keyboard_layout, null);
+        ((LevelBaseActivity)context).applyMonochromeColor(dialogView);
 
         final ImageView mBtnPlay=dialogView.findViewById(R.id.speak_button);
         mBtnPlay.setOnClickListener(new View.OnClickListener() {
@@ -56,7 +60,7 @@ public class DialogKeyboardUtterance{
                 if (!speechText.isEmpty())
                     bundleEvent("Keyboard", bundle);
                 activity.speak(speechText.toLowerCase().concat("_"));
-                mBtnPlay.setImageDrawable(activity.getResources().getDrawable(R.drawable.ic_stop));
+                mBtnPlay.setImageDrawable(ContextCompat.getDrawable(activity,R.drawable.ic_stop));
             }
         });
         dialogView.findViewById(R.id.dialog_back).setAccessibilityDelegate( new View.AccessibilityDelegate(){

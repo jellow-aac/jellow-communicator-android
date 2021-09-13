@@ -9,10 +9,15 @@ import android.widget.Button;
 import androidx.appcompat.app.AlertDialog;
 
 import com.dsource.idc.jellowintl.R;
+import com.dsource.idc.jellowintl.activities.BaseActivity;
 
 public class TextToSpeechErrorUtils {
-    private Activity mActivity;
-    private String mYes, mNO, mExit, mErrDialogMsg, mExitDialogMsg;
+    private final Activity mActivity;
+    private final String mYes;
+    private final String mNO;
+    private final String mExit;
+    private final String mErrDialogMsg;
+    private final String mExitDialogMsg;
 
     public TextToSpeechErrorUtils(Activity activity) {
         mActivity = activity;
@@ -56,6 +61,10 @@ public class TextToSpeechErrorUtils {
         Button negativeButton = dialog.getButton(AlertDialog.BUTTON_NEGATIVE);
         negativeButton.setTextColor(mActivity.getResources().getColor(R.color.colorAccent));
         negativeButton.setTextSize(18f);
+        if(mActivity instanceof BaseActivity){
+            ((BaseActivity)mActivity).applyMonochromeColor(positiveButton);
+            ((BaseActivity)mActivity).applyMonochromeColor(negativeButton);
+        }
     }
 
     private void showExitDialog() {
@@ -91,5 +100,9 @@ public class TextToSpeechErrorUtils {
         Button negativeButton = dialog.getButton(AlertDialog.BUTTON_NEGATIVE);
         negativeButton.setTextColor(mActivity.getResources().getColor(R.color.colorAccent));
         negativeButton.setTextSize(18f);
+        if(mActivity instanceof BaseActivity){
+            ((BaseActivity)mActivity).applyMonochromeColor(positiveButton);
+            ((BaseActivity)mActivity).applyMonochromeColor(negativeButton);
+        }
     }
 }

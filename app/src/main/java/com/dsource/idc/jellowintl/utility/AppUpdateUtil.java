@@ -1,5 +1,7 @@
 package com.dsource.idc.jellowintl.utility;
 
+import static com.google.android.play.core.install.model.AppUpdateType.IMMEDIATE;
+
 import android.content.DialogInterface;
 import android.content.IntentSender;
 import android.util.Log;
@@ -16,8 +18,6 @@ import com.google.android.play.core.install.model.UpdateAvailability;
 import com.google.android.play.core.tasks.OnFailureListener;
 import com.google.android.play.core.tasks.OnSuccessListener;
 import com.google.android.play.core.tasks.Task;
-
-import static com.google.android.play.core.install.model.AppUpdateType.IMMEDIATE;
 
 public class AppUpdateUtil{
     public final static int UPDATE_REQUEST_CODE = 99;
@@ -115,6 +115,8 @@ public class AppUpdateUtil{
         Button negativeButton = dialog.getButton(AlertDialog.BUTTON_NEGATIVE);
         negativeButton.setTextColor(context.getResources().getColor(R.color.colorAccent));
         negativeButton.setTextSize(18f);
+        context.applyMonochromeColor(positiveButton);
+        context.applyMonochromeColor(negativeButton);
     }
 
     public void startUpdateProcess(SplashActivity context){

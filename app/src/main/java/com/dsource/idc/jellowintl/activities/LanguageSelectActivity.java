@@ -59,7 +59,7 @@ public class LanguageSelectActivity extends SpeechEngineBaseActivity {
         setContentView(R.layout.activity_language_select);
         enableNavigationBack();
         setupActionBarTitle(View.VISIBLE, getString(R.string.home)+"/ "+getString(R.string.Language));
-        applyBlackAndWhiteColor();
+        applyMonochromeColor();
         setNavigationUiConditionally();
         LanguageFactory.deleteOldLanguagePackagesInBackground(this);
         new UpdatePackageCheckUtils().checkLanguagePackageUpdateAvailable(this);
@@ -183,6 +183,7 @@ public class LanguageSelectActivity extends SpeechEngineBaseActivity {
         dialog.show();
         dialog.getListView().setScrollbarFadingEnabled(false);
         dialog.getListView().setScrollBarSize(12);
+        applyMonochromeColor(dialog.getListView());
     }
 
     public void showVoiceSelectDialog(View view) {
@@ -210,6 +211,7 @@ public class LanguageSelectActivity extends SpeechEngineBaseActivity {
         dialog.show();
         dialog.getListView().setScrollbarFadingEnabled(false);
         dialog.getListView().setScrollBarSize(12);
+        applyMonochromeColor(dialog.getListView());
     }
 
     public void openSpeechDataSetting(View view){

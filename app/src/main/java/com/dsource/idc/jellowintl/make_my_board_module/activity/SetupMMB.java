@@ -1,7 +1,10 @@
 package com.dsource.idc.jellowintl.make_my_board_module.activity;
 
+import static com.dsource.idc.jellowintl.activities.UserRegistrationActivity.LCODE;
+import static com.dsource.idc.jellowintl.activities.UserRegistrationActivity.VCODE;
+import static com.dsource.idc.jellowintl.make_my_board_module.utility.BoardConstants.BOARD_ID;
+
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -16,10 +19,6 @@ import com.dsource.idc.jellowintl.make_my_board_module.dataproviders.helper_clas
 import com.dsource.idc.jellowintl.make_my_board_module.interfaces.SuccessCallBack;
 import com.dsource.idc.jellowintl.models.GlobalConstants;
 
-import static com.dsource.idc.jellowintl.activities.UserRegistrationActivity.LCODE;
-import static com.dsource.idc.jellowintl.activities.UserRegistrationActivity.VCODE;
-import static com.dsource.idc.jellowintl.make_my_board_module.utility.BoardConstants.BOARD_ID;
-
 public class SetupMMB extends BaseActivity {
     RoundCornerProgressBar progressBar;
     private String langCode, voiceCode;
@@ -29,10 +28,10 @@ public class SetupMMB extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_language_download);
+        applyMonochromeColor();
         setNavigationUiConditionally();
         if(getSupportActionBar()!=null) getSupportActionBar().hide();
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
-            getWindow().setStatusBarColor(ContextCompat.getColor(this,R.color.colorPrimary));
+        getWindow().setStatusBarColor(ContextCompat.getColor(this,R.color.colorPrimary));
         progressBar = findViewById(R.id.pg);
         progressText = findViewById(R.id.progress_text);
         progressBar.setContentDescription(getString(R.string.setting_up_the_language));

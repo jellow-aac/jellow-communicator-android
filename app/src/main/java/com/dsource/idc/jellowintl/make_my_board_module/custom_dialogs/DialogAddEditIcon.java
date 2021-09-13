@@ -95,6 +95,7 @@ public class DialogAddEditIcon extends BaseActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dialog_add_edit_icon);
+        applyMonochromeColor();
         isCustomizedHomeIcon = getIntent().hasExtra(IS_HOME_CUSTOM_ICON);
         boardId = getIntent().getStringExtra(BOARD_ID);
         context = this;

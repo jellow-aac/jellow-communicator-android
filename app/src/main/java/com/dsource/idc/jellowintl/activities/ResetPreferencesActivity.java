@@ -23,7 +23,7 @@ public class ResetPreferencesActivity extends BaseActivity {
         setContentView(R.layout.activity_reset_preferences);
         enableNavigationBack();
         setupActionBarTitle(View.VISIBLE, getString(R.string.home)+"/ "+getString(R.string.menuResetPref));
-        applyBlackAndWhiteColor();
+        applyMonochromeColor();
         setNavigationUiConditionally();
 
         findViewById(R.id.no).setOnClickListener(new View.OnClickListener() {

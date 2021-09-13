@@ -65,6 +65,7 @@ public class DialogAddVerbiage extends BaseActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dialog_add_verbiage);
+        applyMonochromeColor();
         context = this;
 
         isCustomizedHomeIcon = getIntent().hasExtra(IS_HOME_CUSTOM_ICON);

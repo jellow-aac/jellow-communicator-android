@@ -122,7 +122,7 @@ public class MainActivity extends LevelBaseActivity implements BasicCustomIconsC
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_levelx_layout);
         setupActionBarTitle(View.GONE, getString(R.string.action_bar_title));
-        applyBlackAndWhiteColor();
+        applyMonochromeColor();
         setNavigationUiConditionally();
         mUec = new UserEventCollector();
         loadArraysFromResources();
@@ -1017,6 +1017,8 @@ public class MainActivity extends LevelBaseActivity implements BasicCustomIconsC
         ViewCompat.setAccessibilityDelegate(enterCategory, new TalkbackHints_SingleClick());
         ViewCompat.setAccessibilityDelegate(closeDialog, new TalkbackHints_SingleClick());
         mBuilder.setView(mView);
+        applyMonochromeColor(mView);
+
         final AlertDialog dialog = mBuilder.create();
         dialog.setCancelable(false);
         dialog.setCanceledOnTouchOutside(false);
@@ -1131,7 +1133,6 @@ public class MainActivity extends LevelBaseActivity implements BasicCustomIconsC
 
         dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation_2; //style id
         dialog.show();
-        applyBlackAndWhiteColorToViews(mView);
         WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
         lp.copyFrom(dialog.getWindow().getAttributes());
         lp.width = WindowManager.LayoutParams.MATCH_PARENT;

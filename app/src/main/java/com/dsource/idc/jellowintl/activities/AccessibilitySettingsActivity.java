@@ -20,7 +20,7 @@ public class AccessibilitySettingsActivity extends BaseActivity {
         setContentView(R.layout.activity_accessibility_settings);
         enableNavigationBack();
         setupActionBarTitle(View.VISIBLE, getString(R.string.home)+"/ "+getString(R.string.menuAccessibility));
-        applyBlackAndWhiteColor();
+        applyMonochromeColor();
         setNavigationUiConditionally();
     }
 

@@ -39,7 +39,7 @@ public class AboutJellowActivity extends SpeechEngineBaseActivity {
         setContentView(R.layout.activity_about_jellow);
         enableNavigationBack();
         setupActionBarTitle(View.VISIBLE, getString(R.string.home)+"/ "+getString(R.string.menuAbout));
-        applyBlackAndWhiteColor();
+        applyMonochromeColor();
         setNavigationUiConditionally();
         initializeViews();
         loadStrings();

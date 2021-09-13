@@ -33,7 +33,7 @@ public class LanguagePackUpdateActivity extends BaseActivity implements Progress
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_language_pack_update_activity);
-        applyBlackAndWhiteColor();
+        applyMonochromeColor();
         setNavigationUiConditionally();
         updateManager = new UpdateManager(this);
         statusText = findViewById(R.id.status);

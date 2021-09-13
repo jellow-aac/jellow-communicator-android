@@ -96,10 +96,10 @@ public class SequenceActivity extends LevelBaseActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sequence);
+        setupActionBarTitle(View.GONE, txtActionBarTitle);
+        applyMonochromeColor();
         txtActionBarTitle = getIntent().getExtras().getString(getString(R.string.intent_menu_path_tag));
         txtKeyboard = getString(R.string.keyboard);
-        setupActionBarTitle(View.GONE, txtActionBarTitle);
-        applyBlackAndWhiteColor();
         setNavigationUiConditionally();
 
         mUec = new UserEventCollector();
@@ -1091,6 +1091,8 @@ public class SequenceActivity extends LevelBaseActivity{
         ViewCompat.setAccessibilityDelegate(enterCategory, new TalkbackHints_SingleClick());
         ViewCompat.setAccessibilityDelegate(closeDialog, new TalkbackHints_SingleClick());
         mBuilder.setView(mView);
+        applyMonochromeColor(mView);
+
         final AlertDialog dialog = mBuilder.create();
         dialog.setCancelable(false);
         dialog.setCanceledOnTouchOutside(false);
@@ -1210,7 +1212,6 @@ public class SequenceActivity extends LevelBaseActivity{
 
         dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation_2; //style id
         dialog.show();
-        applyBlackAndWhiteColorToViews(mView);
         WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
         lp.copyFrom(dialog.getWindow().getAttributes());
         lp.width = WindowManager.LayoutParams.MATCH_PARENT;

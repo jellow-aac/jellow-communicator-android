@@ -39,7 +39,7 @@ public class LanguageDownloadActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_language_download);
-        applyBlackAndWhiteColor();
+        applyMonochromeColor();
         setNavigationUiConditionally();
         getWindow().setStatusBarColor(ContextCompat.getColor(this,R.color.colorPrimary));
 

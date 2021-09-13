@@ -51,7 +51,7 @@ public class SettingActivity extends SpeechEngineBaseActivity {
         setContentView(R.layout.activity_settings);
         enableNavigationBack();
         setupActionBarTitle(View.VISIBLE, getString(R.string.home)+"/ "+getString(R.string.action_settings));
-        applyBlackAndWhiteColor();
+        applyMonochromeColor();
         setNavigationUiConditionally();
 
         mOpenSetting = false;
@@ -356,6 +356,8 @@ public class SettingActivity extends SpeechEngineBaseActivity {
         positive.setTextColor(SettingActivity.this.getResources().getColor(R.color.colorAccent));
         Button negative = dialog.getButton(DialogInterface.BUTTON_NEGATIVE);
         negative.setTextColor(SettingActivity.this.getResources().getColor(R.color.colorAccent));
+        applyMonochromeColor(positive);
+        applyMonochromeColor(negative);
     }
 
     @Override
