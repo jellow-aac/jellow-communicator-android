@@ -462,9 +462,10 @@
     <string name="board_delete">బోర్డు తొలగించు</string>
     <string name="change_language_voice">భాష కోసం యాస (వాయిస్) ఎంచుకోండి:</string>
     <string name="update_the_package">ఎంచుకున్న భాషను ప్రారంభించడానికి భాషా ప్యాకేజీని నవీకరించండి.</string>
-    <string name="enableFishAnimation">Turn on fish animation</string>
-    <string name="enableIconAddition">Show \"Add icon\" button</string>
-    <string name="createHomeCustomIcon">Create icon</string>
-    <string name="createHomeCustomCategory">Create Category</string>
-    <string name="home_custom_icon_place_holder_text">No custom are added here.</string>
+    <string name="enableFishAnimation">చేపల యానిమేషన్‌ని ఆన్ చేయండి</string>
+    <string name="enableIconAddition">\"ఐకాన్ జోడించు\" బటన్‌ని చూపించండి</string>
+    <string name="createHomeCustomIcon">చిహ్నాన్ని సృష్టించండి</string>
+    <string name="createHomeCustomCategory">వర్గాన్ని సృష్టించండి</string>
+    <string name="home_custom_icon_place_holder_text">అనుకూల చిహ్నాలు ఇక్కడ జోడించబడలేదు.</string>
+    <string name="enableBlackWhiteColor">మోనోక్రోమ్ డిస్‌ప్లేను ప్రారంభించండి (నలుపు మరియు తెలుపు)</string>
 </resources>

@@ -471,9 +471,10 @@
     <string name="current_board">"ચિહ્નો ઉમેર્યું "</string>
     <string name="levelThreeCat">સ્તર ૩ ચિહ્નો</string>
     <string name="voice_warning">જો પસંદ કરેલી ભાષા (ઓ) ના અવાજો ઉપલબ્ધ ન હોય અથવા વ theઇસ ડ્રોપ-ડાઉન હેઠળ નલ બતાવવામાં આવે, તો પછી ગૂગલ પ્લે સ્ટોરમાંથી ગૂગલ ટેક્સ્ટને સ્પીચ એપ્લિકેશન પર અપડેટ કરો અને તમારી ભાષા પર વ voiceઇસ ડેટા ઇન્સ્ટોલ કરો. ઉપકરણ.</string>
-    <string name="enableFishAnimation">Turn on fish animation</string>
-    <string name="enableIconAddition">Show \"Add icon\" button</string>
-    <string name="createHomeCustomIcon">Create icon</string>
-    <string name="createHomeCustomCategory">Create Category</string>
-    <string name="home_custom_icon_place_holder_text">No custom are added here.</string>
+    <string name="enableFishAnimation">માછલીનું એનિમેશન ચાલુ કરો</string>
+    <string name="enableIconAddition">\"ઉમેરો ચિહ્ન\" બટન બતાવો</string>
+    <string name="createHomeCustomIcon">આયકન બનાવો</string>
+    <string name="createHomeCustomCategory">કેટેગરી બનાવો</string>
+    <string name="home_custom_icon_place_holder_text">અહીં કોઈ વૈવિધ્યપૂર્ણ ચિહ્નો ઉમેરવામાં આવ્યાં નથી.</string>
+    <string name="enableBlackWhiteColor">મોનોક્રોમ ડિસ્પ્લે સક્ષમ કરો (કાળો અને સફેદ)</string>
 </resources>

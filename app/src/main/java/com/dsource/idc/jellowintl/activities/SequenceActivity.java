@@ -34,6 +34,7 @@ import androidx.core.content.ContextCompat;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.core.view.ViewCompat;
 
+import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.dsource.idc.jellowintl.R;
 import com.dsource.idc.jellowintl.TalkBack.TalkbackHints_SingleClick;
@@ -47,7 +48,6 @@ import com.dsource.idc.jellowintl.models.Icon;
 import com.dsource.idc.jellowintl.models.MiscellaneousIcon;
 import com.dsource.idc.jellowintl.models.SeqNavigationButton;
 import com.dsource.idc.jellowintl.utility.DialogKeyboardUtterance;
-import com.dsource.idc.jellowintl.utility.GlideApp;
 import com.dsource.idc.jellowintl.utility.LevelUiUtils;
 import com.dsource.idc.jellowintl.utility.UserEventCollector;
 import com.google.firebase.crashlytics.FirebaseCrashlytics;
@@ -96,9 +96,9 @@ public class SequenceActivity extends LevelBaseActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sequence);
+        txtActionBarTitle = getIntent().getExtras().getString(getString(R.string.intent_menu_path_tag));
         setupActionBarTitle(View.GONE, txtActionBarTitle);
         applyMonochromeColor();
-        txtActionBarTitle = getIntent().getExtras().getString(getString(R.string.intent_menu_path_tag));
         txtKeyboard = getString(R.string.keyboard);
         setNavigationUiConditionally();
 
@@ -1334,7 +1334,7 @@ public class SequenceActivity extends LevelBaseActivity{
      * @param  imgView, is a view on which image is going to be displayed.</p>
      * */
     private void setImageUsingGlide(String path, ImageView imgView) {
-        GlideApp.with(SequenceActivity.this)
+        Glide.with(SequenceActivity.this)
                 .load(path+EXTENSION)
                 .diskCacheStrategy(DiskCacheStrategy.NONE)
                 .skipMemoryCache(false)

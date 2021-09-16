@@ -1,9 +1,11 @@
 package com.dsource.idc.jellowintl.factories;
 
+import android.content.Context;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
 
+import com.dsource.idc.jellowintl.R;
 import com.dsource.idc.jellowintl.models.ExpressiveIcon;
 import com.dsource.idc.jellowintl.models.Icon;
 import com.dsource.idc.jellowintl.models.MiscellaneousIcon;
@@ -130,13 +132,13 @@ public class TextFactory {
     }
 
     /*RAHUL*/
-    public static Icon[] getAllIconsArray(String[] mIconCode, List<Icon> customBasicIcons, boolean basicCustomIconAddState) {
+    public static Icon[] getAllIconsArray(Context context, String[] mIconCode, List<Icon> customBasicIcons, boolean basicCustomIconAddState) {
         ArrayList<Icon> iconObjects= TextFactory.getIconArray(mIconCode);
         iconObjects.addAll(customBasicIcons);
         if(basicCustomIconAddState){
             Icon icon = new Icon();
-            icon.setDisplay_Label("Add Icon");
-            icon.setSpeech_Label("Add Icon");
+            icon.setDisplay_Label(context.getString(R.string.add_icon));
+            icon.setSpeech_Label(context.getString(R.string.add_icon));
             icon.setEvent_Tag("add_icon");
             iconObjects.add(icon);
         }

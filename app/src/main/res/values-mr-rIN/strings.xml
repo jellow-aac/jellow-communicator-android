@@ -467,9 +467,10 @@
     <string name="place_holder_no_icons_added">बोर्ड मध्ये कोणतेही आयकॉन नाही</string>
     <string name="change_language_voice">भाषेसाठी उच्चारण (आवाज) निवडा</string>
     <string name="update_the_package">निवडलेली भाषा सक्षम करण्यासाठी भाषा पॅकेज अपडेट करा.</string>
-    <string name="enableFishAnimation">Turn on fish animation</string>
-    <string name="enableIconAddition">Show \"Add icon\" button</string>
-    <string name="createHomeCustomIcon">Create icon</string>
-    <string name="createHomeCustomCategory">Create Category</string>
-    <string name="home_custom_icon_place_holder_text">No custom are added here.</string>
+    <string name="enableFishAnimation">फिश अॅनिमेशन चालू करा</string>
+    <string name="enableIconAddition">\"आइकॉन जोडा\" बटण दर्शवा</string>
+    <string name="createHomeCustomIcon">आइकॉन तयार करा</string>
+    <string name="createHomeCustomCategory">मुख्य श्रेणी तयार करा</string>
+    <string name="home_custom_icon_place_holder_text">येथे कोणतेही कस्टम आइकॉन जोडलेले नाहीत.</string>
+    <string name="enableBlackWhiteColor">मोनोक्रोम डिस्प्ले सक्षम करा (काळा आणि पांढरा)</string>
 </resources>

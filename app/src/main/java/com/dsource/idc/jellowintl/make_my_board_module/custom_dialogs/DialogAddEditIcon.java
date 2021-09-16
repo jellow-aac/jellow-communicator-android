@@ -59,7 +59,6 @@ import com.dsource.idc.jellowintl.make_my_board_module.expandable_recycler_view.
 import com.dsource.idc.jellowintl.make_my_board_module.interfaces.AddIconCallback;
 import com.dsource.idc.jellowintl.make_my_board_module.interfaces.OnPhotoResultCallBack;
 import com.dsource.idc.jellowintl.models.JellowIcon;
-import com.dsource.idc.jellowintl.utility.GlideApp;
 import com.dsource.idc.jellowintl.utility.SessionManager;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.theartofdev.edmodo.cropper.CropImage;
@@ -256,7 +255,7 @@ public class DialogAddEditIcon extends BaseActivity implements View.OnClickListe
                             .apply(RequestOptions
                                     .circleCropTransform()).into(iconImage);
                 } else {
-                    GlideApp.with(context).load(getIconPath(context, fileName + EXTENSION))
+                    Glide.with(context).load(getIconPath(context, fileName + EXTENSION))
                             .into(iconImage);
                 }
                 iconImage.setBackground(context.getResources().getDrawable(R.drawable.icon_back_grey));
@@ -325,7 +324,7 @@ public class DialogAddEditIcon extends BaseActivity implements View.OnClickListe
         if(isCustomizedHomeIcon) {
             File en_dir = getBasicCustomIconsDirectory(this);
             String path = en_dir.getAbsolutePath();
-            GlideApp.with(context)
+            Glide.with(context)
                     .load(path + "/" + thisIcon.getIconDrawable() + EXTENSION)
                     .diskCacheStrategy(DiskCacheStrategy.NONE)
                     .skipMemoryCache(true)
@@ -337,7 +336,7 @@ public class DialogAddEditIcon extends BaseActivity implements View.OnClickListe
         }else if (thisIcon.isCustomIcon()){
             File en_dir = context.getDir(SessionManager.BOARD_ICON_LOCATION, Context.MODE_PRIVATE);
             String path = en_dir.getAbsolutePath();
-            GlideApp.with(context)
+            Glide.with(context)
                     .load(path + "/" + thisIcon.getIconDrawable() + EXTENSION)
                     .diskCacheStrategy(DiskCacheStrategy.NONE)
                     .skipMemoryCache(true)
@@ -346,7 +345,7 @@ public class DialogAddEditIcon extends BaseActivity implements View.OnClickListe
                     .placeholder(R.drawable.ic_board_person)
                     .into(iconImage);
         } else {
-            GlideApp.with(context).load(getIconPath(context, thisIcon.getIconDrawable() + EXTENSION))
+            Glide.with(context).load(getIconPath(context, thisIcon.getIconDrawable() + EXTENSION))
                     .skipMemoryCache(true)
                     .into(iconImage);
         }

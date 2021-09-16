@@ -492,9 +492,10 @@
     <string name="change_language_voice">Select the accent (voice) for the language:</string>
     <string name="update_the_package">Update language package to enable the selected language.</string>
     <string name="voice_warning">If voices(s) of the selected language(s) are not available or showing null under the voice drop down, then update the Google text to speech app from the Google Play Store and install voice data for the language(s) on your device.</string>
-    <string name="enableFishAnimation">Turn on fish animation</string>
-    <string name="enableIconAddition">Show \"Add icon\" button</string>
-    <string name="createHomeCustomIcon">Create icon</string>
-    <string name="createHomeCustomCategory">Create Category</string>
-    <string name="home_custom_icon_place_holder_text">No custom are added here.</string>
+    <string name="enableFishAnimation">ਮੱਛੀ ਐਨੀਮੇਸ਼ਨ ਚਾਲੂ ਕਰੋ</string>
+    <string name="enableIconAddition">\"ਐਡ ਆਈਕਨ\" ਬਟਨ ਦਿਖਾਓ</string>
+    <string name="createHomeCustomIcon">ਆਈਕਨ ਬਣਾਉ</string>
+    <string name="createHomeCustomCategory">ਸ਼੍ਰੇਣੀ ਬਣਾਉ</string>
+    <string name="home_custom_icon_place_holder_text">ਇੱਥੇ ਕੋਈ ਕਸਟਮ ਆਈਕਾਨ ਸ਼ਾਮਲ ਨਹੀਂ ਕੀਤੇ ਗਏ ਹਨ.</string>
+    <string name="enableBlackWhiteColor">ਮੋਨੋਕ੍ਰੋਮ ਡਿਸਪਲੇ ਨੂੰ ਸਮਰੱਥ ਕਰੋ (ਕਾਲਾ ਅਤੇ ਚਿੱਟਾ)</string>
 </resources>

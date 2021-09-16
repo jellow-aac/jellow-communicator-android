@@ -5,12 +5,12 @@
     <color name="colorAccent">#d85155</color>
 
     <color name="colorSelect">#9E846D</color>
-    <color name="colorLike">#FFEB3B</color>
-    <color name="colorDontLike">#3F51B5</color>
-    <color name="colorYes">#8BC249</color>
-    <color name="colorNo">#CC322E</color>
-    <color name="colorMore">#788E96</color>
-    <color name="colorLess">#656451</color>
+    <color name="colorLike">#FAD73B</color>
+    <color name="colorDontLike">#60C7F1</color>
+    <color name="colorYes">#69D37D</color>
+    <color name="colorNo">#F95C50</color>
+    <color name="colorMore">#B1B6C9</color>
+    <color name="colorLess">#707070</color>
     <color name="search_list_divider">#e1dedbdb</color>
 
     <color name="search_list_dir_hint">#d0868383</color>

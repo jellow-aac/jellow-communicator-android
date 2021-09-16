@@ -25,7 +25,7 @@ import androidx.core.content.res.ResourcesCompat;
 import androidx.core.view.ViewCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.RequestManager;
+import com.bumptech.glide.Glide;
 import com.dsource.idc.jellowintl.R;
 import com.dsource.idc.jellowintl.TalkBack.TalkbackHints_SingleClick;
 import com.dsource.idc.jellowintl.activities.LevelTwoActivity;
@@ -33,7 +33,6 @@ import com.dsource.idc.jellowintl.factories.IconFactory;
 import com.dsource.idc.jellowintl.factories.TextFactory;
 import com.dsource.idc.jellowintl.models.GlobalConstants;
 import com.dsource.idc.jellowintl.models.Icon;
-import com.dsource.idc.jellowintl.utility.GlideApp;
 import com.dsource.idc.jellowintl.utility.SessionManager;
 
 /**
@@ -44,12 +43,10 @@ public class LevelTwoAdapter extends RecyclerView.Adapter<LevelTwoAdapter.MyView
     private final SessionManager mSession;
     private final String[] iconNameArray;
     private final String[] belowTextArray;
-    private final RequestManager glide;
     private final int libIconSize;
 
     public LevelTwoAdapter(Context context, Icon[] level2IconObjects, int size){
         mAct = (LevelTwoActivity) context;
-        glide = GlideApp.with(mAct);
         mSession = mAct.getSession();
         iconNameArray = IconFactory.getIconNames(level2IconObjects);
         belowTextArray = TextFactory.getDisplayText(level2IconObjects);
@@ -82,13 +79,13 @@ public class LevelTwoAdapter extends RecyclerView.Adapter<LevelTwoAdapter.MyView
             holder.menuItemBelowText.setVisibility(View.INVISIBLE);
         holder.menuItemBelowText.setText(belowTextArray[position]);
 
-        glide
+        Glide.with(mAct)
                 .load(getIconPath(mAct, iconNameArray[position] + EXTENSION))
                 .error(Drawable.createFromPath(getBasicCustomIconsPath(mAct, iconNameArray[position] + EXTENSION)))
                 .into(holder.menuItemImage);
 
         if (iconNameArray[position].equals(ADD_BASIC_CUSTOM_ICON)){
-            glide.load(R.drawable.ic_plus).into(holder.menuItemImage);
+            Glide.with(mAct).load(R.drawable.ic_plus).into(holder.menuItemImage);
         }
 
         if(position >=libIconSize

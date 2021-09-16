@@ -1,20 +1,31 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-##[3.0.3]
+
+##[4.0.0] - 16 Sept, 2021
+- User can add icons or edit icons or delete icons at the home categories.
+- Added the fish animation to encourage the child during app usage.
+- Added th monochrome (black and white) display.
+
+##[3.1.0] - 31 Dec, 2020
+- Select voice of either male or female voice from available voices.
+- Introducing the "Text bar" which displays spoken text from the app. To enable "Text bar" go to the Settings turn on the "Text bar" toggle button.
+- Added English (Nigeria), Bengali (Bangladesh). 
+
+##[3.0.3] - 12 Nov, 2020
 - Added the Telugu language.
 
-##[3.0.2]
+##[3.0.2] - 13 Aug, 2020
 - Removed the serial keyboard.
 - Improved the language selection at User registration screen.
 - Simplified the language selection steps for users. Now, user chose language and then set language.
   If app does not generates the voice output, then user will see a dialog and redirected to Language setting more options.
 
 
-
-##[3.0.1] - 10 Aug, 2020 (yet to get live)
+##[3.0.1] - 10 Aug, 2020
 - Fixed the immediate issue reported on Firebase Crashlytics.
 - Moved the menu item "My boards" above "Keyboard Control"
+
 
 ##[3.0.0] - 16 July, 2020(live on Play Store 20 July, 2020)
 ### Added

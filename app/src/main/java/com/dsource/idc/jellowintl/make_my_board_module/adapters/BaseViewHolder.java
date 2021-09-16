@@ -1,5 +1,10 @@
 package com.dsource.idc.jellowintl.make_my_board_module.adapters;
 
+import static android.view.View.IMPORTANT_FOR_ACCESSIBILITY_NO;
+import static android.view.View.IMPORTANT_FOR_ACCESSIBILITY_YES;
+import static com.dsource.idc.jellowintl.factories.IconFactory.EXTENSION;
+import static com.dsource.idc.jellowintl.factories.PathFactory.getIconPath;
+
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
@@ -11,18 +16,13 @@ import android.widget.TextView;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 import com.dsource.idc.jellowintl.R;
-import com.dsource.idc.jellowintl.utility.GlideApp;
 import com.dsource.idc.jellowintl.utility.SessionManager;
 
 import java.io.File;
-
-import static android.view.View.IMPORTANT_FOR_ACCESSIBILITY_NO;
-import static android.view.View.IMPORTANT_FOR_ACCESSIBILITY_YES;
-import static com.dsource.idc.jellowintl.factories.IconFactory.EXTENSION;
-import static com.dsource.idc.jellowintl.factories.PathFactory.getIconPath;
 
 public class BaseViewHolder extends RecyclerView.ViewHolder {
 
@@ -30,7 +30,7 @@ public class BaseViewHolder extends RecyclerView.ViewHolder {
 
     private final Context context;
 
-    private View convertView;
+    private final View convertView;
 
     public BaseViewHolder(Context context, View itemView) {
         super(itemView);
@@ -91,7 +91,7 @@ public class BaseViewHolder extends RecyclerView.ViewHolder {
         ImageView imageView = getView(viewId);
         File en_dir = context.getDir(SessionManager.BOARD_ICON_LOCATION, Context.MODE_PRIVATE);
         String path = en_dir.getAbsolutePath();
-        GlideApp.with(context)
+        Glide.with(context)
                 .load(path + "/" + imageURL + ".png")
                 .transform(new CircleCrop())
                 .error(R.drawable.ic_board_person)
@@ -106,7 +106,7 @@ public class BaseViewHolder extends RecyclerView.ViewHolder {
         ImageView imageView = getView(viewId);
         File en_dir = context.getDir(SessionManager.BOARD_ICON_LOCATION, Context.MODE_PRIVATE);
         String path = en_dir.getAbsolutePath();
-        GlideApp.with(context)
+        Glide.with(context)
                 .load(path + "/" + imageURL + ".png")
                 .transform(new CircleCrop())
                 .error(placeHolderResId)
@@ -130,7 +130,7 @@ public class BaseViewHolder extends RecyclerView.ViewHolder {
 
     public void setImageFromLibrary(int viewId, String drawableId) {
         ImageView imageView = getView(viewId);
-        GlideApp.with(context).load(getIconPath(context, drawableId + EXTENSION))
+        Glide.with(context).load(getIconPath(context, drawableId + EXTENSION))
                 .into(imageView);
     }
 

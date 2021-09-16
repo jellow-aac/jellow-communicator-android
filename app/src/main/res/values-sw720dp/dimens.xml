@@ -93,11 +93,10 @@
     <dimen name="lang_dl_txt_margin_top">-50dp</dimen>
 
     <!--activity_splash.xml dimensions-->
-    <dimen name="splash_margin_top">-120dp</dimen>
-    <dimen name="splash_anim_scale">.9</dimen>
-    <dimen name="splash_anim_margin_top">-100dp</dimen>
-    <dimen name="splash_img_margin_bottom">83dp</dimen>
-    <dimen name="splash_img_scale">.8</dimen>
+    <dimen name="splash_anim_scale">0.9</dimen>
+    <dimen name="splash_img_scale">0.8</dimen>
+    <dimen name="splash_anim_vbias">0.15</dimen>
+    <dimen name="splash_logo_vbias">0.85</dimen>
 
     <!--activity_profile_form.xml dimensions-->
     <dimen name="profile_parent_margin_left">32dp</dimen>

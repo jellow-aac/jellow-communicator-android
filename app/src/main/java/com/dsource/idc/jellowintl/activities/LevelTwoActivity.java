@@ -434,7 +434,7 @@ public class LevelTwoActivity extends LevelBaseActivity implements BasicCustomIc
                 ArrayList<Icon> iconsList = new ArrayList<>(Arrays.asList(level2IconObjects));
                 iconsList.add(customIcon);
                 level2IconObjects = TextFactory.getAllIconsArray(
-                        mIconCode,
+                        LevelTwoActivity.this, mIconCode,
                         CustomBasicIconHelper.getCustomBasicIcons(
                                 getAppDatabase(),
                                 getSession().getLanguage(),
@@ -1579,7 +1579,7 @@ public class LevelTwoActivity extends LevelBaseActivity implements BasicCustomIc
         );
 
         level2IconObjects = TextFactory.getAllIconsArray(
-                mIconCode,
+                LevelTwoActivity.this, mIconCode,
                 CustomBasicIconHelper.getCustomBasicIcons(
                         getAppDatabase(),
                         getSession().getLanguage(),

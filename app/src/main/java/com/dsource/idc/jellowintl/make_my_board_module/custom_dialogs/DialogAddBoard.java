@@ -43,6 +43,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 
+import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 import com.dsource.idc.jellowintl.R;
@@ -60,7 +61,6 @@ import com.dsource.idc.jellowintl.make_my_board_module.models.AddBoardDialogMode
 import com.dsource.idc.jellowintl.make_my_board_module.presenter_interfaces.IAddBoardDialogPresenter;
 import com.dsource.idc.jellowintl.make_my_board_module.view_interfaces.IAddBoardDialogView;
 import com.dsource.idc.jellowintl.models.JellowIcon;
-import com.dsource.idc.jellowintl.utility.GlideApp;
 import com.dsource.idc.jellowintl.utility.SessionManager;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
@@ -84,6 +84,7 @@ public class DialogAddBoard extends BaseActivity implements IAddBoardDialogView,
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dialog_add_board);
+        applyMonochromeColor();
         mContext = this;
         mPresenter = new AddBoardDialogModel(getAppDatabase());
         mPresenter.attachView(this);
@@ -195,7 +196,7 @@ public class DialogAddBoard extends BaseActivity implements IAddBoardDialogView,
 
             iconImageSelected = true;
 
-            GlideApp.with(mContext)
+            Glide.with(mContext)
                     .load(path + "/" + board.getBoardId() + ".png")
                     .placeholder(R.drawable.ic_board_person)
                     .diskCacheStrategy(DiskCacheStrategy.NONE)
@@ -277,7 +278,7 @@ public class DialogAddBoard extends BaseActivity implements IAddBoardDialogView,
                 if (code != LIBRARY_REQUEST) {
                     ByteArrayOutputStream stream = new ByteArrayOutputStream();
                     bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
-                    GlideApp.with(mContext).load(stream.toByteArray()).
+                    Glide.with(mContext).load(stream.toByteArray()).
                             transform(new CircleCrop()).
                             placeholder(R.drawable.ic_board_person).
                             error(R.drawable.ic_board_person).skipMemoryCache(true).
@@ -285,7 +286,7 @@ public class DialogAddBoard extends BaseActivity implements IAddBoardDialogView,
                             into(boardIcon);
                 } else {
 
-                    GlideApp.with(mContext).load(getIconPath(mContext, fileName + EXTENSION))
+                    Glide.with(mContext).load(getIconPath(mContext, fileName + EXTENSION))
                             .into(boardIcon);
                 }
             }

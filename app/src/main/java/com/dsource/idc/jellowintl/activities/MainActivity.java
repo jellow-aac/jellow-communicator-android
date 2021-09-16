@@ -365,6 +365,7 @@ public class MainActivity extends LevelBaseActivity implements BasicCustomIconsC
                 ArrayList<Icon> iconsList = new ArrayList<>(Arrays.asList(level1IconObjects));
                 iconsList.add(customIcon);
                 level1IconObjects =TextFactory.getAllIconsArray(
+                        MainActivity.this,
                         mIconCode,
                         CustomBasicIconHelper.getCustomBasicIcons(getAppDatabase(),getSession().getLanguage(), "00"),
                         getSession().getBasicCustomIconAddState());
@@ -1259,7 +1260,7 @@ public class MainActivity extends LevelBaseActivity implements BasicCustomIconsC
         );
 
         level1IconObjects = TextFactory.getAllIconsArray(
-                mIconCode,
+                MainActivity.this, mIconCode,
                 CustomBasicIconHelper.getCustomBasicIcons(getAppDatabase(),getSession().getLanguage(), "00"),
                 getSession().getBasicCustomIconAddState()
         );

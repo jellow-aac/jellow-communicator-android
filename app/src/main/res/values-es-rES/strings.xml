@@ -460,9 +460,10 @@
     <string name="board_delete">Eliminar tablero</string>
     <string name="change_language_voice">Seleccione el acento (voz) del idioma:</string>
     <string name="update_the_package">Actualice el paquete de idiomas para habilitar el idioma seleccionado.</string>
-    <string name="enableFishAnimation">Turn on fish animation</string>
-    <string name="enableIconAddition">Show \"Add icon\" button</string>
-    <string name="createHomeCustomIcon">Create icon</string>
-    <string name="createHomeCustomCategory">Create Category</string>
-    <string name="home_custom_icon_place_holder_text">No custom are added here.</string>
+    <string name="enableFishAnimation">Enciende la animación de peces</string>
+    <string name="enableIconAddition">Mostrar el botón \"Agregar icono\"</string>
+    <string name="createHomeCustomIcon">Crear icono</string>
+    <string name="createHomeCustomCategory">Crear categoría</string>
+    <string name="home_custom_icon_place_holder_text">Aquí no se agregan íconos personalizados.</string>
+    <string name="enableBlackWhiteColor">Habilitar pantalla monocromática (blanco y negro)</string>
 </resources>

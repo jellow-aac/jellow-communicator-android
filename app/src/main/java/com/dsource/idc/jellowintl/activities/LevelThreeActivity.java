@@ -375,7 +375,7 @@ public class LevelThreeActivity extends LevelBaseActivity implements BasicCustom
         );
 
         level3IconObjects = TextFactory.getAllIconsArray(
-                mIconCode,
+                LevelThreeActivity.this, mIconCode,
                 CustomBasicIconHelper.getCustomBasicIcons(
                         getAppDatabase(),
                         getSession().getLanguage(),
@@ -523,7 +523,7 @@ public class LevelThreeActivity extends LevelBaseActivity implements BasicCustom
                 ArrayList<Icon> iconsList = new ArrayList<>(Arrays.asList(level3IconObjects));
                 iconsList.add(customIcon);
                 level3IconObjects = TextFactory.getAllIconsArray(
-                        mIconCode,
+                        LevelThreeActivity.this, mIconCode,
                         CustomBasicIconHelper.getCustomBasicIcons(
                                 getAppDatabase(),
                                 getSession().getLanguage(),

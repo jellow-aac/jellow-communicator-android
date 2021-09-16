@@ -1,5 +1,8 @@
 package com.dsource.idc.jellowintl.make_my_board_module.adapters;
 
+import static com.dsource.idc.jellowintl.factories.IconFactory.EXTENSION;
+import static com.dsource.idc.jellowintl.factories.PathFactory.getIconPath;
+
 import android.content.Context;
 import android.graphics.drawable.GradientDrawable;
 import android.view.LayoutInflater;
@@ -14,13 +17,13 @@ import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.dsource.idc.jellowintl.R;
 import com.dsource.idc.jellowintl.make_my_board_module.interfaces.AbstractDataProvider;
 import com.dsource.idc.jellowintl.make_my_board_module.interfaces.OnItemClickListener;
 import com.dsource.idc.jellowintl.make_my_board_module.interfaces.OnItemMoveListener;
 import com.dsource.idc.jellowintl.make_my_board_module.interfaces.OnSelectionClearListener;
 import com.dsource.idc.jellowintl.models.JellowIcon;
-import com.dsource.idc.jellowintl.utility.GlideApp;
 import com.dsource.idc.jellowintl.utility.SessionManager;
 import com.h6ah4i.android.widget.advrecyclerview.draggable.DraggableItemAdapter;
 import com.h6ah4i.android.widget.advrecyclerview.draggable.DraggableItemConstants;
@@ -29,21 +32,18 @@ import com.h6ah4i.android.widget.advrecyclerview.utils.AbstractDraggableItemView
 
 import java.io.File;
 
-import static com.dsource.idc.jellowintl.factories.IconFactory.EXTENSION;
-import static com.dsource.idc.jellowintl.factories.PathFactory.getIconPath;
-
 public class HomeActivityAdapter extends RecyclerView.Adapter<HomeActivityAdapter.MyViewHolder> implements DraggableItemAdapter<HomeActivityAdapter.MyViewHolder> {
 
     public static final int REPOSITION_MODE = 221;
     public final static int NORMAL_MODE = 113;
     private static final int[] EMPTY_STATE = new int[] {};
-    private Context mContext;
-    private int layoutResId;
+    private final Context mContext;
+    private final int layoutResId;
     private OnItemClickListener onItemClickListener;
     private OnItemMoveListener mOnItemMoveListener;
     private int expIconPos = -1;
     private int selectedPosition = -1;
-    private AbstractDataProvider mProvider;
+    private final AbstractDataProvider mProvider;
     private OnSelectionClearListener resetVerbiageCallback;
 
     public HomeActivityAdapter(AbstractDataProvider dataProvider, Context context, int layoutResId) {
@@ -152,14 +152,14 @@ public class HomeActivityAdapter extends RecyclerView.Adapter<HomeActivityAdapte
     private void setImageFromBoard(ImageView imageView, String imageURL) {
         File en_dir = mContext.getDir(SessionManager.BOARD_ICON_LOCATION, Context.MODE_PRIVATE);
         String path = en_dir.getAbsolutePath();
-        GlideApp.with(mContext)
+        Glide.with(mContext)
                 .load(path + "/" + imageURL + ".png")
                 .placeholder(R.drawable.ic_icon_placeholder)
                 .into(imageView);
     }
 
     private void setImageFromLibrary(ImageView imageView, String drawableId) {
-        GlideApp.with(mContext).load(getIconPath(mContext, drawableId + EXTENSION))
+        Glide.with(mContext).load(getIconPath(mContext, drawableId + EXTENSION))
                 .placeholder(R.drawable.ic_icon_placeholder)
                 .into(imageView);
     }

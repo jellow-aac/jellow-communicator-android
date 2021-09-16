@@ -33,13 +33,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.dsource.idc.jellowintl.R;
 import com.dsource.idc.jellowintl.cache.CacheManager;
 import com.dsource.idc.jellowintl.factories.LanguageFactory;
 import com.dsource.idc.jellowintl.factories.TextFactory;
 import com.dsource.idc.jellowintl.package_updater_module.UpdatePackageCheckUtils;
-import com.dsource.idc.jellowintl.utility.GlideApp;
 import com.google.firebase.crashlytics.FirebaseCrashlytics;
 
 import java.util.ArrayList;
@@ -293,7 +293,7 @@ public class LanguageSelectActivity extends SpeechEngineBaseActivity {
     }
 
     private void setImageUsingGlide(int image, ImageView imgView) {
-        GlideApp.with(this)
+        Glide.with(this)
                 .load(image)
                 .diskCacheStrategy(DiskCacheStrategy.NONE)
                 .skipMemoryCache(false)

@@ -12,9 +12,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.dsource.idc.jellowintl.R;
-import com.dsource.idc.jellowintl.utility.GlideApp;
 import com.dsource.idc.jellowintl.utility.LanguageHelper;
 
 /**
@@ -63,7 +63,7 @@ public class TutorialActivity extends BaseActivity {
     }
 
     private void setImageUsingGlide(Drawable image, ImageView imgView) {
-        GlideApp.with(this)
+        Glide.with(this)
                 .load(image)
                 .diskCacheStrategy(DiskCacheStrategy.NONE)
                 .skipMemoryCache(false)

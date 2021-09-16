@@ -457,9 +457,10 @@
     <string name="board_delete">Suppression du tableau</string>
     <string name="change_language_voice">Sélectionnez l\'accent (voix) pour la langue:</string>
     <string name="update_the_package">Mettez à jour le package de langue pour activer la langue sélectionnée.</string>
-    <string name="enableFishAnimation">Turn on fish animation</string>
-    <string name="enableIconAddition">Show \"Add icon\" button</string>
-    <string name="createHomeCustomIcon">Create icon</string>
-    <string name="createHomeCustomCategory">Create Category</string>
-    <string name="home_custom_icon_place_holder_text">No custom are added here.</string>
+    <string name="enableFishAnimation">Activer l\'animation du poisson</string>
+    <string name="enableIconAddition">Afficher le bouton \"Ajouter une icône\"</string>
+    <string name="createHomeCustomIcon">Créer une icône</string>
+    <string name="createHomeCustomCategory">Créer une catégorie</string>
+    <string name="home_custom_icon_place_holder_text">Aucune icône personnalisée n\'est ajoutée ici.</string>
+    <string name="enableBlackWhiteColor">Activer l\'affichage monochrome (noir et blanc)</string>
 </resources>

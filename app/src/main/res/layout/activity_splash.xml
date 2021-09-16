@@ -1,31 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/parent"
     android:layout_width="match_parent"
-    android:layout_gravity="center_horizontal"
     android:layout_height="match_parent"
-    android:background="@drawable/bg"
-    android:layout_marginTop="@dimen/splash_margin_top">
+    android:background="@drawable/bg">
 
     <com.dsource.idc.jellowintl.utility.PlayGifView
         android:id="@+id/viewGif"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:scaleY="@dimen/splash_anim_scale"
         android:scaleX="@dimen/splash_anim_scale"
-        android:layout_marginTop="@dimen/splash_anim_margin_top"/>
+        app:layout_constraintVertical_bias="@dimen/splash_anim_vbias"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
 
     <ImageView
         android:id="@+id/logo"
         android:layout_width="wrap_content"
-        android:layout_alignBottom="@id/viewGif"
         android:layout_height="wrap_content"
         android:src="@drawable/jellow"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="@dimen/splash_img_margin_bottom"
         android:scaleX="@dimen/splash_img_scale"
-        android:scaleY="@dimen/splash_img_scale"/>
-</RelativeLayout>
+        android:scaleY="@dimen/splash_img_scale"
+        app:layout_constraintVertical_bias="@dimen/splash_logo_vbias"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

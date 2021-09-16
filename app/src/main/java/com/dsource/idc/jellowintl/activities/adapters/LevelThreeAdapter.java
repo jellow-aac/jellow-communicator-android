@@ -25,14 +25,13 @@ import androidx.core.content.res.ResourcesCompat;
 import androidx.core.view.ViewCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.RequestManager;
+import com.bumptech.glide.Glide;
 import com.dsource.idc.jellowintl.R;
 import com.dsource.idc.jellowintl.TalkBack.TalkbackHints_SingleClick;
 import com.dsource.idc.jellowintl.activities.LevelThreeActivity;
 import com.dsource.idc.jellowintl.factories.TextFactory;
 import com.dsource.idc.jellowintl.models.GlobalConstants;
 import com.dsource.idc.jellowintl.models.Icon;
-import com.dsource.idc.jellowintl.utility.GlideApp;
 import com.dsource.idc.jellowintl.utility.SessionManager;
 
 /**
@@ -43,12 +42,10 @@ public class LevelThreeAdapter extends RecyclerView.Adapter<LevelThreeAdapter.My
     private final SessionManager mSession;
     private final String[] iconNameArray;
     private final String[] belowTextArray;
-    private final RequestManager glide;
     private final int libIconSize;
 
     public LevelThreeAdapter(Context context, String[] iconCodes, Icon[] level3IconObjects, Integer[] sort, int length){
         mAct = (LevelThreeActivity) context;
-        glide = GlideApp.with(mAct);
         mSession = mAct.getSession();
         libIconSize = length;
 
@@ -95,13 +92,13 @@ public class LevelThreeAdapter extends RecyclerView.Adapter<LevelThreeAdapter.My
             holder.menuItemBelowText.setVisibility(View.INVISIBLE);
         holder.menuItemBelowText.setText(belowTextArray[position]);
 
-        glide
+        Glide.with(mAct)
                 .load(getIconPath(mAct, iconNameArray[position] + EXTENSION))
                 .error(Drawable.createFromPath(getBasicCustomIconsPath(mAct, iconNameArray[position] + EXTENSION)))
                 .into(holder.menuItemImage);
 
         if (iconNameArray[position].equals(ADD_BASIC_CUSTOM_ICON)){
-            glide.load(R.drawable.ic_plus).into(holder.menuItemImage);
+            Glide.with(mAct).load(R.drawable.ic_plus).into(holder.menuItemImage);
         }
 
         if(position >=libIconSize

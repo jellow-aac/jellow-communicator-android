@@ -498,4 +498,5 @@
     <string name="createHomeCustomIcon">Create icon</string>
     <string name="createHomeCustomCategory">Create Category</string>
     <string name="home_custom_icon_place_holder_text">No custom are added here.</string>
+    <string name="enableBlackWhiteColor">Enable Monochrome display (Black and white)</string>
 </resources>

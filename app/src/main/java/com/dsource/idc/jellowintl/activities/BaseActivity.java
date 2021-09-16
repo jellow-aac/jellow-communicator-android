@@ -76,7 +76,6 @@ public class BaseActivity extends AppCompatActivity{
             }
         }
     };
-
     static final Migration MIGRATION_3_4 = new Migration(3, 4) {
         @Override
         public void migrate(@NonNull SupportSQLiteDatabase database) {

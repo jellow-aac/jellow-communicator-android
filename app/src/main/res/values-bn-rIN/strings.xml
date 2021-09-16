@@ -451,9 +451,10 @@
     <string name="change_language_voice">ভাষার জন্য অ্যাকসেন্ট (ভয়েস) নির্বাচন করুন:</string>
     <string name="place_holder_no_icons_added">বোর্ডের কোনও আইকন নেই</string>
     <string name="update_the_package">নির্বাচিত ভাষা সক্ষম করতে ভাষা প্যাকেজ আপডেট করুন।</string>
-    <string name="enableFishAnimation">Turn on fish animation</string>
-    <string name="enableIconAddition">Show \"Add icon\" button</string>
-    <string name="createHomeCustomIcon">Create icon</string>
-    <string name="createHomeCustomCategory">Create Category</string>
-    <string name="home_custom_icon_place_holder_text">No custom are added here.</string>
+    <string name="enableFishAnimation">মাছের অ্যানিমেশন চালু করুন</string>
+    <string name="enableIconAddition">\"আইকন যোগ করুন\" বোতামটি দেখান</string>
+    <string name="createHomeCustomIcon">আইকন তৈরি করুন</string>
+    <string name="createHomeCustomCategory">বিভাগ তৈরি করুন</string>
+    <string name="home_custom_icon_place_holder_text">এখানে কোন কাস্টম আইকন যোগ করা হয়নি।</string>
+    <string name="enableBlackWhiteColor">একরঙা প্রদর্শন সক্ষম করুন (কালো এবং সাদা)</string>
 </resources>

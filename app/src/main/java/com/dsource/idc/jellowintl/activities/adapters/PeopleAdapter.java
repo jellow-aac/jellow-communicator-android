@@ -25,6 +25,7 @@ import androidx.core.content.res.ResourcesCompat;
 import androidx.core.view.ViewCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestManager;
 import com.dsource.idc.jellowintl.R;
 import com.dsource.idc.jellowintl.TalkBack.TalkbackHints_SingleClick;
@@ -33,7 +34,6 @@ import com.dsource.idc.jellowintl.factories.IconFactory;
 import com.dsource.idc.jellowintl.factories.TextFactory;
 import com.dsource.idc.jellowintl.models.GlobalConstants;
 import com.dsource.idc.jellowintl.models.Icon;
-import com.dsource.idc.jellowintl.utility.GlideApp;
 import com.dsource.idc.jellowintl.utility.SessionManager;
 
 /**
@@ -50,7 +50,7 @@ public class PeopleAdapter extends RecyclerView.Adapter<PeopleAdapter.MyViewHold
 
     public PeopleAdapter(Context context, Icon[] level2IconObjects, Integer[] arrSort, int size) {
         mAct = (LevelTwoActivity) context;
-        glide = GlideApp.with(mAct);
+        glide = null;//GlideApp.with(mAct);
         mSession = mAct.getSession();
         libIconSize = size;
 
@@ -94,7 +94,7 @@ public class PeopleAdapter extends RecyclerView.Adapter<PeopleAdapter.MyViewHold
             holder.menuItemBelowText.setVisibility(View.INVISIBLE);
         holder.menuItemBelowText.setText(belowTextArray[position]);
 
-        glide
+        Glide.with(mAct)
                 .load(getIconPath(mAct, iconNameArray[position] + EXTENSION))
                 .error(Drawable.createFromPath(getBasicCustomIconsPath(mAct, iconNameArray[position] + EXTENSION)))
                 .into(holder.menuItemImage);

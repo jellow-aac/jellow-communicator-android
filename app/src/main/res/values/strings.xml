@@ -203,7 +203,7 @@
     <string name="grant_permission_from_settings">Enable call permission from settings.</string>
     <string name="txtEnableBuiltInCalling">Enable emergency calling from Jellow</string>
     <string name="EnableDisplaySpeechText">Display the spoken text on the text bar</string>
-    <string name="enableBoardDelete">Enable board delete feature in "My Boards" screen</string>
+    <string name="enableBoardDelete">Enable board delete feature in \"My Boards\" screen</string>
 
     <string name="dismiss">Dismiss</string>
     <string name="register_user">Please wait registration is in process…</string>
@@ -488,7 +488,7 @@
     <string name="tap_icon_to_select_expression">Tap to add expression</string>
     <string name="tap_icon_to_deselect_expression">Tap to remove expression</string>
     <string name="tap_add_to_add_expression">Tap add button to select expression</string>
-    <string name="tap_delete_to_delete_expression">Tap delete button to select expression</string>
+    <string name="tap_delete_to_delete_expression">Tap delete button to deselect expression</string>
     <string name="open_jellow_privacy_policy">Open the Jellow\'s privacy policy.</string>
     <string name="board_deleted">_ board deleted</string>
     <string name="search_icon_available_in_jellow">Search icon available in Jellow</string>
@@ -533,7 +533,7 @@
     <string name="change_language_voice">Select the accent (voice) for the language:</string>
     <string name="update_the_package">Update language package to enable the selected language.</string>
     <string name="voice_warning">If voices(s) of the selected language(s) are not available or showing null under the voice drop down, then update the Google text to speech app from the Google Play Store and install voice data for the language(s) on your device.</string>
-    <string name="enableFishAnimation">Turn on fish animation</string>
+    <string name="enableFishAnimation">Turn on the fish animation</string>
     <string name="enableIconAddition">Show \"Add icon\" button</string>
     <string name="createHomeCustomIcon">Create icon</string>
     <string name="createHomeCustomCategory">Create category</string>

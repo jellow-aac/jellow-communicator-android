@@ -60,16 +60,16 @@ public class LevelBaseActivity extends SpeechEngineBaseActivity implements TextT
         initiateSpeechEngineWithLanguage(getSession().getAppVoice().split(",")[0]);
     }
 
-    /*public void adjustTopMarginForNavigationUi() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P && isNotchDevice()) {
-            RelativeLayout rl = findViewById(R.id.parent);
-            FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) rl.getLayoutParams();
-            //lp.topMargin = 72;
-        }
-    }*/
-
     public void animateIfEnabled(){
-        if (getSession().getAnimationState()) {
+        /*If animation is enabled and
+          user in not adding custom icons (or custom icon addition at level screen is disabled) and
+          monochrome display is disable (monochrome display slows down the animation.) then
+          show the animation.
+        */
+        if (getSession().getAnimationState() &&
+                !getSession().getBasicCustomIconAddState() &&
+                   !getSession().getMonochromeDisplayState()
+        ) {
             animationCounter++;
             int fish = 0, dolphin = 1, whale = 2;
             if (animationCounter % 25 == 0) {

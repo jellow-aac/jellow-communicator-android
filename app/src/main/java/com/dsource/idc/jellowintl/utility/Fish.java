@@ -19,13 +19,13 @@ public class Fish {
 
     public static Fish getFish(String deviceType){
         if(deviceType.equals("small")){
-            return new Fish(1550L, 1000L, new int[]{R.id.animFish, R.id.animDolphin, R.id.animWhale},
+            return new Fish(850L, 1700L, new int[]{R.id.animFish, R.id.animDolphin, R.id.animWhale},
                     R.drawable.fish_jump,"fish_splash.mp3");
         }else if(deviceType.equals("medium")) {
-            return new Fish(1550L, 2500L, new int[]{R.id.animFish, R.id.animDolphin, R.id.animWhale},
+            return new Fish(900L, 1850L, new int[]{R.id.animFish, R.id.animDolphin, R.id.animWhale},
                     R.drawable.fish_jump,"fish_splash.mp3");
         }else {
-            return new Fish(1900L, 1000L, new int[]{R.id.animFish, R.id.animDolphin, R.id.animWhale},
+            return new Fish(900L, 1850L, new int[]{R.id.animFish, R.id.animDolphin, R.id.animWhale},
                     R.drawable.fish_jump,"fish_splash.mp3");
         }
     }
@@ -35,7 +35,7 @@ public class Fish {
             return new Fish(2000L, 1250L, new int[]{R.id.animDolphin, R.id.animFish, R.id.animWhale},
                     R.drawable.dolphin_jump,"dolphin_splash.mp3");
         }else if(deviceType.equals("medium")) {
-            return new Fish(2000L, 3500L, new int[]{R.id.animDolphin, R.id.animFish, R.id.animWhale},
+            return new Fish(2000L, 1000L, new int[]{R.id.animDolphin, R.id.animFish, R.id.animWhale},
                     R.drawable.dolphin_jump,"dolphin_splash.mp3");
         }else {
             return new Fish(2000L, 1000L, new int[]{R.id.animDolphin, R.id.animFish, R.id.animWhale},
@@ -45,13 +45,13 @@ public class Fish {
 
     public static Fish getWhale(String deviceType){
         if(deviceType.equals("small")){
-            return new Fish(2300L, 1000L, new int[]{R.id.animWhale, R.id.animFish, R.id.animDolphin},
+            return new Fish(2300L, 2500L, new int[]{R.id.animWhale, R.id.animFish, R.id.animDolphin},
                     R.drawable.whale_jump,"whale_splash.mp3");
         }else if(deviceType.equals("medium")) {
-            return new Fish(2300L, 3500L, new int[]{R.id.animWhale, R.id.animFish, R.id.animDolphin},
+            return new Fish(2300L, 3100L, new int[]{R.id.animWhale, R.id.animFish, R.id.animDolphin},
                     R.drawable.whale_jump,"whale_splash.mp3");
         }else {
-            return new Fish(2300L, 3500L, new int[]{R.id.animWhale, R.id.animFish, R.id.animDolphin},
+            return new Fish(2300L, 3100L, new int[]{R.id.animWhale, R.id.animFish, R.id.animDolphin},
                     R.drawable.whale_jump,"whale_splash.mp3");
         }
     }
