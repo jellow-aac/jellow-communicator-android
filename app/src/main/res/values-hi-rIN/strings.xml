@@ -428,7 +428,7 @@
     <string name="no_btn">नहीं (No)</string>
     <string name="next_btn">आगे (Next)</string>
     <string name="my_boards">मेरे बोर्ड</string>
-    <string name="delete_board">\"-\" बोर्ड हटा दिया जाएगा?</string>
+    <string name="delete_board">क्या आप \"-\" बोर्ड को हमेशा के लिए हटाना चाहते हैं?</string>
     <string name="board_settings">बोर्ड की सेटिंग्स</string>
     <string name="add_expression_here">भाववाहक वाक्य यहाँ लिखें</string>
     <string name="about_je_intro42">मेक माई बोर्ड (मेरे बोर्ड) का उपयोग करके, आप अपने स्वयं के कस्टम आइकन और उनके भाववाहक वाकय जोड़ सकते हैं या संपादित कर सकते हैं।</string>
@@ -459,7 +459,6 @@
     <string name="acc_lang_eng_ng">अंग्रेज़ी (नाइजीरिया)</string>
     <string name="board_delete">बोर्ड डिलीट करें</string>
     <string name="EnableDisplaySpeechText">बोले गए टेक्स्ट को टेक्स्ट बार पर प्रदर्शित करें</string>
-    <string name="enableBoardDelete">मेरे बोर्ड स्क्रीन में बोर्ड डिलीट करने की सुविधा को सक्षम करें</string>
     <string name="place_holder_no_icons_added">बोर्ड में कोई आइकन नहीं है</string>
     <string name="change_language_voice">भाषा के लिए उच्चारण (आवाज) का चयन करें</string>
     <string name="update_the_package">चयनित भाषा को सक्षम करने के लिए भाषा का पैकेज अपडेट करें।</string>

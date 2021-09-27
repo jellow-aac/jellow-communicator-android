@@ -182,19 +182,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:importantForAccessibility="yes"/>
-                <TextView
-                    android:id="@+id/tv7"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/enableBoardDelete"
-                    style="@style/defaultTextViewStyle"
-                    android:fontFamily="@font/mukta_semibold"/>
-                <androidx.appcompat.widget.SwitchCompat
-                    android:id="@+id/switchEnableBoardDelete"
-                    style="@style/Material.Widget.Switch"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:importantForAccessibility="yes"/>
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/setting_extra_space_height" />

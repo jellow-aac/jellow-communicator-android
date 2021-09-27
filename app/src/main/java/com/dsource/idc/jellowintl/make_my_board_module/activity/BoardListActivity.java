@@ -31,10 +31,10 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class BoardListActivity extends BaseBoardActivity<IBoardListView, IBoardListPresenter, BoardAdapter> implements IBoardListView, BoardClickListener {
-    public static final boolean EDIT_ENABLED = true;
+    private final boolean EDIT_ENABLED = true;
+    private final boolean DELETE_ENABLED = true;
     public static final boolean EDIT_DISABLED = false;
     public static final boolean DELETE_DISABLED = false;
-    public static final boolean DELETE_ENABLED = true;
     private boolean deleteMode = DELETE_DISABLED;
     private boolean editMode = EDIT_DISABLED;
 
@@ -45,7 +45,7 @@ public class BoardListActivity extends BaseBoardActivity<IBoardListView, IBoardL
 
     @Override
     public BoardAdapter getAdapter() {
-        return new BoardAdapter(mContext, R.layout.my_board_card, new ArrayList<BoardModel>());
+        return new BoardAdapter(mContext, R.layout.my_board_card, new ArrayList<BoardModel>(), false);
     }
 
     @Override
@@ -99,7 +99,7 @@ public class BoardListActivity extends BaseBoardActivity<IBoardListView, IBoardL
     @Override
     public void onItemDelete(final int position) {
         final DialogCustom dialog = new DialogCustom(mContext);
-        dialog.setText(getString(R.string.delete_board).replace("-",
+        dialog.setText(getString(R.string.trash_the_board).replace("-",
                 mAdapter.getItem(position).getBoardName()));
         dialog.setOnNegativeClickListener(new DialogCustom.OnNegativeClickListener() {
             @Override
@@ -110,9 +110,9 @@ public class BoardListActivity extends BaseBoardActivity<IBoardListView, IBoardL
         dialog.setOnPositiveClickListener(new DialogCustom.OnPositiveClickListener() {
             @Override
             public void onPositiveClickListener() {
-                mPresenter.deleteBoard(mContext,mAdapter.getItem(position));
+                mPresenter.moveTheBoardToTrash(mAdapter.getItem(position));
                 Toast.makeText(mContext,
-                        getString(R.string.board_deleted).
+                        getString(R.string.board_moved_to_trash).
                                 replace("_", mAdapter.getItem(position).getBoardName()),
                         Toast.LENGTH_SHORT).show();
                 mAdapter.remove(position);
@@ -130,6 +130,9 @@ public class BoardListActivity extends BaseBoardActivity<IBoardListView, IBoardL
         });
         dialog.show();
     }
+
+    @Override
+    public void onItemRestore(int position) {}
 
     @Override
     public void onBoardEdit(int position) {
@@ -239,6 +242,4 @@ public class BoardListActivity extends BaseBoardActivity<IBoardListView, IBoardL
         }
         return super.onOptionsItemSelected(item);
     }
-
-    public void setMenuItem(MenuItem item, boolean state){}
 }

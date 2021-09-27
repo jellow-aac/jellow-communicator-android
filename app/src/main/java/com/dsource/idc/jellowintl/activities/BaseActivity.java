@@ -39,6 +39,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 import com.dsource.idc.jellowintl.R;
 import com.dsource.idc.jellowintl.make_my_board_module.activity.BoardListActivity;
 import com.dsource.idc.jellowintl.make_my_board_module.activity.BoardSearchActivity;
+import com.dsource.idc.jellowintl.make_my_board_module.activity.BoardTrashActivity;
 import com.dsource.idc.jellowintl.make_my_board_module.activity.HomeActivity;
 import com.dsource.idc.jellowintl.make_my_board_module.custom_dialogs.DialogNoOfIconPerScreen;
 import com.dsource.idc.jellowintl.make_my_board_module.interfaces.GridSelectListener;
@@ -47,6 +48,8 @@ import com.dsource.idc.jellowintl.models.GlobalConstants;
 import com.dsource.idc.jellowintl.utility.DefaultExceptionHandler;
 import com.dsource.idc.jellowintl.utility.LanguageHelper;
 import com.dsource.idc.jellowintl.utility.SessionManager;
+
+import java.lang.reflect.Method;
 
 public class BaseActivity extends AppCompatActivity{
     final private String APP_DB_NAME = "jellow_app_database";
@@ -86,6 +89,16 @@ public class BaseActivity extends AppCompatActivity{
             }
         }
     };
+    static final Migration MIGRATION_4_5 = new Migration(4, 5) {
+        @Override
+        public void migrate(@NonNull SupportSQLiteDatabase database) {
+            try{
+                database.execSQL("ALTER TABLE `BoardModel` ADD COLUMN `is_deleted` INTEGER NOT NULL DEFAULT 0");
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+        }
+    };
     @Override
     protected void attachBaseContext(Context newBase) {
        SessionManager s = new SessionManager(newBase);
@@ -109,6 +122,7 @@ public class BaseActivity extends AppCompatActivity{
                     .addMigrations(MIGRATION_1_2)
                     .addMigrations(MIGRATION_2_3)
                     .addMigrations(MIGRATION_3_4)
+                    .addMigrations(MIGRATION_4_5)
                     .build();
     }
 
@@ -119,15 +133,32 @@ public class BaseActivity extends AppCompatActivity{
         super.onCreateOptionsMenu(menu);
         MenuCompat.setGroupDividerEnabled(menu, true);
         getMenuInflater().inflate(R.menu.menu_main, menu);
+
+        try {
+            Method method = menu.getClass().getDeclaredMethod("setOptionalIconsVisible", boolean.class);
+            method.setAccessible(true);
+            method.invoke(menu, true);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         if (!getLevelClass().contains(getVisibleAct())
-                && !getVisibleAct().contains(getBoardListClass())){
+                && !getVisibleAct().contains(getBoardListClass())
+                    && !getVisibleAct().contains(getBoardTrashClass())){
             menu.findItem(R.id.search).setVisible(false);
             menu.findItem(R.id.my_boards_icon).setVisible(false);
             menu.findItem(R.id.number_of_icons).setVisible(false);
         }else if(getVisibleAct().contains(getBoardListClass())){
             setMenu(menu);
             menu.findItem(R.id.enable_edit).setVisible(true);
-            menu.findItem(R.id.enable_delete).setVisible(getSession().isBoardDeletionEnabled());
+            menu.findItem(R.id.enable_delete).setVisible(true);
+            menu.findItem(R.id.my_boards_icon).setVisible(false);
+            menu.findItem(R.id.number_of_icons).setVisible(false);
+            menu.findItem(R.id.search).setTitle(R.string.search_board_in_jellow);
+        }else if(getVisibleAct().contains(getBoardTrashClass())){
+            setMenu(menu);
+            menu.findItem(R.id.enable_delete).setVisible(true);
+            menu.findItem(R.id.enable_edit).setVisible(false);
             menu.findItem(R.id.my_boards_icon).setVisible(false);
             menu.findItem(R.id.number_of_icons).setVisible(false);
             menu.findItem(R.id.search).setTitle(R.string.search_board_in_jellow);
@@ -155,6 +186,13 @@ public class BaseActivity extends AppCompatActivity{
                 if(getVisibleAct().equals(BoardListActivity.class.getSimpleName()))
                     break;
                 startActivity(new Intent(this, BoardListActivity.class));
+                if (!getLevelClass().contains(getVisibleAct()))
+                    finish();
+                break;
+            case R.id.my_boards_trash:
+                if(getVisibleAct().equals(BoardTrashActivity.class.getSimpleName()))
+                    break;
+                startActivity(new Intent(this, BoardTrashActivity.class));
                 if (!getLevelClass().contains(getVisibleAct()))
                     finish();
                 break;
@@ -392,6 +430,10 @@ public class BaseActivity extends AppCompatActivity{
 
     private String getBoardListClass(){
         return BoardListActivity.class.getSimpleName();
+    }
+
+    private String getBoardTrashClass(){
+        return BoardTrashActivity.class.getSimpleName();
     }
 
     private String getNonMenuClass() {

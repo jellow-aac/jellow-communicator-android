@@ -14,19 +14,22 @@ import java.util.List;
 @Dao
 public interface BoardDao {
 
-    @Query("SELECT * FROM BoardModel")
+    @Query("SELECT * FROM BoardModel WHERE is_deleted= 0")
     List<BoardModel> getAllBoards();
 
-    @Query("SELECT * FROM BoardModel where board_name like:query")
+    @Query("SELECT * FROM BoardModel WHERE board_name LIKE:query AND is_deleted= 0")
     List<BoardModel> getAllBoardsStartWithName(String query);
 
-    @Query("SELECT * FROM BoardModel where language_code =(:languageCode)")
+    @Query("SELECT * FROM BoardModel WHERE language_code =(:languageCode) AND is_deleted= 0")
     List<BoardModel> getAllBoards(String languageCode);
+
+    @Query("SELECT * FROM BoardModel WHERE is_deleted= 1")
+    List<BoardModel> getAllDeletedBoards();
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertBoard(BoardModel boardModel);
 
-    @Query("SELECT * FROM BoardModel where board_id = (:boardID)")
+    @Query("SELECT * FROM BoardModel WHERE board_id = (:boardID)")
     BoardModel getBoardById(String boardID);
 
     @Update
@@ -35,9 +38,9 @@ public interface BoardDao {
     @Delete
     void deleteBoard(BoardModel boardModel);
 
-    @Query("SELECT board_name from BoardModel where board_id = (:boardId)")
+    @Query("SELECT board_name FROM BoardModel WHERE board_id = (:boardId)")
     String getBoardNameFromId(String boardId);
 
-    @Query("SELECT board_voice from BoardModel where board_id = (:boardId)")
+    @Query("SELECT board_voice FROM BoardModel WHERE board_id = (:boardId)")
     String getBoardVoiceFromId(String boardId);
 }

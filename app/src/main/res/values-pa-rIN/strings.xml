@@ -180,7 +180,6 @@
     <string name="grant_permission_from_settings">Enable call permission from settings.</string>
     <string name="txtEnableBuiltInCalling">Enable emergency calling from Jellow</string>
     <string name="EnableDisplaySpeechText">Display the spoken text on the text bar</string>
-    <string name="enableBoardDelete">Enable board delete feature in "My Boards" screen</string>
 
     <string name="dismiss">Dismiss</string>
     <string name="register_user">Please wait registration is in process…</string>
@@ -372,7 +371,7 @@
         <item>@drawable/ic_jellow_library</item>
     </string-array>
 
-    <string name="delete_board">\"-\" board will be deleted?</string>
+    <string name="delete_board">ਕੀ ਤੁਸੀਂ \"-\" ਬੋਰਡ ਨੂੰ ਪੱਕੇ ਤੌਰ \'ਤੇ ਮਿਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ?</string>
     <string name="icon_select_exit_warning">Your selection will be lost</string>
     <string name="current_board">Added Icons</string>
     <string name="place_holder_text">No Icons selected yet. Please select icons from left category menu</string>

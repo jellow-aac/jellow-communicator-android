@@ -11,6 +11,10 @@ public interface IBoardListPresenter extends IBasePresenter<IBoardListView> {
 
     void loadBoards(String language);
 
+    void moveTheBoardToTrash(BoardModel board);
+
+    void restoreTheBoardFromTrash(BoardModel board);
+
     void deleteBoard(Context context,BoardModel board);
 
     void openBoard(Context context, BoardModel boardId);

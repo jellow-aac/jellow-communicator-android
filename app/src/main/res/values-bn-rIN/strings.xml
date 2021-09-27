@@ -341,7 +341,7 @@
     <string name="app_update_message">জেলো অ্যাপ্লিকেশনটির নতুন সংস্করণ উপলব্ধ। আপনি কি এখনই আপডেট করতে চান?</string>
 
     <!--String resources for MMB-->
-    <string name="delete_board">\"-\" বোর্ড মোছা হবে?</string>
+    <string name="delete_board">আপনি কি \"-\" বোর্ডটি স্থায়ীভাবে মুছে ফেলতে চান?</string>
     <string name="icon_select_exit_warning">আপনার নির্বাচনটি হারিয়ে যাবে</string>
     <string name="current_board">যুক্ত আইকন</string>
     <string name="place_holder_text">নির্বাচিত আইকনগুলি এখানে উপস্থিত হবে। আপনি এখনও কোনও আইকন নির্বাচন করেন নি !!</string>
@@ -446,7 +446,6 @@
     <string name="acc_lang_telugu_in">তেলেগু</string>
     <string name="acc_lang_eng_ng">ইংরেজি (নাইজেরিয়া)</string>
     <string name="EnableDisplaySpeechText">পাঠ্য বারে কথ্য পাঠ্য প্রদর্শন করুন</string>
-    <string name="enableBoardDelete">আমার বোর্ডগুলির স্ক্রিনে বোর্ড মোছার বৈশিষ্ট্য সক্ষম করুন</string>
     <string name="board_delete">বোর্ড মোছা</string>
     <string name="change_language_voice">ভাষার জন্য অ্যাকসেন্ট (ভয়েস) নির্বাচন করুন:</string>
     <string name="place_holder_no_icons_added">বোর্ডের কোনও আইকন নেই</string>

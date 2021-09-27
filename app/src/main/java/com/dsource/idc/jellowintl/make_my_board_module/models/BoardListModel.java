@@ -17,8 +17,8 @@ import java.util.ArrayList;
 
 public class BoardListModel extends BaseModel<IBoardListView> implements IBoardListPresenter {
 
-    private BoardDatabase database;
-    private AppDatabase appDatabase;
+    private final BoardDatabase database;
+    private final AppDatabase appDatabase;
 
     public BoardListModel(@NonNull AppDatabase database){
         this.appDatabase = database;
@@ -43,7 +43,18 @@ public class BoardListModel extends BaseModel<IBoardListView> implements IBoardL
 
                 }
             });
+        else if(language.equals("Deleted"))
+            database.getAllDeletedBoards(new IDataCallback<ArrayList<BoardModel>>() {
+                @Override
+                public void onSuccess(ArrayList<BoardModel> list) {
+                    mView.boardLoaded(list);
+                }
 
+                @Override
+                public void onFailure(String msg) {
+
+                }
+            });
         else database.getAllBoards(language,new IDataCallback<ArrayList<BoardModel>>() {
             @Override
             public void onSuccess(ArrayList<BoardModel> object) {
@@ -55,6 +66,16 @@ public class BoardListModel extends BaseModel<IBoardListView> implements IBoardL
 
             }
         });
+    }
+
+    @Override
+    public void moveTheBoardToTrash(BoardModel board) {
+        database.moveBoardToTrash(board);
+    }
+
+    @Override
+    public void restoreTheBoardFromTrash(BoardModel board) {
+        database.restoreTheBoardFromTrash(board);
     }
 
     @Override

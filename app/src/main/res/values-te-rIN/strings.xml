@@ -331,7 +331,7 @@
     <string name="menuMyBoards">నా బోర్డులు (My Boards)</string>
     <string name="yes_btn">అవును (Yes)</string>
     <string name="app_update_message">జెల్లో అనువర్తనం యొక్క క్రొత్త సంస్కరణ అందుబాటులో ఉంది. మీరు ఇప్పుడు నవీకరించాలనుకుంటున్నారా?</string>
-    <string name="delete_board">\"-\" బోర్డు తొలగించబడుతుందా?</string>
+    <string name="delete_board">మీరు \"-\" బోర్డ్‌ను శాశ్వతంగా తొలగించాలనుకుంటున్నారా?</string>
     <string name="icon_select_exit_warning">మీ ఎంపిక పోతుంది</string>
     <string name="current_board">చిహ్నాలు జోడించబడ్డాయి</string>
     <string name="board_name">బోర్డు పేరును ఇక్కడ జోడించండి</string>
@@ -445,7 +445,6 @@
     <string name="board_place_holder_text">మీరు ఇంకా ఏ బోర్డును జోడించలేదు.</string>
     <string name="EnableDisplaySpeechText">మాట్లాడే వచనాన్ని టెక్స్ట్ బార్‌లో ప్రదర్శించండి</string>
     <string name="place_holder_text">చిహ్నాలు ఇంకా ఎంపిక చేయబడలేదు. దయచేసి ఎడమ వర్గం మెను నుండి చిహ్నాలను ఎంచుకోండి</string>
-    <string name="enableBoardDelete">నా బోర్డుల స్క్రీన్‌లో బోర్డు తొలగింపు లక్షణాన్ని ప్రారంభించండి</string>
     <string name="lpu_start_update">భాషా ప్యాకేజీ నవీకరణ ప్రారంభమైంది</string>
     <string name="lpu_parse_update">డౌన్‌లోడ్ చేసిన డేటాను ప్రాసెస్ చేస్తోంది</string>
     <string name="lpu_download_verbiage">ప్రసంగ ఫైళ్ళను డౌన్‌లోడ్ చేస్తోంది</string>

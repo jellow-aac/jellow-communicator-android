@@ -100,14 +100,6 @@ public class SettingActivity extends SpeechEngineBaseActivity {
             }
         });
 
-        ((SwitchCompat) findViewById(R.id.switchEnableBoardDelete)).setChecked(getSession().isBoardDeletionEnabled());
-        ((SwitchCompat) findViewById(R.id.switchEnableBoardDelete)).setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                getSession().setBoardDeletionEnabled(isChecked);
-            }
-        });
-
         ((SwitchCompat) findViewById(R.id.switchEnableAnimation)).setChecked(getSession().getAnimationState());
         ((SwitchCompat) findViewById(R.id.switchEnableAnimation)).setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override

@@ -26,7 +26,6 @@ import androidx.core.view.ViewCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.RequestManager;
 import com.dsource.idc.jellowintl.R;
 import com.dsource.idc.jellowintl.TalkBack.TalkbackHints_SingleClick;
 import com.dsource.idc.jellowintl.activities.LevelTwoActivity;
@@ -44,13 +43,11 @@ public class PeopleAdapter extends RecyclerView.Adapter<PeopleAdapter.MyViewHold
     private final SessionManager mSession;
     private final String[] iconNameArray;
     private final String[] belowTextArray;
-    private final RequestManager glide;
     private final int libIconSize;
 
 
     public PeopleAdapter(Context context, Icon[] level2IconObjects, Integer[] arrSort, int size) {
         mAct = (LevelTwoActivity) context;
-        glide = null;//GlideApp.with(mAct);
         mSession = mAct.getSession();
         libIconSize = size;
 
@@ -100,7 +97,7 @@ public class PeopleAdapter extends RecyclerView.Adapter<PeopleAdapter.MyViewHold
                 .into(holder.menuItemImage);
 
         if (iconNameArray[position].equals(ADD_BASIC_CUSTOM_ICON)){
-            glide.load(R.drawable.ic_plus).into(holder.menuItemImage);
+            Glide.with(mAct).load(R.drawable.ic_plus).into(holder.menuItemImage);
         }
 
         if(position >=libIconSize

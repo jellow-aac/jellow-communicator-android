@@ -432,7 +432,7 @@
     <string name="no_btn">नाही (No)</string>
     <string name="next_btn">Next</string>
     <string name="my_boards">माझे बोर्ड</string>
-    <string name="delete_board">\"-\" बोर्ड काढले जाईल?</string>
+    <string name="delete_board">तुम्हाला \"-\" बोर्ड कायमचे डिलिट करायचे आहे का?</string>
     <string name="board_settings">बोर्डची सेटिंग्स</string>
     <string name="add_expression_here">भाववाहक वाक्य येथे लिहा</string>
     <string name="about_je_intro42">मेक माय बोर्ड (माझे बोर्ड) चा उपयोग करून आपण आपली स्वतःची कस्टम आयकॉन आणि त्यांची अर्थपूर्ण वाक्ये जोडू किंवा संपादित करू शकता.</string>
@@ -463,7 +463,6 @@
     <string name="acc_lang_eng_ng">इंग्रजी (नायजेरिया)</string>
     <string name="board_delete">बोर्ड डिलीट करा</string>
     <string name="EnableDisplaySpeechText">बोललेल्या टेक्स्ट ला टेक्स्ट बार वर प्रदर्शित करा</string>
-    <string name="enableBoardDelete">माझे बोर्ड स्क्रीन मध्ये बोर्ड डिलिट करा ही सुविधा सक्षम करा</string>
     <string name="place_holder_no_icons_added">बोर्ड मध्ये कोणतेही आयकॉन नाही</string>
     <string name="change_language_voice">भाषेसाठी उच्चारण (आवाज) निवडा</string>
     <string name="update_the_package">निवडलेली भाषा सक्षम करण्यासाठी भाषा पॅकेज अपडेट करा.</string>

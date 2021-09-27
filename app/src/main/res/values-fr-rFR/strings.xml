@@ -332,7 +332,7 @@
     <string name="app_update_message">La nouvelle version de l\'application de Jellow est disponible. Voulez-vous la mettre à jour maintenant?</string>
 
     <!--String resources for MMB-->
-    <string name="delete_board">Le tableau \"-\" sera supprimé?</string>
+    <string name="delete_board">Voulez-vous supprimer définitivement le tableau \"-\"?</string>
     <string name="icon_select_exit_warning">Votre choix sera perdu</string>
     <string name="current_board">Les icônes ajoutés</string>
     <string name="place_holder_text">Les icônes sélectionnées apparaîtront ici. Vous n\'avez pas encore sélectionné d\'icônes !!</string>
@@ -453,7 +453,6 @@
     <string name="my_boards_board_home_info_cd">L\'image séléctionée représente l\'écran d\'accueil des tableaux. Dans cette écran, vouz pouvez utlisier ou jouer avec le tableau créé. De plus, vouz pouvez chercher un icône dans le tableau actuel, changez le paramètre de \"Numéro des icônes dans chaque écran\" pour le tableau actuel ou répositionnez les icônes dans le tableau actuel. Ces boutons sont disponibles en haut à droite à l\'écran.</string>
     <string name="place_holder_no_icons_added">Le tableau n\'a pas d\'icône</string>
     <string name="EnableDisplaySpeechText">Afficher le texte parlé dans la barre de texte</string>
-    <string name="enableBoardDelete">Activer la fonction de suppression de tableau dans l\'écran Mes tableaux</string>
     <string name="board_delete">Suppression du tableau</string>
     <string name="change_language_voice">Sélectionnez l\'accent (voix) pour la langue:</string>
     <string name="update_the_package">Mettez à jour le package de langue pour activer la langue sélectionnée.</string>

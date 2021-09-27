@@ -340,7 +340,7 @@
     <string name="app_update_message">Die neue Version der Jellow-App ist verfügbar. Möchten Sie die App jetzt aktualisieren?</string>
 
     <!--String resources for MMB-->
-    <string name="delete_board">\"-\" Board wird gelöscht?</string>
+    <string name="delete_board">Möchtest du das \"-\" Board dauerhaft löschen?</string>
     <string name="icon_select_exit_warning">Ihre Auswahl wird gelöscht</string>
     <string name="current_board">Symbole hinzugefügt</string>
     <string name="place_holder_text">Gewähltes Icon werden hier angezeigt. Sie haben noch keine Icon ausgewählt !!</string>
@@ -443,7 +443,6 @@
     <string name="acc_lang_telugu_in">Telugu (Indien)</string>
     <string name="acc_lang_eng_ng">Englisch (Nigeria)</string>
     <string name="EnableDisplaySpeechText">Zeigen Sie den gesprochenen Text in der Textleiste an</string>
-    <string name="enableBoardDelete">Aktivieren Sie die Funktion zum Löschen von Karten im Bildschirm \"Meine Boards\"</string>
     <string name="board_delete">Board löschen</string>
     <string name="change_language_voice">Wählen Sie den Akzent (Stimme) für die Sprache:</string>
     <string name="update_the_package">Aktualisieren Sie das Sprachpaket, um die ausgewählte Sprache zu aktivieren.</string>

@@ -32,12 +32,20 @@ public class BoardDatabase{
     public void getAllBoards(final String langCode, final IDataCallback<ArrayList<BoardModel>> presenter) {
         presenter.onSuccess(new ArrayList<>(database.boardDao().getAllBoards(langCode)));
     }
-
     public ArrayList<BoardModel> getAllBoardsStartWithName(String query) {
         return new ArrayList<>(database.boardDao().getAllBoardsStartWithName(query));
     }
 
+    public void getAllDeletedBoards(final IDataCallback<ArrayList<BoardModel>> presenter) {
+        presenter.onSuccess(new ArrayList<>(database.boardDao().getAllDeletedBoards()));
+    }
+
     public void updateBoardIntoDatabase(BoardModel board) {
+        database.boardDao().updateBoard(board);
+    }
+
+    public void moveBoardToTrash(BoardModel board) {
+        board.setIsDeleted(BoardModel.BOARD_STATE_TRASH);
         database.boardDao().updateBoard(board);
     }
 
@@ -51,5 +59,10 @@ public class BoardDatabase{
 
     public String getBoardVoice(String boardId) {
         return database.boardDao().getBoardVoiceFromId(boardId);
+    }
+
+    public void restoreTheBoardFromTrash(BoardModel board) {
+        board.setIsDeleted(BoardModel.BOARD_STATE_NO_STATE);
+        database.boardDao().updateBoard(board);
     }
 }

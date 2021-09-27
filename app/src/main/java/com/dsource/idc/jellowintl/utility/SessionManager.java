@@ -2,7 +2,7 @@ package com.dsource.idc.jellowintl.utility;
 
 /**
  * Created by ekalpa on 23-Jun-16.
- */
+ **/
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -54,7 +54,7 @@ public class SessionManager {
             put("தமிழ் (Tamil)", TA_IN);
             put("বাংলা (Bangladesh)", BN_BD);
             put("తెలుగు (Telugu)", TE_IN);
-            //put("ગુજરાતી (Gujarati-Testing)", GU_IN);
+            put("ગુજરાતી (Gujarati-Testing)", GU_IN);
             //put("ਪੰਜਾਬੀ (Punjabi-Testing)", PA_IN);
             //put("Khasi (Testing)", KHA_IN);
         }
@@ -76,7 +76,7 @@ public class SessionManager {
             put(TA_IN, "தமிழ் (Tamil)");
             put(BN_BD, "বাংলা (Bangladesh)");
             put(TE_IN, "తెలుగు (Telugu)");
-            //put(GU_IN, "ગુજરાતી (Gujarati-Testing)");
+            put(GU_IN, "ગુજરાતી (Gujarati-Testing)");
             //put(PA_IN, "ਪੰਜਾਬੀ (Punjabi-Testing)");
             //put(KHA_IN, "Khasi (Testing)");
         }
@@ -313,14 +313,6 @@ public class SessionManager {
 
     public void setMonochromeDisplayState(boolean value) {
         storePreferenceKeyWithValue(Boolean.class.toString(), mContext.getString(R.string.enable_monochrome), value);
-    }
-
-    public boolean isBoardDeletionEnabled() {
-        return (boolean) retrievePreferenceKeyWithValue(Boolean.class.toString(), mContext.getString(R.string.my_board_delete_enabled));
-    }
-
-    public void setBoardDeletionEnabled(boolean value) {
-        storePreferenceKeyWithValue(Boolean.class.toString(), mContext.getString(R.string.my_board_delete_enabled), value);
     }
 
     /**

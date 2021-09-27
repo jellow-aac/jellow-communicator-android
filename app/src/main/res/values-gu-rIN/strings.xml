@@ -416,7 +416,7 @@
     <string name="expressive_heading3">"અભિવ્યક્તિ પસંદ કરવા માટે "</string>
     <string name="icons_selected">_ ચિહ્નો પસંદ કરો</string>
     <string name="board_deleted">"_ બોર્ડ કાઢી નાખ્યું "</string>
-    <string name="delete_board">\"-\" બોર્ડ કાઢી નાખવામાં આવશે ?</string>
+    <string name="delete_board">શું તમે \"-\" બોર્ડને કાયમ માટે કાી નાખવા માંગો છો?</string>
     <string name="enter_icon_name">શોધવા માટે ચિહ્નનું નામ દાખલ કરો</string>
     <string name="search_board_in_jellow">બોર્ડ શોધો</string>
     <string name="search_board_screen">બોર્ડ્ના સ્ક્રીનમાં શોધો</string>
@@ -435,7 +435,6 @@
     <string name="received_your_feedback">" તમારા પ્રતિભાવ બદલ આભાર"</string>
     <string name="board_place_holder_text">તમે હજી સુધી કોઈ બોર્ડ ઉમેર્યું નથી</string>
     <string name="my_boards_screen">મારા બોર્ડ્સ સ્ક્રીન</string>
-    <string name="enableBoardDelete">મારા બોર્ડ્સ સ્ક્રીન પર ડિલીટ સુવિધાને બોર્ડમાં સક્ષમ કરો</string>
     <string name="about_je_more_info">વધુ માહીતી માટે, નીચે આપેલા વિડિઓ ચિહ્ન પર ક્લિક કરો</string>
     <string name="txtMoreLangSetting">ભાષામાટે વધુ ગોઠવણી</string>
     <string name="tap_add_to_add_expression">અભિવ્યક્તિ પસંદ કરવા માટે \"ઉમેરો\" ચિહ્નપર ક્લિક કરો</string>

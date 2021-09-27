@@ -10,8 +10,8 @@
     android:importantForAccessibility="yes">
     <RelativeLayout
         android:id="@+id/icon_parent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/my_board_grid_icon_size"
+        android:layout_height="@dimen/my_board_grid_icon_size"
         android:layout_centerHorizontal="true">
         <ImageView
             android:id="@+id/board_icon"
@@ -27,7 +27,6 @@
             android:background="@drawable/border_drawable_nocolor_board_icon"/>
         <FrameLayout
             android:layout_width="wrap_content"
-            android:layout_alignParentLeft="true"
             android:layout_marginLeft="-4dp"
             android:layout_height="wrap_content">
             <ImageView
@@ -50,6 +49,20 @@
                 android:id="@+id/remove_board"
                 android:importantForAccessibility="yes"
                 android:contentDescription="@string/delete_the_board"/>
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="-4dp"
+            android:visibility="visible"
+            android:layout_alignParentBottom="true">
+            <ImageView
+                android:id="@+id/restore_board"
+                android:layout_width="@dimen/my_board_edit_delete_size"
+                android:layout_height="@dimen/my_board_edit_delete_size"
+                android:src="@drawable/ic_restore_icon"
+                android:importantForAccessibility="yes"
+                android:contentDescription="@string/restore_the_board"/>
         </FrameLayout>
     </RelativeLayout>
     <TextView

@@ -6,5 +6,7 @@ public interface BoardClickListener {
 
     void onItemDelete(int position);
 
+    void onItemRestore(int position);
+
     void onBoardEdit(int position);
 }

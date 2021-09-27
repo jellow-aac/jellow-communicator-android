@@ -337,7 +337,7 @@
     <string name="app_update_message">ஜெல்லோ செயலிக்கான புதிய மேம்பாட்டைப் பெற்றுள்ளது. தற்போது புதுப்பிக்க விருப்பமா?</string>
 
     <!--String resources for MMB-->
-    <string name="delete_board">\"-\" பலகை நீக்கப்படுமா?</string>
+    <string name="delete_board">\"-\" பலகையை நிரந்தரமாக நீக்க விரும்புகிறீர்களா?</string>
     <string name="icon_select_exit_warning">தேர்ந்தேடுத்தவைகள் இழக்கப்படும்!</string>
     <string name="current_board">சின்னங்கள் சேர்க்கப்பட்டது</string>
     <string name="place_holder_text">தேர்ந்தெடுக்கப்பட்ட சின்னங்கள் இங்கே தோன்றும். நீங்கள் இதுவரை எந்த சின்னங்களையும் தேர்ந்தெடுக்கவில்லை !!</string>
@@ -441,7 +441,6 @@
     <string name="acc_lang_telugu_in">தெலுங்கு (இந்தியா)</string>
     <string name="acc_lang_eng_ng">ஆங்கிலம் (நைஜீரியா)</string>
     <string name="EnableDisplaySpeechText">பேசும் உரையை உரை பட்டியில் காண்பி</string>
-    <string name="enableBoardDelete">"எனது பலகைகள்" திரையில் போர்டு நீக்குதல் அம்சத்தை இயக்கவும்</string>
     <string name="board_delete">போர்டு நீக்கு</string>
     <string name="change_language_voice">மொழிக்கான உச்சரிப்பு (குரல்) ஐத் தேர்ந்தெடுக்கவும்:</string>
     <string name="place_holder_no_icons_added">போர்டில் எந்த ஐகானும் இல்லை</string>

@@ -90,6 +90,7 @@
 
     <string name="menuProfile">Profile</string>
     <string name="menuMyBoards">My Boards</string>
+    <string name="menuBoardsTrash">Trashed Boards</string>
     <string name="menuAbout">About Jellow</string>
     <string name="menuTutorials">Tutorial</string>
     <string name="menuKeyboardInput">Keyboard Control</string>
@@ -185,7 +186,6 @@
     <string name="enable_fish_animation" translatable="false">com.dsource.idc.jellow.fish_animation</string>
     <string name="enable_icon_add" translatable="false">com.dsource.idc.jellow.basic_icon_add</string>
     <string name="enable_monochrome" translatable="false">com.dsource.idc.jellow.monochrome_state</string>
-    <string name="my_board_delete_enabled" translatable="false">com.dsource.idc.jellow.board_deletion</string>
     <string name="txt_registration_jellowCalluDesc">(This is how Jellow calls you)</string>
     <string name="txt_registration_emergencynoDesc">(To be used for calling  in case of an emergency situation with the child.)</string>
     <string name="txt_registration_selectLangDesc">Select a Language for Jellow **</string>
@@ -203,7 +203,6 @@
     <string name="grant_permission_from_settings">Enable call permission from settings.</string>
     <string name="txtEnableBuiltInCalling">Enable emergency calling from Jellow</string>
     <string name="EnableDisplaySpeechText">Display the spoken text on the text bar</string>
-    <string name="enableBoardDelete">Enable board delete feature in \"My Boards\" screen</string>
 
     <string name="dismiss">Dismiss</string>
     <string name="register_user">Please wait registration is in process…</string>
@@ -412,7 +411,9 @@
         <item>@drawable/ic_jellow_library</item>
     </string-array>
 
-    <string name="delete_board">\"-\" board will be deleted?</string>
+    <string name="trash_the_board">Do you want to move the \"-\" board to trash?</string>
+    <string name="trash_board_placeholder">No boards are trashed.</string>
+    <string name="delete_board">Do you want to delete the \"-\" board permanently?</string>
     <string name="icon_select_exit_warning">Your selection will be lost</string>
     <string name="current_board">Added Icons</string>
     <string name="place_holder_text">No Icons selected yet. Please select icons from left category menu</string>
@@ -465,6 +466,7 @@
     <string name="limiter" translatable="false"> . . ></string>
     <string name="edit_board">Edit the current board</string>
     <string name="delete_the_board">Delete the current board</string>
+    <string name="restore_the_board">Restore the current board</string>
     <string name="edit_board_image">Edit the board icon and name</string>
     <string name="search_board_in_jellow">Search board</string>
     <string name="enter_board_name_to_search">Enter the board name to search</string>
@@ -473,6 +475,7 @@
 
     <!--Content Description-->
     <string name="my_boards_screen">My boards screen</string>
+    <string name="boards_trash_screen">Boards trash screen</string>
     <string name="select_image_for_board">Select image for the board</string>
     <string name="select_source_for_image_for_board">Select source for board image</string>
     <string name="select_language_for_board">Select language for the board</string>
@@ -490,7 +493,9 @@
     <string name="tap_add_to_add_expression">Tap add button to select expression</string>
     <string name="tap_delete_to_delete_expression">Tap delete button to deselect expression</string>
     <string name="open_jellow_privacy_policy">Open the Jellow\'s privacy policy.</string>
+    <string name="board_moved_to_trash">_ board moved to trash</string>
     <string name="board_deleted">_ board deleted</string>
+    <string name="board_restored_from_trash">Restored the _ board</string>
     <string name="search_icon_available_in_jellow">Search icon available in Jellow</string>
     <string name="search_icon_the_board">Search an icon in the current board</string>
     <string name="preparing_language_screen">Language setup screen</string>

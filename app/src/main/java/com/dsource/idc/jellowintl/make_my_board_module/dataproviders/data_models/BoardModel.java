@@ -20,6 +20,9 @@ public class BoardModel implements Serializable {
     public static final int STATUS_L2 =2;//Add edit icon screen passed
     public static final int STATUS_L3 =3;//Reposition icon screen passed
 
+    public static final int BOARD_STATE_NO_STATE = 0;
+    public static final int BOARD_STATE_TRASH = 1;
+
     @PrimaryKey
     @NonNull
     @ColumnInfo(name = "board_id")
@@ -42,6 +45,9 @@ public class BoardModel implements Serializable {
 
     @ColumnInfo(name = "board_voice")
     private String boardVoice;
+
+    @ColumnInfo(name = "is_deleted")
+    private int isDeleted;
 
     @ColumnInfo(name = "timestamp")
     private long timestamp;
@@ -133,5 +139,13 @@ public class BoardModel implements Serializable {
 
     public void setBoardVoice(String boardVoice) {
         this.boardVoice = boardVoice;
+    }
+
+    public int getIsDeleted() {
+        return isDeleted;
+    }
+
+    public void setIsDeleted(int isDeleted) {
+        this.isDeleted = isDeleted;
     }
 }

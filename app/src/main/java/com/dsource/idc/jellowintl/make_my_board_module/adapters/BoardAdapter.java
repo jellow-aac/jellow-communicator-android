@@ -1,5 +1,7 @@
 package com.dsource.idc.jellowintl.make_my_board_module.adapters;
 
+import static com.dsource.idc.jellowintl.utility.SessionManager.LangValueMap;
+
 import android.content.Context;
 import android.os.Handler;
 import android.text.Spannable;
@@ -18,22 +20,22 @@ import com.dsource.idc.jellowintl.make_my_board_module.interfaces.BoardClickList
 
 import java.util.ArrayList;
 
-import static com.dsource.idc.jellowintl.utility.SessionManager.LangValueMap;
-
 public class BoardAdapter extends BaseRecyclerAdapter<BoardModel> {
 
     private BoardClickListener listener;
     private int selectedPosition = -1;
     private boolean enableEditMode = BoardListActivity.EDIT_DISABLED;
     private boolean enableDeleteMode = BoardListActivity.DELETE_DISABLED;
+    private final boolean isInTrash;
 
     /**
      * public constructor
      * @param context
      * @param items
      */
-    public BoardAdapter(Context context,int layoutId,ArrayList<BoardModel> items) {
+    public BoardAdapter(Context context,int layoutId,ArrayList<BoardModel> items, boolean isInTrash) {
         super(context,layoutId,items);
+        this.isInTrash = isInTrash;
     }
 
 
@@ -41,9 +43,10 @@ public class BoardAdapter extends BaseRecyclerAdapter<BoardModel> {
     public void bindData(final BaseViewHolder viewHolder, BoardModel board, int position) {
         SpannableString spannedStr;
         viewHolder.setMenuImageBorder(R.id.borderView, false, -1);
-        if (position == 0){
+        if (position == 0 && !isInTrash){
             viewHolder.setVisible(R.id.edit_board, false);
             viewHolder.setVisible(R.id.remove_board, false);
+            viewHolder.setVisible(R.id.restore_board, false);
             spannedStr = new SpannableString(getContext().getString(R.string.add_board));
             spannedStr.setSpan(new ForegroundColorSpan (ContextCompat.getColor(getContext(),
                     R.color.colorPrimary)), 0, spannedStr.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
@@ -97,12 +100,33 @@ public class BoardAdapter extends BaseRecyclerAdapter<BoardModel> {
             viewHolder.getView(R.id.remove_board).setVisibility(View.GONE);
         }
 
+        if(enableDeleteMode && isInTrash){
+            viewHolder.getView(R.id.restore_board).setVisibility(View.VISIBLE);
+            viewHolder.setOnClickListener(R.id.restore_board, new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(listener!=null)
+                        listener.onItemRestore(viewHolder.getAdapterPosition());
+
+                }
+            });
+        }else{
+            viewHolder.getView(R.id.restore_board).setVisibility(View.GONE);
+        }
+
         viewHolder.setImageFromBoard(R.id.board_icon,board.getBoardId());
         viewHolder.setOnClickListener(R.id.board_icon, new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(listener!=null)
-                    listener.onItemClick(viewHolder.getAdapterPosition());
+                if(listener!=null){
+                    if (enableEditMode && !isInTrash)
+                        listener.onBoardEdit(viewHolder.getAdapterPosition());
+                    else if(enableDeleteMode && !isInTrash)
+                        listener.onItemDelete(viewHolder.getAdapterPosition());
+                    else
+                        listener.onItemClick(viewHolder.getAdapterPosition());
+                }
+
             }
         });
         if(selectedPosition == position) {
