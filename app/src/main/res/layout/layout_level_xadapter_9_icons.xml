@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/linearlayout_icon1"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:layout_marginLeft="@dimen/nineIcon_parentHorizontal"
     android:layout_marginRight="@dimen/nineIcon_parentHorizontal"
-    android:gravity="center_horizontal"
     android:focusable="true">
     <FrameLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/frame_layout">
+        android:id="@+id/frame_layout"
+        app:layout_constraintLeft_toLeftOf="@+id/linearlayout_icon1"
+        app:layout_constraintRight_toRightOf="@+id/linearlayout_icon1"
+        app:layout_constraintTop_toTopOf="@+id/linearlayout_icon1">
         <ImageView
             android:id="@+id/icon1"
             android:layout_width="@dimen/nineIcon_width"
@@ -25,28 +28,22 @@
             android:layout_gravity="center_horizontal"
             android:background="@drawable/border_drawable_nocolor_nine_icon"/>
         <RelativeLayout
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/nineIcon_width"
             android:visibility="gone"
             android:id= "@+id/edit_remove_container"
             android:layout_height="@dimen/nineIcon_width">
-
             <ImageView
                 android:id="@+id/delete_icons"
                 android:layout_width="@dimen/nineIcon_remove_btn"
                 android:layout_height="@dimen/nineIcon_remove_btn"
                 android:layout_alignParentBottom="true"
-                android:layout_marginLeft="@dimen/nineIcon_width"
-                android:layout_gravity="end"
+                android:layout_alignParentEnd="true"
                 android:src="@drawable/ic_delete_icon_red_back" />
-
             <ImageView
                 android:id="@+id/edit_icons"
-                android:layout_marginRight="-12dp"
                 android:layout_width="@dimen/nineIcon_remove_btn"
                 android:layout_height="@dimen/nineIcon_remove_btn"
-                android:src="@drawable/ic_edit_icon_red_back"
-                android:layout_marginLeft="@dimen/def_margin_flt"
-                />
+                android:src="@drawable/ic_edit_icon_red_back"/>
         </RelativeLayout>
     </FrameLayout>
     <TextView
@@ -58,5 +55,8 @@
         android:textSize="@dimen/nineIcon_textSize"
         android:textAlignment="center"
         android:lineSpacingExtra="1dp"
-        android:lineSpacingMultiplier=".8"/>
-</LinearLayout>
+        android:lineSpacingMultiplier=".8"
+        app:layout_constraintLeft_toLeftOf="@+id/linearlayout_icon1"
+        app:layout_constraintRight_toRightOf="@+id/linearlayout_icon1"
+        app:layout_constraintTop_toBottomOf="@+id/frame_layout"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

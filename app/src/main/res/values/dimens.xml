@@ -359,7 +359,6 @@
     <dimen name="add_edit_screen_edit_icon_size">28dp</dimen>
     <dimen name="list_item_text_size">14sp</dimen>
     <dimen name="camera_drop_down_width">154dp</dimen>
-    <dimen name="def_margin_flt">-3dp</dimen>
 
     <!--Dimensions related to the verbiage item-->
     <dimen name="verbiage_list_item_width">240dp</dimen>

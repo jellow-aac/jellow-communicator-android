@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/linearlayout_icon1"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:gravity="center_horizontal"
     android:paddingTop="@dimen/threeIcon_parentPaddingVertical"
     android:paddingBottom="@dimen/threeIcon_parentPaddingVertical"
     android:layout_marginTop="@dimen/threeIcon_parentVertical"
@@ -15,7 +15,10 @@
         android:layout_height="wrap_content"
         android:id="@+id/frame_layout"
         android:layout_marginStart="@dimen/threeIcon_flHorizontal"
-        android:layout_marginEnd="@dimen/threeIcon_flHorizontal">
+        android:layout_marginEnd="@dimen/threeIcon_flHorizontal"
+        app:layout_constraintLeft_toLeftOf="@+id/linearlayout_icon1"
+        app:layout_constraintRight_toRightOf="@+id/linearlayout_icon1"
+        app:layout_constraintTop_toTopOf="@+id/linearlayout_icon1">
         <ImageView
             android:id="@+id/icon1"
             android:layout_width="@dimen/threeIcon_width"
@@ -29,28 +32,23 @@
             android:layout_gravity="center_horizontal"
             android:background="@drawable/border_drawable_nocolor_3_icons"/>
         <RelativeLayout
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/threeIcon_width"
+            android:layout_height="@dimen/threeIcon_width"
             android:visibility="gone"
-            android:id= "@+id/edit_remove_container"
-            android:layout_height="@dimen/threeIcon_width">
-
+            android:id= "@+id/edit_remove_container">
             <ImageView
                 android:id="@+id/delete_icons"
                 android:layout_width="@dimen/threeIcon_remove_btn"
                 android:layout_height="@dimen/threeIcon_remove_btn"
                 android:layout_alignParentBottom="true"
-                android:layout_marginLeft="@dimen/threeIcon_width"
-                android:layout_gravity="end"
+                android:layout_alignParentEnd="true"
                 android:src="@drawable/ic_delete_icon_red_back" />
 
             <ImageView
-                android:layout_marginRight="-12dp"
                 android:layout_width="@dimen/threeIcon_remove_btn"
                 android:layout_height="@dimen/threeIcon_remove_btn"
                 android:id="@+id/edit_icons"
-                android:src="@drawable/ic_edit_icon_red_back"
-                android:layout_marginLeft="@dimen/def_margin_flt"
-                />
+                android:src="@drawable/ic_edit_icon_red_back"/>
         </RelativeLayout>
     </FrameLayout>
     <TextView
@@ -62,5 +60,8 @@
         android:textSize="@dimen/threeIcon_textSize"
         android:textAlignment="center"
         android:lineSpacingExtra="1dp"
-        android:lineSpacingMultiplier=".8"/>
-</LinearLayout>
+        android:lineSpacingMultiplier=".8"
+        app:layout_constraintLeft_toLeftOf="@+id/linearlayout_icon1"
+        app:layout_constraintRight_toRightOf="@+id/linearlayout_icon1"
+        app:layout_constraintTop_toBottomOf="@+id/frame_layout"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,10 +10,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -187,7 +187,7 @@ public class HomeActivityAdapter extends RecyclerView.Adapter<HomeActivityAdapte
         FrameLayout mContainer;
         TextView iconTitle;
         ImageView iconImage;
-        LinearLayout parent;
+        ConstraintLayout parent;
         View holder;
         GradientDrawable backGround;
 

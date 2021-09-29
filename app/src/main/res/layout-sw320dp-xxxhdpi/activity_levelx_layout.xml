@@ -8,6 +8,7 @@
     android:background="@drawable/level1_bg"
     android:tag="small">
     <ImageView
+        android:id="@+id/wave"
         android:layout_width="match_parent"
         android:layout_height="112dp"
         app:layout_constraintVertical_bias="1.1"
@@ -23,8 +24,8 @@
         android:paddingRight="@dimen/activity_horizontal_margin"
         app:layout_constraintVertical_bias=".2"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/recycler_view"
+        app:layout_constraintBottom_toBottomOf="@+id/recycler_view"
         android:orientation="vertical">
         <ImageView
             android:id="@+id/ivlike"
@@ -54,8 +55,8 @@
         android:paddingRight="@dimen/activity_horizontal_margin"
         app:layout_constraintVertical_bias=".2"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/recycler_view"
+        app:layout_constraintBottom_toBottomOf="@+id/recycler_view"
         android:orientation="vertical">
         <ImageView
             android:id="@+id/ivdislike"
@@ -87,9 +88,9 @@
         app:layout_constraintWidth_percent=".61"
         app:layout_constraintHeight_percent=".706"
         app:layout_constraintTop_toTopOf="@+id/parent"
-        app:layout_constraintBottom_toBottomOf="@+id/parent"
-        app:layout_constraintLeft_toRightOf="@+id/parent"
-        app:layout_constraintRight_toLeftOf="@+id/parent" />
+        app:layout_constraintBottom_toBottomOf="@+id/wave"
+        app:layout_constraintLeft_toRightOf="@+id/positive"
+        app:layout_constraintRight_toLeftOf="@+id/negative"/>
     <TextView
         android:id="@+id/place_holder_text"
         android:layout_width="wrap_content"

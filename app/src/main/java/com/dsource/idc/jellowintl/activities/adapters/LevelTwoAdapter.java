@@ -16,10 +16,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityManager;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.core.view.ViewCompat;
@@ -121,7 +121,7 @@ public class LevelTwoAdapter extends RecyclerView.Adapter<LevelTwoAdapter.MyView
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder {
-        private final LinearLayout menuItemLinearLayout;
+        private final ConstraintLayout menuItemLinearLayout;
         private final RelativeLayout listItemEditLayout;
         private final ImageView menuItemImage;
         private final ImageView listItemDelete;
