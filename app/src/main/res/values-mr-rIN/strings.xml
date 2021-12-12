@@ -472,4 +472,8 @@
     <string name="createHomeCustomCategory">मुख्य श्रेणी तयार करा</string>
     <string name="home_custom_icon_place_holder_text">येथे कोणतेही कस्टम आइकॉन जोडलेले नाहीत.</string>
     <string name="enableBlackWhiteColor">मोनोक्रोम डिस्प्ले सक्षम करा (काळा आणि पांढरा)</string>
+    <string name="txtOtherSetting">इतर सेटिंग्ज</string>
+    <string name="txtDisplaySettings">प्रदर्शन सेटिंग्ज</string>
+    <string name="txtCustomisationSetting">कस्टमायझेशन सेटिंग्ज</string>
+    <string name="menuBoardsTrash">डिलीट केलेले बोर्ड (Trashed Boards)</string>
 </resources>

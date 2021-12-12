@@ -88,8 +88,9 @@ public class SettingActivity extends SpeechEngineBaseActivity {
                 }
             });
         }else{
-            findViewById(R.id.tv5).setVisibility(View.GONE);
-            findViewById(R.id.switchEnableCall).setVisibility(View.GONE);
+            findViewById(R.id.divider).setVisibility(View.GONE);
+            findViewById(R.id.txtOtherSetting).setVisibility(View.GONE);
+            findViewById(R.id.rowOtherSetting).setVisibility(View.GONE);
         }
 
         ((SwitchCompat) findViewById(R.id.switchDisplaySpeechText)).setChecked(getSession().getTextBarVisibility());

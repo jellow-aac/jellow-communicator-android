@@ -498,4 +498,8 @@
     <string name="createHomeCustomCategory">Create Category</string>
     <string name="home_custom_icon_place_holder_text">No custom are added here.</string>
     <string name="enableBlackWhiteColor">Enable Monochrome display (Black and white)</string>
+    <string name="txtDisplaySettings">Display Settings</string>
+    <string name="txtCustomisationSetting">Customization Settings</string>
+    <string name="txtOtherSetting">Other Settings</string>
+    <string name="menuBoardsTrash">Trashed Boards</string>
 </resources>

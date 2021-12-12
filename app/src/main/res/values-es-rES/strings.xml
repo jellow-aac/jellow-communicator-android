@@ -465,4 +465,8 @@
     <string name="createHomeCustomCategory">Crear categoría</string>
     <string name="home_custom_icon_place_holder_text">Aquí no se agregan íconos personalizados.</string>
     <string name="enableBlackWhiteColor">Habilitar pantalla monocromática (blanco y negro)</string>
+    <string name="txtDisplaySettings">Configuración de pantalla</string>
+    <string name="txtCustomisationSetting">Configuración de personalización</string>
+    <string name="txtOtherSetting">Otros ajustes</string>
+    <string name="menuBoardsTrash">Tablero eliminado (Trashed Boards)</string>
 </resources>

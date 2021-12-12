@@ -10,11 +10,11 @@ import static com.dsource.idc.jellowintl.make_my_board_module.utility.BoardConst
 import static com.dsource.idc.jellowintl.make_my_board_module.utility.ImageStorageHelper.storeImageToStorage;
 import static com.dsource.idc.jellowintl.models.GlobalConstants.BASIC_ICON_ID;
 import static com.dsource.idc.jellowintl.models.GlobalConstants.BASIC_IS_CATEGORY;
-import static com.dsource.idc.jellowintl.models.GlobalConstants.DISABLE_ALPHA;
 import static com.dsource.idc.jellowintl.models.GlobalConstants.ENABLE_ALPHA;
 import static com.dsource.idc.jellowintl.models.GlobalConstants.ICON_POSITION;
 import static com.dsource.idc.jellowintl.models.GlobalConstants.IS_HOME_CATEGORY;
 import static com.dsource.idc.jellowintl.models.GlobalConstants.IS_HOME_CUSTOM_ICON;
+import static com.dsource.idc.jellowintl.models.GlobalConstants.RADIO_GROUP_DISABLE_ALPHA;
 import static com.dsource.idc.jellowintl.utility.Analytics.isAnalyticsActive;
 import static com.dsource.idc.jellowintl.utility.Analytics.resetAnalytics;
 import static com.dsource.idc.jellowintl.utility.Analytics.startMeasuring;
@@ -110,7 +110,7 @@ public class DialogAddEditIcon extends BaseActivity implements View.OnClickListe
             if (icon != null && isCustomizedHomeIcon) {
                 setAlreadyPresentIcon(icon, true);
                 radioGroup.setClickable(false);
-                radioGroup.setAlpha(DISABLE_ALPHA);
+                radioGroup.setAlpha(RADIO_GROUP_DISABLE_ALPHA);
                 radioGroup.getChildAt(0).setEnabled(false);
                 radioGroup.getChildAt(1).setEnabled(false);
             }else if (icon != null) {
@@ -150,7 +150,7 @@ public class DialogAddEditIcon extends BaseActivity implements View.OnClickListe
         radioGroup.setVisibility(View.VISIBLE);
 
         boolean radioState=false;
-        float radioAlpha=DISABLE_ALPHA;
+        float radioAlpha=RADIO_GROUP_DISABLE_ALPHA;
         // Adding an custom icon at home screen then user can add only categories there.
         if(isHomeIcon){
             radioGroup.check(R.id.rbIsCategory);

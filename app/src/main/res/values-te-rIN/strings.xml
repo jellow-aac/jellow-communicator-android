@@ -467,4 +467,8 @@
     <string name="createHomeCustomCategory">వర్గాన్ని సృష్టించండి</string>
     <string name="home_custom_icon_place_holder_text">అనుకూల చిహ్నాలు ఇక్కడ జోడించబడలేదు.</string>
     <string name="enableBlackWhiteColor">మోనోక్రోమ్ డిస్‌ప్లేను ప్రారంభించండి (నలుపు మరియు తెలుపు)</string>
+    <string name="txtDisplaySettings">డిస్ ప్లే సెట్టింగులు</string>
+    <string name="txtCustomisationSetting">అనుకూలీకరణ సెట్టింగ్‌లు</string>
+    <string name="txtOtherSetting">ఇతర సెట్టింగ్‌లు</string>
+    <string name="menuBoardsTrash">తొలగించబడిన బోర్డు (Trashed Boards)</string>
 </resources>

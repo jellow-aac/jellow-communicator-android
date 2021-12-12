@@ -452,4 +452,8 @@
     <string name="createHomeCustomCategory">Kategorie erstellen</string>
     <string name="home_custom_icon_place_holder_text">Hier werden keine benutzerdefinierten Symbole hinzugefügt.</string>
     <string name="enableBlackWhiteColor">Monochrom-Anzeige aktivieren (Schwarzweiß)</string>
+    <string name="txtDisplaySettings">Bildschirmeinstellungen</string>
+    <string name="txtCustomisationSetting">Anpassungseinstellungen</string>
+    <string name="txtOtherSetting">Andere Einstellungen</string>
+    <string name="menuBoardsTrash">Weggeworfene Bretter (Trashed Boards)</string>
 </resources>

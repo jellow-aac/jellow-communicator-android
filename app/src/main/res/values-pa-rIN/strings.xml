@@ -497,4 +497,8 @@
     <string name="createHomeCustomCategory">ਸ਼੍ਰੇਣੀ ਬਣਾਉ</string>
     <string name="home_custom_icon_place_holder_text">ਇੱਥੇ ਕੋਈ ਕਸਟਮ ਆਈਕਾਨ ਸ਼ਾਮਲ ਨਹੀਂ ਕੀਤੇ ਗਏ ਹਨ.</string>
     <string name="enableBlackWhiteColor">ਮੋਨੋਕ੍ਰੋਮ ਡਿਸਪਲੇ ਨੂੰ ਸਮਰੱਥ ਕਰੋ (ਕਾਲਾ ਅਤੇ ਚਿੱਟਾ)</string>
+    <string name="txtDisplaySettings">ਡਿਸਪਲੇ ਸੈਟਿੰਗਜ਼</string>
+    <string name="txtCustomisationSetting">ਅਨੁਕੂਲਤਾ ਸੈਟਿੰਗਜ਼</string>
+    <string name="txtOtherSetting">ਹੋਰ ਸੈਟਿੰਗਾਂ</string>
+    <string name="menuBoardsTrash">Trashed Boards (Trashed Boards)</string>
 </resources>

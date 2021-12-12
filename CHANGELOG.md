@@ -1,6 +1,17 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+##[4.0.2] - Yet to release
+- Gujarati language.
+- Marathi with tts
+- Punjabi
+- New animation yet to add
+- On package update boards custom icons get deleted [issue fix]
+
+##[4.0.1] - 12 Dec, 2021
+- Trash feature to user boards.
+- New Settings screen
+- Added icons to the menu screen
 
 ##[4.0.0] - 16 Sept, 2021
 - User can add icons or edit icons or delete icons at the home categories.

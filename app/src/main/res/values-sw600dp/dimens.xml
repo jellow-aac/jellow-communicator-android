@@ -220,6 +220,7 @@
     <dimen name="setting_btn_margin_bottom">32dp</dimen>
     <dimen name="setting_btn_padding_horizontal">8dp</dimen>
     <dimen name="setting_btn_margin_left">30dp</dimen>
+    <dimen name="settings_weight">0</dimen>
 
     <!--activity_accessibility_settings.xml dimensions-->
     <dimen name="access_parent_margin_left">30dp</dimen>

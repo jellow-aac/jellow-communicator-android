@@ -476,4 +476,8 @@
     <string name="createHomeCustomCategory">કેટેગરી બનાવો</string>
     <string name="home_custom_icon_place_holder_text">અહીં કોઈ વૈવિધ્યપૂર્ણ ચિહ્નો ઉમેરવામાં આવ્યાં નથી.</string>
     <string name="enableBlackWhiteColor">મોનોક્રોમ ડિસ્પ્લે સક્ષમ કરો (કાળો અને સફેદ)</string>
+    <string name="txtDisplaySettings">પ્રદર્શન સેટિંગ્સ</string>
+    <string name="txtCustomisationSetting">કસ્ટમાઇઝેશન સેટિંગ્સ</string>
+    <string name="txtOtherSetting">અન્ય સેટિંગ્સ</string>
+    <string name="menuBoardsTrash">કાઢી નાખેલ બોર્ડ (Trashed Boards)</string>
 </resources>

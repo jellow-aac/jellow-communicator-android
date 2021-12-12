@@ -468,4 +468,8 @@
     <string name="createHomeCustomCategory">श्रेणी बनाएं</string>
     <string name="home_custom_icon_place_holder_text">यहां कोई कस्टम आइकन नहीं जोड़े गए हैं।</string>
     <string name="enableBlackWhiteColor">मोनोक्रोम डिस्प्ले सक्षम करें (ब्लैक एंड व्हाइट)</string>
+    <string name="txtDisplaySettings">प्रदर्शन सेटिंग्स</string>
+    <string name="txtOtherSetting">अन्य सेटिंग</string>
+    <string name="txtCustomisationSetting">कस्टमायज़ेशन सेटिंग्स</string>
+    <string name="menuBoardsTrash">डिलीट किये गए बोर्ड (Trashed Boards)</string>
 </resources>

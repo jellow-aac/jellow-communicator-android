@@ -451,4 +451,8 @@
     <string name="createHomeCustomCategory">வகையை உருவாக்கவும்</string>
     <string name="home_custom_icon_place_holder_text">தனிப்பயன் சின்னங்கள் எதுவும் இங்கு சேர்க்கப்படவில்லை.</string>
     <string name="enableBlackWhiteColor">ஒரே வண்ணமுடைய காட்சியை இயக்கு (கருப்பு மற்றும் வெள்ளை)</string>
+    <string name="txtDisplaySettings">காட்சி அமைப்புகள்</string>
+    <string name="txtCustomisationSetting">தனிப்பயனாக்கம் அமைப்புகள்</string>
+    <string name="txtOtherSetting">பிற அமைப்புகள்</string>
+    <string name="menuBoardsTrash">நீக்கப்பட்ட பலகை (Trashed Boards)</string>
 </resources>

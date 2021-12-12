@@ -40,6 +40,7 @@ public class GlobalConstants {
 
     public final static float ENABLE_ALPHA = 1f;
 
+    public final static float RADIO_GROUP_DISABLE_ALPHA = 0.8f;
 
     /*EXPRESSIVE ICON */
     public final static int LIKE = 0;

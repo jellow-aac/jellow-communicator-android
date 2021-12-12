@@ -456,4 +456,8 @@
     <string name="createHomeCustomCategory">বিভাগ তৈরি করুন</string>
     <string name="home_custom_icon_place_holder_text">এখানে কোন কাস্টম আইকন যোগ করা হয়নি।</string>
     <string name="enableBlackWhiteColor">একরঙা প্রদর্শন সক্ষম করুন (কালো এবং সাদা)</string>
+    <string name="txtCustomisationSetting">কাস্টমাইজেশন সেটিংস</string>
+    <string name="txtOtherSetting">অন্যান্য সেটিংস্</string>
+    <string name="txtDisplaySettings">প্রদর্শন সেটিং</string>
+    <string name="menuBoardsTrash">ট্র্যাশ করা বোর্ড (Trashed Boards)</string>
 </resources>
