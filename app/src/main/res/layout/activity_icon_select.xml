@@ -130,19 +130,18 @@
 
             <Button
                 android:id="@+id/btn_next_step"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/profile_save_btn_height"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:layout_width="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="@dimen/nav_mar_right"
+                android:layout_toLeftOf="@id/btn_next_step"
                 android:paddingLeft="@dimen/mmb_btn_pad"
                 android:paddingRight="@dimen/mmb_btn_pad"
-                android:layout_toLeftOf="@id/btn_next_step"
-                android:textAllCaps="true"
                 android:text="@string/next_btn"
-                android:layout_gravity="center_vertical"
-                android:layout_height="@dimen/profile_save_btn_height"
-                android:textSize="@dimen/profile_save_btn_txt_size"
-                android:layout_marginRight="@dimen/nav_mar_right"
-                />
+                android:textAllCaps="true"
+                android:textSize="@dimen/profile_save_btn_txt_size" />
 
             <CheckBox
                 android:id="@+id/cb_selectAll"

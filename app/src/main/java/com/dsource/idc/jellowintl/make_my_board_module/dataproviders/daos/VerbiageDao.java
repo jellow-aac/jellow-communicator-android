@@ -25,8 +25,8 @@ public interface VerbiageDao {
     @Update
     void updateVerbiage(VerbiageModel verbiageModel);
 
-    @Query("DELETE FROM VerbiageModel WHERE language_code = (:language_code)")
-    void deleteVerbiage(String language_code);
+    @Query("DELETE FROM VerbiageModel WHERE language_code = (:language_code) and id LIKE (:pattern)")
+    void deleteVerbiage(String language_code, String pattern);
 
     @Query("SELECT COUNT(*) FROM VerbiageModel WHERE language_code = (:languageCode) and id LIKE :id")
     int getLevelOneIconCount(String id,String languageCode);

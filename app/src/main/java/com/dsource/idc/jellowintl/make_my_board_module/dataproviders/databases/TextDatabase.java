@@ -124,7 +124,10 @@ public class TextDatabase {
     }
 
     public void dropTable() {
-        database.verbiageDao().deleteVerbiage(langCode);
+        database.verbiageDao().deleteVerbiage(langCode, "%GG");
+        database.verbiageDao().deleteVerbiage(langCode, "%SS");
+        database.verbiageDao().deleteVerbiage(langCode, "%MS");
+        database.verbiageDao().deleteVerbiage(langCode, "%EE");
     }
 
     public interface ProgressUpdates{
