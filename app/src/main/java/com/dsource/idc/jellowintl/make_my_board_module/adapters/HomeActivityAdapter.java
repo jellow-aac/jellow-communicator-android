@@ -4,6 +4,7 @@ import static com.dsource.idc.jellowintl.factories.IconFactory.EXTENSION;
 import static com.dsource.idc.jellowintl.factories.PathFactory.getIconPath;
 
 import android.content.Context;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.GradientDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -152,10 +153,17 @@ public class HomeActivityAdapter extends RecyclerView.Adapter<HomeActivityAdapte
     private void setImageFromBoard(ImageView imageView, String imageURL) {
         File en_dir = mContext.getDir(SessionManager.BOARD_ICON_LOCATION, Context.MODE_PRIVATE);
         String path = en_dir.getAbsolutePath();
-        Glide.with(mContext)
+        imageView.setImageBitmap(BitmapFactory.decodeFile(path + "/" + imageURL + ".png"));
+        /*Glide.with(mContext)
                 .load(path + "/" + imageURL + ".png")
-                .placeholder(R.drawable.ic_icon_placeholder)
-                .into(imageView);
+                .load(path + "/" + imageURL + ".png")
+                .transform(new CircleCrop())
+                //.error(placeHolderResId)
+                .diskCacheStrategy(DiskCacheStrategy.NONE)
+                .skipMemoryCache(true)
+                .centerCrop()
+                .dontAnimate()
+                .into(imageView);*/
     }
 
     private void setImageFromLibrary(ImageView imageView, String drawableId) {

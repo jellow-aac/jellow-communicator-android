@@ -104,93 +104,120 @@
                     </TableRow>
                     <TableRow
                         android:gravity="center_vertical"
+                        android:weightSum="1"
                         android:layout_marginBottom="@dimen/activity_vertical_margin">
-                        <TextView
-                            android:id="@+id/tv3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="@dimen/settings_weight"
-                            android:text="@string/txtDisplayMode"
-                            style="@style/defaultTextViewStyle"/>
-                        <Spinner
-                            android:id="@+id/spinner3"
-                            android:layout_width="@dimen/setting_spinner_width"
-                            android:layout_height="@dimen/setting_spinner_height"
-                            android:minWidth="@dimen/setting_spinner_min_width"
-                            android:layout_weight="@dimen/settings_weight"
-                            android:paddingRight="@dimen/setting_spinner_padding_right"
-                            android:paddingEnd="@dimen/setting_spinner_padding_right"
-                            android:background="@drawable/custom_spinner_view"
-                            android:textColor="@color/black_eighty"/>
+                        <LinearLayout
+                            android:layout_weight="0.3">
+                            <TextView
+                                android:id="@+id/tv3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/txtDisplayMode"
+                                style="@style/defaultTextViewStyle"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_weight="@dimen/settings_weight">
+                            <Spinner
+                                android:id="@+id/spinner3"
+                                android:layout_width="@dimen/setting_spinner_width"
+                                android:layout_height="@dimen/setting_spinner_height"
+                                android:minWidth="@dimen/setting_spinner_min_width"
+                                android:paddingRight="@dimen/setting_spinner_padding_right"
+                                android:paddingEnd="@dimen/setting_spinner_padding_right"
+                                android:background="@drawable/custom_spinner_view"
+                                android:textColor="@color/black_eighty"/>
+                        </LinearLayout>
                     </TableRow>
                     <TableRow
                         android:gravity="center_vertical"
+                        android:weightSum="1"
                         android:layout_marginBottom="@dimen/activity_vertical_margin">
-                        <TextView
-                            android:id="@+id/tv4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                             android:layout_weight="@dimen/settings_weight"
-                            android:text="@string/txtNumOfPerPerScr"
-                            style="@style/defaultTextViewStyle"/>
-                        <Spinner
-                            android:id="@+id/spinner4"
-                            android:layout_width="@dimen/setting_spinner_icon_width"
-                            android:layout_height="@dimen/setting_spinner_icon_height"
-                             android:layout_weight="@dimen/settings_weight"
-                            android:background="@drawable/custom_spinner_view"
-                            android:textColor="@color/black_eighty"/>
+                        <LinearLayout
+                            android:layout_weight="0.3">
+                            <TextView
+                                android:id="@+id/tv4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:maxEms="10"
+                                android:text="@string/txtNumOfPerPerScr"
+                                style="@style/defaultTextViewStyle"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_weight="@dimen/settings_weight">
+                            <Spinner
+                                android:id="@+id/spinner4"
+                                android:layout_width="@dimen/setting_spinner_icon_width"
+                                android:layout_height="@dimen/setting_spinner_icon_height"
+                                android:background="@drawable/custom_spinner_view"
+                                android:textColor="@color/black_eighty"/>
+                        </LinearLayout>
                     </TableRow>
                     <TableRow
+                        android:weightSum="1"
                         android:layout_marginBottom="@dimen/activity_vertical_margin">
-                        <TextView
-                            android:id="@+id/tv6"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                             android:layout_weight="@dimen/settings_weight"
-                            android:text="@string/EnableDisplaySpeechText"
-                            style="@style/defaultTextViewStyle"/>
-                        <androidx.appcompat.widget.SwitchCompat
-                            android:id="@+id/switchDisplaySpeechText"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                             android:layout_weight="@dimen/settings_weight"
-                            style="@style/Material.Widget.Switch"
-                            android:importantForAccessibility="yes"/>
+                        <LinearLayout
+                            android:layout_weight="0.3">
+                            <TextView
+                                android:id="@+id/tv6"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/EnableDisplaySpeechText"
+                                style="@style/defaultTextViewStyle"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_weight="@dimen/settings_weight">
+                            <androidx.appcompat.widget.SwitchCompat
+                                android:id="@+id/switchDisplaySpeechText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                style="@style/Material.Widget.Switch"
+                                android:importantForAccessibility="yes"/>
+                        </LinearLayout>
                     </TableRow>
                     <TableRow
+                        android:weightSum="1"
                         android:layout_marginBottom="@dimen/activity_vertical_margin">
-                        <TextView
-                            android:id="@+id/tv10"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                             android:layout_weight="@dimen/settings_weight"
-                            android:text="@string/enableBlackWhiteColor"
-                            style="@style/defaultTextViewStyle"/>
-                        <androidx.appcompat.widget.SwitchCompat
-                            android:id="@+id/switchEnablemonochromeDisplay"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                             android:layout_weight="@dimen/settings_weight"
-                            style="@style/Material.Widget.Switch"
-                            android:importantForAccessibility="yes"/>
+                        <LinearLayout
+                            android:layout_weight="0.3">
+                            <TextView
+                                android:id="@+id/tv10"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:maxEms="10"
+                                android:text="@string/enableBlackWhiteColor"
+                                style="@style/defaultTextViewStyle"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_weight="@dimen/settings_weight">
+                            <androidx.appcompat.widget.SwitchCompat
+                                android:id="@+id/switchEnablemonochromeDisplay"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                style="@style/Material.Widget.Switch"
+                                android:importantForAccessibility="yes"/>
+                        </LinearLayout>
                     </TableRow>
                     <TableRow
+                        android:weightSum="1"
                         android:layout_marginBottom="@dimen/activity_vertical_margin">
-                        <TextView
-                            android:id="@+id/tv8"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                             android:layout_weight="@dimen/settings_weight"
-                            android:text="@string/enableFishAnimation"
-                            style="@style/defaultTextViewStyle"/>
-                        <androidx.appcompat.widget.SwitchCompat
-                            android:id="@+id/switchEnableAnimation"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                             android:layout_weight="@dimen/settings_weight"
-                            style="@style/Material.Widget.Switch"
-                            android:importantForAccessibility="yes"/>
+                        <LinearLayout
+                            android:layout_weight="0.3">
+                            <TextView
+                                android:id="@+id/tv8"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/enableFishAnimation"
+                                style="@style/defaultTextViewStyle"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_weight="@dimen/settings_weight">
+                            <androidx.appcompat.widget.SwitchCompat
+                                android:id="@+id/switchEnableAnimation"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                style="@style/Material.Widget.Switch"
+                                android:importantForAccessibility="yes"/>
+                        </LinearLayout>
                     </TableRow>
                     <View
                         android:layout_width="wrap_content"
@@ -198,6 +225,7 @@
                         android:layout_marginBottom="@dimen/activity_vertical_margin"
                         android:background="@android:color/darker_gray"/>
                     <TableRow
+                        android:weightSum="1"
                         android:layout_marginBottom="@dimen/activity_vertical_margin">
                         <TextView
                             android:layout_width="wrap_content"
@@ -207,21 +235,26 @@
                             android:fontFamily="@font/mukta_semibold"/>
                     </TableRow>
                     <TableRow
+                        android:weightSum="1"
                         android:layout_marginBottom="@dimen/activity_vertical_margin">
-                        <TextView
-                            android:id="@+id/tv9"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                             android:layout_weight="@dimen/settings_weight"
-                            android:text="@string/enableIconAddition"
-                            style="@style/defaultTextViewStyle"/>
-                        <androidx.appcompat.widget.SwitchCompat
-                            android:id="@+id/switchEnableIconAddition"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                             android:layout_weight="@dimen/settings_weight"
-                            style="@style/Material.Widget.Switch"
-                            android:importantForAccessibility="yes"/>
+                        <LinearLayout
+                            android:layout_weight="0.3">
+                            <TextView
+                                android:id="@+id/tv9"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/enableIconAddition"
+                                style="@style/defaultTextViewStyle"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_weight="@dimen/settings_weight">
+                            <androidx.appcompat.widget.SwitchCompat
+                                android:id="@+id/switchEnableIconAddition"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                style="@style/Material.Widget.Switch"
+                                android:importantForAccessibility="yes"/>
+                        </LinearLayout>
                     </TableRow>
                     <View
                         android:id="@+id/divider"
@@ -241,21 +274,27 @@
                     </TableRow>
                     <TableRow
                         android:id="@+id/rowOtherSetting"
+                        android:weightSum="1"
                         android:layout_marginBottom="@dimen/activity_vertical_margin">
-                        <TextView
-                            android:id="@+id/tv5"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                             android:layout_weight="@dimen/settings_weight"
-                            android:text="@string/txtEnableBuiltInCalling"
-                            style="@style/defaultTextViewStyle"/>
-                        <androidx.appcompat.widget.SwitchCompat
-                            android:id="@+id/switchEnableCall"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                             android:layout_weight="@dimen/settings_weight"
-                            style="@style/Material.Widget.Switch"
-                            android:importantForAccessibility="yes"/>
+                        <LinearLayout
+                            android:layout_weight="0.3">
+                            <TextView
+                                android:id="@+id/tv5"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:maxEms="10"
+                                android:text="@string/txtEnableBuiltInCalling"
+                                style="@style/defaultTextViewStyle"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_weight="@dimen/settings_weight">
+                            <androidx.appcompat.widget.SwitchCompat
+                                android:id="@+id/switchEnableCall"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                style="@style/Material.Widget.Switch"
+                                android:importantForAccessibility="yes"/>
+                        </LinearLayout>
                     </TableRow>
                 </TableLayout>
                 <View
