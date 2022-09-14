@@ -1,5 +1,6 @@
 package com.dsource.idc.jellowintl.make_my_board_module.custom_dialogs;
 
+import static android.graphics.Color.WHITE;
 import static com.dsource.idc.jellowintl.factories.IconFactory.EXTENSION;
 import static com.dsource.idc.jellowintl.factories.PathFactory.getBasicCustomIconsDirectory;
 import static com.dsource.idc.jellowintl.factories.PathFactory.getIconPath;
@@ -28,8 +29,8 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -44,12 +45,19 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
+import com.canhub.cropper.CropImage;
+import com.canhub.cropper.CropImageContract;
+import com.canhub.cropper.CropImageContractOptions;
+import com.canhub.cropper.CropImageOptions;
+import com.canhub.cropper.CropImageView;
 import com.dsource.idc.jellowintl.Presentor.CustomBasicIconHelper;
 import com.dsource.idc.jellowintl.R;
 import com.dsource.idc.jellowintl.activities.BaseActivity;
@@ -61,8 +69,6 @@ import com.dsource.idc.jellowintl.make_my_board_module.interfaces.OnPhotoResultC
 import com.dsource.idc.jellowintl.models.JellowIcon;
 import com.dsource.idc.jellowintl.utility.SessionManager;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.theartofdev.edmodo.cropper.CropImage;
-import com.theartofdev.edmodo.cropper.CropImageView;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -89,6 +95,7 @@ public class DialogAddEditIcon extends BaseActivity implements View.OnClickListe
     private boolean addIcon = true;
     private boolean isCustomizedHomeIcon=false;
     private RadioGroup radioGroup;
+    private ActivityResultLauncher<CropImageContractOptions> customCropImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -117,6 +124,27 @@ public class DialogAddEditIcon extends BaseActivity implements View.OnClickListe
                 setAlreadyPresentIcon(icon, false);
             }
         }
+
+        customCropImage = registerForActivityResult(new CropImageContract(),
+                new ActivityResultCallback<CropImageView.CropResult>() {
+                    @Override
+                    public void onActivityResult(CropImageView.CropResult result) {
+                        if (result.isSuccessful()) {
+                            Bitmap bmp;
+                            try {
+                                iconImageSelected = true;
+                                bmp = MediaStore.Images.Media.getBitmap(getContentResolver(), result.getUriContent());
+                                revListener.onPhotoResult(bmp, CAMERA_REQUEST, null);
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        } else if (result.equals(CropImage.CancelledResult.INSTANCE)) {
+                            Log.d(getLocalClassName(), "Cancelled by user");
+                        } else {
+                            Log.d(getLocalClassName(), "CROP_IMAGE_ERROR");
+                        }
+                    }
+                });
     }
 
     /**
@@ -475,11 +503,11 @@ public class DialogAddEditIcon extends BaseActivity implements View.OnClickListe
             //Check if the device has a camera hardware
             if (hasCameraHardware()) {
                 if (checkPermissionForCamera() && checkPermissionForStorageRead()) {
-                    CropImage.activity()
-                            .setAspectRatio(1, 1)
-                            .setGuidelines(CropImageView.Guidelines.ON)
-                            .setFixAspectRatio(true)
-                            .start(this);
+                    CropImageOptions cio = new CropImageOptions();
+                    cio.imageSourceIncludeCamera = true;
+                    cio.imageSourceIncludeGallery = true;
+                    cio.activityTitle = "Select source";
+                    startImageSelector(cio);
                 } else {
                     final String[] permissions = new String[]{Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE};
                     ActivityCompat.requestPermissions(this, permissions, CAMERA_REQUEST);
@@ -513,11 +541,11 @@ public class DialogAddEditIcon extends BaseActivity implements View.OnClickListe
             if (grantResults.length > 0
                     && grantResults[0] == PackageManager.PERMISSION_GRANTED &&
                         grantResults[1] == PackageManager.PERMISSION_GRANTED) {
-                CropImage.activity()
-                        .setAspectRatio(1, 1)
-                        .setGuidelines(CropImageView.Guidelines.ON)
-                        .setFixAspectRatio(true)
-                        .start(this);
+                CropImageOptions cio = new CropImageOptions();
+                cio.imageSourceIncludeCamera = true;
+                cio.imageSourceIncludeGallery = true;
+                cio.activityTitle = "Select source";
+                startImageSelector(cio);
             } else {
                 Toast.makeText(this, "Permission denied", Toast.LENGTH_SHORT).show();
             }
@@ -534,28 +562,52 @@ public class DialogAddEditIcon extends BaseActivity implements View.OnClickListe
                     revListener.onPhotoResult(null, requestCode, fileName);
                 }
             }
-        } else if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
-            CropImage.ActivityResult result = CropImage.getActivityResult(data);
-            if (resultCode == RESULT_OK) {
-                Uri resultUri = result.getUri();
-                Bitmap bitmap1 = result.getBitmap();
-                if (bitmap1 != null) {
-                    revListener.onPhotoResult(result.getBitmap(), requestCode, null);
-                    iconImageSelected = true;
-                } else {
-                    try {
-                        iconImageSelected = true;
-                        bitmap1 = MediaStore.Images.Media.getBitmap(getContentResolver(), resultUri);
-                        revListener.onPhotoResult(bitmap1, requestCode, null);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-            } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
-                Exception error = result.getError();
-                if (error.getMessage() != null)
-                    Log.d("CROP_IMAGE_ERROR", error.getMessage());
-            }
         }
+    }
+
+    private void startImageSelector(CropImageOptions cio){
+        CropImageContractOptions options = new CropImageContractOptions(null, cio)
+                .setScaleType(CropImageView.ScaleType.FIT_CENTER)
+                .setCropShape(CropImageView.CropShape.RECTANGLE)
+                .setGuidelines(CropImageView.Guidelines.ON)
+                .setAspectRatio(16, 16)
+                .setMaxZoom(8)
+                .setAutoZoomEnabled(true)
+                .setMultiTouchEnabled(true)
+                .setCenterMoveEnabled(true)
+                .setShowCropOverlay(true)
+                .setAllowFlipping(true)
+                .setSnapRadius(3f)
+                .setTouchRadius(48f)
+                .setInitialCropWindowPaddingRatio(0.1f)
+                .setBorderLineThickness(12f)
+                .setBorderLineColor(R.color.black_eighty)
+                .setBorderCornerThickness(4f)
+                .setBorderCornerOffset(5f)
+                .setBorderCornerLength(14f)
+                .setBorderCornerColor(WHITE)
+                .setGuidelinesThickness(2f)
+                .setGuidelinesColor(WHITE)
+                .setBackgroundColor(Color.argb(119, 30, 60, 90))
+                .setMinCropWindowSize(24, 24)
+                .setMinCropResultSize(20, 20)
+                .setMaxCropResultSize(9999, 9999)
+                .setActivityTitle("Crop image")
+                .setActivityMenuIconColor(WHITE)
+                .setOutputUri(null)
+                .setOutputCompressFormat(Bitmap.CompressFormat.PNG)
+                .setOutputCompressQuality(90)
+                .setRequestedSize(0, 0)
+                .setRequestedSize(0, 0, CropImageView.RequestSizeOptions.RESIZE_FIT)
+                .setInitialCropWindowRectangle(null)
+                .setInitialRotation(0)
+                .setAllowCounterRotation(false)
+                .setFlipHorizontally(false)
+                .setFlipVertically(false)
+                .setCropMenuCropButtonTitle("Crop")
+                .setAllowRotation(true)
+                .setNoOutputImage(false)
+                .setFixAspectRatio(false);
+        customCropImage.launch(options);
     }
 }

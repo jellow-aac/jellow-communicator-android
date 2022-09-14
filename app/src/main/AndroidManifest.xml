@@ -61,6 +61,7 @@
             android:name=".activities.UserRegistrationActivity"
             android:configChanges="keyboardHidden|orientation|screenLayout"
             android:screenOrientation="landscape"
+            android:exported= "true"
             tools:ignore="LockedOrientationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -188,6 +189,7 @@
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="landscape"
+            android:exported="true"
             android:theme="@style/Base.Theme.AppCompat"
             tools:ignore="LockedOrientationActivity" />
         <activity
@@ -268,7 +270,8 @@
                 android:resource="@xml/method" />
         </service>
         -->
-        <service android:name=".utility.JellowFirebaseMessageService">
+        <service android:name=".utility.JellowFirebaseMessageService"
+            android:exported="true">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>

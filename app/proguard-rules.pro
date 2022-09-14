@@ -33,6 +33,7 @@
 #Androidx rules
 -dontwarn com.google.android.material.**
 -keep class com.google.android.material.** { *; }
+-keep class androix.appcompat.widget.** { *; }
 
 -dontwarn androidx.**
 -keep class androidx.** { *; }

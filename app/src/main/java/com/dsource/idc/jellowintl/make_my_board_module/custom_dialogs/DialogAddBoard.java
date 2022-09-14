@@ -1,5 +1,6 @@
 package com.dsource.idc.jellowintl.make_my_board_module.custom_dialogs;
 
+import static android.graphics.Color.WHITE;
 import static com.dsource.idc.jellowintl.factories.IconFactory.EXTENSION;
 import static com.dsource.idc.jellowintl.factories.PathFactory.getIconPath;
 import static com.dsource.idc.jellowintl.make_my_board_module.utility.BoardConstants.BOARD_ID;
@@ -19,8 +20,8 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -40,12 +41,19 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.resource.bitmap.CircleCrop;
+import com.canhub.cropper.CropImage;
+import com.canhub.cropper.CropImageContract;
+import com.canhub.cropper.CropImageContractOptions;
+import com.canhub.cropper.CropImageOptions;
+import com.canhub.cropper.CropImageView;
 import com.dsource.idc.jellowintl.R;
 import com.dsource.idc.jellowintl.activities.BaseActivity;
 import com.dsource.idc.jellowintl.activities.SpeechEngineBaseActivity;
@@ -62,8 +70,6 @@ import com.dsource.idc.jellowintl.make_my_board_module.presenter_interfaces.IAdd
 import com.dsource.idc.jellowintl.make_my_board_module.view_interfaces.IAddBoardDialogView;
 import com.dsource.idc.jellowintl.models.JellowIcon;
 import com.dsource.idc.jellowintl.utility.SessionManager;
-import com.theartofdev.edmodo.cropper.CropImage;
-import com.theartofdev.edmodo.cropper.CropImageView;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -79,6 +85,7 @@ public class DialogAddBoard extends BaseActivity implements IAddBoardDialogView,
     private OnPhotoResultCallBack reverseInterface;
     private boolean iconImageSelected = false;
     private ListView listView;
+    private ActivityResultLauncher<CropImageContractOptions> customCropImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,6 +104,27 @@ public class DialogAddBoard extends BaseActivity implements IAddBoardDialogView,
             else mPresenter.getBoardModel(id);
         } else
             setUpAddBoardDialog(null);
+
+        customCropImage = registerForActivityResult(new CropImageContract(),
+                new ActivityResultCallback<CropImageView.CropResult>() {
+                    @Override
+                    public void onActivityResult(CropImageView.CropResult result) {
+                        if (result.isSuccessful()) {
+                            Bitmap bitmap1 = null;
+                            try {
+                                bitmap1 = MediaStore.Images.Media.getBitmap(getContentResolver(), result.getUriContent());
+                                reverseInterface.onPhotoResult(bitmap1, CAMERA_REQUEST, null);
+                                iconImageSelected = true;
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        } else if (result.equals(CropImage.CancelledResult.INSTANCE)) {
+                            Log.d(getLocalClassName(), "Cancelled by user");
+                        } else {
+                            Log.d(getLocalClassName(), "CROP_IMAGE_ERROR");
+                        }
+                    }
+                });
     }
 
     @Override
@@ -328,11 +356,11 @@ public class DialogAddBoard extends BaseActivity implements IAddBoardDialogView,
             //Check if the device has a camera hardware
             if(hasCameraHardware()) {
                 if (checkPermissionForCamera() && checkPermissionForStorageRead()) {
-                    CropImage.activity()
-                            .setAspectRatio(1, 1)
-                            .setGuidelines(CropImageView.Guidelines.ON)
-                            .setFixAspectRatio(true)
-                            .start(this);
+                    CropImageOptions cio = new CropImageOptions();
+                    cio.imageSourceIncludeCamera = true;
+                    cio.imageSourceIncludeGallery = true;
+                    cio.activityTitle = "Select source";
+                    startImageSelector(cio);
                 } else {
                     final String[] permissions = new String[]{Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE};
                     ActivityCompat.requestPermissions(this, permissions, CAMERA_REQUEST);
@@ -360,17 +388,15 @@ public class DialogAddBoard extends BaseActivity implements IAddBoardDialogView,
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-
-
         if (requestCode == CAMERA_REQUEST)
             // If request is cancelled, the result arrays are empty.
             if (grantResults.length > 0
                     && grantResults[0] == PackageManager.PERMISSION_GRANTED && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
-                CropImage.activity()
-                        .setAspectRatio(1, 1)
-                        .setGuidelines(CropImageView.Guidelines.ON)
-                        .setFixAspectRatio(true)
-                        .start(this);
+                CropImageOptions cio = new CropImageOptions();
+                cio.imageSourceIncludeCamera = true;
+                cio.imageSourceIncludeGallery = true;
+                cio.activityTitle = "Select source";
+                startImageSelector(cio);
             } else {
                 Toast.makeText(this, "Permission denied", Toast.LENGTH_SHORT).show();
             }
@@ -380,7 +406,6 @@ public class DialogAddBoard extends BaseActivity implements IAddBoardDialogView,
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK) {
-
             /*
              * In this, we are collecting the name of the icon clicked on the search bar and using that to fetch the icon from the database.
              */
@@ -390,28 +415,54 @@ public class DialogAddBoard extends BaseActivity implements IAddBoardDialogView,
                     reverseInterface.onPhotoResult(null, requestCode, fileName);
                     iconImageSelected = true;
                 }
-
-            } else if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
-                CropImage.ActivityResult result = CropImage.getActivityResult(data);
-                Uri resultUri = result.getUri();
-                Bitmap bitmap1 = result.getBitmap();
-                if (bitmap1 != null) {
-                    reverseInterface.onPhotoResult(result.getBitmap(), requestCode, null);
-                    iconImageSelected = true;
-                } else {
-                    try {
-                        bitmap1 = MediaStore.Images.Media.getBitmap(getContentResolver(), resultUri);
-                        {
-                            reverseInterface.onPhotoResult(bitmap1, requestCode, null);
-                            iconImageSelected = true;
-                        }
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
             }
         }
+    }
 
+    private void startImageSelector(CropImageOptions cio){
+        CropImageContractOptions options = new CropImageContractOptions(null, cio)
+                .setScaleType(CropImageView.ScaleType.FIT_CENTER)
+                .setCropShape(CropImageView.CropShape.RECTANGLE)
+                .setGuidelines(CropImageView.Guidelines.ON)
+                .setAspectRatio(16, 16)
+                .setMaxZoom(8)
+                .setAutoZoomEnabled(true)
+                .setMultiTouchEnabled(true)
+                .setCenterMoveEnabled(true)
+                .setShowCropOverlay(true)
+                .setAllowFlipping(true)
+                .setSnapRadius(3f)
+                .setTouchRadius(48f)
+                .setInitialCropWindowPaddingRatio(0.1f)
+                .setBorderLineThickness(6f)
+                .setBorderLineColor(R.color.black_eighty)
+                .setBorderCornerThickness(4f)
+                .setBorderCornerOffset(5f)
+                .setBorderCornerLength(14f)
+                .setBorderCornerColor(WHITE)
+                .setGuidelinesThickness(2f)
+                .setGuidelinesColor(WHITE)
+                .setBackgroundColor(Color.argb(119, 30, 60, 90))
+                .setMinCropWindowSize(24, 24)
+                .setMinCropResultSize(20, 20)
+                .setMaxCropResultSize(99999, 99999)
+                .setActivityTitle("Crop image")
+                .setActivityMenuIconColor(WHITE)
+                .setOutputUri(null)
+                .setOutputCompressFormat(Bitmap.CompressFormat.PNG)
+                .setOutputCompressQuality(90)
+                .setRequestedSize(0, 0)
+                .setRequestedSize(0, 0, CropImageView.RequestSizeOptions.RESIZE_FIT)
+                .setInitialCropWindowRectangle(null)
+                .setInitialRotation(0)
+                .setAllowCounterRotation(false)
+                .setFlipHorizontally(false)
+                .setFlipVertically(false)
+                .setCropMenuCropButtonTitle("Crop")
+                .setAllowRotation(true)
+                .setNoOutputImage(false)
+                .setFixAspectRatio(false);
+        customCropImage.launch(options);
     }
 
     private void updateBoardDetails(BoardModel board, String name, Bitmap boardIcon) {
