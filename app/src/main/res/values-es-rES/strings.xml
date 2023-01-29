@@ -469,4 +469,11 @@
     <string name="txtCustomisationSetting">Configuración de personalización</string>
     <string name="txtOtherSetting">Otros ajustes</string>
     <string name="menuBoardsTrash">Tablero eliminado (Trashed Boards)</string>
+    <string name="trash_the_board">¿Quieres mover la papelera del tablero \"-\"?</string>
+    <string name="trash_board_placeholder">No se tiran tableros.</string>
+    <string name="restore_the_board">Restaurar el tablero actual</string>
+    <string name="boards_trash_screen">Pantalla de basura de tableros</string>
+    <string name="board_moved_to_trash">_ Tablero movido a la papelera</string>
+    <string name="board_restored_from_trash">Restaurado el tablero _</string>
+    <string name="voice_warning">Si no hay voz disponible para el idioma seleccionado o ve \\\"null\\\" en el menú desplegable de voz, actualice la aplicación Google Text to Speech desde Google Play Store e instale los datos de voz adicionales para el idioma en su dispositivo.</string>
 </resources>

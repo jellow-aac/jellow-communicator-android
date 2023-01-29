@@ -472,4 +472,11 @@
     <string name="txtOtherSetting">अन्य सेटिंग</string>
     <string name="txtCustomisationSetting">कस्टमायज़ेशन सेटिंग्स</string>
     <string name="menuBoardsTrash">डिलीट किये गए बोर्ड (Trashed Boards)</string>
+    <string name="trash_the_board">क्या आप \"-\" बोर्ड को ट्रैश में ले जाना चाहते हैं?</string>
+    <string name="trash_board_placeholder">कोई भी बोर्ड ट्रैश नहीं किया गया है।</string>
+    <string name="restore_the_board">वर्तमान बोर्ड को पुनर्स्थापित करें</string>
+    <string name="boards_trash_screen">बोर्ड ट्रॅश स्क्रीन</string>
+    <string name="board_moved_to_trash">_ बोर्ड ट्रैश में ले जाया गया</string>
+    <string name="board_restored_from_trash">_ बोर्ड को पुनर्स्थापित किया</string>
+    <string name="voice_warning">यदि चयनित भाषा(ओं) की आवाजें उपलब्ध नहीं हैं या आवाज ड्रॉप डाउन के नीचे \\\"null\\\"  दिख रही हैं, तो Google Play Store से Google टेक्स्ट टू स्पीच ऐप को अपडेट करें और अपने डिवाइस पर भाषा(ओं) के लिए ध्वनि डेटा स्थापित करें .</string>
 </resources>

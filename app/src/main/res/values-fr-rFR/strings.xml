@@ -466,4 +466,11 @@
     <string name="txtCustomisationSetting">Paramètres de personnalisation</string>
     <string name="txtOtherSetting">Autres réglages</string>
     <string name="menuBoardsTrash">Tableaux à la poubelle (Trashed Boards)</string>
+    <string name="trash_the_board">Voulez-vous déplacer le tableau \"-\" vers la corbeille ?</string>
+    <string name="trash_board_placeholder">Aucun tableau n\'est détruit.</string>
+    <string name="restore_the_board">Restaurer le tableau actuel</string>
+    <string name="boards_trash_screen">Écran de corbeille de tableau</string>
+    <string name="board_moved_to_trash">_ tableau déplacé vers la corbeille</string>
+    <string name="board_restored_from_trash">Restauré le tableau _</string>
+    <string name="voice_warning">Si les voix de la ou des langues sélectionnées ne sont pas disponibles ou s\'affichent nulles dans la liste déroulante des voix, mettez à jour l\'application de synthèse vocale de Google à partir du Google Play Store et installez les données vocales pour la ou les langues sur votre appareil. .</string>
 </resources>

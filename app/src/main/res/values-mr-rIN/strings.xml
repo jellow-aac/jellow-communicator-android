@@ -476,4 +476,11 @@
     <string name="txtDisplaySettings">प्रदर्शन सेटिंग्ज</string>
     <string name="txtCustomisationSetting">कस्टमायझेशन सेटिंग्ज</string>
     <string name="menuBoardsTrash">डिलीट केलेले बोर्ड (Trashed Boards)</string>
+    <string name="trash_the_board">तुम्हाला \"-\" बोर्ड ट्रॅश हलवायचा आहे का?</string>
+    <string name="trash_board_placeholder">कोणतेही फलक ट्रॅश टाकले जात नाहीत.</string>
+    <string name="restore_the_board">वर्तमान बोर्ड पुनर्संचयित करा</string>
+    <string name="boards_trash_screen">बोर्ड ट्रॅश स्क्रीन</string>
+    <string name="board_moved_to_trash">_ बोर्ड ट्रॅशमध्ये हलवला</string>
+    <string name="board_restored_from_trash">_ बोर्ड पुनर्संचयित केला</string>
+    <string name="voice_warning">"निवडलेल्या भाषेसाठी आवाज उपलब्ध नसल्यास किंवा व्हॉइस ड्रॉप डाउन खाली \\\"null \\\" दिसत असल्यास, कृपया Google Play Store वरून Google Text to Speech अॅप अपडेट करा आणि तुमच्या डिव्हाइसवर भाषेसाठी आवाज जोडा डेटा स्थापित करा. "</string>
 </resources>

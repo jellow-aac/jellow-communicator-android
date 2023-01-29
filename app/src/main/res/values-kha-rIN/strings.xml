@@ -502,4 +502,10 @@
     <string name="txtCustomisationSetting">Customization Settings</string>
     <string name="txtOtherSetting">Other Settings</string>
     <string name="menuBoardsTrash">Trashed Boards</string>
+    <string name="trash_the_board">Do you want to move the \"-\" board to trash?</string>
+    <string name="trash_board_placeholder">No boards are trashed.</string>
+    <string name="restore_the_board">Restore the current board</string>
+    <string name="boards_trash_screen">Boards trash screen</string>
+    <string name="board_moved_to_trash">_ board moved to trash</string>
+    <string name="board_restored_from_trash">Restored the _ board</string>
 </resources>

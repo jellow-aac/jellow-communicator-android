@@ -480,4 +480,10 @@
     <string name="txtCustomisationSetting">કસ્ટમાઇઝેશન સેટિંગ્સ</string>
     <string name="txtOtherSetting">અન્ય સેટિંગ્સ</string>
     <string name="menuBoardsTrash">કાઢી નાખેલ બોર્ડ (Trashed Boards)</string>
+    <string name="trash_the_board">શું તમે \"-\" બોર્ડને કચરાપેટીમાં ખસેડવા માંગો છો?</string>
+    <string name="trash_board_placeholder">કોઈ બોર્ડ કચરાપેટીમાં નાખવામાં આવતા નથી.</string>
+    <string name="restore_the_board">વર્તમાન બોર્ડ પુનઃસ્થાપિત કરો</string>
+    <string name="boards_trash_screen">બોર્ડ ટ્રેશ સ્ક્રીન</string>
+    <string name="board_moved_to_trash">_ બોર્ડ કચરાપેટીમાં ખસેડ્યું</string>
+    <string name="board_restored_from_trash">_ બોર્ડ પુનઃસ્થાપિત કર્યું</string>
 </resources>

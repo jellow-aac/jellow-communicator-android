@@ -471,4 +471,11 @@
     <string name="txtCustomisationSetting">అనుకూలీకరణ సెట్టింగ్‌లు</string>
     <string name="txtOtherSetting">ఇతర సెట్టింగ్‌లు</string>
     <string name="menuBoardsTrash">తొలగించబడిన బోర్డు (Trashed Boards)</string>
+    <string name="trash_the_board">మీరు \"-\" బోర్డు ట్రాష్‌ని తరలించాలనుకుంటున్నారా?</string>
+    <string name="trash_board_placeholder">బోర్డులు ఏవీ ట్రాష్ చేయబడలేదు.</string>
+    <string name="restore_the_board">ప్రస్తుత బోర్డుని పునరుద్ధరించండి</string>
+    <string name="boards_trash_screen">బోర్డుల ట్రాష్ స్క్రీన్</string>
+    <string name="board_moved_to_trash">_ బోర్డు చెత్తకు తరలించబడింది</string>
+    <string name="board_restored_from_trash">_ బోర్డు పునరుద్ధరించబడింది</string>
+    <string name="voice_warning">ఎంచుకున్న భాషకు వాయిస్ అందుబాటులో లేకుంటే లేదా వాయిస్ డ్రాప్ డౌన్ కింద \\\"null\\\" కనిపిస్తే, దయచేసి Google Play Store నుండి Google Text to Speech యాప్‌ను అప్‌డేట్ చేయండి మరియు మీ పరికరంలో భాష కోసం యాడ్ వాయిస్ డేటాను ఇన్‌స్టాల్ చేయండి.</string>
 </resources>
