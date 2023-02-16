@@ -508,4 +508,6 @@
     <string name="boards_trash_screen">Boards trash screen</string>
     <string name="board_moved_to_trash">_ board moved to trash</string>
     <string name="board_restored_from_trash">Restored the _ board</string>
+    <string name="acc_lang_gujarati_in">Gujarati (India)</string>
+    <string name="acc_lang_punjabi_in">Punjabi (India)</string>
 </resources>
