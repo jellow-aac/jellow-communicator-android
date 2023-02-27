@@ -1,0 +1,23 @@
+Testing by developer:
+1) Go throught all sceens in app.
+1.1) Functionalities :
+		- Datapush (Registration, Screen usage).
+		- Check logs, Custom keys reported, Identifier reported.
+		- Call (Settings).
+		- About jellow speak checks for all languages.
+		- Keyboard, about jellow, hide show expressive icons, 
+		 change user setting 1, 2, 3, 4& 9 icons, text + picture, picture only
+		 tts pitch, speed, Media playback for about me (for all regions).
+		- Visit all categories once for all locales.
+		- Keep device offline and change language. Keep/ remove voice data.
+		- Switch between all languages.
+		- perform search on in all locales.
+		- Accessibility setting video check if it is playing.
+		- Test on upgrade from previous version to new version
+1.2) Check firebase event reported on debug
+2) Resume, Keep app idle, Keep app running multiple days, Run app on low memory, Resume app on low memory.
+3) Icon updator feature.
+4) Run monkey runner then firebase tester.
+5) Notification system.
+6) Check Speech out for each testing device on Hindi and English (India)
+- List each single functionality in App here.

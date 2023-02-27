@@ -1,11 +1,21 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-##[4.0.2] - Yet to release
-- Gujarati language.
-- Marathi with tts
-- Punjabi
+##[4.0.4] - Yet to release
+- Kannada and Malayalam language add
 - New animation yet to add
+- Marathi with tts
+
+##[4.0.3] - 07 Feb, 2023
+- Gujarati language
+- Punjabi language
+
+##[4.0.2] - 29 Jan, 2023
+- This version was pushed to the Play Store to make the app live to the Play Store.
+- The was taken down by the Google Play Store
+
+##[4.0.2] - Jul 12, 2022
+- Camera for newer devices [issue fix]
 - On package update boards custom icons get deleted [issue fix]
 
 ##[4.0.1] - 12 Dec, 2021
@@ -106,7 +116,7 @@ All notable changes to this project will be documented in this file.
 - Removed xml data files from values folder.  
 
 
-##[1.2.5]  - 27, December 2018
+##[1.2.5] - 27, December 2018
 - Addition of Visual accessibility (TalkBack support).
 - Addition of new language: English (Australia)
 - New design for Serial Keyboard.
@@ -116,7 +126,7 @@ All notable changes to this project will be documented in this file.
 - Bug reported on Crashlytics.
 
 
-##[1.2.4]  - 16, October 2018
+##[1.2.4] - 16, October 2018
 - Addition of new language: Marathi (India)
 - Support for Android 9 devices (enable clear text traffic, disabled multi windows support)
 - Unified parameter value for Firebase event
@@ -128,7 +138,7 @@ All notable changes to this project will be documented in this file.
 - Added Google text-to-speech engine availability in Intro
 
 
-##[1.2.3]  - 12, September 2018
+##[1.2.3] - 12, September 2018
 - Addition of new language: Bengali (India)
 - All items in the ‘Places’ category now have context-appropriate sub-categories.
 - Addition of new content/icons pertaining to good and bad habits, socially appropriate behaviors and reporting of abuse.
@@ -138,7 +148,7 @@ All notable changes to this project will be documented in this file.
 - Fixed other issues.
 
 
-## [1.2.3]  -  23th, August 2018
+## [1.2.3] - 23th, August 2018
 - This is alpha version.
 
 ### Added
@@ -149,12 +159,12 @@ All notable changes to this project will be documented in this file.
 ##FIXED
 - Issues reported on firebase.
 
-## [1.2.2] -  22th, June 2018
+## [1.2.2] - 22th, June 2018
 ##FIXED
 - Wifi only devices are unable to download new version. 
 
 
-## [1.2.1]  -  20th, June 2018
+## [1.2.1] -  20th, June 2018
 ### Added
 - Search a category icon from level 1,2,3 and activity sequence screens in the app.
 - Search events.
@@ -185,7 +195,7 @@ All notable changes to this project will be documented in this file.
 - Other issues reported in Firebase crash reporter.
 
 
-## [1.2.0]    -   19th, March 2018
+## [1.2.0] - 19th, March 2018
 ### Added
 - Major additions.
 - New content, verbiage, icons into categories Greet and Feel-> Requests, Daily Activities-> Therapy,
