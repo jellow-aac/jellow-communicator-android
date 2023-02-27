@@ -157,7 +157,6 @@ public class SpeechEngineBaseActivity extends BaseActivity{
     private String getTTsEngineNameForLanguage(String language) {
         switch(language){
             case PA_IN:
-                return  "org.hear2read.Punjabi";
             case ENG_UK:
             case ENG_US:
             case ENG_AU:
@@ -186,8 +185,6 @@ public class SpeechEngineBaseActivity extends BaseActivity{
     }
 
     private Voice getVoiceObject(String voice){
-        if(voice.equals(PA_IN))
-            voice = "pan-IND";
         for (Voice v : sTts.getVoices()) {
             if (v.getName().equals(voice)){
                 return v;
@@ -212,9 +209,9 @@ public class SpeechEngineBaseActivity extends BaseActivity{
     public void speak(String speechText){
         stopSpeaking();
         /*Extra symbol '_' is appended to end of every string from custom keyboard utterances.
-        *Extra symbol '-' is appended to end of every string from make my board speak request.
-        * Hence utterances will use tts engine to speak irrespective of type of language
-        * (tts language or non tts) */
+         *Extra symbol '-' is appended to end of every string from make my board speak request.
+         * Hence utterances will use tts engine to speak irrespective of type of language
+         * (tts language or non tts) */
         if (speechText.contains("_") || speechText.contains("-") || !isNoTTSLanguage())
             sTts.speak(speechText.replace("_","").replace("-",""), TextToSpeech.QUEUE_FLUSH, map);
         else
@@ -253,7 +250,7 @@ public class SpeechEngineBaseActivity extends BaseActivity{
     }
 
     public boolean isEngineSpeaking(){
-       return sTts.isSpeaking();
+        return sTts.isSpeaking();
     }
 
     public void setSpeechRate(float rate){
@@ -401,12 +398,9 @@ public class SpeechEngineBaseActivity extends BaseActivity{
     }
 
     public void initiateSpeechEngineWithLanguage(String voice){
-        if(getSession().getLanguage().equals(PA_IN)){
-            voice = PA_IN;
-        } else if(voice == null || voice.isEmpty()){
-           voice = getAvailableVoicesForLanguage(getSession().getLanguage()).split(",")[0];
+        if(voice == null || voice.isEmpty()){
+            voice = getAvailableVoicesForLanguage(getSession().getLanguage()).split(",")[0];
         }
-
         setupSpeechEngine(voice, getSession().getLanguage());
     }
 
@@ -416,9 +410,11 @@ public class SpeechEngineBaseActivity extends BaseActivity{
             put("bn-in-x-bin-local"," (M)");
             put("bn-in-x-bnf-local"," (F)");
             put("bn-in-x-bnm-local"," (M)");
+            put("bn-in-x-bnx-local"," (F)");
             put("de-de-x-deb-local"," (M)");
             put("de-de-x-deg-local"," (M)");
             put("de-de-x-nfh-local"," (F)");
+            put("de-de-x-dea-local"," (F)");
             put("en-au-x-afh-local"," (F)");
             put("en-au-x-aua-local"," (F)");
             put("en-au-x-aub-local"," (M)");
@@ -446,7 +442,11 @@ public class SpeechEngineBaseActivity extends BaseActivity{
             put("en-us-x-tpc-local"," (F)");
             put("en-us-x-tpd-local"," (M)");
             put("en-us-x-tpf-local"," (F)");
-            put("es-es-x-ana-local"," (F)");
+            put("es-es-x-eea-local"," (F)");
+            put("es-es-x-eec-local"," (F)");
+            put("es-es-x-eed-local"," (M)");
+            put("es-es-x-eee-local"," (F)");
+            put("es-es-x-eef-local"," (M)");
             put("fr-fr-x-fra-local"," (F)");
             put("fr-fr-x-frb-local"," (M)");
             put("fr-fr-x-frc-local"," (F)");
@@ -461,9 +461,13 @@ public class SpeechEngineBaseActivity extends BaseActivity{
             put("hi-in-x-hie-local"," (M)");
             put("mr-in-x-mrf-local"," (F)");
             put("ta-in-x-taf-local"," (F)");
-            put("ta-in-x-tag-local"," (F)");
+            put("ta-in-x-tag-local"," (M)");
             put("te-in-x-tef-local"," (F)");
-            put("te-in-x-tem-local"," (F)");
+            put("te-in-x-tem-local"," (M)");
+            put("pa-in-x-pac-local"," (F)");
+            put("pa-in-x-pad-local"," (M)");
+            put("pa-in-x-pae-local"," (F)");
+            put("pa-in-x-pag-local"," (M)");
         }
     };
 }
