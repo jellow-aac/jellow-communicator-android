@@ -13,7 +13,7 @@ import org.junit.runner.RunWith;
 
 import static com.dsource.idc.jellowintl.utility.SessionManager.ENG_IN;
 
-@RunWith(AndroidJUnit4.class)
+//@RunWith(AndroidJUnit4.class)
 public class SessionManagerTest {
     private SessionManager mSession;
 

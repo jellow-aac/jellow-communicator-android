@@ -1,6 +1,6 @@
 package com.dsource.idc.jellowintl.utility;
 
-/**
+/*
  * Created by ekalpa on 23-Jun-16.
  **/
 
@@ -54,8 +54,8 @@ public class SessionManager {
             put("தமிழ் (Tamil)", TA_IN);
             put("বাংলা (Bangladesh)", BN_BD);
             put("తెలుగు (Telugu)", TE_IN);
-            //put("ગુજરાતી (Gujarati-Testing)", GU_IN);
-            //put("ਪੰਜਾਬੀ (Punjabi-Testing)", PA_IN);
+            put("ગુજરાતી (Gujarati)", GU_IN);
+            put("ਪੰਜਾਬੀ (Punjabi)", PA_IN);
             //put("Khasi (Testing)", KHA_IN);
         }
     };
@@ -76,8 +76,8 @@ public class SessionManager {
             put(TA_IN, "தமிழ் (Tamil)");
             put(BN_BD, "বাংলা (Bangladesh)");
             put(TE_IN, "తెలుగు (Telugu)");
-            //put(GU_IN, "ગુજરાતી (Gujarati-Testing)");
-            //put(PA_IN, "ਪੰਜਾਬੀ (Punjabi-Testing)");
+            put(GU_IN, "ગુજરાતી (Gujarati)");
+            put(PA_IN, "ਪੰਜਾਬੀ (Punjabi)");
             //put(KHA_IN, "Khasi (Testing)");
         }
     };
