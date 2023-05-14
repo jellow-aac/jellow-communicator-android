@@ -36,6 +36,8 @@ import static com.dsource.idc.jellowintl.utility.SessionManager.FR_FR;
 import static com.dsource.idc.jellowintl.utility.SessionManager.GU_IN;
 import static com.dsource.idc.jellowintl.utility.SessionManager.HI_IN;
 import static com.dsource.idc.jellowintl.utility.SessionManager.KHA_IN;
+import static com.dsource.idc.jellowintl.utility.SessionManager.KN_IN;
+import static com.dsource.idc.jellowintl.utility.SessionManager.ML_IN;
 import static com.dsource.idc.jellowintl.utility.SessionManager.MR_IN;
 import static com.dsource.idc.jellowintl.utility.SessionManager.PA_IN;
 import static com.dsource.idc.jellowintl.utility.SessionManager.TA_IN;
@@ -124,6 +126,8 @@ public class SpeechEngineBaseActivity extends BaseActivity{
             case GU_IN:
             case PA_IN:
             case KHA_IN:
+            case KN_IN:
+            case ML_IN:
             default:
                 return (float) getSession().getPitch()/50;
         }
@@ -149,6 +153,8 @@ public class SpeechEngineBaseActivity extends BaseActivity{
             case GU_IN:
             case PA_IN:
             case KHA_IN:
+            case KN_IN:
+            case ML_IN:
             default:
                 return (float) (getSession().getSpeed()/50);
         }
@@ -174,6 +180,8 @@ public class SpeechEngineBaseActivity extends BaseActivity{
             case TE_IN:
             case GU_IN:
             case KHA_IN:
+            case KN_IN:
+            case ML_IN:
             default:
                 return "com.google.android.tts";
         }
@@ -468,6 +476,10 @@ public class SpeechEngineBaseActivity extends BaseActivity{
             put("pa-in-x-pad-local"," (M)");
             put("pa-in-x-pae-local"," (F)");
             put("pa-in-x-pag-local"," (M)");
+            put("kn-in-x-knf-local"," (F)");
+            put("kn-in-x-knm-local"," (M)");
+            put("ml-in-x-mlf-local"," (F)");
+            put("ml-in-x-mlm-local"," (M)");
         }
     };
 }

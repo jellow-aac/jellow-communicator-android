@@ -41,3 +41,9 @@ Change using language variable in SessionManager class (MR_IN)
 - SessionManager, Commented the NoTTSLang ArrayList definition
 - LevelTwoActivity, Commented Like, Yes, More, Don't Like, No, Less buttons listner verbiage speak
 - SettingActivity,Commented in onCreate method
+
+
+Language name update keys in strings.xml for each language version-
+1) about_jellow_speech
+2) ttsDesc
+3) about_je_intro7
