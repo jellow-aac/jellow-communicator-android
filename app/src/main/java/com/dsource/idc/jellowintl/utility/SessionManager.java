@@ -78,13 +78,18 @@ public class SessionManager {
             put(TE_IN, "తెలుగు (Telugu)");
             put(GU_IN, "ગુજરાતી (Gujarati)");
             put(PA_IN, "ਪੰਜਾਬੀ (Punjabi)");
-            //put(KHA_IN, "Khasi (Testing)");
         }
     };
 
     public final static ArrayList<String> NoTTSLang = new ArrayList<String>(){{
         add(MR_IN);
     }};
+
+    public final static HashMap<String,String> Hear2ReadVoiceMap = new HashMap<String,String>(){
+        {
+            put(HI_IN,"hin_IND_tdil");
+        }
+    };
 
     private final String PREF_NAME = "JellowPreferences";
     private final String KEY_IS_LOGGEDIN = "isLoggedIn";

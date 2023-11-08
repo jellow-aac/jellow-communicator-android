@@ -156,7 +156,7 @@ public class MainActivity extends LevelBaseActivity implements BasicCustomIconsC
                 view.setAlpha(GlobalConstants.DISABLE_ALPHA);
                 view.setEnabled(false);
             }
-        new UpdatePackageCheckUtils().checkLanguagePackageUpdateAvailable(this);
+       // new UpdatePackageCheckUtils().checkLanguagePackageUpdateAvailable(this);
     }
 
     @Override

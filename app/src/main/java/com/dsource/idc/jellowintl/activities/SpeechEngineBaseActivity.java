@@ -17,7 +17,12 @@ import com.google.firebase.crashlytics.FirebaseCrashlytics;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 
 import static com.dsource.idc.jellowintl.factories.PathFactory.UNIVERSAL_FOLDER;
@@ -58,26 +63,26 @@ public class SpeechEngineBaseActivity extends BaseActivity{
     }
 
     private void setupSpeechEngine(final String voice, String language) {
-        sTts = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
-            @Override
-            public void onInit(int status) {
-                try {
-                    if(status == TextToSpeech.ERROR || (sTts != null &&
-                            !sTts.getEngines().toString().contains(getTTsEngineNameForLanguage("")))){
-                        mErrorHandler.speechEngineNotFoundError();
-                        return;
-                    }
-                    if(sTts == null)
-                        return;
-
+        sTts = new TextToSpeech(getApplicationContext(), status -> {
+            try {
+                if(status == TextToSpeech.ERROR || (sTts != null &&
+                        !sTts.getEngines().toString().contains(getTTsEngineNameForLanguage("")))){
+                    mErrorHandler.speechEngineNotFoundError();
+                    return;
+                }
+                if(sTts == null)
+                    return;
+                if(language.equals(HI_IN))
+                    resolveVoiceAsPerUserSelectedLanguageForHear2Read(language);
+                else {
                     sTts.setVoice(getVoiceObject(voice));
                     sTts.setSpeechRate(getTTsSpeedForLanguage(language));
                     sTts.setPitch(getTTsPitchForLanguage(language));
                     if (voice.endsWith(MR_IN))
                         createUserProfileRecordingsUsingTTS();
-                } catch (Exception e) {
-                    FirebaseCrashlytics.getInstance().recordException(e);
                 }
+            } catch (Exception e) {
+                FirebaseCrashlytics.getInstance().recordException(e);
             }
         }, getTTsEngineNameForLanguage(language));
 
@@ -102,6 +107,18 @@ public class SpeechEngineBaseActivity extends BaseActivity{
                 }
             }
         });
+    }
+
+    private void resolveVoiceAsPerUserSelectedLanguageForHear2Read(String language) {
+        ArrayList<Voice> list = new ArrayList<>(sTts.getVoices());
+        for (int i=0;i<list.size();i++){
+            if((list.get(i)).getLocale().toString()
+                    .equals(SessionManager.Hear2ReadVoiceMap.get(language))){
+                sTts.setVoice(list.get(i));
+                break;
+            }
+        }
+        sTts.setVoice((Voice) sTts.getVoices().toArray()[0]);
     }
 
     private float getTTsPitchForLanguage(String language) {
@@ -156,12 +173,13 @@ public class SpeechEngineBaseActivity extends BaseActivity{
 
     private String getTTsEngineNameForLanguage(String language) {
         switch(language){
+            case HI_IN:
+                return "org.hear2read.indic";
             case PA_IN:
             case ENG_UK:
             case ENG_US:
             case ENG_AU:
             case ENG_NG:
-            case HI_IN:
             case ENG_IN:
             case BN_IN:
             case BE_IN:

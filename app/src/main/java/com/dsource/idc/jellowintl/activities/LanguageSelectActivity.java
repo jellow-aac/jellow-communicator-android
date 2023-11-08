@@ -62,7 +62,7 @@ public class LanguageSelectActivity extends SpeechEngineBaseActivity {
         applyMonochromeColor();
         setNavigationUiConditionally();
         LanguageFactory.deleteOldLanguagePackagesInBackground(this);
-        new UpdatePackageCheckUtils().checkLanguagePackageUpdateAvailable(this);
+        //new UpdatePackageCheckUtils().checkLanguagePackageUpdateAvailable(this);
         mStep2 = getString(R.string.change_language_tts_wifi);
         mStep3 = getString(R.string.change_language_line5);
         mLangChanged = getString(R.string.languageChanged);
