@@ -1,28 +1,28 @@
 # How To Use Jellow Communicator using Hear2Read Texto-To-Speech engine 
 
 # Step 1
-- Download Hear2Read application on your device from Google Play. * [Google Play Link](#google-play-link)
+- Download Hear2Read application on your device from Google Play. * [Google Play Link][google-play-link]
 
 # Step 2
 - Download Hear2Read Hear2Read Hindi Voice from the Hear2Read application. 
-  a. [Add Voice](#screenshot1)
-  b. [Download Hindi Voice](#screenshot2)
-  c. [Hindi Voice Downloading](#screenshot3)
-  d. [Download Complete](#screenshot4)
+  a. [Add Voice][screenshot1]
+  b. [Download Hindi Voice][screenshot2]
+  c. [Hindi Voice Downloading][screenshot3]
+  d. [Download Complete][screenshot4]
 
 # Step 3
-- Download apk file [**From Here**](#download-from-here) and install installation file of Jellow Communicator app.
+- Download apk file [**From Here**][download-from-here] and install installation file of Jellow Communicator app.
 
 # Step 4
 - Select Hindi language during in app registration.
-  a. [Select Hindi](#screenshot5)
+  a. [Select Hindi][screenshot5]
 
 # Step 5
 - Start using the application.
 
 
 ## Git Repository code and Branch
-- Link to branch in our repository for the above installation file is [hear-2-read-compatibility](#link-to-branch)
+- Link to branch in our repository for the above installation file is [hear-2-read-compatibility][link-to-branch]
 
 
 [google-play-link]: https://play.google.com/store/apps/details?id=org.hear2read.indic
