@@ -1,10 +1,13 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-##[4.0.4] - Yet to release
+##[4.x.x] - Yet to release
 - Kannada and Malayalam language add
 - New animation yet to add
 - Marathi with tts
+
+##[4.1.0] - Yet to release
+- Kannada and Malayalam language add
 
 ##[4.0.3] - 07 Feb, 2023
 - Gujarati language

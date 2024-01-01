@@ -407,7 +407,7 @@ public class SpeechEngineBaseActivity extends BaseActivity{
 
     public void initiateSpeechEngineWithLanguage(String voice){
         if(voice == null || voice.isEmpty()){
-            voice = getAvailableVoicesForLanguage(getSession().getLanguage()).split(",")[0];
+           voice = getAvailableVoicesForLanguage(getSession().getLanguage()).split(",")[0];
         }
         setupSpeechEngine(voice, getSession().getLanguage());
     }
