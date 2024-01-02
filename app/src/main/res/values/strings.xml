@@ -70,7 +70,6 @@
         <item>Nine</item>
     </string-array>
 
-    <string name="change_language_line2">Select any language from the dropdown below:</string>
     <string name="simple_ime">Jellow Keyboard</string>
     <string name="subtype_en_US">Serial ABC</string>
     <string name="perform_db_update" translatable="false">com.dsource.idc.jellow.perform_db_update</string>
@@ -141,7 +140,7 @@
     <string name="iconsHasBeenReset">Preferences have been reset.</string>
     <string name="speak">Speak</string>
     <string name="stop">Stop</string>
-    <string name="about_jellow_speech">Jellow is a communicator, using icons to enable speech and can be used by those learning to speak, or those who have difficulty with speech. Jellow can also be used by toddlers and early learners to learn words and categories frequently used in their daily lives. Jellow\'s colourful and friendly icons can help children develop an association between pictures and their corresponding word labels. It is developed at IDC School of Design at the Indian Institute of Technology Bombay located in Mumbai. A novel Emotional Language Proto call or ELP was conceived and developed by the project investigators, in order to enhance the language ability of Jellow. ELP represents the 6 expressive icons that form the core of the interface. Using these core icons, the child can communicate their likes, dislikes, and needs with others. Jellow is conceived as children-friendly with an easy-to-learn interface. The application is optimized for Android tablets. Jellow is currently available in English, Hindi, Bengali, Marathi, Tamil, Telugu, Gujarati, Punjabi, Spanish, German and French. The current version of Jellow is _. The application is under further development. Therefore, if you have any suggestions for us, please submit it under the feedback tab or write to us at jellowcommunicator@gmail.com. Jellow is licensed under a Creative Commons Attribution Non-commercial Share Alike 4.0 International License. Work on Jellow is attributed to the Indian Institute of Technology Bombay. The content in this application comprising icons, layout, architecture, visual identity, translation, and the software codes can be shared and adopted but cannot be used for commercial purposes. When the content is used, we request you to acknowledge Indian Institute of Technology Bombay. Jellow is available for download at www dot jellow dot o r g. If interested in further developing the code or to conduct a Jellow workshop at your place, please write to Professor Ravi Poovaiah at j e l l o w c o m m u n i c a t o r @ g m a i l . c o m</string>
+    <string name="about_jellow_speech">Jellow is a communicator, using icons to enable speech and can be used by those learning to speak, or those who have difficulty with speech. Jellow can also be used by toddlers and early learners to learn words and categories frequently used in their daily lives. Jellow\'s colourful and friendly icons can help children develop an association between pictures and their corresponding word labels. It is developed at IDC School of Design at the Indian Institute of Technology Bombay located in Mumbai. A novel Emotional Language Proto call or ELP was conceived and developed by the project investigators, in order to enhance the language ability of Jellow. ELP represents the 6 expressive icons that form the core of the interface. Using these core icons, the child can communicate their likes, dislikes, and needs with others. Jellow is conceived as children-friendly with an easy-to-learn interface. The application is optimized for Android tablets. Jellow is currently available in English, Hindi, Bengali, Marathi, Tamil, Telugu, Gujarati, Punjabi, Kannada, Malayalam, Spanish, German and French. The current version of Jellow is _. The application is under further development. Therefore, if you have any suggestions for us, please submit it under the feedback tab or write to us at jellowcommunicator@gmail.com. Jellow is licensed under a Creative Commons Attribution Non-commercial Share Alike 4.0 International License. Work on Jellow is attributed to the Indian Institute of Technology Bombay. The content in this application comprising icons, layout, architecture, visual identity, translation, and the software codes can be shared and adopted but cannot be used for commercial purposes. When the content is used, we request you to acknowledge Indian Institute of Technology Bombay. Jellow is available for download at www dot jellow dot o r g. If interested in further developing the code or to conduct a Jellow workshop at your place, please write to Professor Ravi Poovaiah at j e l l o w c o m m u n i c a t o r @ g m a i l . c o m</string>
     <string name="catBtnDesc">Jellow has 9 central category buttons and 6 expressive side buttons:</string>
     <string name="catBtn">Category buttons:</string>
     <string name="expBtn">Expressive buttons:</string>
@@ -154,7 +153,7 @@
     <string name="seqActDesc">Jellow can also be used to teach children sequential steps of daily activities. By clicking on any individual step, the user may view the expressive buttons:</string>
     <string name="toiletSeq">Toilet sequence:</string>
     <string name="expBtnSeq">Expressive buttons in the sequence:</string>
-    <string name="ttsDesc">To use Jellow in English, Hindi, Bengali, Tamil, Telugu, Gujarati, Punjabi, Spanish, German, French, please activate <b>\'Google text-to-speech (TTS)\'</b> within <b>\'Language\'</b> settings of your device. Within Google TTS settings, first change the <b>default language</b> to preferred language and then download voice for preferred language through the <b>\'Install voice data\'</b> option</string>
+    <string name="ttsDesc">To use Jellow in English, Hindi, Bengali, Tamil, Telugu, Gujarati, Punjabi, Kannada, Malayalam, Spanish, German, French, please activate <b>\'Google text-to-speech (TTS)\'</b> within <b>\'Language\'</b> settings of your device. Within Google TTS settings, first change the <b>default language</b> to preferred language and then download voice for preferred language through the <b>\'Install voice data\'</b> option</string>
     <string name="resetPrefPointOne">Jellow remembers the user’s “most-used or preferred” icons and displays them as the top choices on the screen</string>
     <string name="resetPrefPointTwo">By resetting preferences, the icons will be set to the original order in which they were displayed the first time the application was opened</string>
     <string name="resetPrefPointThree">Do you want to reset preferences?</string>
@@ -240,7 +239,7 @@
     <string name="about_je_intro4">Using these core icons, the child can communicate their likes, dislikes, and needs with others.</string>
     <string name="about_je_intro5">Jellow is conceived as children-friendly with an easy-to-learn interface.</string>
     <string name="about_je_intro6">The application is optimized for Android tablets.</string>
-    <string name="about_je_intro7">Jellow is currently available in English, Hindi, Marathi, Bengali, Tamil, Telugu, Gujarati, Punjabi, Spanish, German, French</string>
+    <string name="about_je_intro7">Jellow is currently available in English, Hindi, Marathi, Bengali, Tamil, Telugu, Gujarati, Punjabi, Kannada, Malayalam, Spanish, German, French</string>
     <string name="play_video">Play video</string>
     <string name="software_info">Software Version: _</string>
     <string name="about_je_intro8">The current version of Jellow is _. The application is under further development. Therefore, if you have any suggestions for us, please submit it under the feedback tab or write to us at jellowcommunicator@gmail.com</string>
@@ -319,7 +318,7 @@
     <string name="txt_tts_stting">TTS SETTINGS</string>
     <string name="change_language_tts_wifi">Step 1: Go to settings of Google TTS and turn off \'Use Wi-Fi only\' by tapping below \'TTS SETTINGS\' button. If option is already disabled, please skip this step.</string>
     <string name="error_in_registration" translatable="false">Registration process is failed, please retry.</string>
-    <string name="lang_setting_option1_cd">“The image below shows the 3 steps involved in setting up the Google text-to-speech engine that is used by Jellow. The image is made up of 3 screenshots of the, “Text to speech output” and “Google TTS settings” within a user’s device. In the first image corresponding to “Text-to-speech output”, there are 2 preferred engines visible, first, the, “Samsung Text-to-Speech engine” and second, the, “Google Text-to-Speech engine”. The user is seen to select the, “Google Text-to-Speech engine” as the first step.</string>
+    <string name="lang_setting_option1_cd">The image below shows the 3 steps involved in setting up the Google text-to-speech engine that is used by Jellow. The image is made up of 3 screenshots of the, “Text to speech output” and “Google TTS settings” within a user’s device. In the first image corresponding to “Text-to-speech output”, there are 2 preferred engines visible, first, the, “Samsung Text-to-Speech engine” and second, the, “Google Text-to-Speech engine”. The user is seen to select the, “Google Text-to-Speech engine” as the first step.</string>
     <string name="lang_setting_option2_cd">The second image corresponds to the second step in this process where the user is seen to now click on the, “Gear” symbol corresponding to the, “Settings” of the, “Google Text-to-Speech engine”</string>
     <string name="lang_setting_option3_cd">The third image is the third step in this process where now the user is at the, “Google TTS options” screen. The second item on this screen which is a toggle switch for “Use Wi-Fi only” has been highlighted in this image. The user is asked to turn off or disable this switch in this step.”</string>
     <string name="retry" translatable="false">RETRY</string>
@@ -341,6 +340,8 @@
     <string name="acc_lang_german_ger">German (Deutschland)</string>
     <string name="acc_lang_gujarati_in">Gujarati (India)</string>
     <string name="acc_lang_punjabi_in">Punjabi (India)</string>
+    <string name="acc_lang_kannada_in">Kannada (India)</string>
+    <string name="acc_lang_malayalam_in">Malayalam (India)</string>
 
     <string name="_1_icon">1 icon</string>
     <string name="_2_icons">2 icons</string>
@@ -549,4 +550,5 @@
     <string name="txtDisplaySettings">Display Settings</string>
     <string name="txtCustomisationSetting">Customization Settings</string>
     <string name="txtOtherSetting">Other Settings</string>
+    <string name="change_language_line2">Select any language from the dropdown below:</string>
 </resources>

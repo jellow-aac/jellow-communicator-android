@@ -1,0 +1,49 @@
+- SessionManager.java
+	- Add new language constant
+	- add entries to LangMap, LangValueMap
+
+- LanguageFactory.java -
+	- Add entry of language getLanguageCode()
+	- Add language code in the comments of the same function
+
+- LanguageSelectActivity.java
+	- Add language name cases in updateViewsForNewLangSelect() if required
+
+- SimpleIME.java
+	- Add language case in onCreateInputView()
+
+- SpeechEngineBaseActivity
+	- Add case in following methods getTTsEngineNameForLanguage(), getTTsSpeedForLanguage(), getTTsPitchForLanguage()
+	- If new language do not have official Google tts voice, try to add any supporting language voice to it. To do this, add entry supportive for given new language in getAvailableVoicesForLanguage() method.
+	- If new language is using the Google Text-to-Speech engine and supported voices, then update the "voiceGender" HashMap. Add map voices to its male and female version.
+
+
+
+- Create strings.xml file
+
+- Add string resource for the language for all versions of strings.xml
+
+- Keyboard Input Activity -> Change point numberings to strings according to the language
+
+- Upload the firebase package which adds the json of new language.
+
+
+Marathi Language Removal Steps:
+Change using language variable in SessionManager class (MR_IN)
+
+- AboutJellow, onCreate Removed the listener, 1place
+- LanguageDownloadActivity, Commented in onCreate method, 3places
+- LanguageSelectActivity, Commented in onCreate method, updateViewsForNewLangSelect, 3places
+- ProfileFormActivity, Commented in savedProfileDetails method
+- SpeechEngineBaseActivity, Commented in setupSpeechEngine, isNoTTSLanguage, speak, speakWithDelay methods
+- UserRegistrationActivity, Commented in onCreate method
+- LanguageFactory, Commented in isMarathiPackageAvailable method
+- SessionManager, Commented the NoTTSLang ArrayList definition
+- LevelTwoActivity, Commented Like, Yes, More, Don't Like, No, Less buttons listner verbiage speak
+- SettingActivity,Commented in onCreate method
+
+
+Language name update keys in strings.xml for each language version-
+1) about_jellow_speech
+2) ttsDesc
+3) about_je_intro7

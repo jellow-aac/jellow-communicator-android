@@ -1,6 +1,6 @@
 package com.dsource.idc.jellowintl.utility;
 
-/*
+/**
  * Created by ekalpa on 23-Jun-16.
  **/
 
@@ -35,6 +35,8 @@ public class SessionManager {
     public final static String FR_FR = "fr-rFR";
     public final static String PA_IN = "pa-rIN";
     public final static String KHA_IN = "kha-rIN";
+    public final static String KN_IN = "kn-rIN";
+    public final static String ML_IN = "ml-rIN";
     public static final String UNIVERSAL_PACKAGE = "universal";
     public final static String BOARD_ICON_LOCATION = "board_icons";
 
@@ -56,6 +58,8 @@ public class SessionManager {
             put("తెలుగు (Telugu)", TE_IN);
             put("ગુજરાતી (Gujarati)", GU_IN);
             put("ਪੰਜਾਬੀ (Punjabi)", PA_IN);
+            put("ಕನ್ನಡ (Kannada)", KN_IN);
+            put("മലയാളം (Malayalam)", ML_IN);
             //put("Khasi (Testing)", KHA_IN);
         }
     };
@@ -78,6 +82,8 @@ public class SessionManager {
             put(TE_IN, "తెలుగు (Telugu)");
             put(GU_IN, "ગુજરાતી (Gujarati)");
             put(PA_IN, "ਪੰਜਾਬੀ (Punjabi)");
+            put(KN_IN, "ಕನ್ನಡ (Kannada)");
+            put(ML_IN, "മലയാളം (Malayalam)");
             //put(KHA_IN, "Khasi (Testing)");
         }
     };
