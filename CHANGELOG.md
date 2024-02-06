@@ -1,10 +1,8 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-##[4.x.x] - Yet to release
-- Kannada and Malayalam language add
-- New animation yet to add
-- Marathi with tts
+##[4.1.1] - 06 Feb 2024
+- API change issue fix, user not able to login
 
 ##[4.1.0] - Yet to release
 - Kannada and Malayalam language add
