@@ -36,7 +36,7 @@ public class InternetTest extends AsyncTask<Context, Void, Boolean> {
             urlc.setRequestProperty("Connection", "close");
             urlc.setConnectTimeout(1500);
             urlc.connect();
-            if (urlc.getResponseCode() == HttpURLConnection.HTTP_OK) {
+            if (urlc.getResponseCode() == HttpURLConnection.HTTP_NO_CONTENT) {
                 urlc.disconnect();
                 return true;
             }
