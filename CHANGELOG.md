@@ -1,6 +1,9 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+##[4.1.2] - 28 April 2024
+- Scoped permission issue fixed for newer device i.e Android 11 & aboce
+
 ##[4.1.1] - 06 Feb 2024
 - API change issue fix, user not able to login
 
