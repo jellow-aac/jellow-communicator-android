@@ -57,7 +57,7 @@ public class LevelBaseActivity extends SpeechEngineBaseActivity implements TextT
     @Override
     protected void onResume() {
         super.onResume();
-        initiateSpeechEngineWithLanguage(getSession().getAppVoice().split(",")[0]);
+        initiateSpeechEngineWithLanguage(getSession().getAppVoice().split(",")[0], getSession().getLanguage());
     }
 
     public void animateIfEnabled(){

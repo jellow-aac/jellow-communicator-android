@@ -405,11 +405,11 @@ public class SpeechEngineBaseActivity extends BaseActivity{
         return SessionManager.NoTTSLang.contains(getSession().getLanguage());
     }
 
-    public void initiateSpeechEngineWithLanguage(String voice){
+    public void initiateSpeechEngineWithLanguage(String voice, String language){
         if(voice == null || voice.isEmpty()){
            voice = getAvailableVoicesForLanguage(getSession().getLanguage()).split(",")[0];
         }
-        setupSpeechEngine(voice, getSession().getLanguage());
+        setupSpeechEngine(voice, language);
     }
 
     static HashMap<String, String> voiceGender = new HashMap<String, String>(){
@@ -461,8 +461,7 @@ public class SpeechEngineBaseActivity extends BaseActivity{
             put("fr-fr-x-frd-local"," (M)");
             put("fr-fr-x-vlf-local"," (F)");
             put("gu-in-x-guf-local"," (F)");
-            put("gu-in-x-gum-local"," (F)");
-            put("hi-in-x-cfn-local"," (F)");
+            put("gu-in-x-gum-local"," (M)");
             put("hi-in-x-hia-local"," (F)");
             put("hi-in-x-hic-local"," (F)");
             put("hi-in-x-hid-local"," (M)");

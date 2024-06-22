@@ -642,7 +642,7 @@ public class HomeActivity extends SpeechEngineBaseActivity implements TextToSpee
     @Override
     protected void onResume() {
         super.onResume();
-        initiateSpeechEngineWithLanguage(getSession().getBoardVoice().split(",")[0]);
+        initiateSpeechEngineWithLanguage(getSession().getBoardVoice().split(",")[0], currentBoard.getLanguage());
         setVisibleAct(HomeActivity.class.getSimpleName());
         if (!getSession().getToastMessage().isEmpty()) {
             Toast.makeText(getApplicationContext(),
