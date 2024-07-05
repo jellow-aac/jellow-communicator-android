@@ -39,6 +39,7 @@ import static com.dsource.idc.jellowintl.utility.SessionManager.KHA_IN;
 import static com.dsource.idc.jellowintl.utility.SessionManager.KN_IN;
 import static com.dsource.idc.jellowintl.utility.SessionManager.ML_IN;
 import static com.dsource.idc.jellowintl.utility.SessionManager.MR_IN;
+import static com.dsource.idc.jellowintl.utility.SessionManager.MR_TTS;
 import static com.dsource.idc.jellowintl.utility.SessionManager.PA_IN;
 import static com.dsource.idc.jellowintl.utility.SessionManager.TA_IN;
 import static com.dsource.idc.jellowintl.utility.SessionManager.TE_IN;
@@ -117,6 +118,7 @@ public class SpeechEngineBaseActivity extends BaseActivity{
             case BN_IN:
             case BE_IN:
             case MR_IN:
+            case MR_TTS:
             case ES_ES:
             case TA_IN:
             case DE_DE:
@@ -144,6 +146,7 @@ public class SpeechEngineBaseActivity extends BaseActivity{
             case BN_IN:
             case BE_IN:
             case MR_IN:
+            case MR_TTS:
             case ES_ES:
             case TA_IN:
             case DE_DE:
@@ -172,6 +175,7 @@ public class SpeechEngineBaseActivity extends BaseActivity{
             case BN_IN:
             case BE_IN:
             case MR_IN:
+            case MR_TTS:
             case ES_ES:
             case TA_IN:
             case DE_DE:
