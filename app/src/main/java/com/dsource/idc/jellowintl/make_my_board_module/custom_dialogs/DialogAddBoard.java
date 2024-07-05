@@ -360,29 +360,10 @@ public class DialogAddBoard extends BaseActivity implements IAddBoardDialogView,
         if (position == 0) {
             //Check if the device has a camera hardware
             if(hasCameraHardware()) {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-                    if (Environment.isExternalStorageManager() && checkPermissionForCamera()) {
-                        createImageSelector();
-                    }else if (!Environment.isExternalStorageManager()) {
-                        Intent intent = new Intent(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION);
-                        try{
-                            intent.setData(Uri.parse("package:" + BuildConfig.APPLICATION_ID));
-                        }catch (Exception e){
-                            e.printStackTrace();
-                        }
-                        storageActivityResultLauncher.launch(intent);
-                    }else {
-                        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, CAMERA_REQUEST);
-                    }
-                }else if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
-                    if (checkPermissionForCamera() && checkPermissionForStorageRead()) {
-                        createImageSelector();
-                    } else {
-                        final String[] permissions = new String[]{Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE};
-                        ActivityCompat.requestPermissions(this, permissions, CAMERA_REQUEST);
-                    }
-                }else{
+                if(checkPermissionForCamera()){
                     createImageSelector();
+                }else{
+                    ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, CAMERA_REQUEST);
                 }
             }else{
                 Toast.makeText(this, getResources().getString(R.string.camera_missing),Toast.LENGTH_LONG).show();
@@ -395,10 +376,6 @@ public class DialogAddBoard extends BaseActivity implements IAddBoardDialogView,
         }
     }
 
-    private boolean checkPermissionForStorageRead() {
-        return Build.VERSION.SDK_INT < Build.VERSION_CODES.M || checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED;
-    }
-
     private boolean checkPermissionForCamera() {
         return Build.VERSION.SDK_INT < Build.VERSION_CODES.M || checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED;
     }
@@ -409,10 +386,7 @@ public class DialogAddBoard extends BaseActivity implements IAddBoardDialogView,
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         // If request is cancelled, the result @grantResults arrays are empty.
         if (requestCode == CAMERA_REQUEST && grantResults.length > 0){
-            // Permission for Android 11 and above
-            if ((Build.VERSION.SDK_INT >= Build.VERSION_CODES.R && grantResults[0] == PackageManager.PERMISSION_GRANTED) ||
-                    // Permission for below Android 11
-                    Build.VERSION.SDK_INT < Build.VERSION_CODES.R && grantResults[0] == PackageManager.PERMISSION_GRANTED && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 createImageSelector();
             } else {
                 Toast.makeText(this, "Permission denied", Toast.LENGTH_SHORT).show();
@@ -436,23 +410,6 @@ public class DialogAddBoard extends BaseActivity implements IAddBoardDialogView,
             }
         }
     }
-    private final ActivityResultLauncher<Intent> storageActivityResultLauncher =
-            registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
-                    o -> {
-                        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.R){
-                            //Android is 11 (R) or above
-                            if(Environment.isExternalStorageManager() && checkPermissionForCamera()){
-                                createImageSelector();
-                            }else if(Environment.isExternalStorageManager() && !checkPermissionForCamera()) {
-                                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, CAMERA_REQUEST);
-                            }else{
-                                Toast.makeText(DialogAddBoard.this, "Permissions Denied", Toast.LENGTH_SHORT).show();
-                            }
-                        }else{
-                            //Below android 11
-                            Toast.makeText(DialogAddBoard.this, "Permissions Denied", Toast.LENGTH_SHORT).show();
-                        }
-                    });
 
     private void createImageSelector(){
         CropImageOptions cio = new CropImageOptions();
