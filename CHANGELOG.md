@@ -1,5 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
+##[4.x.x] - Yet to release
+- Update build.gradle dependencies
+
+##[4.1.3] - 05 July 2024
+- Added Marathi language with Text-to-speech. We have kept Marathi language with voice recording as well.
+- Fixes issues in voices in Make My Board.
 
 ##[4.1.2] - 25 May 2024
 - Scoped permission issue fixed for newer device i.e Android 11 & above

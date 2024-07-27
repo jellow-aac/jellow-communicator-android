@@ -182,9 +182,13 @@ public class DialogAddBoard extends BaseActivity implements IAddBoardDialogView,
             languageSelect.setAdapter(langAdapter);
             for (String lang : SessionManager.NoTTSLang)
                 languageList.remove(SessionManager.LangValueMap.get(lang));
-
-            String voices = SpeechEngineBaseActivity.getAvailableVoicesForLanguage(
-                    SessionManager.LangMap.get(languageList.get(0)));
+            String voices= "";
+            if(board != null){
+                voices = SpeechEngineBaseActivity.getAvailableVoicesForLanguage(board.getLanguage());
+            }else{
+                voices = SpeechEngineBaseActivity.getAvailableVoicesForLanguage(
+                        SessionManager.LangMap.get(languageList.get(0)));
+            }
             ArrayList<String> voiceList = new ArrayList<>(voices.split(",").length);
             for (int i = 0; i < voices.split(",").length; i++) {
                 voiceList.add(i,"Voice "+ getRomanNumber(i+1)+getGender(voices.split(",")[i]));
@@ -203,6 +207,10 @@ public class DialogAddBoard extends BaseActivity implements IAddBoardDialogView,
             voiceAdapter.setDropDownViewResource(R.layout.popup_menu_item);
             voiceSelect.setAdapter(voiceAdapter);
             voiceSelect.setSelection(voiceSelectPos);
+            if(board != null) {
+                int pos = languageList.indexOf(SessionManager.LangValueMap.get(board.getLanguage()));
+                languageSelect.setSelection(pos);
+            }
             languageSelect.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {

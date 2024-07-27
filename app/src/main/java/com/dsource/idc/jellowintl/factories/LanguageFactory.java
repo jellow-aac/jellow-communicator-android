@@ -73,6 +73,8 @@ public class LanguageFactory {
                 return  "20";
             case SessionManager.ML_IN:
                 return  "21";
+            case SessionManager.MR_TTS:
+                return "22";
             default:
                 return null;
         }

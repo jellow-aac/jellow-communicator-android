@@ -31,9 +31,9 @@
 Marathi Language Removal Steps:
 Change using language variable in SessionManager class (MR_IN)
 
-- AboutJellow, onCreate Removed the listener, 1place
-- LanguageDownloadActivity, Commented in onCreate method, 3places
-- LanguageSelectActivity, Commented in onCreate method, updateViewsForNewLangSelect, 3places
+- AboutJellow, onCreate Removed the listener, 1 place
+- LanguageDownloadActivity, Commented in onCreate method, 3 places
+- LanguageSelectActivity, Commented in onCreate method, updateViewsForNewLangSelect, 3 places
 - ProfileFormActivity, Commented in savedProfileDetails method
 - SpeechEngineBaseActivity, Commented in setupSpeechEngine, isNoTTSLanguage, speak, speakWithDelay methods
 - UserRegistrationActivity, Commented in onCreate method

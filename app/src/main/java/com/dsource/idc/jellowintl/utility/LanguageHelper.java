@@ -19,7 +19,11 @@ public class LanguageHelper {
         String lang = new SessionManager(context).getLanguage();
         Locale locale;
         if(!lang.isEmpty())
-            locale = new Locale(lang.split("-r")[0],lang.split("-r")[1]);
+            try {
+                locale = new Locale(lang.split("-r")[0], lang.split("-r")[1]);
+            }catch (ArrayIndexOutOfBoundsException e){
+                locale = new Locale(lang);
+            }
         else
             locale = context.getResources().getConfiguration().locale;
         return setLanguage(context, locale);
@@ -31,7 +35,11 @@ public class LanguageHelper {
     public static Context onAttach(Context context,String language) {
         Locale locale;
         if(!language.isEmpty())
-            locale = new Locale(language.split("-r")[0],language.split("-r")[1]);
+            try {
+                locale = new Locale(language.split("-r")[0], language.split("-r")[1]);
+            }catch (ArrayIndexOutOfBoundsException e){
+                locale = new Locale(language);
+            }
         else
             locale = new Locale("en","IN");
         return setLanguage(context, locale);
