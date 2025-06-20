@@ -38,6 +38,11 @@ public class SessionManager {
     public final static String KHA_IN = "kha-rIN";
     public final static String KN_IN = "kn-rIN";
     public final static String ML_IN = "ml-rIN";
+    public final static String OR_IN = "or-rIN";
+    public final static String UR_IN = "ur-rIN";
+    public final static String MAI_IN = "mai-rIN";
+    //----
+    public final static String SR_RS = "sr-rRS";
     public static final String UNIVERSAL_PACKAGE = "universal";
     public final static String BOARD_ICON_LOCATION = "board_icons";
 
@@ -62,6 +67,10 @@ public class SessionManager {
             put("ਪੰਜਾਬੀ (Punjabi)", PA_IN);
             put("ಕನ್ನಡ (Kannada)", KN_IN);
             put("മലയാളം (Malayalam)", ML_IN);
+            put("ଓଡ଼ିଆ (Oriya)", OR_IN);
+            put("اردو (Urdu)", UR_IN);
+            put("मैथिली (Maithili)", MAI_IN);
+//            put("Србин (Serbian)", SR_RS);
             //put("Khasi (Testing)", KHA_IN);
         }
     };
@@ -87,6 +96,10 @@ public class SessionManager {
             put(PA_IN, "ਪੰਜਾਬੀ (Punjabi)");
             put(KN_IN, "ಕನ್ನಡ (Kannada)");
             put(ML_IN, "മലയാളം (Malayalam)");
+            put(OR_IN, "ଓଡ଼ିଆ (Oriya)");
+            put(UR_IN, "اردو (Urdu)");
+            put(MAI_IN, "मैथिली (Maithili)");
+//            put(SR_RS, "Србин (Serbian)");
             //put(KHA_IN, "Khasi (Testing)");
         }
     };

@@ -302,7 +302,13 @@
     <string name="acc_lang_tamil_in">Tamil (India)</string>
     <string name="acc_lang_telugu_in">Telugu (India)</string>
     <string name="acc_lang_german_ger">German (Deutschland)</string>
-
+    <string name="acc_lang_gujarati_in">Gujarati (India)</string>
+    <string name="acc_lang_punjabi_in">Punjabi (India)</string>
+    <string name="acc_lang_kannada_in">Kannada (India)</string>
+    <string name="acc_lang_malayalam_in">Malayalam (India)</string>
+    <string name="acc_lang_oriya_in">Odiya (India)</string>
+    <string name="acc_lang_maithili_in">Maithili (India)</string>
+    <string name="acc_lang_urdu_in">Urdu</string>
     <string name="_1_icon">1 icon</string>
     <string name="_2_icons">2 icons</string>
     <string name="_3_icons">3 icons</string>
@@ -508,8 +514,4 @@
     <string name="boards_trash_screen">Boards trash screen</string>
     <string name="board_moved_to_trash">_ board moved to trash</string>
     <string name="board_restored_from_trash">Restored the _ board</string>
-    <string name="acc_lang_gujarati_in">Gujarati (India)</string>
-    <string name="acc_lang_punjabi_in">Punjabi (India)</string>
-    <string name="acc_lang_kannada_in">Kannada (India)</string>
-    <string name="acc_lang_malayalam_in">Malayalam (India)</string>
 </resources>

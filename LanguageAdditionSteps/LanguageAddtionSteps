@@ -47,3 +47,4 @@ Language name update keys in strings.xml for each language version-
 1) about_jellow_speech
 2) ttsDesc
 3) about_je_intro7
+4) new language <string name="acc_lang_xx_xx>
