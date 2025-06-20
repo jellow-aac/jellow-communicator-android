@@ -30,7 +30,8 @@ public class LanguageFactory {
      * 05- Marathi, 06- Bengali (India), 07- English (AU), 08- Spanish, 09- Tamil, 10- German,
      * 11- English (South Africa), 12- French, 13- Telugu (India), 14- Gujarati (India),
      * 15- none, 16- Bengali (Bangladesh), 17- English (Nigeria), 18- Punjabi (India)),
-     * 20- Kannada (India), 21- Malayalam (India)
+     * 20- Kannada (India), 21- Malayalam (India), 22- Marathi with TTS, 23- Oriya (India),
+     * 24- Urdu (India), 25- Maithili (India), 28- Serbian (Serbia)
      ***/
     public static String getLanguageCode(String langCode){
         switch (langCode){
@@ -75,6 +76,14 @@ public class LanguageFactory {
                 return  "21";
             case SessionManager.MR_TTS:
                 return "22";
+            case SessionManager.OR_IN:
+                return "23";
+            case SessionManager.UR_IN:
+                return "24";
+            case SessionManager.MAI_IN:
+                return "25";
+            case SessionManager.SR_RS:
+                return "28";
             default:
                 return null;
         }

@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="ratings">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+    <string-array name="arrSequenceActivityHeadingText">
+        <item>brushing</item>
+        <item>toilet</item>
+        <item>bathing</item>
+        <item>""</item>
+        <item>""</item>
+        <item>""</item>
+        <item>""</item>
+        <item>\tmorning routine</item>
+        <item>\tbed time routine</item>
+    </string-array>
+
+    <string name="app_name">جیلو</string>
+    <string name="action_settings">ترتیبات</string>
+
+    <string name="Language">زبان</string>
+    <string name="saveLanguage">تبدیلی اطلاق کریں</string>
+
+    <string-array name="bloodgroup">
+        <item>not selected</item>
+        <item>A+ve</item>
+        <item>A-ve</item>
+        <item>B+ve</item>
+        <item>B-ve</item>
+        <item>AB+ve</item>
+        <item>AB-ve</item>
+        <item>O+ve</item>
+        <item>O-ve</item>
+    </string-array>
+
+    <string-array name="bloodgroup_talkback">
+        <item>not selected</item>
+        <item>A positive</item>
+        <item>A negative</item>
+        <item>B positive</item>
+        <item>B negative</item>
+        <item>A B positive</item>
+        <item>A B negative</item>
+        <item>O positive</item>
+        <item>O negative</item>
+    </string-array>
+
+    <string-array name="picture_view_mode">
+        <item>Picture and Text</item>
+        <item>Picture only</item>
+    </string-array>
+
+    <string-array name="grid_size">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>9</item>
+    </string-array>
+
+    <string-array name="acc_grid_size">
+        <item>One</item>
+        <item>Two</item>
+        <item>Three</item>
+        <item>Four</item>
+        <item>Nine</item>
+    </string-array>
+
+    <string name="simple_ime">جیلو کی بورڈ</string>
+    <string name="subtype_en_US">سلسلہ وار  اے بی سی</string>
+
+    <string name="action_bar_title">ابتدائی صفحہ</string>
+    <string name="txtSpeechSpeed">تقریر کی رفتار</string>
+    <string name="txtVoiceSpeech">آواز کا ستح</string>
+    <string name="txtDisplayMode">دیکھانے کا ذریعہ</string>
+    <string name="txtVoiceVolume">تقریر کا آواز</string>
+    <string name="txtNumOfPerPerScr">ایک سکرین پر زمرہ آئیکنس کا شمارہ</string>
+    <string name="txtDemo">تقریر کا مظاہرہ</string>
+    <string name="txtSave">محفوظ کریں</string>
+    <string name="demoTtsSpeech">سلام! آپ جیلو مواصلت کا استعمال کر رہے ہیں</string>
+    <string name="savedSettingsMessage">ترتیبات محفوظ کیا گیا</string>
+    <string name="languageChanged">زبان تبدیل کیا گیا</string>
+    <string name="checkConnectivity">آپ انٹرنیٹ سے نہیں جڑے ہیں۔ براہ مہربانی انٹرنیٹ چالو کریں</string>
+
+    <string name="menuProfile">پروفائل</string>
+    <string name="menuMyBoards">میرے تختے</string>
+    <string name="menuBoardsTrash">حذف ہوے تختے</string>
+    <string name="menuAbout">جیلو کے بارے میں</string>
+    <string name="menuTutorials">ہدایت</string>
+    <string name="menuKeyboardInput">کی بورڈ کا اختیارات:l</string>
+    <string name="menuResetPref">ترجیحا دوبارہ ترتیب کریں</string>
+    <string name="menuFeedback">رائے</string>
+    <string name="menuUserRegistration">اندراج صفحہ</string>
+    <string name="menuAccessibility">رسائی</string>
+    <string name="menuClosePopup">فہرست بند کریں</string>
+    <string name="labelSplash">جیلو شروع ہو رہا ہے . براہ مہربانی انتظار کریں!</string>
+
+    <string name="easyToUse">استعمال کرنے میں آسان</string>
+    <string name="clearPictures">صاف تصاویر</string>
+    <string name="clearVoice">صاف آواز</string>
+    <string name="easyToNavigate">نیویگیٹ کرنے میں آسان</string>
+    <string name="commentSuggestions">سہارا کے لیے تبصرے، تجاویز اور درخواست </string>
+    <string name="submit">جمع کرین</string>
+    <string name="serial_keyboard_title">سلسلہ وار کی بورڈ :</string>
+    <string name="serial_keyboard_info">جیلو مواصلت کار میں اپنا ایک خاص قسم کا \'جیلو سلسلہ وار کی بورڈ\' استعمال کیاجاتا ہےـ اس کی بورڈ کو خصوصی معلم اور استادوں کی رائے کی بنید پر بنایا گیا ہےـ اس کی بورڈ مین انگریزی حروف کو "A" سے شروع کرتے ہوے سلسلہ وار رکھا گیا ہےـ اس سجاوٹ سے بچہ کو ایک حرف کی جگہ جاننے اور یاد رکھنے میں آسانی پیش آتی ہےـ اس سے بچوں کو لفظ اور جملہ بنانے مین بہت آسانی ہوتی ہے۔ بچوں کے ابتدائی تعلیم میں کارآمد ثابت ہوتا ہےـ حروف کے علاوہ اعداد ۰-۹ بھی سلسلہ وار رکھے گے ہیں اور کچھ علامتیں یا نشانیاں جو روز مرہ کے رابطہ میں استعمال ہوتے ہیں بھی موجود ہیںـ</string>
+    <string name="keyboardControlTxt">اپنے پسند کا کی بوڑ کے لیے اور اسے طے شدہ بنانے کے لیے آپکو دو قدم اٹھانے ہونگے</string>
+    <string name="step1">قدم اول: کمپیوٹر یا فون کی ترتیبات میں کی بورڈ کو فعل کریں</string>
+    <string name="qwertyKeyboard">QWERTY</string>
+    <string name="serialKeyboard">سلسلہ وار اے بی سی</string>
+    <string name="step2">قدم دوم: چنا ہوا کی بورڈ کو طے شدہ بنائیں</string>
+    <string name="saveAsDefault">طے شدہ محفوظ کریں</string>
+    <string name="getKeyboardControl">کی بورڈ کا اختارات</string>
+    <string name="childName">بچہ کا نام**</string>
+    <string name="caregiverName">نگراں کا نام**</string>
+    <string name="careGiverContact">موجودہ رابطہ نمبر کے علاوہ نگراں کا دوسرا رابطہ نمبر**</string>
+    <string name="homeAddress">گھر کا پتہ**</string>
+    <string name="emailAddress">ای میل پتہ**</string>
+    <string name="bloodGroup">خون کا قسم**</string>
+    <string name="detailSaved">معلومات محفوظ ہوئ</string>
+    <string name="invalid_address">غلط پتہ</string>
+    <string name="invalid_emailId">غلط ای میل پتہ</string>
+    <string name="enterTheName">براہ مہربانی اپنے بچہ کا نام درج کریں</string>
+    <string name="search_act_title">جیلو میں آئیکنس کھوجیں</string>
+
+    <string name="iconsHasBeenReset">ترجیحات کو درست کیا گیا</string>
+    <string name="speak">بولو</string>
+    <string name="stop">رکو</string>
+    <string name="about_jellow_speech">جیلو ایک مواصلت کار ہے جس میں آئیکنس کے ذریعے بولنے اور اظہار کرنے کا قوت پیدا کییا جاتا ہے۔ یہ انکے لیے کارگار ہے جو بولنا سیکھ رہے ہیں یا جنکو بولنے میں مشکلات پیش آ رہی ہے۔ جیلو کو چھوٹے بچے اور ابتدائی سیکھنے والے اپنی روزمرہ کی ذندگی میں استعمال ہونے والے الفاظ اور جملے سیکھ سکتے ہیں ۔ اسکی رنگ برنگی آئیکنس بچوں کو اپنی طرف متوجہ کرتے ہیں \' جس سے بچوں کو تصویروں اور اس سے متعلقہ نام یا تفصیلات جاننے اور سمجھنے میں آسانی محصوس ہوتی ہے۔ اس ایپ کو IIT Bombay کی IDC School of Design جو ممبئی میں ہے، وہاں تیار کیا گیا ہے۔ جیلو مین زبان کی صلاحیت کو بڈھانے کے لیے پروجیکٹ کے تفتیش کاروں نے ناول جزباتی زبان پروٹوکول ELP کا تاصور اور تیار کیا ہے۔ اس مے (ELP) ۶ اظہاری آئیکنس ہیں جو اسکا بنیادی حصہ ہے۔ ان اہم اور بنیادی آئیکنس کے ذریعے بچہ اپنی پسنذ ناپسنذ ضروریات دوسروں کے ساتھ رابطہ کر سکتا ہے۔ جیلو ایپ کو بچوں کے مد نظر تیار کیا گیا ہے اور اس سے سیکھنے کا ترسیلی طریقہ بچھون کے لیے آسان مزہ دار اور کارآمد ہے۔ یہ ایپ اینڈریڈ میں عمدہ کام کرتا ہے۔جیلو ایپ فی الحال انگریزی، ہندی، بنگالی، مراٹھی، تامل، تیلگو، گجراتی، پنجابی، کنڑ، ملیالم، اڑیہ، میتھلی، اردو، ہسپانوی، جرمن اور فرانسیسی زبانوں میں دستیاب ہے۔ جیلو ایپ کا موجودہ ورژن جیلو ایپ کا موجودہ ورژن ـــــ اس ایپ پر مزید ترقیاتی کام چل رہا ہے۔ اگر آپکے پاس کوئی تجاویز یا راۓ ہے تو ہمیں ہمارے ای میل پتہ: jellowcommunicator@gmail.com میں ضرور بھیجیں۔ جیلو Creative Commons Attribution Non-commercial Share Alike 4.0 International License کے تحت اجازت حاصل ہے۔ جیلو پر ترقیاتی کام Indian Institute of Technology Bombay پر منسوب ہے۔ اس ایپ کے استعمال کرنے پر\' گزارش ہے کہ آپ Indian Institute of Technology Bombay کی خدمات اورکام کو تسلیم کریں۔ جیلو ڈاؤنلوڈ کرنے کے لیے www.jellow.org پر دستیاب ہے۔ اگر آپ اس ایپ کا اپنے مقام میں مباحثہ یا اجلاس کا اہتمام کرنا چاہتے ہیں یا اسکی ترقیاتی کام میں اپنا تعاون کرنا چاہتے ہین تو پروفیسر روی پویہ سے رابطہ قایم کریں۔ ای میل پتہ ہے: j e l l o w c o m m u n i c a t o r @ g m a i l dot com</string>
+    <string name="catBtnDesc">جیلو کے ۹ مرکزی زمرے بٹن ہیں اور بغل میں ۶ وضاحتی بٹن ہیں</string>
+    <string name="catBtn">زمرہ کے بٹن:</string>
+    <string name="expBtn">اظہاری بٹن:</string>
+    <string name="jellowUsageDesc">جیلو کے زریعے بات کرنے کے لیے پہلے کسی زمرہ بٹن پر کلک کریں اور پھر وضاحتی بٹن پر۔ مثال کے طور پر نیچے دیے گئے انتخاب کا استعمال کرنے پر جیلو کہےگا ـ میں کھانا چاہتا ہوں</string>
+    <string name="jellowUsageSubCat">ایک زمرہ کیا بٹن پر دو بار کلک کرنے سے صارف زیر زمرے تک رسائی حاصل کر سکتے ہے</string>
+    <string name="levelOneCat">سطح اول کا زمرے:</string>
+    <string name="levelTwoCat">سطح دوم کا زمرے:</string>
+    <string name="levelThreeCat">سطح تیسرا کا آئیکنس:</string>
+    <string name="settingDesc">پردہ کے اوپری دائیں کونے پر کلک کرنے سے صارف اپنا سوانحی معلومات اپنے ضروریات کے مطابق بدل سکتے ہے اور آواز کا بنیادی ترتیبات متناسب کر سکتے ہے</string>
+    <string name="seqActDesc">بچوں کو روز مرہ کا معمول سکھانے کے لیے جیلو کا استعمال کیا جا سکتا ہے۔ ایک قدم کو منتخب کرنے سے یا اس پر کلک کرنے سے \' صارف اس قدم کی وضاحتی بٹن دیکھ سکتا ہے</string>
+    <string name="toiletSeq">بیتالخلا کا ترتیب:</string>
+    <string name="expBtnSeq">تسلسل میں اظہاری بٹن:</string>
+    <string name="ttsDesc">انگریزی، ہندی، بنگالی، تامل، تیلگو، گجراتی، پنجابی، کنڑ، ملیالم، اڑیہ، میتھلی، اردو، ہسپانوی، جرمن، فرانسیسی میں Jellow استعمال کرنے کے لیے، براہ کرم اپنے آلے کی <b>\'Language\'</b> ترتیبات کے اندر <b>\'Google text-to-speech (TTS)\'</b> کو فعال کریں۔ Google TTS ترتیبات کے اندر، پہلے <b>ڈیفالٹ زبان</b> کو ترجیحی زبان میں تبدیل کریں اور پھر <b>\'Install voice data\'</b> آپشن کے ذریعے پسندیدہ زبان کے لیے آواز ڈاؤن لوڈ کریں۔</string>
+    <string name="resetPrefPointOne">استعمال شدہ اور ترجیح دی شبیہیں کو جیلو اپنے ذہن میں رکھتا ہے اور ایسی شبیہیں کو پردہ پر واضح طور پر نمائیش کرتا ہے</string>
+    <string name="resetPrefPointTwo">ترجیحات کو دوبارہ ترتیب کرنے سے \' شبیہیں اسی ترتیب میں قایم ہوتے ہیں جس طرح پہلی بار ایپ چالو کرنے میں پیش منظر تھے</string>
+    <string name="resetPrefPointThree">کیا آپ ترجیحات کو پھر سے درست کرنا چاہتے ہیں؟</string>
+
+    <string name="downloadErrorMsg">فون یا کمپیوٹر میں جیلو ایپ کو ڈاؤنلوڈ کرنے کے لیے براہ کرم انٹرنیٹ چالو رکھیں۔ اگر چہ کوئی رکاوٹ پیش آتا ہے تو پھر سے کوشش کریں یا شروع کریں</string>
+    <string name="intro_to_jellow">جیلو کا تعرف</string>
+    <string name="rate_jellow">براہ مہربانی تمام شعبوں میں جیلو کے درجہ بندی کریں</string>
+    <string name="keyboard">کی بورڈ</string>
+    <string name="txt_intro1_central9btn">جیلو کے ۹ مرکزی زمرے بٹن ہیں</string>
+    <string name="txt_intro1_categorybtn">زمرے بٹن</string>
+    <string name="txt_intro5_jellowUsageDesc">اس ایپ کے ۶ اظہاری بٹن بغل میں ہیں</string>
+    <string name="txt_intro5_expressiveBtn">اظہاری بٹن</string>
+    <string name="txt_intro2_appUsageDesc">صارف پہلے زمرہ بٹن پر اور پھر اظہاری بٹن پر کلک کرے</string>
+    <string name="txt_intro2_speakUsingJellow">بولنے کے لیے جیلو کا استعمال کریں</string>
+    <string name="txt_intro3_level2CatDesc">ایک زمرہ بٹن پر دو بار کلک کرنے سے زیر زمرہے اور دیگر اور زمرے مین صارف رسائی حاصل کر سکتا ہے</string>
+    <string name="txt_intro3_navWithJellow">جیلو کا اندرونی سفر</string>
+    <string name="txt_intro4_customizeAppDesc">پردہ کے اوپری دائیں کونے پر کلک کرنے سے\' صارف اپنے ضروریات کے مطابق ترتیبات بدل سکتا ہے</string>
+    <string name="txt_intro4_customizeJellow">جیلو کا اندرونی ترتیبات</string>
+    <string name="txt_intro7_getStartedDesc">اب آپ تیار ہیں جیلو کا سفر شروع کرنے کے لیے</string>
+    <string name="txt_intro7_getStarted">شروع کریں</string>
+    <string name="txt_registration_jellowCalluDesc">اس طرح جیلو آپکو بلاتا ہے</string>
+    <string name="txt_registration_emergencynoDesc">بچوں کے متعلق کسی ہنگامی صورت حال میں رابطہ قایم کرنے کے لیے استعمال کریں</string>
+    <string name="txt_registration_selectLangDesc">جیلو کو استعمال کرنے کے لیے زبان منتخب کریں**</string>
+    <string name="txt_registration_selectLangDesc_contentDesc">جیلو کو استعمال کرنے کے لیے زبان منتخب کریں۔ مطلوبہ خانہ۔**</string>
+    <string name="txt_registration_registerBtn">اندراج</string>
+    <string name="enternonemptycontact">براہ کرم صحیح رابطہ نمبر درج کریں</string>
+    <string name="change_language_line5">قدم دوم: جانچ کریں کے آواز کی  _ معلومات ا آپکے آلہ پر دستیاب ہے یا نہیں۔ اگر نہیں ہے تو انٹرنیٹ چالو کریں اور اپنے منتخب کی زبان کے متعلق ‘آواز کی معلومات’ ڈاؤن لوڈ کریں۔ اگر چہ رکاوٹ پیش آے تو انٹرنیٹ ٹھیک سے چل رہا ہے یا نہیں جانچ کریں اور پھر سے شروع کریں۔</string>
+    <string name="txtChangeLanguage">ایپ کی زبان بدلیں:</string>
+    <string name="txtApplyChanges">منتخب زبان کو محفوظ کرنے کے لیے "تبدیلی کا اطلاق کریں" کلک کریں</string>
+    <string name="txt_actLangSel_downloadDat">آواز کی معلومات کو جانچ کریں</string>
+    <string name="language_downloaded">_ زبان ڈاؤنلوڈ کی گئی</string>
+    <string name="language_downloading">_ زبان ڈاؤنلوڈ ہو رہا ہے</string>
+    <string name="granted_call_permission_req">کال کرنے کی اجازت میل گئ ہے</string>
+    <string name="rejected_call_permission_req">کال کرنے کی اجازت نہیں ہے</string>
+    <string name="grant_permission_from_settings">ترتیبات میں کال کرنے کی اجازت فعل کریں</string>
+    <string name="txtEnableBuiltInCalling">جیلو میں ہنگامی حالات میں کال کرنے کی اجازت فعل کریں</string>
+    <string name="EnableDisplaySpeechText">متن کے خانہ میں بولی گئی بات کو دکھائیں</string>
+
+    <string name="dismiss">برطرف</string>
+    <string name="register_user">براہ مہربانی انتظار کریں، اندراج جاری ہے…</string>
+    <string name="exit">باہر نکلنا</string>
+    <string name="err_dialog_msg">تحریر سے تقریر میں تبدیل کرنے کا انجن (گوگل ٹی ٹی ایس انجن) تنصیب نہیں کیا گیا ہے۔ کیا آپ گوگل ٹی ٹی ایس انجن تنصیب کرنا چاہینگے؟</string>
+    <string name="exit_dialog_msg">بغیر گوگل تحریر سے تقریر میں تبدیل کرنے کا انجن تنصیب کیے جیلو کام نہیں کرےگا۔ کیا آپ واکعی اس سے باہر نکلنا چاہینگے؟</string>
+
+    <string name="next_slide">اگلا صفحہ</string>
+    <string name="previous_slide">پچھلا صفحہ</string>
+
+    <!--Strings related to the Searching capability
+    @AyazAlam
+    -->
+    <string name="search_title">تلاش کرنے کا آئیکن</string>
+    <string name="home">ہوم</string>
+    <string name="icon_not_found">آئیکن نہیں ملا</string>
+
+
+    <!--About Jellow strings-->
+    <string name="info">عام معلومات</string>
+    <string name="about_je_intro1">جیلو ایک مواصلت کار ہے جس میں آئیکنس کے ذریعے بولنے اور اظہار کرنے کا قوت پیدا کییا جاتا ہے۔ یہ انکے لیے کارگار ہے جو بولنا سیکھ رہے ہیں یا جنکو بولنے میں مشکلات پیش آ رہی ہے۔ جیلو کو چھوٹے بچے اور ابتدائی سیکھنے والے اپنی روزمرہ کی ذندگی میں استعمال ہونے والے الفاظ اور جملے سیکھ سکتے ہیں ۔ اسکی رنگ برنگی آئیکنس بچوں کو اپنی طرف متوجہ کرتے ہیں \' جس سے بچوں کو تصویروں اور اس سے متعلقہ نام یا تفصیلات جاننے اور سمجھنے میں آسانی محصوس ہوتی ہے۔</string>
+    <string name="about_je_intro2">اس ایپ کو IIT Bombay کی IDC School of Design جو ممبئی میں ہے، وہاں تیار کیا گیا ہے۔</string>
+    <string name="about_je_intro3">جیلو مین زبان کی صلاحیت کو بڈھانے کے لیے پروجیکٹ کے تفتیش کاروں نے ناول جزباتی زبان پروٹوکول ELP کا تاصور اور تیار کیا ہے۔ اس مے (ELP) ۶ اظہاری آئیکنس ہیں جو اسکا بنیادی حصہ ہے ۔</string>
+    <string name="about_je_intro4">ان اہم اور بنیادی آئیکنس کے ذریعے بچہ اپنی پسنذ ناپسنذ ضروریات دوسروں کے ساتھ رابطہ کر سکتا ہے۔</string>
+    <string name="about_je_intro5">جیلو ایپ کو بچوں کے مد نظر تیار کیا گیا ہے اور اس سے سیکھنے کا ترسیلی طریقہ بچھون کے لیے آسان مزہ دار اور کارآمد ہے</string>
+    <string name="about_je_intro6">یہ ایپ اینڈریڈ میں عمدہ کام کرتا ہے</string>
+    <string name="about_je_intro7">Jellow فی الحال انگریزی، ہندی، مراٹھی، بنگالی، تامل، تیلگو، گجراتی، پنجابی، کنڑ، ملیالم، اڑیہ، میتھلی، اردو، ہسپانوی، جرمن، فرانسیسی میں دستیاب ہے۔</string>
+    <string name="play_video">ویڈیو چلائیں</string>
+    <string name="software_info">سافٹ ویئر ورژن: _</string>
+    <string name="about_je_intro8">سافٹ ویئر ورژن: جیلو ایپ کا موجودہ ورژن _  ۔ اس ایپ پر مزید ترقیاتی کام چل رہا ہے۔ اگر آپکے پاس کوئی تجاویز یا راۓ ہے تو ہمیں ہمارے ای میل پتہ: jellowcommunicator@gmail.com میں ضرور بھیجیں۔</string>
+    <string name="terms_of_use">استعمال کے شرائط</string>
+    <string name="about_je_intro9">جیلو Creative Commons Attribution Non-commercial Share Alike 4.0 International License کے تحت اجازت حاصل ہے</string>
+    <string name="about_je_intro10">جیلو پر ترقیاتی کام Indian Institute of Technology Bombay پر منسوب ہے</string>
+    <string name="about_je_intro11">اس ایپ میں استعمال کیے گئے آئیکنش ترجمھ سجاوٹ\' پروگرام\' وغیرہ بانٹین اور اپنائے جا سکتے ہیں \' مگر تجارتی مقصد یا فائدہ کے لیے استعمال نہیں کیا جا سکتا ہے</string>
+    <string name="about_je_intro12">اس ایپ کے استعمال کرنے پر\' گزارش ہے کہ آپ Indian Institute of Technology Bombay کی خدمات اورکام کو تسلیم کریں</string>
+    <string name="about_je_intro13">جیلو ڈاؤنلوڈ کرنے کے لیے _ پر دستیاب ہے</string>
+    <string name="about_je_intro14">اگر آپ اس ایپ کا اپنے مقام میں مباحثہ یا اجلاس کا اہتمام کرنا چاہتے ہیں یا اسکی ترقیاتی کام میں اپنا تعاون کرنا چاہتے ہین تو پروفیسر روی پویہ سے رابطہ قایم کریں۔ ای میل پتہ ہے: jellowcommunicator@gmail.com</string>
+    <string name="feedback_talkback_heading">درجہ اول سے پانچ کے درمیاں درجہ بندی کریں</string>
+
+    <string name="langauge_correction_message">"ا _  زبان کی ترتیبات صحیح طرح سے نہیں کیا گیا ہے۔ زبان کو ٹھیک کرنے کے لیے ""زبان کو ٹھیک کریں"" دبائیں۔یا بنیادی زبان کو چننے کے لیے دبائیں "" بنیادی زبان""۔'."</string>
+    <string name="changeLanguage">زبان کو ٹھیک کریں</string>
+    <string name="dialog_default_language_option">بنیادی زبان</string>
+    <string name="txt_data_info">**معلومات آپکے آلہ میں ہی جمع رہےگا۔ ہم آپکی معلومات کی رازداری کا اہتمام اور قدر کرتے ہیں اور اس لیے یہ معلومات نہ استعمال ہوگا نہ ایسے جگہ میں رکھا جاےگا جہاں سے ہر کوئی رسائی حاصل کر سکتا ہے جیسے کوئی سرور یا کلاؤڈ چاہے وہ جیلو یا تیسری پارٹی کا ہی کیوں نہ ہو۔</string>
+    <string name="txt_view_privacy_policy"><![CDATA[<font color="#dc5252"><b><u> کی رازداری کی پالیسی</u></b></font>]]>پڑھیں جیلو</string>
+    <string name="privacy_link_info"><![CDATA[<font color="#dc5252"><b><u>کی رازداری کی پالیسی</u></b></font>]]>میں نے جیلو پڑھا ہے۔ </string>
+    <string name="consent_privacy">براہ کرم پڑھیں اور پھر رازداری کی قوانین پر رضامند ہو</string>
+
+    <!--Content description-->
+    <string name="language_download_in_process">زبان ڈاؤنلوڈ کرنے کا عمل جاری ہے</string>
+    <string name="child_s_name">بچہ کا نام۔ مطلوبہ خانہ۔**</string>
+    <string name="enter_home_address">گھر کا پتہ درج کریں</string>
+    <string name="enter_caregiver_s_contact_number">نگراں کا رابطہ نمبر درج کریں</string>
+    <string name="enter_caregiver_s_name">نگراں کا نام درج کریں</string>
+    <string name="enter_caregiver_s_email_address">نگراں کا ای میل پتہ درج کریں</string>
+    <string name="category_cd">یہ تصویر جیلو کی شروعاتی صفحہ کی ہے۔ اس میں ایک مرکزی گرڈ ہے جس میں ۹ زمرہ بٹن ہیں جیسے ۳ قطار اور ۳ ستون میں ترتیب دیا گیا ہے۔ جو ۹ زرمہ بٹن ہیں انکا نام ہے: "خیرمقدم اور احساسات"، " روزمرہ کے کام"،" کھانا"،" مزہ"،" سیکھنا"، "لوگ"، "جگہ"، "وقت اور موسم" اور" مدد"۔  زمرہ بٹن کے نیچے ۳ راشتہ طے کرنے کے بٹن ہیں : "پیچھے"،" شروعاتی صفحہ "،" کی بورڈ" جو سلسلہ وار ابتدائی صفحہ کے نیچلے حصہ میں ملینگے۔ مرکزی زمرہ آئیکن کے دائیں طرف ۳ اور بائیں طرف ۳  اظہاری آئیکن ملینگے۔ بائیں طرف اوپر سے نیچے سجاے گئے اظہاری بٹن ہیں "پسند"، "ہاں" اور "مزید"۔ دائیں طرف اوپر سے نیچے سجاے گئے اظہاری بٹن ہیں "پسند نہیں"، "نہیں" اور "کم"۔ سکرین کے اوپری دائیں کونے میں ترتیبات ائیکن ہے۔ اس تصویر میں مرکزی گرڈ  کے ۹ آئیکن نمایاں ہیں جبکہ باقی بتام دھندلے ہین۔</string>
+    <string name="expressive_cd">یہ تصویر پھر سے جیلو کی شروعاتی صفحہ کو دیکھاتی ہے۔ اس تصویر میں ۶ اظہاری بٹن کو مرکزی گرڈ کے دونو طرف ۳، ۳ کر نمایاں کیا گیا ہے اور تمام بٹن کو دھندلا کیا گیا ہے۔ مرکزی گرڈ کے بائیں طرف ۳ اظہاری بٹن "پسند" جسکی نمائندگی "مسکراہٹ چہرے" آئیکن سے، "ہاں" جسکی نمائندگی "چیک نسان" آئیکن سے اور "مزید" جسکی نمائندگی "پلس کے نسان" آئیکن سے کی گی ہیں، جس کو اوپر سے نیچے سجاے گیا ہے۔ مرکزی گرڈ کے دائیں طرف ۳ اظہاری بٹن "نا پسند" جسکی نمائندگی "اداس چہرہ" آئیکن سے، "نہیں" جسکی نمائندگی "کراس" آئیکن سے اور "تھوڑا" جسکی نمائندگی "مائنس کے نسان" آئیکن سے کی گی ہیں، جس کو اوپر سے نیچے سجاے گیا ہے۔ تصویر میں اسکرین کے نیچے ۳ نیویگیشنل بٹن بھی ہیں۔ بائیں سے دائیں طرف یہ ہیں "بیک"،"ہوم" اور "کی بورڈ"۔</string>
+    <string name="pic4">یہ تصویر جیلو ا کا ابتدائی صفحہ کا ہے جس میں صرف ۲ آئیکنس "کھانا" اور "ہاں" نمایاں ہیں۔ باقی بٹن دھندلا ہیں۔ اس تصویر میں جیلو کے ذریعے بولنے کا طریقہ دکھایا گیا ہے، صارف پہلے کس بھی زمرہ بٹن پر کلک کرے جیسے کی "کھانا" اور پھر وضاحتی بٹن "ہاں"۔ اس طرح صارف جیلو کے ذریعے اظہار کر سکتا ہے۔</string>
+    <string name="pic5">جیلو کی ابتدائی صفحہ کی اس تصویر میں صرف ایک آیکن نمایاں ہے، "کھانا"۔ ستح اول کی باقی سب بتام بٹن دھندلا ہیں۔ اس تصویر میں آپکو "کھانا" کے آئیکن پر ایک انگلی دو بار کلک کرتے دکھائی دےرہا ہے۔ اس حرکت سے اس زمرہ کے باقی زیر زمرہ تک رسائی حاصل کر سکتے ہیں۔</string>
+    <string name="pic6">یہ تصویر جیلو کی ذیلی زمرے کو دیکھاتی ہے، جسے "کھانا" آئیکن پر دو بار کلک کرکے حاصل کیا گیا ہے۔ مرکزی گرڈ میں دیکھنے والے ستح دوم ذیلی زمرے آئیکنس، ۳ بائی ۳ کے گرڈ میں سجایے گیے ہیں۔ وہ آئیکنس ہیں : "ناشتہ"، "دہ پہر کا یا رات کا کھانا"، مٹھائی"، نمکین"، "پھل"، "مشروبات"، "کٹلری" اور"ایڈ آنز"۔ اس تصویر میں صارف ک انگلی کو مزید ذیلی اختیارات تک رسائی کےلیے دو بار "ناشتہ" آئیکن پر کلک کرتے ہوۓ دکھایا گیا ہے۔</string>
+    <string name="pic7">سطح ۳ سکرین کی یہ تصویر “ناشتہ” ہےذیلی زمرے کو دیکھاتی ہے، جسے "کھانا" آئیکن پر دو بار کلک کرکے حاصل کیا گیا ہے۔  اس سکرین میں دیکھنے والا  مرکزی گرڈ آئیکنس ہیں پاؤ روٹی، کارن فلیکس، آلو پوری، انڈے، پوہا، اپمہ، کھچڑی اور اڈلی۔ سکرین میں آپکو دونوں بازو کی طرف اظہاری آئیکنس ملینگے، اور ساتھ میں نیچے راشتہ طے کرناے والے بٹن اور اوپر کے دائیں کونے میں ترتیبات آئیکن۔</string>
+    <string name="pic8">یہ تصویر جیلو کی شروعاتی صفحہ کی ہے جیس میں آپ دیکھ سکینگے سکرین کے اوپری دائیں کونے میں ایک ڈراپ ڈاؤن فہرست ۔ یہ ڈراپ ڈاؤن میں کئی اختیارات ہیں جیسے "سوانحی معلومات"، "جیلو کے بارے میں"،"ہدایت"، "کی بورڈ کا اختیارات"، "زبان"، "ترتیبات"، "ترجیحات درست کریں" اور "رائے"۔ کسی بھی اختیارات پر کلک کرکے یا چن کر صارف اپنے ضروریات کے مطابق ایپ کی ترتیبات طے کرسکتا ہے۔</string>
+    <string name="pic9">اس تصویر میں جیلو میں سلسلہ وار حرکت کو دکھایا گیا ہے۔ اس تصویر میں خاص طور پر "بیتالخلا" کی ترتیب کو ظاہر کرتی ہے جس تک رسائی "روزانہ کا معمول" کے مرکزی زمرے میں کی جا سکتی ہے۔ اس معمول میں 3 قدم ہیں۔ قدم اول: "پتلون نیچے کرو"، قدم دوم: "بیت الخلا میں بیٹھو"، قدم تیسرا:" پست دھو لو" ان قدموں کا سلسلہ بتانے کے لیے تیرکا نشان استعمال کیا گیا ہے۔ ان ۳ قدموں کے آئیکنس کے نیچے ہیں "پیچھلا" اور "اگلا" بٹن۔ "پیچھلا" بٹن فیلحال دھندلا ہے کیونکہ یہ قدموں کا پہلا سکرین ہے اور "اگلا" بٹن پر ایک انگلی کی نشان ہے تاکہ آپ دوسرے سکرین میں جا سکیں جہاں سلسلہ کے باقی قدم ہیں۔ اس تصویر میں اظہاری بٹن نہیں دکھائی دے رہے ہیں۔ "واپس"، "ہوم" اور "کی بورڈ" کے بٹن سکرین کے نیچے نظر آتے ہیں۔</string>
+    <string name="pic10">یہ تصویر اوپر کی تصویر کی طرح ہے جس میں "روزمرہ کے کام" کے اندر "بیت الخلا" کی ترتیب کے اندر پہلے ۳ قدم کو دکھایا گیا ہے۔ اس تصویر میں آپکو صارف کی انگلی قدم ۲ آئیکن "بیت الخلا میں بیٹھو" پر کلک کرتے ہئو دکھائی دیتا ہے۔ اس آئیکن پر کلک کرنے سے، اظہاری بٹن سکرین کے دونوں طرف دیکھائی دے رہے ہیں۔</string>
+    <string name="gtts1">اس تصویر صارف کے آلے میں موجود "تحریر سے تقریر نتیجہ" اور "گوگل ٹی ٹی ایس آواز کی معلومات" کی ترتیبات کی ۳ سکرین شاٹس سے بنی ہوئ ہے۔ پہلی تصویر "تحریر سے تقریر نتیجہ" سے متعلقہ ۲ انجن دکھائی دینگے، پہلا" سیمسنگ تقریر سے تحریر انجن" اور دوسرا "گوگل تحریر سے تقریر انجن"۔ اول طورپر صارف "گوگل تحریر سے تقریر انجن" کو چنتے ہوے دکھائی دے رہا ہے۔</string>
+    <string name="gtts2">دوسری تصویر عمل کے دوسرے قدم سے متعلق ہے جہاں صارف :"گوگل تحریر سے تقریر انجن" کے "ترتیبات" میں "گیئر" نشان پر کلک کرتا ہے۔</string>
+    <string name="gtts3">تیسرا تصویر میں سلسلہ کا تیسرا قدم دکھایا گیا ہے جہاں صارف "گوگل تحریر سے تقریر معلومات" سکرین پر موجود ہے۔ اس سکرین پر مختلف زبان کے اختیارات موجود ہیں جیسے "فرانسیسی (فرانس)"، "جرمن (جرمنی)"، "ہندی(ہندوستان)"، "ہنگیرئن(ہنگری)" اور "انڈونیسئن (انڈونیسیہ)"۔ "ہیندی (ہندوستان) بولی" کا اختیارات نمایاں ہے اور "آواز ترتیب ۱" دکھا رہا ہے جو ۱۹ ایم بی (MB) کا ہے اور ڈاؤنلوڈ کے لیے دستیاب ہے۔ صارف کی انگلی اس ڈاؤنلوڈ آئیکن پر کلک کرتی دکھائی دیتی ہیں جس سے بولی ترتیب ۱ میں سے "ہندی(ہندوستان) بولی" ڈاؤنلوڈ ہوگی۔</string>
+    <string name="enter_child_s_name">بچہ کا نام درج کریں</string>
+    <string name="caregiver_s_contact_number_other_than_this_device_s_sim_number">موجودہ ڈیوائس کے سم نمبر کے علاوہ نگراں کا دوسرا رابطہ نمبر۔ مطلوبہ خانہ۔**</string>
+    <string name="select_country_code">ملک کا کوڈ چنیں</string>
+    <string name="caregiver_s_email_address">نگراں کا ای میل پتہ۔ مطلوبہ خانہ۔**</string>
+    <string name="like">پسند</string>
+    <string name="yes">ہاں</string>
+    <string name="more">مزید</string>
+    <string name="dont_like">پسند نہیں</string>
+    <string name="no">نہیں</string>
+    <string name="less">کم</string>
+    <string name="back">واپس</string>
+    <string name="yes_btn">ہاں</string>
+    <string name="enter_category">زمرہ درج کریں</string>
+    <string name="intro_cd">یہ تصویر جیلو کی شروعاتی صفحہ کی ہے۔ اس میں ایک مرکزی گرڈ ہے جس میں ۹ زمرہ بٹن ہیں جیسے ۳ قطار اور ۳ ستون میں ترتیب دیا گیا ہے۔ جو ۹ زرمہ بٹن ہیں انکا نام ہے: "خیرمقدم اور احساسات"، " روزمرہ کے کام"،" کھانا"،" مزہ"،" سیکھنا"، "لوگ"، "جگہ"، "وقت اور موسم" اور" مدد"۔  زمرہ بٹن کے نیچے ۳ راشتہ طے کرنے کے بٹن ہیں : "پیچھے"،" شروعاتی صفحہ "،" کی بورڈ" جو سلسلہ وار ابتدائی صفحہ کے نیچلے حصہ میں ملینگے۔ مرکزی زمرہ آئیکن کے دائیں طرف ۳ اور بائیں طرف ۳  اظہاری آئیکن ملینگے۔ بائیں طرف اوپر سے نیچے سجاے گئے اظہاری بٹن ہیں "پسند"، "ہاں" اور "مزید"۔ دائیں طرف اوپر سے نیچے سجاے گئے اظہاری بٹن ہیں "پسند نہیں"، "نہیں" اور "کم"۔ سکرین کے اوپری دائیں کونے میں ترتیبات ائیکن ہے۔ اس تصویر میں مرکزی گرڈ  کے ۹ آئیکن نمایاں ہیں جبکہ باقی بتام دھندلے ہین۔</string>
+    <string name="intro2_cd">یہ تصویر جیلو ا کا ابتدائی صفحہ کا ہے جس میں صرف ۲ آئیکنس "کھانا" اور "ہاں" نمایاں ہیں۔ باقی بٹن دھندلا ہیں۔ اس تصویر میں جیلو کے ذریعے بولنے کا طریقہ دکھایا گیا ہے، صارف پہلے کس بھی زمرہ بٹن پر کلک کرے جیسے کی "کھانا" اور پھر وضاحتی بٹن "ہاں"۔ اس طرح صارف جیلو کے ذریعے اظہار کر سکتا ہے۔</string>
+    <string name="intro3_cd">جیلو کی یہ تصویر "کھانا" زمرے کے ذیلی زمرے کو دیکھاتی ہے۔ جیلو کی یہ تصویر "کھانا" زمرے کے ذیلی زمرے کو دیکھاتی ہے۔ مرکزی گرڈ میں دکھنے والے آئیکنس کو ۳ بٹا ۳ گرڈ میں سجایا گیا ہے۔ وہ آئیکنس ہیں : "ناشتہ"، "دہ پہر کا یا رات کا کھانا"، مٹھائی"، نمکین"، "پھل"، "مشروبات"، "کٹلری" اور"ایڈ آنز"۔ جب آپ "ناشتہ" پر دو بار کلک کرینگے تو آپکو اور اختیارات ملینگے۔ اس تصویر میں صارف ک انگلی کو مزید ذیلی اختیارات تک رسائی کےلیے دو بار "ناشتہ" آئیکن پر کلک کرتے ہوۓ دکھایا گیا ہے۔</string>
+    <string name="intro4_cd">یہ تصویر جیلو کی شروعاتی صفحہ کی ہے جیس میں آپ دیکھ سکینگے سکرین کے اوپری دائیں کونے میں ایک ڈراپ ڈاؤن فہرست ۔ یہ ڈراپ ڈاؤن میں کئی اختیارات ہیں جیسے "سوانحی معلومات"، "جیلو کے بارے میں"،"ہدایت"، "کی بورڈ کا اختیارات"، "زبان"، "ترتیبات"، "ترجیحات درست کریں" اور "رائے"۔ کسی بھی اختیارات پر کلک کرکے یا چن کر صارف اپنے ضروریات کے مطابق ایپ کی ترتیبات طے کرسکتا ہے۔</string>
+    <string name="intro5_cd">یہ تصویر پھر سے جیلو کی شروعاتی صفحہ کو دیکھاتی ہے۔ اس تصویر میں ۶ اظہاری بٹن کو مرکزی گرڈ کے دونو طرف ۳، ۳ کر نمایاں کیا گیا ہے اور تمام بٹن کو دھندلا کیا گیا ہے۔ مرکزی گرڈ کے بائیں طرف ۳ اظہاری بٹن "پسند" جسکی نمائندگی "مسکراہٹ چہرے" آئیکن سے، "ہاں" جسکی نمائندگی "چیک نسان" آئیکن سے اور "مزید" جسکی نمائندگی "پلس کے نسان" آئیکن سے کی گی ہیں، جس کو اوپر سے نیچے سجاے گیا ہے۔ مرکزی گرڈ کے دائیں طرف ۳ اظہاری بٹن "نا پسند" جسکی نمائندگی "اداس چہرہ" آئیکن سے، "نہیں" جسکی نمائندگی "کراس" آئیکن سے اور "تھوڑا" جسکی نمائندگی "مائنس کے نسان" آئیکن سے کی گی ہیں، جس کو اوپر سے نیچے سجاے گیا ہے۔ تصویر میں اسکرین کے نیچے ۳ نیویگیشنل بٹن بھی ہیں۔ بائیں سے دائیں طرف یہ ہیں "بیک"،"ہوم" اور "کی بورڈ"۔</string>
+    <string name="talkback_single_click">چنیں</string>
+    <string name="talkback_dropdown_menu">ملک کی فہرست میں رسائی حاصل کریں</string>
+    <string name="next">اگلا</string>
+    <string name="previous">پیچھلا</string>
+    <string name="edttxt_msg">بولنے کے لئے یہاں ٹائپ کریں</string>
+    <string name="keyboard_open">کی بورڈ کھولےں</string>
+    <string name="child_s_name_dialog_btn">میرا نام</string>
+    <string name="caregiverName_dialog_btn">نگراں کا نام</string>
+    <string name="caregiver_s_email_address_dialog_btn">نگراں کا ای میل پتہ</string>
+    <string name="homeAddress_dialog_btn">میرے گھر کا پتہ</string>
+    <string name="caregiver_s_contact_number_dialog_btn">نگراں کا رابطہ نمبر</string>
+    <string name="bloodGroup_dialog_btn">میرا خون کا قسم</string>
+    <string name="seekbar_speed_cd">براہ مہربانی تقریر کا رفتار تیز اور کم کرنے کے لئے اپنے آلہ کا آواز کو قابو کرنے کا بٹن استعمال کریں</string>
+    <string name="seekbar_pitch_cd">براہ مہربانی آواز کا گہرائی قابو کرنے کے لئے اپنے آلہ کا آواز کو قابو کرنے کا بٹن استعمال کریں</string>
+    <string name="seekbar_volume_cd">براہ مہربانی تقریر کا آواز تیز اور کم کرنے کے لئے اپنے آلہ کا آواز کو قابو کرنے کا بٹن استعمال کریں</string>
+    <!--end content description-->
+
+    <string name="txt_tts_stting">تحریر سے تقریر ترتیبات</string>
+    <string name="change_language_tts_wifi">قدم ۱: گوگل تحریر سے تقریر میں جا کر \'صرف وای فائی استعمال کریں\' بند کریں، نیچھے دیے گۓ \'تحریر سے تقریر ترتیبات\' بٹن کو ٹاپ کرکے۔ اگر یہ اختیارات غیر فعل ہے تو اس قدم کو پار کت جائیں۔</string>
+    <string name="lang_setting_option1_cd">نیچے دی گئی تصویر میں گوگل تحریر سے تقریر ی انجن کو ترتیب دینے میں شامل ۳ مراحل دکھائے گئے ہیں جس کو جیلو استعمال کرتا ہیں۔ یہ تصویر صارف کے آلے میں موجود "تحریر سے تقریر" اور "گوگل تحریر سے تقریر ی آؤٹ پٹ"  کے ۳ سکرین شوٹس پر مشتمل ہے۔ پہلی تصویر میں "تحریر سے تقریر آؤٹ پٹ" سے متعلقہ ۲ انجن دکھائی دینگے، پہلا" سیمسنگ تحریر سے تقریر انجن" اور دوسرا "گوگل تحریر سے تقریر انجن"۔ اول طورپر صارف "گوگل تحریر سے تقریرابجن" کو چنتے ہوے دیکھائی دے رہا ہے۔</string>
+    <string name="lang_setting_option2_cd">دوسری تصویر عمل کے دوسرے قدم سے متعلق ہے جہاں صارف :"گوگل تحریر سے تقریر انجن" کے "ترتیبات" میں "گیئر" نشان پر کلک کرتا ہے۔</string>
+    <string name="lang_setting_option3_cd">یہ تیسرا تصویر تیسرا قدم کا ہے جہاں صارف "گوگل ٹیی ٹی ایس اختیارت" سکرین پر موجود ہے۔ اس سکرین میں جو دوسرا اشیاء ہے وہ ہے ایک ٹوگل سویچ  "صرف وائی فائی استعمال کریں" کے لیے ہے جو نمایاں کیا گیا ہے۔ صارف کو سویچ کو بند کرنے یا غیر فعل کرنے کو کہا گیا ہے۔</string>
+    <string name="close">مکالمہ بند کرین</string>
+    <string name="access_dialog_title">مکالمہ انتخاب کے ساتھ</string>
+
+    <string name="acc_lang_marathi">مراٹھی (ہندوستان)</string>
+    <string name="acc_lang_hindi">ہندی (ہندوستان)</string>
+    <string name="acc_lang_bengali">بنگالی (ہندوستان)</string>
+    <string name="acc_lang_bengali_bd">بنگالی (بنگلہ دیش)</string>
+    <string name="acc_lang_eng_in">انگریزی (ہندوستان)</string>
+    <string name="acc_lang_eng_gb">انگریزی (برطانیہ)</string>
+    <string name="acc_lang_eng_us">انگریزی (امریکی)</string>
+    <string name="acc_lang_eng_au">انگریزی (اشٹریلیہ)</string>
+    <string name="acc_lang_eng_ng">انگریزی (نائیجریہ)</string>
+    <string name="acc_lang_span_span">ہسپانیہ (ہسپانیہ)</string>
+    <string name="acc_lang_tamil_in">تمل (ہندوستان)</string>
+    <string name="acc_lang_telugu_in">تیلوگو (ہندوستان)</string>
+    <string name="acc_lang_german_ger">جرمن (ڈیوٹسچلینڈ)</string>
+    <string name="acc_lang_gujarati_in">گجراتی (ہندوستان)</string>
+    <string name="acc_lang_punjabi_in">پنجابی (ہندوستان)</string>
+    <string name="acc_lang_kannada_in">کننڈ (ہندوستان)</string>
+    <string name="acc_lang_malayalam_in">ملیالم (ہندوستان)</string>
+    <string name="acc_lang_oriya_in">اوڈیا (بھارت)</string>
+    <string name="acc_lang_maithili_in">میتھلی (بھارت)</string>
+    <string name="acc_lang_urdu_in">اردو</string>
+
+    <string name="_1_icon">۱ آئیکن</string>
+    <string name="_2_icons">۲ آئیکنس</string>
+    <string name="_3_icons">۳ آئیکنس</string>
+    <string name="_4_icons">۴ آئیکنس</string>
+    <string name="_9_icons">۹ آئیکنس</string>
+    <string name="number_of_icons_per_screen">فی سکرین میں آئیکنس کا شمارہ</string>
+
+    <string name="level_1_screen">ستح ایک سکرین </string>
+    <string name="level_2_screen">ستح دو کا سکرین </string>
+    <string name="level_3_screen">ستح تین کا سکرین </string>
+    <string name="sequence_screen">سرگرمی کی ترتیب</string>
+    <string name="close_searchbar">تلاش کرنے کا خانہ بند کریں</string>
+
+
+    <string name="txt_accessibility_setting">رسائی حاصل کرنے کا ترتیبات</string>
+    <string name="visual_access_title">بصری رسائی:</string>
+    <string name="visual_access_info_one">جیلو کے بصری رسائی اب صارفین کو اضافی بصری مشکلات، بشمول کم بینائی یا نابینا کے ساتھ </string>
+    <string name="visual_access_info_two">آینڈریڈ فون کی ایک خصوصیت \'واپس بات کرو\' کا استعمال کر، اس ایپ کو چلایا جا سکتا ہے۔</string>
+    <string name="visual_access_info_three">اپنے آلہ میں \'واپس بات کرو\' فعل کرنے پر صارف کو سکرین کے کسی بھی مسمولات کو چھو نے سے زبانی تفصیلات سننے کو ملتی ہے۔</string>
+    <string name="visual_access_info_four"> جیلو کے ساتھ بات چیت کرنے کے دوران "واپس بات کرو" خصوسیت کا بنیادی اشاروں کا استعمال کر سکتیں ہے یا اپنے ضروریات کے حصاب سے اشارے قایم کر سکتیں ہے۔</string>
+    <string name="visual_access_info_five"> میشال کے طور پر، صارف، سکرین پر دائیں ظرف ہاتھ پھیرنے پر، سکرین پر موجود آئیکنس سلسلہ وار اوپر نیچے کر دیکھ سکتا ہے۔اسی طرح پردہ پر کہیں بھی دہ بار ٹیپ کرنے پر، صارف، اپنے پسند کا آئیکن چن سکتا ہے۔</string>
+    <string name="switch_access_title">سویچ رسائی:</string>
+    <string name="switch_access_info_one">سویچ قابل رسائی موٹر معذوری والے لوگوں کے لیے ایپ کے استعمال کوآسان بناتا ہے۔ اس خصوصیات کے ذریعے ایک یا دو سویچ سے اپنا کام کیا جا سکتا ہے۔</string>
+    <string name="switch_access_info_two">اس خصوسیت کو استعمال کرنے کے لئے صارف کو \"سویچ رسائی\" ، فون کے ترتیبات میں رسائی حاصل کرنے کے زمرہ میں فعل کرنا ہوگا۔</string>
+    <string name="switch_access_info_three">"سیمسنگ فون استعمال کرنے والے صارف یہ سویچ رسائی کو ""مہارت اور تعامل"" اختیارات، جو فون کی ترتیبات کی رسائی زمرہ میں حاصل کر سکتے ہے۔ ".</string>
+    <string name="switch_access_info_four">سویچ قابل رسائی کو ایک سویچ کے ذریعے استعمال کرنے کے لئے ـ ترتیبات کھولیں -> رسائی میں جایں -> سویچ رسائی کو چالو کریں -> USB یا بلوٹوتھ سویچ میں سے کسی ایک کا انتخاب کریں -> ترتیبات میں جائیں اور سویچ کی تعداد پر، ایک سویچ منتخب کریں۔</string>
+    <string name="switch_access_info_five">سویچ قابل رسائی کو دو سویچ کے ذریعے استعمال کرنے کے لئے ـ ترتیبات کھولیں -> رسائی میں جایں -> سویچ رسائی کو چالو کریں -> USB یا بلوٹوتھ سویچ میں سے کسی ایک کا انتخاب کریں -> ترتیبات میں جائیں اور سویچ کی تعداد پر، دو سویچ منتخب کریں۔ پھر اسکیننگ کا طعز چنیں، اگلے بٹن پر کلک کریں اور دونوں سویچ کو حرکت میں لانے کے لئے فعل کریں اور دونو سویچ کی جانچ کر کے عمل کو مکمل کریں۔ </string>
+
+    <!--Language package update strings are here-->
+    <string name="lpu_start_update">لینگویج پیکج اپڈیٹ سروع کر دیا گیا</string>
+    <string name="lpu_parse_update">حاصل معلومات کو عمل میں لایا جا رہا ہےa</string>
+    <string name="lpu_download_icons">آئیکنس فائل ڈاؤنلوڈ ہو رہا ہے</string>
+    <string name="lpu_download_verbiage">تقریر کی فائل ڈاؤنلوڈ ہو رہی ہے</string>
+    <string name="lpu_update_success">لینگویج پیک کامیابی سے اپڈیٹ ہوئ</string>
+    <string name="lpu_toast_update_success">اپڈیٹ کامیابی ہوا</string>
+    <string name="lpu_toast_check_success">اپڈیٹ کی کامیابی کی جانچ ہو رہی ہے</string>
+    <string name="lpu_no_updates_found">اپڈیٹ نہیں ملا</string>
+    <string name="lpu_update_error">اپڈیٹ میں غلطی، پھر سے کوشش کریں</string>
+    <string name="lpu_toast_check_error">لینگویج پیک کا اپڈیٹ ناکامیابی ہوا</string>
+    <string name="update_now">ابھی اپڈیٹ کریں</string>
+    <string name="update_later">بعد میں</string>
+    <string name="update_message">ایپ مے نیا مواد دستیاب ہے۔ کیا آپ ابھی اپڈیٹ کرنا چاہینگے؟</string>
+    <string name="app_update_message">جیلو ایپ کا نیا طرز دستیاب ہے۔ کیا آپ ابھی اپڈیٹ کرنا چاہینگے؟</string>
+
+
+    <!--String resources for MMB-->
+    <string name="trash_the_board">کیا آپ "-" تختہ کو ردی مین منتقل کرنا چاہتے ہین؟</string>
+    <string name="trash_board_placeholder">کوئی بھی تختہ ردی میں نہیں ہے</string>
+    <string name="delete_board">کیا آپ "-" ہمیشہ کے لئے تختہ کو مٹا دینا چاہتے ہیں؟</string>
+    <string name="icon_select_exit_warning">آپ کا انتخاب کھو جائےگا</string>
+    <string name="current_board">آئیکنس جوڑیں گۓ</string>
+    <string name="place_holder_text">کویی آئیکنس چنا نہیں گیا ہے۔ براہ مہربانی بائیں زمرہ کا فہرست سے آئیکنس چنیں</string>
+    <string name="board_name">یہاں تختہ کا نام جوڑین</string>
+    <string name="select_all">سب چنیں</string>
+    <string name="reset">دوبارہ ترتیب کریں</string>
+    <string name="select_icon_title">شبیہیں شامل کریں۔</string>
+    <string name="add_category">زمرہ جوڑیں</string>
+    <string name="add_icon">آئیکن جوڑیں</string>
+    <string name="addicon_title">آئیکنس جوڑیں/ ترمیم</string>
+    <string name="i_like">مجھے پسند ہے</string>
+    <string name="really_like">مجھے واقعی پسند ہے</string>
+    <string name="i_want">مجھے چاہیے</string>
+    <string name="really_want">مجھے واقعی چاہیے</string>
+    <string name="want_more">مجھے اور چاہیے</string>
+    <string name="really_want_more">مجھے واقعی اور چاہیے</string>
+    <string name="i_dont_like">مجھے پسند نہیں ہے</string>
+    <string name="really_dont_like">مجے واقعی پسند نہیں ہے</string>
+    <string name="dont_want">مجھے نہیں چاہیے</string>
+    <string name="really_dont_want">مجھے واقعی نہیں چاہیے</string>
+    <string name="dont_want_more">مجھے اور نہیں چاہیے</string>
+    <string name="really_dont_want_more">مجھے واقعی اور نہیں چاہیے</string>
+    <string name="please_enter_name">براہ کرم نام درج کریں</string>
+    <string name="photos">تصاویر</string>
+    <string name="library">جیلو کا کتب خانہ</string>
+    <string name="icon_name">آئیکن کا نام</string>
+    <string name="add_board">تختہ جوڑیں</string>
+    <string name="custom_icon">ضروریات کے مطابق بنائ آئیکن</string>
+    <string name="cancel">منسوخ کریں</string>
+    <string name="database_not_created_info">زبان کے لئے ڈیٹا بیس بنانا</string>
+    <string name="icon_already_present">آئیکن منتخب ہو چکا ہے</string>
+    <string name="camera_missing">کیمیرہ نہین مل رہا</string>
+    <string name="no_icon_warning">براہ کرم آگے بڑنے کے لیے کم از کم ایک آئیکن جوڑیں</string>
+    <string name="reposition_text">آئیکن کا جگہ بدلنے کے لیے آئیکن کو مزید وقت کے لئے دباے رکھیں</string>
+    <string name="reposition_complete_msg">آئیکن کا نیا جگہ محفوظ کیا گیا</string>
+    <string name="please_select_icon">براہ کرم پہلے ایک تصویر چنیں</string>
+    <string name="txtContinue">جاری رکھیں</string>
+    <string name="expressive_heading1">تھپتھپائیں</string>
+    <string name="expressive_heading2">اظہار کو منتخب/ترمیم کرنے کے لیے بٹن</string>
+    <string name="expressive_heading3">تھپتھپائیں</string>
+    <string name="expressive_heading4">اظہار کو غیر منتخب کرنے کے لیے بٹن</string>
+    <string name="icon_delete_warning">"-" آئیکن مٹا دیا جائیگا؟</string>
+    <string name="board_not_found">تختہ نہیں مل رہا ہے</string>
+    <string name="setting_up_the_language">زبان ترتیب ہو رہی ہے۔ براہ کرم انتظار کریں…</string>
+    <string name="completed_process">زبان کی ترتیبات مکمل ہوا</string>
+    <string name="unable_to_create_board">تختہ تیار نہیں ہو پا رہا ہے\' پھر سے کوشش کریں</string>
+
+    <string name="board">تختے</string>
+    <string name="press_next_to_select_icons">چنے ہوے آئیکنس کو جوڑ نے کے لئے "اگلا" دبائیں</string>
+    <string name="edit_board">موجودہ تختہ کو ترمیم کریں</string>
+    <string name="delete_the_board">موجودہ تختہ کو مٹائیں</string>
+    <string name="restore_the_board">موجودہ تختہ کو بحال کرو</string>
+    <string name="edit_board_image">تختہ کے آئیکن اور نام کو ترمیم کریں</string>
+    <string name="search_board_in_jellow">سرچ بورڈ</string>
+    <string name="enter_board_name_to_search">تلاش کرنے کے لئے تختہ کا نام درج کریں</string>
+    <string name="search_board_screen">تخت کے پردہ میں تلاش کریں</string>
+    <string name="enter_icon_name">تلاشنے کے لئے آئیکن کا نام درج کریں</string>
+
+    <!--Content Description-->
+    <string name="my_boards_screen">میرے تختہ کا سکرین</string>
+    <string name="boards_trash_screen">تختہ کا ردی سکرین</string>
+    <string name="select_image_for_board">تختہ کے لئے تصویر منتخب کریں</string>
+    <string name="select_source_for_image_for_board">تختہ کےتصویر کے لئے ذریعہ منتخب کریں</string>
+    <string name="select_language_for_board">تختہ کے لئے زبان منتخب کریں</string>
+    <string name="icon_select_screen">آئیکنس جوڑنے کا سکرین</string>
+    <string name="icons_selected">_ آئیکنس منتخب </string>
+    <string name="icon_add_edit_screen">آئیکنس جوڑنے یا ترمیم کرنے کا سکرین</string>
+    <string name="edit_current_icon">موجودہ ائیکن کو ترمیم کریں</string>
+    <string name="delete_current_icon">موجودہ آئیکن کو مٹائیں</string>
+    <string name="add_edit_icons_dialog">آئیکن کے مکالمہ کو ترمیم کریں یا اس میں جوڑیں</string>
+    <string name="select_image_for_icon">آئیکن کے لیے تصویر منتخب کریں</string>
+    <string name="enable_reposition_icons">آئینس کے لئے جگہ بدلنے کی صلاحیت فعال کریں</string>
+    <string name="disable_reposition_icons">آئیکنس کے لئے جگہ بدلنے کی صلاحیت غیر فعال کریں</string>
+    <string name="tap_icon_to_select_expression">اظہار درج کرنے کے لئے ٹیپ کریں</string>
+    <string name="tap_icon_to_deselect_expression">اظہار ہٹانے کے لئے ٹیپ کریں</string>
+    <string name="tap_add_to_add_expression">اظہار منتخب کرنے کے لئے جوڑو بٹن پر ٹیپ کریں</string>
+    <string name="tap_delete_to_delete_expression">اظہار منتخب کرنے کے لئے مٹائیں بٹن پر ٹیپ کریں</string>
+    <string name="open_jellow_privacy_policy">جیلو کی رازداری کا شرئیت کھولیں</string>
+    <string name="board_moved_to_trash">_تختہ کو ردی منتقل کیا گیا</string>
+    <string name="board_deleted">_تحتہ مٹایا گیا</string>
+    <string name="board_restored_from_trash">تختہ _ بحال ہو گیا</string>
+    <string name="search_icon_available_in_jellow">جیلو میں دستیاب آئیکن تلاش کریں</string>
+    <string name="search_icon_the_board">موجودہ تختہ میں شبیہ تلاش کریں</string>
+    <string name="preparing_language_screen">زبان کی ترتیبات کا سکرین</string>
+    <string name="language_package_update">جیلو کے مواد اپڈیٹ کرنے کا سکرین</string>
+    <string name="dialog">مکالمہ</string>
+    <string name="close_content_download_screen">مواد ڈاؤنلوڈ کرنے کا سکرین بند کریں</string>
+    <string name="share_jellow_app">جیلو ایپ کو اوروں کے ساتھ بانٹیں</string>
+    <string name="rate_jellow_app">گوگل پلے سٹور میں جیلو ایپ کی درجہ بندی کریں</string>
+    <string name="received_your_feedback">آپکے رائے کے لئے شکریہ</string>
+    <string name="no_btn">نہیں</string>
+    <string name="next_btn">اگلا</string>
+    <string name="my_boards">میرے تختے</string>
+    <string name="board_settings">تختہ کی ترتیبات</string>
+    <string name="board_delete">تحتہ مٹایا گیا</string>
+    <string name="add_expression_here">اپنی خود کے اظہاری جملہ جوڑیں</string>
+    <string name="about_je_intro42">میرے تختے بناؤ (میرے تختے) کا استعمال کر، آپ آپنی ضروریات کے مطابق آئیکنس اور انکے متعلقہ اظہار خیال متان شامیل یا ترمیم کر سکتے ہیں۔</string>
+    <string name="about_je_more_info">مزید معلومات کے لئے، درج ذیل ویڈیو بٹن پر ٹیپ کریں</string>
+    <string name="visual_access_info_video">بصری رسائی حاصل کرنے کی مظاہرہ دیکھنے کے لئے درج ذیل ویڈیو بٹن پر ٹیپ کریں</string>
+    <string name="switch_access_info_video">سویچ کے ذریعے رسائی حاصل کرنے کی مظاہرہ دیکھنے کے لئے درج ذیل ویڈیو بٹن پر ٹیپ کریں</string>
+    <string name="my_boards_title">جیلو ایپ کا استعمال کز، صارف ایک تختہ تیار کر سکتا ہے۔ ایک تختہ میں صارف کے ضروریات کے مطابق تیار کئے گئے کئی آئیکنس ہو سکتے ہیں۔ صارف  جیلو ایپ کے موجودہ آئیکنس کو بھی شامل کر سکتا ہے۔ "میرا تختہ" کے سکرین کو کھولنے کے لئے مرکزی سکرین پر گول سے گھیرا ہوا جمع کا آئیکن پر ٹیپ کریں۔ تختہ کھولنے کے لئے، فہرست میں موجود آئیکنس پر ٹیپ کریں۔</string>
+    <string name="my_boards_title_cd">منتخب کیا ہوا یہ تصویر "میرا تختہ" کا سکرین ہے۔ "میرا تختہ" کے سکرین کو کھولنے کے لئے مرکزی سکرین پر گول سے گھیرا ہوا جمع کا آئیکن پر ٹیپ کریں۔ یہ تصویر صارف کی موجودہ  تختہ فہرست  اور ایک "جوڑو" بٹن کا ہیں۔ ایک نیا تختہ بنانے کے لئے "جوڑو" آئیکن پر ٹیپ کریں جسے "تختہ جوڑو" آئیکن بھی کہا جاتا ہے۔ تختہ کھولنے کے لئے فہرست میں موجود آئیکنس ٹیپ کریں۔</string>
+    <string name="my_boards_info">سکرین کے اوپری دائیں حصہ میں "ترمیم کریں" فہرست آئیکن ہے۔ اسے ٹیپ کرنے سے فہرست میں موجود تختے کو ترمیم کرنے اور مٹانے کا صلاحیت فعل ہوتی ہے۔</string>
+    <string name="my_boards_info_cd">منتخب کیا ہوا یہ تصویر "میرا تختہ" سکرین پر موجود تختہ ترمیم کرنے کی صلاحیت دکھائی گئی ہے۔ سکرین کے اوپری دائیں حصہ میں "ترمیم کریں" فہرست آئیکن ہے۔ اسے ٹیپ کرنے سے فہرست میں موجود تختے کو ترمیم کرنے اور مٹانے کا صلاحیت فعل ہوتی ہے۔ ترمیم کے فعال ہونے پر "ترمیم کریں" اور "مٹائیں" بٹن کے لئے آئیکنس کے فہرست میں موجودہ آئیکنس کو سوائپ یا سکرول کریں۔</string>
+    <string name="my_boards_add_board">نئے تختہ تیار کرنے کے لئے "تختہ جوڑیں" آئیکن پر ٹیپ کریں۔  "تختہ جوڑیں" سکرین پر آپ تصویر منتخب کر سکتے ہین تختہ کو نام دے سکتے ہین اور زبان مقڑ کر سکتے ہیں۔</string>
+    <string name="my_boards_add_board_cd">منتخب کیا ہوا یہ تصویر "تختہ جوڑو" سکرین کا ہے۔ نیا تختہ تیار کرنے کے لئے "تختہ جوڑو" آئیکن پر ٹیپ کریں۔ اس تختہ کے لئے تصویر چننے کے لئے، "تختہ کے لئے تصویر منتخب کریں" بٹن کا استعمال کرین۔ "یہاں تختہ کا نام جوڑین" خانہ میں، آپ تختہ کا نام دے سکتے ہیں۔ "تختہ کے لئے زبان منتخب کریں" ڈراپ ڈاؤن فہرست کا استعمال کرکے، اپنے پسند کی زبان کا تختہ بنانے۔</string>
+    <string name="my_boards_add_icons">آپ "آئیکنس جوڑیں" سکرین میں، جیلو کے کتب خانہ سے اپنے تختہ کے لئے آئیکنس انتخاب یا شامل کر سکتے ہیں۔ آئیکنس تلاش کرنے کی لیے، جیلو کے کتب خانہ میں تلاشنے کی خصوصیت بھی موجود ہے۔</string>
+    <string name="my_boards_add_icons_cd">منتخب کیا ہوا یہ تصویر " آئیکنس جوڑیں " سکرین کا ہے۔ جیلو کتب خانہ کے آئیکنس کو اپنے تختہ میں جوڑنے یا منتخب کرنے کے لئے اس سکرین کا استعمال ہوتا ہے۔ اس سکرین میں زمرہ اور زیر زمرہ آئیکنسس کا فہرست ہے۔ سکرین کے بائیں ترف قابل توسیع فہرست دستیاب ہے۔ یہ فہرست آپکو فہرست میں مخصوص  زمرہ یا زیر زمرہ کے ساتھ آئیکنس چھانٹنے میں میمڈ کرتا ہیں۔ آپ یہاں کسی بھی آئیکن کو ڈھونڈ بھی سکتے ہیں۔ تلاش کرنے کا آئیکن سکرین کے اوپری دائیں حصہ میں موجود ہے۔</string>
+    <string name="my_boards_add_edit_icons">"جوڑیں ـ ترمیم آئیکنس " سکرین میں، آپ فہرست میں اپنے تیار کئے آئیکنس جوڑ سکتے ہیں اور ترمیم یا مٹا سکتے ہیں۔ اپنے ضروڑیات کے مطابق آئیکن تیار کرنے کے لئے، فہرست میں موجود "آئیکنس جوڑیں" بٹن پر ٹیپ کریں۔</string>
+    <string name="my_boards_add_edit_icons_cd">منتخب کیا ہوا یہ تصویر "جوڑیں ـ ترمیم آئیکنس" سکرین کا ہے۔ اس سکرین کے استمال سے آپ اپنے ضروڑیات کے مطابق آئیکنس تیار کر سکتے ہیں۔ آپ فہرست موجودہ آئیکنس کو ترمیم یا مٹا سکتا ہے ہیں۔ فہرست میں "ائیکن جوڑو" بٹن کو ٹیپ کر اپنے بناے ہوے ائیکنس کو شامل کرسکتے ہیں۔ اسی طرح "ترمیم"بٹن پر ٹیپ کریں آئیین ترمیم کرنے کے لئے اور "مٹائیں" بٹن پر ٹیپ کریں آئیکن مٹا نے کے لئے۔  آپ "فی سکرین پر آئیکنس کی تعداد" بھی ترتیب کرسکتے ہیں موجودہ تختہ کے لئے۔  یہ "فی سکرین پر آئیکنس کی تعداد" فہرست سکرین کے اوپری دائیں حصہ مین موجود ہے۔</string>
+    <string name="my_boards_add_icons_window">آپ اپنے بناے ہوے آئیکن کے لئے نام اور تصوییر دے سکتے ہیں، "آئیکن جوڑو" سکرین میں</string>
+    <string name="my_boards_add_icons_window_cd">منتخب کیا ہوا یہ تصویر "آئیکنس جوڑیں" ونڈو کا ہے۔ اپنے بناے ہوے آئیکن کو نام اور تصویر دینے کے لئے یہ ونڈو کا استعمال ہوتا ہے۔ تصویر اپنے آلہ کے کیمرہ یا جیلو کے کتب خانہ سے حاصل کر سکتے ہیں۔</string>
+    <string name="my_boards_add_edit_expression">ونڈو "جوڑیں ـ ترمیم لفاظیات" میں صارف اپنے بناے ہوے آئیکن کے لئے اظہاری بٹن فعال اور غیر فعل کر سکتا ہے۔ کسی بھی اظہار کو فعال کرنے کے لئے سبز رنگ کے گول کے اندر جمع بٹن پر ٹیپ کریں اور پھر اس سے متعلق دو جملہے شامل کریں۔ کسی بھی اظہار کو غیر فعال کرنے کے لئے سرخ گول کے اندر مائنس بٹن کو ٹیپ کریں۔ پھر "محفوظ کریں" بٹن پر ٹیپ کریں۔</string>
+    <string name="my_boards_add_edit_expression_cd">منتخب کیا ہوا یہ تصویر "جوڑیں ـ ترمیم لفاظیات" ونڈو کا ہے۔ اس سکرین کے استمال سے بناے ہوے آئیکن کے لئے اظہاری بٹنس فعال اور غیر فعال کر سکتے ہیں۔ کسی بھی اظہار کو فعال کرنے کے لئے سبز رنگ کے گول کے اندر جمع بٹن پر ٹیپ کریں اور پھر اس سے متعلق دو جملہے شامل کریں۔ کسی بھی اظہار کو غیر فعال کرنے کے لئے سرخ گول کے اندر مائنس بٹن کو ٹیپ کریں۔ پھر "محفوظ کریں" بٹن پر ٹیپ کریں۔</string>
+    <string name="my_boards_board_home_info">تختہ کے ہوم سکرین پر، آپ اپنے تیار کئے گئے تختہ کو استعمال یا چلا سکتا ہے ۔ آپ موجدہ تختہ میں، آئیکن تلاش سکتے ہے، "فی سکرین پر آئیکنس کی تعداد" ترتیبات بدل سکتا ہے یا آئیکنس کی جگہ بھی بدل سکتا ہے۔ ۔یہ بٹن سکرین کے اوپری دائیں حصہ میں ہیں۔</string>
+    <string name="my_boards_board_home_info_cd">منتخب کیا ہوا یہ تصویر تختہ کے ہوم سکرین کا ہے۔ تختہ کے ہوم سکرین پر، آپ اپنے تیار کئے گئے تختہ کو استعمال یا چلا سکتا ہے ۔ آپ موجدہ تختہ میں، آئیکن تلاش سکتے ہے، "فی سکرین پر آئیکنس کی تعداد" ترتیبات بدل سکتا ہے یا آئیکنس کی جگہ بھی بدل سکتا ہے۔ ۔یہ بٹن سکرین کے اوپری دائیں حصہ میں ہیں۔</string>
+    <string name="place_holder_no_icons_added">اس تختہ میں کوئی آئیکن نہیں ہے</string>
+    <string name="language_not_working">اگر ایپ میں چنی ہوی زبان کے لیے کوئی بولی نہیں نکلتا ہے تو ان قدموں پر عمل کریں۔</string>
+    <string name="txtMoreLangSetting">زبان کی مزید ترتیبات</string>
+    <string name="board_place_holder_text">آپ نے ابھی تک کوئی تختہ نہیں جوڑا ہے</string>
+    <string name="change_language_voice">زبان کے لئے لہجہ منتخب کریں</string>
+    <string name="update_the_package">چنا ہوا زبان کے لئے زبان کی پیک کو جدید ترین کریں</string>
+    <string name="voice_warning">اگر منتخب کئے گئے زبان(یں) کے لئے آواز(یں) نہیں ہے یا آواز کے ڈراپ ڈاون فہرست میں غیر موجود دکھا رہا ہے، تو گوگل پلے ستور میں گوگل تحریر سے تقریر ایپ کو اپڈیٹ کریں اور چنے ہوے زبان(یں) کی آواز کا ڈاٹا نصب کریں۔</string>
+    <string name="enableFishAnimation">مچھلی کی حرکت پذیری کو چالو کریں</string>
+    <string name="enableIconAddition">"آئیکن جوڑیں" بٹن دکھائیں</string>
+    <string name="createHomeCustomIcon">آئیکن تیار کریں</string>
+    <string name="createHomeCustomCategory">زمرہ تیار کریں</string>
+    <string name="home_custom_icon_place_holder_text">یہاں کوئی کسٹم نہی جوڑا گیا ہے</string>
+    <string name="enableBlackWhiteColor">مونوکروم دیکھانے کو فعل کریں (کالا یا گورا)</string>
+    <string name="txtDisplaySettings">ترتیبات دیکھاے</string>
+    <string name="txtCustomisationSetting">ترتیبات اپنے ضروریات کے مطابق بنائیں</string>
+    <string name="txtOtherSetting">دوسرے ترتیبات</string>
+    <string name="change_language_line2">نیچے دی گئی فہرست میں سے کوئی بھی زبان چنیں:</string>
+</resources>

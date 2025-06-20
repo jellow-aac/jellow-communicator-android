@@ -37,12 +37,16 @@ import static com.dsource.idc.jellowintl.utility.SessionManager.GU_IN;
 import static com.dsource.idc.jellowintl.utility.SessionManager.HI_IN;
 import static com.dsource.idc.jellowintl.utility.SessionManager.KHA_IN;
 import static com.dsource.idc.jellowintl.utility.SessionManager.KN_IN;
+import static com.dsource.idc.jellowintl.utility.SessionManager.MAI_IN;
 import static com.dsource.idc.jellowintl.utility.SessionManager.ML_IN;
 import static com.dsource.idc.jellowintl.utility.SessionManager.MR_IN;
 import static com.dsource.idc.jellowintl.utility.SessionManager.MR_TTS;
+import static com.dsource.idc.jellowintl.utility.SessionManager.OR_IN;
 import static com.dsource.idc.jellowintl.utility.SessionManager.PA_IN;
+import static com.dsource.idc.jellowintl.utility.SessionManager.SR_RS;
 import static com.dsource.idc.jellowintl.utility.SessionManager.TA_IN;
 import static com.dsource.idc.jellowintl.utility.SessionManager.TE_IN;
+import static com.dsource.idc.jellowintl.utility.SessionManager.UR_IN;
 
 public class SpeechEngineBaseActivity extends BaseActivity{
     private static TextToSpeech sTts;
@@ -130,6 +134,10 @@ public class SpeechEngineBaseActivity extends BaseActivity{
             case KHA_IN:
             case KN_IN:
             case ML_IN:
+            case OR_IN:
+            case UR_IN:
+            case MAI_IN:
+            case SR_RS:
             default:
                 return (float) getSession().getPitch()/50;
         }
@@ -158,6 +166,10 @@ public class SpeechEngineBaseActivity extends BaseActivity{
             case KHA_IN:
             case KN_IN:
             case ML_IN:
+            case OR_IN:
+            case UR_IN:
+            case MAI_IN:
+            case SR_RS:
             default:
                 return (float) (getSession().getSpeed()/50);
         }
@@ -186,6 +198,10 @@ public class SpeechEngineBaseActivity extends BaseActivity{
             case KHA_IN:
             case KN_IN:
             case ML_IN:
+            case OR_IN:
+            case UR_IN:
+            case MAI_IN:
+            case SR_RS:
             default:
                 return "com.google.android.tts";
         }
@@ -418,71 +434,77 @@ public class SpeechEngineBaseActivity extends BaseActivity{
 
     static HashMap<String, String> voiceGender = new HashMap<String, String>(){
         {
-            put("bn-bd-x-ban-local"," (M)");
-            put("bn-in-x-bin-local"," (M)");
-            put("bn-in-x-bnf-local"," (F)");
-            put("bn-in-x-bnm-local"," (M)");
-            put("bn-in-x-bnx-local"," (F)");
-            put("de-de-x-deb-local"," (M)");
-            put("de-de-x-deg-local"," (M)");
-            put("de-de-x-nfh-local"," (F)");
-            put("de-de-x-dea-local"," (F)");
-            put("en-au-x-afh-local"," (F)");
-            put("en-au-x-aua-local"," (F)");
-            put("en-au-x-aub-local"," (M)");
-            put("en-au-x-auc-local"," (F)");
-            put("en-au-x-aud-local"," (M)");
-            put("en-gb-x-fis-local"," (F)");
-            put("en-gb-x-gba-local"," (F)");
-            put("en-gb-x-gbb-local"," (M)");
-            put("en-gb-x-gbc-local"," (F)");
-            put("en-gb-x-gbd-local"," (M)");
-            put("en-gb-x-gbg-local"," (F)");
-            put("en-gb-x-rjs-local"," (M)");
-            put("en-in-x-ahp-local"," (F)");
-            put("en-in-x-cxx-local"," (F)");
-            put("en-in-x-ena-local"," (F)");
-            put("en-in-x-enc-local"," (F)");
-            put("en-in-x-end-local"," (M)");
-            put("en-in-x-ene-local"," (M)");
-            put("en-ng-x-tfn-local"," (F)");
-            put("en-us-x-iob-local"," (F)");
-            put("en-us-x-iog-local"," (F)");
-            put("en-us-x-iol-local"," (M)");
-            put("en-us-x-iom-local"," (M)");
-            put("en-us-x-sfg-local"," (F)");
-            put("en-us-x-tpc-local"," (F)");
-            put("en-us-x-tpd-local"," (M)");
-            put("en-us-x-tpf-local"," (F)");
-            put("es-es-x-eea-local"," (F)");
-            put("es-es-x-eec-local"," (F)");
-            put("es-es-x-eed-local"," (M)");
-            put("es-es-x-eee-local"," (F)");
-            put("es-es-x-eef-local"," (M)");
-            put("fr-fr-x-fra-local"," (F)");
-            put("fr-fr-x-frb-local"," (M)");
-            put("fr-fr-x-frc-local"," (F)");
-            put("fr-fr-x-frd-local"," (M)");
-            put("fr-fr-x-vlf-local"," (F)");
-            put("gu-in-x-guf-local"," (F)");
-            put("gu-in-x-gum-local"," (M)");
-            put("hi-in-x-hia-local"," (F)");
-            put("hi-in-x-hic-local"," (F)");
-            put("hi-in-x-hid-local"," (M)");
-            put("hi-in-x-hie-local"," (M)");
-            put("mr-in-x-mrf-local"," (F)");
-            put("ta-in-x-taf-local"," (F)");
-            put("ta-in-x-tag-local"," (M)");
-            put("te-in-x-tef-local"," (F)");
-            put("te-in-x-tem-local"," (M)");
-            put("pa-in-x-pac-local"," (F)");
-            put("pa-in-x-pad-local"," (M)");
-            put("pa-in-x-pae-local"," (F)");
-            put("pa-in-x-pag-local"," (M)");
-            put("kn-in-x-knf-local"," (F)");
-            put("kn-in-x-knm-local"," (M)");
-            put("ml-in-x-mlf-local"," (F)");
-            put("ml-in-x-mlm-local"," (M)");
+            put("bn-bd-x-ban-local", " (M)");
+//            put("bn-in-x-bin-local", " (M)");
+//            put("bn-in-x-bnf-local", " (F)");
+            put("bn-in-x-bnd-local", " (M)");
+            put("bn-in-x-bnc-local", " (F)");
+            put("de-de-x-deb-local", " (M)");
+            put("de-de-x-deg-local", " (M)");
+            put("de-de-x-nfh-local", " (F)");
+            put("de-de-x-dea-local", " (F)");
+            put("en-au-x-afh-local", " (F)");
+            put("en-au-x-aua-local", " (F)");
+            put("en-au-x-aub-local", " (M)");
+            put("en-au-x-auc-local", " (F)");
+            put("en-au-x-aud-local", " (M)");
+            put("en-gb-x-fis-local", " (F)");
+            put("en-gb-x-gba-local", " (F)");
+            put("en-gb-x-gbb-local", " (M)");
+            put("en-gb-x-gbc-local", " (F)");
+            put("en-gb-x-gbd-local", " (M)");
+            put("en-gb-x-gbg-local", " (F)");
+            put("en-gb-x-rjs-local", " (M)");
+            put("en-in-x-ahp-local", " (F)");
+            put("en-in-x-cxx-local", " (F)");
+            put("en-in-x-ena-local", " (F)");
+            put("en-in-x-enc-local", " (F)");
+            put("en-in-x-end-local", " (M)");
+            put("en-in-x-ene-local", " (M)");
+            put("en-ng-x-tfn-local", " (F)");
+            put("en-us-x-iob-local", " (F)");
+            put("en-us-x-iog-local", " (F)");
+            put("en-us-x-iol-local", " (M)");
+            put("en-us-x-iom-local", " (M)");
+            put("en-us-x-sfg-local", " (F)");
+            put("en-us-x-tpc-local", " (F)");
+            put("en-us-x-tpd-local", " (M)");
+            put("en-us-x-tpf-local", " (F)");
+            put("es-es-x-eea-local", " (F)");
+            put("es-es-x-eec-local", " (F)");
+            put("es-es-x-eed-local", " (M)");
+            put("es-es-x-eee-local", " (F)");
+            put("es-es-x-eef-local", " (M)");
+            put("fr-fr-x-fra-local", " (F)");
+            put("fr-fr-x-frb-local", " (M)");
+            put("fr-fr-x-frc-local", " (F)");
+            put("fr-fr-x-frd-local", " (M)");
+            put("fr-fr-x-vlf-local", " (F)");
+            put("gu-in-x-guf-local", " (F)");
+            put("gu-in-x-gum-local", " (M)");
+            put("hi-in-x-hia-local", " (F)");
+            put("hi-in-x-hic-local", " (F)");
+            put("hi-in-x-hid-local", " (M)");
+            put("hi-in-x-hie-local", " (M)");
+            put("mr-in-x-mrf-local", " (F)");
+            put("ta-in-x-taf-local", " (F)");
+            put("ta-in-x-tag-local", " (M)");
+            put("te-in-x-tef-local", " (F)");
+            put("te-in-x-tem-local", " (M)");
+            put("pa-in-x-pac-local", " (F)");
+            put("pa-in-x-pad-local", " (M)");
+            put("pa-in-x-pae-local", " (F)");
+            put("pa-in-x-pag-local", " (M)");
+            put("kn-in-x-knf-local", " (F)");
+            put("kn-in-x-knm-local", " (M)");
+            put("ml-in-x-mlf-local", " (F)");
+            put("ml-in-x-mlm-local", " (M)");
+            put("or-in-x-end-local", " (M)");
+            put("ur-in-x-urb-local", " (M)");
+            put("ur-in-x-urc-local", " (F)");
+            put("sr-rs-x-standard-local", " (M)");
+            put("sr-rs-x-wavenet-local", " (F)");
+            put("mai-in-x-end-local", " (M)");
         }
     };
 }
