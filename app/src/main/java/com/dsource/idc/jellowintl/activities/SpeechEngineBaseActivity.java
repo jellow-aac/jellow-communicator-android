@@ -22,6 +22,8 @@ import java.util.Locale;
 
 import static com.dsource.idc.jellowintl.factories.PathFactory.UNIVERSAL_FOLDER;
 import static com.dsource.idc.jellowintl.factories.PathFactory.getAudioPath;
+import static com.dsource.idc.jellowintl.utility.SessionManager.AR_SA;
+import static com.dsource.idc.jellowintl.utility.SessionManager.AS_IN;
 import static com.dsource.idc.jellowintl.utility.SessionManager.BE_IN;
 import static com.dsource.idc.jellowintl.utility.SessionManager.BN_BD;
 import static com.dsource.idc.jellowintl.utility.SessionManager.BN_IN;
@@ -37,12 +39,16 @@ import static com.dsource.idc.jellowintl.utility.SessionManager.GU_IN;
 import static com.dsource.idc.jellowintl.utility.SessionManager.HI_IN;
 import static com.dsource.idc.jellowintl.utility.SessionManager.KHA_IN;
 import static com.dsource.idc.jellowintl.utility.SessionManager.KN_IN;
+import static com.dsource.idc.jellowintl.utility.SessionManager.KOK_IN;
+import static com.dsource.idc.jellowintl.utility.SessionManager.LUS_IN;
 import static com.dsource.idc.jellowintl.utility.SessionManager.MAI_IN;
 import static com.dsource.idc.jellowintl.utility.SessionManager.ML_IN;
 import static com.dsource.idc.jellowintl.utility.SessionManager.MR_IN;
 import static com.dsource.idc.jellowintl.utility.SessionManager.MR_TTS;
+import static com.dsource.idc.jellowintl.utility.SessionManager.NE_NP;
 import static com.dsource.idc.jellowintl.utility.SessionManager.OR_IN;
 import static com.dsource.idc.jellowintl.utility.SessionManager.PA_IN;
+import static com.dsource.idc.jellowintl.utility.SessionManager.RAJ_IN;
 import static com.dsource.idc.jellowintl.utility.SessionManager.SR_RS;
 import static com.dsource.idc.jellowintl.utility.SessionManager.TA_IN;
 import static com.dsource.idc.jellowintl.utility.SessionManager.TE_IN;
@@ -138,6 +144,12 @@ public class SpeechEngineBaseActivity extends BaseActivity{
             case UR_IN:
             case MAI_IN:
             case SR_RS:
+            case RAJ_IN:
+            case NE_NP:
+            case AR_SA:
+            case KOK_IN:
+            case LUS_IN:
+            case AS_IN:
             default:
                 return (float) getSession().getPitch()/50;
         }
@@ -170,6 +182,12 @@ public class SpeechEngineBaseActivity extends BaseActivity{
             case UR_IN:
             case MAI_IN:
             case SR_RS:
+            case RAJ_IN:
+            case NE_NP:
+            case AR_SA:
+            case KOK_IN:
+            case LUS_IN:
+            case AS_IN:
             default:
                 return (float) (getSession().getSpeed()/50);
         }
@@ -202,6 +220,12 @@ public class SpeechEngineBaseActivity extends BaseActivity{
             case UR_IN:
             case MAI_IN:
             case SR_RS:
+            case RAJ_IN:
+            case NE_NP:
+            case AR_SA:
+            case KOK_IN:
+            case LUS_IN:
+            case AS_IN:
             default:
                 return "com.google.android.tts";
         }
@@ -222,8 +246,17 @@ public class SpeechEngineBaseActivity extends BaseActivity{
     }
 
     public static String getAvailableVoicesForLanguage(String lang){
-        if(lang.equals(KHA_IN))
-            lang=BN_IN;
+        switch (lang){
+            case KHA_IN:
+                lang = BN_IN;
+                break;
+            case RAJ_IN:
+                lang = HI_IN;
+                break;
+            case LUS_IN:
+                lang = ENG_IN;
+                break;
+        }
         lang = lang.replace("-r","-").toLowerCase();
         StringBuilder csvVoices = new StringBuilder();
         for (String voice : voiceGender.keySet()) {
@@ -505,6 +538,13 @@ public class SpeechEngineBaseActivity extends BaseActivity{
             put("sr-rs-x-standard-local", " (M)");
             put("sr-rs-x-wavenet-local", " (F)");
             put("mai-in-x-end-local", " (M)");
+            put("ne-np-x-nep-local", " (F)");
+            put("ar-xa-x-arc-local", " (F)");
+            put("ar-xa-x-ard-local", " (M)");
+            put("ar-xa-x-are-local", " (M)");
+            put("ar-xa-x-arz-local", " (F)");
+            put("kok-in-x-end-local", " (M)");
+            put("as-in-x-end-local", " (M)");
         }
     };
 }
