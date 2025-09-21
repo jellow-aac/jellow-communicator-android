@@ -78,13 +78,12 @@ public class SessionManager {
             put("मैथिली (Maithili)", MAI_IN);
             //Experimental
             put("Србин (Serbian)", SR_RS);
-            put("राजस्थानी (मारवाड़ी)", RAJ_IN);
-            put("नेपाली (Nepali)", NE_NP);
-            put("العربية (السعودية)", AR_SA);
-            put("कोंकणी (भारत)", KOK_IN);
+            put("मारवाड़ी (Marwadi)", RAJ_IN);
+            put("नेपाली (Nepal)", NE_NP);
+            put("العربية (Arabic)", AR_SA);
+            put("कोंकणी (Kokani)", KOK_IN);
             put("Mizo (India)", LUS_IN);
-            put("অসমীয়া (ভারত)", AS_IN);
-
+            put("অসমীয়া (Assamese)", AS_IN);
             //put("Khasi (Testing)", KHA_IN);
         }
     };
@@ -115,12 +114,12 @@ public class SessionManager {
             put(MAI_IN, "मैथिली (Maithili)");
             // Experimental
             put(SR_RS, "Србин (Serbian)");
-            put(RAJ_IN, "राजस्थानी (मारवाड़ी)");
-            put(NE_NP, "नेपाली (Nepali)");
-            put(AR_SA, "العربية (السعودية)");
-            put(KOK_IN, "कोंकणी (भारत)");
+            put(RAJ_IN, "मारवाड़ी (Marwadi)");
+            put(NE_NP, "नेपाली (Nepal)");
+            put(AR_SA, "العربية (Arabic)");
+            put(KOK_IN, "कोंकणी (Kokani)");
             put(LUS_IN, "Mizo (India)");
-            put(AS_IN, "অসমীয়া (ভারত)");
+            put(AS_IN, "অসমীয়া (Assamese)");
             //put(KHA_IN, "Khasi (Testing)");
         }
     };
