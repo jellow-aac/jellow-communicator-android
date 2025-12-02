@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="ratings">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+    <string-array name="arrSequenceActivityHeadingText">
+        <item>ब्रश करणो</item>
+        <item>लेट्रिंग</item>
+        <item>नहाणो</item>
+        <item>""</item>
+        <item>""</item>
+        <item>""</item>
+        <item>""</item>
+        <item>\tसुबह रा काम</item>
+        <item>\tरात रो काम</item>
+    </string-array>
+
+    <string name="app_name">जेलो</string>
+    <string name="action_settings">सेटिंग्स (Settings)</string>
+
+    <string name="Language">भासा (Language)</string>
+    <string name="saveLanguage">भासा बदलो (Apply Change)</string>
+
+    <string-array name="bloodgroup">
+        <item>सेट कोनी</item>
+        <item>A+ve</item>
+        <item>A-ve</item>
+        <item>B+ve</item>
+        <item>B-ve</item>
+        <item>AB+ve</item>
+        <item>AB-ve</item>
+        <item>O+ve</item>
+        <item>O-ve</item>
+    </string-array>
+
+    <string-array name="bloodgroup_talkback">
+        <item>सेट कोनी</item>
+        <item>ए पॉजिटिव</item>
+        <item>ए निगेटिव</item>
+        <item>बी पॉजिटिव</item>
+        <item>बी निगेटिव</item>
+        <item>ए बी पॉजिटिव</item>
+        <item>ए बी निगेटिव</item>
+        <item>ओ पॉजिटिव</item>
+        <item>ओ निगेटिव</item>
+    </string-array>
+
+    <string-array name="picture_view_mode">
+        <item>चित्र अर विवरण</item>
+        <item>फगत तस्वीरां</item>
+    </string-array>
+
+    <string-array name="grid_size">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>9</item>
+    </string-array>
+
+    <string-array name="acc_grid_size">
+        <item>एक</item>
+        <item>दोय</item>
+        <item>तीन</item>
+        <item>चार</item>
+        <item>नौ</item>
+    </string-array>
+
+    <string name="simple_ime">जेलो कीबोर्ड</string>
+    <string name="subtype_en_US">सीरियल एबैक</string>
+
+    <string name="action_bar_title">होम</string>
+    <string name="txtSpeechSpeed">बोलण री गति</string>
+    <string name="txtVoiceSpeech">आवाज री ऊंचाई</string>
+    <string name="txtDisplayMode">प्रदर्शित करण रो प्रकार</string>
+    <string name="txtVoiceVolume">बोलण रो स्तर</string>
+    <string name="txtNumOfPerPerScr">प्रति स्क्रीन मुख्य वर्ग आइकन री गिणती</string>
+    <string name="txtDemo">आवाज रो डेमो</string>
+    <string name="txtSave">सहेजो</string>
+    <string name="demoTtsSpeech">नमस्कार! थै जेलो कम्युनिकेटर रो उपयोग कर रिया हो।</string>
+    <string name="savedSettingsMessage">सेटिंग्स नै सेव ली गई है</string>
+    <string name="languageChanged">भाषा नै सहेज राखीजी है</string>
+    <string name="checkConnectivity">थै इंटरनेट सूं जुड़ेड़ा कोनी हो। कृपया आपरो इंटरनेट चालू कर दियो।</string>
+
+    <string name="menuProfile">प्रोफाइल (Profile)</string>
+    <string name="menuMyBoards">म्हारा बोर्ड (My Boards)</string>
+    <string name="menuBoardsTrash">Trashed Boards</string>
+    <string name="menuAbout">जेलो रै बारै मांय( About Jellow)</string>
+    <string name="menuTutorials">ट्यूटोरियल (Tutorial)</string>
+    <string name="menuKeyboardInput">कीबोर्ड नियंत्रण (Keyboard Control)</string>
+    <string name="menuResetPref">रीसेट आइकन (Reset Preferences)</string>
+    <string name="menuFeedback">पाछो पूछणो (Feedback)</string>
+    <string name="menuUserRegistration">पंजीकरण स्क्रीन (Registration Page)</string>
+    <string name="menuAccessibility">सुलभता (Accessibility)</string>
+    <string name="menuClosePopup">मेनू बंद करो (Close menu)</string>
+    <string name="labelSplash">जेलो शुरू हो रियो है। कृपया रुको।</string>
+
+    <string name="easyToUse">काम मांय लेबा मांय सोरो</string>
+    <string name="clearPictures">साफ तस्वीरें</string>
+    <string name="clearVoice">साफ आवाज</string>
+    <string name="easyToNavigate">नेविगेशन री आसानी</string>
+    <string name="commentSuggestions">टिप्पणियां, सुझाव या समर्थन री अरज</string>
+    <string name="submit">जमा (SUBMIT)</string>
+    <string name="serial_keyboard_title">सीरियल कीबोर्ड:</string>
+    <string name="serial_keyboard_info">जेलो कम्युनिकेटर एप्लिकेशन रै मांय सीरियल कीबोर्ड उपलब्ध है। यो कीबोर्ड शिक्षकां रै सुझावां रै आधार माथै बणायो गयो है। इण कीबोर्ड मांय अक्षरां नै वर्णमाला रै हिसाब सूं व्यवस्थित करियो गयो है।इण वास्तै, उपयोगकर्ता सीरियल कीबोर्ड माथै अक्षरां रो अंदाजो आसानी सूं लगा सकै है। यो कीबोर्ड बां टाबरां रै वास्तै काम आवै है जका नूंवी भाषावां सीख रैया है। अक्षरां रै अलावा, इण सीरियल कीबोर्ड माथै 0–9 तांई रा अंक अर आइकन भी है, जका हर दिन री बातचीत रै वास्तै जरूरी है।</string>
+    <string name="keyboardControlTxt">थानै चावा कीबोर्ड चुणबा अर उणनै डिफॉल्ट बणाबा रै वास्तै दो कदम उठाणा पड़सी:</string>
+    <string name="step1">चरण 1: टैबलेट/मोबाइल री सेटिंग्स सूं कीबोर्ड नै सक्रिय करो</string>
+    <string name="qwertyKeyboard">डिफ़ॉल्ट देवनागरी कीबोर्ड</string>
+    <string name="serialKeyboard">सीरियल एबीसी कीबोर्ड</string>
+    <string name="step2">चरण 2: चुण्योड़ा कीबोर्ड नै डिफॉल्ट बणाओ</string>
+    <string name="saveAsDefault">रूप मांय सहेजो(SAVE AS DEFAULT)</string>
+    <string name="getKeyboardControl">कीबोर्ड नियंत्रण</string>
+    <string name="childName">टाबर रो नांव **</string>
+    <string name="caregiverName">देखभाळ करण आळा रो नांव **</string>
+    <string name="careGiverContact">देखभाल करण आळा रो संपर्क नंबर। यो डिवाइस सूं अलग सिम नंबर है **</string>
+    <string name="homeAddress">घर रो पतो **</string>
+    <string name="emailAddress">ई-मेल आईडी**</string>
+    <string name="bloodGroup">रक्त समूह**</string>
+    <string name="detailSaved">जाणकारी सहेज ली गई है</string>
+    <string name="invalid_address">यो पता गलत छै</string>
+    <string name="invalid_emailId">यो ईमेल पतो गलत छै</string>
+    <string name="enterTheName">आपरै टाबर रो नांव लिखो</string>
+    <string name="search_act_title">जेलो रै मांय आइकन ढूंढो</string>
+
+    <string name="iconsHasBeenReset">आइकन नै रीसेट कर दियो गयो है</string>
+    <string name="speak">बोलना (Speak)</string>
+    <string name="stop">डटणा (Stop)</string>
+    <string name="about_jellow_speech">जेलो इक संवादात्मक अनुप्रयोग है जो आइकन अर छवियां रो उपयोग कर संवाद स्थापित करण में मदद करै है। जो लोग बोलणो सीख रिया है, या जिका बोलबा में दिक्कत है, वे जेलो रो उपयोग कर सकै है। जेलो रो उपयोग रोजमर्रा री जिंदगी रै मांय बार-बार बरतीजण आळा सबदां अर श्रेणियां नै सीखण रै वास्तै भी करियो जा सकै है।इण तरै सूं, छोटा टाबर अर कोई नूंवी भाषा सीखबाळा लोग भी जेलो रो फायदो उठा सकै है। इणरै अलावा, जेलो रै रंगीन अर आकर्षक आयकॉनों री मदद सूं, टाबर चित्रां अर बां सूं जुड़ेड़ा नामां रै बीच रो संबंध सीख सकै है। जेलो नै आईडीसी स्कूल ऑफ डिजाइन, इंडियन इंस्टीट्यूट ऑफ टेक्नोलॉजी मुंबई रै मांय विकसित करियो गयो है।जेलो री भाषा क्षमतावां नै बढ़ावा रै वास्तै, इण परियोजना रै प्रमुख अन्वेषकां एक नूंवै भावनात्मक भाषा प्रोटो कॉल या ईएलपी री अवधारणा बणाई है। जेलो रै मांय ईएलपी रै मांय 6 भावनात्मक आइकन है जो इंटरफेस रा मूल भाग है।इण बुनियादी भावनावां नै ले जावण आळा आइकनों री मदद सूं, जेलो उपयोगकर्ता दूजा लोगां नै आपरी पसंद, नापसंद अर जरूरतां रै बारै में बता सकै है। टाबर जेलो रो उपयोग करणो घणी आसानी सूं सीख सकै है। जेलो ऐप एंड्रॉइड टैबलेट रै वास्तै उपयुक्त है। जेलो अबार अंग्रेजी, हिंदी, मराठी, बंगाली, तमिल, तेलुगु, गुजराती, पंजाबी, कन्नड़, मलयालम, उड़िया, मैथिली, उर्दू, असमी, मरावड़ी, नेपाली, अरबी, स्पेनिश, जर्मन, फ्रेंच भाषावां मांय उपलब्ध है। जेलो रा वर्तमान सॉफ्टवेयर संस्करण _ है। जेलो अबार विकास रै मांय है। जे थारै कनै इण एप्लिकेशन नै सुधारबा रै बाबत कोई सुझाव है तो कृपया बांनै \"प्रतिक्रिया\" टैब माथै भेजो।जेलो एप्लिकेशन क्रिएटिव कॉमन्स एट्रिब्यूशन-नॉनकमर्शियल-शेयर-ए-लाइक 4.0 लाइसेंस रै तहत लाइसेंस प्राप्त है। जेलो एप्लिकेशन माथै सगळा शोध कार्य भारतीय प्रौद्योगिकी संस्थान मुंबई नै दियो जावै है)।इण जेलो एप्लिकेशन री सगळी सामग्री (जिण मांय आइकन, लेआउट, वास्तुकला, दृश्य पहचाण, अनुवाद अर सॉफ्टवेयर कोड शामिल है) नै वितरित अर अनुकूलित करियो जा सकै है, पण व्यावसायिक उद्देश्यां रै वास्तै उपयोग नीं करियो जा सकै है। सामग्री रो उपयोग करतां थकां, आप सूं अरज करी जावै है,आप भारतीय प्रौद्योगिकी संस्थान मुंबई रो आभार प्रकट करो। जेलो एप्लिकेशन इण लिंक www dot jellow dot o r g माथै डाउनलोड करण सारू उपलब्ध है। जे कोई जेलो नै और विकसित करणो चावै है या थारै कनै जेलो कार्यशाला आयोजित करण में रुचि राखै है तो बां सूं अरज है कै,प्र j e l l o w c o m m u n i c a t o r @ g m a i l . c o m इण ई-मेल पते माथै म्हानै संपर्क करो।</string>
+    <string name="catBtnDesc">जेलो रै मांय स्क्रीन रै बीचै 9 मुख्य श्रेणियां रा बटण है अर दोनूं कानी 6 भावनावां रा बटण है।</string>
+    <string name="catBtn">मुख्य खंड रा बटण:</string>
+    <string name="expBtn">भावनात्मक बटण:</string>
+    <string name="jellowUsageDesc">जेलो रो उपयोग कर बात करण रै वास्तै, उपयोगकर्तावां नै पैली एप्लिकेशन रै मांय मुख्य श्रेणी रै बटणां मांय सूं एक नै चुणणो पड़सी अर पछै भावनात्मक बटणां मांय सूं एक नै चुणणो पड़सी। उदाहरण रै वास्तै, नीचै दिखायो गयो बटण दबाबा माथै, जेलो कैवेला - \"मैं खाणो चावूं हूं\"।</string>
+    <string name="jellowUsageSubCat">किणी भी मुख्य श्रेणी रै बटण माथै दो बार क्लिक कर\'र, उपयोगकर्ता आपरा विकल्प अर उप-विकल्प तक पहुंच सकै है।</string>
+    <string name="levelOneCat">श्रेणी स्तर 1:</string>
+    <string name="levelTwoCat">श्रेणी स्तर 2:</string>
+    <string name="levelThreeCat">श्रेणी स्तर 3:</string>
+    <string name="settingDesc">स्क्रीन रै ऊपरी दांईं कोने माथै क्लिक कर\'र, उपयोगकर्ता आपरी प्रोफाइल बणा सकै है अर एप्लिकेशन री मुख्य सेटिंग्स नै बदल सकै है।</string>
+    <string name="seqActDesc">जेलो रो उपयोग टाबरां नै रोजमर्रा रा कामां रा क्रमिक चरण सिखाबा रै वास्तै भी करियो जा सकै है।जेलो रो इण तरै सूं उपयोग करतां थकां, किणी भी चरण माथै कोई भी बटण दबाबा सूं उपयोगकर्ता स्क्रीन रै दोनूं कानी एनिमेटेड बटण देख सकै है।</string>
+    <string name="toiletSeq">शौचालय रो उपयोग करण रा चरण:</string>
+    <string name="expBtnSeq">स्टेज एक्सप्रेस बटण:</string>
+    <string name="ttsDesc">अंग्रेजी, हिंदी, बंगाली, तमिल, तेलुगु, गुजराती, पंजाबी, कन्नड़, मलयालम, उड़िया, मैथिली, उर्दू, असमी, मारवाड़ी, नेपाली, अरबी, स्पेनिश, जर्मन, फ्रेंच रै मांय जेलो रो उपयोग करण रै वास्तै, कृपया आपरै डिवाइस री सेटिंग रै मांय <b>\'Google text-to-speech (TTS)\'</b> नै सक्रिय करो। गूगल टीटीएस सेटिंग्स रै मांय, पैली <b>डिफ़ॉल्ट भाषा</b> नै पसंदीदा भाषा में बदलो अर फेर <b>\'आवाज़ डेटा स्थापित करो\'</b> विकल्प रै माध्यम सूं पसंदीदा भाषा रै वास्तै आवाज डाउनलोड करो</string>
+    <string name="resetPrefPointOne">जेलो एप्लिकेशन उपयोगकर्ता रै सबसूं ज्यादा इस्तेमाल करियोड़ा पसंदीदा आइकन नै याद राखै है अर बांनै स्क्रीन माथै मुख्य पसंदीदा रै रूप में प्रदर्शित करै है।</string>
+    <string name="resetPrefPointTwo">आइकन नै रीसेट करबा सूं, सगळा आइकन उण मूल क्रम में पाछा आ जावैला जिण मांय वे पैली बार एप्लिकेशन मांय प्रदर्शित हुया हा।</string>
+    <string name="resetPrefPointThree">कांई थै आइकन नै रीसेट करणो चावो हो?</string>
+
+    <string name="downloadErrorMsg">डाउनलोड प्रक्रिया रै दौरान इंटरनेट कनेक्शन चालू राखो। जे प्रगति पट्टी बंद हुयगी है तो कृपया एप्लिकेशन नै फेरूं चालू करो या फेरूं कोशिश करो</string>
+    <string name="intro_to_jellow">जेलो रो परिचय</string>
+    <string name="rate_jellow">कृपया सगळा प्रतिक्रिया फील्ड नै भरो।</string>
+    <string name="keyboard">कीबोर्ड</string>
+    <string name="txt_intro1_central9btn">जेलो रै मांय बटणां री 9 मुख्य श्रेणियां है।</string>
+    <string name="txt_intro1_categorybtn">मुख्य खंड रा बटण</string>
+    <string name="txt_intro5_jellowUsageDesc">एप्लिकेशन रै कनै 6 भावुक बटण भी है।</string>
+    <string name="txt_intro5_expressiveBtn">भावनात्मक बटण</string>
+    <string name="txt_intro2_appUsageDesc">उपयोगकर्ता पैली एप्लिकेशन रै मांय मुख्य श्रेणी रै बटणां मांय सूं एक नै चुणै है अर पछै अभिव्यंजक बटणां मांय सूं एक नै चुणै है।</string>
+    <string name="txt_intro2_speakUsingJellow">जेलो रो उपयोग कर बोलणो</string>
+    <string name="txt_intro3_level2CatDesc">किणी भी मुख्य श्रेणी रै बटण माथै दो बार क्लिक कर\'र, उपयोगकर्ता आपरा विकल्प अर उप-विकल्प तक पहुंच सकै है।</string>
+    <string name="txt_intro3_navWithJellow">जेलो रै मांय नेविगेट करणो</string>
+    <string name="txt_intro4_customizeAppDesc">उपयोगकर्ता स्क्रीन रै ऊपरी दांई कोने माथै क्लिक कर एप्लिकेशन री मुख्य सेटिंग्स नै बदल सकै है।</string>
+    <string name="txt_intro4_customizeJellow">जेलो रै मांय सेटिंग्स</string>
+    <string name="txt_intro7_getStartedDesc">अबै थै जेलो रो उपयोग करण नै त्यार हो।</string>
+    <string name="txt_intro7_getStarted">फेरूं सरू करो</string>
+    <string name="txt_registration_jellowCalluDesc">(जेलो एप्लिकेशन थानै नाम सूं जाणै है)</string>
+    <string name="txt_registration_emergencynoDesc">(बाळक सूं जुड़ी आपात स्थिति री स्थिति में पत्राचार रै वास्तै उपयोग में ली जा सकै है।)</string>
+    <string name="txt_registration_selectLangDesc">जेलो रै वास्तै भाषा चुणो **</string>
+    <string name="txt_registration_selectLangDesc_contentDesc">जेलो रै वास्तै कोई भाषा चुणो। जरूरी फील्ड। **</string>
+    <string name="txt_registration_registerBtn">रजिस्टर करो</string>
+    <string name="enternonemptycontact">किरपा कर सही संपर्क नंबर दर्ज करो</string>
+    <string name="change_language_line5">चरण 2: जांचो कै _ रै वास्तै आवाज रो डेटा उपलब्ध है के नीं? जे आवाज रो डेटा उपलब्ध कोनी है तो कृपया इंटरनेट चालू करो अर चुणीज्योड़ी भाषा रै वास्तै आवाज रो डेटा डाउनलोड करो। जे आ प्रक्रिया बंद हुयगी है तो कृपया आपरो इंटरनेट कनेक्शन देख ल्यो अर फेरूं कोशिश कर ल्यो।</string>
+    <string name="txtChangeLanguage">ऐप री भाषा बदलो:</string>
+    <string name="txtApplyChanges">चुणीज्योड़ी भाषा नै बचाबा रै वास्तै \'भाषा बदलो\' माथै क्लिक करो।</string>
+    <string name="txt_actLangSel_downloadDat">आवाज रो डेटा देख ल्यो</string>
+    <string name="language_downloaded">_भाषा डाउनलोड कर ली गई है</string>
+    <string name="language_downloading">_भाषावां नै डाउनलोड करणो</string>
+    <string name="granted_call_permission_req">कॉल करण री अनुमति दे दी गई है।</string>
+    <string name="rejected_call_permission_req">फोन करण री इजाजत कोनी है।</string>
+    <string name="grant_permission_from_settings">सेटिंग्स माथै जावो अर कॉल री अनुमति दो।</string>
+    <string name="txtEnableBuiltInCalling">आपातकाल री स्थिति मांय जेलो सूं फोन करण री अनुमति देवो</string>
+    <string name="EnableDisplaySpeechText">बोल्योड़ा पाठ नै पाठ पट्टी माथै प्रदर्शित करो</string>
+
+    <string name="dismiss">बंद कर दो</string>
+    <string name="register_user">कृपया रुको, पंजीकरण प्रक्रिया चाल री है…</string>
+    <string name="exit">बारेे निकळणो</string>
+    <string name="err_dialog_msg">थारै डिवाइस माथै गूगल टीटीएस इंजन उपलब्ध कोनी है। कांई थै टीटीएस इंजन डाउनलोड करणो चावो हो?</string>
+    <string name="exit_dialog_msg">जेलो रो उपयोग करण रै वास्तै गूगल टेक्स्ट-टू-स्पीच इंजन री जरूरत है। कांई थनै पक्को है कै थूं जेलो नै बंद करणो चावै है?</string>
+
+
+    <string name="next_slide">आगली स्क्रीन माथै जावो</string>
+    <string name="previous_slide">पिछली स्क्रीन माथै जावो</string>
+
+    <!--Strings related to the Searching capability
+    @AyazAlam
+    -->
+    <string name="search_title">खोज आइकॉन</string>
+    <string name="home">घर</string>
+    <string name="icon_not_found">आइकॉन कोनी मिल्यो</string>
+
+
+    <!--About Jellow strings-->
+    <string name="info">सामान्य जाणकारी</string>
+    <string name="about_je_intro1">जेलो एक संवादात्मक अनुप्रयोग है जो आइकन अर छवियां रो उपयोग कर संवाद स्थापित करण में मदद करै है। जो लोग बोलणो सीख रिया है,या फेर जिका लोगां नै बोलबा में दिक्कत हुवै है वै जेलो रो उपयोग कर सकै है। जेलो रो उपयोग रोजमर्रा री जिंदगी रै मांय बार-बार बरतीजण आळा सबदां अर श्रेणियां नै सीखण रै वास्तै भी करियो जा सकै है।इण तरै सूं, छोटा टाबर अर कोई नूंवी भाषा सीखबाळा लोग भी जेलो रो फायदो उठा सकै है। इणरै अलावा, जेलो रै रंगीन अर आकर्षक आइकनों री मदद सूं, टाबर चित्रां अर बां सूं जुड़ेड़ा नामां रै बीच रो संबंध सीख सकै है।</string>
+    <string name="about_je_intro2">जेलो नै भारतीय प्रौद्योगिकी संस्थान मुंबई (आईआईटी-बी) रै आईडीसी स्कूल ऑफ डिजाइन रै मांय विकसित करियो गयो है।</string>
+    <string name="about_je_intro3">जेलो री भाषा क्षमतावां नै बढ़ावा रै वास्तै, इण परियोजना रा प्रमुख अन्वेषकां एक नयो भावनात्मक भाषा प्रोटोकॉल (ईएलपी) री अवधारणा बणाई है। भावनात्मक भाषा प्रोटोकॉल रै तहत, जेलो रै मांय छह अभिव्यंजक आइकन है जो इंटरफेस रो एक मौलिक हिस्सो है।</string>
+    <string name="about_je_intro4">इण मूल अभिव्यंजक आयकॉन्स री मदद सूं, जेलो उपयोगकर्ता आपरी पसंद, नापसंद अर जरूरतां नै दूजा लोगां तांई बता सकै है।</string>
+    <string name="about_je_intro5">जेलो नै सीखण में आसान इंटरफेस रै साथै टाबरां रै अनुकूल मानीजै है.</string>
+    <string name="about_je_intro6">जेलो ऐप एंड्रॉइड टैबलेट रै वास्तै उपयुक्त है।</string>
+    <string name="about_je_intro7">जेलो अबार अंग्रेजी, हिंदी, मराठी, बंगाली, तमिल, तेलुगु, गुजराती, पंजाबी, कन्नड़, मलयालम, उड़िया, मैथिली, उर्दू, असमी, मरावड़ी, नेपाली, अरबी, स्पेनिश, जर्मन, फ्रेंच भाषावां मांय उपलब्ध है।</string>
+    <string name="play_video">वीडियो चलाओ</string>
+    <string name="software_info">सॉफ्टवेयर संस्करण: _</string>
+    <string name="about_je_intro8">जेलो रो वर्तमान संस्करण _ है। ओ एप्लिकेशन और विकसित हो रियो है। इण वास्तै, जे थारै कनै म्हारै वास्तै कोई सुझाव है तो कृपया प्रतिक्रिया टैब रै तळै भेजो या म्हानै jellowcommunicator@gmail.com माथै लिखो</string>
+    <string name="terms_of_use">उपयोग री नियम अर शर्तां:</string>
+    <string name="about_je_intro9">जेलो अनुप्रयोग क्रिएटिव कॉमन्स एट्रिब्यूशन-नॉनकमर्शियल-शेयर-ए-लाइक 4.0 लाइसेंस रै तहत लाइसेंस प्राप्त है।</string>
+    <string name="about_je_intro10">जेलो अनुप्रयोग माथै सगळा शोध कार्य भारतीय प्रौद्योगिकी संस्थान मुंबई (आईआईटी-बी) नै जावै है।</string>
+    <string name="about_je_intro11">इण जेलो एप्लिकेशन री सगळी सामग्री (जिण मांय आइकन, लेआउट, वास्तुकला, दृश्य पहचाण, अनुवाद अर सॉफ्टवेयर कोड शामिल है) नै वितरित अर अनुकूलित करियो जा सकै है, पण व्यावसायिक उद्देश्यां रै वास्तै उपयोग नीं करियो जा सकै है।</string>
+    <string name="about_je_intro12">जद सामग्री रो उपयोग करियो जावै है, तो आप सूं अनुरोध है कै आप भारतीय प्रौद्योगिकी संस्थान मुंबई (आईआईटी-बी) नै स्वीकार करो।</string>
+    <string name="about_je_intro13">जेलो _ माथै डाउनलोड करण सारू उपलब्ध है</string>
+    <string name="about_je_intro14">जे कोई जेलो नै और विकसित करणो चावै है या आपरी जगां माथै जेलो कार्यशाला आयोजित करणो चावै है तो बां सूं अनुरोध है कै वे प्रधान अन्वेषक प्रोफेसर रवि पूवय्या सूं jellocommunicator@gmail.com ई-मेल आईडी माथै संपर्क करै।</string>
+    <string name="feedback_talkback_heading">सूं 5 रै पैमाने माथै, कृपया निम्नलिखित नै रेट करो</string>
+
+    <string name="langauge_correction_message">\'"-"\' भाषा ठीक सूं सेट कोनी करीजी है। भाषा नै ठीक करण रै वास्तै \'"_"\' दबाओ। \n या फेर थै \'"$"\' दबा\'र डिफ़ॉल्ट भाषा माथै जा सको हो।</string>
+    <string name="changeLanguage">भाषा री सेटिंग्स नै समायोजित करो</string>
+    <string name="dialog_default_language_option">डिफ़ॉल्ट भाषा</string>
+    <string name="txt_data_info">** ऊपर दियोड़ो डेटा फगत थारै डिवाइस माथै ही संग्रहीत कर्यो जावेला। म्हे थारी गोपनीयता नै महत्व देवां हां इण वास्तै इणनै किणी भी सर्वर/क्लाउड (जेलो या थर्ड पार्टी समेत) माथै उपयोग या अपलोड नीं करियो जावैला।</string>
+    <string name="txt_view_privacy_policy">जेलो री <![CDATA[<font color="#dc5252"><b><u>गोपनीयता नीति</u></b></font>]]>  नै पढ़ो।</string>
+    <string name="privacy_link_info">मैं जेलो री <![CDATA[<font color="#dc5252"><b><u>गोपनीयता नीति</u></b></font>]]> पढ़ी है।</string>
+    <string name="consent_privacy">कृपया गोपनीयता नीति रै चेक बॉक्स नै पढ़ो अर क्लिक करो।</string>
+
+    <!--Content description-->
+    <string name="language_download_in_process">भाषा डाउनलोड करी जा री है</string>
+    <string name="child_s_name">टाबर रो नांव। जरूरी फील्ड। **</string>
+    <string name="enter_home_address">घर रो पतो दर्ज करो</string>
+    <string name="enter_caregiver_s_contact_number">देखभाळ करण आळा रो संपर्क नंबर दर्ज करो</string>
+    <string name="enter_caregiver_s_name">देखभाळ करण आळा रो नांव दर्ज करो</string>
+    <string name="enter_caregiver_s_email_address">देखभाळ करण आळा री ईमेल आईडी दर्ज करो</string>
+    <string name="category_cd">आ तस्वीर जेलो एप्लिकेशन रै होमपेज रो स्क्रीनशॉट दिखावै है। होम पेज रै बीचै 9 आइकन है, जका मुख्य खंडां रै वास्तै बटण है, जिका 3 पंक्तियां अर 3 स्तंभां रै मांय दिखाया गया है।श्रेणी रा बटण है "नमस्कार अर भावनावां", "दैनिक काम", "भोजन", "मस्ती", "सीखणो", "लोग", "जगां", "समय अर मौसम" अर "मदद" है। "होम" अर "कीबोर्ड" स्क्रीन रै नीचै दिखायोड़ा 3 नेविगेशन बटण है। मुख्य श्रेणी रै चिह्नां रै दांई कानी 3 इमोजी चिह्न है अर बांया कानी 3 इमोजी चिह्न है।बांया कानी रा 3 भावना बटण है "पसंद", "हां" अर "अधिक"। दांई कानी रा भावना आइकन "अच्छो कोनी लागै", "नीं" अर "कम" नै दर्शावै है। इण रा प्रकार है। होमपेज रै ऊपरी दांईं कोने मांय एक "सेंट" रो आइकन है। इण छवि मांय 9 मुख्य श्रेणियां रा बटण उजागर है अर बाकी रा बटण धुंधला है।</string>
+    <string name="expressive_cd">आ छवि फेरूं जेलो एप्लिकेशन रै होमपेज रो स्क्रीनशॉट दिखावै है। इण छवि रै मांय, 6 अभिव्यंजक बटण उजागर करिया गया है अर बाकी मुख्य श्रेणी रा बटण धुंधला है। मुख्य चौकोर बटणां रै बांया कानी 3 इशारा बटण है अर दांया कानी 3 है। बांया कानी 3 भावनात्मक बटण है - "पसंद" जिणनै "मुस्कुराता चेहरा" आइकन रै द्वारा दर्शाया गयो है,"हां" बटण नै "चेक मार्क" रै जरिये दर्शाया जावै है, अर "अधिक" बटण नै "प्लस आइकन" रै जरिये दर्शाया जावै है। दांई कानी 3 अभिव्यक्ति बटण है -"पसंद कोनी" नै "उदास चेहरो" आइकन रै जरिये दर्शाया जावै है, "नहीं" बटण नै "क्रॉस" रै जरिये दर्शाया जावै है, अर "कम" बटण नै "घटाव आइकन" सूं दर्शाया जावै है। चित्र रै मांय स्क्रीन रै नीचै 3 नेविगेशन बटण "पाछै", "घर" अर "कीबोर्ड" है।</string>
+    <string name="pic4">आ तस्वीर जेलो एप्लिकेशन री होम स्क्रीन नै दिखावै है, जिण मांय "भोजन" अर "हां" नै दो आइकन ही हाइलाइट करियोड़ा है। बाकी रा बटण धुंधला है। जेलो रै साथै बातचीत करण रै वास्तै, उपयोगकर्ता नै पैली किणी भी श्रेणी रै बटण माथै क्लिक करणो पड़सी, उदाहरण रै वास्तै - "भोजन" बटण, अर फेर थनै एक प्रतीकात्मक बटण माथै क्लिक करणो पड़सी, जियां कै "हां" बटण। इण तरै सूं उपयोगकर्ता जेलो रो उपयोग कर बात कर सकै है।</string>
+    <string name="pic5">आ तस्वीर जेलो एप्लिकेशन री होम स्क्रीन नै दिखावै है, जिण मांय फगत "खाद्य" आइकन ही हाइलाइट है। लेवल 1 स्क्रीन माथै बाकी रा बटण मंद पड़ग्या है। इण तस्वीर रै मांय मुख्य श्रेणी री उप-श्रेणियां तक पहुंचबा रै वास्तै, उपयोगकर्ता री आंगळी "भोजन" आइकन माथै दो बार क्लिक करती दीखै है।</string>
+    <string name="pic6">आ तस्वीर ऊपरली तस्वीर रै मांय दिखायोड़ा "भोजन" आइकन माथै दो बार क्लिक कर\'र एक्सेस करण आळी स्क्रीन नै दिखावै है। आ छवि "भोजन" आइकन री उप-श्रेणियां नै दर्शावै है।लेवल 2 स्क्रीन माथै उप-श्रेणी रै बीचै दिखाई देवण आळा आइकन 3 पंक्तियां अर 3 स्तंभां मांय है। ये आइकन है "नाश्ता", "दोपहर रो भोजन अर रात रो भोजन", "मिठाई", "नाश्ता", "फल", "पेय पदार्थ", "कटलरी", अर "ऐड-ऑन" इण भांत है। इण छवि मांय, उपयोगकर्ता री आंगळी आगली उप-श्रेणी तांई पूगबा रै वास्तै "स्नैक" आइकन माथै दो बार क्लिक करता दीखै है।</string>
+    <string name="pic7">आ तस्वीर "भोजन" मुख्य श्रेणी रै मांय "स्नैक्स" उप-श्रेणी आइकन माथै क्लिक कर\'र बणाई गई लेवल 3 स्क्रीन रो स्क्रीनशॉट दिखावै है। इण स्क्रीन रै बीचै दिखाई देवण आळा आइकन है "रोटी", "कॉर्नफ्लेक्स", "आलू पूरी", "अंडा", "पोहा", "उपमा", "खचड़ी" अर "इडली" इणरै अलावा, स्क्रीन रै दोनूं कानी अभिव्यक्ति बटण, स्क्रीन रै नीचै नेविगेशन बटण अर स्क्रीन रै ऊपर दांई कोने माथै एक सेटिंग बटण है।</string>
+    <string name="pic8">आ तस्वीर जेलो एप्लिकेशन री होम स्क्रीन नै दिखावै है। आ स्क्रीन एप्लिकेशन रै ऊपरी दांई कोने रै मांय एक ड्रॉप-डाउन मेनू दिखावै है। ड्रॉप-डाउन मेनू "प्रोफाइल", "जेलो रै बारै में", "ट्यूटोरियल", "कीबोर्ड कंट्रोल", "भाषा", "सेटिंग्स", "रीसेट आइकन" अर "फीडबैक" विकल्प दिखावै है। इण मांय सूं किणी भी विकल्प माथै क्लिक कर\'र उपयोगकर्ता आपरी जरूरतां रै मुजब एप्लिकेशन री सेटिंग्स नै बदल सकै है।</string>
+    <string name="pic9">यो जेलो एप्लिकेशन रै मांय क्रमिक कामां रो स्क्रीनशॉट है। आ छवि "शौचालय" क्रम नै दिखावै है जो "दैनिक कामकाज" री मुख्य श्रेणी रो हिस्सो है। आ स्क्रीन शौचालय जाबा रै वास्तै 3 क्रमिक चरण दिखावै है। चरण 1 है "पैंट नै नीचै खींचणो", चरण 2 है "शौचालय माथै बैठणो" अर चरण 3 है "पाछै सूं धोणो"। उपयोगकर्ता नै क्रम नै समझण में मदद करण रै वास्तै चरणों रै बीच एक तीर दिखायो गयो है। अनुक्रम आइकन रै नीचै दो बटण "आगे" अर "पाछै" है। चूंकि ये तीन चरण अनुक्रम री पैली स्क्रीन माथै है, इण वास्तै स्क्रीन माथै "पाछै" बटण मंद कर दियो जावै है। आगली स्क्रीन माथै जाबा रै वास्तै उपयोगकर्ता री आंगळी "आगै" बटण नै दबाता थका दिखाई जावै है। इण स्क्रीन माथै भावना रो बटण धुंधलो है। स्क्रीन रै नीचै 3 नेविगेशन बटण है: "पाछै", "घर" अर "कीबोर्ड"।</string>
+    <string name="pic10">यो आरेख "दैनिक कामकाज" रै मांय "शौचालय" क्रम रा पैला 3 चरण भी दिखावै है। इण छवि रै मांय, उपयोगकर्ता चरण 2 रै वास्तै आइकन माथै क्लिक करियो, जो है "शौचालय माथै बैठणो।" इण आइकन माथै क्लिक करण माथै, एप्लिकेशन रा अभिव्यंजक बटण अबै स्क्रीन रै दोनूं कानी दिखाई देवैला।</string>
+    <string name="gtts1">आ छवि उपयोगकर्ता रै डिवाइस माथै "टेक्स्ट टू स्पीच आउटपुट" अर "गूगल टेक्स्ट टू स्पीच वॉयस डाटा" सेटिंग्स रा 3 स्क्रीनशॉट सूं बणी है। "टेक्स्ट-टू-स्पीच आउटपुट" सूं संबंधित पैली छवि मांय, 2 मुख्य इंजन दिखाई देवै है, पैलो "सैमसंग टेक्स्ट-टू-स्पीच इंजन" अर दूजो, "गूगल टेक्स्ट-टू-स्पीच इंजन"। उपयोगकर्ता पैला चरण रै मांय "गूगल टेक्स्ट-टू-स्पीच इंजन" रो चयन कर रैया है।</string>
+    <string name="gtts2">दूजी छवि इण प्रक्रिया रो दूजो चरण दिखावै है, जठै उपयोगकर्ता अबै "गूगल टेक्स्ट-टू-स्पीच इंजन" री "सेटिंग्स" रै अनुरूप "गियर" आइकन माथै क्लिक कर रैया है।</string>
+    <string name="gtts3">तीजो आकृति इण प्रक्रिया रो तीजो चरण दिखावै है, जठै उपयोगकर्ता अबै "गूगल टेक्स्ट-टू-स्पीच वॉयस डाटा" स्क्रीन माथै है। इण स्क्रीन माथै "फ्रांसीसी (फ्रांस)", "जर्मन (जर्मनी)", "हिंदी (भारत)", "हंगेरियन (हंगरी)" अर "इंडोनेशियाई (इंडोनेशिया)" रै वास्तै आवाज रा विकल्प है। "हिंदी (भारत) आवाज" विकल्प नै हाइलाइट करियो गयो है अर 19 एमबी "आवाज सेट 1" विकल्प नै डाउनलोड करण सारू उपलब्ध है। उपयोगकर्ता री आंगळी "हिंदी (भारत)" रै वास्तै आवाज डाउनलोड करण रै वास्तै वॉयस सेट 1 आइकन माथै क्लिक करता दीखै है।</string>
+    <string name="enter_child_s_name">टाबर रो नांव दर्ज करो</string>
+    <string name="caregiver_s_contact_number_other_than_this_device_s_sim_number">इण उपकरण रै सिम नंबर रै अलावा देखभाल करण आळा रो संपर्क नंबर। जरूरी फील्ड। **</string>
+    <string name="select_country_code">कृपया आपरो देश रो कोड चुणो</string>
+    <string name="caregiver_s_email_address">देखभाळ करण आळा रो ईमेल पतो। जरूरी फील्ड। **</string>
+    <string name="like">आछो लाग रियो है</string>
+    <string name="yes">हां</string>
+    <string name="more">घणो सारो</string>
+    <string name="dont_like">आछो कोनी लागै</string>
+    <string name="no">नीं</string>
+    <string name="less">कम</string>
+    <string name="back">पाछो</string>
+    <string name="yes_btn">हां</string>
+    <string name="enter_category">श्रेणी मांय जावो</string>
+    <string name="intro_cd">आ छवि जेलो एप्लिकेशन रै होमपेज रो स्क्रीनशॉट दिखावै है। होम पेज रै बीचै 9 आइकन है, जका मुख्य श्रेणियां रा बटण है, जिका 3 पंक्तियां अर 3 स्तंभां मांय दिखाया गया है। श्रेणी रा 9 बटण है "इच्छावां अर भावनावां", "दैनिक कामकाज", "भोजन", "मस्ती", "सीखणो", "लोग", "जगां", "समय अर मौसम" अर "मदद" मुख्य श्रेणी रा बटणां रै नीचै 3 नेविगेशन बटण है "पाछै", "घर" अर "के" मुख्य श्रेणी रै नीचै दिखाओ। दाईं ओर 3 भावनात्मक आइकन है "मनै ओ पसंद है", "हां" अर "और"। दाईं ओर भावनात्मक आइकन है "म्हानै ओ पसंद कोनी", "नीं" अर "कम"।</string>
+    <string name="intro2_cd">आ छवि जेलो एप्लिकेशन री होम स्क्रीन नै दिखावै है, जिण मांय फगत दो आइकन "भोजन" अर "हां" नै उजागर करियो गयो है। बाकी रा बटण धुंधला है। जेलो रो उपयोग कर बोलबा रै वास्तै, एक उपयोगकर्ता नै पैली एक श्रेणी बटण माथै क्लिक करणो पड़सी, उदाहरण रै वास्तै "भोजन" बटण, अर पछै एक भावुक बटण माथै क्लिक करणो पड़सी, जियां कै "हां" बटण। इण तरै सूं उपयोगकर्ता जेलो रो उपयोग कर बात कर सकै है।</string>
+    <string name="intro3_cd">आ छवि "खाद्य" श्रेणी रै मांय जेलो री उपश्रेणियां रो स्क्रीनशॉट दिखावै है। उप-श्रेणी रा आइकन स्क्रीन माथै 3 पंक्तियां अर 3 स्तंभां मांय दिखाया जावै है। ये आइकन है "नाश्ता", "दोपहर रो भोजन अर रात रो भोजन", "मिठाई", "नाश्ता", "फल", "पेय पदार्थ", "कटलरी" अर "ऐड-ऑन"। इण छवि रै मांय, उपयोगकर्ता अगली उप-श्रेणी तक पहुंचबा रै वास्तै "नाश्ता" आइकन माथै दो बार क्लिक करियो।</string>
+    <string name="intro4_cd">आ तस्वीर जेलो एप्लिकेशन री होम स्क्रीन नै दिखावै है। आ स्क्रीन एप्लिकेशन रै ऊपरी दांई कोने रै मांय एक ड्रॉप-डाउन मेनू दिखावै है। ड्रॉप-डाउन मेनू "प्रोफाइल", "जेलो रै बारै में", "ट्यूटोरियल", "कीबोर्ड कंट्रोल", "भाषा", "सेटिंग्स", "रीसेट आइकन" अर "फीडबैक" विकल्प दिखावै है। इण मांय सूं किणी भी विकल्प माथै क्लिक कर\'र उपयोगकर्ता आपरी जरूरतां रै मुजब एप्लिकेशन री सेटिंग्स नै बदल सकै है।</string>
+    <string name="intro5_cd">आ तस्वीर फेरूं जेलो एप्लिकेशन रै होमपेज रो स्क्रीनशॉट दिखावै है। इण छवि रै मांय, 6 अभिव्यंजक बटण उजागर करिया गया है अर बाकी मुख्य श्रेणी रा बटण धुंधला है। मुख्य चौकोर बटणां रै बांया कानी 3 अभिव्यंजक बटण है अर दांया कानी 3 है। बांया कानी 3 भावनात्मक बटण है - "म्हानै ओ चोखो लागै है" जिणनै "मुस्कुराता चेहरा" रै आइकन रै जरियै दर्शाया गयो है, "हां" रो बटण जिणनै "टिक" रै जरिये दर्शाया गयो है, अर "अधिक" बटण नै "प्लस" रै आइकन रै जरिये दर्शाया गयो है। दांई कानी 3 भावनात्मक बटण है - "म्हानै ओ चोखो कोनी लागै" जिणनै "उदास चेहरो" रै आइकन सूं दर्शाया गयो है, "नीं" बटण नै "क्रॉस मार्क" रै जरिये दर्शाया गयो है, अर "कम" बटण नै "माइनस आइकन" रै जरिये दर्शाया गयो है। तस्वीर रै मांय, स्क्रीन रै नीचै 3 नेविगेशन बटण है: "पाछै", "घर" अर "कीबोर्ड"।</string>
+    <string name="talkback_single_click">चुणणो</string>
+    <string name="talkback_dropdown_menu">देशां री सूची देखबा रै वास्तै टैप करो</string>
+    <string name="next">अगाऊ</string>
+    <string name="previous">पाछलो</string>
+    <string name="edttxt_msg">बोलबा तांई अठै टाइप करो</string>
+    <string name="keyboard_open">कीबोर्ड नै खोलो</string>
+    <string name="child_s_name_dialog_btn">म्हारो नांव</string>
+    <string name="caregiverName_dialog_btn">देखभाळ करण आळा रो नांव</string>
+    <string name="caregiver_s_email_address_dialog_btn">देखभाळ करण आळा री ईमेल आईडी</string>
+    <string name="homeAddress_dialog_btn">म्हारो घर रो पतो</string>
+    <string name="caregiver_s_contact_number_dialog_btn">देखभाळ करण आळा रो संपर्क नंबर</string>
+    <string name="bloodGroup_dialog_btn">म्हारो खून रो समूह</string>
+    <string name="seekbar_speed_cd">भाषण री गति नै बदलबा रै वास्तै कृपया आपरै डिवाइस रै वॉल्यूम बटणां रो उपयोग करो।</string>
+    <string name="seekbar_pitch_cd">कृपया वॉल्यूम लेवल नै बदलबा रै वास्तै आपरै डिवाइस माथै वॉल्यूम बटण रो उपयोग करो।</string>
+    <string name="seekbar_volume_cd">भाषण रो स्तर बदलबा रै वास्तै कृपया आपरै डिवाइस माथै वॉल्यूम बटण रो उपयोग करो।</string>
+    <!--end content description-->
+
+    <string name="txt_tts_stting">पाठ सूं भाषण री सेटिंग्स (TTS SETTINGS)</string>
+    <string name="change_language_tts_wifi">चरण 1: नीचै \'टेक्स्ट-टू-स्पीच सेटिंग्स\' बटण माथै टैप कर गूगल टेक्स्ट-टू-स्पीच सेटिंग्स माथै जावो अर \'केवल वाई-फाई माथै उपयोग करो\' बटण नै बंद कर दो। जे सेटिंग्स रै मांय ऐ बटण बंद है तो कृपया इण चरण नै छोड़ दो।</string>
+    <string name="lang_setting_option1_cd">जेलो रो उपयोग कर गूगल टेक्स्ट-टू-स्पीच इंजन नै सेट अप करण रा 3 महताऊ चरण नीचे दियोड़ा चित्रां मांय दिखाया गया है। आ छवि उपयोगकर्ता रै डिवाइस माथै \"टेक्स्ट टू स्पीच आउटपुट\" अर \"गूगल टेक्स्ट टू स्पीच सेटिंग्स\" रा 3 स्क्रीनशॉट सूं बणी है। "टेक्स्ट-टू-स्पीच आउटपुट" सूं संबंधित पैली तस्वीर रै मांय, 2 मुख्य इंजन दिखै है, पैलो "सैमसंग टेक्स्ट-टू-स्पीच इंजन" अर दूजो, "गूगल टेक्स्ट-टू-स्पीच इंजन"। उपयोगकर्ता पैला चरण रै मांय "गूगल टेक्स्ट-टू-स्पीच इंजन" रो चयन कर रैया है।</string>
+    <string name="lang_setting_option2_cd">दूजी छवि इण प्रक्रिया रो दूजो चरण दिखावै है, जठै उपयोगकर्ता अबै "गूगल टेक्स्ट-टू-स्पीच इंजन" री "सेटिंग्स" रै अनुरूप "गियर" आइकन माथै क्लिक कर रैया है।</string>
+    <string name="lang_setting_option3_cd">तीजो आकृति इण प्रक्रिया रो तीजो चरण दिखावै है, जठै उपयोगकर्ता अबै "गूगल टेक्स्ट-टू-स्पीच वॉयस ऑप्शंस" स्क्रीन माथै है। इण स्क्रीन माथै दूजी छवि "केवल वाई-फाई रो उपयोग करो" विकल्प रै वास्तै टॉगल स्विच है, जिणनै हाइलाइट करियो गयो है। इण चरण रै मांय उपयोगकर्ता नै स्विच बंद करण रो कैयो जावै है।</string>
+    <string name="close">खिड़की नै बंद करो</string>
+    <string name="access_dialog_title">और विकल्पां री खिड़की</string>
+
+    <string name="acc_lang_marathi">मराठी (भारत)</string>
+    <string name="acc_lang_hindi">हिंदी (भारत)</string>
+    <string name="acc_lang_bengali">बंगाली (भारत)</string>
+    <string name="acc_lang_bengali_bd">बंगाली (बांग्लादेश)</string>
+    <string name="acc_lang_eng_in">अंग्रेजी (भारत)</string>
+    <string name="acc_lang_eng_gb">अंग्रेजी (यूनाइटेड किंगडम)</string>
+    <string name="acc_lang_eng_us">अंग्रेजी (संयुक्त राज्य अमेरिका)</string>
+    <string name="acc_lang_eng_au">अंग्रेजी (ऑस्ट्रेलिया)</string>
+    <string name="acc_lang_eng_ng">अंग्रेजी (नाइजीरिया)</string>
+    <string name="acc_lang_span_span">स्पेनिश (स्पेन)</string>
+    <string name="acc_lang_tamil_in">तमिल (भारत)</string>
+    <string name="acc_lang_telugu_in">तेलुगु (भारत)</string>
+    <string name="acc_lang_german_ger">जर्मन (जर्मनी)</string>
+    <string name="acc_lang_gujarati_in">गुजराती (भारत)</string>
+    <string name="acc_lang_punjabi_in">पंजाबी (भारत)</string>
+    <string name="acc_lang_kannada_in">कन्नड़ा (भारत)</string>
+    <string name="acc_lang_malayalam_in">मलयालम (भारत)</string>
+    <string name="acc_lang_oriya_in">ओडिया (भारत)</string>
+    <string name="acc_lang_maithili_in">मैथिली (भारत)</string>
+    <string name="acc_lang_urdu_in">उर्दू</string>
+    <string name="acc_lang_assamese_in">असमिया (भारत)</string>
+    <string name="acc_lang_arabic">अरबी</string>
+    <string name="acc_lang_marvadi">मारवाड़ी  (भारत)</string>
+    <string name="acc_lang_nepal">नेपाली (नेपाल)</string>
+
+    <string name="_1_icon">1 आइकन</string>
+    <string name="_2_icons">2 आइकन</string>
+    <string name="_3_icons">3 आइकन</string>
+    <string name="_4_icons">4 आइकन</string>
+    <string name="_9_icons">9 आइकन</string>
+    <string name="number_of_icons_per_screen">प्रति स्क्रीन आइकन री संख्या</string>
+
+    <string name="level_1_screen">पैलो स्तर</string>
+    <string name="level_2_screen">दूजो स्तर</string>
+    <string name="level_3_screen">तीजो स्तर</string>
+    <string name="sequence_screen">गतिविधि रो क्रम</string>
+    <string name="close_searchbar">खोज पट्टी नै बंद करो</string>
+
+
+    <string name="txt_accessibility_setting">सुगम्यता री सेटिंग</string>
+    <string name="visual_access_title">दृश्य सुगम्यता:</string>
+    <string name="visual_access_info_one">जेलो री विजुअल सुगम्यता फीचर अबै कम दृष्टि या अंधापन समेत अतिरिक्त दृश्य कठिनाइयां वाळा उपयोगकर्ताओं नै जेलो रो उपयोग करण अर दूजा लोगां रै साथै प्रभावी ढंग सूं संवाद स्थापित करण री अनुमति देवै है।</string>
+    <string name="visual_access_info_two">उपयोगकर्ता एंड्रॉइड स्मार्टफोन माथै \'टॉक बैक\' बटण नै सक्षम कर इण सुविधा नै एक्सेस कर सकै है।</string>
+    <string name="visual_access_info_three">\'टॉक बैक\' फीचर रै साथै, उपयोगकर्ता ऑडियो रै माध्यम सूं स्क्रीन माथै छूई गई हर चीज रो विवरण सुण सकेला। उपयोगकर्ता डिफ़ॉल्ट टॉक बैक इशारा रो उपयोग कर सकै है या खुद रा पसंदीदा इशारा चुण सकै है।</string>
+    <string name="visual_access_info_four">जेलो रै साथै बातचीत करतां थकां उपयोगकर्ता कस्टम इशारा भी असाइन कर सकै है या \'टॉक बैक\' रा डिफ़ॉल्ट इशारा रो उपयोग कर सकै है।</string>
+    <string name="visual_access_info_five">उदाहरण रै वास्तै - दायां स्वाइप करण रो इशारो उपयोगकर्तावां नै स्क्रीन माथै विकल्पां नै क्रमिक रूप सूं स्क्रॉल करण री अनुमति देवै है।</string>
+    <string name="switch_access_title">सुगम्यता स्विच:</string>
+    <string name="switch_access_info_one">स्विच सुगम्यता फीचर रो उपयोग कर विकलांग लोग ऐप नै आसानी सूं नेविगेट कर सकै है। इण सुविधा रै साथै उपयोगकर्ता एक या दो स्विच रो उपयोग कर एप्लिकेशन रै माध्यम सूं आसानी सूं नेविगेट कर सकै है।</string>
+    <string name="switch_access_info_two">इण सुविधा नै सक्षम करण रै वास्तै, उपयोगकर्तावां नै फोन री सेटिंग्स रै मांय सुगम्यता श्रेणी मांय जाणो पड़सी अर एक्सेस रै वास्तै स्विच नै चालू करणो पड़सी।</string>
+    <string name="switch_access_info_three">सैमसंग रा उपयोगकर्ता फोन री सेटिंग्स रै मांय एक्सेसिबिलिटी कैटेगरी रै मांय "निपुणता अर बातचीत" विकल्प रै मांय स्विच एक्सेस फीचर पा सकै है।</string>
+    <string name="switch_access_info_four">एक स्विच रै साथै स्विच एक्सेसिबिलिटी रो उपयोग करण रै वास्तै - सेटिंग्स खोलो -> एक्सेसिबिलिटी माथै जावो -> स्विच एक्सेस चालू करो -> यूएसबी या ब्लूटूथ स्विच चुनो -> सेटिंग्स माथै जावो अर एक माथै स्विच री संख्या चुणो।</string>
+    <string name="switch_access_info_five">दो स्विच रै साथै स्विच एक्सेसिबिलिटी रो उपयोग करण रै वास्तै - सेटिंग्स खोलो -> एक्सेसिबिलिटी माथै जावो -> स्विच एक्सेस चालू करो -> यूएसबी या ब्लूटूथ स्विच चुनो -> सेटिंग्स माथै जावो अर दो स्विच री संख्या चुणो। फेर स्कैनिंग रो प्रकार चुणो अर आगै क्लिक कर दोनूं स्विचां रै वास्तै कार्रवाई चुणो इणरै बाद स्विचां री जांच कर प्रक्रिया नै पूरी करो।</string>
+
+    <!--Language package update strings are here-->
+    <string name="lpu_start_update">भाषा पैकेज अपडेट शुरू हो गयो है</string>
+    <string name="lpu_parse_update">डाउनलोड करियोड़ा डेटा री प्रोसेसिंग करी जा री है</string>
+    <string name="lpu_download_icons">आइकन फ़ाइल डाउनलोड कर रिया हां</string>
+    <string name="lpu_download_verbiage">भाषण री फाइल डाउनलोड कर री है</string>
+    <string name="lpu_update_success">भाषा पैक सफलतापूर्वक अपडेट कर दियो गयो!</string>
+    <string name="lpu_toast_update_success">अपडेट सफल हुयो!</string>
+    <string name="lpu_toast_check_success">अपडेट री सफलता री जांच कर रिया हां</string>
+    <string name="lpu_no_updates_found">कोई अपडेट कोनी मिल्यो!</string>
+    <string name="lpu_update_error">अपडेट सफल कोनी होयो! कृपया फेरूं कोशिश करो।</string>
+    <string name="lpu_toast_check_error">भाषा पैकेज अपडेट विफल रैयो!</string>
+    <string name="update_now">अबार अपडेट करो</string>
+    <string name="update_later">बाद मांय करो</string>
+    <string name="update_message">ऐप रै मांय नूंवी सामग्री उपलब्ध है। कांई थै अबार अपडेट करणो चावो हो?</string>
+    <string name="app_update_message">जेलो ऐप रो एक नयो संस्करण उपलब्ध है। कांई थै अबार अपडेट करणो चावो हो?</string>
+
+
+    <string name="trash_the_board">कांई थै \"-\" बोर्ड नै कचरा रै मांय ले जाणो चावो हो?</string>
+    <string name="trash_board_placeholder">कोई भी बोर्ड कचरा कोनी फेंक्यो जावै।</string>
+    <string name="delete_board">Do you want to delete the \"-\" board permanently?</string>
+    <string name="icon_select_exit_warning">कांई थै \"-\" बोर्ड नै स्थाई रूप सूं हटाणो चावो हो?</string>
+    <string name="current_board">आइकन जोड़िया</string>
+    <string name="place_holder_text">चुण्या गया आइकन अठै दिखाई देवेला। थै अजै तांई कोई आइकन कोनी चुण्यो है!</string>
+    <string name="board_name">बोर्ड रो नांव</string>
+    <string name="select_all">सगळा नै चुणो</string>
+    <string name="reset">रीसेट करो</string>
+    <string name="select_icon_title">आइकन जोड़ो</string>
+    <string name="add_category">श्रेणी जोड़ो</string>
+    <string name="add_icon">आइकन जोड़ो</string>
+    <string name="addicon_title">आइकन जोड़ो-संपादित करो</string>
+    <string name="i_like">थै मन्नै चोखा लागो हो</string>
+    <string name="really_like">म्हनै ओ घणो चोखो लागै है</string>
+    <string name="i_want">मन चहिज</string>
+    <string name="really_want">म्हूं साची चावूं</string>
+    <string name="want_more">म्हनै और चाइजै</string>
+    <string name="really_want_more">म्हनै घणो कीं चाइजै</string>
+    <string name="i_dont_like">म्हनै ओ चोखो कोनी लागै</string>
+    <string name="really_dont_like">म्हनै ओ साची में चोखो कोनी लागै</string>
+    <string name="dont_want">म्हूं कोनी चावूं</string>
+    <string name="really_dont_want">म्हूं साची में कोनी चावूं</string>
+    <string name="dont_want_more">मन्नै और कीं कोनी चाइजै</string>
+    <string name="really_dont_want_more">म्हनै और कीं री जरूरत कोनी</string>
+    <string name="please_enter_name">कृपया नाम दर्ज करो</string>
+    <string name="photos">फोटू</string>
+    <string name="library">जेलो रो संग्रह</string>
+    <string name="icon_name">आइकन रो नांव</string>
+    <string name="add_board">बोर्ड जोड़ो</string>
+    <string name="custom_icon">कस्टम आइकन</string>
+    <string name="cancel">रद्द</string>
+    <string name="database_not_created_info">भाषा रै वास्तै एक डेटाबेस बणायो जा रियो है।</string>
+    <string name="icon_already_present">आइकन पैली सूं ई चुण लिया गया है</string>
+    <string name="camera_missing">कैमरो कोनी मिल्यो</string>
+    <string name="no_icon_warning">आगै बढ़बा रै वास्तै कम सूं कम एक आइकन जोड़ो</string>
+    <string name="reposition_text">इणनै फेरूं स्थानांतरित करण रै वास्तै कोई भी आइकन नै लाम्बै बगत तांई दबाओ</string>
+    <string name="reposition_complete_msg">आइकन री नई स्थिति सहेजी गई है</string>
+    <string name="please_select_icon">कृपया पैली एक छवि चुणो</string>
+    <string name="txtContinue">लगतमार</string>
+    <string name="expressive_heading1">भाववाहक बटण चुणबा तांई</string>
+    <string name="expressive_heading2">बटण माथै दबाओ</string>
+    <string name="expressive_heading3">भाववाहक बटणां नै हटाबा रै वास्तै</string>
+    <string name="expressive_heading4">बटण माथै दबाओ</string>
+    <string name="icon_delete_warning">\"-\" आइकन हटा दियो जावेला?</string>
+    <string name="board_not_found">बोर्ड कोनी मिल्यो</string>
+    <string name="setting_up_the_language">भाषा तय करी जा री है, कृपया रुको…</string>
+    <string name="completed_process">भाषा तय कर दी गई है।</string>
+    <string name="unable_to_create_board">बोर्ड बणाबा में असमर्थ, कृपया फेरूं कोशिश करोn</string>
+
+    <string name="board">बोर्ड</string>
+    <string name="press_next_to_select_icons">चुण्या गया आइकन जोड़बा रै वास्तै "आगै" बटण दबाओ।</string>
+    <string name="edit_board">मौजूदा बोर्ड नै संपादित करो</string>
+    <string name="delete_the_board">मौजूदा बोर्ड नै हटाओ</string>
+    <string name="restore_the_board">मौजूदा बोर्ड नै बहाल करो</string>
+    <string name="edit_board_image">बोर्ड आइकन अर नाम नै संपादित करो</string>
+    <string name="search_board_in_jellow">बोर्ड नै ढूंढो</string>
+    <string name="enter_board_name_to_search">कृपया खोजबा रै वास्तै बोर्ड रो नाम दर्ज करो।</string>
+    <string name="search_board_screen">सर्च बोर्ड री स्क्रीन</string>
+    <string name="enter_icon_name">खोजबा रै वास्तै आइकन रो नांव दर्ज करो</string>
+
+    <!--Content Description-->
+    <string name="my_boards_screen">म्हारो बोर्ड स्क्रीन</string>
+    <string name="boards_trash_screen">बोर्डां री कचरा स्क्रीन</string>
+    <string name="select_image_for_board">बोर्ड रै वास्तै एक तस्वीर चुणो</string>
+    <string name="select_source_for_image_for_board">बोर्ड री छवि रै वास्तै स्रोत रो चयन करो</string>
+    <string name="select_language_for_board">बोर्ड रै वास्तै भाषा चुणो</string>
+    <string name="icon_select_screen">आइकन स्क्रीन जोड़ो</string>
+    <string name="icons_selected">_ आइकन चुण लिया गया है</string>
+    <string name="icon_add_edit_screen">आइकन स्क्रीन जोड़ो या संपादित करो</string>
+    <string name="edit_current_icon">वर्तमान आइकन नै संपादित करो</string>
+    <string name="delete_current_icon">मौजूदा आइकन नै हटाओ</string>
+    <string name="add_edit_icons_dialog">आइकन संवाद जोड़ो या संपादित करो</string>
+    <string name="select_image_for_icon">आइकन रै वास्तै एक तस्वीर चुणो</string>
+    <string name="enable_reposition_icons">आइकन री स्थिति नै सक्षम करो</string>
+    <string name="disable_reposition_icons">आइकन री स्थिति नै अक्षम करो</string>
+    <string name="tap_icon_to_select_expression">एक अभिव्यक्ति जोड़बा रै वास्तै टैप करो</string>
+    <string name="tap_icon_to_deselect_expression">अभिव्यक्ति खींचबा रै वास्तै टैप करो</string>
+    <string name="tap_add_to_add_expression">कोई अभिव्यक्ति चुणबा रै वास्तै जोड़ो बटण नै दबाओ</string>
+    <string name="tap_delete_to_delete_expression">अभिव्यंजक बटणां नै हटाबा रै वास्तै हटाओ बटण नै दबाओ</string>
+    <string name="open_jellow_privacy_policy">जेलो री गोपनीयता नीति खोलो।</string>
+    <string name="board_moved_to_trash">_ बोर्ड नै कचरा रै मांय ले जाया गयो</string>
+    <string name="board_deleted">_ बोर्ड नै हटा दियो गयो है</string>
+    <string name="board_restored_from_trash">_ बोर्ड नै बहाल कर दियो</string>
+    <string name="search_icon_available_in_jellow">जेलो रै मांय उपलब्ध आइकन री खोज करो</string>
+    <string name="search_icon_the_board">वर्तमान बोर्ड रै मांय आइकन री तलाश करो</string>
+    <string name="preparing_language_screen">भाषा सेटअप स्क्रीन</string>
+    <string name="language_package_update">जेलो सामग्री अपडेट स्क्रीन</string>
+    <string name="dialog">डायलॉग</string>
+    <string name="close_content_download_screen">सामग्री डाउनलोड स्क्रीन नै बंद कर दो</string>
+    <string name="share_jellow_app">जेलो ऐप नै शेयर करो</string>
+    <string name="rate_jellow_app">गूगल प्ले स्टोर माथै जेलो ऐप नै रेट करो</string>
+    <string name="received_your_feedback">थारी प्रतिक्रिया रै वास्तै थारो आभार।</string>
+    <string name="no_btn">नीं</string>
+    <string name="next_btn">आगलो</string>
+    <string name="my_boards">My Boards</string>
+    <string name="board_settings">बोर्ड री सेटिंग्स</string>
+    <string name="board_delete">बोर्ड हटाओ</string>
+    <string name="add_expression_here">आपणी खुद री अभिव्यंजक पंक्ति जोड़ो</string>
+    <string name="about_je_intro42">मेक माई बोर्ड रो उपयोग कर, थै आपरा खुद रा कस्टम आइकन अर बां रा कैचफ्रेज जोड़ या संपादित कर सको हो।</string>
+    <string name="about_je_more_info">ज्यादा जाणकारी रै वास्तै, नीचै दियोड़ा वीडियो बटण नै दबाओ:</string>
+    <string name="visual_access_info_video">जेलो रै मांय दृश्य सुलभता माथै डेमो देखबा रै वास्तै, नीचै दियोड़ा वीडियो बटण माथै टैप करो:</string>
+    <string name="switch_access_info_video">जेलो रै मांय स्विच एक्सेसिबिलिटी माथै डेमो देखबा रै वास्तै, नीचै दियोड़ा वीडियो बटण माथै टैप करो:</string>
+    <string name="my_boards_title">जेलो एप्लिकेशन रो उपयोग कर, उपयोगकर्ता बोर्ड बणा सकै है। उपयोगकर्ता एक बोर्ड माथै एक या एक सूं बेसी कस्टम आइकन जोड़ सकै है। उपयोगकर्ता आपरै बोर्ड माथै मौजूदा जेलो आइकन भी जोड़ सकै है। \"म्हारा बोर्ड\" स्क्रीन नै टॉगल करण रै वास्तै मुख्य स्क्रीन माथै गोलाकार प्लस आइकन माथै टैप करो। बोर्ड नै चालू करण रै वास्तै, सूची रै मांय बोर्ड रै आइकन माथै टैप करो।</string>
+    <string name="my_boards_title_cd">चुणियोड़ो स्क्रीनशॉट "म्हारा बोर्ड" स्क्रीन नै दिखावै है। \"म्हारा बोर्ड\" स्क्रीन नै टॉगल करण रै वास्तै मुख्य स्क्रीन माथै गोलाकार प्लस आइकन माथै टैप करो। एक नयो बोर्ड बणाबा रै वास्तै \"प्लस\" आइकन या \"बोर्ड जोड़ो\" आइकन माथै टैप करो। बोर्ड नै चालू करण रै वास्तै, सूची रै मांय बोर्ड रै आइकन माथै टैप करो।</string>
+    <string name="my_boards_info">स्क्रीन रै ऊपर दांई "संपादित" मेनू आइकन माथै टैप करो। इणसूं बोर्डां नै संपादित या हटाबा में मदद मिलेला।</string>
+    <string name="my_boards_info_cd">चुण्या गया स्क्रीनशॉट "म्हारा बोर्ड" स्क्रीन माथै बोर्ड संपादन री सुविधावां नै दिखावै है। स्क्रीन रै ऊपर दांई "संपादित" मेनू आइकन माथै टैप करो। इणसूं बोर्डां नै संपादित या हटाबा में मदद मिलेला। जद संपादन सक्षम होवै है, तो "संपादन" अर "हटाओ" बटणां नै ढूंढबा रै वास्तै सूची रै मांय सूं स्वाइप करो।</string>
+    <string name="my_boards_add_board">एक नयो बोर्ड बणाबा रै वास्तै "बोर्ड जोड़ो" आइकन माथै टैप करो "बोर्ड जोड़ो" स्क्रीन माथै, थै एक चित्र चुण सको हो, बोर्ड रो नाम टाइप कर सको हो अर बोर्ड रै वास्तै कोई भाषा चुण सको हो।</string>
+    <string name="my_boards_add_board_cd">चुणियोड़ो स्क्रीनशॉट \"बोर्ड जोड़ो\" स्क्रीन नै दिखावै है। एक नयो बोर्ड बणाबा रै वास्तै \"बोर्ड जोड़ो\" आइकन माथै टैप करो। थै \"बोर्ड रै वास्तै चित्र चुणो\" बटण रो उपयोग कर बोर्ड रै वास्तै एक चित्र चुण सको हो। थै बोर्ड रो नांव "बोर्ड रो नांव" बॉक्स मांय टाइप कर सको हो। "बोर्ड रै वास्तै भाषा चुणो" ड्रॉपडाउन मेनू रो उपयोग कर\'र उण भाषा नै चुणो जिण मांय थै बोर्ड बणाणो चावो हो।</string>
+    <string name="my_boards_add_icons">"आइकन जोड़ो" स्क्रीन माथै, थै जेलो लाइब्रेरी सूं आपरै बोर्ड माथै आइकन जोड़ या चुण सको हो। जेलो लाइब्रेरी रै मांय आइकन नै ढूंढबा रै वास्तै सर्च फीचर भी उपलब्ध है।</string>
+    <string name="my_boards_add_icons_cd">चुणियोड़ो स्क्रीनशॉट "आइकन जोड़ो" स्क्रीन नै दिखावै है। स्क्रीन रो उपयोग आपरै बोर्ड माथै जेलो लाइब्रेरी आइकन नै जोड़बा या चुणबा रै वास्तै करियो जावै है। स्क्रीन माथै श्रेणी अर उपश्रेणी चिह्नां री सूची दीरीजी है। विस्तार योग्य सूची स्क्रीन रै बाईं ओर उपलब्ध है। आ सूची थानै सूची रै मांय आइकन नै विशिष्ट श्रेणी या उप-श्रेणी रै साथै छाणबा में मदद करेला। थै इण स्क्रीन माथै कोई भी आइकन सर्च कर सको हो। खोज रो आइकन स्क्रीन रै ऊपर दांई है।</string>
+    <string name="my_boards_add_edit_icons">"आइकन जोड़ो-संपादित करो" स्क्रीन माथै, थै आपरा खुद रा अनुकूलित आइकन जोड़ सको हो अर सूची मांय आइकन नै संपादित या हटा सको हो। सूची मांय एक कस्टम आइकन जोड़बा रै वास्तै "आइकन जोड़ो" बटण नै टैप करो।</string>
+    <string name="my_boards_add_edit_icons_cd">चुणियोड़ो स्क्रीनशॉट "आइकन जोड़ो-संपादित करो" स्क्रीन नै दिखावै है। थै इण स्क्रीन रो उपयोग कर आपरा खुद रा अनुकूलित आइकन जोड़ सको हो। इणरै अलावा, थै सूची रै मांय मौजूदा आइकन नै संपादित या हटा सको हो। सूची मांय एक कस्टम आइकन जोड़बा रै वास्तै "आइकन जोड़ो" बटण नै टैप करो। सूची रै मांय कोई भी आइकन नै संपादित करण रै वास्तै, "संपादित करो" बटण नै टैप करो कोई भी आइकन नै हटाबा रै वास्तै, "हटाओ" बटण नै टैप करो। थै वर्तमान बोर्ड रै वास्तै "प्रति स्क्रीन आइकन री संख्या" भी सेट कर सको हो। स्क्रीन रै ऊपर दाईं ओर "प्रति स्क्रीन आइकन री संख्या" रै वास्तै एक आइकन है।</string>
+    <string name="my_boards_add_icons_window">"आइकन जोड़ो" विंडो रै मांय, थै आपरै कस्टम आइकन माथै आपरो खुद रो नाम अर छवि सेट कर सको हो।</string>
+    <string name="my_boards_add_icons_window_cd">चुणियोड़ो स्क्रीनशॉट \"आइकन जोड़ो\" विंडो नै दिखावै है। इण विंडो रो उपयोग आपरै कस्टम आइकन रो नाम अर छवि सेट करण रै वास्तै करियो जा सकै है। थै आपरै डिवाइस कैमरा सूं या जेलो लाइब्रेरी सूं छवियां चुण सको हो।</string>
+    <string name="my_boards_add_edit_expression">"शब्दावली जोड़ो-संपादित करो" विंडो रै मांय, थै कस्टम आइकन रै वास्तै इमोटिकॉन बटण नै सक्षम या अक्षम कर सको हो। कोई भी अमूर्त वाक्यांश नै सक्षम करण रै वास्तै, गोलाकार हरा प्लस बटण नै टैप करो अर फेर इण मांय दोनूं अमूर्त वाक्यांश जोड़ो। कोई भी इमोटिकॉन वाक्य नै अक्षम करण रै वास्तै गोलाकार लाल माइनस बटण नै दबाओ। फेर \"सेव\" बटण नै दबाओ।</string>
+    <string name="my_boards_add_edit_expression_cd">चुणियोड़ो स्क्रीनशॉट "शब्दकोश जोड़ो-संपादित करो" विंडो नै दिखावै है। इण स्क्रीन रो उपयोग कर थै कस्टम आइकन रै वास्तै अभिव्यंजक बटण नै सक्षम या अक्षम कर सको हो। कोई भी अमूर्त वाक्यांश नै सक्षम करण रै वास्तै, गोलाकार हरा प्लस बटण नै टैप करो अर फेर इण मांय दोनूं अमूर्त वाक्यांश जोड़ो। कोई भी इमोटिकॉन वाक्य नै अक्षम करण रै वास्तै गोलाकार लाल माइनस बटण नै दबाओ। फेर \"सेव\" बटण नै दबाओ।</string>
+    <string name="my_boards_board_home_info">बोर्ड होम स्क्रीन सूं, थै आपरा कस्टम बोर्ड तक पहुंच सको हो। थै वर्तमान बोर्ड रै मांय आइकन री खोज कर सको हो, वर्तमान बोर्ड रै वास्तै "प्रति स्क्रीन आइकन री संख्या" सेटिंग नै बदल सको हो, या वर्तमान बोर्ड रै मांय आइकन नै फेरूं स्थानांतरित कर सको हो। यो बटण स्क्रीन रै ऊपर दांईं कानी उपलब्ध है।</string>
+    <string name="my_boards_board_home_info_cd">चुणीज्योड़ी छवि बोर्ड री होम स्क्रीन नै दर्शावै है। इण स्क्रीन माथै, थै बणायोड़ा बोर्ड नै इस्तेमाल कर सको हो या खेल सको हो। इणरै अलावा, थै वर्तमान बोर्ड रै मांय एक आइकन री तलाश कर सको हो, वर्तमान बोर्ड रै वास्तै \"प्रति स्क्रीन आइकन री संख्या\" सेटिंग नै बदल सको हो या वर्तमान बोर्ड रै मांय आइकन नै फेरूं स्थानांतरित कर सको हो। ये बटण स्क्रीन रै दांई ऊपर उपलब्ध है।</string>
+    <string name="place_holder_no_icons_added">बोर्ड माथै कोई आइकन कोनी है</string>
+    <string name="language_not_working">जे एप्लिकेशन चुणीज्योड़ी भाषा रै वास्तै कोई आवाज रो आउटपुट कोनी देवै तो कृपया इण चरणों रो पालन करो:</string>
+    <string name="txtMoreLangSetting">और भाषा री सेटिंग्स:</string>
+    <string name="board_place_holder_text">थै अजै तांई कोई बोर्ड कोनी जोड़्यो है।</string>
+    <string name="change_language_voice">भाषा रै वास्तै उच्चारण (आवाज) रो चयन करो</string>
+    <string name="update_the_package">चुणीज्योड़ी भाषा नै सक्षम करण रै वास्तै भाषा पैकेज नै अपडेट करो।</string>
+    <string name="voice_warning">जे चुणीज्योड़ी भाषा(भाषावां) री आवाजां उपलब्ध कोनी है या आवाज ड्रॉप डाउन रै तळै \"null\" दिखावै है, तो गूगल प्ले स्टोर सूं गूगल टेक्स्ट टू स्पीच ऐप नै अपडेट करो अर आपरै डिवाइस माथै भाषा(भाषावां) री आवाज डेटा इंस्टॉल करो।</string>
+    <string name="enableFishAnimation">मछली एनीमेशन चालू करो</string>
+    <string name="enableIconAddition">\'आइकन जोड़ो\' बटण दिखाओ</string>
+    <string name="createHomeCustomIcon">आइकन बणाओ</string>
+    <string name="createHomeCustomCategory">श्रेणी बणाओ</string>
+    <string name="home_custom_icon_place_holder_text">अठै कोई कस्टम आइकन कोनी जोड़िया गया है।</string>
+    <string name="enableBlackWhiteColor">मोनोक्रोम डिस्प्ले (काळा अर सफेद) नै सक्षम करो</string>
+    <string name="txtDisplaySettings">प्रदर्शित सेटिंग्स</string>
+    <string name="txtCustomisationSetting">अनुकूलन सेटिंग्स</string>
+    <string name="txtOtherSetting">दूजी सेटिंग्स</string>
+    <string name="change_language_line2">नीचै दीरीजी भाषावां मांय सूं कोई एक भाषा चुणो:</string>
+</resources>

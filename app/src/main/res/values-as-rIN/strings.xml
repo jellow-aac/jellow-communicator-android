@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="ratings">
+        <item>১</item>
+        <item>২</item>
+        <item>৩</item>
+        <item>৪</item>
+        <item>৫</item>
+    </string-array>
+    <string-array name="arrSequenceActivityHeadingText">
+        <item>ব্ৰাছ কৰা</item>
+        <item>শৌচালয়</item>
+        <item>স্নান কৰা</item>
+        <item>""</item>
+        <item>""</item>
+        <item>""</item>
+        <item>""</item>
+        <item>\tৰাতিপুৱা কৰা কাম</item>
+        <item>\tৰাতি কৰা কাম</item>
+    </string-array>
+
+    <string name="app_name">জেলো</string>
+    <string name="action_settings">ছেটিংছ (Settings)</string>
+
+    <string name="Language">ভাষা (Language)</string>
+    <string name="saveLanguage">ভাষা সলনি কৰক (Apply Changes)</string>
+
+    <string-array name="bloodgroup">
+        <item>not selected</item>
+        <item>A+ve</item>
+        <item>A-ve</item>
+        <item>B+ve</item>
+        <item>B-ve</item>
+        <item>AB+ve</item>
+        <item>AB-ve</item>
+        <item>O+ve</item>
+        <item>O-ve</item>
+    </string-array>
+
+    <string-array name="bloodgroup_talkback">
+        <item>ছেট নহয়</item>
+        <item>এ পজিটিভ</item>
+        <item>এ নেগেটিভ</item>
+        <item>বি পজিটিভ</item>
+        <item>বি নেগেটিভ</item>
+        <item>এবি পজিটিভ</item>
+        <item>এবি নেগেটিভ</item>
+        <item>ও পজিটিভ</item>
+        <item>ও নেগেটিভ</item>
+    </string-array>
+
+    <string-array name="picture_view_mode">
+        <item>চিত্ৰ আৰু বৰ্ণনা</item>
+        <item>কেৱল চিত্ৰ</item>
+    </string-array>
+
+    <string-array name="grid_size">
+        <item>১</item>
+        <item>২</item>
+        <item>৩</item>
+        <item>৪</item>
+        <item>৯</item>
+    </string-array>
+
+    <string-array name="acc_grid_size">
+        <item>এটা</item>
+        <item>দুটা</item>
+        <item>তিনি</item>
+        <item>চাৰি</item>
+        <item>নয়</item>
+    </string-array>
+
+    <string name="simple_ime">জেলো কীব\'ৰ্ডd</string>
+    <string name="subtype_en_US">Sক্রমিক অবক</string>
+
+    <string name="action_bar_title">হোম</string>
+    <string name="txtSpeechSpeed">কথা কোৱাৰ গতি</string>
+    <string name="txtVoiceSpeech">স্বৰৰ স্তৰ</string>
+    <string name="txtDisplayMode">প্ৰদৰ্শনৰ ধৰণ</string>
+    <string name="txtVoiceVolume">কথা কোৱাৰ স্তৰ</string>
+    <string name="txtNumOfPerPerScr">প্ৰতি স্ক্ৰীন মূল বিভাগৰ আইকনৰ সংখ্যা</string>
+    <string name="txtDemo">স্বৰ ডেমো (SPEECH DEMO)</string>
+    <string name="txtSave">সংৰক্ষণ কৰক (Save)</string>
+    <string name="demoTtsSpeech">নমস্কাৰ! আপুনি জেলো কমিউনিকেটৰ ব্যৱহাৰ কৰিছে।</string>
+    <string name="savedSettingsMessage">ছেটিংছ সংৰক্ষণ কৰা হৈছে</string>
+    <string name="languageChanged">ভাষা সংৰক্ষণ কৰা হৈছে</string>
+    <string name="checkConnectivity">অনুগ্ৰহ কৰি আপোনাৰ ইণ্টাৰনেট সংযোগ পৰীক্ষা কৰক| অনুগ্ৰহ কৰি আপোনাৰ ইণ্টাৰনেট অন কৰক।</string>
+
+    <string name="menuProfile">প্ৰফাইল (Profile)</string>
+    <string name="menuMyBoards">মোৰ ব\'ৰ্ড (My Boards)</string>
+    <string name="menuBoardsTrash">ট্ৰেচ কৰা বৰ্ড (Trashed Boards)</string>
+    <string name="menuAbout">জেলো সম্পৰ্কে (About Jellow)</string>
+    <string name="menuTutorials">টিউটোৰিয়েল (Tutorial)</string>
+    <string name="menuKeyboardInput">কীব\'ৰ্ড নিয়ন্ত্ৰণ (Keyboard Control)</string>
+    <string name="menuResetPref">আইকন ৰিছেট কৰক (Reset Preferences)</string>
+    <string name="menuFeedback">প্ৰতিক্ৰিয়া (Feedback)</string>
+    <string name="menuUserRegistration">পঞ্জীয়ন স্ক্ৰীন</string>
+    <string name="menuAccessibility">সুবিধাসমূহ (Accessibility)</string>
+    <string name="menuClosePopup">মেনু বন্ধ কৰক (Close menu)</string>
+    <string name="labelSplash">জেলো আৰম্ভ হৈছে। অনুগ্ৰহ কৰি অপেক্ষা কৰক।</string>
+    <string name="easyToUse">ব্যৱহাৰ কৰাত সহজ</string>
+    <string name="clearPictures">স্পষ্ট চিত্ৰ</string>
+    <string name="clearVoice"> স্পষ্ট স্বৰ</string>
+    <string name="easyToNavigate">নিৰ্দেশনা সহজ</string>
+    <string name="commentSuggestions">মন্তব্য, পৰামৰ্শ বা সমৰ্থনৰ বাবে অনুৰোধ</string>
+    <string name="submit">জমা কৰক (SUBMIT)</string>
+    <string name="serial_keyboard_title">চিৰিয়েল কী বোৰ্ড </string>
+    <string name="serial_keyboard_info">জেলো কমিউনিকেটৰ নিজস্ব \'/চিৰিয়েল জেলো কীবোৰ্ড/ লৈ সজ্জিত। এই কীব’ৰ্ডখনে বিশেষ শিক্ষাবিদ আৰু শিক্ষকৰ প্ৰতিক্ৰিয়াৰ ভিত্তিত ডিজাইন কৰা হৈছে আৰু ইয়াত আখৰসমূহ ‘অ’ আখৰৰ পৰা আৰম্ভ কৰি ক্ৰম অনুসাৰে স্থাপন কৰা হৈছে। চিৰিয়েল কীবোৰ্ডখনে ব্যৱহাৰকাৰীক কোনো বিশেষ আখৰ ক’ত আছে সহজে অনুমান কৰিবলৈ সহায় কৰে আৰু বিশেষকৈ প্ৰাথমিক স্বাক্ষৰতা কৌশল শিকি থকা শিশুসকলৰ বাবে ই বৰ উপযোগী। তদুপৰি, এই কীব’ৰ্ডখনত ০-৯ পৰ্যন্ত সংখ্যা উপলব্ধ যি দৈনিক কথাবতৰাৰ বাবে অতি উপযোগী।</string>
+    <string name="keyboardControlTxt">আপোনাৰ পছন্দৰ কীব’ৰ্ড সক্ৰিয় কৰাৰ বাবে আৰু ইয়াক ডিফ’ল্ট হিচাপে স্থাপন কৰিবলৈ, আপুনি ২টা ষ্টেপ/পদক্ষেপ সম্পূৰ্ণ কৰিব লাগিব:</string>
+    <string name="step1">পদক্ষেপ ১: টেবলেট/মবাইলৰ ছেটিংসমূহৰ পৰা কীব\'ৰ্ড সক্ৰিয় কৰক</string>
+    <string name="qwertyKeyboard">ডিফ\'ল্ট দেৱনাগৰী কীব\'ৰ্ড (QWERTY)</string>
+    <string name="serialKeyboard">ক্রমিক \'কখগ\' কীব\'ৰ্ড (SERIAL ABC)</string>
+    <string name="step2">পদক্ষেপ ২: নিৰ্বাচিত কীব\'ৰ্ডটো ডিফ\'ল্ট হিচাপে সংৰক্ষণ/চেভ কৰক</string>
+    <string name="saveAsDefault">সংৰক্ষণ কৰক (SAVE AS DEFAULT)</string>
+    <string name="getKeyboardControl">কীব\'ৰ্ড নিয়ন্ত্ৰণ</string>
+    <string name="childName">শিশুৰ নাম **</string>
+    <string name="caregiverName">সহায়কাৰীৰ নাম **</string>
+    <string name="careGiverContact">সহায়কাৰীৰ সংযোগ নম্বৰ | এইটো ডিভাইচৰ সংযোগ নম্বৰৰ পৰা পৃথক **</string>
+    <string name="homeAddress">ঘৰৰ ঠিকনা **</string>
+    <string name="emailAddress">ই-মেইল ঠিকনা **</string>
+    <string name="bloodGroup">তেজৰ গ্ৰুপ **</string>
+    <string name="detailSaved">তথ্য সংৰক্ষণ কৰা হৈছে</string>
+    <string name="invalid_address">এই ঠিকনাটো ভুল</string>
+    <string name="invalid_emailId">এই ই-মেইল ঠিকনাটো ভুল</string>
+    <string name="enterTheName">অনুগ্ৰহ কৰি আপোনাৰ শিশুৰ নাম প্ৰৱিষ্ট কৰক</string>
+    <string name="search_act_title">জেল\'ত আইকন সন্ধান কৰক</string>
+
+    <string name="iconsHasBeenReset">আইকনসমূহ ৰিছেট কৰা হৈছে</string>
+    <string name="speak">ক\'বা (Speak)</string>
+    <string name="stop">ৰ\'বা (Stop)</string>
+    <string name="about_jellow_speech">Jellow এটা কমিউনিকেটৰ যন্ত্ৰ, যি আইকনৰ জৰিয়তে ভাষা প্ৰকাশ কৰে আৰু যিবোৰ লোকে ক\'বলৈ শিকি আছে বা যিবোৰৰ কথা কোৱাত  অসুবিধা হয়, সেইসকলৰ বাবে উপযোগী। জেল\' কেঁচুৱা আৰু প্ৰাৰম্ভিক শিকাৰুৱেও ব্যৱহাৰ কৰিব পাৰে, যাতে তেওঁলোকে দৈনন্দিন জীৱনত ব্যৱহৃত শব্দ আৰু শ্ৰেণীবোৰ শিকিব পাৰে। জেল\'ৰ ৰঙীন আৰু বন্ধুত্বসুলভ আইকনসমূহে শিশুসকলক ছবিৰ সৈতে সংলগ্ন শব্দ চিনাক্ত কৰাত সহায় কৰে। ই মুম্বাইৰ ইণ্ডিয়ান ইনষ্টিটিউট অৱ টেকনলজী বোম্বেৰ আইডিচি স্কুল অফ ডিজাইনত বিকাশ কৰা হৈছে। এক নতুন Emotional Language Protocal (ELP)ৰ  প্ৰকল্প গৱেষকসকলে উন্নয়ন কৰিছে, যিয়ে জেল\'ৰ  ভাষা সক্ষমতা বৃদ্ধি কৰে। ELP ৰ মূলত ৬ টা অভিব্যক্তিপূৰ্ণ আইকন আছে, যিয়ে ইণ্টাৰফেচৰ মুখ্য অংশ গঠন কৰে। এই মূল আইকনবোৰ ব্যৱহাৰ কৰি, শিশুৱে নিজৰ পছন্দ, অপছন্দ, আৰু প্ৰয়োজনসমূহ প্ৰকাশ কৰিব পাৰে। জেল\'ৰ ব্যৱহাৰ শিশুসকলে সহজকৈ শিকিব পৰা ইণ্টাৰফেইচ হিচাপে গঢ়ি তোলা হৈছে। বৰ্তমান জেলো ইংৰাজী, হিন্দী, বাংলা, মাৰাঠী, তামিল, তেলেগু, গুজৰাটী, পাঞ্জাবী, কানাড়া, মালয়ালম, উড়িয়া, মাইথিলী, উৰ্দু, অসমীয়া, মাৰবাড়ী, নেপালী, স্পেনিছ, জাৰ্মান আৰু ফৰাচী ভাষাত উপলব্ধ। জেলোৰ ৰ বৰ্তমান সংস্কৰণ _। এই এপ্লিকেচনটো আৰু উন্নয়নৰ প্ৰক্ৰিয়াত আছে। সেইবাবে যদি আপোনাৰ কোনো প্ৰস্তাৱ থাকে, অনুগ্ৰহ কৰি ফিডবেক টেবত জমা দিয়ক অথবা jellowcommunicator@gmail.com ত লিখক।Jellow Creative Commons Attribution Non-commercial Share Alike 4.0 International License ৰ অধীনত লাইচেন্সকৃত। জেল\' প্রকল্পৰ সকলো কাম ইণ্ডিয়ান ইনষ্টিটিউট অৱ টেকনলজী বোম্বেৰ কৃতিত্ব। এই এপ্লিকেচনত অন্তৰ্ভুক্ত আইকন, বিন্যাস, আৰ্হি, দৃশ্য পৰিচয়, অনুবাদ, আৰু ছফ্টৱেৰ ক\'ড বিনামূলীয়াকৈ শ্বেয়াৰ কৰিব পাৰি, কিন্তু বাণিজ্যিক উদ্দেশ্যৰ বাবে ব্যৱহাৰ কৰিব নোৱাৰি। এই সমল ব্যৱহাৰ কৰাৰ ক্ষেত্ৰত ইণ্ডিয়ান ইনষ্টিটিউট অৱ টেকনলজী বোম্বেৰ স্বীকৃতি দিয়াৰ অনুসৰি কৰা হৈছে। জেল\' ডাউনল\'ড কৰিবলৈ www.jellow.org লৈ যাওক। যদি আপুনি ক\'ড বিকাশ কৰিবলৈ আগ্ৰহী বা আপোনাৰ স্থানত জেল\' কৰ্মশালা আয়োজন কৰিবলৈ বিচাৰে, তেন্তে Professor Ravi Poovaiah লৈ j e l l o w c o m m u n i c a t o r @ g m a i l . c o m ত ই-মেইল কৰক।</string>
+    <string name="catBtnDesc">জেল\'ৰ ৯ টা প্ৰধান শ্ৰেণী বুটাম আৰু ৬ টা অভিব্যক্তিপূৰ্ণ পাৰ্শ্ব বুটাম আছে:</string>
+    <string name="catBtn">শ্ৰেণী বুটাম::</string>
+    <string name="expBtn">অভিব্যক্তিপূৰ্ণ বুটাম:</string>
+    <string name="jellowUsageDesc">জেল\'ব্যৱহাৰ কৰি ক\'বলৈ, ব্যৱহাৰকাৰীয়ে প্ৰথমে যিকোনো শ্ৰেণী বুটামত ক্লিক কৰক আৰু তাৰ পিছত এক অভিব্যক্তিপূৰ্ণ বুটামত ক্লিক কৰক। উদাহৰণস্বৰূপে, তলৰ বুটামটো টিপিলে জেল\'য়ে কৈ থাকিব, \'ময় খাব বিচাৰোঁ\':</string>
+    <string name="jellowUsageSubCat">এটা কেটেগৰী বুটামত দুবাৰ ক্লিক কৰি, ব্যৱহাৰকাৰীয়ে অধিক উপ-বিকলপ সমূহলৈ যাব পাৰে</string>
+    <string name="levelOneCat">পৰ্যায় ১ কেটেগৰী :</string>
+    <string name="levelTwoCat">পৰ্যায় ২ কেটেগৰী :</string>
+    <string name="levelThreeCat">পৰ্যায় ৩ আইকন:</string>
+    <string name="settingDesc">ব্যৱহাৰকাৰীয়ে স্ক্ৰিনৰ ওপৰৰ সোঁফালে ক্লিক কৰি নিজৰ প্ৰ\'ফাইল কাষ্টমাইজ কৰিব পাৰে আৰু এপ্লিকেচনৰ প্ৰাথমিক কন্ঠ ছেটিংসমূহ সামঞ্জস্য কৰিব পাৰে:</string>
+    <string name="seqActDesc">জেল\' দৈনন্দিন কাৰ্যকলাপসমূহৰ অনুক্ৰমিক পদক্ষেপবোৰ শিশুসমূহক শিকাবলৈও ব্যৱহাৰ কৰিব পাৰি।যিকোনো পৃথক পদক্ষেপত ক্লিক কৰি, ব্যৱহাৰকাৰীয়ে অভিব্যক্তিপূৰ্ণ বুটামবোৰ প্ৰদৰ্শন কৰিব পাৰে:</string>
+    <string name="toiletSeq">শৌচৰ অনুক্ৰম:</string>
+    <string name="expBtnSeq">অনুক্ৰমত থকা অভিব্যক্তিপূৰ্ণ বুটামবোৰ:</string>
+    <string name="ttsDesc">জেলো ব্যৱহাৰ কৰিবলৈ ইংৰাজী, হিন্দী, বাংলা, তামিল, তেলেগু, গুজৰাটী, পাঞ্জাবী, কানাড়া, মালয়ালম, উড়িয়া, মেথিলি, উৰ্দু, অসমীয়া, মাৰৱাড়ী, নেপালী, আৰবী, স্পেনিছ, জাৰ্মান, ফৰাচী, অনুগ্ৰহ কৰি আপোনাৰ ডিভাইচৰ \'ভাষা\' ছেটিংসমূহৰ ভিতৰত \'গুগল টেক্স টু স্পিচ (টিটিএচ )\' সক্ৰিয় কৰক।গুগল টিটিএচ ছেটিংসমূহৰ ভিতৰত, প্ৰথমে ডিফ\'ল্ট ভাষা আপোনাৰ প্ৰিয় ভাষালৈ সলনি কৰক আৰু তাৰপিছত \'ইনষ্টল ভয়চ ডাটা\' বিকল্পৰ জৰিয়তে প্ৰিয় ভাষাৰ ভয়চ ডাটা ডাউনলোড কৰক।</string>
+    <string name="resetPrefPointOne">জেলো\'য়ে ব্যৱহাৰকাৰীৰ \'সৰ্বাধিক ব্যৱহৃত বা প্ৰিয়\' আইকনবোৰ মনত ৰাখে আৰু স্ক্ৰিনত সৰ্বশ্ৰেষ্ঠ বিকল্প হিচাপে প্ৰদৰ্শন কৰে।</string>
+    <string name="resetPrefPointTwo">পছন্দসমূহ ৰিছেট কৰিলে, আইকনবোৰ মূল শৃংখলাত পৰিৱর্তিত হব, যি প্ৰথমবাৰৰ বাবে এপ্লিকেচন খোলোঁতে প্ৰদৰ্শিত হৈছিল।</string>
+    <string name="resetPrefPointThree">আপুনি পছন্দসমূহ ৰিছেট কৰিব বিচাৰে নেকি?</string>
+
+    <string name="downloadErrorMsg">অনুগ্ৰহ কৰি সমগ্ৰ ডাউনলোড প্ৰক্ৰিয়াৰ সময়ত এটা সক্ৰিয় ইণ্টাৰনেট সংযোগ নিশ্চিত কৰক। যদি প্ৰগ্ৰেছ বাৰ স্থবিৰ হৈ থাকে, তেন্তে এপটো পুনৰ আৰম্ভ কৰক বা পুনৰ চেষ্টা কৰক</string>
+    <string name="intro_to_jellow">জেল\'ৰ পৰিচয়</string>
+    <string name="rate_jellow">অনুগ্ৰহ কৰি জেল\'ৰ সকলো ক্ষেত্ৰক মূল্যায়ন কৰক।</string>
+    <string name="keyboard">কীব\'ৰ্ড</string>
+    <string name="txt_intro1_central9btn">জেল\'ত ৯ টা কেন্দ্ৰীয় শ্ৰেণী বুটাম আছে।</string>
+    <string name="txt_intro1_categorybtn">শ্ৰেণী বুটাম</string>
+    <string name="txt_intro5_jellowUsageDesc">এপ্লিকেচনটোত ৬ টা প্ৰকাশযোগ্য পাৰ্শ্ব বুটামো আছে।</string>
+    <string name="txt_intro5_expressiveBtn">প্ৰকাশযোগ্য বুটাম</string>
+    <string name="txt_intro2_appUsageDesc">ব্যৱহাৰকাৰী প্ৰথমে শ্ৰেণী বুটামত ক্লিক কৰে আৰু তাৰ পিছত প্ৰকাশযোগ্য বুটামত ক্লিক কৰে।</string>
+    <string name="txt_intro2_speakUsingJellow">জেল\' ব্যৱহাৰ কৰি কথা কোৱা</string>
+    <string name="txt_intro3_level2CatDesc">শ্ৰেণী বুটামত দুবাৰ টিপিলে, ব্যৱহাৰকাৰীয়ে অধিক শ্ৰেণী আৰু উপ-শ্ৰেণীসমূহত প্ৰৱেশ কৰিব পাৰে।</string>
+    <string name="txt_intro3_navWithJellow">জেল\'ৰ ভিতৰতে নেভিগেট কৰা </string>
+    <string name="txt_intro4_customizeAppDesc">ব্যৱহাৰকাৰীয়ে এপ্লিকেচন ছেটিংসমূহ কাষ্টমাইজ কৰিবলৈ এপ্লিকেচনৰ একদম ওপৰৰ সোঁফালৰ কোণত টিপিব পাৰে।</string>
+    <string name="txt_intro4_customizeJellow">জেল\'ৰ ভিতৰৰ ছেটিংসমূহ</string>
+    <string name="txt_intro7_getStartedDesc">এতিয়া আপুনি জেল\' ব্যৱহাৰ আৰম্ভ কৰিবলৈ সাজু।</string>
+    <string name="txt_intro7_getStarted">আৰম্ভ কৰক(GET Started)</string>
+    <string name="txt_registration_jellowCalluDesc">(এইদৰে জেলোয়ে আপোনাক সম্বোধন কৰে)</string>
+    <string name="txt_registration_emergencynoDesc">(শিশুটিৰ সৈতে জড়িত জৰুৰী পৰিস্থিতিৰ ক্ষেত্ৰত পত্র ব্যৱহাৰৰ বাবে)</string>
+    <string name="txt_registration_selectLangDesc">জেলোৰ বাবে এটা ভাষা নিৰ্বাচন কৰক **</string>
+    <string name="txt_registration_selectLangDesc_contentDesc">জেলোৰ বাবে এটা ভাষা নিৰ্বাচন কৰাটো বাধ্যতামূলক **</string>
+    <string name="txt_registration_registerBtn">পঞ্জীয়ন</string>
+    <string name="enternonemptycontact">অনুগ্ৰহ কৰি বৈধ যোগাযোগ নম্বৰ প্ৰৱিষ্ট কৰক</string>
+    <string name="change_language_line5">পদক্ষেপ ২: আপোনাৰ ডিভাইচত _ ৰ বাবে ভয়েছ ডাটা উপলব্ধ আছে নেকি পৰীক্ষা কৰক। যদি নাথাকে, অনুগ্ৰহ কৰি ইন্টাৰনেট অন কৰি নিৰ্বাচিত ভাষাৰ ভয়েছ ডাটা ডাউনলোড কৰক। যদি প্ৰক্ৰিয়াটো স্থগিত হয়, অনুগ্ৰহ কৰি আপোনাৰ ইন্টাৰনেট সংযোগ পৰীক্ষা কৰি পুনৰ চেষ্টা কৰক।</string>
+    <string name="txtChangeLanguage">এপ্পৰ ভাষা সলনি কৰক:</string>
+    <string name="txtApplyChanges">নিৰ্বাচিত ভাষাটো সংৰক্ষণ কৰিবলৈ \'এপ্লাই চেন্জ\' ক্লিক কৰক</string>
+    <string name="txt_actLangSel_downloadDat">ভয়েছ ডাটা পৰীক্ষা কৰক</string>
+    <string name="language_downloaded">_ ভাষা ডাউনলোড সম্পন্ন</string>
+    <string name="language_downloading">_ ভাষা ডাউনলোড কৰা হৈছে</string>
+    <string name="granted_call_permission_req">ফোন কলৰ অনুমতি প্ৰদান কৰা হৈছে।</string>
+    <string name="rejected_call_permission_req">ফোন কলৰ অনুমতি প্ৰত্যাখ্যান কৰা হৈছে।</string>
+    <string name="grant_permission_from_settings">ছেটিংসমূহৰ পৰা ফোন কল অনুমতি সক্ষম কৰক।</string>
+    <string name="txtEnableBuiltInCalling">জেলোৰ পৰা জৰুৰী ফোন কল সক্ষম কৰক</string>
+    <string name="EnableDisplaySpeechText">ক\'বলগীয়া কথাবোৰ (spoken text) টেক্সট বাৰত প্ৰদৰ্শন কৰক</string>
+
+    <string name="dismiss">বন্ধ কৰক</string>
+    <string name="register_user">অনুগ্ৰহ কৰি অপেক্ষা কৰক, পঞ্জীয়নৰ প্ৰক্ৰিয়া চলি আছে…</string>
+    <string name="exit">বাহিৰ হওক</string>
+    <string name="err_dialog_msg">আপোনাৰ ডিভাইচত গুগল টেক্স টু স্পীচ ইঞ্জিন ইনষ্টল হোৱা নাই। আপুনি গুগল টেক্স টু স্পীচ ইঞ্জিন ইনষ্টল কৰিব বিচাৰে নেকি?</string>
+    <string name="exit_dialog_msg">গুগল টেক্স টু স্পীচ ইঞ্জিন নাথাকিলে জেলোয়ে কাম নকৰে। আপুনি সঁচাই বাহিৰ হ\'ব বিচাৰে নেকি?</string>
+
+    <string name="next_slide">পৰৱৰ্তী স্লাইড</string>
+    <string name="previous_slide">আগৰ স্লাইড</string>
+
+    <!--Strings related to the Searching capability
+    @AyazAlam
+    -->
+    <string name="search_title">সন্ধান আইকন</string>
+    <string name="home">হোম</string>
+    <string name="icon_not_found">আইকন পোৱা নগল</string>
+
+
+    <!--About Jellow strings-->
+    <string name="info">সাধাৰণ জাননী</string>
+    <string name="about_je_intro1">জেল’ এক সংযোগসাধনকাৰী (কমিউনিকেটৰ) যি আইকন ব্যৱহাৰ কৰি ভাষা প্ৰয়োগ সহজ কৰে আৰু ভাষা শেখি থকা বা ভাষা প্ৰকাশ কৰাত অসুবিধা হোৱা ব্যক্তিসকলৰ বাবে উপযোগী। জেল’ টোল্ডলাৰ (শিশু) আৰু আগতীয়া শিক্ষাৰ্থীসকলৰ বাবেো সহায়ক, কিয়নো ই তেওঁলোকৰ দৈনন্দিন জীৱনত বহুল ব্যৱহৃত শব্দসমূহ আৰু শ্ৰেণীবোৰ শিকিবলৈ সহায় কৰে। জেল’ৰ ৰঙীন আৰু সৌহাদ্ৰপূৰ্ণ আইকনসমূহে শিশুসকলক ছবি আৰু সেইটোৰ লগত সংলগ্ন শব্দৰ মাজত এক সংযোগ গঢ়িবলৈ সহায় কৰিব।</string>
+    <string name="about_je_intro2">ই মুম্বাইস্থিত ভাৰতীয় প্ৰযুক্তিবিদ্যা প্ৰতিষ্ঠান বোম্বেত থকা আই ডি চি স্কুল অৱ ডিজাইনত ত বিকাশ কৰা হৈছে।</string>
+    <string name="about_je_intro3">জেল\'ৰ ভাষাগত দক্ষতা উন্নত কৰাৰ বাবে এটা নতুন Emotional Language Protocol (ELP) প্ৰকল্প অনুসন্ধানকাৰীসকলে পৰিকল্পনা কৰি বিকাশ কৰিছে।</string>
+    <string name="about_je_intro4">এই মূল আইকনবোৰ ব্যৱহাৰ কৰি, শিশুৱে নিজৰ পছন্দ, অপছন্দ, আৰু প্ৰয়োজনসমূহ আনৰ সৈতে পাতিব  পাৰে।</string>
+    <string name="about_je_intro5">জেল\' শিশুসকলৰ বাবে সহজ আৰু শিকিবলৈ সুবিধাজনক হিচাপে পৰিকল্পিত।</string>
+    <string name="about_je_intro6">এই এপ্লিকেছনটো এণ্ড্ৰইড টেবলেটৰ বাবে অপ্টিমাইজ কৰা হৈছে।</string>
+    <string name="about_je_intro7">বৰ্তমান জেলো ইংৰাজী, হিন্দী, মাৰাঠী, বাংলা, তামিল, তেলেগু, গুজৰাটী, পাঞ্জাবী, কানাড়া, মালয়ালম, উড়িয়া, মাইথিলী, উৰ্দু, অসমীয়া, মাৰাবাদী, নেপালী, আৰবী, স্পেনিছ, জাৰ্মান, ফৰাচী ভাষাত উপলব্ধ</string>
+    <string name="play_video">ভিডিঅ’ চাওক</string>
+    <string name="software_info">ছফ্টৱেৰ সংস্কৰণঃ _</string>
+    <string name="about_je_intro8">বৰ্তমান জেল\' ৰ সংস্কৰণ _। এই এপ্লিকেছনটো অধিক উন্নয়নৰ অধীনত আছে। আপোনালোকৰ যিকোনো ধৰণৰ পৰামৰ্শ থাকিলে, অনুগ্ৰহ কৰি \'প্ৰতিক্ৰিয়া\' টেবত জমা দিয়ক বা jellowcommunicator@gmail.com-লৈ মেইল কৰক।</string>
+    <string name="terms_of_use">ব্যৱহাৰৰ নীতি</string>
+    <string name="about_je_intro9">জেল\' ক্ৰিয়েটিভ কমন এট্ৰিবিউছন নন কমাৰ্চিয়েল শ্বেয়াৰ এলাইক ৪.০ ইণ্টাৰনেচনেল লাইচেঞ্চৰ অধীনত লাইচেন্স কৰা হৈছে।</string>
+    <string name="about_je_intro10">জেল\' ৰ কাম ইণ্ডিয়ান ইনষ্টিটিউট অফ টেকন’লজি বম্বে (IIT Bombay)ৰ সৈতে সম্পৰ্কিত।</string>
+    <string name="about_je_intro11">এই এপ্লিকেছনৰ ভিতৰত থকা আইকন, বিন্যাস, আৰ্হি, ভিজুৱেল চিনাক্তকৰণ, অনুবাদ, আৰু ছফ্টৱেৰ কোডসমূহ শ্বেয়াৰ আৰু গ্ৰহণ কৰিব পাৰি, কিন্তু ব্যৱসায়িক উদ্দেশ্যে ব্যৱহাৰ কৰিব নোৱাৰি।</string>
+    <string name="about_je_intro12">এই সামগ্ৰীবোৰ ব্যৱহাৰ কৰাৰ সময়ত, অনুগ্ৰহ কৰি ইণ্ডিয়ান ইনষ্টিটিউট অফ টেকন’লজি বম্বেক স্বীকৃতি জনাব।</string>
+    <string name="about_je_intro13">জেলো ডাউনলোডৰ বাবে উপলব্ধ _</string>
+    <string name="about_je_intro14">যদি আপুনি জেল\' ৰ কোড উন্নয়ন কৰিবলৈ বা আপোনাৰ ঠাইত জেল\'ৰ কৰ্মশালা আয়োজন কৰিবলৈ আগ্ৰহী, অনুগ্ৰহ কৰি প্ৰফেচৰ ৰবি পুবেয়ালৈ jellowcommunicator@gmail.com-ত মেইল কৰক।</string>
+    <string name="feedback_talkback_heading">অনুগ্ৰহ কৰি ১ ৰ পৰা ৫ স্কেলত নিম্নলিখিত বিষয়সমূহ মূল্যায়ন কৰক:</string>
+
+    <string name="langauge_correction_message"> \'-\' ভাষা সঠিকভাৱে ছেটআপ কৰা হোৱা নাই। \'_\' টিপি ভাষা ঠিক কৰক।অথবা, আপুনি ডিফ’ল্ট ভাষালৈ সলনি কৰিব পাৰে \'$\' টিপি।</string>
+    <string name="changeLanguage">ভাষা ঠিক কৰক</string>
+    <string name="dialog_default_language_option">ডিফ\'ল্ট ভাষা</string>
+    <string name="txt_data_info">** ওপৰৰ তথ্যসমূহ কেৱল আপোনাৰ ডিভাইচত সংৰক্ষণ কৰা হ\'ব। আমি আপোনাৰ গোপনীয়তাক মূল্য দিওঁ গতিকে ইয়াক কোনো চাৰ্ভাৰ/ক্লাউডত (Jellow\'s বা তৃতীয় পক্ষকে ধৰি) ব্যৱহাৰ বা আপলোড কৰা নহ\'ব।</string>
+    <string name="txt_view_privacy_policy">জেলো <![CDATA[<font color="#dc5252"><b><u>গোপনীয়তা নীতি</u></b></font>]]> জেলো</string>
+    <string name="privacy_link_info">ময় জেল\' ৰ <![CDATA[<font color="#dc5252"><b><u>গোপনীয়তা নীতি</u></b></font>]]> পঢ়িছো।</string>
+    <string name="consent_privacy">অনুগ্ৰহ কৰি গোপনীয়তা নীতি পঢ়ি তেতিয়াহে স্বীকাৰ কৰক।</string>
+
+    <!--Content description-->
+    <string name="language_download_in_process">ভাষা ডাউনল’ড প্ৰক্ৰিয়া চলি আছে</string>
+    <string name="child_s_name">শিশুৰ নাম আৱশ্যকীয়**</string>
+    <string name="enter_home_address">ঘৰৰ ঠিকনা লিখক</string>
+    <string name="enter_caregiver_s_contact_number">ঘৰৰ ঠিকনা লিখক</string>
+    <string name="enter_caregiver_s_name">সহায়কাৰীৰ যোগাযোগ নম্বৰ লিখক</string>
+    <string name="enter_caregiver_s_email_address">সহায়কাৰীৰ নাম লিখক</string>
+    <string name="category_cd">এই ছবিখনত জেল’ৰ হোম স্ক্ৰীণ দেখা গৈছে। হোম স্ক্ৰীণত কেন্দ্ৰীয়ভাৱে ৯ টা আইকনেৰে এটা গ্ৰিড আছে, যাক “শ্ৰেণী বুটাম” বুলি কোৱা হয়। এই ৯ টা শ্ৰেণী বুটাম ৩ টা শাৰী আৰু ৩ টা স্তম্ভত সাজি থোৱা হৈছে। এই শ্ৰেণীসমূহ হ’ল— “অভিবাদন আৰু অনুভূতি”, “দৈনন্দিন কাৰ্য”, “খোৱা”, “মজা”, “শিকিবলৈ”, “লোক”, “স্থান”, “সময় আৰু বতাহ অৱস্থা”, আৰু “সহায়”। শ্ৰেণী বুটামসমূহৰ তলত ৩ টা নেভিগেচন বুটাম আছে— “পিছলৈ”, “হোম” আৰু “কীব’ৰ্ড”, যিবোৰ স্ক্ৰীণৰ তলৰ অংশত এই ক্ৰমত আছে। কেন্দ্ৰীয় গ্ৰিডৰ দুয়োফালে ৩ টাকৈ অভিব্যক্তিপূৰ্ণ বুটাম আছে। বাওঁফালে ওপৰৰ পৰা তললৈ “পচন্দ”, “হয়” আৰু “অধিক” বুটাম আছে। সোঁফালে “অপচন্দ”, “নহয়” আৰু “কম” বুটাম আছে। স্ক্ৰীণৰ ওপৰৰ সোঁফালে কোণত ছেটিংছ আইকন দেখা গৈছে। এই ছবিখনত কেন্দ্ৰীয় গ্ৰিডৰ ৯ টা আইকন উজ্জ্বল কৰি দেখুওৱা হৈছে, আৰু আন বুটামবোৰ ধূসৰ হৈ আছে।</string>
+    <string name="expressive_cd">এই ছবিখনে আকৌ জেল\'ৰ হ\'ম পেইজৰ স্ক্ৰিনশ্বট দেখুৱাইছে। এই ছবিখনত, কেন্দ্ৰীয় শ্ৰেণী বুটামবোৰৰ দুয়োপাৰ্শ্বত থকা ৩টা কৰি মুঠ ৬টা অনুভৱ প্ৰকাশক বুটাম হাইলাইট কৰা হৈছে, আৰু বাকী বুটামবোৰ ফিকলা হৈ আছে। কেন্দ্ৰীয় শ্ৰেণী বুটামবোৰৰ বাঁওফালে, ওপৰৰ পৰা তললৈ আছে ৩টা অনুভৱ প্ৰকাশক বুটাম: ভাল পোৱা, যাক এটা হাঁহি মুখ আইকনে দেখুৱাইছে; হয়, যাক এটা শুদ্ধ চিন আইকনে দেখুৱাইছে; আৰু অধিক, যাক এটা প্লাছ চিন আইকনে দেখুৱাইছে। কেন্দ্ৰীয় শ্ৰেণী বুটামবোৰৰ সোঁফালে, ওপৰৰ পৰা তললৈ আছে ৩টা অনুভৱ প্ৰকাশক বুটাম: ভাল নোপোৱা, যাক এটা বিষণ্ণ মুখ আইকনে দেখুৱাইছে; নহয়, যাক এটা ভুল চিন আইকনে দেখুৱাইছে; আৰু কম, যাক এটা মাইনাছ চিন আইকনে দেখুৱাইছে। ছবিখনত স্ক্ৰিনৰ তলৰ অংশত ৩টা নেভিগেচন বুটামও লেবেল কৰা আছে। বাঁওফালৰ পৰা সোঁফাললৈ এই বুটামবোৰ হ’ল: উভতি যাওক (Back), হোম পেজলৈ যাওক (Home) আৰু কীব’ৰ্ড (Keyboard)।</string>
+    <string name="pic4">এই ছবি-খনে জেল\'ৰ হোম স্ক্ৰীন দেখুৱাইছে য’ত কেৱল "খাদ্য" আৰু "হয়" আইকন উজ্জ্বল কৰি দেখুৱোৱা হৈছে।বাকী সকলো বুটাম  ধূসৰ কৰা হৈছে।ছবি-খনে দেখুৱাইছে যে জেল\' ব্যৱহাৰ কৰি কথা কোৱাৰ বাবে, ব্যৱহাৰকাৰী-এ প্রথমে কোনো শ্ৰেণী বুটামত টিপিব লাগে, যেনে "খাদ্য", তাৰ পিছত তেওঁ "হয়" যেনে কোনো অভিব্যক্তিমূলক বুটামত ক্লিক কৰিব লাগিব।এইদৰে ব্যৱহাৰকাৰী জেলো ব্যৱহাৰ কৰি কথা ক’ব পাৰে।</string>
+    <string name="pic5">এই ছবিখনত জেল\'ৰ হোম স্ক্ৰীণ দেখা গৈছে, য\'ত কেৱল \'খোৱাৰ\' আইকনটো উজ্জ্বল কৰা হৈছে। স্ক্ৰীণৰ লেভেল ১ ৰ বাকী বুটামবোৰ ধূসৰ হৈ আছে। ছবিখনত এটা আঙুলিৰে \'খোৱাৰ\' আইকনটো দুবাৰ টিপি এই মূল শ্ৰেণীৰ উপশ্ৰেণীসমূহ প্ৰৱেশ কৰাৰ দৃশ্য দেখুৱাইছে।</string>
+    <string name="pic6">এই ছবিখনত \'খোৱাৰ\' আইকনটো দুবাৰ টিপি প্ৰৱেশ কৰা উপশ্ৰেণীসমূহৰ স্ক্ৰীণশ্বট দেখুওৱা হৈছে। লেভেল ২ ৰ কেন্দ্ৰীয় গ্ৰিডত ৩ x ৩ বিন্যাসত থকা আইকনসমূহ হ’ল— \'ৰাতিপুৱা আহাৰ\', \'দুপৰীয়া আহাৰ/ৰাতিৰ আহাৰ\', \'মিঠাই\', \'পাতল আহাৰ\', \'ফল\', \'পানীয়\', \'কাঁহি-চামুচ\', আৰু \'অতিৰিক্ত\'। ছবিখনত ব্যৱহাৰকাৰীৰ আঙুলিৰে \'ৰাতিপুৱা আহাৰ\' আইকনটো দুবাৰ টিপি তাত থকা বিকল্পসমূহ প্ৰৱেশ কৰাৰ দৃশ্য দেখুৱাইছে।</string>
+    <string name="pic7">এই ছবিখনত \'খোৱাৰ\' মূল শ্ৰেণীৰ অন্তৰ্গত \'ৰাতিপুৱা আহাৰ\' উপশ্ৰেণী আইকনত টিপি প্ৰৱেশ কৰা লেভেল ৩ স্ক্ৰীণ দেখুওৱা হৈছে। এই স্ক্ৰীণৰ কেন্দ্ৰীয় গ্ৰিডত থকা আইকনসমূহ হ’ল— \'ব্ৰেড\', \'ক’ৰনফ্লেক্স\', \'আলু-পুৰি\', \'কণী\', \'পোহা\', \'উপমা\', \'খিচৰি\', আৰু \'ইডলি\'। লগতে, স্ক্ৰীণৰ দুফালে থকা অভিব্যক্তিপূৰ্ণ আইকনবোৰ, স্ক্ৰীণৰ তলত থকা নেভিগেচন বুটামবোৰ, আৰু স্ক্ৰীণৰ ওপৰ দাযি কোণত থকা ছেটিংছ আইকনটোও দেখা গৈছে।</string>
+    <string name="pic8">এই ছবিখনত জেল\'ৰ হোম স্ক্ৰীণ আৰু ওপৰ দাযি কোণত থকা ড্ৰপ-ডাউন মেনু দেখা গৈছে। এই ড্ৰপ-ডাউনত \'প্ৰফাইল\', \'জেল\' \'সম্পৰ্কে\', \'টুট\'ৰিয়েল\', \'কীব\’ৰ্ড নিয়ন্ত্ৰণ\', \'ভাষা\', \'ছেটিংছ\', \'পছন্দসমূহ ৰিছেট কৰক\', আৰু \'মতামত\' অপচন আছে। অপচনবোৰৰ যিকোনো এটা টিপি ব্যৱহাৰকাৰীয়ে এপ্পটোৰ ছেটিংছ নিজৰ প্ৰয়োজন অনুসৰি কাষ্টমাইজ কৰিব পাৰে।</string>
+    <string name="pic9">এইটো জেল\'ৰ এটা ক্ৰম অনুসৰি কাৰ্যৰ স্ক্ৰীণশ্বট। ছবিখনত \'দৈনন্দিন কাৰ্য\' মূল শ্ৰেণীৰ অন্তৰ্গত \'শৌচালয়\' ক্ৰম অনুসৰি কাৰ্য দেখুওৱা হৈছে। স্ক্ৰীণত শৌচালয় ব্যৱহাৰৰ ৩ টা স্তৰৰ আইকনসমূহ আছে— স্তৰ ১: \'পেন্ট নামাই লোৱা\', স্তৰ ২: \'শৌচালয়ত বহা\', আৰু স্তৰ ৩: \'তলৰ অংশ ধোৱা\'। স্তৰসমূহৰ মাজত কাড় চিহ্ন আছে, যিয়ে কাৰ্যটো ক্ৰম অনুসৰি বুলি দেখুৱাইছে। তলত \'আগৰ\' আৰু \'পৰৱৰ্তী\' বুটাম ২ টা আছে। \'আগৰ\' বুটামটো নিষ্ক্ৰিয় কৰি দেখুওৱা হৈছে, কাৰণ এইটো \'শৌচালয়\' ক্ৰম অনুসৰি কাৰ্যৰ প্ৰথম স্ক্ৰীণ। ছবিখনত ব্যৱহাৰকাৰীৰ আঙুলিয়ে \'পৰৱৰ্তী\' বুটামটোত টিপি ক্ৰম অনুসৰি কাৰ্যৰ পৰৱৰ্তী স্তৰলৈ যাব বিচাৰিছে।</string>
+    <string name="pic10">এই ছবিখন আগৰ ছবিখনৰ সৈতে একে, য’ত \'শৌচালয়\' ক্ৰম অনুসৰি কাৰ্যৰ প্ৰথম ৩ টা স্তৰ দেখুওৱা হৈছে। কিন্তু এই ছবিখনত ব্যৱহাৰকাৰীৰ আঙুলিয়ে স্তৰ ২ \'শৌচালয়ত বহা\' আইকনত টিপিছে। এই আইকনত টিপাৰ লগে লগে, অভিব্যক্তিপূৰ্ণ বুটামবোৰ স্ক্ৰীণৰ দুয়োফালে দৃশ্যমান হৈ পৰিছে।</string>
+    <string name="gtts1">এই ছবিখন ৩ টা স্ক্ৰীণশ্বটৰ সমষ্টি, য’ত ব্যৱহাৰকাৰীৰ ডিভাইচত \'টেক্সট-টু-স্পিচ আউটপুট\' আৰু \'গুগল টিটিএছ ভয়চ ডাটা\' ছেটিংছ দেখুওৱা হৈছে। প্ৰথম ছবিখনত \'টেক্সট-টু-স্পিচ আউটপুট\' স্ক্ৰীণ দেখুওৱা হৈছে, য’ত ২ টা প্ৰিফাৰ্ড ইঞ্জিন দেখা গৈছে— \'ছেমছাং টেক্সট-টু-স্পীচ\' আৰু \'গুগল টেক্সট-টু-স্পীচ \'। ব্যৱহাৰকাৰীয়ে প্ৰথম স্তৰত \'গুগল টেক্সট-টু-স্পীচ ইঞ্জিন \' বাছনি কৰিছে।</string>
+    <string name="gtts2">দ্বিতীয় ছবিখনত এই প্ৰক্ৰিয়াৰ দ্বিতীয় পদক্ষেপ দেখুওৱা হৈছে, য’ত ব্যৱহাৰকাৰীয়ে গুগল টেক্সট-টু-স্পীচ ৰ লগত থকা গিয়াৰ (ছেটিংছ) আইকনত টিপিছে।</string>
+    <string name="gtts3">তৃতীয় ছবিখনত তৃতীয় স্তৰ দেখুওৱা হৈছে, য’ত ব্যৱহাৰকাৰী \'গুগল টেক্সট-টু-স্পীচ ইঞ্জিন ভয়চ ডাটা\' স্ক্ৰীণত আছে। এই স্ক্ৰীণত বহুতো ভাষাৰ বিকল্প দেখা গৈছে, যেনে— \'ফ্ৰেন্স (ফ্ৰান্স)\', \'জাৰ্মান (জাৰ্মানী)\', \'হিন্দী (ভাৰত)\', \'হাংগেৰিয়ান (হাংগেৰী)\', আৰু \'ইণ্ডোনেছিয়ান (ইণ্ডোনেছিয়া)\'। \'হিন্দী (ভাৰত)\' বিকল্পটো হাইলাইট হৈ আছে, য’ত \'ভয়চ ছেট ১\' নামেৰে ১৯MB মাপৰ ডাটা ডাউনলোডৰ বাবে উপলব্ধ। ব্যৱহাৰকাৰীৰ আঙুলিয়ে \'ভয়চ ছেট ১\' ডাউনলোড বুটামটোত টিপিছে।</string>
+    <string name="enter_child_s_name">শিশুৰ নাম প্ৰৱিষ্ট কৰক</string>
+    <string name="caregiver_s_contact_number_other_than_this_device_s_sim_number">এই ডিভাইচৰ SIM নম্বৰ বাদে পৰিচাৰকৰ যোগাযোগ নম্বৰ। আবশ্যক ক্ষেত্ৰ। **</string>
+    <string name="select_country_code">দেশৰ কোড বাছনি কৰক</string>
+    <string name="caregiver_s_email_address">সহায়কাৰীৰ ইমেইল ঠিকনা। আবশ্যক ক্ষেত্ৰ। **</string>
+    <string name="like">পছন্দ</string>
+    <string name="yes">হয়</string>
+    <string name="more">অধিক</string>
+    <string name="dont_like">অপছন্দ</string>
+    <string name="no">নহয়</string>
+    <string name="less">কম</string>
+    <string name="back">উভতি যাওক</string>
+    <string name="yes_btn">হয়</string>
+    <string name="enter_category">শ্ৰেণী প্ৰৱিষ্ট কৰক</string>
+    <string name="intro_cd">এই ছবিখনত জেল’ৰ হোম স্ক্ৰীণ দেখা গৈছে। হোম স্ক্ৰীণত কেন্দ্ৰীয়ভাৱে ৯ টা আইকনেৰে এটা গ্ৰিড আছে, যাক “শ্ৰেণী বুটাম” বুলি কোৱা হয়। এই ৯ টা শ্ৰেণী বুটাম ৩ টা শাৰী আৰু ৩ টা স্তম্ভত সাজি থোৱা হৈছে। এই শ্ৰেণীসমূহ হ’ল— “অভিবাদন আৰু অনুভূতি”, “দৈনন্দিন কাৰ্য”, “খোৱা”, “মজা”, “শিকিবলৈ”, “লোক”, “স্থান”, “সময় আৰু বতাহ অৱস্থা”, আৰু “সহায়”। শ্ৰেণী বুটামসমূহৰ তলত ৩ টা নেভিগেচন বুটাম আছে— “পিছলৈ”, “হোম” আৰু “কীব’ৰ্ড”, যিবোৰ স্ক্ৰীণৰ তলৰ অংশত এই ক্ৰমত আছে। কেন্দ্ৰীয় গ্ৰিডৰ দুয়োফালে ৩ টাকৈ অভিব্যক্তিপূৰ্ণ বুটাম আছে। বাওঁফালে ওপৰৰ পৰা তললৈ “পচন্দ”, “হয়” আৰু “অধিক” বুটাম আছে। সোঁফালে “অপচন্দ”, “নহয়” আৰু “কম” বুটাম আছে। স্ক্ৰীণৰ ওপৰৰ সোঁফালে কোণত ছেটিংছ আইকন দেখা গৈছে। এই ছবিখনত কেন্দ্ৰীয় গ্ৰিডৰ ৯ টা আইকন উজ্জ্বল কৰি দেখুওৱা হৈছে, আৰু আন বুটামবোৰ ধূসৰ হৈ আছে।</string>
+    <string name="intro2_cd">এই ছবিখনত জেল’ৰ হোম স্ক্ৰীণত কেৱল “খোৱা” আৰু “হয়” আইকন উজ্জ্বল দেখুওৱা হৈছে। বাকী সকলো বুটাম ধূসৰ হৈ আছে। ছবিখনে দেখুৱাইছে যে জেল’ ব্যৱহাৰ কৰি কথা ক’বলৈ, প্ৰথমে ব্যৱহাৰকাৰীয়ে যিকোনো এটা শ্ৰেণী বুটাম টিপিব লাগে, যেনে “খোৱা”, আৰু তাৰ পিছত যিকোনো অভিব্যক্তিপূৰ্ণ বুটাম টিপিব লাগে, যেনে “হয়”। এইদৰে ব্যৱহাৰকাৰীয়ে জেল’ৰ সহায়ত যোগাযোগ কৰিব পাৰে। এই ছবিখনত “খোৱা” শ্ৰেণীৰ ভিতৰত থকা উপশ্ৰেণীসমূহ দেখুওৱা হৈছে।</string>
+    <string name="intro3_cd">এই ছবি-খনে জেলো-ৰ "খাদ্য" শ্ৰেণী-ৰ অন্তৰ্গত উপ-শ্ৰেণীবোৰ দেখুৱাইছে।কেন্দ্ৰীয় তালিকা-ত ৩x৩ বিন্যাসত দেখা আইকন-বোৰ হ’ল: "ৰাতিপুৱাৰ আহাৰ", "দুপৰীয়া / ৰাতিৰ আহাৰ", "মিঠাই", "পাতল আহাৰ", "ফল", "পানীয়", "বাতি -চামুচ" আৰু "অতিৰিক্ত"।ছবি-খনত দেখুৱাইছে যে ব্যৱহাৰকাৰী-ৰ আঙুলি "ৰাতিপুৱাৰ আহাৰ" আইকন-ত ডাবল-ক্লিক কৰিছে যাতে অধিক বিকল্প প্ৰাপ্ত কৰিব পাৰে।</string>
+    <string name="intro4_cd">এই ছবিখনত জেল’ৰ হোম স্ক্ৰীণ আৰু ওপৰৰ সোঁফালৰ কোণত থকা ড্ৰপ-ডাউন মেনু দেখুওৱা হৈছে। এই ড্ৰপ-ডাউনত “প্ৰফাইল”, “জেল’ সম্পৰ্কে”, “টুট’ৰিয়েল”, “কীব’ৰ্ড নিয়ন্ত্ৰণ”, “ভাষা”, “ছেটিংছ”, “পছন্দসমূহ ৰিছেট কৰক”, আৰু “মতামত” অপচন আছে। যিকোনো এটা অপচন টিপি ব্যৱহাৰকাৰীয়ে এপ্পটোৰ ছেটিংছ নিজৰ প্ৰয়োজন অনুসৰি কাষ্টমাইজ কৰিব পাৰে।</string>
+    <string name="intro5_cd">এই ছবিখনে আকৌ জেল\'ৰ হ\'ম পেইজৰ স্ক্ৰিনশ্বট দেখুৱাইছে। এই ছবিখনত, কেন্দ্ৰীয় শ্ৰেণী বুটামবোৰৰ দুয়োপাৰ্শ্বত থকা ৩টা কৰি মুঠ ৬টা অনুভৱ প্ৰকাশক বুটাম হাইলাইট কৰা হৈছে, আৰু বাকী বুটামবোৰ ফিকলা হৈ আছে। কেন্দ্ৰীয় শ্ৰেণী বুটামবোৰৰ বাঁওফালে, ওপৰৰ পৰা তললৈ আছে ৩টা অনুভৱ প্ৰকাশক বুটাম: ভাল পোৱা, যাক এটা হাঁহি মুখ আইকনে দেখুৱাইছে; হয়, যাক এটা শুদ্ধ চিন আইকনে দেখুৱাইছে; আৰু অধিক, যাক এটা প্লাছ চিন আইকনে দেখুৱাইছে। কেন্দ্ৰীয় শ্ৰেণী বুটামবোৰৰ সোঁফালে, ওপৰৰ পৰা তললৈ আছে ৩টা অনুভৱ প্ৰকাশক বুটাম: ভাল নোপোৱা, যাক এটা বিষণ্ণ মুখ আইকনে দেখুৱাইছে; নহয়, যাক এটা ভুল চিন আইকনে দেখুৱাইছে; আৰু কম, যাক এটা মাইনাছ চিন আইকনে দেখুৱাইছে। ছবিখনত স্ক্ৰিনৰ তলৰ অংশত ৩টা নেভিগেচন বুটামও লেবেল কৰা আছে। বাঁওফালৰ পৰা সোঁফাললৈ এই বুটামবোৰ হ’ল: উভতি যাওক (Back), হোম পেজলৈ যাওক (Home) আৰু কীব’ৰ্ড (Keyboard)।</string>
+    <string name="talkback_single_click">বাছনি কৰা</string>
+    <string name="talkback_dropdown_menu">দেশ সমূহৰ নাম চাবলৈ টিপক</string>
+    <string name="next">পৰৱৰ্তী </string>
+    <string name="previous">আগৰ</string>
+    <string name="edttxt_msg">কথা ক\'বলৈ ইয়াত টিপক</string>
+    <string name="keyboard_open">কীব\'ৰ্ড খোলক</string>
+    <string name="child_s_name_dialog_btn">মোৰ নাম</string>
+    <string name="caregiverName_dialog_btn">সহায়কাৰীৰ নাম</string>
+    <string name="caregiver_s_email_address_dialog_btn">পৰিচাৰকৰ ইমেইল ঠিকনা</string>
+    <string name="homeAddress_dialog_btn">মোৰ ঘৰ ঠিকনা</string>
+    <string name="caregiver_s_contact_number_dialog_btn">পৰিচাৰকৰ যোগাযোগ নম্বৰ</string>
+    <string name="bloodGroup_dialog_btn">মোৰ তেজৰ গ্ৰুপ</string>
+    <string name="seekbar_speed_cd">অনুগ্ৰহ কৰি আপোনাৰ ডিভাইচৰ ভলিউম বুটামবোৰ ব্যৱহাৰ কৰি কথাৰ গতি পৰিবৰ্তন কৰক।</string>
+    <string name="seekbar_pitch_cd">অনুগ্ৰহ কৰি আপোনাৰ ডিভাইচৰ ভলিউম বুটামবোৰ ব্যৱহাৰ কৰি কণ্ঠস্বৰৰ স্তৰ পৰিবৰ্তন কৰক।</string>
+    <string name="seekbar_volume_cd">অনুগ্ৰহ কৰি আপোনাৰ ডিভাইচৰ ভলিউম বুটামবোৰ ব্যৱহাৰ কৰি কথাৰ শব্দ পৰিমাণ পৰিবৰ্তন কৰক।</string>
+    <!--end content description-->
+
+    <string name="txt_tts_stting">টিটিএচ ছেটিংছ</string>
+    <string name="change_language_tts_wifi">পদক্ষেপ ১: গুগল টিটিএচ ৰ ছেটিংছলৈ যাওক আৰু \'কেৱল Wi-Fi ব্যৱহাৰ কৰক\' বিকল্পটো বন্ধ কৰক \'TTS ছেটিংছ\' বুটামটো টিপি। যদি বিকল্পটো ইতিমধ্যে অক্ষম থাকে, অনুগ্ৰহ কৰি এই পদক্ষেপটো এৰি দিয়ক।</string>
+    <string name="lang_setting_option1_cd">তলৰ ছবিখনে জেল\'ৰ দ্বাৰা ব্যৱহৃত "টেক্স টু স্পীচ" ইঞ্জিন ছেটআপ কৰাৰ ৩টা পদক্ষেপ দেখুৱাইছে। ছবিখন ৩টা স্ক্ৰীনশ্বটৰ সৈতে গঠিত, "টেক্সট টু স্পীচ আউটপুট" আৰু "গুগল টিটিএছ ছেটিংছ" সংলগ্ন। প্ৰথমটো ছবিত "টেক্সট-টু-স্পীচ আউটপুট" লৈ সম্পৰ্কিত দুটা পছন্দৰ ইঞ্জিন দেখা যায়, প্ৰথমটো "ছেমছাং টেক্সট-টু-স্পীচ ইঞ্জিন" আৰু দ্বিতীয়টো "গুগল টেক্সট-টু-স্পীচ ইঞ্জিন"। প্ৰথম পদক্ষেপ হিচাপে ব্যৱহাৰকাৰী "গুগল টেক্সট-টু-স্পীচ ইঞ্জিন" নিৰ্বাচন কৰে।</string>
+    <string name="lang_setting_option2_cd">দ্বিতীয়টো ছবিয়ে এই প্ৰক্ৰিয়াৰ দ্বিতীয় পদক্ষেপ দেখুৱাই, য\'ত ব্যৱহাৰকাৰী \'গুগল টেক্সট-টু-স্পীচ\'\'ইঞ্জিনৰ ছেটিংছ\' চিহ্নিত \'Gear/গিয়েৰ\' চিহ্নত ক্লিক কৰে।</string>
+    <string name="lang_setting_option3_cd">তৃতীয়টো ছবিয়ে এই প্ৰক্ৰিয়াৰ তৃতীয় পদক্ষেপ দেখুৱাই, য\'ত ব্যৱহাৰকাৰী \'গুগল টিটিএছ অপচনছ\' স্ক্ৰীনত থাকে। এই স্ক্ৰীনত দ্বিতীয়টো বিকল্প \'কেৱল ৱাই-ফাই ব্যৱহাৰ কৰক\' টগল ছুইচ হিচাপে হাইলাইট কৰা হৈছে। এই পদক্ষেপত ব্যৱহাৰকাৰীক এই ছুইচ বন্ধ কৰিবলৈ বা অক্ষম কৰিবলৈ কোৱা হৈছে।</string>
+    <string name="close">সংলাপ বন্ধ কৰক</string>
+    <string name="access_dialog_title">বিকল্পযুক্ত সংলাপ</string>
+
+    <string name="acc_lang_marathi">মাৰাঠী (ভাৰত)</string>
+    <string name="acc_lang_hindi">হিন্দী (ভাৰত)</string>
+    <string name="acc_lang_bengali">বাংলা (ভাৰত)</string>
+    <string name="acc_lang_bengali_bd">বাংলা (বাংলাদেশ)</string>
+    <string name="acc_lang_eng_in">ইংৰাজী (ভাৰত)</string>
+    <string name="acc_lang_eng_gb">ইংৰাজী (যুক্তৰাজ্য)</string>
+    <string name="acc_lang_eng_us">ইংৰাজী (যুক্তৰাষ্ট্ৰ)</string>
+    <string name="acc_lang_eng_au">ইংৰাজী (অষ্ট্ৰেলিয়া)</string>
+    <string name="acc_lang_eng_ng">ইংৰাজী (নাইজেৰিয়া)</string>
+    <string name="acc_lang_span_span">স্পেনিচ (স্পেইন)</string>
+    <string name="acc_lang_tamil_in">তামিল (ভাৰত)</string>
+    <string name="acc_lang_telugu_in">তেলুগু (ভাৰত)</string>
+    <string name="acc_lang_german_ger">জাৰ্মান (ডাচ্চলেণ্ড)</string>
+    <string name="acc_lang_gujarati_in">গুজৰাটী (ভাৰত)</string>
+    <string name="acc_lang_punjabi_in">পাঞ্জাবী (ভাৰত)</string>
+    <string name="acc_lang_kannada_in">কানাড়া (ভাৰত)</string>
+    <string name="acc_lang_malayalam_in">মালয়ালম (ভাৰত)</string>
+    <string name="acc_lang_oriya_in">ওডিয়া (ভাৰত)</string>
+    <string name="acc_lang_maithili_in">Maithili (ভাৰত)</string>
+    <string name="acc_lang_urdu_in">উৰ্দু</string>
+    <string name="acc_lang_assamese_in">অসমীয়া (ভাৰত)</string>
+    <string name="acc_lang_arabic">আৰবী</string>
+    <string name="acc_lang_marvadi">মারভাদি (ভারত)</string>
+    <string name="acc_lang_nepal">নেপালি (নেপাল)</string>
+
+    <string name="_1_icon">১ টা আইকন</string>
+    <string name="_2_icons">২ টা আইকন</string>
+    <string name="_3_icons">৩ টা আইকন</string>
+    <string name="_4_icons">৪ টা আইকন</string>
+    <string name="_9_icons">৯ টা আইকন</string>
+    <string name="number_of_icons_per_screen">স্ক্ৰীনত আইকনৰ সংখ্যা</string>
+
+    <string name="level_1_screen">প্ৰথম স্তৰৰ স্ক্ৰীন</string>
+    <string name="level_2_screen">দ্বিতীয় স্তৰৰ স্ক্ৰীন</string>
+    <string name="level_3_screen">তৃতীয় স্তৰৰ স্ক্ৰীন</string>
+    <string name="sequence_screen">কাৰ্যধাৰা অনুক্ৰম</string>
+    <string name="close_searchbar">সন্ধান বাৰ বন্ধ কৰক</string>
+
+
+    <string name="txt_accessibility_setting">প্ৰৱেশযোগ্যতা ছেটিং</string>
+    <string name="visual_access_title">দৃশ্যমান প্ৰৱেশযোগ্যতা </string>
+    <string name="visual_access_info_one">জেল\'ৰ দৃষ্টিৰ প্ৰৱেশযোগ্যতা বৈশিষ্ট্যত এতিয়া কম দৃষ্টিসম্পন্ন, অন্ধ লোককে ধৰি অন্যান্য দৃষ্টিশক্তিৰ অসুবিধা হোৱা ব্যক্তিসকলে জেল\' ব্যৱহাৰ কৰি অন্য লোকৰ সৈতে সহজে যোগাযোগ কৰিব পাৰে।</string>
+    <string name="visual_access_info_two">ই এণ্ড্ৰইড স্মাৰ্টফোনৰ \'টক বেক\' বৈশিষ্ট্য ব্যৱহাৰ কৰি এপ্লিকেচনটোৰ মাজেৰে সহজে চলাচল কৰাত সহায় কৰে।</string>
+    <string name="visual_access_info_three">\'টক বেক\' বৈশিষ্ট্য সক্ৰিয় থাকিলে, ব্যৱহাৰকাৰীয়ে স্ক্ৰিনত স্পৰ্শ কৰা সকলো বস্তুৰ বৰ্ণনা অডিঅ\'ৰ জৰিয়তে শুনিব পাৰিব।</string>
+    <string name="visual_access_info_four">ব্যৱহাৰকাৰীয়ে জেল\' ব্যৱহাৰ কৰোতে \'টক বেক\'ৰ ডিফ\'ল্ট ভাব প্ৰকাশবোৰ ব্যৱহাৰ কৰিব পাৰে, বা নিজৰ পছন্দমতেও হাৱভাৱ নিৰ্ধাৰণ কৰিব পাৰে।</string>
+    <string name="visual_access_info_five">উদাহৰণস্বৰূপে, সোঁফাললৈ চোৱাইপ কৰিলে স্ক্ৰিনত থকা আইকনবোৰক একেৰাহে স্ক্ৰ\'ল কৰিব পাৰিব।ঠিক তেনেদৰে, স্ক্ৰিনত যিকোনো ঠাইত দুবাৰ টেপ কৰিলে, ব্যৱহাৰকাৰীয়ে নিজৰ পছন্দমতে আইকন বাছনি কৰিব পাৰে।</string>
+    <string name="switch_access_title">চুইচ প্ৰৱেশযোগ্যতা:</string>
+    <string name="switch_access_info_one">চুইচ প্ৰৱেশযোগ্যতা সুবিধাই গতিশীল অক্ষমতাসম্পন্ন লোকৰ বাবে এপ্লিকেচনৰ মাজেৰে চলাচল সহজ কৰি তোলে। এই বৈশিষ্ট্যটো এজন ব্যৱহাৰকাৰীয়ে এটা অথবা দুটা চুইচ ব্যৱহাৰ কৰি এপ্লিকেচনটো চলাবলৈ অনুমতি দিয়ে।</string>
+    <string name="switch_access_info_two">এই সুবিধাটো সক্ষম/চলাচল কৰিবলৈ, ব্যৱহাৰকাৰীয়ে ফোনৰ ছেটিংছৰ প্ৰৱেশযোগ্যতা শ্ৰেণীত গৈ \'চুইছ একচেচ\' অন কৰিব লাগিব।</string>
+    <string name="switch_access_info_three">চেমচাং ফোন ব্যৱহাৰকাৰীসকলে ফোনৰ ছেটিংছৰ প্ৰৱেশযোগ্যতা শ্ৰেণীৰ "ডেক্সটাৰিটি আৰু ইন্টাৰেক্সন" বিকল্পত চুইচ প্ৰৱেশযোগ্যতা বিচাৰি পাব।</string>
+    <string name="switch_access_info_four">এটা চুইচৰ সৈতে চুইচ প্ৰৱেশযোগ্যতা ব্যৱহাৰ কৰিবলৈ - ছেটিংছ খুলক -> প্ৰৱেশযোগ্যতালৈ যাওক -> চুইচ এক্সেছ অন কৰক -> চুইচ হিচাপে ইউএছবি অথবা ব্লুটুথ চুইছ বাছনি কৰক -> ছেটিংছলৈ গৈ চুইচৰ সংখ্যা "এটা" বাছনি কৰক।</string>
+    <string name="switch_access_info_five">দুটা চুইচৰ সৈতে চুইচ প্ৰৱেশযোগ্যতা ব্যৱহাৰ কৰিবলৈ - ছেটিংছ খুলক -> প্ৰৱেশযোগ্যতালৈ যাওক -> চুইচ এক্সেছ অন কৰক -> চুইচ হিচাপে ইউএছবি অথবা ব্লুটুথ চুইছ বাছনি কৰক -> ছেটিংছলৈ গৈ সুইচৰ সংখ্যা "দুটা" বাছনি কৰক -> স্কেনিংৰ ধৰণ বাছনি কৰক -> পৰৱৰ্তীত ক্লিক কৰক -> দুয়োটা চুইচৰ কাৰ্য ঠিক কৰক -> আৰু চুইচ পৰীক্ষা কৰি প্ৰক্ৰিয়া সম্পূৰ্ণ কৰক।</string>
+
+    <!--Language package update strings are here-->
+    <string name="lpu_start_update">ভাষা পেকেজ আপডেট আৰম্ভ হৈছে</string>
+    <string name="lpu_parse_update">ডাউনলোড কৰা ডাটা প্ৰসেচিং কৰা হৈছে</string>
+    <string name="lpu_download_icons">আইকন ফাইল ডাউনলোড কৰা হৈছে</string>
+    <string name="lpu_download_verbiage">কথোপকথনৰ ফাইল ডাউনলোড কৰা হৈছে</string>
+    <string name="lpu_update_success">ভাষা পেকেজ সফলভাৱে আপডেট কৰা হৈছে।</string>
+    <string name="lpu_toast_update_success">আপডেট সফল।</string>
+    <string name="lpu_toast_check_success">আপডেট সফলতাৰ পৰীক্ষা কৰা হৈছে।</string>
+    <string name="lpu_no_updates_found">কোনো আপডেট পোৱা নগ\'ল।</string>
+    <string name="lpu_update_error">আপডেট সম্পূৰ্ণ কৰিবলৈ ভুল হৈছে, অনুগ্ৰহ কৰি পুনৰ চেষ্টা কৰক।</string>
+    <string name="lpu_toast_check_error">ভাষা পেকেজ আপডেট বিফল।</string>
+    <string name="update_now">এতিয়াই আপডেট কৰক</string>
+    <string name="update_later">পিছত কৰক</string>
+    <string name="update_message">এপ্লিকেচনত নতুন সামগ্ৰী উপলব্ধ। আপুনি এতিয়াই আপডেট কৰিব বিচাৰে নেকি?</string>
+    <string name="app_update_message">\'জেল\' এপ্লিকেচনৰ নতুন সংস্কৰণ উপলব্ধ। আপুনি এতিয়াই আপডেট কৰিব বিচাৰে নেকি?</string>
+
+
+    <!--String resources for MMB-->
+
+    <string name="trash_the_board">\"-\"বোর্ড উঠাই পেলোৱা হ\'ব?</string>
+    <string name="trash_board_placeholder">কোনো বৰ্ড আৱৰ্জনা কৰি পেলোৱা নহয়।</string>
+    <string name="delete_board">আপুনি \"-\" বৰ্ডখন স্থায়ীভাৱে মচি পেলাব বিচাৰেনে?</string>
+    <string name="icon_select_exit_warning">আপোনাৰ বাছনি হেৰাই যাব</string>
+    <string name="current_board">সংযোজিত আইকনবোৰ</string>
+    <string name="place_holder_text">আপুনি এতিয়ালৈকে কোনো আইকন বাছনি কৰা নাই। অনুগ্ৰহ কৰি বাওঁফালৰ শ্ৰেণীৰ মেনুটোৰ পৰা আইকন বাছনি কৰক।</string>
+    <string name="board_name">ইয়াত বোর্ডৰ নাম যোগ কৰক</string>
+    <string name="select_all">সকলো বাছনি কৰক</string>
+    <string name="reset">পুনৰ ছেট কৰক</string>
+    <string name="select_icon_title">আইকনসমূহ যোগ কৰক</string>
+    <string name="add_category">শ্ৰেণী যোগ কৰক</string>
+    <string name="add_icon">আইকন যোগ কৰক</string>
+    <string name="addicon_title">আইকন সম্পাদনা কৰক</string>
+    <string name="i_like">মোৰ ভাল লাগে</string>
+    <string name="really_like">মোৰ বৰ ভাল লাগে</string>
+    <string name="i_want">মোক লাগে</string>
+    <string name="really_want">মোৰ সঁচাকৈয়ে লাগে</string>
+    <string name="want_more">মোক আৰু লাগে</string>
+    <string name="really_want_more">মোক সঁচাকৈয়ে আৰু বেছি লাগে</string>
+    <string name="i_dont_like">মোৰ ভাল নালাগে</string>
+    <string name="really_dont_like">মোৰ সঁচাকৈয়ে ভাল নালাগে</string>
+    <string name="dont_want">মোক নালাগে</string>
+    <string name="really_dont_want">মোক সঁচাকৈয়ে নালাগে</string>
+    <string name="dont_want_more">মোক আৰু বেছি নালাগে</string>
+    <string name="really_dont_want_more">মোক একেবাৰে আৰু নালাগে</string>
+    <string name="please_enter_name">অনুগ্ৰহ কৰি নাম দিয়ক</string>
+    <string name="photos">ফটো</string>
+    <string name="library">জেল\' লাইব্ৰেৰী</string>
+    <string name="icon_name">আইকনৰ নাম</string>
+    <string name="add_board">বোর্ড যোগ কৰক</string>
+    <string name="custom_icon">কাষ্টম আইকন</string>
+    <string name="cancel">বাতিল(Cancel)</string>
+    <string name="database_not_created_info">ভাষাৰ বাবে ডাটাবেচ সৃষ্টি কৰি আছে</string>
+    <string name="icon_already_present">আইকন ইতিমধ্যে নিৰ্বাচিত কৰা হ\'ল</string>
+    <string name="camera_missing">কেমেৰা পোৱা নগ\'ল</string>
+    <string name="no_icon_warning">অনুগ্ৰহ কৰি অন্ততঃ এটা আইকন যোগ কৰক</string>
+    <string name="reposition_text">কোনো এটা আইকন পুনৰ স্থাপন কৰিবলৈ দীঘলকৈ টিপক</string>
+    <string name="reposition_complete_msg">আইকনৰ নতুন অৱস্থান সংৰক্ষণ কৰা হৈছে</string>
+    <string name="please_select_icon">অনুগ্ৰহ কৰি প্ৰথমে এখন ছবি বাছি লওক</string>
+    <string name="txtContinue">অগ্ৰসৰ হওক (Continue)</string>
+    <string name="expressive_heading1">টিপক</string>
+    <string name="expressive_heading2">প্রকাশনা নিৰ্বাচন/সম্পাদন কৰিবলৈ বুটাম</string>
+    <string name="expressive_heading3">টিপক</string>
+    <string name="expressive_heading4">প্ৰকাশনা বাছনি উঠাই পেলাবলৈ বুটাম</string>
+    <string name="icon_delete_warning">\"-\" আইকন নোহোৱা কৰা হ\'ব?</string>
+    <string name="board_not_found">বোর্ড পোৱা নগ\'ল</string>
+    <string name="setting_up_the_language">ভাষা স্থাপন কৰি আছে, অনুগ্ৰহ কৰি অপেক্ষা কৰক…</string>
+    <string name="completed_process">ভাষা স্থাপন সম্পন্ন।</string>
+    <string name="unable_to_create_board">বোর্ড সৃষ্টি কৰিব পৰা নগ\'ল, অনুগ্ৰহ কৰি পুনৰ চেষ্টা কৰক</string>
+
+    <string name="board">বোর্ড</string>
+    <string name="press_next_to_select_icons">নিৰ্বাচিত আইকন যোগ কৰিবলৈ \"পৰৱৰ্তী "\ টিপক।.</string>
+    <string name="edit_board">বৰ্তমানৰ বোর্ড সম্পাদনা কৰক</string>
+    <string name="delete_the_board">বৰ্তমানৰ বোর্ড নোহোৱা কৰক</string>
+    <string name="restore_the_board">বৰ্তমানৰ বৰ্ড পুনৰুদ্ধাৰ কৰক</string>
+    <string name="edit_board_image">বোর্ড আইকন আৰু নাম সম্পাদনা কৰক</string>
+    <string name="search_board_in_jellow">বোর্ড সন্ধান কৰক</string>
+    <string name="enter_board_name_to_search">সন্ধান কৰিবলৈ বোর্ডৰ নাম লিখক</string>
+    <string name="search_board_screen">বোর্ডসমূহৰ সন্ধান পৃষ্ঠা</string>
+    <string name="enter_icon_name">সন্ধান কৰিবলৈ আইকনৰ নাম লিখক</string>
+
+    <!--Content Description-->
+    <string name="my_boards_screen">মোৰ বোর্ডসমূহ পৃষ্ঠা</string>
+    <string name="boards_trash_screen">বৰ্ড আৱৰ্জনা পৰ্দা</string>
+    <string name="select_image_for_board">বোর্ডৰ বাবে ছবি বাছি লওক</string>
+    <string name="select_source_for_image_for_board">বোর্ড ছবিৰ উৎস বাছক</string>
+    <string name="select_language_for_board">বোর্ডৰ বাবে ভাষা বাছক</string>
+    <string name="icon_select_screen">আইকন যোগ পৃষ্ঠা</string>
+    <string name="icons_selected">_ আইকন নিৰ্বাচিত</string>
+    <string name="icon_add_edit_screen">আইকন যোগ/সম্পাদনা পৃষ্ঠা</string>
+    <string name="edit_current_icon">বৰ্তমানৰ আইকন সম্পাদনা কৰক</string>
+    <string name="delete_current_icon">বৰ্তমানৰ আইকন বিলোপ কৰক</string>
+    <string name="add_edit_icons_dialog">আইকন যোগ বা সম্পাদনা ডায়লগ</string>
+    <string name="select_image_for_icon">আইকনৰ বাবে ছবি বাছি লওক</string>
+    <string name="enable_reposition_icons">আইকন স্থানান্তৰণ সক্ষম কৰক</string>
+    <string name="disable_reposition_icons">আইকন স্থানান্তৰণ নিষ্ক্রিয় কৰক</string>
+    <string name="tap_icon_to_select_expression">ভাৱভংগী যোগ কৰিবলৈ টিপক</string>
+    <string name="tap_icon_to_deselect_expression">ভাৱভংগী আঁতৰ কৰিবলৈ টিপক</string>
+    <string name="tap_add_to_add_expression">ভাৱভংগী যোগ কৰিবলৈ বুটাম টিপক</string>
+    <string name="tap_delete_to_delete_expression"> ভাৱভংগী নোহোৱা কৰিবলৈ বুটাম টিপক</string>
+    <string name="open_jellow_privacy_policy">জেল\'ৰ গোপনীয়তা নীতি খোলক</string>
+    <string name="board_moved_to_trash">_ বৰ্ড আৱৰ্জনালৈ স্থানান্তৰিত হ\'ল</string>
+    <string name="board_deleted">_ বোর্ড নোহোৱা কৰা হ’ল</string>
+    <string name="board_restored_from_trash">_ বৰ্ড পুনৰুদ্ধাৰ কৰা হৈছে</string>
+    <string name="search_icon_available_in_jellow">জেল\'ত উপলব্ধ আইকন সন্ধান কৰক</string>
+    <string name="search_icon_the_board">বৰ্তমানৰ বোর্ডত এটা আইকন সন্ধান কৰক</string>
+    <string name="preparing_language_screen">ভাষা স্থাপন পৃষ্ঠা</string>
+    <string name="language_package_update">জেল\' সামগ্ৰী আপডেট পৃষ্ঠা</string>
+    <string name="dialog">সংলাপ</string>
+    <string name="close_content_download_screen">সামগ্ৰী ডাউনলোড স্ক্ৰীণ বন্ধ কৰক</string>
+    <string name="share_jellow_app">জেল\' এপ্‌ শ্বেয়াৰ কৰক</string>
+    <string name="rate_jellow_app">গুগল প্লে ষ্টোৰত জেল\' এপ্‌ ৰেট কৰক</string>
+    <string name="received_your_feedback">আপোনাৰ প্ৰতিক্ৰিয়াৰ বাবে ধন্যবাদ।</string>
+    <string name="no_btn">নাই</string>
+    <string name="next_btn">পৰৱৰ্তী</string>
+    <string name="my_boards">মোৰ বোর্ডসমূহ</string>
+    <string name="board_settings">বোর্ড ছেটিংছ</string>
+    <string name="board_delete">বৰ্ড মচি পেলোৱা</string>
+    <string name="add_expression_here">আপোনাৰ নিজস্ব ভাৱভংগীৰ লাইন যোগ কৰক</string>
+    <string name="about_je_intro42">মেক মাই বোৰ্ড (মাই ব\'ৰ্ড ) ব্যৱহাৰ কৰি, আপুনি নিজৰ কাষ্টমাইজ কৰা আইকন আৰু তেওঁলোকৰ অভিব্যক্তিপূৰ্ণ পাঠ যোগ বা সম্পাদনা কৰিব পাৰে।</string>
+    <string name="about_je_more_info">অধিক তথ্যৰ বাবে, নিম্নলিখিত ভিডিঅ\' বুটামটো চুই দিয়ক।</string>
+    <string name="visual_access_info_video">জেলোত ছুইচ এক্সেছিবিলিটি ডেম’ চাবলৈ, তলৰ ভিডিঅ’ বুটামটো টিপক।</string>
+    <string name="switch_access_info_video">জেলোত ছুইচ এক্সেছিবিলিটি ডেম’ চাবলৈ, তলৰ ভিডিঅ’ বুটামটো টিপক।</string>
+    <string name="my_boards_title">জেলো এপ্লিকেশ্যন ব্যৱহাৰ কৰি, এজন ব্যৱহাৰকাৰীয়ে এখন বোৰ্ড সৃষ্টি কৰিব পাৰে। এখন বোৰ্ডত একাধিক ব্যৱহাৰকাৰী-সংজ্ঞায়িত আইকন থাকিব পাৰে। ব্যৱহাৰকাৰীয়ে তেওঁলোকৰ বোৰ্ডত বৰ্তমান জেলো আইকনো যোগ কৰিব পাৰে। "মাই বোৰ্ড" স্ক্ৰীন খোলিবলৈ, মূল স্ক্ৰীনত থকা গোলাকাৰ প্লাছ আইকনটো টিপক। বোৰ্ড খোলিবলৈ, তালিকাৰ আইকনসমূহ টিপক।</string>
+    <string name="my_boards_title_cd">নিৰ্বাচিত ছবিখনে “মাই বোৰ্ড” স্ক্ৰীনটো দেখুৱাইছে। "মাই বোৰ্ড" স্ক্ৰীন খোলিবলৈ, মূল স্ক্ৰীনত থকা গোলাকাৰ প্লাছ আইকনটো টিপক। ছবিখনত ব্যৱহাৰকাৰীৰ বিদ্যমান বোৰ্ড তালিকা আৰু এটা "প্লাছ" বুটাম আছে। নতুন বোৰ্ড সৃষ্টি কৰিবলৈ, "প্লাছ" আইকনটো (যাক "এড বোৰ্ড" আইকন বুলিও কোৱা হয়) টিপক। বোৰ্ড খোলিবলৈ, তালিকাৰ আইকনসমূহ টিপক।</string>
+    <string name="my_boards_info">স্ক্ৰীনৰ একদম ওপৰৰ-সোঁফালৰ "সম্পাদনা" মেনু আইকনটো টিপক। এইটো তালিকাত থকা বোৰ্ডসমূহৰ সম্পাদনা আৰু নোহোৱা কৰাৰ বৈশিষ্ট্য সক্ৰিয় কৰে।</string>
+    <string name="my_boards_info_cd">নিৰ্বাচিত ছবিখনে "মাই বোৰ্ড" স্ক্ৰীনত বোৰ্ড সম্পাদনা বৈশিষ্ট্য দেখুৱাইছে। স্ক্ৰীনৰ একদম ওপৰৰ-সোঁফালৰ "সম্পাদনা" মেনু আইকনটো টিপক। এইটো তালিকাত থকা বোৰ্ডসমূহৰ সম্পাদনা আৰু নোহোৱা কৰাৰ বৈশিষ্ট্য সক্ৰিয় কৰে। সম্পাদনা সক্ৰিয় হোৱাৰ পিছত, তালিকাৰ আইকনসমূহ স্ক্ৰল কৰি "সম্পাদনা" আৰু "নোহোৱা কৰা" বুটাম বিচাৰক।</string>
+    <string name="my_boards_add_board">নতুন বোৰ্ড সৃষ্টি কৰিবলৈ, "এড বোৰ্ড" আইকনটো টিপক। "এড বোৰ্ড" স্ক্ৰীনত, আপুনি এখন ছবি নিৰ্বাচন কৰিব পাৰে, বোৰ্ডৰ নাম টাইপ কৰিব পাৰে, আৰু বোৰ্ডটো সৃষ্টি কৰিবলৈ ভাষা বাছনি কৰিব পাৰে।</string>
+    <string name="my_boards_add_board_cd">নিৰ্বাচিত ছবিখনে "এড বোৰ্ড" স্ক্ৰীনটো দেখুৱাইছে। নতুন বোৰ্ড সৃষ্টি কৰিবলৈ, "এড বোৰ্ড" আইকনটো টিপক। আপুনি বোৰ্ডৰ বাবে এখন ছবি বাছনি কৰিবলৈ "বোৰ্ডৰ বাবে ছবি বাছনি কৰক" বুটামটো ব্যৱহাৰ কৰিব পাৰে। "এড বোৰ্ড নাম ইয়াত টাইপ কৰক" বাকচত বোৰ্ডৰ নাম টাইপ কৰক। তাৰ পিছত, "বোৰ্ডৰ ভাষা বাছনি কৰক" ড্ৰপডাউন মেনু ব্যৱহাৰ কৰি ভাষা বাছনি কৰক।</string>
+    <string name="my_boards_add_icons">এড আইকন" স্ক্ৰীনত, আপুনি আপোনাৰ বোৰ্ডত জেলো পুথিভঁৰালৰ পৰা আইকন যোগ বা বাছনি কৰিব পাৰে। সন্ধান বৈশিষ্ট্যো উপলব্ধ, যাৰ সহায়ত আপুনি জেলো পুথিভঁৰালত কোনো আইকন বিচাৰি উলিয়াব পাৰে।</string>
+    <string name="my_boards_add_icons_cd">নিৰ্বাচিত ছবিখনে "এড আইকনছ" স্ক্ৰীন দেখুৱাইছে। এই স্ক্ৰীনটো আপুনি আপোনাৰ বোৰ্ডত "জেলো পুথিভঁৰাল"ৰ আইকন যোগ বা বাছনি কৰিবলৈ ব্যৱহাৰ কৰিব পাৰে। স্ক্ৰীনখনত শ্ৰেণী আৰু উপশ্ৰেণী আইকনৰ তালিকা থাকে। বহলাব পৰা তালিকাখন স্ক্ৰীনৰ বাঁওফালে উপলব্ধ। এই তালিকাখনে আপুনি নিৰ্দিষ্ট শ্ৰেণী বা উপশ্ৰেণীৰ ভিত্তিত আইকন ফিল্টাৰ কৰাত সহায় কৰিব। আপুনি যিকোনো আইকনৰে সন্ধান কৰিব পাৰে। সন্ধান আইকন স্ক্ৰীনৰ একদম ওপৰৰ সোঁফালে অৱস্থিত।</string>
+    <string name="my_boards_add_edit_icons">এড-এডিট আইকনছ" স্ক্ৰীনত, আপুনি নিজৰ কাষ্টমাইজ কৰা আইকন যোগ কৰিব পাৰে, তালিকাৰ আইকন সম্পাদনা বা নোহোৱা কৰিব পাৰে। আপোনাৰ নিজস্ব কাষ্টম আইকন সৃষ্টি কৰিবলৈ, তালিকাত থকা "এড আইকন" বুটামত টিপক।</string>
+    <string name="my_boards_add_edit_icons_cd">প্ৰদৰ্শিত প্ৰতিচ্ছবিখনে "এড-এডিট আইকনছ" স্ক্ৰীন দেখুৱাইছে। এই স্ক্ৰীনটো আপোনাৰ নিজস্ব কাষ্টম আইকন যোগ কৰিবলৈ ব্যৱহাৰ কৰা হয়। লগতে, তালিকাত থকা বৰ্তমান আইকন সম্পাদনা বা নোহোৱা কৰাৰ সুবিধাও আছে। কাষ্টম আইকন যোগ কৰিবলৈ, তালিকাৰ "এড আইকন" বুটামত টেপ কৰক। তালিকাত এটা আইকন সম্পাদনা কৰিবলৈ, আইকনৰ "এডিট" বুটামত টেপ কৰক। এটা আইকন বিলোপ কৰিবলৈ, আইকনৰ "ডিলিট" বুটামত টেপ কৰক। আপুনি "নম্বৰ অফ আইকনছ পাৰ স্ক্ৰীন" ছেটিংও পৰিবর্তন কৰিব পাৰে। "নম্বৰ অফ আইকনছ পাৰ স্ক্ৰীন" মেনু আইকন স্ক্ৰীনৰ ওপৰৰ সোঁফালে অৱস্থিত।</string>
+    <string name="my_boards_add_icons_window">"এড আইকন" উইণ্ডোত, আপুনি আপোনাৰ কাষ্টম আইকনৰ নাম আৰু প্ৰতিচ্ছবি স্থাপন কৰিব পাৰে।</string>
+    <string name="my_boards_add_icons_window_cd">প্ৰদৰ্শিত প্ৰতিচ্ছবিখনে "এড আইকন" উইণ্ডো দেখুৱাইছে। এই উইণ্ডো আপোনাৰ কাষ্টম আইকনৰ নাম আৰু প্ৰতিচ্ছবি স্থাপন কৰিবলৈ ব্যৱহাৰ কৰা হয়। আপুনি আপোনাৰ ডিভাইচ কেমেৰাৰ পৰা বা "জেলো লাইব্ৰেৰী"ৰ পৰা এখন প্ৰতিচ্ছবি বাছি ল’ব পাৰে।</string>
+    <string name="my_boards_add_edit_expression">এড-এডিট ভাৰ্বিয়েজ" উইণ্ডোত, আপুনি কাষ্টম আইকনৰ বাবে অভিব্যক্তিসূচক বুটাম সক্ৰিয় বা নিষ্ক্ৰিয় কৰিব পাৰে। যিকোনো অভিব্যক্তি সক্ৰিয় কৰিবলৈ, গোলাকাৰ সেউজীয়া "প্লাছ" বুটামত টেপ কৰক, তাৰপাছত সম্পৰ্কিত দুটা অভিব্যক্তিৰ শাৰী যোগ কৰক। যিকোনো অভিব্যক্তি নিষ্ক্ৰিয় কৰিবলৈ, গোলাকাৰ ৰঙা "মাইনাছ" বুটামত টেপ কৰক। তাৰপাছত "ছেভ" বুটামত টেপ কৰক।</string>
+    <string name="my_boards_add_edit_expression_cd">প্ৰদৰ্শিত প্ৰতিচ্ছবিখনে "এড-এডিট ভাৰ্বিয়েজ" উইণ্ডো দেখুৱাইছে। এই স্ক্ৰীনটো কাষ্টম আইকনৰ বাবে অভিব্যক্তিসূচক বুটাম সক্ৰিয় বা নিষ্ক্ৰিয় কৰিবলৈ ব্যৱহাৰ কৰা হয়। যিকোনো অভিব্যক্তি সক্ৰিয় কৰিবলৈ, গোলাকাৰ সেউজীয়া "প্লাছ" বুটামত টেপ কৰক, তাৰপাছত সম্পৰ্কিত দুটা অভিব্যক্তিৰ শাৰী যোগ কৰক। যিকোনো অভিব্যক্তি নিষ্ক্ৰিয় কৰিবলৈ, গোলাকাৰ ৰঙা "মাইনাছ" বুটামত টেপ কৰক। তাৰপাছত "ছেভ" বুটামত টেপ কৰক।</string>
+    <string name="my_boards_board_home_info">বোর্ডৰ "হোম স্ক্ৰীন" ত, আপুনি আপোনাৰ কাষ্টম বোর্ড ব্যৱহাৰ কৰিব বা প্লে কৰিব পাৰে। আপুনি বৰ্তমান বোর্ডত এখন আইকন সন্ধান কৰিব পাৰে, "নম্বৰ অফ আইকনছ পাৰ স্ক্ৰীন" ছেটিং পৰিবর্তন কৰিব পাৰে বা বৰ্তমান বোর্ডত আইকন পুনৰ স্থাপন কৰিব পাৰে। এই বুটামসমূহ স্ক্ৰীনৰ একদম ওপৰৰ সোঁফালে উপলব্ধ।</string>
+    <string name="my_boards_board_home_info_cd">নিৰ্বাচিত ছবিখনে বোর্ডৰ হোম স্ক্ৰীন দেখুৱাইছে। এই স্ক্ৰীনত, আপুনি সৃষ্টি কৰা বোর্ড ব্যৱহাৰ কৰিব বা চলাব পাৰিব। লগতে, আপুনি বৰ্তমানৰ বোর্ডত এখন আইকন বিচাৰি পোৱা, বৰ্তমানৰ বোর্ডৰ বাবে \'প্ৰতি স্ক্ৰীনত আইকনৰ সংখ্যা\' ছেটিং পৰিবৰ্তন কৰা বা বোর্ডৰ আইকনবোৰ পুনৰ সংস্থাপন কৰিব পাৰিব। এই বুটামবোৰ স্ক্ৰীনটোৰ শীৰ্ষ-সোঁফালে উপলব্ধ।</string>
+    <string name="place_holder_no_icons_added">বোর্ডত কোনো আইকন নাই।</string>
+    <string name="language_not_working">যদি নিৰ্বাচিত ভাষাৰ বাবে এপ্পটোৱে কোনো মাতৰ আউটপুট উৎপন্ন নকৰে, তেন্তে অনুগ্ৰহ কৰি নিম্নলিখিত পদক্ষেপবোৰ অনুসৰণ কৰক:</string>
+    <string name="txtMoreLangSetting">অতিৰিক্ত ভাষাৰ ছেটিং:</string>
+    <string name="board_place_holder_text">আপুনি এতিয়ালৈকে কোনো বোর্ড যোগ কৰা নাই।</string>
+    <string name="change_language_voice">ভাষাৰ বাবে উচ্চাৰণ (কণ্ঠ) নিৰ্বাচন কৰক:</string>
+    <string name="update_the_package">নিৰ্বাচিত ভাষা সামৰ্থবান কৰিবলে ভাষা সৰঞ্জাম আপডেইট কৰক।</string>
+    <string name="voice_warning">যদি নিৰ্বাচিত ভাষা(সমূহ)ৰ কণ্ঠ(সমূহ) উপলব্ধ নহয় বা ভয়েচ ড্ৰপ ডাউনৰ তলত শূন্য দেখুৱাইছে, তেন্তে Google প্লে ষ্ট\'ৰৰ পৰা Google লিখনীক বাক্য এপলৈ আপডেট কৰক আৰু আপোনাৰ ডিভাইচত ভাষা(সমূহ)ৰ বাবে ভইচ ডাটা ইনষ্টল কৰক৷</string>
+    <string name="enableFishAnimation">মাছৰ এনিমেচন অন কৰক</string>
+    <string name="enableIconAddition">\"আইকন যোগ কৰক\" বুটাম দেখুৱাওক</string>
+    <string name="createHomeCustomIcon">আইকন সৃষ্টি কৰক</string>
+    <string name="createHomeCustomCategory">শ্ৰেণী সৃষ্টি কৰক</string>
+    <string name="home_custom_icon_place_holder_text">ইয়াত কোনো কাষ্টম আইকন যোগ কৰা হোৱা নাই।</string>
+    <string name="enableBlackWhiteColor">একৰঙী প্ৰদৰ্শন সামৰ্থবান কৰক (ক\'লা আৰু বগা)</string>
+    <string name="txtDisplaySettings">প্ৰদৰ্শন সংহতিসমূহ</string>
+    <string name="txtCustomisationSetting">স্বনিৰ্বাচন সংহতিসমূহ</string>
+    <string name="txtOtherSetting">Other Settings</string>
+    <string name="change_language_line2">তলৰ ড্ৰপডাউনৰ পৰা যিকোনো ভাষা নিৰ্ব্বাচন কৰক:</string>
+</resources>

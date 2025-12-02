@@ -78,15 +78,15 @@ public class HomeActivityAdapter extends RecyclerView.Adapter<HomeActivityAdapte
             int bgResId;
 
             if ((dragState & Draggable.STATE_FLAG_IS_ACTIVE) != 0) {
-                bgResId = R.drawable.flag_transparent;
+                bgResId = com.hbb20.R.drawable.flag_transparent;
                 // need to clear drawable state here to get correct appearance of the dragging item.
                 if (holder.mContainer.getForeground() != null) {
                     holder.mContainer.getForeground().setState(EMPTY_STATE);
                 }
             } else if ((dragState & Draggable.STATE_FLAG_DRAGGING) != 0) {
-                bgResId = R.drawable.flag_transparent;
+                bgResId = com.hbb20.R.drawable.flag_transparent;
             } else {
-                bgResId = R.drawable.flag_transparent;
+                bgResId = com.hbb20.R.drawable.flag_transparent;
             }
             holder.mContainer.setBackgroundResource(bgResId);
         }

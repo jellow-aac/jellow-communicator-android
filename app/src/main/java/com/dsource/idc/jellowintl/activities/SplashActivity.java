@@ -154,7 +154,7 @@ public class SplashActivity extends BaseActivity implements CheckNetworkStatus, 
         Intent mStartActivity = new Intent(getApplicationContext(), UserRegistrationActivity.class);
         int mPendingIntentId = 123456;
         PendingIntent mPendingIntent = PendingIntent.getActivity(this, mPendingIntentId,
-                mStartActivity, PendingIntent.FLAG_CANCEL_CURRENT);
+                mStartActivity, PendingIntent.FLAG_CANCEL_CURRENT | PendingIntent.FLAG_IMMUTABLE);
         AlarmManager mgr = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
         mgr.set(AlarmManager.RTC, System.currentTimeMillis() + 100, mPendingIntent);
         System.exit(0);
