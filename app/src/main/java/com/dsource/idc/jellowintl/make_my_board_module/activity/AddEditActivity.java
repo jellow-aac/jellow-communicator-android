@@ -307,15 +307,14 @@ public class AddEditActivity extends BaseBoardActivity<IAddEditView, IAddEditPre
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.grid_size:
-                showGridDialog();
-                break;
-            case R.id.action_search:
-                searchInBoard();
-                break;
-            default:
-                return super.onOptionsItemSelected(item);
+        int itemId = item.getItemId();
+        int itemId = item.getItemId();
+        if (itemId == R.id.grid_size){
+            showGridDialog();
+        }else if(itemId == R.id.action_search){
+            searchInBoard();
+        }else {
+            return super.onOptionsItemSelected(item);
         }
         return true;
     }

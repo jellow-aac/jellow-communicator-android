@@ -346,6 +346,9 @@
     <string name="acc_lang_maithili_in">Maithili (India)</string>
     <string name="acc_lang_urdu_in">Urdu</string>
     <string name="acc_lang_assamese_in">Assamese (India)</string>
+    <string name="acc_lang_arabic">अरबी</string>
+    <string name="acc_lang_marvadi">Marvadi (India)</string>
+    <string name="acc_lang_nepal">Nepali  (Nepal)</string>
 
     <string name="_1_icon">1 icon</string>
     <string name="_2_icons">2 icons</string>

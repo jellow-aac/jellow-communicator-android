@@ -31,13 +31,15 @@
 -dontwarn com.rey.material.**
 
 #Androidx rules
--dontwarn com.google.android.material.**
--keep class com.google.android.material.** { *; }
--keep class androix.appcompat.widget.** { *; }
+#-dontwarn com.google.android.material.**
+#-keep class com.google.android.material.** { *; }
+#-keep class androidx.appcompat.widget.** { *; }
 
--dontwarn androidx.**
--keep class androidx.** { *; }
+#-dontwarn androidx.**
+#-keep class androidx.** { *; }
 -keep interface androidx.** { *; }
 
+
+-keep class org.jetbrains.annotations.** { *; }
 
 -dontpreverify

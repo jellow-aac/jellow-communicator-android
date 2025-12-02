@@ -50,7 +50,7 @@ public class JellowFirebaseMessageService extends FirebaseMessagingService {
                     intent = new Intent(this, UserRegistrationActivity.class);
                 }
             }
-            PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
+            PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_IMMUTABLE);
             builder.setContentIntent(pendingIntent);
             builder.setAutoCancel(true);
             builder.setContentText(remoteMessage.getData().get("body"));

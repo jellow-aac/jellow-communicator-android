@@ -76,14 +76,15 @@ public class SessionManager {
             put("ଓଡ଼ିଆ (Oriya)", OR_IN);
             put("اردو (Urdu)", UR_IN);
             put("मैथिली (Maithili)", MAI_IN);
-            //Experimental
-            put("Србин (Serbian)", SR_RS);
-            put("मारवाड़ी (Marwadi)", RAJ_IN);
-            put("नेपाली (Nepal)", NE_NP);
             put("العربية (Arabic)", AR_SA);
-            put("कोंकणी (Kokani)", KOK_IN);
-            put("Mizo (India)", LUS_IN);
             put("অসমীয়া (Assamese)", AS_IN);
+//            put("मारवाड़ी (Marwadi)", RAJ_IN);
+//            put("नेपाली (Nepali)", NE_NP);
+
+            //Experimental
+//            put("Србин (Serbian)", SR_RS);
+//            put("कोंकणी (Kokani)", KOK_IN);
+//            put("Mizo (India)", LUS_IN);
             //put("Khasi (Testing)", KHA_IN);
         }
     };
@@ -112,14 +113,15 @@ public class SessionManager {
             put(OR_IN, "ଓଡ଼ିଆ (Oriya)");
             put(UR_IN, "اردو (Urdu)");
             put(MAI_IN, "मैथिली (Maithili)");
-            // Experimental
-            put(SR_RS, "Србин (Serbian)");
-            put(RAJ_IN, "मारवाड़ी (Marwadi)");
-            put(NE_NP, "नेपाली (Nepal)");
             put(AR_SA, "العربية (Arabic)");
-            put(KOK_IN, "कोंकणी (Kokani)");
-            put(LUS_IN, "Mizo (India)");
             put(AS_IN, "অসমীয়া (Assamese)");
+//            put(RAJ_IN, "मारवाड़ी (Marwadi)");
+//            put(NE_NP, "नेपाली (Nepali)");
+
+            // Experimental
+//            put(SR_RS, "Србин (Serbian)");
+//            put(KOK_IN, "कोंकणी (Kokani)");
+//            put(LUS_IN, "Mizo (India)");
             //put(KHA_IN, "Khasi (Testing)");
         }
     };
