@@ -78,7 +78,7 @@ public class SessionManager {
             put("मैथिली (Maithili)", MAI_IN);
             put("العربية (Arabic)", AR_SA);
             put("অসমীয়া (Assamese)", AS_IN);
-//            put("मारवाड़ी (Marwadi)", RAJ_IN);
+            put("मारवाड़ी (Marwadi)", RAJ_IN);
             put("नेपाली (Nepali)", NE_NP);
 
             //Experimental
@@ -115,7 +115,7 @@ public class SessionManager {
             put(MAI_IN, "मैथिली (Maithili)");
             put(AR_SA, "العربية (Arabic)");
             put(AS_IN, "অসমীয়া (Assamese)");
-//            put(RAJ_IN, "मारवाड़ी (Marwadi)");
+            put(RAJ_IN, "मारवाड़ी (Marwadi)");
             put(NE_NP, "नेपाली (Nepali)");
 
             // Experimental
