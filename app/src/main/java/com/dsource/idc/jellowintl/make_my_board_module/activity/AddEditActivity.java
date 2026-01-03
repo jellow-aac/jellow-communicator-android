@@ -308,7 +308,6 @@ public class AddEditActivity extends BaseBoardActivity<IAddEditView, IAddEditPre
 
     public boolean onOptionsItemSelected(MenuItem item) {
         int itemId = item.getItemId();
-        int itemId = item.getItemId();
         if (itemId == R.id.grid_size){
             showGridDialog();
         }else if(itemId == R.id.action_search){
