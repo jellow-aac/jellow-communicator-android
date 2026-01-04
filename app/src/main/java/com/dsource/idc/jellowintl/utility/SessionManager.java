@@ -82,7 +82,7 @@ public class SessionManager {
             put("नेपाली (Nepali)", NE_NP);
 
             //Experimental
-//            put("Србин (Serbian)", SR_RS);
+            put("Србин (Serbian)", SR_RS);
 //            put("कोंकणी (Kokani)", KOK_IN);
 //            put("Mizo (India)", LUS_IN);
             //put("Khasi (Testing)", KHA_IN);
@@ -119,7 +119,7 @@ public class SessionManager {
             put(NE_NP, "नेपाली (Nepali)");
 
             // Experimental
-//            put(SR_RS, "Србин (Serbian)");
+            put(SR_RS, "Србин (Serbian)");
 //            put(KOK_IN, "कोंकणी (Kokani)");
 //            put(LUS_IN, "Mizo (India)");
             //put(KHA_IN, "Khasi (Testing)");
