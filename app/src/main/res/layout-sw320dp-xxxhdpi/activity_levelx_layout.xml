@@ -7,6 +7,8 @@
     android:layout_height="match_parent"
     android:background="@drawable/level1_bg"
     android:tag="small">
+    <include layout="@layout/app_bar"
+        android:id="@+id/custom_app_bar"/>
     <ImageView
         android:id="@+id/wave"
         android:layout_width="match_parent"
@@ -87,7 +89,7 @@
         app:layout_constraintVertical_bias=".2"
         app:layout_constraintWidth_percent=".61"
         app:layout_constraintHeight_percent=".706"
-        app:layout_constraintTop_toTopOf="@+id/parent"
+        app:layout_constraintTop_toBottomOf="@+id/custom_app_bar"
         app:layout_constraintBottom_toBottomOf="@+id/wave"
         app:layout_constraintLeft_toRightOf="@+id/positive"
         app:layout_constraintRight_toLeftOf="@+id/negative"/>

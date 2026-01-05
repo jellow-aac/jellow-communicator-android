@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
@@ -17,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.core.view.ViewCompat;
 
 import com.dsource.idc.jellowintl.BuildConfig;
@@ -86,7 +88,7 @@ public class UserRegistrationActivity extends BaseActivity implements CheckNetwo
                 startActivity(new Intent(this, SplashActivity.class));
             }else if(!LanguageFactory.isLanguageDataAvailable(this)){
                 startActivity(new Intent(UserRegistrationActivity.this,
-                        LanguageDownloadActivity.class)
+                        Intro.class)
                         .putExtra(LCODE, UNIVERSAL_PACKAGE).putExtra(TUTORIAL, true));
                 /* 0 represents old value of one by three config*/
                 if(getSession().getGridSize() == 0)
@@ -96,7 +98,7 @@ public class UserRegistrationActivity extends BaseActivity implements CheckNetwo
             }else if(getSession().getLanguage().equals(MR_IN) && !LanguageFactory.
                     isMarathiPackageAvailable(this)){
                 startActivity(new Intent(UserRegistrationActivity.this,
-                        LanguageDownloadActivity.class)
+                        Intro.class)
                         .putExtra(LCODE, MR_IN).putExtra(TUTORIAL, true));
             } else if (LanguageFactory.isLanguageDataAvailable(this) &&
                     !getSession().isCompletedIntro()) {
@@ -126,8 +128,17 @@ public class UserRegistrationActivity extends BaseActivity implements CheckNetwo
     private void initializeScreenViewsAndListeners() {
         setContentView(R.layout.activity_user_registration);
         setupActionBarTitle(View.GONE, getString(R.string.menuUserRegistration));
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.VANILLA_ICE_CREAM) {
+            View scrollable = findViewById(R.id.scrollable);
+            scrollable.setPadding(
+                    getResources().getDimensionPixelSize(R.dimen.user_reg_scroll_padding_left),
+                    scrollable.getPaddingTop(),
+                    scrollable.getRight(),
+                    scrollable.getBottom()
+            );
+            getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.colorPrimary));
+        }
         setNavigationUiConditionally();
-        findViewById(R.id.iv_action_bar_back).setVisibility(View.GONE);
         languagesCodes = LanguageFactory.getAvailableLanguages();
         etName = findViewById(R.id.etName);
         ((TextView)findViewById(R.id.tv_pivacy_link)).setText(Html.fromHtml(getString(R.string.privacy_link_info)));
@@ -247,7 +258,7 @@ public class UserRegistrationActivity extends BaseActivity implements CheckNetwo
                                         bundle.putString(LCODE, UNIVERSAL_PACKAGE);
                                         bundle.putBoolean(TUTORIAL, true);
                                         startActivity(new Intent(UserRegistrationActivity.this,
-                                                LanguageDownloadActivity.class).putExtras(bundle));
+                                                Intro.class).putExtras(bundle));
                                         finish();
                                     } else {
                                         bRegister.setEnabled(true);

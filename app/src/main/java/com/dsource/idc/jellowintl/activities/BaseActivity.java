@@ -17,21 +17,27 @@ import android.graphics.Paint;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.telephony.TelephonyManager;
 import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.view.accessibility.AccessibilityManager;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+import android.widget.Toolbar;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
 import androidx.core.view.MenuCompat;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 import androidx.room.Room;
 import androidx.room.migration.Migration;
 import androidx.sqlite.db.SupportSQLiteDatabase;
@@ -48,6 +54,8 @@ import com.dsource.idc.jellowintl.models.GlobalConstants;
 import com.dsource.idc.jellowintl.utility.DefaultExceptionHandler;
 import com.dsource.idc.jellowintl.utility.LanguageHelper;
 import com.dsource.idc.jellowintl.utility.SessionManager;
+import com.google.android.material.appbar.AppBarLayout;
+import com.google.android.material.appbar.MaterialToolbar;
 
 import java.lang.reflect.Method;
 
@@ -171,115 +179,116 @@ public class BaseActivity extends AppCompatActivity{
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch(item.getItemId()) {
-            case R.id.search:
-                if (getLevelClass().contains(getVisibleAct()))
-                    startActivity(new Intent(this, SearchActivity.class));
-                else{
-                    Intent searchIntent = new Intent(this, BoardSearchActivity.class);
-                    searchIntent.putExtra(BoardSearchActivity.SEARCH_MODE, BoardSearchActivity.SEARCH_FOR_BOARD);
-                    startActivityForResult(searchIntent, Integer.parseInt(getString(R.string.search_board)));
-                }
-                break;
-            case R.id.my_boards_icon:
-            case R.id.my_boards:
-                if(getVisibleAct().equals(BoardListActivity.class.getSimpleName()))
-                    break;
+        int itemId = item.getItemId();
+
+        if (itemId == R.id.search) {
+            if (getLevelClass().contains(getVisibleAct())) {
+                startActivity(new Intent(this, SearchActivity.class));
+            } else {
+                Intent searchIntent = new Intent(this, BoardSearchActivity.class);
+                searchIntent.putExtra(BoardSearchActivity.SEARCH_MODE, BoardSearchActivity.SEARCH_FOR_BOARD);
+                startActivityForResult(searchIntent, Integer.parseInt(getString(R.string.search_board)));
+            }
+        } else if (itemId == R.id.my_boards_icon || itemId == R.id.my_boards) {
+            if (getVisibleAct().equals(BoardListActivity.class.getSimpleName())) {
+                // Do nothing, already on the correct screen.
+            } else {
                 startActivity(new Intent(this, BoardListActivity.class));
-                if (!getLevelClass().contains(getVisibleAct()))
+                if (!getLevelClass().contains(getVisibleAct())) {
                     finish();
-                break;
-            case R.id.my_boards_trash:
-                if(getVisibleAct().equals(BoardTrashActivity.class.getSimpleName()))
-                    break;
+                }
+            }
+        } else if (itemId == R.id.my_boards_trash) {
+            if (getVisibleAct().equals(BoardTrashActivity.class.getSimpleName())) {
+                // Do nothing, already on the correct screen.
+            } else {
                 startActivity(new Intent(this, BoardTrashActivity.class));
-                if (!getLevelClass().contains(getVisibleAct()))
+                if (!getLevelClass().contains(getVisibleAct())) {
                     finish();
-                break;
-            case R.id.number_of_icons:
-                showGridDialog( new GridSelectListener() {
-                    @Override
-                    public void onGridSelectListener(int size) {
-                        getSession().setGridSize(size);
-                        setGridSize();
-                        startActivity(new Intent(getApplicationContext(), SplashActivity.class));
-                        finish();
-                    }
-                },getSession().getGridSize());
-                break;
-            case R.id.profile:
-                if(getVisibleAct().equals(ProfileFormActivity.class.getSimpleName()))
-                    break;
+                }
+            }
+        } else if (itemId == R.id.number_of_icons) {
+            showGridDialog(new GridSelectListener() {
+                @Override
+                public void onGridSelectListener(int size) {
+                    getSession().setGridSize(size);
+                    setGridSize();
+                    startActivity(new Intent(getApplicationContext(), SplashActivity.class));
+                    finish();
+                }
+            }, getSession().getGridSize());
+        } else if (itemId == R.id.profile) {
+            if (!getVisibleAct().equals(ProfileFormActivity.class.getSimpleName())) {
                 startActivity(new Intent(this, ProfileFormActivity.class));
-                if (!getLevelClass().contains(getVisibleAct()))
+                if (!getLevelClass().contains(getVisibleAct())) {
                     finish();
-                break;
-            case R.id.aboutJellow:
-                if(getVisibleAct().equals(AboutJellowActivity.class.getSimpleName()))
-                    break;
+                }
+            }
+        } else if (itemId == R.id.aboutJellow) {
+            if (!getVisibleAct().equals(AboutJellowActivity.class.getSimpleName())) {
                 startActivity(new Intent(this, AboutJellowActivity.class));
-                if (!getLevelClass().contains(getVisibleAct()))
+                if (!getLevelClass().contains(getVisibleAct())) {
                     finish();
-                break;
-            case R.id.tutorial:
-                if(getVisibleAct().equals(TutorialActivity.class.getSimpleName()))
-                    break;
+                }
+            }
+        } else if (itemId == R.id.tutorial) {
+            if (!getVisibleAct().equals(TutorialActivity.class.getSimpleName())) {
                 startActivity(new Intent(this, TutorialActivity.class));
-                if (!getLevelClass().contains(getVisibleAct()))
+                if (!getLevelClass().contains(getVisibleAct())) {
                     finish();
-                break;
-            /*case R.id.keyboardInput:
-                if(getVisibleAct().equals(KeyboardInputActivity.class.getSimpleName()))
-                    break;
-                startActivity(new Intent(this, KeyboardInputActivity.class));
-                if (!getLevelClass().contains(getVisibleAct()))
-                    finish();
-                break;*/
-            case R.id.languageSelect:
-                if(getVisibleAct().equals(LanguageSelectActivity.class.getSimpleName()) )
-                    break;
+                }
+            }
+        } /* else if (itemId == R.id.keyboardInput) { // Uncomment if you bring this feature back
+        if (!getVisibleAct().equals(KeyboardInputActivity.class.getSimpleName())) {
+            startActivity(new Intent(this, KeyboardInputActivity.class));
+            if (!getLevelClass().contains(getVisibleAct())) {
+                finish();
+            }
+        }
+    } */ else if (itemId == R.id.languageSelect) {
+            if (!getVisibleAct().equals(LanguageSelectActivity.class.getSimpleName())) {
                 startActivity(new Intent(this, LanguageSelectActivity.class));
-                if (!getLevelClass().contains(getVisibleAct()))
+                if (!getLevelClass().contains(getVisibleAct())) {
                     finish();
-                break;
-            case R.id.settings:
-                if(getVisibleAct().equals(SettingActivity.class.getSimpleName()))
-                    break;
+                }
+            }
+        } else if (itemId == R.id.settings) {
+            if (!getVisibleAct().equals(SettingActivity.class.getSimpleName())) {
                 startActivity(new Intent(this, SettingActivity.class));
-                if (!getLevelClass().contains(getVisibleAct()))
+                if (!getLevelClass().contains(getVisibleAct())) {
                     finish();
-                break;
-            case R.id.accessibilitySetting:
-                if(getVisibleAct().equals(AccessibilitySettingsActivity.class.getSimpleName()))
-                    break;
+                }
+            }
+        } else if (itemId == R.id.accessibilitySetting) {
+            if (!getVisibleAct().equals(AccessibilitySettingsActivity.class.getSimpleName())) {
                 startActivity(new Intent(this, AccessibilitySettingsActivity.class));
-                if (!getLevelClass().contains(getVisibleAct()))
+                if (!getLevelClass().contains(getVisibleAct())) {
                     finish();
-                break;
-            case R.id.resetPreferences:
-                if(getVisibleAct().equals(ResetPreferencesActivity.class.getSimpleName()))
-                    break;
+                }
+            }
+        } else if (itemId == R.id.resetPreferences) {
+            if (!getVisibleAct().equals(ResetPreferencesActivity.class.getSimpleName())) {
                 startActivity(new Intent(this, ResetPreferencesActivity.class));
-                if (!getLevelClass().contains(getVisibleAct()))
+                if (!getLevelClass().contains(getVisibleAct())) {
                     finish();
-                break;
-            case R.id.feedback:
-                if(getVisibleAct().equals(FeedbackActivity.class.getSimpleName()) ||
-                        getVisibleAct().equals(FeedbackActivityTalkBack.class.getSimpleName()) )
-                    break;
+                }
+            }
+        } else if (itemId == R.id.feedback) {
+            if (!getVisibleAct().equals(FeedbackActivity.class.getSimpleName()) &&
+                    !getVisibleAct().equals(FeedbackActivityTalkBack.class.getSimpleName())) {
                 if (isAccessibilityTalkBackOn((AccessibilityManager) getSystemService(ACCESSIBILITY_SERVICE))) {
                     startActivity(new Intent(this, FeedbackActivityTalkBack.class));
                 } else {
                     startActivity(new Intent(this, FeedbackActivity.class));
                 }
-                if (!getLevelClass().contains(getVisibleAct()))
+                if (!getLevelClass().contains(getVisibleAct())) {
                     finish();
-                break;
-            case android.R.id.home:
-                finish();
-                break;
-            default:
-                return super.onOptionsItemSelected(item);
+                }
+            }
+        } else if (itemId == android.R.id.home) {
+            finish();
+        } else {
+            return super.onOptionsItemSelected(item);
         }
         return true;
     }
@@ -352,19 +361,56 @@ public class BaseActivity extends AppCompatActivity{
     }
 
     public void setupActionBarTitle(int isBackVisible, String title){
-        getSupportActionBar().setBackgroundDrawable(getResources().getDrawable(R.drawable.yellow_bg));
-        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-        getSupportActionBar().setCustomView(R.layout.action_bar_layout);
         findViewById(R.id.iv_action_bar_back).setVisibility(isBackVisible);
         if (title.contains("("))
             ((TextView)findViewById(R.id.tvActionbarTitle)).setText(title.substring(0,title.indexOf("(")));
         else
             ((TextView)findViewById(R.id.tvActionbarTitle)).setText(title);
+
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+            AppBarLayout appBarLayout = findViewById(R.id.app_bar);
+            if (appBarLayout != null) {
+                ViewCompat.setOnApplyWindowInsetsListener(appBarLayout, (v, windowInsets) -> {
+                    Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
+                    // Apply the insets as a margin to the view. This solution sets only the
+                    // bottom, left, and right dimensions, but you can apply whichever insets are
+                    // appropriate to your layout. You can also update the view padding if that's
+                    // more appropriate.
+                    ViewGroup.MarginLayoutParams mlp = (ViewGroup.MarginLayoutParams) v.getLayoutParams();
+                    mlp.leftMargin = insets.left;
+                    mlp.bottomMargin = insets.bottom;
+                    mlp.rightMargin = insets.right;
+                    mlp.topMargin = 0;
+                    v.setLayoutParams(mlp);
+                    // Return CONSUMED if you don't want the window insets to keep passing
+                    // down to descendant views.
+                    return WindowInsetsCompat.CONSUMED;
+                });
+                appBarLayout.setPadding(32,0,0,0);
+            }
+            MaterialToolbar toolbar = findViewById(R.id.toolbar);
+            if (toolbar != null) {
+                ViewCompat.setOnApplyWindowInsetsListener(toolbar, (v, windowInsets) -> {
+                    int right = windowInsets.getInsets(WindowInsetsCompat.Type.displayCutout()).left;
+                    v.post(() -> {
+                        v.setPadding(right, 0, 0, 0);
+                        v.requestLayout();
+                    });
+                    // Return CONSUMED if you don't want the window insets to keep passing
+                    // down to descendant views.
+                    return WindowInsetsCompat.CONSUMED;
+                });
+            }
+        } else {
+            findViewById(R.id.dummyStatusBar).setVisibility(View.GONE);
+        }
     }
 
     public void enableNavigationBack(){
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_action_navigation_arrow_back);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar.setNavigationIcon(R.drawable.ic_action_navigation_arrow_back);
+//        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_action_navigation_arrow_back);
     }
 
     public void setNavigationUiConditionally() {

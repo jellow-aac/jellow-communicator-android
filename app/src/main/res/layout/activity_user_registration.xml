@@ -5,13 +5,17 @@
     android:id="@+id/parent"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
-    android:padding="@dimen/user_reg_parent_padding"
     android:background="@drawable/bg">
+    <include layout="@layout/app_bar"
+        android:id="@+id/custom_app_bar"/>
 
     <ScrollView
+        android:id="@+id/scrollable"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/custom_app_bar"
         android:fillViewport="true"
+        android:fitsSystemWindows="true"
         android:layout_marginTop="@dimen/user_reg_scroll_margin_top"
         android:layout_marginBottom="@dimen/user_reg_scroll_margin_bottom"
         android:layout_marginLeft="@dimen/user_reg_scroll_margin_left"
@@ -138,7 +142,7 @@
                 android:text="@string/txt_registration_selectLangDesc"
                 android:contentDescription="@string/txt_registration_selectLangDesc_contentDesc"/>
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_lang_select"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/lang_sel_spinner_height"
@@ -174,7 +178,7 @@
                     android:onClick="openPrivacyPolicyPage"
                     android:contentDescription="@string/open_jellow_privacy_policy"/>
             </LinearLayout>
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bRegister"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/user_reg_btn_reg"

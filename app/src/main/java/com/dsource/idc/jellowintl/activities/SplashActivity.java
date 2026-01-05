@@ -42,8 +42,13 @@ public class SplashActivity extends BaseActivity implements CheckNetworkStatus, 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+        setupActionBarTitle(View.GONE, "");
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.VANILLA_ICE_CREAM) {
+            getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.colorPrimary));
+            findViewById(R.id.dummyStatusBar).setVisibility(View.GONE);
+        }
+        findViewById(R.id.toolbar).setVisibility(View.GONE);
         applyMonochromeColor();
-        getSupportActionBar().hide();
         setNavigationUiConditionally();
         PlayGifView pGif = findViewById(R.id.viewGif);
         pGif.setImageResource(R.drawable.jellow_j);

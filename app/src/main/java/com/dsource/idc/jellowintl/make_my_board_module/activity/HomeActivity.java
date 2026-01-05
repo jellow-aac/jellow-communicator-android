@@ -380,32 +380,29 @@ public class HomeActivity extends SpeechEngineBaseActivity implements TextToSpee
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-             case R.id.grid_size:
-                showGridDialog();
-                break;
-            case R.id.action_search:
-                searchInBoard();
-                break;
-            case R.id.reposition_lock:
-                mode = mode == HomeActivityAdapter.NORMAL_MODE ? HomeActivityAdapter.REPOSITION_MODE : HomeActivityAdapter.NORMAL_MODE;
-                if (mode == HomeActivityAdapter.REPOSITION_MODE) {
-                    Toast.makeText(this, getString(R.string.reposition_text), Toast.LENGTH_SHORT).show();
-                    mRecyclerViewDragDropManager.setInitiateOnLongPress(true);
-                    disableLayout(true);
-                }
-                else {
-                    Toast.makeText(this, getString(R.string.reposition_complete_msg), Toast.LENGTH_LONG).show();
-                    mRecyclerViewDragDropManager.setInitiateOnLongPress(false);
-                    disableLayout(false);
-                }
-                invalidateOptionsMenu();
-                break;
-            case R.id.action_home_app:
-                exitToBoardListScreen();
-                break;
-            default:
-                return super.onOptionsItemSelected(item);
+        int itemId = item.getItemId();
+
+        if (itemId == R.id.grid_size) {
+            showGridDialog();
+        } else if (itemId == R.id.action_search) {
+            searchInBoard();
+        } else if (itemId == R.id.reposition_lock) {
+            mode = (mode == HomeActivityAdapter.NORMAL_MODE) ?
+                    HomeActivityAdapter.REPOSITION_MODE : HomeActivityAdapter.NORMAL_MODE;
+            if (mode == HomeActivityAdapter.REPOSITION_MODE) {
+                Toast.makeText(this, getString(R.string.reposition_text), Toast.LENGTH_SHORT).show();
+                mRecyclerViewDragDropManager.setInitiateOnLongPress(true);
+                disableLayout(true);
+            } else {
+                Toast.makeText(this, getString(R.string.reposition_complete_msg), Toast.LENGTH_LONG).show();
+                mRecyclerViewDragDropManager.setInitiateOnLongPress(false);
+                disableLayout(false);
+            }
+            invalidateOptionsMenu();
+        } else if (itemId == R.id.action_home_app) {
+            exitToBoardListScreen();
+        } else {
+            return super.onOptionsItemSelected(item);
         }
         return true;
     }

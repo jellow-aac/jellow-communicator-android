@@ -39,7 +39,7 @@ public class Intro extends AppIntro {
         // If any exception occurs during this activity usage,
         // handle it using default exception handler.
         Thread.setDefaultUncaughtExceptionHandler(new DefaultExceptionHandler(this));
-        getSupportActionBar().setTitle(Html.fromHtml("<font color='#F7F3C6'>"+getString(R.string.intro_to_jellow)+"</font>"));
+//        getSupportActionBar().setTitle(Html.fromHtml("<font color='#F7F3C6'>/**/"+getString(R.string.intro_to_jellow)+"</font>"));
         parentAct = new SpeechEngineBaseActivity();
         parentAct.setVisibleAct(Intro.class.getSimpleName());
         //Set the language database create preference
@@ -47,10 +47,10 @@ public class Intro extends AppIntro {
                 GlobalConstants.LANGUAGE_STATE_CREATE_DB);
         addSlide(SampleSlideFragment.newInstance(R.layout.intro, "intro"));
         addSlide(SampleSlideFragment.newInstance(R.layout.intro5, "intro5"));
-        addSlide(SampleSlideFragment.newInstance(R.layout.intro2, "intro2"));
-        addSlide(SampleSlideFragment.newInstance(R.layout.intro3, "intro3"));
-        addSlide(SampleSlideFragment.newInstance(R.layout.intro4, "intro4"));
-        addSlide(SampleSlideFragment.newInstance(R.layout.intro7, "intro7"));
+//        addSlide(SampleSlideFragment.newInstance(R.layout.intro2, "intro2"));
+//        addSlide(SampleSlideFragment.newInstance(R.layout.intro3, "intro3"));
+//        addSlide(SampleSlideFragment.newInstance(R.layout.intro4, "intro4"));
+//        addSlide(SampleSlideFragment.newInstance(R.layout.intro7, "intro7"));
 
         setBarColor(getResources().getColor(R.color.app_background));
         setSeparatorColor(getResources().getColor(R.color.app_background));

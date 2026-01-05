@@ -5,29 +5,35 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg">
+    <include layout="@layout/app_bar"
+        android:id="@+id/custom_app_bar"/>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+        <com.dsource.idc.jellowintl.utility.PlayGifView
+            android:id="@+id/viewGif"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleY="@dimen/splash_anim_scale"
+            android:scaleX="@dimen/splash_anim_scale"
+            app:layout_constraintVertical_bias="@dimen/splash_anim_vbias"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
 
-    <com.dsource.idc.jellowintl.utility.PlayGifView
-        android:id="@+id/viewGif"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:scaleY="@dimen/splash_anim_scale"
-        android:scaleX="@dimen/splash_anim_scale"
-        app:layout_constraintVertical_bias="@dimen/splash_anim_vbias"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
-
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/jellow"
-        android:scaleX="@dimen/splash_img_scale"
-        android:scaleY="@dimen/splash_img_scale"
-        app:layout_constraintVertical_bias="@dimen/splash_logo_vbias"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/jellow"
+            android:scaleX="@dimen/splash_img_scale"
+            android:scaleY="@dimen/splash_img_scale"
+            app:layout_constraintVertical_bias="@dimen/splash_logo_vbias"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

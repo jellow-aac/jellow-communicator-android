@@ -10,7 +10,9 @@ import static com.dsource.idc.jellowintl.utility.SessionManager.MR_IN;
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
+import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.core.content.ContextCompat;
@@ -39,10 +41,13 @@ public class LanguageDownloadActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_language_download);
+        setupActionBarTitle(View.GONE, "");
+        findViewById(R.id.toolbar).setVisibility(View.GONE);
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.VANILLA_ICE_CREAM) {
+            getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.colorPrimary));
+        }
         applyMonochromeColor();
         setNavigationUiConditionally();
-        getWindow().setStatusBarColor(ContextCompat.getColor(this,R.color.colorPrimary));
-
         try {
 
            langCode =  getIntent().getExtras().getString(LCODE);
