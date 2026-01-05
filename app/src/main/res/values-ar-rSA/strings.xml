@@ -8,25 +8,25 @@
         <item>5</item>
     </string-array>
     <string-array name="arrSequenceActivityHeadingText">
-        <item>brushing</item>
-        <item>toilet</item>
-        <item>bathing</item>
+        <item>"تنظيف الأسنان</item>
+        <item>مرحاض</item>
+        <item>استحمام</item>
         <item>""</item>
         <item>""</item>
         <item>""</item>
         <item>""</item>
-        <item>\tmorning routine</item>
-        <item>\tbed time routine</item>
+        <item>\tروتين الصباح</item>
+        <item>\tروتين النوم</item>
     </string-array>
 
-    <string name="app_name">Jellow</string>
-    <string name="action_settings">Settings</string>
+    <string name="app_name">جيلو</string>
+    <string name="action_settings">الإعدادات</string>
 
-    <string name="Language">Language</string>
-    <string name="saveLanguage">Apply Change</string>
+    <string name="Language">اللغة</string>
+    <string name="saveLanguage">تطبيق التغيير</string>
 
     <string-array name="bloodgroup">
-        <item>not selected</item>
+        <item>لم يتم التحديد</item>
         <item>A+ve</item>
         <item>A-ve</item>
         <item>B+ve</item>
@@ -38,20 +38,20 @@
     </string-array>
 
     <string-array name="bloodgroup_talkback">
-        <item>not selected</item>
-        <item>A positive</item>
-        <item>A negative</item>
-        <item>B positive</item>
-        <item>B negative</item>
-        <item>A B positive</item>
-        <item>A B negative</item>
-        <item>O positive</item>
-        <item>O negative</item>
+        <item>لم يتم التحديد</item>
+        <item>A موجب</item>
+        <item>A سالب</item>
+        <item>B موجب</item>
+        <item>B سالب</item>
+        <item>AB موجب</item>
+        <item>AB سالب</item>
+        <item>O موجب</item>
+        <item>O سالب</item>
     </string-array>
 
     <string-array name="picture_view_mode">
-        <item>Picture and Text</item>
-        <item>Picture only</item>
+        <item>صورة ونص</item>
+        <item>صورة فقط</item>
     </string-array>
 
     <string-array name="grid_size">
@@ -63,496 +63,435 @@
     </string-array>
 
     <string-array name="acc_grid_size">
-        <item>One</item>
-        <item>Two</item>
-        <item>Three</item>
-        <item>Four</item>
-        <item>Nine</item>
+        <item>واحد</item>
+        <item>اثنان</item>
+        <item>ثلاثة</item>
+        <item>أربعة</item>
+        <item>تسعة</item>
     </string-array>
 
-    <string name="simple_ime">Jellow Keyboard</string>
-    <string name="subtype_en_US">Serial ABC</string>
-    <string name="perform_db_update" translatable="false">com.dsource.idc.jellow.perform_db_update</string>
+    <string name="simple_ime">لوحة مفاتيح جيلو</string>
+    <string name="subtype_en_US">الأبجدية التسلسلية</string>
 
-    <string name="action_bar_title">Home</string>
-    <string name="txtSpeechSpeed">Speech Speed</string>
-    <string name="txtVoiceSpeech">Voice Pitch</string>
-    <string name="txtDisplayMode">Display Mode</string>
-    <string name="txtVoiceVolume">Speech Volume</string>
-    <string name="txtNumOfPerPerScr">Number of category icons per screen</string>
-    <string name="txtDemo">SPEECH DEMO</string>
-    <string name="txtSave">Save</string>
-    <string name="demoTtsSpeech">Hello! you are using Jellow Communicator.</string>
-    <string name="savedSettingsMessage">Settings saved.</string>
-    <string name="languageChanged">Language Changed</string>
-    <string name="checkConnectivity">You are not connected to the Internet. Please turn on your Internet.</string>
+    <string name="action_bar_title">الرئيسية</string>
+    <string name="txtSpeechSpeed">سرعة الصوت</string>
+    <string name="txtVoiceSpeech">نغمة الصوت</string>
+    <string name="txtDisplayMode">وضع العرض</string>
+    <string name="txtVoiceVolume">مستوى الصوت</string>
+    <string name="txtNumOfPerPerScr">عدد رموز الفئة لكل شاشة</string>
+    <string name="txtDemo">عرض الصوت (SPEECH DEMO)</string>
+    <string name="txtSave">(Save) حفظ</string>
+    <string name="demoTtsSpeech">مرحبًا! أنت تستخدم جيلو كوميونكيتر</string>
+    <string name="savedSettingsMessage">تم حفظ الإعدادات</string>
+    <string name="languageChanged">تم تغيير اللغة</string>
+    <string name="checkConnectivity">أنت غير متصل بالإنترنت. يُرجى تفعيل الإنترنت.</string>
 
-    <string name="menuProfile">Profile</string>
-    <string name="menuMyBoards">My Boards</string>
-    <string name="menuBoardsTrash">Trashed Boards</string>
-    <string name="menuAbout">About Jellow</string>
-    <string name="menuTutorials">Tutorial</string>
-    <string name="menuKeyboardInput">Keyboard Control</string>
-    <string name="menuResetPref">Reset Preferences</string>
-    <string name="menuFeedback">Feedback</string>
-    <string name="menuUserRegistration">Registration Page</string>
-    <string name="menuAccessibility">Accessibility</string>
-    <string name="menuClosePopup">Close menu</string>
-    <string name="language_download_screen" translatable="false">Jellow content download screen</string>
-    <string name="labelSplash">Jellow is loading. Please wait!</string>
+    <string name="menuProfile">(Profile) الملف الشخصي</string>
+    <string name="menuMyBoards">(My Boards) لوحاتي</string>
+    <string name="menuBoardsTrash">(Trashed Boards) لوحات محطمة</string>
+    <string name="menuAbout">(About Jellow) عن جيلو</string>
+    <string name="menuTutorials">(Tutorial) البرنامج التعليمي</string>
+    <string name="menuKeyboardInput">(Keyboard Control) التحكم في لوحة المفاتيح</string>
+    <string name="menuResetPref">(Reset Preferences) إعادة تعيين التفضيلات</string>
+    <string name="menuFeedback">(Feedback) ملاحظات</string>
+    <string name="menuUserRegistration">صفحة التسجيل</string>
+    <string name="menuAccessibility">(Accessibility) إمكانية الوصول</string>
+    <string name="menuClosePopup">(Close menu) إغلاق القائمة</string>
+    <string name="labelSplash">يتم تحميل جيلو. الرجاء الانتظار!</string>
 
-    <string name="aPos" translatable="false">A, Positive</string>
-    <string name="aNeg" translatable="false">A, Negative</string>
-    <string name="bPos" translatable="false">B, Positive</string>
-    <string name="bNeg" translatable="false">B, Negative</string>
-    <string name="abPos" translatable="false">A B, Positive</string>
-    <string name="abNeg" translatable="false">A B, Negative</string>
-    <string name="oPos" translatable="false">O, Positive</string>
-    <string name="oNeg" translatable="false">O, Negative</string>
-    <string name="easyToUse">Easy to Use</string>
-    <string name="clearPictures">Clear Pictures</string>
-    <string name="clearVoice">Clear Voice</string>
-    <string name="easyToNavigate">Easy to Navigate</string>
-    <string name="commentSuggestions">Comments, Suggestions or Request for support</string>
-    <string name="submit">SUBMIT</string>
-    <string name="serial_keyboard_title">Serial Keyboard:</string>
-    <string name="serial_keyboard_info">Jellow communicator is equipped with its own \'Serial Jellow keyboard\'. This keyboard was designed based on feedback from special educators and teachers and features alphabets placed in a serial manner starting form the alphabet \'A\'. The serial keyboard makes it easy for the user to anticipate the place of a particular alphabet on the keyboard and is especially very useful for children learning early literacy skills. Similarly, the keyboard also features numeral keys from 0–9 and symbols, which are most relevant to every day communication.</string>
-    <string name="keyboardControlTxt">To enable a keyboard of your choice and make it as default, you need to complete 2 steps:</string>
-    <string name="step1">Step 1: Enable Keyboard from device settings</string>
-    <string name="qwertyKeyboard">QWERTY</string>
-    <string name="serialKeyboard">SERIAL ABC</string>
-    <string name="step2">Step 2: Save Keyboard as default option</string>
-    <string name="saveAsDefault">SAVE AS DEFAULT</string>
-    <string name="getKeyboardControl">Keyboard Control</string>
-    <string name="childName">Child\'s Name **</string>
-    <string name="websiteLink" translatable="false">http://www.jellow.org</string>
-    <string name="caregiverName">Caregiver\'s Name **</string>
-    <string name="careGiverContact">Caregiver\'s Contact number other than this device\'s sim number **</string>
-    <string name="homeAddress">Home Address **</string>
-    <string name="emailAddress">Email Address **</string>
-    <string name="bloodGroup">Blood Group **</string>
-    <string name="detailSaved">Details saved</string>
-    <string name="invalid_address">Invalid address</string>
-    <string name="invalid_emailId">Invalid email address</string>
-    <string name="enterTheName">Please enter your Child\'s name</string>
-    <string name="search_act_title">Search Icons in Jellow</string>
+    <string name="easyToUse">سهل الاستخدام</string>
+    <string name="clearPictures">صور واضحة</string>
+    <string name="clearVoice">صوت واضح</string>
+    <string name="easyToNavigate">سهل التنقل</string>
+    <string name="commentSuggestions">التعليقات أو الاقتراحات أو طلب الدعم</string>
+    <string name="submit">(SUBMIT) إرسال</string>
+    <string name="serial_keyboard_title">لوحة مفاتيح تسلسلية</string>
+    <string name="serial_keyboard_info">تطبيق جيلو كوميونكيتر يحتوي على لوحة مفاتيح تسلسلية خاصة. تم تصميم هذه اللوحة بناءً على آراء المعلمين، حيث يتم ترتيب الحروف بشكل متسلسل بدءًا من الحرف A، مما يسهل على المستخدم توقع أماكن الحروف. هذه اللوحة مفيدة جدًا للأطفال الذين يتعلمون القراءة والكتابة.</string>
+    <string name="keyboardControlTxt">لتمكين لوحة المفاتيح التي تختارها وجعلها افتراضية، تحتاج إلى إكمال خطوتين:</string>
+    <string name="step1">الخطوة 1: قم بتمكين لوحة المفاتيح من إعدادات الجهاز.</string>
+    <string name="qwertyKeyboard">لوحة مفاتيح QWERTY</string>
+    <string name="serialKeyboard">لوحة المفاتيح التسلسلية (SERIAL ABC)</string>
+    <string name="step2">الخطوة 2: حفظ لوحة المفاتيح كافتراضي</string>
+    <string name="saveAsDefault">(SAVE AS DEFAULT) حفظ كافتراضي</string>
+    <string name="getKeyboardControl">التحكم في لوحة المفاتيح</string>
+    <string name="childName">اسم الطفل **</string>
+    <string name="caregiverName">اسم مقدم الرعاية **</string>
+    <string name="careGiverContact">رقم جهة اتصال مقدم الرعاية بخلاف رقم شريحة الهاتف لهذا الجهاز **</string>
+    <string name="homeAddress">عنوان المنزل **</string>
+    <string name="emailAddress">"عنوان البريد الإلكتروني **</string>
+    <string name="bloodGroup">فصيلة الدم **</string>
+    <string name="detailSaved">تم حفظ التفاصيل</string>
+    <string name="invalid_address">عنوان غير صالح</string>
+    <string name="invalid_emailId">"نوان بريد إلكتروني غير صالح</string>
+    <string name="enterTheName">يرجى إدخال اسم طفلك</string>
+    <string name="search_act_title">ابحث عن الأيقونات في جيلو</string>
 
-    <string name="iconsHasBeenReset">Preferences have been reset.</string>
-    <string name="speak">Speak</string>
-    <string name="stop">Stop</string>
-    <string name="about_jellow_speech">Jellow is a communicator, using icons to enable speech and can be used by those learning to speak, or those who have difficulty with speech. Jellow can also be used by toddlers and early learners to learn words and categories frequently used in their daily lives. Jellow\'s colourful and friendly icons can help children develop an association between pictures and their corresponding word labels. It is developed at IDC School of Design at the Indian Institute of Technology Bombay located in Mumbai. A novel Emotional Language Proto call or ELP was conceived and developed by the project investigators, in order to enhance the language ability of Jellow. ELP represents the 6 expressive icons that form the core of the interface. Using these core icons, the child can communicate their likes, dislikes, and needs with others. Jellow is conceived as children-friendly with an easy-to-learn interface. The application is optimized for Android tablets. Jellow is currently available in English, Hindi, Bengali, Marathi, Tamil, Telugu, Gujarati, Punjabi, Kannada, Malayalam, Oriya, Maithili, Urdu, Assamese, Spanish, German and French. The current version of Jellow is _. The application is under further development. Therefore, if you have any suggestions for us, please submit it under the feedback tab or write to us at jellowcommunicator@gmail.com. Jellow is licensed under a Creative Commons Attribution Non-commercial Share Alike 4.0 International License. Work on Jellow is attributed to the Indian Institute of Technology Bombay. The content in this application comprising icons, layout, architecture, visual identity, translation, and the software codes can be shared and adopted but cannot be used for commercial purposes. When the content is used, we request you to acknowledge Indian Institute of Technology Bombay. Jellow is available for download at www dot jellow dot o r g. If interested in further developing the code or to conduct a Jellow workshop at your place, please write to Professor Ravi Poovaiah at j e l l o w c o m m u n i c a t o r @ g m a i l . c o m</string>
-    <string name="catBtnDesc">Jellow has 9 central category buttons and 6 expressive side buttons:</string>
-    <string name="catBtn">Category buttons:</string>
-    <string name="expBtn">Expressive buttons:</string>
-    <string name="jellowUsageDesc">To speak using Jellow, the user first clicks on any category button and then on an expressive button in that order. For instance, Jellow will say, “I want to eat” using the selection below:</string>
-    <string name="jellowUsageSubCat">By double-clicking on a category button, the user can access further sub-categories:</string>
-    <string name="levelOneCat">Level 1 categories:</string>
-    <string name="levelTwoCat">Level 2 categories:</string>
-    <string name="levelThreeCat">Level 3 icons:</string>
-    <string name="settingDesc">The user can customize their profile and adjust the basic voice settings of the application by clicking on the top right corner of the screen:</string>
-    <string name="seqActDesc">Jellow can also be used to teach children sequential steps of daily activities. By clicking on any individual step, the user may view the expressive buttons:</string>
-    <string name="toiletSeq">Toilet sequence:</string>
-    <string name="expBtnSeq">Expressive buttons in the sequence:</string>
-    <string name="ttsDesc">To use Jellow in English, Hindi, Bengali, Tamil, Telugu, Gujarati, Punjabi, Kannada, Malayalam, Oriya, Maithili, Urdu, Assamese, Spanish, German, French, please activate <b>\'Google text-to-speech (TTS)\'</b> within <b>\'Language\'</b> settings of your device. Within Google TTS settings, first change the <b>default language</b> to preferred language and then download voice for preferred language through the <b>\'Install voice data\'</b> option</string>
-    <string name="resetPrefPointOne">Jellow remembers the user’s “most-used or preferred” icons and displays them as the top choices on the screen</string>
-    <string name="resetPrefPointTwo">By resetting preferences, the icons will be set to the original order in which they were displayed the first time the application was opened</string>
-    <string name="resetPrefPointThree">Do you want to reset preferences?</string>
-    <string name="bullet" translatable="false">●</string>
+    <string name="iconsHasBeenReset">تم إعادة تعيين التفضيلات</string>
+    <string name="speak">تحدث (Speak)</string>
+    <string name="stop">توقف (Stop)</string>
+    <string name="about_jellow_speech">Jellow هو تطبيق تواصل يستخدم أيقونات لتمكين الكلام، ويمكن استخدامه من قبل من يتعلمون الكلام، أو من يعانون من صعوبات في الكلام. كما يمكن للأطفال الصغار والمتعلمين في مرحلة مبكرة استخدام Jellow لتعلم الكلمات والفئات التي يستخدمونها بشكل متكرر في حياتهم اليومية. تساعد أيقونات Jellow الملونة والودية الأطفال على تطوير ارتباط بين الصور ومسميات الكلمات المقابلة لها. تم تطويره في كلية IDC للتصميم في المعهد الهندي للتكنولوجيا في بومباي، مومباي. وقد ابتكر الباحثون في المشروع برنامجًا جديدًا للغة العاطفية (ELP) بهدف تعزيز القدرة اللغوية لـ Jellow. يمثل ELP الأيقونات التعبيرية الستة التي تشكل جوهر الواجهة. باستخدام هذه الأيقونات الأساسية، يمكن للطفل التعبير عن رغباته وكرهه واحتياجاته مع الآخرين. صُمم Jellow ليكون صديقًا للأطفال بواجهة سهلة التعلم. تم تحسين التطبيق لأجهزة Android اللوحية. Jellow متاح حاليًا باللغات الإنجليزية والهندية والبنغالية والماراثية والتاميلية والتيلجو والغوجاراتية والبنجابية والكانادية والمالايالامية والأوديا والميثيلي والأردية والأسامية والمارفادية والنيبالية والعربية والإسبانية والألمانية والفرنسية. الإصدار الحالي من Jellow هو _. التطبيق قيد التطوير. لذلك، إذا كانت لديك أي اقتراحات لنا، فيرجى إرسالها ضمن علامة تبويب التعليقات أو مراسلتنا على jellowcommunicator@gmail.com. Jellow مرخص بموجب ترخيص المشاع الإبداعي المنسوب غير التجاري بالمثل 4.0 الدولي. يُنسب العمل على Jellow إلى المعهد الهندي للتكنولوجيا في بومباي. يمكن مشاركة المحتوى الموجود في هذا التطبيق بما في ذلك الأيقونات والتخطيط والهندسة المعمارية والهوية البصرية والترجمة وأكواد البرنامج وتبنيها ولكن لا يمكن استخدامه لأغراض تجارية. عند استخدام المحتوى، نطلب منك الإقرار بالمعهد الهندي للتكنولوجيا في بومباي. يتوفر Jellow للتنزيل على www.jellow.com. إذا كنت مهتمًا بتطوير الكود بشكل أكبر أو بإجراء ورشة عمل Jellow في مكانك، فيرجى الكتابة إلى البروفيسور رافي بوفاياه على j e l o w c o m m u n i c a t o r @ g m a i l . c o m</string>
+    <string name="catBtnDesc">يحتوي جلو على 9 أزرار فئات رئيسية و6 أزرار تعبيرية جانبية</string>
+    <string name="catBtn">أزرار الفئات الرئيسية</string>
+    <string name="expBtn">أزرار التعبير</string>
+    <string name="jellowUsageDesc">للتحدث باستخدام جيلو، يقوم المستخدم أولاً بالضغط على أي زر فئة، ثم يضغط على زر تعبيري بالترتيب نفسه.</string>
+    <string name="jellowUsageSubCat">بالنقر المزدوج على زر الفئة، يمكن للمستخدم الوصول إلى المزيد من الفئات الفرعية.</string>
+    <string name="levelOneCat">الفئات المستوى 1</string>
+    <string name="levelTwoCat">الفئات المستوى 2</string>
+    <string name="levelThreeCat">الأيقونات المستوى 3</string>
+    <string name="settingDesc">يمكن للمستخدم تخصيص ملفه الشخصي وضبط إعدادات الصوت الأساسية للتطبيق من خلال النقر على الزاوية العلوية اليمنى من الشاشة.</string>
+    <string name="seqActDesc">يمكن أيضًا استخدام جيلو لتعليم الأطفال خطوات الأنشطة اليومية بالترتيب. من خلال النقر على أي خطوة فردية، يمكن للمستخدم رؤية أزرار التعبير.</string>
+    <string name="toiletSeq">تسلسل استخدام المرحاض</string>
+    <string name="expBtnSeq">أزرار التعبير في التسلسل</string>
+    <string name="ttsDesc">بالنسبة للغات التيلجو والغوجاراتية والبنجابية والكانادا والمالايالامية والأوديا والمايثيلي والأردية والآسامية والمرفادية والنيبالية والعربية والإسبانية والألمانية والفرنسية، يرجى تمكين تحويل النص إلى كلام من Google (TTS) في إعدادات اللغة بجهازك.تحويل النص إلى كلام من جوجل (TTS) ضمن إعدادات اللغة في جهازك. في إعدادات تحويل النص إلى كلام من جوجل، غيّر اللغة الافتراضية أولًا إلى اللغة المفضلة، ثم نزّل الصوت للغة المفضلة من خلال خيار تثبيت البيانات الصوتية.</string>
+    <string name="resetPrefPointOne">جيلو يتذكر الرموز التي يستخدمها المستخدم بشكل متكرر أو يفضلها، ويعرضها كخيارات رئيسية على الشاشة.</string>
+    <string name="resetPrefPointTwo">بإعادة تعيين التفضيلات، ستعود الأيقونات إلى الترتيب الأصلي الذي تم عرضه عند فتح التطبيق لأول مرة.</string>
+    <string name="resetPrefPointThree">هل تريد إعادة تعيين التفضيلات؟</string>
 
-    <string name="downloadErrorMsg">Please ensure an active Internet connection during the entire download process. In case the progress bar is stalled, kindly restart the app or try again</string>
-    <string name="intro_to_jellow">Introduction to Jellow</string>
-    <string name="rate_jellow">Kindly rate Jellow in all fields.</string>
-    <string name="keyboard">Keyboard</string>
-    <string name="user_country_code" translatable="false">com.dsource.idc.jellow.user_country_code</string>
-    <string name="txt_intro1_central9btn">Jellow has 9 central category buttons</string>
-    <string name="txt_intro1_categorybtn">Category buttons</string>
-    <string name="txt_intro5_jellowUsageDesc">The application also has 6 expressive side buttons</string>
-    <string name="txt_intro5_expressiveBtn">Expressive buttons</string>
-    <string name="txt_intro2_appUsageDesc">The user first clicks on a category button and then on an expressive button</string>
-    <string name="txt_intro2_speakUsingJellow">Speaking using Jellow</string>
-    <string name="txt_intro3_level2CatDesc">By double-clicking on a category button, user can access further categories and sub-categories</string>
-    <string name="txt_intro3_navWithJellow">Navigating within Jellow</string>
-    <string name="txt_intro4_customizeAppDesc">User can customize application settings by clicking on top right corner of the application</string>
-    <string name="txt_intro4_customizeJellow">Settings within Jellow</string>
-    <string name="txt_intro7_getStartedDesc">Now you are ready to get started with Jellow</string>
-    <string name="txt_intro7_getStarted">GET STARTED</string>`
-    <string name="completed_intro" translatable="false">com.dsource.idc.jellow.completed_intro</string>
-    <string name="last_session_created" translatable="false">com.dsource.idc.jellow.last_session_created</string>
-    <string name="enable_calling" translatable="false">com.dsource.idc.jellow.enable_calling</string>
-    <string name="string_msg" translatable="false">com.dsource.idc.jellow.string_message</string>
-    <string name="last_crash_reported" translatable="false">com.dsource.idc.jellow.last_crash_reported</string>
-    <string name="text_bar_visibility" translatable="false">com.dsource.idc.jellow.text_bar_visibility</string>
-    <string name="enable_fish_animation" translatable="false">com.dsource.idc.jellow.fish_animation</string>
-    <string name="enable_icon_add" translatable="false">com.dsource.idc.jellow.basic_icon_add</string>
-    <string name="enable_monochrome" translatable="false">com.dsource.idc.jellow.monochrome_state</string>
-    <string name="txt_registration_jellowCalluDesc">(This is how Jellow calls you)</string>
-    <string name="txt_registration_emergencynoDesc">(To be used for calling  in case of an emergency situation with the child.)</string>
-    <string name="txt_registration_selectLangDesc">Select a Language for Jellow **</string>
-    <string name="txt_registration_selectLangDesc_contentDesc">Select a Language for Jellow. Required field. **</string>
-    <string name="txt_registration_registerBtn">REGISTER</string>
-    <string name="enternonemptycontact">Please enter valid contact number</string>
-    <string name="change_language_line5">Step 2: Check if voice data for _ is available on your device. If not please turn on internet and download voice data for selected language. In case process is stalled please check your internet connection and retry</string>
-    <string name="txtChangeLanguage">Change the app Language:</string>
-    <string name="txtApplyChanges">Click \'Apply change\' to save the selected language and voice</string>
-    <string name="txt_actLangSel_downloadDat">Check voice data</string>
-    <string name="language_downloaded">_ language downloaded</string>
-    <string name="language_downloading">Downloading _ language</string>
-    <string name="granted_call_permission_req">Call permission is granted.</string>
-    <string name="rejected_call_permission_req">Call permission is denied.</string>
-    <string name="grant_permission_from_settings">Enable call permission from settings.</string>
-    <string name="txtEnableBuiltInCalling">Enable emergency calling from Jellow</string>
-    <string name="EnableDisplaySpeechText">Display the spoken text on the text bar</string>
+    <string name="downloadErrorMsg">يرجى التأكد من وجود اتصال نشط بالإنترنت طوال عملية التنزيل. في حالة توقف شريط التقدم، يُرجى إعادة تشغيل التطبيق أو المحاولة مرة أخرى.</string>
+    <string name="intro_to_jellow">مقدمة عن جيليو</string>
+    <string name="rate_jellow">يرجى تقييم جيليو في جميع المجالات</string>
+    <string name="keyboard">لوحة المفاتيح</string>
+    <string name="txt_intro1_central9btn">يحتوي جيليو على 9 أزرار فئات رئيسية</string>
+    <string name="txt_intro1_categorybtn">أزرار الفئات</string>
+    <string name="txt_intro5_jellowUsageDesc">يحتوي التطبيق أيضًا على 6 أزرار تعبيرية جانبية</string>
+    <string name="txt_intro5_expressiveBtn">الأزرار التعبيرية</string>
+    <string name="txt_intro2_appUsageDesc">يقوم المستخدم أولاً بالنقر على زر الفئة ثم على زر تعبيري</string>
+    <string name="txt_intro2_speakUsingJellow">التحدث باستخدام جيليو</string>
+    <string name="txt_intro3_level2CatDesc">بالنقر المزدوج على زر الفئة، يمكن للمستخدم الوصول إلى فئات فرعية أخرى</string>
+    <string name="txt_intro3_navWithJellow">التنقل داخل جيليو</string>
+    <string name="txt_intro4_customizeAppDesc">يمكن للمستخدم تخصيص إعدادات التطبيق من خلال النقر في الزاوية اليمنى العليا من التطبيق</string>
+    <string name="txt_intro4_customizeJellow">إعدادات جيليو</string>
+    <string name="txt_intro7_getStartedDesc">الآن أنت جاهز للبدء في استخدام جيليو</string>
+    <string name="txt_intro7_getStarted">ابدأ</string>
+    <string name="txt_registration_jellowCalluDesc">(هكذا يناديك جيليو)</string>
+    <string name="txt_registration_emergencynoDesc">(للاستخدام في المراسلة في حالة الطوارئ التي تشمل الطف)</string>
+    <string name="txt_registration_selectLangDesc">اختر لغة لجيليو **</string>
+    <string name="txt_registration_selectLangDesc_contentDesc">اختر لغة لجيليو. هذا الحقل مطلوب. **</string>
+    <string name="txt_registration_registerBtn">تسجيل</string>
+    <string name="enternonemptycontact">يرجى إدخال رقم اتصال صالح</string>
+    <string name="change_language_line5">الخطوة ٢: تحقق مما إذا كانت بيانات الصوت لـ _ متاحة على جهازك. إذا لم تكن متاحة، يرجى تشغيل الإنترنت وتحميل بيانات الصوت للغة المختارة. إذا توقفت العملية، يرجى التحقق من اتصال الإنترنت والمحاولة مرة أخرى</string>
+    <string name="txtChangeLanguage">تغيير لغة التطبيق:</string>
+    <string name="txtApplyChanges">انقر فوق "تطبيق التغيير" لحفظ اللغة والصوت المحددين</string>
+    <string name="txt_actLangSel_downloadDat">تحقق من بيانات الصوت</string>
+    <string name="language_downloaded">تم تحميل لغة _</string>
+    <string name="language_downloading">يتم تحميل لغة _</string>
+    <string name="granted_call_permission_req">تم منح إذن المكالمة.</string>
+    <string name="rejected_call_permission_req">تم رفض إذن المكالمة.</string>
+    <string name="grant_permission_from_settings">قم بتمكين إذن المكالمة من الإعدادات.</string>
+    <string name="txtEnableBuiltInCalling">قم بتمكين الاتصال الطارئ من جيليو.</string>
+    <string name="EnableDisplaySpeechText">عرض النص المنطوق على شريط النص.</string>
 
-    <string name="dismiss">Dismiss</string>
-    <string name="register_user">Please wait registration is in process…</string>
-    <string name="exit">Exit</string>
-    <string name="err_dialog_msg">Google TTS engine is not installed on your device. Do you want to install TTS engine?</string>
-    <string name="exit_dialog_msg">Jellow will not work without Google Text-to-speech engine. Do you really want to exit?</string>
+    <string name="dismiss">إغلاق</string>
+    <string name="register_user">يرجى الانتظار، عملية التسجيل قيد التنفيذ…</string>
+    <string name="exit">خروج</string>
+    <string name="err_dialog_msg">لم يتم تثبيت محرك جوجل لتحويل النص إلى كلام على جهازك. هل تريد تثبيته؟</string>
+    <string name="exit_dialog_msg">لن يعمل جيليو بدون محرك جوجل لتحويل النص إلى كلام. هل تريد الخروج حقًا؟</string>
 
-    <string name="level_one_intent_pos_tag" translatable="false">mLevelOneItemPos</string>
-    <string name="intent_menu_path_tag" translatable="false">selectedMenuItemPath</string>
-    <string name="level_2_item_pos_tag" translatable="false">mLevelTwoItemPos</string>
-
-    <string name="next_slide">Next slide</string>
-    <string name="previous_slide">Previous slide</string>
+    <string name="next_slide">الشريحة التالية</string>
+    <string name="previous_slide">الشريحة السابقة</string>
 
     <!--Strings related to the Searching capability
     @AyazAlam
     -->
-    <string name="search_title">Search icon</string>
-    <string name="search_parent_0" translatable="false">parent_0</string>
-    <string name="search_parent_1" translatable="false">parent_1</string>
-    <string name="search_parent_2" translatable="false">parent_2</string>
-    <string name="home">Home</string>
-    <string name="from_search" translatable="false">FROM_SEARCH</string>
-    <string name="search_tag" translatable="false">SEARCH</string>
-    <string name="icon_not_found">Icon not found</string>
-    <string name="not_found" translatable="false">NOT_FOUND</string>
-    <string name="goto_home" translatable="false">goto_home</string>
+    <string name="search_title">أيقونة البحث</string>
+    <string name="home">الصفحة الرئيسية</string>
+    <string name="icon_not_found">لم يتم العثور على الأيقونة</string>
 
 
     <!--About Jellow strings-->
-    <string name="info">General Information</string>
-    <string name="about_je_intro1">Jellow is a communicator using icons to enable speech and can be used by those learning to speak or those who have difficulty with speech. Jellow can also be used by toddlers and early learners to learn words and categories frequently used in their daily lives. Jellow’s colourful and friendly icons can help children develop an association between pictures and their corresponding word labels.</string>
-    <string name="about_je_intro2">It is developed at IDC School of Design at the Indian Institute of Technology Bombay located in Mumbai.</string>
-    <string name="about_je_intro3">A novel Emotional Language Protocol or ELP was conceived and developed by the project investigators in order to enhance the language ability of Jellow. ELP represents the 6 expressive icons that form the core of the interface.</string>
-    <string name="about_je_intro4">Using these core icons, the child can communicate their likes, dislikes, and needs with others.</string>
-    <string name="about_je_intro5">Jellow is conceived as children-friendly with an easy-to-learn interface.</string>
-    <string name="about_je_intro6">The application is optimized for Android tablets.</string>
-    <string name="about_je_intro7">Jellow is currently available in English, Hindi, Marathi, Bengali, Tamil, Telugu, Gujarati, Punjabi, Kannada, Malayalam, Oriya, Maithili, Urdu, Assamese, Spanish, German, French</string>
-    <string name="play_video">Play video</string>
-    <string name="software_info">Software Version: _</string>
-    <string name="about_je_intro8">The current version of Jellow is _. The application is under further development. Therefore, if you have any suggestions for us, please submit it under the feedback tab or write to us at jellowcommunicator@gmail.com</string>
-    <string name="terms_of_use">Terms of Use</string>
-    <string name="about_je_intro9">Jellow is licensed under a Creative Commons Attribution Non-commercial Share Alike 4.0 International License.</string>
-    <string name="about_je_intro10">Work on Jellow is attributed to the Indian Institute of Technology Bombay.</string>
-    <string name="about_je_intro11">The content in this application comprising icons, layout, architecture, visual identity, translation, and the software codes can be shared and adopted but cannot be used for commercial purposes.</string>
-    <string name="about_je_intro12">When the content is used, we request you to acknowledge Indian Institute of Technology Bombay.</string>
-    <string name="about_je_intro13">Jellow is available for download at _</string>
-    <string name="about_je_intro14">If interested in further developing the code or to conduct a Jellow workshop at your place, please write to Professor Ravi Poovaiah at jellowcommunicator@gmail.com</string>
-    <string name="feedback_talkback_heading">On a scale of 1 to 5, please rate the following</string>
+    <string name="info">معلومات عامة</string>
+    <string name="about_je_intro1">جيليو هو تطبيق تواصل يستخدم الأيقونات لتمكين النطق ويمكن استخدامه من قبل الذين يتعلمون التحدث أو الذين لديهم صعوبة في الكلام. يمكن أيضًا استخدام جيليو من قبل الأطفال الصغار والمتعلمين المبتدئين لتعلم الكلمات والفئات المستخدمة بشكل متكرر في حياتهم اليومية. تساعد الأيقونات الملونة والجذابة في جيليو الأطفال على تطوير ارتباط بين الصور والتسميات النصية المقابلة لها.</string>
+    <string name="about_je_intro2">تم تطوير جيلو في مدرسة IDC للتصميم في المعهد الهندي للتكنولوجيا في مومباي.</string>
+    <string name="about_je_intro3">تم تصور وتطوير بروتوكول لغة عاطفية جديد (ELP) من قبل محققي المشروع لتعزيز قدرة جيلو اللغوية. يمثل ELP ستة أيقونات تعبيرية تشكل جوهر الواجهة.</string>
+    <string name="about_je_intro4">باستخدام هذه الأيقونات الأساسية، يمكن للطفل التواصل مع الآخرين بشأن ما يحبه وما لا يحبه واحتياجاته.</string>
+    <string name="about_je_intro5">تم تصميم جيلو ليكون مناسبًا للأطفال بواجهة سهلة التعلم.</string>
+    <string name="about_je_intro6">التطبيق مُحسَّن لأجهزة أندرويد اللوحية.</string>
+    <string name="about_je_intro7">يتوفر Jellow حاليًا باللغات الإنجليزية والهندية والمراثية والبنغالية والتاميلية والتيلجو والغوجاراتية والبنجابية والكانادا والمالايالامية والأوديا والميثيلي والأردية والآسامية والمرفيدي والنيبالية والعربية والإسبانية والألمانية والفرنسية.</string>
+    <string name="play_video">تشغيل الفيديو</string>
+    <string name="software_info">إصدار البرنامج: _</string>
+    <string name="about_je_intro8">الإصدار الحالي من جيلو هو _. التطبيق لا يزال قيد التطوير. لذلك، إذا كان لديك أي اقتراحات، يرجى تقديمها ضمن علامة تبويب "التعليقات" أو الكتابة إلينا على jellowcommunicator@gmail.com</string>
+    <string name="terms_of_use">شروط الاستخدام</string>
+    <string name="about_je_intro9">جيلو مرخص بموجب ترخيص المشاع الإبداعي - النسب - غير تجاري - المشاركة بالمثل 4.0 الدولي.</string>
+    <string name="about_je_intro10">يُنسب العمل على جيلو إلى المعهد الهندي للتكنولوجيا في بومباي.</string>
+    <string name="about_je_intro11">يمكن مشاركة وتبني المحتوى الموجود في هذا التطبيق، بما في ذلك الأيقونات، التخطيط، الهندسة المعمارية، الهوية البصرية، الترجمة، وأكواد البرامج، ولكن لا يمكن استخدامه لأغراض تجارية.</string>
+    <string name="about_je_intro12">عند استخدام المحتوى، نطلب منك الإقرار بالمعهد الهندي للتكنولوجيا في بومباي.</string>
+    <string name="about_je_intro13">يمكن تنزيل جيلو من الرابط _</string>
+    <string name="about_je_intro14">إذا كنت مهتمًا بتطوير الكود بشكل أكبر أو بإجراء ورشة عمل لجيلو في موقعك، يرجى الكتابة إلى البروفيسور رافي بووفايا على jellowcommunicator@gmail.com</string>
+    <string name="feedback_talkback_heading">على مقياس من 1 إلى 5، يرجى تقييم ما يلي</string>
 
-    <string name="langauge_correction_message">" '-' language is not setup correctly. Press '_' to fix the language.   Or you can switch to default language by pressing '$'."</string>
-    <string name="changeLanguage">Fix The Language</string>
-    <string name="dialog_default_language_option">Default Language</string>
-    <string name="txt_data_info">** The data above will only be stored on your device. We value your privacy hence it will not be used or uploaded to any server/cloud (including Jellow\'s or third party\'s).</string>
-    <string name="txt_view_privacy_policy">Read Jellow <![CDATA[<font color="#dc5252"><b><u>privacy policy.</u></b></font>]]></string>
-    <string name="privacy_link_info">I have read Jellow <![CDATA[<font color="#dc5252"><b><u>privacy policy.</u></b></font>]]></string>
-    <string name="privacy_link" translatable="false">http://jellow.org/privacypolicy/index.php</string>
-    <string name="consent_privacy">Please read and then check privacy policy consent.</string>
+    <string name="langauge_correction_message">""-"" اللغة غير مضبوطة بشكل صحيح. اضغط على ""_"" لإصلاح اللغة. أو يمكنك التبديل إلى اللغة الافتراضية بالضغط على ""$"".</string>
+    <string name="changeLanguage">إصلاح اللغة</string>
+    <string name="dialog_default_language_option">اللغة الافتراضية</string>
+    <string name="txt_data_info">** سيتم تخزين البيانات أعلاه فقط على جهازك. نحن نقدر خصوصيتك، لذا لن يتم استخدامها أو تحميلها على أي خادم أو سحابة (بما في ذلك خادم جيلو أو أي طرف ثالث).</string>
+    <string name="txt_view_privacy_policy">اقرأ <font color="#dc5252"><b><u>سياسة الخصوصية</u></b></font> الخاصة بجيلو.</string>
+    <string name="privacy_link_info">لقد قرأت لقد قرأت <font color="#dc5252"><b><u>سياسة الخصوصية</u></b></font> الخاصة بجيلو.</string>
+    <string name="consent_privacy">يرجى القراءة ثم تحديد الموافقة على سياسة الخصوصية.</string>
 
     <!--Content description-->
-    <string name="language_download_in_process">Language download in process</string>
-    <string name="child_s_name">child\'s name. Required field. **</string>
-    <string name="enter_home_address">enter home address</string>
-    <string name="enter_caregiver_s_contact_number">enter caregiver\'s contact number</string>
-    <string name="enter_caregiver_s_name">enter caregiver\'s name</string>
-    <string name="enter_caregiver_s_email_address">enter caregiver\'s email address</string>
-    <string name="category_cd">The image shows a screenshot of the home page of Jellow. The home page contains a central grid of 9 icons called category buttons that are arranged in 3 rows and 3 columns. The 9 category buttons are “Greet and feel”, “Daily activities”, “Eating”, “Fun”, “Learning”, “People”, “Places, “Time and weather”, and “Help”. Below the category buttons are 3 navigation buttons of “Back”, “Home” and “keyboard” arranged in that order at the bottom of the home screen. On the right and left sides of the central category icons are 3 expressive icons each. To the left of the central grid are 3 expressive buttons of “Like”, “Yes” and “More” arranged from top to bottom in that order. To the right of the central grid, are the remaining 3 expressive buttons of “Don’t like”, “No” and “Less” arranged from top to bottom. On the top right corner of the home screen is visible a settings icon. In this image the central grid of 9 icons has been highlighted with all other buttons faded out.</string>
-    <string name="expressive_cd">This image again shows the screenshot of the home page of Jellow. In this image, the 6 expressive buttons arranged as 3 each of either side of the central category buttons have been highlighted with all other buttons faded out. To the left of the central grid of category buttons, arranged from top to bottom are the 3 expressive buttons of “Like” represented by a “Smiley face” icon, “Yes” represented by a “check mark” icon, and “More” represented by a “Plus sign” icon. To the right of the category buttons, arranged from top to bottom are the expressive icons of “Don’t like” represented by a sad face” icon, “No” represented by the, “cross” icon and “Less” represented by the, “Minus sign” icon. Also labeled in the image are the 3 navigational buttons at the bottom of the screen. From left to right these are “Back”, “Home”, and “Keyboard”.</string>
-    <string name="pic4">This image has the home screen of Jellow with only 2 icons of “Eating” and “Yes” highlighted. The rest of the buttons are faded out. The image shows that to speak using Jellow, user has to first click on any category button, for instance, “Eating” and then on an expressive button, for example, “Yes”. In this way the user can speak using Jellow</string>
-    <string name="pic5">This image has the home screen of Jellow with only the icon for “Eating” highlighted. The rest of the buttons on the level 1 screen are faded out. The image shows a finger double-clicking on the, “Eating” icon to access sub-categories within this main category.</string>
-    <string name="pic6">This image shows a screenshot of Jellow sub-categories accessed by double-clicking on the, “Eating” icon as shown in the image above. The Level 2 sub-category icons visible in the central grid arranged in a 3 by 3 grid format are “Breakfast”, “Lunch/Dinner”, “Sweets”, “Snacks”, “Fruits”, “Drinks”, “Cutlery”, and “Add-ons”. The image shows the user’s finger double-clicking on “Breakfast” icon to access further sub-options.</string>
-    <string name="pic7">This image shows a screenshot of the Level 3 screen accessed by clicking on the, “Breakfast” sub-category icon within the main category of “Eating”. The central grid icons visible on this screen are “Bread”, “Cornflakes”, “Aaloo Poori”, “Eggs”, “Poha””, “Upma”, “Khichdi”, and “Idli”. In addition the expressive icons on either sides of the screen, the navigational buttons at the bottom of the screen, and settings icon on the top right corner of the screen are also visible.</string>
-    <string name="pic8">This image shows the home screen of Jellow with a drop-down at the top right corner of Jellow. This drop-down shows options of “Profile”, “About Jellow”, “Tutorial”, “Keyboard Control”, “Language”, “Settings”, “Reset preferences”, and “Feedback”. By clicking on any of these options the user can customize the app’s settings to their needs.</string>
-    <string name="pic9">This is a screenshot of a sequential activity within Jellow. The image specifically shows the, “Toilet” sequence that can be accessed within the, “Daily activities” main category. The screen shows icons of 3 sequential steps involved in going to the toilet. Step 1 is “Pulling pants down”, Step 2 is “Sit on toilet”, and Step 3 is “Wash bottom”. There are arrows between these individual icons to indicate the sequential nature of the process. Below the 3 sequence icons are 2 buttons of “Previous” and “Next”. The, “Previous” button is disabled since this is the first screen of steps within the, “Toilet” sequence. A finger is shown clicking on the, “Next” button in order to move to the next screen depicting the next set of steps within this sequence. The expressive buttons are not visible in this image. The navigational buttons of “Back”, “Home”, and “Keyboard” are visible at the bottom of the screen.</string>
-    <string name="pic10">This image is the same as the one shown above depicting the first 3 steps within the, “Toilet” sequence within “Daily activities”. However in this image, the user’s finger is seen clicking on the Step 2 icon corresponding to “Sit on toilet”. By clicking on this icon, the expressive buttons are now visible on either sides of the screen within the application.</string>
-    <string name="gtts1">The image is made up of 3 screenshots of the, “Text to speech output” and “Google TTS voice data” settings within a user’s device. In the first image corresponding to “Text-to-speech output”, there are 2 preferred engines visible, first, the, “Samsung Text-to-Speech engine” and second, the, “Google Text-to-Speech engine”. The user is seen to select the, “Google Text-to-Speech engine”as the first step.</string>
-    <string name="gtts2">The second image corresponds to the second step in this process where the user is seen to now click on the, “Gear” symbol corresponding to the, “Settings” of the, “Google Text-to-Speech engine”</string>
-    <string name="gtts3">The third image is the third step in this process where now the user is at the, “Google TTS voice data” screen. This screen provides multiple voice options including “French (France)”, “German (Germany)”, “Hindi (India)”, “Hungarian (Hungary)”, and “Indonesian (Indonesia)”. The, “Hindi (India) voice” option is highlighted and shows an option of “Voice set 1” with a size of 19MB that is available for download. The user’s finger is seen to click on the download icon for the voice set 1 for the, “Hindi (India)voice”.</string>
-    <string name="enter_child_s_name">Enter child\'s name</string>
-    <string name="caregiver_s_contact_number_other_than_this_device_s_sim_number">Caregiver\'s Contact number other than this device\'s sim number. Required field. **</string>
-    <string name="select_country_code">select country code</string>
-    <string name="caregiver_s_email_address">caregiver\'s email address. Required field. **</string>
-    <string name="like">like</string>
-    <string name="yes">Yes</string>
-    <string name="more">more</string>
-    <string name="dont_like">dont like</string>
-    <string name="no">No</string>
-    <string name="less">less</string>
-    <string name="back">back</string>
-    <string name="yes_btn">Yes</string>
-    <string name="enter_category">enter category</string>
-    <string name="intro_cd">The image shows a screenshot of the home page of Jellow. The home page contains a central grid of 9 icons called category buttons that are arranged in 3 rows and 3 columns. The 9 category buttons are “Greet and feel”, “Daily activities”, “Eating”, “Fun”, “Learning”, “People”, “Places, “Time and weather”, and “Help”. Below the category buttons are 3 navigation buttons of “Back”, “Home” and “keyboard” arranged in that order at the bottom of the home screen. On the right and left sides of the central category icons are 3 expressive icons each. To the left of the central grid are 3 expressive buttons of “Like”, “Yes” and “More” arranged from top to bottom in that order. To the right of the central grid, are the remaining 3 expressive buttons of “Don’t like”, “No” and “Less” arranged from top to bottom. On the top right corner of the home screen is visible a settings icon. In this image the central grid of 9 icons has been highlighted with all other buttons faded out.</string>
-    <string name="intro2_cd">This image has the home screen of Jellow with only 2 icons of “Eating” and “Yes” highlighted. The rest of the buttons are faded out. The image shows that to speak using Jellow, user has to first click on any category button, for instance, “Eating” and then on an expressive button, for example, “Yes”. In this way the user can speak using Jellow.</string>
-    <string name="intro3_cd">This image shows a screenshot of Jellow sub-categories within the, “Eating” category. The icons visible in the central grid arranged in a 3 by 3 grid format are “Breakfast”, “Lunch/Dinner”, “Sweets”, “Snacks”, “Fruits”, “Drinks”, “Cutlery”, and “Add-ons”. The image shows the user’s finger double-clicking on “Breakfast” icon to access further sub-options.</string>
-    <string name="intro4_cd">This image shows the home screen of Jellow with a drop-down at the top right corner of Jellow. This drop-down shows options of “Profile”, “About Jellow”, “Tutorial”, “Keyboard Control”, “Language”, “Settings”, “Reset preferences”, and “Feedback”. By clicking on any of these options the user can customize the app’s settings to their needs.</string>
-    <string name="intro5_cd">This image again shows the screenshot of the home page of Jellow. In this image, the 6 expressive buttons arranged as 3 each of either side of the central category buttons have been highlighted with all other buttons faded out. To the left of the central grid of category buttons, arranged from top to bottom are the 3 expressive buttons of “Like” represented by a “Smiley face” icon, “Yes” represented by a “check mark” icon, and “More” represented by a “Plus sign” icon. To the right of the category buttons, arranged from top to bottom are the expressive icons of “Don’t like” represented by a sad face” icon, “No” represented by the “cross” icon and “Less” represented by the “Minus sign” icon. Also labeled in the image are the 3 navigational buttons at the bottom of the screen. From left to right these are “Back”, “Home”, and “Keyboard”</string>
-    <string name="talkback_single_click">select</string>
-    <string name="talkback_dropdown_menu">access countries list</string>
-    <string name="next">next</string>
-    <string name="previous">previous</string>
-    <string name="edttxt_msg">Type here to speak</string>
-    <string name="keyboard_open">open keyboard</string>
-    <string name="child_s_name_dialog_btn">My name</string>
-    <string name="caregiverName_dialog_btn">Caregiver\'s name</string>
-    <string name="caregiver_s_email_address_dialog_btn">Caregiver\'s email address</string>
-    <string name="homeAddress_dialog_btn">My home address</string>
-    <string name="caregiver_s_contact_number_dialog_btn">Caregiver\'s contact number</string>
-    <string name="bloodGroup_dialog_btn">My blood group</string>
-    <string name="seekbar_speed_cd">Please use your device’s volume buttons to change speech speed.</string>
-    <string name="seekbar_pitch_cd">Please use your device’s volume buttons to change voice pitch</string>
-    <string name="seekbar_volume_cd">Please use your device’s volume buttons to change speech volume</string>
+    <string name="language_download_in_process">جاري تنزيل اللغة</string>
+    <string name="child_s_name">اسم الطفل. حقل مطلوب **</string>
+    <string name="enter_home_address">أدخل عنوان المنزل</string>
+    <string name="enter_caregiver_s_contact_number">أدخل رقم اتصال مقدم الرعاية</string>
+    <string name="enter_caregiver_s_name">أدخل اسم مقدم الرعاية</string>
+    <string name="enter_caregiver_s_email_address">أدخل البريد الإلكتروني لمقدم الرعاية</string>
+    <string name="category_cd">تعرض الصورة لقطة شاشة للصفحة الرئيسية لتطبيق جيلو. تحتوي الصفحة الرئيسية على شبكة مركزية من 9 أيقونات تسمى أزرار الفئات، مرتبة في 3 صفوف و3 أعمدة. أزرار الفئات التسعة هي "التحية والمشاعر"، "الأنشطة اليومية"، "الأكل"، "المرح"، "التعلم"، "الأشخاص"، "الأماكن"، "الوقت والطقس"، و"المساعدة". أسفل أزرار الفئات، هناك 3 أزرار تنقل: "رجوع"، "الصفحة الرئيسية"، و"لوحة المفاتيح"، مرتبة بهذا الترتيب في أسفل الشاشة الرئيسية. على يمين ويسار الأيقونات الفئوية المركزية، هناك 3 أيقونات تعبيرية على كل جانب. على يسار الشبكة المركزية، توجد 3 أزرار تعبيرية وهي: "أحب"، "نعم"، و"المزيد"، مرتبة من الأعلى إلى الأسفل بهذا الترتيب. على يمين الشبكة المركزية، توجد الأزرار التعبيرية المتبقية: "لا أحب"، "لا"، و"أقل"، مرتبة من الأعلى إلى الأسفل. في الزاوية اليمنى العليا من الشاشة الرئيسية، يظهر رمز الإعدادات. في هذه الصورة، تم تمييز الشبكة المركزية المكونة من 9 أيقونات بينما تم تلاشي جميع الأزرار الأخرى.</string>
+    <string name="expressive_cd">"هذه الصورة تعرض مرة أخرى لقطة شاشة للصفحة الرئيسية لتطبيق جيلو. في هذه الصورة، تم تمييز 6 أزرار تعبيرية مرتبة بثلاثة على كل جانب من أزرار الفئات المركزية، بينما تم تعتيم الأزرار الأخرى. على يسار شبكة الفئات المركزية، من الأعلى إلى الأسفل، هناك 3 أزرار تعبيرية: ""أحب"" (وجه مبتسم)، ""نعم"" (علامة صح)، و ""المزيد"" (علامة زائد). على يمين أزرار الفئات، مرتبة من الأعلى إلى الأسفل، هناك الأيقونات التعبيرية: ""لا يعجبني"" (وجه حزين)، ""لا"" (علامة ×)، و""أقل"" (علامة ناقص). كما هو موضح في الصورة، هناك 3 أزرار للتنقل في أسفل الشاشة: ""رجوع""، ""الرئيسية""، و""لوحة المفاتيح""</string>
+    <string name="pic4">هذه الصورة تعرض الشاشة الرئيسية لتطبيق جيلو مع تمييز أيقونتين فقط: "الأكل" و"نعم". باقي الأزرار غير واضحة. تُظهر الصورة أنه للتحدث باستخدام جيلو، يجب على المستخدم النقر أولاً على أي زر من الفئات، على سبيل المثال، زر "الأكل"، ثم النقر على زر تعبيري، مثل "نعم". وبهذه الطريقة، يمكن للمستخدم التحدث باستخدام جيلو.</string>
+    <string name="pic5">هذه الصورة تعرض الشاشة الرئيسية لتطبيق **جيلو** مع تمييز أيقونة "الأكل" فقط. باقي الأزرار على شاشة المستوى 1 غير واضحة. تُظهر الصورة إصبعًا يقوم بالنقر المزدوج على أيقونة "الأكل" للوصول إلى الفئات الفرعية داخل هذه الفئة الرئيسية.</string>
+    <string name="pic6">تُظهر هذه الصورة شاشة الفئات الفرعية في **جيلو** التي تم الوصول إليها بالنقر المزدوج على أيقونة "الأكل". تعرض الشاشة أيقونات الفئات الفرعية مرتبة في شبكة 3×3، وتشمل: "الإفطار"، "الغداء/العشاء"، "الحلويات"، "الوجبات الخفيفة"، "الفواكه"، "المشروبات"، "أدوات الطعام"، و"الإضافات". تُظهر الصورة إصبع المستخدم ينقر مزدوجًا على أيقونة "الإفطار" للوصول إلى المزيد من الخيارات.</string>
+    <string name="pic7">تُظهر هذه الصورة لقطة شاشة لمستوى 3 في **جيلو**، والتي تم الوصول إليها عبر النقر على أيقونة الفئة الفرعية "الإفطار" ضمن الفئة الرئيسية "الأكل". تشمل الأيقونات الظاهرة في الشبكة الوسطى: "خبز"، "رقائق الذرة"، "آلو بوري"، "بيض"، "بوهّا"، "أوبما"، "خيشدي"، و"إدلي". بالإضافة إلى ذلك، تظهر أيقونات التعبير على جانبي الشاشة، وأزرار التنقل في الأسفل، وأيقونة الإعدادات في الزاوية العلوية اليمنى.</string>
+    <string name="pic8">تُظهر هذه الصورة الشاشة الرئيسية لتطبيق **جيلو** مع قائمة منسدلة في الزاوية العلوية اليمنى. تحتوي هذه القائمة على خيارات مثل: "الملف الشخصي"، "عن جيلو"، "الدليل الإرشادي"، "التحكم في لوحة المفاتيح"، "اللغة"، "الإعدادات"، "إعادة تعيين التفضيلات"، و"التعليقات". من خلال النقر على أي من هذه الخيارات، يمكن للمستخدم تخصيص إعدادات التطبيق وفقًا لاحتياجاته.</string>
+    <string name="pic9">"هذه لقطة شاشة لنشاط متسلسل داخل تطبيق **جيلو**. تُظهر الصورة تحديدًا تسلسل ""دورة المياه"" الذي يمكن الوصول إليه ضمن الفئة الرئيسية ""الأنشطة اليومية"". تعرض الشاشة ثلاثة أيقونات تمثل الخطوات المتسلسلة للذهاب إلى دورة المياه.- **الخطوة 1**: ""سحب البنطال للأسفل""- **الخطوة 2**: ""الجلوس على المرحاض""- **الخطوة 3**: ""غسل الجزء السفلي""ك أسهم بين الأيقونات لتوضيح التسلسل التدريجي للعملية. أسفل الأيقونات، يوجد زران: **""السابق""** و**""التالي""**. زر ""السابق"" غير نشط لأن هذه هي الشاشة الأولى ضمن تسلسل ""دورة المياه"". تظهر إصبع المستخدم وهي تنقر على زر **""التالي""** للانتقال إلى الشاشة التالية التي تعرض بقية الخطوات.أزرار التعبير غير مرئية في هذه الصورة، ولكن أزرار التنقل **""رجوع""، ""الرئيسية""، و""لوحة المفاتيح""** تظهر في أسفل الشاشة."</string>
+    <string name="pic10">هذه الصورة تشبه الصورة السابقة التي تعرض الخطوات الثلاث الأولى ضمن تسلسل "دورة المياه" داخل فئة "الأنشطة اليومية". ومع ذلك، في هذه الصورة، يظهر إصبع المستخدم وهو ينقر على أيقونة "الجلوس على المرحاض" الخاصة بالخطوة الثانية.</string>
+    <string name="gtts1">"هذه الصورة تتكون من ثلاثة لقطات شاشة تُظهر إعدادات ""تحويل النص إلى كلام"" و ""بيانات صوت Google TTS"" داخل جهاز المستخدم.في الصورة الأولى، ضمن إعدادات ""تحويل النص إلى كلام""، يظهر محركان مفضلان:محرك Samsung لتحويل النص إلى كلام محرك Google لتحويل النص إلى كلام يُظهر الصورة أن المستخدم يقوم بتحديد محرك Google لتحويل النص إلى كلام كخطوة أولى.</string>
+    <string name="gtts2">تُظهر الصورة الثانية الخطوة الثانية في هذه العملية، حيث يقوم المستخدم الآن بالنقر على **رمز الترس** الخاص بـ **إعدادات محرك Google لتحويل النص إلى كلام**.</string>
+    <string name="gtts3">الصورة الثالثة تُظهر الخطوة الثالثة في هذه العملية، حيث يكون المستخدم الآن في شاشة بيانات صوت Google TTS. تحتوي هذه الشاشة على عدة خيارات صوتية، مثل الفرنسية (فرنسا)، الألمانية (ألمانيا)، الهندية (الهند)، الهنغارية (هنغاريا)، والإندونيسية (إندونيسيا). تم تمييز خيار الهندية (الهند)، ويعرض مجموعة الصوت 1 بحجم 19 ميغابايت المتاحة للتنزيل. يظهر إصبع المستخدم وهو ينقر على رمز التنزيل الخاص بمجموعة الصوت 1 للغة الهندية (الهند).</string>
+    <string name="enter_child_s_name">أدخل اسم الطفل</string>
+    <string name="caregiver_s_contact_number_other_than_this_device_s_sim_number">رقم اتصال مقدم الرعاية غير رقم شريحة هذا الجهاز. حقل مطلوب. **</string>
+    <string name="select_country_code">اختر رمز البلد</string>
+    <string name="caregiver_s_email_address">مطلوب عنوان البريد الإلكتروني لمقدم الرعاية. **</string>
+    <string name="like">يعجبني</string>
+    <string name="yes">نعم</string>
+    <string name="more">أكثر</string>
+    <string name="dont_like">لا يعجبني</string>
+    <string name="no">لا</string>
+    <string name="less">أقل</string>
+    <string name="back">رجوع</string>
+    <string name="yes_btn">نعم (Yes)</string>
+    <string name="enter_category">أدخل الفئة</string>
+    <string name="intro_cd">تعرض هذه الصورة لقطة شاشة للصفحة الرئيسية لتطبيق جيلو. تحتوي الصفحة الرئيسية على شبكة مركزية مكونة من 9 أيقونات تسمى أزرار الفئات، مرتبة في 3 صفوف و3 أعمدة. أزرار الفئات التسعة هي: ""التحية والمشاعر""، ""الأنشطة اليومية""، ""الأكل""، ""المرح""، ""التعلم""، ""الأشخاص""، ""الأماكن""، ""الوقت والطقس""، و""المساعدة"".أسفل أزرار الفئات، توجد 3 أزرار تنقل: ""الرجوع""، ""الرئيسية""، و""لوحة المفاتيح""، مرتبة بهذا الترتيب في أسفل الشاشة الرئيسية.على جانبي الشبكة المركزية، يوجد 3 أزرار تعبيرية على كل جانب. على الجانب الأيسر، هناك 3 أزرار تعبيرية مرتبة من الأعلى إلى الأسفل: ""أحب""، ""نعم""، و""المزيد"". وعلى الجانب الأيمن، هناك 3 أزرار تعبيرية مرتبة من الأعلى إلى الأسفل: ""لا أحب""، ""لا""، و""أقل"".في الزاوية العلوية اليمنى من الشاشة الرئيسية، يوجد أيقونة الإعدادات. في هذه الصورة، تم تمييز الشبكة المركزية التي تحتوي على 9 أيقونات، بينما تم جعل باقي الأزرار باهتة.</string>
+    <string name="intro2_cd">تُظهر هذه الصورة الشاشة الرئيسية لتطبيق جيلو حيث تم تمييز أيقونتين فقط: ""الأكل"" و""نعم""، بينما تم جعل باقي الأزرار باهتة.لاستخدام جيلو في التحدث، يجب على المستخدم أولاً النقر على أي زر من الفئات، على سبيل المثال، زر ""الأكل""، ثم النقر على زر تعبيري، مثل زر ""نعم"". بهذه الطريقة، يمكن للمستخدم التحدث باستخدام جيلو.</string>
+    <string name="intro3_cd">تُظهر هذه الصورة لقطة شاشة للفئات الفرعية داخل فئة ""الأكل"" في تطبيق جيلو.تظهر الأيقونات في الشبكة المركزية مرتبة في تنسيق 3 × 3، وهي: ""الفطور""، ""الغداء/العشاء""، ""الحلويات""، ""الوجبات الخفيفة""، ""الفواكه""، ""المشروبات""، ""أدوات المائدة""، و""الإضافات"".توضح الصورة إصبع المستخدم وهو ينقر نقرتين مزدوجتين على أيقونة ""الفطور"" للوصول إلى المزيد من الخيارات الفرعية.</string>
+    <string name="intro4_cd">تُظهر هذه الصورة الشاشة الرئيسية لتطبيق جيلو، حيث يوجد قائمة منسدلة في الزاوية العلوية اليمنى من التطبيق.تتضمن هذه القائمة المنسدلة الخيارات التالية: ""الملف الشخصي""، ""حول جيلو""، ""الدليل التعليمي""، ""التحكم في لوحة المفاتيح""، ""اللغة""، ""الإعدادات""، ""إعادة تعيين التفضيلات""، و""التعليقات"".يمكن للمستخدم تخصيص إعدادات التطبيق وفقًا لاحتياجاته من خلال النقر على أي من هذه الخيارات.</string>
+    <string name="intro5_cd">"تُظهر هذه الصورة مرة أخرى لقطة شاشة للصفحة الرئيسية لتطبيق جيلو. في هذه الصورة، تم تسليط الضوء على 6 أزرار تعبيرية مرتبة بثلاثة على كل جانب من أزرار الفئات المركزية، بينما تم تظليل الأزرار الأخرى.على الجانب الأيسر من شبكة أزرار الفئات، تم ترتيب 3 أزرار تعبيرية من الأعلى إلى الأسفل:""أعجبني""، ممثلًا بأيقونة ""وجه مبتسم"".""نعم""، ممثلًا بأيقونة ""علامة صح"".""المزيد""، ممثلًا بأيقونة ""علامة زائد"".على الجانب الأيمن من شبكة أزرار الفئات، تم ترتيب 3 أزرار تعبيرية أخرى من الأعلى إلى الأسفل:""لا يعجبني""، ممثلًا بأيقونة ""وجه حزين"".""لا""، ممثلًا بأيقونة ""علامة ×"".""أقل""، ممثلًا بأيقونة ""علامة ناقص"".كما تم تمييز 3 أزرار تنقل في أسفل الشاشة، وهي من اليسار إلى اليمين: ""رجوع""، ""الرئيسية""، و""لوحة المفاتيح""</string>
+    <string name="talkback_single_click">اختيار</string>
+    <string name="talkback_dropdown_menu">اضغط لعرض قائمة الدول</string>
+    <string name="next">التالي</string>
+    <string name="previous">السابق</string>
+    <string name="edttxt_msg">اكتب هنا للتحدث</string>
+    <string name="keyboard_open">فتح لوحة المفاتيح</string>
+    <string name="child_s_name_dialog_btn">اسمي</string>
+    <string name="caregiverName_dialog_btn">اسم مقدم الرعاية</string>
+    <string name="caregiver_s_email_address_dialog_btn">عنوان البريد الإلكتروني لمقدم الرعاية</string>
+    <string name="homeAddress_dialog_btn">عنوان منزلي</string>
+    <string name="caregiver_s_contact_number_dialog_btn">رقم الاتصال بمقدم الرعاية</string>
+    <string name="bloodGroup_dialog_btn">فصيلة دمي</string>
+    <string name="seekbar_speed_cd">يرجى استخدام أزرار مستوى الصوت بجهازك لتغيير سرعة الكلام.</string>
+    <string name="seekbar_pitch_cd">يرجى استخدام أزرار مستوى الصوت بجهازك لتغيير نغمة الصوت.</string>
+    <string name="seekbar_volume_cd">يرجى استخدام أزرار مستوى الصوت بجهازك لتغيير مستوى الصوت.</string>
     <!--end content description-->
 
-    <string name="txt_tts_stting">TTS SETTINGS</string>
-    <string name="change_language_tts_wifi">Step 1: Go to settings of Google TTS and turn off \'Use Wi-Fi only\' by tapping below \'TTS SETTINGS\' button. If option is already disabled, please skip this step.</string>
-    <string name="error_in_registration" translatable="false">Registration process is failed, please retry.</string>
-    <string name="lang_setting_option1_cd">The image below shows the 3 steps involved in setting up the Google text-to-speech engine that is used by Jellow. The image is made up of 3 screenshots of the, “Text to speech output” and “Google TTS settings” within a user’s device. In the first image corresponding to “Text-to-speech output”, there are 2 preferred engines visible, first, the, “Samsung Text-to-Speech engine” and second, the, “Google Text-to-Speech engine”. The user is seen to select the, “Google Text-to-Speech engine” as the first step.</string>
-    <string name="lang_setting_option2_cd">The second image corresponds to the second step in this process where the user is seen to now click on the, “Gear” symbol corresponding to the, “Settings” of the, “Google Text-to-Speech engine”</string>
-    <string name="lang_setting_option3_cd">The third image is the third step in this process where now the user is at the, “Google TTS options” screen. The second item on this screen which is a toggle switch for “Use Wi-Fi only” has been highlighted in this image. The user is asked to turn off or disable this switch in this step.”</string>
-    <string name="retry" translatable="false">RETRY</string>
-    <string name="close">close dialog</string>
-    <string name="access_dialog_title">dialog with options.</string>
+    <string name="txt_tts_stting">إعدادات تحويل النص إلى كلام (TTS SETTINGS)</string>
+    <string name="change_language_tts_wifi">الخطوة 1: انتقل إلى إعدادات Google TTS وقم بإيقاف تشغيل "استخدام Wi-Fi فقط" عن طريق النقر على زر "إعدادات تحويل النص إلى كلام" أدناه. إذا كان هذا الخيار معطلاً بالفعل، يرجى تخطي هذه الخطوة.</string>
+    <string name="lang_setting_option1_cd">تُظهر الصورة أدناه الخطوات الثلاث المطلوبة لإعداد محرك تحويل النص إلى كلام من Google، والذي يستخدمه تطبيق جيلو. تتكون الصورة من ثلاث لقطات شاشة من "إخراج النص إلى كلام" و "إعدادات Google TTS" داخل جهاز المستخدم. في الصورة الأولى المتعلقة بـ "إخراج النص إلى كلام"، يظهر محركان مفضلان: الأول هو "محرك سامسونج لتحويل النص إلى كلام"، والثاني هو "محرك جوجل لتحويل النص إلى كلام". يُظهر المستخدم وهو يختار "محرك جوجل لتحويل النص إلى كلام" كخطوة أولى.</string>
+    <string name="lang_setting_option2_cd">تُظهر الصورة الثانية الخطوة الثانية في هذه العملية، حيث يظهر المستخدم وهو ينقر الآن على رمز "التروس" (الإعدادات) الخاص بـ "محرك جوجل لتحويل النص إلى كلام".</string>
+    <string name="lang_setting_option3_cd">تُظهر الصورة الثالثة الخطوة الثالثة في هذه العملية، حيث يكون المستخدم الآن على شاشة "خيارات جوجل لتحويل النص إلى كلام". في هذه الشاشة، تم تمييز العنصر الثاني، وهو مفتاح التبديل لخيار "استخدام Wi-Fi فقط". يُطلب من المستخدم في هذه الخطوة إيقاف أو تعطيل هذا المفتاح.</string>
+    <string name="close">إغلاق الحوار</string>
+    <string name="access_dialog_title">نافذة حوار تحتوي على خيارات</string>
 
-    <string name="acc_lang_marathi">Marathi (India)</string>
-    <string name="acc_lang_hindi">Hindi (India)</string>
-    <string name="acc_lang_bengali">Bengali (India)</string>
-    <string name="acc_lang_bengali_bd">Bengali (Bangladesh)</string>
-    <string name="acc_lang_eng_in">English (India)</string>
-    <string name="acc_lang_eng_gb">English (United Kingdom)</string>
-    <string name="acc_lang_eng_us">English (United States)</string>
-    <string name="acc_lang_eng_au">English (Australia)</string>
-    <string name="acc_lang_eng_ng">English (Nigeria)</string>
-    <string name="acc_lang_span_span">Spanish (Spain)</string>
-    <string name="acc_lang_tamil_in">Tamil (India)</string>
-    <string name="acc_lang_telugu_in">Telugu (India)</string>
-    <string name="acc_lang_german_ger">German (Deutschland)</string>
-    <string name="acc_lang_gujarati_in">Gujarati (India)</string>
-    <string name="acc_lang_punjabi_in">Punjabi (India)</string>
-    <string name="acc_lang_kannada_in">Kannada (India)</string>
-    <string name="acc_lang_malayalam_in">Malayalam (India)</string>
-    <string name="acc_lang_oriya_in">Odia (India)</string>
-    <string name="acc_lang_maithili_in">Maithili (India)</string>
-    <string name="acc_lang_urdu_in">Urdu</string>
-    <string name="acc_lang_assamese_in">Assamese (India)</string>
+    <string name="acc_lang_marathi">الماراثية (الهند)</string>
+    <string name="acc_lang_hindi">الهندية (الهند)</string>
+    <string name="acc_lang_bengali">البنغالية (الهند)</string>
+    <string name="acc_lang_bengali_bd">البنغالية (بنغلاديش)</string>
+    <string name="acc_lang_eng_in">الإنجليزية (الهند)</string>
+    <string name="acc_lang_eng_gb">الإنجليزية (المملكة المتحدة)</string>
+    <string name="acc_lang_eng_us">الإنجليزية (الولايات المتحدة)</string>
+    <string name="acc_lang_eng_au">الإنجليزية (أستراليا)</string>
+    <string name="acc_lang_eng_ng">الإنجليزية (نيجيريا)</string>
+    <string name="acc_lang_span_span">الإسبانية (إسبانيا)</string>
+    <string name="acc_lang_tamil_in">التاميلية (الهند)</string>
+    <string name="acc_lang_telugu_in">التيلغوية (الهند)</string>
+    <string name="acc_lang_german_ger">الألمانية (ألمانيا)</string>
+    <string name="acc_lang_gujarati_in">الغوجاراتية (الهند)</string>
+    <string name="acc_lang_punjabi_in">البنجابية (الهند)</string>
+    <string name="acc_lang_kannada_in">الكانادا (الهند)</string>
+    <string name="acc_lang_malayalam_in">المالايالامية (الهند)</string>
+    <string name="acc_lang_oriya_in">أوديا (الهند)</string>
+    <string name="acc_lang_maithili_in">مايثيلي (الهند)</string>
+    <string name="acc_lang_urdu_in">الأردية</string>
+    <string name="acc_lang_assamese_in">الآسامية (الهند)</string>
+    <string name="acc_lang_arabic">عربي</string>
+    <string name="acc_lang_marvadi">مارواڑی (بھارت)</string>
+    <string name="acc_lang_nepal">النيبالية (نيبال)</string>
 
-    <string name="_1_icon">1 icon</string>
-    <string name="_2_icons">2 icons</string>
-    <string name="_3_icons">3 icons</string>
-    <string name="_4_icons">4 icons</string>
-    <string name="_9_icons">9 icons</string>
-    <string name="number_of_icons_per_screen">Number of icons per screen</string>
+    <string name="_1_icon">١ أيقونة</string>
+    <string name="_2_icons">٢ أيقونتان</string>
+    <string name="_3_icons">٣ أيقونات</string>
+    <string name="_4_icons">٤ أيقونات</string>
+    <string name="_9_icons">٩ أيقونات</string>
+    <string name="number_of_icons_per_screen">عدد الأيقونات لكل شاشة</string>
 
-    <string name="level_1_screen">Level one screen</string>
-    <string name="level_2_screen">Level two screen</string>
-    <string name="level_3_screen">Level three screen</string>
-    <string name="sequence_screen">Activity sequence</string>
-    <string name="close_searchbar">Close search bar</string>
+    <string name="level_1_screen">الشاشة المستوى الأول</string>
+    <string name="level_2_screen">الشاشة المستوى الثاني</string>
+    <string name="level_3_screen">الشاشة المستوى الثالث</string>
+    <string name="sequence_screen">تسلسل النشاط</string>
+    <string name="close_searchbar">إغلاق شريط البحث</string>
 
 
-    <string name="txt_accessibility_setting">Accessibility Setting</string>
-    <string name="visual_access_title">Visual Accessibility:</string>
-    <string name="visual_access_info_one">The Visual accessibility feature of Jellow now allows users with additional visual difficulties including low vision or blindness to use Jellow and communicate effectively with others.</string>
-    <string name="visual_access_info_two">It utilizes the \'Talk back\' feature on the Android smartphone to help navigate through the application. </string>
-    <string name="visual_access_info_three">With \'Talk back\' switched on in the user\'s device, the user will now be able to get audio input describing everything they touch on the screen.</string>
-    <string name="visual_access_info_four">The user can also assign custom gestures or use the default gestures of \'Talk back\' as they interact with Jellow.</string>
-    <string name="visual_access_info_five">For example, a right swipe gesture will allow the user to sequentially scroll through icons on the screen. Similarly, double tapping anywhere on the screen will allow the user to select an icon of their choice.</string>
-    <string name="switch_access_title">Switch Accessibility:</string>
-    <string name="switch_access_info_one">Switch accessibility makes navigation in the app easy for people with motor disabilities. The feature allows navigation using one or two switches.</string>
-    <string name="switch_access_info_two">To enable this feature the user has to turn on the \"switch access\" in the accessibility category in the phone setting.</string>
-    <string name="switch_access_info_three">Samsung users can find the switch access in  “dexterity and interaction” option in the accessibility category in the phone setting.</string>
-    <string name="switch_access_info_four">To use switch accessibility with one switch - Open settings -> Go to accessibility -> Turn on the switch access -> Choose switches either USB or Bluetooth switches -> Go to settings and Choose number of switches as one switch.</string>
-    <string name="switch_access_info_five">To use switch accessibility with two switches - Open settings -> Go to accessibility -> Turn on the switch access -> Choose switches either USB or Bluetooth switches -> Go to settings and Choose number of switches as two switches, then Choose the type of scanning, Click on next and Assign the action to both the switches and complete the process by testing the switches.</string>
-    <string name="share_string" translatable="false"> Hi! To get Jellow app follow the link: <a href="www.jellow.org/share">http://jellow.org/share</a></string>
+    <string name="txt_accessibility_setting">إعدادات إمكانية الوصول</string>
+    <string name="visual_access_title">إمكانية الوصول البصرية:</string>
+    <string name="visual_access_info_one">تتيح ميزة إمكانية الوصول البصرية في جيلو الآن للمستخدمين الذين يعانون من صعوبات بصرية إضافية، بما في ذلك ضعف البصر أو العمى، استخدام جيلو والتواصل بفعالية مع الآخرين.</string>
+    <string name="visual_access_info_two">إنها تستخدم ميزة "التحدث بالصوت" على هاتف أندرويد الذكي للمساعدة في التنقل عبر التطبيق.</string>
+    <string name="visual_access_info_three">مع تفعيل ميزة "التحدث بالصوت" في جهاز المستخدم، سيتمكن المستخدم الآن من الحصول على إدخال صوتي يصف كل ما يلمسه على الشاشة. يمكن للمستخدم استخدام الإيماءات الافتراضية لـ "التحدث بالصوت" أو اختيار إيماءاته المفضلة.</string>
+    <string name="visual_access_info_four">"يمكن للمستخدم أيضًا تعيين إيماءات مخصصة أو استخدام الإيماءات الافتراضية لميزة ""التحدث بالصوت"" أثناء التفاعل مع جيلو.لى سبيل المثال – يمكن للمستخدم التمرير نحو اليمين للتنقل بشكل تسلسلي عبر الخيارات الموجودة على الشاشة."</string>
+    <string name="visual_access_info_five">على سبيل المثال، ستسمح إيماءة التمرير نحو اليمين للمستخدم بالتمرير عبر الأيقونات على الشاشة بشكل متسلسل.وبالمثل، سيؤدي النقر المزدوج في أي مكان على الشاشة إلى تمكين المستخدم من تحديد الأيقونة التي يختارها.</string>
+    <string name="switch_access_title">تبديل إمكانية الوصول:</string>
+    <string name="switch_access_info_one">تُمكّن ميزة "تبديل إمكانية الوصول" الأشخاص ذوي الإعاقات الحركية من التنقل بسهولة داخل التطبيق. تتيح هذه الميزة للمستخدمين التنقل باستخدام مفتاح واحد أو مفتاحين.</string>
+    <string name="switch_access_info_two">لتفعيل هذه الميزة، يجب على المستخدم تشغيل "تبديل الوصول" في فئة إمكانية الوصول ضمن إعدادات الهاتف.</string>
+    <string name="switch_access_info_three">يمكن لمستخدمي سامسونج العثور على ميزة "تبديل الوصول" في خيار "البراعة والتفاعل" ضمن فئة إمكانية الوصول في إعدادات الهاتف.</string>
+    <string name="switch_access_info_four">لاستخدام ميزة ""تبديل الوصول"" بمفتاح واحد:افتح الإعدادات -> انتقل إلى إمكانية الوصول -> قم بتشغيل ""تبديل الوصول"" -> اختر المفاتيح، إما USB أو Bluetooth -> انتقل إلى الإعدادات واختر عدد المفاتيح كمفتاح واحد.</string>
+    <string name="switch_access_info_five">لاستخدام ميزة ""تبديل الوصول"" بمفتاحين:افتح الإعدادات -> انتقل إلى إمكانية الوصول -> قم بتشغيل ""تبديل الوصول"" -> اختر المفاتيح، إما USB أو Bluetooth -> انتقل إلى الإعدادات واختر عدد المفاتيح كمفتاحين. ثم اختر نوع الفحص، وانقر على ""التالي""، وقم بتعيين الإجراءات لكل من المفتاحين، وأكمل العملية عن طريق اختبار المفاتيح.</string>
 
     <!--Language package update strings are here-->
-    <string name="lpu_start_update">Started language package update</string>
-    <string name="lpu_parse_update">Processing the downloaded data</string>
-    <string name="lpu_download_icons">Downloading icon files</string>
-    <string name="lpu_download_verbiage">Downloading speech files</string>
-    <string name="lpu_update_success">Language pack successfully updated.</string>
-    <string name="lpu_toast_update_success">Update successful.</string>
-    <string name="lpu_toast_check_success">Checking update success.</string>
-    <string name="lpu_no_updates_found">No updates found.</string>
-    <string name="lpu_update_error">Error completing update, please try again.</string>
-    <string name="lpu_toast_check_error">Language package update failed.</string>
-    <string name="update_now">Update now</string>
-    <string name="update_later">Later</string>
-    <string name="update_message">New content is available in the app. Do you want to update now?</string>
-    <string name="app_update_message">The new version of the Jellow app is available. Do you want to update now?</string>
+    <string name="lpu_start_update">تم بدء تحديث حزمة اللغة</string>
+    <string name="lpu_parse_update">يتم معالجة البيانات التي تم تنزيلها</string>
+    <string name="lpu_download_icons">يتم تنزيل ملفات الأيقونات</string>
+    <string name="lpu_download_verbiage">يتم تنزيل ملفات الصوت</string>
+    <string name="lpu_update_success">تم تحديث حزمة اللغة بنجاح!</string>
+    <string name="lpu_toast_update_success">تم التحديث بنجاح!</string>
+    <string name="lpu_toast_check_success"> يتم التحقق من نجاح التحديث</string>
+    <string name="lpu_no_updates_found">لم يتم العثور على تحديثات!</string>
+    <string name="lpu_update_error">حدث خطأ أثناء إكمال التحديث، يرجى المحاولة مرة أخرى.</string>
+    <string name="lpu_toast_check_error">فشل تحديث حزمة اللغة!</string>
+    <string name="update_now">حدث الآن</string>
+    <string name="update_later">لاحقًا</string>
+    <string name="update_message">محتوى جديد متاح في التطبيق. هل تريد التحديث الآن؟</string>
+    <string name="app_update_message">الإصدار الجديد من تطبيق جيلو متاح. هل تريد التحديث الآن؟</string>
 
+    <string name="trash_the_board">هل تريد نقل اللوحة \"-\" إلى سلة المهملات؟</string>
+    <string name="trash_board_placeholder">لا يتم تدمير أي لوحات.</string>
+    <string name="delete_board">هل تريد حذف اللوحة \"-\" بشكل دائم؟</string>
+    <string name="icon_select_exit_warning">سيتم فقدان اختيارك</string>
+    <string name="current_board">تم إضافة الأيقونات</string>
+    <string name="place_holder_text">لم يتم تحديد أي أيقونات حتى الآن. يرجى تحديد الأيقونات من قائمة الفئات على اليسار.</string>
+    <string name="board_name">أضف اسم اللوحة هنا</string>
+    <string name="select_all">تحديد الكل</string>
+    <string name="reset">إعادة تعيين</string>
+    <string name="select_icon_title">أضف أيقونات</string>
+    <string name="add_category">أضف فئة</string>
+    <string name="add_icon">أضف أيقونة</string>
+    <string name="addicon_title">إضافة/تعديل الأيقونات</string>
+    <string name="i_like">أنا أحب</string>
+    <string name="really_like">أنا أحبه حقًا</string>
+    <string name="i_want">أنا أريد</string>
+    <string name="really_want">أنا أريده حقًا</string>
+    <string name="want_more">أريد المزيد</string>
+    <string name="really_want_more">أريد المزيد حقًا</string>
+    <string name="i_dont_like">لا أحب</string>
+    <string name="really_dont_like">لا أحبه حقًا</string>
+    <string name="dont_want">لا أريد</string>
+    <string name="really_dont_want">لا أريده حقًا</string>
+    <string name="dont_want_more">لا أريد المزيد</string>
+    <string name="really_dont_want_more">لا أريد المزيد حقًا</string>
+    <string name="please_enter_name">الرجاء إدخال الاسم</string>
+    <string name="photos">صور</string>
+    <string name="library">مكتبة جيلو</string>
+    <string name="icon_name">اسم الأيقونة</string>
+    <string name="add_board">أضف لوحة</string>
+    <string name="custom_icon">أيقونة مخصصة</string>
+    <string name="cancel">إلغاء</string>
+    <string name="database_not_created_info">يتم إنشاء قاعدة بيانات للغة.</string>
+    <string name="icon_already_present">الأيقونة محددة بالفعل</string>
+    <string name="camera_missing">لم يتم العثور على الكاميرا</string>
+    <string name="no_icon_warning">يرجى إضافة أيقونة واحدة على الأقل للمتابعة.</string>
+    <string name="reposition_text">اضغط مع الاستمرار على أي أيقونة لإعادة تموضعها.</string>
+    <string name="reposition_complete_msg">تم حفظ الموضع الجديد للأيقونة.</string>
+    <string name="please_select_icon">يرجى تحديد صورة أولاً</string>
+    <string name="txtContinue">متابعة</string>
+    <string name="expressive_heading1">اضغط</string>
+    <string name="expressive_heading2">زر لتحديد/تحرير التعبير</string>
+    <string name="expressive_heading3">اضغط</string>
+    <string name="expressive_heading4">زر لإلغاء تحديد التعبير</string>
+    <string name="icon_delete_warning">هل سيتم حذف الرمز "-"؟</string>
+    <string name="board_not_found">لم يتم العثور على اللوحة</string>
+    <string name="setting_up_the_language">يتم إعداد اللغة، يرجى الانتظار…</string>
+    <string name="completed_process">تم إعداد اللغة.</string>
+    <string name="unable_to_create_board">غير قادر على إنشاء اللوحة، يرجى المحاولة مرة أخرى</string>
 
-    <!--String resources for MMB-->
-    <string name="search_result" translatable="false">search_result</string>
-    <string name="search_board" translatable="false">0</string>
-
-    <array name="expressive_icon_pressed">
-        <item>@drawable/like_pressed</item>
-        <item>@drawable/yes_pressed</item>
-        <item>@drawable/more_pressed</item>
-        <item>@drawable/dontlike_pressed</item>
-        <item>@drawable/no_pressed</item>
-        <item>@drawable/less_pressed</item>
-    </array>
-    <array name="expressive_icon_unpressed">
-        <item>@drawable/like</item>
-        <item>@drawable/yes</item>
-        <item>@drawable/more</item>
-        <item>@drawable/dontlike</item>
-        <item>@drawable/no</item>
-        <item>@drawable/less</item>
-    </array>
-    <string-array name="add_photo_option">
-        <item>@drawable/ic_photo_camera</item>
-        <item>@drawable/ic_jellow_library</item>
-    </string-array>
-
-    <string name="trash_the_board">Do you want to move the \"-\" board to trash?</string>
-    <string name="trash_board_placeholder">No boards are trashed.</string>
-    <string name="delete_board">Do you want to delete the \"-\" board permanently?</string>
-    <string name="icon_select_exit_warning">Your selection will be lost</string>
-    <string name="current_board">Added Icons</string>
-    <string name="place_holder_text">No Icons selected yet. Please select icons from left category menu</string>
-    <string name="board_name">Add board name here</string>
-    <string name="select_all">Select All</string>
-    <string name="reset">Reset</string>
-    <string name="select_icon_title">Add icons</string>
-    <string name="add_category">Add Category</string>
-    <string name="add_icon">Add Icon</string>
-    <string name="addicon_title">Add-Edit Icons</string>
-    <string name="i_like">I like</string>
-    <string name="really_like">I really like</string>
-    <string name="i_want">I want</string>
-    <string name="really_want">I really want</string>
-    <string name="want_more">I want more</string>
-    <string name="really_want_more">I really want more</string>
-    <string name="i_dont_like">I don\'t like</string>
-    <string name="really_dont_like">I really don\'t like</string>
-    <string name="dont_want">I don\'t want</string>
-    <string name="really_dont_want">I really don\'t want</string>
-    <string name="dont_want_more">I don\'t want more</string>
-    <string name="really_dont_want_more">I really don\'t want more</string>
-    <string name="please_enter_name">Please enter name</string>
-    <string name="photos">Photos</string>
-    <string name="library">Jellow Library</string>
-    <string name="icon_name">Icon Name</string>
-    <string name="add_board">Add Board</string>
-    <string name="custom_icon">Custom Icon</string>
-    <string name="cancel">Cancel</string>
-    <string name="database_not_created_info">Creating database for the language.</string>
-    <string name="icon_already_present">Icon already selected</string>
-    <string name="camera_missing">Camera not found</string>
-    <string name="no_icon_warning">Please add at least one icon to proceed.</string>
-    <string name="reposition_text">Long press on any icon to reposition</string>
-    <string name="reposition_complete_msg">New positions of the icon is saved</string>
-    <string name="please_select_icon">Please select an image first</string>
-    <string name="txtContinue">Continue</string>
-    <string name="expressive_heading1">Tap</string>
-    <string name="expressive_heading2">button to select/edit expression</string>
-    <string name="expressive_heading3">Tap</string>
-    <string name="expressive_heading4">button to deselect expression</string>
-    <string name="icon_delete_warning">\"-\" icon will be deleted?</string>
-    <string name="board_not_found">Board not found</string>
-    <string name="setting_up_the_language">Setting up the language, please wait…</string>
-    <string name="completed_process">Language setup completed.</string>
-    <string name="unable_to_create_board">Unable to create board, please try again</string>
-
-    <string name="board">Board</string>
-    <string name="press_next_to_select_icons">Press \"Next\" to add selected icons.</string>
-    <string name="limiter" translatable="false"> . . ></string>
-    <string name="edit_board">Edit the current board</string>
-    <string name="delete_the_board">Delete the current board</string>
-    <string name="restore_the_board">Restore the current board</string>
-    <string name="edit_board_image">Edit the board icon and name</string>
-    <string name="search_board_in_jellow">Search board</string>
-    <string name="enter_board_name_to_search">Enter the board name to search</string>
-    <string name="search_board_screen">Search boards screen</string>
-    <string name="enter_icon_name">Enter the icon name to search</string>
+    <string name="board">لوحة</string>
+    <string name="press_next_to_select_icons">اضغط "التالي" لإضافة الأيقونات المحددة.</string>
+    <string name="edit_board">تعديل اللوحة الحالية</string>
+    <string name="delete_the_board">حذف اللوحة الحالية</string>
+    <string name="restore_the_board">استعادة اللوحة الحالية</string>
+    <string name="edit_board_image">تعديل أيقونة واسم اللوحة</string>
+    <string name="search_board_in_jellow">بحث عن لوحة</string>
+    <string name="enter_board_name_to_search">أدخل اسم اللوحة للبحث</string>
+    <string name="search_board_screen">شاشة البحث عن اللوحات</string>
+    <string name="enter_icon_name">أدخل اسم الأيقونة للبحث</string>
 
     <!--Content Description-->
-    <string name="my_boards_screen">My boards screen</string>
-    <string name="boards_trash_screen">Boards trash screen</string>
-    <string name="select_image_for_board">Select image for the board</string>
-    <string name="select_source_for_image_for_board">Select source for board image</string>
-    <string name="select_language_for_board">Select language for the board</string>
-    <string name="icon_select_screen">Add icons screen</string>
-    <string name="icons_selected">_ icons selected</string>
-    <string name="icon_add_edit_screen">Add or Edit icons screen</string>
-    <string name="edit_current_icon">Edit the current icon</string>
-    <string name="delete_current_icon">Delete the current icon</string>
-    <string name="add_edit_icons_dialog">Add or Edit icon dialog</string>
-    <string name="select_image_for_icon">Select image for the icon</string>
-    <string name="enable_reposition_icons">Enable repositioning of icons</string>
-    <string name="disable_reposition_icons">Disable repositioning of icons</string>
-    <string name="tap_icon_to_select_expression">Tap to add expression</string>
-    <string name="tap_icon_to_deselect_expression">Tap to remove expression</string>
-    <string name="tap_add_to_add_expression">Tap add button to select expression</string>
-    <string name="tap_delete_to_delete_expression">Tap delete button to deselect expression</string>
-    <string name="open_jellow_privacy_policy">Open the Jellow\'s privacy policy.</string>
-    <string name="board_moved_to_trash">_ board moved to trash</string>
-    <string name="board_deleted">_ board deleted</string>
-    <string name="board_restored_from_trash">Restored the _ board</string>
-    <string name="search_icon_available_in_jellow">Search icon available in Jellow</string>
-    <string name="search_icon_the_board">Search an icon in the current board</string>
-    <string name="preparing_language_screen">Language setup screen</string>
-    <string name="language_package_update">Jellow content update screen</string>
-    <string name="dialog">dialog</string>
-    <string name="close_content_download_screen">close content download screen</string>
-    <string name="share_jellow_app">Share the Jellow app</string>
-    <string name="rate_jellow_app">Rate the Jellow app on Google Play Store</string>
-    <string name="received_your_feedback">Thank you for your feedback.</string>
-    <string name="no_btn">No</string>
-    <string name="next_btn">Next</string>
-    <string name="my_boards">My Boards</string>
-    <string name="board_settings">Board settings</string>
-    <string name="board_delete">Board delete</string>
-    <string name="add_expression_here">Add your own expressive line</string>
-    <string name="about_je_intro42">By using Make My Board (My Boards), you can add or edit your own customized icons and their expressive text.</string>
-    <string name="about_je_more_info">For more information, tap on the following video button:</string>
-    <string name="visual_access_info_video">To view the demo on Visual Accessibility in Jellow, tap on the following video button:</string>
-    <string name="switch_access_info_video">To view the demo on Switch Accessibility in Jellow, tap on the following video button:</string>
-    <string name="my_boards_title">Using Jellow application, a user can create a board. A board can have multiple user  defined icons. Users can also add existing Jellow icons to their board. To open the “My Boards” screen tap on a circular plus icon on the main screen. To open the board tap on the icons in the list.</string>
-    <string name="my_boards_title_cd">The image selected depicts the “My Boards” screen. To open the “My Boards” screen, tap on a circular plus icon in the main screen. The image has user’s existing board list and a “Plus” button. To create a new board tap on a “Plus” icon also called as “Add Board” icon. To open the board tap on the icons in the list.</string>
-    <string name="my_boards_info">Tap on “Edit” menu icon on the right top of the screen. This enables the edit and delete features for the boards in the list.</string>
-    <string name="my_boards_info_cd">The image selected depicts the board editing features in “My Boards” screen. Tap on “Edit” menu icon on the right top of the screen. This enables the edit and delete features for the boards in the list. When editing is enabled, swipe through icons in list to find “edit” and “delete” buttons.</string>
-    <string name="my_boards_add_board">Tap on the “Add Board” icon to create a new board. On the “Add Board” screen, you can select an image, type the board name and choose a language for the board.</string>
-    <string name="my_boards_add_board_cd">The image selected depicts the “Add Board” screen. Tap on “Add Board” icon to create a new board. You can select the image for the board using “Select image for the board” button. You can type the name for the board in “Add board name here” box. Then choose a language in which you want to create a board using “Select language for the board” dropdown menu.</string>
-    <string name="my_boards_add_icons">In “Add icons” screen, you can add/select the icons from Jellow library to your board. Search feature is also available to search the icon in the Jellow library.</string>
-    <string name="my_boards_add_icons_cd">The image selected depicts the “Add Icons” screen. The screen is used to add/select Jellow library icons to your board. The screen has list of category and subcategory icons. The expandable list is available to the left of the screen. This list will help you to filter icons in the list with specific category or sub-category. You can also, search for any icon. The search icon is placed at the top right of the screen.</string>
-    <string name="my_boards_add_edit_icons">In “Add-Edit Icons” screen, you can add your own customized icons and edit or delete the icons in the list. To create your own custom icon, tap on “Add icon” button in the list.</string>
-    <string name="my_boards_add_edit_icons_cd">The image selected depicts the “Add-Edit Icons” screen. The screen is used to add your own custom icons. Also, to edit, delete the current icons in the list. To add a custom icon tap on the “Add Icon” button in the list. To edit a icon in the list, tap on the “Edit” button on the icon. To delete a icon, tap on the “Delete” button on the icon. You can also, set “Number of icons per screen” setting for the current board. The “Number of icons per screen” menu icon positioned at right top of the screen.</string>
-    <string name="my_boards_add_icons_window">In “Add Icon” window, you can set name and image to your own custom icon.</string>
-    <string name="my_boards_add_icons_window_cd">The image selected depicts the “Add Icon” window. The window is used to set name and image for your own custom icon. You can choose image from your device camera or from Jellow library.</string>
-    <string name="my_boards_add_edit_expression">In “Add-Edit Verbiage” window, you can enable or disable expressive buttons for the custom icon. To enable any expression, tap on circular green plus button then add associated two expression lines to it. To disable any expression, tap on circular red minus button. Then tap “Save” button.</string>
-    <string name="my_boards_add_edit_expression_cd">The image selected depicts the “Add-Edit Verbiage” window. The screen is used to enable or disable expressive buttons for the custom icon. To enable any expression, tap on circular green plus button then add associated two expression lines to it. To disable any expression, tap on circular red minus button. Then tap “Save” button.</string>
-    <string name="my_boards_board_home_info">In the board home screen, you can use/play your custom board. You can, search for a icon in the current board, change the “Number of Icons per screen” setting for the current board or reposition the icons in the current board. These buttons are available on the right top of the screen.</string>
-    <string name="my_boards_board_home_info_cd">The image selected depicts the boards home screen. In this screen, you can use or play the created board. Also, you can search for a icon in the current board, change the “Number of Icons per screen” setting for the current board or reposition the icons in the current board. These buttons are available on the right top of the screen.</string>
-    <string name="place_holder_no_icons_added">The board don\'t have any icon</string>
-    <string name="language_not_working">If the app does not produce any voice output for the selected language, please perform the following steps:</string>
-    <string name="txtMoreLangSetting">More Language Setting:</string>
-    <string name="board_place_holder_text">You have not added any board yet.</string>
-    <string name="change_language_voice">Select the accent (voice) for the language:</string>
-    <string name="update_the_package">Update language package to enable the selected language.</string>
-    <string name="voice_warning">If voices(s) of the selected language(s) are not available or showing null under the voice drop down, then update the Google text to speech app from the Google Play Store and install voice data for the language(s) on your device.</string>
-    <string name="enableFishAnimation">Turn on the fish animation</string>
-    <string name="enableIconAddition">Show \"Add icon\" button</string>
-    <string name="createHomeCustomIcon">Create icon</string>
-    <string name="createHomeCustomCategory">Create category</string>
-    <string name="home_custom_icon_place_holder_text">No custom icon are added here.</string>
-    <string name="enableBlackWhiteColor">Enable Monochrome display (Black and white)</string>
-    <string name="txtDisplaySettings">Display Settings</string>
-    <string name="txtCustomisationSetting">Customization Settings</string>
-    <string name="txtOtherSetting">Other Settings</string>
-    <string name="change_language_line2">Select any language from the dropdown below:</string>
+    <string name="my_boards_screen">شاشة لوحاتي</string>
+    <string name="boards_trash_screen">لوحات شاشة القمامة</string>
+    <string name="select_image_for_board">اختر صورة للوحة</string>
+    <string name="select_source_for_image_for_board">اختر اللغة للوحة</string>
+    <string name="select_language_for_board">اختر اللغة للوحة</string>
+    <string name="icon_select_screen">شاشة إضافة الأيقونات</string>
+    <string name="icons_selected">_ أيقونات محددة</string>
+    <string name="icon_add_edit_screen">إضافة أو تعديل شاشة الأيقونات</string>
+    <string name="edit_current_icon">تعديل الأيقونة الحالية</string>
+    <string name="delete_current_icon">حذف الأيقونة الحالية</string>
+    <string name="add_edit_icons_dialog">إضافة أو تعديل مربع حوار الأيقونة</string>
+    <string name="select_image_for_icon">اختر صورة للأيقونة</string>
+    <string name="enable_reposition_icons">تمكين إعادة تموضع الأيقونات</string>
+    <string name="disable_reposition_icons">تعطيل إعادة تموضع الأيقونات</string>
+    <string name="tap_icon_to_select_expression">اضغط لإضافة تعبير</string>
+    <string name="tap_icon_to_deselect_expression">اضغط لإزالة تعبير</string>
+    <string name="tap_add_to_add_expression">اضغط على زر الإضافة لتحديد تعبير</string>
+    <string name="tap_delete_to_delete_expression">اضغط على زر الحذف لإلغاء تحديد تعبير</string>
+    <string name="open_jellow_privacy_policy">افتح سياسة خصوصية جيلو.</string>
+    <string name="board_moved_to_trash">_تم نقل اللوحة إلى سلة المهملات</string>
+    <string name="board_deleted">_ تم حذف اللوحة</string>
+    <string name="board_restored_from_trash">تم ترميم اللوحة</string>
+    <string name="search_icon_available_in_jellow">البحث عن أيقونة متاحة في جيلو</string>
+    <string name="search_icon_the_board">ابحث عن أيقونة في اللوحة الحالية</string>
+    <string name="preparing_language_screen">شاشة إعداد اللغة</string>
+    <string name="language_package_update">شاشة تحديث محتوى جيلو</string>
+    <string name="dialog">مربع حوار</string>
+    <string name="close_content_download_screen">إغلاق شاشة تنزيل المحتوى</string>
+    <string name="share_jellow_app">مشاركة تطبيق جيلو</string>
+    <string name="rate_jellow_app">قم بتقييم تطبيق جيلو على متجر Google Play</string>
+    <string name="received_your_feedback">شكرًا لملاحظاتك.</string>
+    <string name="no_btn">لا</string>
+    <string name="next_btn">التالي</string>
+    <string name="my_boards">لوحاتي</string>
+    <string name="board_settings">إعدادات اللوحة</string>
+    <string name="board_delete">حذف اللوحة</string>
+    <string name="add_expression_here">أضف سطرًا تعبيريًا خاصًا بك</string>
+    <string name="about_je_intro42">باستخدام اصنع لوحتي (لوحاتي)، يمكنك إضافة أو تعديل الأيقونات المخصصة الخاصة بك ونصوصها التعبيرية.</string>
+    <string name="about_je_more_info">لمزيد من المعلومات، اضغط على زر الفيديو التالي:</string>
+    <string name="visual_access_info_video">لمشاهدة العرض التوضيحي حول إمكانية الوصول البصري في جيلو، اضغط على زر الفيديو التالي:</string>
+    <string name="switch_access_info_video">لمشاهدة العرض التوضيحي حول إمكانية الوصول عبر التبديل في جيلو، اضغط على زر الفيديو التالي:</string>
+    <string name="my_boards_title">باستخدام تطبيق جيلو، يمكن للمستخدم إنشاء لوحة. يمكن أن تحتوي اللوحة على عدة أيقونات مخصصة يحددها المستخدم. يمكن للمستخدم أيضًا إضافة أيقونات جيلو الموجودة إلى لوحته. لفتح شاشة "لوحاتي"، اضغط على أيقونة الزائد الدائرية في الشاشة الرئيسية. لفتح اللوحة، اضغط على الأيقونات في القائمة.</string>
+    <string name="my_boards_title_cd">الصورة المحددة تُظهر شاشة "لوحاتي". لفتح شاشة "لوحاتي"، انقر على أيقونة الزائد الدائرية في الشاشة الرئيسية. تحتوي الصورة على قائمة اللوحات الحالية للمستخدم وزر "إضافة". لإنشاء لوحة جديدة، انقر على أيقونة "إضافة"، والمعروفة أيضًا باسم "إضافة لوحة". لفتح اللوحة، انقر على الأيقونات في القائمة.</string>
+    <string name="my_boards_info">اضغط على أيقونة قائمة "تعديل" في أعلى يمين الشاشة. سيؤدي ذلك إلى تمكين ميزات التعديل والحذف للوحات في القائمة.</string>
+    <string name="my_boards_info_cd">تعرض الصورة المحددة ميزات تحرير اللوحة في شاشة "لوحاتي". اضغط على أيقونة قائمة "تعديل" في أعلى يمين الشاشة. سيؤدي ذلك إلى تمكين ميزات التعديل والحذف للوحات في القائمة. عند تمكين التحرير، اسحب عبر الأيقونات في القائمة للعثور على زري "تعديل" و"حذف".</string>
+    <string name="my_boards_add_board">اضغط على أيقونة "إضافة لوحة" لإنشاء لوحة جديدة. في شاشة "إضافة لوحة"، يمكنك اختيار صورة وكتابة اسم اللوحة واختيار لغة للوحة.</string>
+    <string name="my_boards_add_board_cd">تعرض الصورة المحددة شاشة "إضافة لوحة". اضغط على أيقونة "إضافة لوحة" لإنشاء لوحة جديدة. يمكنك اختيار صورة للوحة باستخدام زر "تحديد صورة للوحة". يمكنك كتابة اسم اللوحة في مربع "أضف اسم اللوحة هنا". ثم اختر اللغة التي تريد إنشاء اللوحة بها من خلال قائمة "تحديد لغة اللوحة" المنسدلة.</string>
+    <string name="my_boards_add_icons">في شاشة "إضافة الأيقونات"، يمكنك إضافة أو تحديد الأيقونات من مكتبة جيلو إلى لوحتك. تتوفر أيضًا ميزة البحث للعثور على الأيقونة في مكتبة جيلو.</string>
+    <string name="my_boards_add_icons_cd">تعرض الصورة المحددة شاشة "إضافة الأيقونات". تُستخدم هذه الشاشة لإضافة أو تحديد أيقونات مكتبة جيلو إلى لوحتك. تحتوي الشاشة على قائمة بالأيقونات المصنفة حسب الفئات والفئات الفرعية. تتوفر قائمة قابلة للتوسيع على الجانب الأيسر من الشاشة، والتي تساعد في تصفية الأيقونات حسب فئة أو فئة فرعية معينة. يمكنك أيضًا البحث عن أي أيقونة، حيث يوجد رمز البحث في أعلى يمين الشاشة.</string>
+    <string name="my_boards_add_edit_icons">في شاشة "إضافة-تعديل الأيقونات"، يمكنك إضافة أيقوناتك المخصصة وتحرير أو حذف الأيقونات الموجودة في القائمة. لإنشاء أيقونة مخصصة خاصة بك، اضغط على زر "إضافة أيقونة" في القائمة.</string>
+    <string name="my_boards_add_edit_icons_cd">تعرض الصورة المحددة شاشة "إضافة-تعديل الأيقونات". تُستخدم هذه الشاشة لإضافة أيقوناتك المخصصة، وكذلك لتحرير أو حذف الأيقونات الحالية في القائمة. لإضافة أيقونة مخصصة، اضغط على زر "إضافة أيقونة" في القائمة. لتحرير أيقونة في القائمة، اضغط على زر "تحرير" على الأيقونة. لحذف أيقونة، اضغط على زر "حذف" على الأيقونة. يمكنك أيضًا ضبط إعداد "عدد الأيقونات لكل شاشة" للوحة الحالية، ويقع رمز قائمة "عدد الأيقونات لكل شاشة" في أعلى يمين الشاشة.</string>
+    <string name="my_boards_add_icons_window">في نافذة "إضافة أيقونة"، يمكنك تعيين الاسم والصورة لأيقونتك المخصصة.</string>
+    <string name="my_boards_add_icons_window_cd">تعرض الصورة المحددة نافذة "إضافة أيقونة". تُستخدم هذه النافذة لتعيين الاسم والصورة لأيقونتك المخصصة. يمكنك اختيار صورة من كاميرا جهازك أو من مكتبة جيلو.</string>
+    <string name="my_boards_add_edit_expression">في نافذة "إضافة-تحرير العبارات"، يمكنك تمكين أو تعطيل الأزرار التعبيرية للأيقونة المخصصة. لتمكين أي تعبير، اضغط على زر الزائد الأخضر الدائري ثم أضف سطرين تعبيريين مرتبطين به. لتعطيل أي تعبير، اضغط على زر الطرح الأحمر الدائري. ثم اضغط على زر "حفظ".</string>
+    <string name="my_boards_add_edit_expression_cd">تعرض الصورة المحددة نافذة "إضافة-تحرير العبارات". تُستخدم هذه الشاشة لتمكين أو تعطيل الأزرار التعبيرية للأيقونة المخصصة. لتمكين أي تعبير، اضغط على زر الزائد الأخضر الدائري ثم أضف سطرين تعبيريين مرتبطين به. لتعطيل أي تعبير، اضغط على زر الطرح الأحمر الدائري. ثم اضغط على زر "حفظ".</string>
+    <string name="my_boards_board_home_info">في شاشة الصفحة الرئيسية للوحة، يمكنك استخدام/تشغيل لوحتك المخصصة. يمكنك البحث عن أيقونة داخل اللوحة الحالية، تغيير إعداد "عدد الأيقونات لكل شاشة" للوحة الحالية، أو إعادة ترتيب الأيقونات داخل اللوحة. تتوفر هذه الأزرار في الجزء العلوي الأيمن من الشاشة.</string>
+    <string name="my_boards_board_home_info_cd">تُظهر الصورة المحددة شاشة الصفحة الرئيسية للوحة. في هذه الشاشة، يمكنك استخدام أو تشغيل اللوحة التي تم إنشاؤها. بالإضافة إلى ذلك، يمكنك البحث عن أيقونة في اللوحة الحالية، تغيير إعداد "عدد الأيقونات في كل شاشة" للوحة الحالية أو إعادة ترتيب الأيقونات في اللوحة الحالية. تتوفر هذه الأزرار في الجزء العلوي الأيمن من الشاشة.</string>
+    <string name="place_holder_no_icons_added">اللوحة لا تحتوي على أيقونات.</string>
+    <string name="language_not_working">إذا لم يُنتج التطبيق أي مخرجات صوتية للغة المحددة، يرجى اتباع الخطوات التالية:</string>
+    <string name="txtMoreLangSetting">إعدادات اللغة الإضافية:</string>
+    <string name="board_place_holder_text">لم تقم بإضافة أي لوحة بعد.</string>
+    <string name="change_language_voice">اختر اللكنة (الصوت) للغة:</string>
+    <string name="update_the_package">حدّث حزمة اللغة لتمكين اللغة المحددة.</string>
+    <string name="voice_warning">إذا لم تكن أصوات اللغات المحددة متاحة أو تظهر على أنها "null" في القائمة المنسدلة للصوت، فقم بتحديث تطبيق "تحويل النص إلى كلام من Google" من متجر Google Play وثبّت بيانات الصوت للغة(اللغات) على جهازك.</string>
+    <string name="enableFishAnimation">قم بتشغيل رسوم السمكة المتحركة.</string>
+    <string name="enableIconAddition">عرض زر "إضافة أيقونة".</string>
+    <string name="createHomeCustomIcon">أنشئ أيقونة</string>
+    <string name="createHomeCustomCategory">أنشئ فئة</string>
+    <string name="home_custom_icon_place_holder_text">لم يتم إضافة أي أيقونات مخصصة هنا.</string>
+    <string name="enableBlackWhiteColor">تمكين العرض أحادي اللون (بالأسود والأبيض).</string>
+    <string name="txtDisplaySettings">إعدادات العرض.</string>
+    <string name="txtCustomisationSetting">إعدادات التخصيص</string>
+    <string name="txtOtherSetting">إعدادات أخرى</string>
+    <string name="change_language_line2">اختر أي لغة من القائمة المنسدلة أدناه:</string>
 </resources>

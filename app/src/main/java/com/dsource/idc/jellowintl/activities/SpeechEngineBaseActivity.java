@@ -256,6 +256,12 @@ public class SpeechEngineBaseActivity extends BaseActivity{
             case LUS_IN:
                 lang = ENG_IN;
                 break;
+            case AR_SA:
+                /*This correction is added for Arabic language as its voice name
+                * starts from ar-xa-..
+                **/
+                lang = "ar-rXA";
+                break;
         }
         lang = lang.replace("-r","-").toLowerCase();
         StringBuilder csvVoices = new StringBuilder();
