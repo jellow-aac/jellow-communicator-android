@@ -45,10 +45,11 @@ public class SessionManager {
     public final static String SR_RS = "sr-rRS";
     public final static String RAJ_IN = "raj-rIN";
     public final static String NE_NP = "ne-rNP";
-    public final static String AR_SA = "ar-rSA";;
-    public final static String KOK_IN = "kok-rIN";;
-    public final static String LUS_IN = "lus-rIN";;
-    public final static String AS_IN = "as-rIN";;
+    public final static String AR_SA = "ar-rSA";
+    public final static String KOK_IN = "kok-rIN";
+    public final static String LUS_IN = "lus-rIN";
+    public final static String AS_IN = "as-rIN";
+    public final static String SI_LK = "si-rLK";
     public static final String UNIVERSAL_PACKAGE = "universal";
     public final static String BOARD_ICON_LOCATION = "board_icons";
 
@@ -82,7 +83,8 @@ public class SessionManager {
             put("नेपाली (Nepali)", NE_NP);
 
             //Experimental
-//            put("Србин (Serbian)", SR_RS);
+            put("Србин (Serbian)", SR_RS);
+            put("සිංහල (Sinhalese)", SI_LK);
 //            put("कोंकणी (Kokani)", KOK_IN);
 //            put("Mizo (India)", LUS_IN);
             //put("Khasi (Testing)", KHA_IN);
@@ -119,7 +121,8 @@ public class SessionManager {
             put(NE_NP, "नेपाली (Nepali)");
 
             // Experimental
-//            put(SR_RS, "Србин (Serbian)");
+            put(SR_RS, "Србин (Serbian)");
+            put(SI_LK, "සිංහල (Sinhalese)");
 //            put(KOK_IN, "कोंकणी (Kokani)");
 //            put(LUS_IN, "Mizo (India)");
             //put(KHA_IN, "Khasi (Testing)");

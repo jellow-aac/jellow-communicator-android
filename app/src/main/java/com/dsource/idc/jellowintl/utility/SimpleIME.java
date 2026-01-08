@@ -91,6 +91,7 @@ public class SimpleIME extends InputMethodService
             case SessionManager.KOK_IN:
             case SessionManager.LUS_IN:
             case SessionManager.AS_IN:
+            case SessionManager.SI_LK:
             default:
                 kv.setKeyboard(keyEnglishAlphabetSmallLetters);
                 break;

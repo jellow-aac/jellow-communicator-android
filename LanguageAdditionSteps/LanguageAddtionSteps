@@ -23,6 +23,12 @@
 
 - Add string resource for the language for all versions of strings.xml
 
+- Language name update keys in strings.xml for each language version-
+1) ttsDesc
+2) about_je_intro7
+3) about_jellow_speech (replace complete line from point 2)
+4) new language <string name="acc_lang_xx_xx>
+
 - Keyboard Input Activity -> Change point numberings to strings according to the language
 
 - Upload the firebase package which adds the json of new language.
@@ -39,12 +45,5 @@ Change using language variable in SessionManager class (MR_IN)
 - UserRegistrationActivity, Commented in onCreate method
 - LanguageFactory, Commented in isMarathiPackageAvailable method
 - SessionManager, Commented the NoTTSLang ArrayList definition
-- LevelTwoActivity, Commented Like, Yes, More, Don't Like, No, Less buttons listner verbiage speak
+- LevelTwoActivity, Commented Like, Yes, More, Don't Like, No, Less buttons listener verbiage speak
 - SettingActivity,Commented in onCreate method
-
-
-Language name update keys in strings.xml for each language version-
-1) about_jellow_speech
-2) ttsDesc
-3) about_je_intro7
-4) new language <string name="acc_lang_xx_xx>
