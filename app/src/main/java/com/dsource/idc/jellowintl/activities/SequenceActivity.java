@@ -96,7 +96,9 @@ public class SequenceActivity extends LevelBaseActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sequence);
+        setVisibleAct(SequenceActivity.class.getSimpleName());
         txtActionBarTitle = getIntent().getExtras().getString(getString(R.string.intent_menu_path_tag));
+        setupToolbarMenu();
         setupActionBarTitle(View.GONE, txtActionBarTitle);
         applyMonochromeColor();
         txtKeyboard = getString(R.string.keyboard);

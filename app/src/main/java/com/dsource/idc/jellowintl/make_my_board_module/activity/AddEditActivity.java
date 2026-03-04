@@ -7,6 +7,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.core.view.ViewCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -319,12 +320,19 @@ public class AddEditActivity extends BaseBoardActivity<IAddEditView, IAddEditPre
     }
 
     @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setVisibleAct(AddEditActivity.class.getSimpleName());
+        setupToolbarMenu();
+    }
+
+    /*@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.board_home_menu, menu);
         menu.findItem(R.id.reposition_lock).setVisible(false);
         menu.findItem(R.id.action_home_app).setVisible(false);
         return true;
-    }
+    }*/
 
     @Override
     public void onBackPressed() {

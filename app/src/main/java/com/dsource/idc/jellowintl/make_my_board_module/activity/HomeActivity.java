@@ -55,6 +55,7 @@ import com.dsource.idc.jellowintl.models.JellowIcon;
 import com.dsource.idc.jellowintl.utility.DialogKeyboardUtterance;
 import com.dsource.idc.jellowintl.utility.LevelUiUtils;
 import com.dsource.idc.jellowintl.utility.interfaces.TextToSpeechCallBacks;
+import com.google.android.material.appbar.MaterialToolbar;
 import com.h6ah4i.android.widget.advrecyclerview.animator.GeneralItemAnimator;
 import com.h6ah4i.android.widget.advrecyclerview.animator.RefactoredDefaultItemAnimator;
 import com.h6ah4i.android.widget.advrecyclerview.draggable.RecyclerViewDragDropManager;
@@ -90,6 +91,10 @@ public class HomeActivity extends SpeechEngineBaseActivity implements TextToSpee
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_levelx_layout);
+        setVisibleAct(HomeActivity.class.getSimpleName());
+        setupToolbarMenu();
+        applyMonochromeColor();
+        setNavigationUiConditionally();
 
         database = new BoardDatabase(getAppDatabase());
         try {
@@ -100,8 +105,9 @@ public class HomeActivity extends SpeechEngineBaseActivity implements TextToSpee
         }
         registerSpeechEngineErrorHandle(this);
         currentBoard = database.getBoardById(boardId);
-        this.setTitle(currentBoard.getBoardName()+ " "+getString(R.string.board));
-        setupToolbar();
+        setupActionBarTitle(View.VISIBLE, getString(R.string.home) + "/" +
+                getString(R.string.my_boards) + "/" +
+                currentBoard.getBoardName()+" "+getString(R.string.board));
         verbiageDatabase = new TextDatabase(this, currentBoard.getLanguage(), getAppDatabase());
         modelManager = new ModelManager(currentBoard.getIconModel());
         displayList = modelManager.getLevelOneFromModel();
@@ -121,24 +127,6 @@ public class HomeActivity extends SpeechEngineBaseActivity implements TextToSpee
 
         searchScrollManager = new SearchScrollManager(this, rvRecycler);
         manageKeyboard();
-    }
-
-    private void setupToolbar() {
-        if (getSupportActionBar() != null) {
-            enableNavigationBack();
-            setNavigationUiConditionally();
-            setupActionBarTitle(View.VISIBLE, getString(R.string.home) + "/" +
-                    getString(R.string.my_boards) + "/" +
-                    currentBoard.getBoardName()+" "+getString(R.string.board));
-            applyMonochromeColor();
-            getSupportActionBar().setBackgroundDrawable(getResources().getDrawable(R.drawable.action_bar_background));
-        }
-        findViewById(R.id.iv_action_bar_back).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                exitToBoardListScreen();
-            }
-        });
     }
 
     private void prepareRecyclerView() {
@@ -393,12 +381,25 @@ public class HomeActivity extends SpeechEngineBaseActivity implements TextToSpee
                 Toast.makeText(this, getString(R.string.reposition_text), Toast.LENGTH_SHORT).show();
                 mRecyclerViewDragDropManager.setInitiateOnLongPress(true);
                 disableLayout(true);
+
+                adapter.setSelectedPosition(-1);
+                selectedIconVerbiage =  null;
+                expIconManager.resetSelection();
+                expIconManager.disableExpressiveIcons(true);
+                stopSpeaking();
+
+                getMenu().findItem(R.id.reposition_lock).setIcon(R.drawable.ic_unlocked);
+                getMenu().findItem(R.id.reposition_lock).setTitle(getString(R.string.disable_reposition_icons));
+
             } else {
                 Toast.makeText(this, getString(R.string.reposition_complete_msg), Toast.LENGTH_LONG).show();
                 mRecyclerViewDragDropManager.setInitiateOnLongPress(false);
                 disableLayout(false);
+
+                getMenu().findItem(R.id.reposition_lock).setIcon(R.drawable.ic_locked);
+                getMenu().findItem(R.id.reposition_lock).setTitle(getString(R.string.enable_reposition_icons));
+                expIconManager.disableExpressiveIcons(false);
             }
-            invalidateOptionsMenu();
         } else if (itemId == R.id.action_home_app) {
             exitToBoardListScreen();
         } else {
@@ -583,23 +584,23 @@ public class HomeActivity extends SpeechEngineBaseActivity implements TextToSpee
         Level = 0;
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.board_home_menu, menu);
-        menu.findItem(R.id.reposition_lock).setIcon(mode == HomeActivityAdapter.REPOSITION_MODE ? R.drawable.ic_unlocked : R.drawable.ic_locked);
-        if(mode==HomeActivityAdapter.REPOSITION_MODE){
-            adapter.setSelectedPosition(-1);
-            selectedIconVerbiage =  null;
-            expIconManager.resetSelection();
-            expIconManager.disableExpressiveIcons(true);
-            stopSpeaking();
-            menu.findItem(R.id.reposition_lock).setTitle(getString(R.string.disable_reposition_icons));
-        }else{
-            expIconManager.disableExpressiveIcons(false);
-            menu.findItem(R.id.reposition_lock).setTitle(getString(R.string.enable_reposition_icons));
-        }
-        return true;
-    }
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        getMenuInflater().inflate(R.menu.board_home_menu, menu);
+//        menu.findItem(R.id.reposition_lock).setIcon(mode == HomeActivityAdapter.REPOSITION_MODE ? R.drawable.ic_unlocked : R.drawable.ic_locked);
+//        if(mode==HomeActivityAdapter.REPOSITION_MODE){
+//            adapter.setSelectedPosition(-1);
+//            selectedIconVerbiage =  null;
+//            expIconManager.resetSelection();
+//            expIconManager.disableExpressiveIcons(true);
+//            stopSpeaking();
+//            menu.findItem(R.id.reposition_lock).setTitle(getString(R.string.disable_reposition_icons));
+//        }else{
+//            expIconManager.disableExpressiveIcons(false);
+//            menu.findItem(R.id.reposition_lock).setTitle(getString(R.string.enable_reposition_icons));
+//        }
+//        return true;
+//    }
 
     private void searchInBoard() {
         Intent searchIntent = new Intent(this, BoardSearchActivity.class);
@@ -640,7 +641,6 @@ public class HomeActivity extends SpeechEngineBaseActivity implements TextToSpee
     protected void onResume() {
         super.onResume();
         initiateSpeechEngineWithLanguage(getSession().getBoardVoice().split(",")[0], currentBoard.getLanguage());
-        setVisibleAct(HomeActivity.class.getSimpleName());
         if (!getSession().getToastMessage().isEmpty()) {
             Toast.makeText(getApplicationContext(),
                     getSession().getToastMessage(), Toast.LENGTH_SHORT).show();

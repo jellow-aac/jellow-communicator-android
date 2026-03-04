@@ -28,7 +28,8 @@ public class KeyboardInputActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_keyboard_input);
-        enableNavigationBack();
+        setVisibleAct(KeyboardInputActivity.class.getSimpleName());
+        setupToolbarMenu();
         setupActionBarTitle(View.VISIBLE, getString(R.string.home)+"/ "+getString(R.string.getKeyboardControl));
         applyMonochromeColor();
         setNavigationUiConditionally();
@@ -77,7 +78,6 @@ public class KeyboardInputActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        setVisibleAct(KeyboardInputActivity.class.getSimpleName());
         if(!isAnalyticsActive()) {
             resetAnalytics(this, getSession().getUserId());
         }

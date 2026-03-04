@@ -1,17 +1,25 @@
 package com.dsource.idc.jellowintl.activities;
 
+import static com.dsource.idc.jellowintl.models.GlobalConstants.SCREEN_SIZE_PHONE;
+import static com.dsource.idc.jellowintl.models.GlobalConstants.SCREEN_SIZE_SEVEN_INCH_TAB;
+import static com.dsource.idc.jellowintl.models.GlobalConstants.SCREEN_SIZE_TEN_INCH_TAB;
+
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.text.Html;
+import android.util.DisplayMetrics;
+import android.util.TypedValue;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityManager;
 import android.widget.Button;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import com.dsource.idc.jellowintl.R;
@@ -19,6 +27,7 @@ import com.dsource.idc.jellowintl.models.GlobalConstants;
 import com.dsource.idc.jellowintl.utility.DefaultExceptionHandler;
 import com.dsource.idc.jellowintl.utility.LanguageHelper;
 import com.github.paolorotolo.appintro.AppIntro;
+import com.google.android.material.appbar.MaterialToolbar;
 import com.google.firebase.crashlytics.FirebaseCrashlytics;
 
 import java.util.Objects;
@@ -47,10 +56,10 @@ public class Intro extends AppIntro {
                 GlobalConstants.LANGUAGE_STATE_CREATE_DB);
         addSlide(SampleSlideFragment.newInstance(R.layout.intro, "intro"));
         addSlide(SampleSlideFragment.newInstance(R.layout.intro5, "intro5"));
-//        addSlide(SampleSlideFragment.newInstance(R.layout.intro2, "intro2"));
-//        addSlide(SampleSlideFragment.newInstance(R.layout.intro3, "intro3"));
-//        addSlide(SampleSlideFragment.newInstance(R.layout.intro4, "intro4"));
-//        addSlide(SampleSlideFragment.newInstance(R.layout.intro7, "intro7"));
+        addSlide(SampleSlideFragment.newInstance(R.layout.intro2, "intro2"));
+        addSlide(SampleSlideFragment.newInstance(R.layout.intro3, "intro3"));
+        addSlide(SampleSlideFragment.newInstance(R.layout.intro4, "intro4"));
+        addSlide(SampleSlideFragment.newInstance(R.layout.intro7, "intro7"));
 
         setBarColor(getResources().getColor(R.color.app_background));
         setSeparatorColor(getResources().getColor(R.color.app_background));
@@ -58,6 +67,13 @@ public class Intro extends AppIntro {
         showSkipButton(false);
         setProgressButtonEnabled(false);
         getViewResource();
+
+        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+            getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.colorPrimary));
+            if (getSupportActionBar() != null){
+                getSupportActionBar().hide();
+            }
+        }
     }
 
     @Override
@@ -105,6 +121,12 @@ public class Intro extends AppIntro {
     }
 
     private void setupNextSlide(SampleSlideFragment newFragment) {
+        View view = newFragment.getView();
+        if (view != null) {
+            view.findViewById(R.id.toolbar).setBackgroundColor(ContextCompat.getColor(newFragment.requireContext(), R.color.colorPrimary));
+            ((TextView) view.findViewById(R.id.tvActionbarTitle)).setTextColor(ContextCompat.getColor(newFragment.requireContext(), R.color.app_background));
+        }
+
         switch(newFragment.getLayoutName()){
             case "intro":
                 setText2TextView(newFragment, R.id.tv_intro_title, intro_title);

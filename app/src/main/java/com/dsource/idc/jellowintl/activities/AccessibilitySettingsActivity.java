@@ -18,7 +18,8 @@ public class AccessibilitySettingsActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_accessibility_settings);
-        enableNavigationBack();
+        setVisibleAct(AccessibilitySettingsActivity.class.getSimpleName());
+        setupToolbarMenu();
         setupActionBarTitle(View.VISIBLE, getString(R.string.home)+"/ "+getString(R.string.menuAccessibility));
         applyMonochromeColor();
         setNavigationUiConditionally();
@@ -27,7 +28,6 @@ public class AccessibilitySettingsActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        setVisibleAct(AccessibilitySettingsActivity.class.getSimpleName());
         if(!isAnalyticsActive()) {
             resetAnalytics(this, getSession().getUserId());
         }

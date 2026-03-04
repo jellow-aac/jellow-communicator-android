@@ -7,6 +7,8 @@
     android:layout_height="match_parent"
     android:background="@drawable/level1_bg"
     android:tag="small">
+    <include layout="@layout/app_bar"
+        android:id="@+id/custom_app_bar"/>
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="96dp"
@@ -23,9 +25,10 @@
         android:paddingRight="@dimen/activity_horizontal_margin"
         app:layout_constraintVertical_bias=".03"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/custom_app_bar"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:fitsSystemWindows="true">
         <ImageView
             android:id="@+id/ivlike"
             android:layout_width="76dp"
@@ -54,9 +57,10 @@
         android:paddingRight="@dimen/activity_horizontal_margin"
         app:layout_constraintVertical_bias=".03"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/custom_app_bar"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:fitsSystemWindows="true">
         <ImageView
             android:id="@+id/ivdislike"
             android:layout_width="76dp"
@@ -81,9 +85,9 @@
         android:id="@+id/tt1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/custom_app_bar"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="@id/linearLayoutOne"
+        app:layout_constraintEnd_toStartOf="@id/linearLayoutOne"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintVertical_bias="0.05"
         app:layout_constraintHorizontal_bias="0"
@@ -96,6 +100,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:layout_marginTop="24dp"
         app:layout_constraintLeft_toRightOf="@+id/positive"
         app:layout_constraintRight_toLeftOf="@+id/linearLayoutTwo"
         app:layout_constraintTop_toTopOf="parent"
@@ -135,6 +140,7 @@
         android:layout_height="32dp"
         android:clickable="false"
         android:src="@drawable/arrow"
+        android:layout_marginTop="24dp"
         android:importantForAccessibility="no"
         app:layout_constraintLeft_toRightOf="@+id/linearLayoutOne"
         app:layout_constraintRight_toLeftOf="@+id/linearLayoutTwo"
@@ -146,6 +152,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:layout_marginTop="24dp"
         app:layout_constraintLeft_toRightOf="@+id/linearLayoutOne"
         app:layout_constraintRight_toLeftOf="@+id/linearLayoutThree"
         app:layout_constraintTop_toTopOf="parent"
@@ -186,6 +193,7 @@
         android:layout_gravity="center_vertical"
         android:clickable="false"
         android:src="@drawable/arrow"
+        android:layout_marginTop="24dp"
         android:importantForAccessibility="no"
         app:layout_constraintLeft_toRightOf="@+id/linearLayoutTwo"
         app:layout_constraintRight_toLeftOf="@+id/linearLayoutThree"
@@ -197,6 +205,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:layout_marginTop="24dp"
         app:layout_constraintLeft_toRightOf="@+id/linearLayoutTwo"
         app:layout_constraintRight_toLeftOf="@+id/negative"
         app:layout_constraintTop_toTopOf="parent"
@@ -233,8 +242,10 @@
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="8dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginHorizontal="12dp"
+        android:gravity="center_vertical"
         app:layout_constraintLeft_toLeftOf="@+id/linearLayoutOne"
         app:layout_constraintTop_toBottomOf="@+id/linearLayoutTwo"
         app:layout_constraintRight_toRightOf="@+id/linearLayoutThree">
@@ -245,9 +256,10 @@
             android:layout_weight="1"
             android:textSize="12sp"
             style="@style/customNavButtonStyle"
-            android:layout_marginLeft="12dp"
-            android:layout_marginRight="12dp"
+            android:layout_marginHorizontal="12dp"
             android:paddingHorizontal="6dp"
+            android:paddingVertical="0dp"
+            android:layout_marginVertical="0dp"
             android:text="&lt;&lt;  Previous"
             android:contentDescription="@string/previous"/>
         <Button
@@ -257,13 +269,13 @@
             android:layout_weight="1"
             android:textSize="12sp"
             style="@style/customNavButtonStyle"
-            android:layout_marginLeft="12dp"
-            android:layout_marginRight="12dp"
+            android:layout_marginHorizontal="12dp"
             android:paddingHorizontal="6dp"
+            android:paddingVertical="0dp"
+            android:layout_marginVertical="0dp"
             android:text="Next &gt;&gt; "
             android:contentDescription="@string/next"/>
     </LinearLayout>
-
     <LinearLayout
         android:id="@+id/navigation"
         android:layout_width="wrap_content"
@@ -275,7 +287,8 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.08">
+        app:layout_constraintVertical_bias="1.08"
+        android:fitsSystemWindows="true">
 
         <ImageView
             android:id="@+id/ivback"
@@ -310,7 +323,8 @@
         android:layout_marginBottom="-2dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:importantForAccessibility="no"/>
+        android:importantForAccessibility="no"
+        android:fitsSystemWindows="true"/>
 
     <FrameLayout
         android:id="@+id/anim_layout"
@@ -319,7 +333,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
-        <include layout="@layout/activity_anim"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:fitsSystemWindows="true">
+        <include layout="@layout/activity_anim"
+            android:fitsSystemWindows="true"/>
     </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

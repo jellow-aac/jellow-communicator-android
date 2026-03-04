@@ -17,7 +17,8 @@
         android:onClick="closeActivity"
         android:layout_margin="@dimen/activity_horizontal_margin"
         android:background="@drawable/ic_close"
-        android:contentDescription="@string/close_content_download_screen"/>
+        android:contentDescription="@string/close_content_download_screen"
+        android:fitsSystemWindows="true"/>
 
     <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
         android:id="@+id/pg"
@@ -35,7 +36,8 @@
         app:rcRadius="10dp"
         app:rcReverse="false"
         app:rcSecondaryProgressColor="@color/app_background"
-        android:contentDescription="@string/language_download_in_process"/>
+        android:contentDescription="@string/language_download_in_process"
+        android:fitsSystemWindows="true"/>
 
     <TextView
         android:id="@+id/status"
@@ -49,7 +51,8 @@
         android:layout_centerInParent="true"
         android:text="Language Pack Update"
         android:gravity="center"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:fitsSystemWindows="true"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -60,6 +63,7 @@
         android:layout_marginBottom="20dp"
         android:layout_alignParentBottom="true"
         style="@style/defaultTextViewStyle"
-        android:text="@string/downloadErrorMsg"/>
+        android:text="@string/downloadErrorMsg"
+        android:fitsSystemWindows="true"/>
 
 </RelativeLayout>

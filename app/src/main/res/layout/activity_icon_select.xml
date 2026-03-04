@@ -5,14 +5,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.dsource.idc.jellowintl.make_my_board_module.activity.IconSelectActivity">
+    <include layout="@layout/app_bar"
+        android:id="@+id/custom_app_bar"/>
 
     <RelativeLayout
         android:id="@+id/left_level_select_pane"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:background="@color/app_background"
+        android:layout_below="@+id/custom_app_bar"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:fitsSystemWindows="true">
         <RelativeLayout
             android:id="@+id/ll_header"
             android:layout_width="@dimen/level_select_pane_min_width"
@@ -70,8 +74,10 @@
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
         android:background="@color/light_base"
+        android:layout_marginTop="?attr/actionBarSize"
         android:layout_toEndOf="@+id/left_level_select_pane"
-        android:layout_toRightOf="@+id/left_level_select_pane">
+        android:layout_toRightOf="@+id/left_level_select_pane"
+        android:fitsSystemWindows="true">
 
         <TextView
             android:layout_width="wrap_content"

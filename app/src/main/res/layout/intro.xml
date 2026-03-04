@@ -10,10 +10,11 @@
     <include layout="@layout/app_bar"
         android:id="@+id/custom_app_bar"/>
     <LinearLayout
+        android:id="@+id/parent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="@dimen/_30dp"
+        android:layout_marginTop="?attr/actionBarSize"
         android:layout_gravity="center_horizontal">
         <TextView
             android:id="@+id/tv_intro_title"

@@ -37,7 +37,8 @@ public class AboutJellowActivity extends SpeechEngineBaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about_jellow);
-        enableNavigationBack();
+        setVisibleAct(AboutJellowActivity.class.getSimpleName());
+        setupToolbarMenu();
         setupActionBarTitle(View.VISIBLE, getString(R.string.home)+"/ "+getString(R.string.menuAbout));
         applyMonochromeColor();
         setNavigationUiConditionally();
@@ -77,7 +78,6 @@ public class AboutJellowActivity extends SpeechEngineBaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        setVisibleAct(AboutJellowActivity.class.getSimpleName());
         if(!isAnalyticsActive()) {
             resetAnalytics(this, getSession().getUserId());
         }

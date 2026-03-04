@@ -39,7 +39,8 @@ public class FeedbackActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feedback);
-        enableNavigationBack();
+        setVisibleAct(FeedbackActivity.class.getSimpleName());
+        setupToolbarMenu();
         setupActionBarTitle(View.VISIBLE, getString(R.string.home)+"/ "+getString(R.string.menuFeedback));
         applyMonochromeColor();
         setNavigationUiConditionally();
@@ -58,7 +59,6 @@ public class FeedbackActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        setVisibleAct(FeedbackActivity.class.getSimpleName());
         if(!isAnalyticsActive()) {
             resetAnalytics(this, getSession().getUserId());
         }

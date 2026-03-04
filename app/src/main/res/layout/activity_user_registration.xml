@@ -16,18 +16,10 @@
         android:layout_below="@+id/custom_app_bar"
         android:fillViewport="true"
         android:fitsSystemWindows="true"
-        android:layout_marginTop="@dimen/user_reg_scroll_margin_top"
-        android:layout_marginBottom="@dimen/user_reg_scroll_margin_bottom"
-        android:layout_marginLeft="@dimen/user_reg_scroll_margin_left"
-        android:layout_marginStart="@dimen/user_reg_scroll_margin_left"
-        android:layout_marginRight="@dimen/user_reg_scroll_margin_right"
-        android:layout_marginEnd="@dimen/user_reg_scroll_margin_right"
-        android:paddingTop="@dimen/user_reg_scroll_padding_top"
-        android:paddingBottom="@dimen/user_reg_scroll_padding_bottom"
-        android:paddingLeft="@dimen/user_reg_scroll_padding_left"
-        android:paddingStart="@dimen/user_reg_scroll_padding_left"
-        android:paddingRight="@dimen/user_reg_scroll_padding_right"
-        android:paddingEnd="@dimen/user_reg_scroll_padding_right"
+        android:layout_marginVertical="@dimen/user_reg_scroll_margin_top"
+        android:layout_marginHorizontal="@dimen/user_reg_scroll_margin_left"
+        android:paddingVertical="@dimen/user_reg_scroll_padding_top"
+        android:paddingHorizontal="@dimen/user_reg_scroll_padding_left"
         android:fadeScrollbars="false">
 
         <LinearLayout

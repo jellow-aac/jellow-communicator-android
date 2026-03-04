@@ -49,8 +49,9 @@ public class SettingActivity extends SpeechEngineBaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
-        enableNavigationBack();
+        setVisibleAct(SettingActivity.class.getSimpleName());
         setupActionBarTitle(View.VISIBLE, getString(R.string.home)+"/ "+getString(R.string.action_settings));
+        setupToolbarMenu();
         applyMonochromeColor();
         setNavigationUiConditionally();
 
@@ -380,7 +381,6 @@ public class SettingActivity extends SpeechEngineBaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        setVisibleAct(SettingActivity.class.getSimpleName());
         if(!isAnalyticsActive()){
             resetAnalytics(this, getSession().getUserId());
         }

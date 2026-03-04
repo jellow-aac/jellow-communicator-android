@@ -7,6 +7,8 @@
     android:layout_height="match_parent"
     android:background="@drawable/level1_bg"
     android:tag="small">
+    <include layout="@layout/app_bar"
+        android:id="@+id/custom_app_bar"/>
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="112dp"
@@ -25,7 +27,8 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:fitsSystemWindows="true">
         <ImageView
             android:id="@+id/ivlike"
             android:layout_width="76dp"
@@ -56,7 +59,8 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:fitsSystemWindows="true">
         <ImageView
             android:id="@+id/ivdislike"
             android:layout_width="76dp"
@@ -235,6 +239,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginVertical="16dp"
         android:layout_marginHorizontal="8dp"
+        android:gravity="center_vertical"
         app:layout_constraintLeft_toLeftOf="@+id/linearLayoutOne"
         app:layout_constraintTop_toBottomOf="@+id/linearLayoutTwo"
         app:layout_constraintRight_toRightOf="@+id/linearLayoutThree">
@@ -245,8 +250,9 @@
             android:layout_weight="1"
             android:textSize="12sp"
             style="@style/customNavButtonStyle"
-            android:layout_marginLeft="12dp"
-            android:layout_marginRight="12dp"
+            android:layout_marginHorizontal="12dp"
+            android:paddingVertical="0dp"
+            android:layout_marginVertical="0dp"
             android:text="&lt;&lt;  Previous"
             android:contentDescription="@string/previous"/>
         <Button
@@ -256,8 +262,9 @@
             android:layout_weight="1"
             android:textSize="12sp"
             style="@style/customNavButtonStyle"
-            android:layout_marginLeft="12dp"
-            android:layout_marginRight="12dp"
+            android:layout_marginHorizontal="12dp"
+            android:paddingVertical="0dp"
+            android:layout_marginVertical="0dp"
             android:text="Next &gt;&gt; "
             android:contentDescription="@string/next"/>
     </LinearLayout>
@@ -273,7 +280,8 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.06">
+        app:layout_constraintVertical_bias="1.06"
+        android:fitsSystemWindows="true">
 
         <ImageView
             android:id="@+id/ivback"
@@ -308,7 +316,8 @@
         android:layout_marginBottom="2dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:importantForAccessibility="no"/>
+        android:importantForAccessibility="no"
+        android:fitsSystemWindows="true"/>
     <FrameLayout
         android:id="@+id/anim_layout"
         android:layout_width="match_parent"
@@ -316,7 +325,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:fitsSystemWindows="true">
         <include layout="@layout/activity_anim"/>
     </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

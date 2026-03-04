@@ -28,7 +28,8 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="@+id/recycler_view"
         app:layout_constraintBottom_toBottomOf="@+id/recycler_view"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:fitsSystemWindows="true">
         <ImageView
             android:id="@+id/ivlike"
             android:layout_width="76dp"
@@ -59,7 +60,8 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="@+id/recycler_view"
         app:layout_constraintBottom_toBottomOf="@+id/recycler_view"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:fitsSystemWindows="true">
         <ImageView
             android:id="@+id/ivdislike"
             android:layout_width="76dp"
@@ -92,7 +94,8 @@
         app:layout_constraintTop_toBottomOf="@+id/custom_app_bar"
         app:layout_constraintBottom_toBottomOf="@+id/wave"
         app:layout_constraintLeft_toRightOf="@+id/positive"
-        app:layout_constraintRight_toLeftOf="@+id/negative"/>
+        app:layout_constraintRight_toLeftOf="@+id/negative"
+        android:fitsSystemWindows="true"/>
     <TextView
         android:id="@+id/place_holder_text"
         android:layout_width="wrap_content"
@@ -117,7 +120,8 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.06">
+        app:layout_constraintVertical_bias="1.06"
+        android:fitsSystemWindows="true">
 
         <ImageView
             android:id="@+id/ivback"
@@ -152,7 +156,8 @@
         android:layout_marginBottom="2dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:importantForAccessibility="no"/>
+        android:importantForAccessibility="no"
+        android:fitsSystemWindows="true"/>
     <FrameLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -160,7 +165,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="10dp"
-        android:layout_marginEnd="6dp">
+        android:layout_marginEnd="6dp"
+        android:fitsSystemWindows="true">
         <Button
             android:id="@+id/save_button"
             android:layout_width="wrap_content"
@@ -182,7 +188,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:fitsSystemWindows="true">
         <include layout="@layout/activity_anim"/>
     </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,17 +7,20 @@
     android:layout_height="match_parent"
     android:background="@color/app_background"
     tools:context="com.dsource.idc.jellowintl.activities.LanguageSelectActivity">
+    <include layout="@layout/app_bar"
+        android:id="@+id/custom_app_bar"/>
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fadeScrollbars="false"
         android:fillViewport="true"
-        android:layout_marginTop="@dimen/lang_sel_scroll_margin_vertical"
+        android:layout_marginTop="?attr/actionBarSize"
         android:layout_marginBottom="@dimen/lang_sel_scroll_margin_vertical"
         android:layout_marginLeft="@dimen/lang_sel_scroll_margin_left"
         android:layout_marginStart="@dimen/lang_sel_scroll_margin_left"
         android:layout_marginRight="@dimen/lang_sel_scroll_margin_right"
-        android:layout_marginEnd="@dimen/lang_sel_scroll_margin_right">
+        android:layout_marginEnd="@dimen/lang_sel_scroll_margin_right"
+        android:fitsSystemWindows="true">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

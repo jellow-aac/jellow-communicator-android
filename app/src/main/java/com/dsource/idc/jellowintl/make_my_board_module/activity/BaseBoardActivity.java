@@ -117,19 +117,14 @@ public abstract class BaseBoardActivity<V extends IBaseView, P extends IBasePres
 
     public void setupToolBar(int stringResId){
         if(getSupportActionBar()!=null) {
-            enableNavigationBack();
+//            enableNavigationBack();
             setupActionBarTitle(View.VISIBLE, getString(R.string.home) + "/" +
                     getString(R.string.my_boards) + "/" +
                     currentBoard.getBoardName()+" "+getString(R.string.board) + "/" +
                     getString(stringResId));
             setNavigationUiConditionally();
         }
-        findViewById(R.id.iv_action_bar_back).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
+        findViewById(R.id.iv_action_bar_back).setOnClickListener(v -> onBackPressed());
     }
 
     public int getNumberOfIconPerScreen() {

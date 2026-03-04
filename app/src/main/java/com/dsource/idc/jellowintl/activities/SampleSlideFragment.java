@@ -4,21 +4,30 @@ package com.dsource.idc.jellowintl.activities;
  * Created by Shruti on 15-08-2016.
  */
 
+import static com.dsource.idc.jellowintl.models.GlobalConstants.SCREEN_SIZE_PHONE;
+import static com.dsource.idc.jellowintl.models.GlobalConstants.SCREEN_SIZE_SEVEN_INCH_TAB;
+import static com.dsource.idc.jellowintl.models.GlobalConstants.SCREEN_SIZE_TEN_INCH_TAB;
+
 import android.os.Build;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
 
 import com.dsource.idc.jellowintl.R;
+import com.dsource.idc.jellowintl.models.GlobalConstants;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.MaterialToolbar;
 
@@ -56,14 +65,15 @@ public class SampleSlideFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(layoutResId, container, false);
+        View view = inflater.inflate(layoutResId, container, false);
+        setupActionBarTitle(view, View.GONE, getString(R.string.intro_to_jellow));
+        return view;
     }
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        setupActionBarTitle(view, View.GONE, getString(R.string.intro_to_jellow));
-    }
+//    @Override
+//    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+//        super.onViewCreated(view, savedInstanceState);
+//    }
 
     public String getLayoutName() {
         return mLayoutName;
@@ -110,12 +120,60 @@ public class SampleSlideFragment extends Fragment {
                     return WindowInsetsCompat.CONSUMED;
                 });
             }
-
-//            if (layoutResId == R.layout.intro1){
-//
-//            }
         } else {
+            DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
             view.findViewById(R.id.dummyStatusBar).setVisibility(View.GONE);
+            // Setting up toolbar height for 10' & 7' device
+            if (getScreenSize() == GlobalConstants.SCREEN_SIZE_TEN_INCH_TAB ||
+                    getScreenSize() == SCREEN_SIZE_SEVEN_INCH_TAB) {
+                MaterialToolbar toolbar = view.findViewById(R.id.toolbar);
+                if (toolbar == null)
+                    return;
+
+                int height = 62;
+                int heightInPx = (int) TypedValue.applyDimension(
+                        TypedValue.COMPLEX_UNIT_DIP,
+                        height,
+                        displayMetrics
+                );
+
+                ViewGroup.LayoutParams toolbarParams = toolbar.getLayoutParams();
+                toolbarParams.height = heightInPx;
+                toolbar.setLayoutParams(toolbarParams);
+            }
+            if (getScreenSize() == SCREEN_SIZE_PHONE){
+                LinearLayout toolbar = view.findViewById(R.id.parent);
+                if (toolbar != null) {
+                    int height = 32;
+                    int heightInPx = (int) TypedValue.applyDimension(
+                            TypedValue.COMPLEX_UNIT_DIP,
+                            height,
+                            displayMetrics
+                    );
+                    ViewGroup.MarginLayoutParams param = (ViewGroup.MarginLayoutParams) toolbar.getLayoutParams();
+                    param.setMargins(param.leftMargin, heightInPx, param.rightMargin, param.bottomMargin);
+                    toolbar.setLayoutParams(param);
+                }
+            }
         }
+    }
+    public int getScreenSize(){
+        DisplayMetrics metrics = new DisplayMetrics();
+        getActivity().getWindowManager().getDefaultDisplay().getMetrics(metrics);
+        int widthPixels = metrics.widthPixels;
+        int heightPixels = metrics.heightPixels;
+        float scaleFactor = metrics.density;
+        float widthDp = widthPixels / scaleFactor;
+        float heightDp = heightPixels / scaleFactor;
+        float smallestWidth = Math.min(widthDp, heightDp);
+
+        if (smallestWidth > 720) {
+            //Device is a 10" tablet
+            return SCREEN_SIZE_TEN_INCH_TAB;
+        }else if (smallestWidth > 600) {
+            //Device is a 7" tablet
+            return SCREEN_SIZE_SEVEN_INCH_TAB;
+        }else
+            return SCREEN_SIZE_PHONE;
     }
 }

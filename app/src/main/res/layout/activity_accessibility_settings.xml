@@ -5,6 +5,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/app_background">
+    <include layout="@layout/app_bar"
+        android:id="@+id/custom_app_bar"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -12,8 +14,9 @@
         android:layout_marginStart="@dimen/access_parent_margin_left"
         android:layout_marginRight="@dimen/access_parent_margin_right"
         android:layout_marginEnd="@dimen/access_parent_margin_right"
-        android:layout_marginTop="@dimen/access_parent_margin_vertical"
-        android:layout_marginBottom="@dimen/access_parent_margin_vertical">
+        android:layout_marginTop="?attr/actionBarSize"
+        android:layout_marginBottom="@dimen/access_parent_margin_vertical"
+        android:fitsSystemWindows="true">
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -366,7 +369,8 @@
         android:layout_alignParentBottom="true"
         android:background="@color/menu_screen_bottom_bar"
         android:gravity="center_vertical"
-        android:importantForAccessibility="yes">
+        android:importantForAccessibility="yes"
+        android:fitsSystemWindows="true">
         <Button
             android:layout_width="wrap_content"
             android:layout_height="@dimen/access_btn_height"

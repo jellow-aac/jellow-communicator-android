@@ -320,6 +320,8 @@ public class IconSelectActivity extends BaseBoardActivity<ISelectIconView, ISele
             SelectionManager.getInstance().setList(selectedIconList);
             levelManager.updateSelection(savedInstanceState.getInt(CURRENT_POSITION), -1);
         }
+        setVisibleAct(IconSelectActivity.class.getSimpleName());
+        setupToolbarMenu();
     }
 
     @Override
@@ -347,12 +349,6 @@ public class IconSelectActivity extends BaseBoardActivity<ISelectIconView, ISele
 
         // Stop measuring user app screen timer.
         stopMeasuring(IconSelectActivity.class.getSimpleName());
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.my_board_select_icon_menu, menu);
-        return true;
     }
 
     @Override
