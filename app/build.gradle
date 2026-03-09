@@ -6,8 +6,8 @@ android {
         applicationId "com.dsource.idc.jellowintl"
         minSdkVersion 23
         targetSdkVersion 36
-        versionCode 102
-        versionName "4.1.7"
+        versionCode 103
+        versionName "4.1.8"
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

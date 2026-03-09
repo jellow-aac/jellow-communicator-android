@@ -3,8 +3,11 @@ All notable changes to this project will be documented in this file.
 ##[4.x.x] - Yet to release
 - Update build.gradle dependencies
 
-##[4.1.7] - Yet to release
+##[4.1.8] - Yet to release
 - Sinhalese language add
+
+##[4.1.7] - Yet to release
+- Marwadi and Nepali language add
 
 ##[4.1.6] - Yet to release
 - Assamese and Arabic language add
