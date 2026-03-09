@@ -33,7 +33,7 @@ public class LanguageFactory {
      * 20- Kannada (India), 21- Malayalam (India), 22- Marathi with TTS, 23- Oriya (India),
      * 24- Urdu (India), 25- Maithili (India), 26- Rajsthani (India), 27- Nepali (Nepal),
      * 28- Serbian (Serbia), 29- Arabic (Arab), 30- Kokani (India), 31- Mizo (India),
-     * 32- Assemese (India)
+     * 32- Assemese (India), 33- Sinhala(Srilanka)
      ***/
     public static String getLanguageCode(String langCode){
         switch (langCode){
@@ -98,6 +98,8 @@ public class LanguageFactory {
                 return "31";
             case SessionManager.AS_IN:
                 return "32";
+            case SessionManager.SI_LK:
+                return "33";
             default:
                 return null;
         }

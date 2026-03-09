@@ -49,6 +49,7 @@ import static com.dsource.idc.jellowintl.utility.SessionManager.NE_NP;
 import static com.dsource.idc.jellowintl.utility.SessionManager.OR_IN;
 import static com.dsource.idc.jellowintl.utility.SessionManager.PA_IN;
 import static com.dsource.idc.jellowintl.utility.SessionManager.RAJ_IN;
+import static com.dsource.idc.jellowintl.utility.SessionManager.SI_LK;
 import static com.dsource.idc.jellowintl.utility.SessionManager.SR_RS;
 import static com.dsource.idc.jellowintl.utility.SessionManager.TA_IN;
 import static com.dsource.idc.jellowintl.utility.SessionManager.TE_IN;
@@ -150,6 +151,7 @@ public class SpeechEngineBaseActivity extends BaseActivity{
             case KOK_IN:
             case LUS_IN:
             case AS_IN:
+            case SI_LK:
             default:
                 return (float) getSession().getPitch()/50;
         }
@@ -188,6 +190,7 @@ public class SpeechEngineBaseActivity extends BaseActivity{
             case KOK_IN:
             case LUS_IN:
             case AS_IN:
+            case SI_LK:
             default:
                 return (float) (getSession().getSpeed()/50);
         }
@@ -226,6 +229,7 @@ public class SpeechEngineBaseActivity extends BaseActivity{
             case KOK_IN:
             case LUS_IN:
             case AS_IN:
+            case SI_LK:
             default:
                 return "com.google.android.tts";
         }
@@ -474,10 +478,10 @@ public class SpeechEngineBaseActivity extends BaseActivity{
     static HashMap<String, String> voiceGender = new HashMap<String, String>(){
         {
             put("bn-bd-x-ban-local", " (M)");
-//            put("bn-in-x-bin-local", " (M)");
-//            put("bn-in-x-bnf-local", " (F)");
-            put("bn-in-x-bnd-local", " (M)");
-            put("bn-in-x-bnc-local", " (F)");
+            put("bn-in-x-bin-local", " (M)");
+            put("bn-in-x-bnf-local", " (F)");
+            put("bn-in-x-bnm-local", " (M)");
+            put("bn-in-x-bnx-local", " (F)");
             put("de-de-x-deb-local", " (M)");
             put("de-de-x-deg-local", " (M)");
             put("de-de-x-nfh-local", " (F)");
@@ -551,6 +555,7 @@ public class SpeechEngineBaseActivity extends BaseActivity{
             put("ar-xa-x-arz-local", " (F)");
             put("kok-in-x-end-local", " (M)");
             put("as-in-x-end-local", " (M)");
+            put("si-lk-x-sin-local", " (F)");
         }
     };
 }
