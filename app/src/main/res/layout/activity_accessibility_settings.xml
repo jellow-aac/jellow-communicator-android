@@ -186,6 +186,7 @@
                         android:id="@+id/btn_access_video_one"
                         android:layout_width="wrap_content"
                         android:layout_height="@dimen/about_btn_height"
+                        android:paddingVertical="0dp"
                         android:textSize="@dimen/about_btn_txt_size"
                         android:text="@string/play_video"
                         android:paddingLeft="@dimen/access_btn_padding_horizontal"
@@ -351,6 +352,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="@dimen/about_btn_height"
                         android:textSize="@dimen/about_btn_txt_size"
+                        android:paddingVertical="0dp"
                         android:text="@string/play_video"
                         android:paddingLeft="@dimen/access_btn_padding_horizontal"
                         android:paddingRight="@dimen/access_btn_padding_horizontal"
@@ -363,24 +365,24 @@
         </ScrollView>
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/llBottom"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/access_ll_margin_bottom"
-        android:orientation="horizontal"
-        android:layout_alignParentBottom="true"
+        android:layout_height="@dimen/profile_view_height"
         android:background="@color/menu_screen_bottom_bar"
-        android:gravity="center_vertical"
+        android:layout_alignParentBottom="true"
         android:importantForAccessibility="yes"
         android:fitsSystemWindows="true">
         <Button
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/access_btn_height"
-            android:layout_gravity="center_vertical"
-            android:textSize="@dimen/access_btn_txt_size"
-            android:layout_marginLeft="@dimen/access_btn_margin_left"
-            android:layout_marginStart="@dimen/access_btn_margin_left"
-            android:paddingLeft="@dimen/access_btn_padding_horizontal"
-            android:paddingRight="@dimen/access_btn_padding_horizontal"
+            android:layout_height="@dimen/profile_save_btn_height"
+            android:textSize="@dimen/profile_save_btn_txt_size"
             android:text="@string/txt_accessibility_setting"
+            android:paddingVertical="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_gravity="center_vertical"
+            android:paddingHorizontal="@dimen/profile_save_btn_padding_left"
+            android:layout_marginLeft="@dimen/profile_btn_save_margin_left"
+            android:layout_marginStart="@dimen/profile_btn_save_margin_left"
             android:onClick="openSystemAccessibilitySetting"/>
     </LinearLayout>
 </RelativeLayout>

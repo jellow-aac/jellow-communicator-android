@@ -50,11 +50,9 @@ public class BoardTrashActivity extends BaseBoardActivity<IBoardListView, IBoard
     public void initViewsAndEvents() {
         mPresenter.loadBoards("Deleted");
         mAdapter.setOnItemClickListener(this);
-//        enableNavigationBack();
         setupActionBarTitle(View.VISIBLE, getString(R.string.home) + "/ "+ getString(R.string.menuBoardsTrash));
         applyMonochromeColor();
         setNavigationUiConditionally();
-        getSupportActionBar().setBackgroundDrawable(getResources().getDrawable(R.drawable.yellow_bg));
         findViewById(R.id.iv_action_bar_back).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

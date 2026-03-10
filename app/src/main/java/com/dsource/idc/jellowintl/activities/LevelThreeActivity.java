@@ -117,6 +117,8 @@ public class LevelThreeActivity extends LevelBaseActivity implements BasicCustom
         setVisibleAct(LevelThreeActivity.class.getSimpleName());
         setupActionBarTitle(View.GONE, txtActionBarTitle);
         setupToolbarMenu();
+        setupJellowLogo();
+        setupRecycler();
         applyMonochromeColor();
         setNavigationUiConditionally();
 

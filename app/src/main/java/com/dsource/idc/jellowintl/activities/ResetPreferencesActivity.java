@@ -24,6 +24,7 @@ public class ResetPreferencesActivity extends BaseActivity {
         setVisibleAct(ResetPreferencesActivity.class.getSimpleName());
         setupActionBarTitle(View.VISIBLE, getString(R.string.home)+"/ "+getString(R.string.menuResetPref));
         setupToolbarMenu();
+        setupBottomBar();
         applyMonochromeColor();
         setNavigationUiConditionally();
 

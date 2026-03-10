@@ -124,6 +124,8 @@ public class MainActivity extends LevelBaseActivity implements BasicCustomIconsC
         setVisibleAct(MainActivity.class.getSimpleName());
         setupActionBarTitle(View.GONE, getString(R.string.action_bar_title));
         setupToolbarMenu();
+        setupJellowLogo();
+        setupRecycler();
         applyMonochromeColor();
         setNavigationUiConditionally();
         mUec = new UserEventCollector();

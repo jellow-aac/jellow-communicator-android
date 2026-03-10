@@ -84,6 +84,7 @@
                     android:layout_height="@dimen/setting_btn_height"
                     android:text="@string/txtDemo"
                     android:textSize="@dimen/setting_btn_txt_size"
+                    android:paddingVertical="0dp"
                     android:layout_marginBottom="@dimen/setting_btn_margin_bottom"
                     android:paddingLeft="@dimen/setting_btn_padding_horizontal"
                     android:paddingRight="@dimen/setting_btn_padding_horizontal"/>
@@ -157,7 +158,8 @@
                     </TableRow>
                     <TableRow
                         android:weightSum="1"
-                        android:layout_marginBottom="@dimen/activity_vertical_margin">
+                        android:layout_marginBottom="@dimen/activity_vertical_margin"
+                        android:gravity="center_vertical">
                         <LinearLayout
                             android:layout_weight="0.3">
                             <TextView
@@ -179,7 +181,8 @@
                     </TableRow>
                     <TableRow
                         android:weightSum="1"
-                        android:layout_marginBottom="@dimen/activity_vertical_margin">
+                        android:layout_marginBottom="@dimen/activity_vertical_margin"
+                        android:gravity="center_vertical">
                         <LinearLayout
                             android:layout_weight="0.3">
                             <TextView
@@ -202,7 +205,8 @@
                     </TableRow>
                     <TableRow
                         android:weightSum="1"
-                        android:layout_marginBottom="@dimen/activity_vertical_margin">
+                        android:layout_marginBottom="@dimen/activity_vertical_margin"
+                        android:gravity="center_vertical">
                         <LinearLayout
                             android:layout_weight="0.3">
                             <TextView
@@ -239,7 +243,8 @@
                     </TableRow>
                     <TableRow
                         android:weightSum="1"
-                        android:layout_marginBottom="@dimen/activity_vertical_margin">
+                        android:layout_marginBottom="@dimen/activity_vertical_margin"
+                        android:gravity="center_vertical">
                         <LinearLayout
                             android:layout_weight="0.3">
                             <TextView
@@ -278,7 +283,8 @@
                     <TableRow
                         android:id="@+id/rowOtherSetting"
                         android:weightSum="1"
-                        android:layout_marginBottom="@dimen/activity_vertical_margin">
+                        android:layout_marginBottom="@dimen/activity_vertical_margin"
+                        android:gravity="center_vertical">
                         <LinearLayout
                             android:layout_weight="0.3">
                             <TextView
@@ -308,8 +314,9 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/llBottom"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/setting_bottom_bar_height"
+        android:layout_height="@dimen/profile_view_height"
         android:background="@color/menu_screen_bottom_bar"
         android:layout_alignParentBottom="true"
         android:importantForAccessibility="yes"
@@ -317,13 +324,14 @@
         <Button
             android:id="@+id/button4"
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/setting_btn_height"
+            android:layout_height="@dimen/profile_save_btn_height"
+            android:textSize="@dimen/profile_save_btn_txt_size"
             android:text="@string/txtSave"
-            android:textSize="@dimen/setting_btn_txt_size"
+            android:paddingVertical="0dp"
+            android:layout_marginTop="0dp"
             android:layout_gravity="center_vertical"
-            android:paddingLeft="@dimen/setting_btn_padding_horizontal"
-            android:paddingRight="@dimen/setting_btn_padding_horizontal"
-            android:layout_marginLeft="@dimen/setting_btn_margin_left"
-            android:layout_marginStart="@dimen/setting_btn_margin_left"/>
+            android:paddingHorizontal="@dimen/profile_save_btn_padding_left"
+            android:layout_marginLeft="@dimen/profile_btn_save_margin_left"
+            android:layout_marginStart="@dimen/profile_btn_save_margin_left"/>
     </LinearLayout>
 </RelativeLayout>

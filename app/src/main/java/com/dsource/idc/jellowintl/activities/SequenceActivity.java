@@ -99,6 +99,8 @@ public class SequenceActivity extends LevelBaseActivity{
         setVisibleAct(SequenceActivity.class.getSimpleName());
         txtActionBarTitle = getIntent().getExtras().getString(getString(R.string.intent_menu_path_tag));
         setupToolbarMenu();
+        setupJellowLogo();
+        setupRecycler();
         setupActionBarTitle(View.GONE, txtActionBarTitle);
         applyMonochromeColor();
         txtKeyboard = getString(R.string.keyboard);

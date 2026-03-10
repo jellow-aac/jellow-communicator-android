@@ -486,33 +486,34 @@
         </ScrollView>
     </LinearLayout>
     <LinearLayout
-        android:id="@+id/bottomControls"
+        android:id="@+id/llBottom"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/about_bottom_bar_height"
+        android:layout_height="@dimen/profile_view_height"
         android:background="@color/menu_screen_bottom_bar"
         android:layout_alignParentBottom="true"
+        android:importantForAccessibility="yes"
+        android:orientation="horizontal"
         android:fitsSystemWindows="true">
         <Button
             android:id="@+id/speak"
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/about_btn_height"
-            android:textSize="@dimen/about_btn_txt_size"
+            android:layout_height="@dimen/profile_save_btn_height"
+            android:textSize="@dimen/profile_save_btn_txt_size"
             android:text="@string/speak"
+            android:paddingVertical="0dp"
+            android:layout_marginTop="0dp"
             android:layout_gravity="center_vertical"
-            android:paddingLeft="@dimen/about_btn_padding_left"
-            android:paddingRight="@dimen/about_btn_padding_left"
-            android:layout_marginLeft="@dimen/about_btn_margin_left"
-            android:layout_marginStart="@dimen/about_btn_margin_left"/>
+            android:paddingHorizontal="@dimen/profile_save_btn_padding_left"
+            android:layout_marginHorizontal="@dimen/profile_btn_save_margin_left"/>
         <Button
             android:id="@+id/stop"
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/about_btn_height"
-            android:textSize="@dimen/about_btn_txt_size"
+            android:layout_height="@dimen/profile_save_btn_height"
+            android:textSize="@dimen/profile_save_btn_txt_size"
             android:text="@string/stop"
+            android:paddingVertical="0dp"
+            android:layout_marginTop="0dp"
             android:layout_gravity="center_vertical"
-            android:paddingLeft="@dimen/about_btn_padding_left"
-            android:paddingRight="@dimen/about_btn_padding_left"
-            android:layout_marginLeft="@dimen/about_btn_margin_left"
-            android:layout_marginStart="@dimen/about_btn_margin_left"/>
+            android:paddingHorizontal="@dimen/profile_save_btn_padding_left"/>
     </LinearLayout>
 </RelativeLayout>

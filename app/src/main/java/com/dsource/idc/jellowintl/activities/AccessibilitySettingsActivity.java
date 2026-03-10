@@ -20,6 +20,7 @@ public class AccessibilitySettingsActivity extends BaseActivity {
         setContentView(R.layout.activity_accessibility_settings);
         setVisibleAct(AccessibilitySettingsActivity.class.getSimpleName());
         setupToolbarMenu();
+        setupBottomBar();
         setupActionBarTitle(View.VISIBLE, getString(R.string.home)+"/ "+getString(R.string.menuAccessibility));
         applyMonochromeColor();
         setNavigationUiConditionally();

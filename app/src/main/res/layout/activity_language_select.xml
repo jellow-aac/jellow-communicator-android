@@ -43,9 +43,10 @@
             <Button
                 android:id="@+id/btn_lang_select"
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/lang_sel_spinner_height"
+                android:layout_height="@dimen/profile_save_btn_height"
                 android:paddingLeft="8dp"
                 android:paddingRight="8dp"
+                android:paddingVertical="0dp"
                 android:layout_marginBottom="@dimen/lang_sel_tv_margin_bottom"
                 android:textSize="@dimen/lang_sel_btn_txt_size"
                 android:onClick="showAvailableLanguageDialog"
@@ -61,7 +62,8 @@
             <Button
                 android:id="@+id/btn_voic_select"
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/lang_sel_spinner_height"
+                android:layout_height="@dimen/profile_save_btn_height"
+                android:paddingVertical="0dp"
                 android:paddingLeft="8dp"
                 android:paddingRight="8dp"
                 android:layout_marginBottom="@dimen/lang_sel_tv_margin_bottom"
@@ -79,7 +81,7 @@
             <Button
                 android:id="@+id/saveBut"
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/lang_sel_btn_height"
+                android:layout_height="@dimen/profile_save_btn_height"
                 android:textSize="@dimen/lang_sel_btn_txt_size"
                 android:layout_marginBottom="@dimen/lang_sel_tv_margin_bottom"
                 android:paddingLeft="@dimen/lang_sel_btn_padding_horizontal"
@@ -152,7 +154,7 @@
                     <Button
                         android:id="@+id/btnTTsSetting"
                         android:layout_width="wrap_content"
-                        android:layout_height="@dimen/lang_sel_btn_height"
+                        android:layout_height="@dimen/profile_save_btn_height"
                         android:textSize="@dimen/lang_sel_btn_txt_size"
                         android:layout_gravity="center_vertical"
                         android:layout_marginTop="@dimen/lang_sel_ll_margin_top"
@@ -179,7 +181,7 @@
                     <Button
                         android:id="@+id/btnDownloadVoiceData"
                         android:layout_width="wrap_content"
-                        android:layout_height="@dimen/lang_sel_btn_height"
+                        android:layout_height="@dimen/profile_save_btn_height"
                         android:textSize="@dimen/lang_sel_btn_txt_size"
                         android:layout_gravity="center_vertical"
                         android:layout_marginTop="@dimen/lang_sel_btn_voice_margin_top"

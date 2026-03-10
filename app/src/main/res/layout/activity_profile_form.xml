@@ -17,7 +17,8 @@
         android:layout_marginTop="?attr/actionBarSize"
         android:layout_marginBottom="@dimen/profile_parent_margin_vertical"
         android:layout_marginRight="@dimen/profile_parent_margin_right"
-        android:layout_marginEnd="@dimen/profile_parent_margin_right">
+        android:layout_marginEnd="@dimen/profile_parent_margin_right"
+        android:fitsSystemWindows="true">
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -170,20 +171,23 @@
         </ScrollView>
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/llBottom"
         android:layout_width="match_parent"
         android:layout_height="@dimen/profile_view_height"
         android:background="@color/menu_screen_bottom_bar"
         android:layout_alignParentBottom="true"
-        android:importantForAccessibility="yes">
+        android:importantForAccessibility="yes"
+        android:fitsSystemWindows="true">
         <Button
             android:id="@+id/bSave"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/profile_save_btn_height"
             android:textSize="@dimen/profile_save_btn_txt_size"
             android:text="@string/txtSave"
+            android:paddingVertical="0dp"
+            android:layout_marginTop="0dp"
             android:layout_gravity="center_vertical"
-            android:paddingLeft="@dimen/profile_save_btn_padding_left"
-            android:paddingRight="@dimen/profile_save_btn_padding_left"
+            android:paddingHorizontal="@dimen/profile_save_btn_padding_left"
             android:layout_marginLeft="@dimen/profile_btn_save_margin_left"
             android:layout_marginStart="@dimen/profile_btn_save_margin_left"/>
     </LinearLayout>

@@ -135,6 +135,8 @@ public class LevelTwoActivity extends LevelBaseActivity implements BasicCustomIc
         setVisibleAct(LevelTwoActivity.class.getSimpleName());
         setupActionBarTitle(View.GONE, txtActionBarTitle);
         setupToolbarMenu();
+        setupJellowLogo();
+        setupRecycler();
         applyMonochromeColor();
         setNavigationUiConditionally();
         // when layout is loaded on activity, using the tag attribute of a parent view in layout

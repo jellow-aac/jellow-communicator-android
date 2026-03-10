@@ -46,6 +46,7 @@ public class ProfileFormActivity extends SpeechEngineBaseActivity {
         setVisibleAct(ProfileFormActivity.class.getSimpleName());
         setupActionBarTitle(View.VISIBLE, getString(R.string.home)+"/ "+getString(R.string.menuProfile));
         setupToolbarMenu();
+        setupBottomBar();
         applyMonochromeColor();
         setNavigationUiConditionally();
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);

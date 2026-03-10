@@ -29,15 +29,18 @@ import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.view.accessibility.AccessibilityManager;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toolbar;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.graphics.Insets;
 import androidx.core.view.MenuCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 import androidx.room.migration.Migration;
 import androidx.sqlite.db.SupportSQLiteDatabase;
@@ -424,6 +427,131 @@ public class BaseActivity extends AppCompatActivity{
 
         // 3. Set the Click Listener (Replacing onOptionsItemSelected)
         toolbar.setOnMenuItemClickListener(this::onOptionsItemSelected);
+    }
+
+    public void setupBottomBar(){
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+            LinearLayout llBottom = findViewById(R.id.llBottom);
+            if (llBottom != null) {
+                ViewCompat.setOnApplyWindowInsetsListener(llBottom, (v, windowInsets) -> {
+                    Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
+                    ViewGroup.MarginLayoutParams mlp = (ViewGroup.MarginLayoutParams) v.getLayoutParams();
+                    mlp.leftMargin = insets.left;
+                    mlp.bottomMargin = insets.bottom;
+                    mlp.rightMargin = insets.right;
+                    mlp.topMargin = 0;
+                    v.setLayoutParams(mlp);
+                    return WindowInsetsCompat.CONSUMED;
+                });
+
+                DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
+                int padding = 62;
+                int paddingInPx = (int) TypedValue.applyDimension(
+                        TypedValue.COMPLEX_UNIT_DIP,
+                        padding,
+                        displayMetrics
+                );
+                llBottom.setPadding(paddingInPx,0,0,0);
+            }
+        }
+    }
+
+    public void setupJellowLogo(){
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.UPSIDE_DOWN_CAKE && getScreenSize() == SCREEN_SIZE_PHONE) {
+            ImageView logo = findViewById(R.id.jellow_logo);
+            if (logo != null) {
+                ViewCompat.setOnApplyWindowInsetsListener(logo, (v, windowInsets) -> {
+                    Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
+                    ViewGroup.MarginLayoutParams mlp = (ViewGroup.MarginLayoutParams) v.getLayoutParams();
+                    mlp.leftMargin = 0;
+                    mlp.bottomMargin = 0;
+                    mlp.rightMargin = 0;
+                    mlp.topMargin = 0;
+                    v.setLayoutParams(mlp);
+                    ConstraintLayout.LayoutParams params = (ConstraintLayout.LayoutParams) v.getLayoutParams();
+                    DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
+                    int widthDp = 120;
+                    params.width = (int) TypedValue.applyDimension(
+                            TypedValue.COMPLEX_UNIT_DIP,
+                            widthDp,
+                            displayMetrics
+                    );
+
+                    int heightDp = 60;
+                    params.height = (int) TypedValue.applyDimension(
+                            TypedValue.COMPLEX_UNIT_DIP,
+                            heightDp,
+                            displayMetrics
+                    );
+
+                    int marginDp = -8;
+                    params.bottomMargin = (int) TypedValue.applyDimension(
+                            TypedValue.COMPLEX_UNIT_DIP,
+                            marginDp,
+                            displayMetrics
+                    );
+                    return WindowInsetsCompat.CONSUMED;
+                });
+
+                DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
+                int paddingDp = 32;
+                int paddingInPx = (int) TypedValue.applyDimension(
+                        TypedValue.COMPLEX_UNIT_DIP,
+                        paddingDp,
+                        displayMetrics
+                );
+                logo.setPadding(paddingInPx,0,0,0);
+            }
+        }
+    }
+
+    public void setupRecycler(){
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.UPSIDE_DOWN_CAKE && getScreenSize() == SCREEN_SIZE_PHONE) {
+            RecyclerView recyclerView = findViewById(R.id.recycler_view);
+            if (recyclerView != null) {
+                ViewCompat.setOnApplyWindowInsetsListener(recyclerView, (v, windowInsets) -> {
+                    Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
+                    ViewGroup.MarginLayoutParams mlp = (ViewGroup.MarginLayoutParams) v.getLayoutParams();
+                    mlp.leftMargin = 0;
+                    mlp.bottomMargin = 0;
+                    mlp.rightMargin = 0;
+                    mlp.topMargin = 0;
+                    v.setLayoutParams(mlp);
+//                    ConstraintLayout.LayoutParams params = (ConstraintLayout.LayoutParams) v.getLayoutParams();
+                    DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
+//                    int widthDp = 120;
+//                    params.width = (int) TypedValue.applyDimension(
+//                            TypedValue.COMPLEX_UNIT_DIP,
+//                            widthDp,
+//                            displayMetrics
+//                    );
+//
+//                    int heightDp = 60;
+//                    params.height = (int) TypedValue.applyDimension(
+//                            TypedValue.COMPLEX_UNIT_DIP,
+//                            heightDp,
+//                            displayMetrics
+//                    );
+//
+                    int paddingPx = (int) TypedValue.applyDimension(
+                            TypedValue.COMPLEX_UNIT_DIP,
+                            26,
+                            displayMetrics
+                    );
+                    recyclerView.setPadding(0,paddingPx,0,0);
+                    return WindowInsetsCompat.CONSUMED;
+                });
+
+//                DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
+//                int paddingDp = 32;
+//                int paddingInPx = (int) TypedValue.applyDimension(
+//                        TypedValue.COMPLEX_UNIT_DIP,
+//                        paddingDp,
+//                        displayMetrics
+//                );
+                recyclerView.setPadding(0,0,0,0);
+            }
+        }
     }
 
     private void applyMenuVisibilityLogic(Menu menu) {

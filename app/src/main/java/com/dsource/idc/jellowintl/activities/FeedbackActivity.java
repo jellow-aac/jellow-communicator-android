@@ -41,6 +41,7 @@ public class FeedbackActivity extends BaseActivity {
         setContentView(R.layout.activity_feedback);
         setVisibleAct(FeedbackActivity.class.getSimpleName());
         setupToolbarMenu();
+        setupBottomBar();
         setupActionBarTitle(View.VISIBLE, getString(R.string.home)+"/ "+getString(R.string.menuFeedback));
         applyMonochromeColor();
         setNavigationUiConditionally();
