@@ -322,6 +322,7 @@ public class IconSelectActivity extends BaseBoardActivity<ISelectIconView, ISele
         }
         setVisibleAct(IconSelectActivity.class.getSimpleName());
         setupToolbarMenu();
+        adjustIconListParentView();
     }
 
     @Override

@@ -5,7 +5,9 @@ import static com.dsource.idc.jellowintl.activities.UserRegistrationActivity.VCO
 import static com.dsource.idc.jellowintl.make_my_board_module.utility.BoardConstants.BOARD_ID;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,6 +30,11 @@ public class SetupMMB extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_language_download);
+        setupActionBarTitle(View.GONE, "");
+        findViewById(R.id.toolbar).setVisibility(View.GONE);
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.VANILLA_ICE_CREAM) {
+            getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.colorPrimary));
+        }
         applyMonochromeColor();
         setNavigationUiConditionally();
         if(getSupportActionBar()!=null) getSupportActionBar().hide();

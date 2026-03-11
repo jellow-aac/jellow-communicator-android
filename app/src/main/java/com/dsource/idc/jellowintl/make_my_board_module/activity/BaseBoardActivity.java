@@ -3,12 +3,18 @@ package com.dsource.idc.jellowintl.make_my_board_module.activity;
 import static com.dsource.idc.jellowintl.make_my_board_module.utility.BoardConstants.BOARD_ID;
 
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.SparseArray;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.dsource.idc.jellowintl.R;
@@ -18,6 +24,7 @@ import com.dsource.idc.jellowintl.make_my_board_module.dataproviders.databases.B
 import com.dsource.idc.jellowintl.make_my_board_module.presenter_interfaces.IBasePresenter;
 import com.dsource.idc.jellowintl.make_my_board_module.view_interfaces.IBaseView;
 import com.dsource.idc.jellowintl.models.GlobalConstants;
+import com.google.android.material.appbar.MaterialToolbar;
 
 public abstract class BaseBoardActivity<V extends IBaseView, P extends IBasePresenter<V>, A extends RecyclerView.Adapter> extends SpeechEngineBaseActivity {
 
@@ -141,5 +148,55 @@ public abstract class BaseBoardActivity<V extends IBaseView, P extends IBasePres
                 return 8;
         }
         return 9;
+    }
+
+    public void adjustIconListParentView(){
+        RelativeLayout parentView = findViewById(R.id.rlIconListParent);
+        if (parentView != null){
+            if (Build.VERSION.SDK_INT > Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+                ViewCompat.setOnApplyWindowInsetsListener(parentView, (v, windowInsets) -> {
+                    Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
+                    // Apply the insets as a margin to the view. This solution sets only the
+                    // bottom, left, and right dimensions, but you can apply whichever insets are
+                    // appropriate to your layout. You can also update the view padding if that's
+                    // more appropriate.
+                    ViewGroup.MarginLayoutParams mlp = (ViewGroup.MarginLayoutParams) v.getLayoutParams();
+                    mlp.leftMargin = insets.left;
+                    mlp.bottomMargin = insets.bottom;
+                    mlp.rightMargin = insets.right;
+                    mlp.topMargin = insets.top;
+                    parentView.setPadding(0,insets.top,0,0);
+                    v.setLayoutParams(mlp);
+                    // Return CONSUMED if you don't want the window insets to keep passing
+                    // down to descendant views.
+                    return WindowInsetsCompat.CONSUMED;
+                });
+            } else {
+                MaterialToolbar toolbar = findViewById(R.id.toolbar);
+                if (toolbar == null) {
+                    return;
+                }
+                RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) parentView.getLayoutParams();
+                params.topMargin = 0;
+                parentView.setPadding(
+                        parentView.getPaddingLeft(),
+                        toolbar.getHeight() / 2,
+                        parentView.getPaddingRight(),
+                        parentView.getPaddingBottom()
+                );
+                parentView.setLayoutParams(params);
+            }
+        }
+
+        RelativeLayout sidePane = findViewById(R.id.left_level_select_pane);
+        if (sidePane != null) {
+            if (Build.VERSION.SDK_INT > Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+                ViewCompat.setOnApplyWindowInsetsListener(sidePane, (v, windowInsets) -> {
+                    Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
+                    sidePane.setPadding(insets.right, 0, 0, 0);
+                    return WindowInsetsCompat.CONSUMED;
+                });
+            }
+        }
     }
 }

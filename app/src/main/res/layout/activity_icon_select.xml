@@ -70,6 +70,7 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/rlIconListParent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
@@ -92,6 +93,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:id="@+id/place_holder_text"
+            android:layout_marginHorizontal="4dp"
             android:textSize="24sp"
             android:visibility="gone"
             android:text="@string/place_holder_text"

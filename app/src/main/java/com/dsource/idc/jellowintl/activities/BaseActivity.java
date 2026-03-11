@@ -461,7 +461,6 @@ public class BaseActivity extends AppCompatActivity{
             ImageView logo = findViewById(R.id.jellow_logo);
             if (logo != null) {
                 ViewCompat.setOnApplyWindowInsetsListener(logo, (v, windowInsets) -> {
-                    Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
                     ViewGroup.MarginLayoutParams mlp = (ViewGroup.MarginLayoutParams) v.getLayoutParams();
                     mlp.leftMargin = 0;
                     mlp.bottomMargin = 0;
@@ -510,29 +509,13 @@ public class BaseActivity extends AppCompatActivity{
             RecyclerView recyclerView = findViewById(R.id.recycler_view);
             if (recyclerView != null) {
                 ViewCompat.setOnApplyWindowInsetsListener(recyclerView, (v, windowInsets) -> {
-                    Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
                     ViewGroup.MarginLayoutParams mlp = (ViewGroup.MarginLayoutParams) v.getLayoutParams();
                     mlp.leftMargin = 0;
                     mlp.bottomMargin = 0;
                     mlp.rightMargin = 0;
                     mlp.topMargin = 0;
                     v.setLayoutParams(mlp);
-//                    ConstraintLayout.LayoutParams params = (ConstraintLayout.LayoutParams) v.getLayoutParams();
                     DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
-//                    int widthDp = 120;
-//                    params.width = (int) TypedValue.applyDimension(
-//                            TypedValue.COMPLEX_UNIT_DIP,
-//                            widthDp,
-//                            displayMetrics
-//                    );
-//
-//                    int heightDp = 60;
-//                    params.height = (int) TypedValue.applyDimension(
-//                            TypedValue.COMPLEX_UNIT_DIP,
-//                            heightDp,
-//                            displayMetrics
-//                    );
-//
                     int paddingPx = (int) TypedValue.applyDimension(
                             TypedValue.COMPLEX_UNIT_DIP,
                             26,
@@ -542,13 +525,6 @@ public class BaseActivity extends AppCompatActivity{
                     return WindowInsetsCompat.CONSUMED;
                 });
 
-//                DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
-//                int paddingDp = 32;
-//                int paddingInPx = (int) TypedValue.applyDimension(
-//                        TypedValue.COMPLEX_UNIT_DIP,
-//                        paddingDp,
-//                        displayMetrics
-//                );
                 recyclerView.setPadding(0,0,0,0);
             }
         }

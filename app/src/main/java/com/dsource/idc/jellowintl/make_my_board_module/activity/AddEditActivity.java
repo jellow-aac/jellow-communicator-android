@@ -2,12 +2,13 @@ package com.dsource.idc.jellowintl.make_my_board_module.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.core.view.ViewCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -98,6 +99,8 @@ public class AddEditActivity extends BaseBoardActivity<IAddEditView, IAddEditPre
     public void initViewsAndEvents() {
         //Disable Expressive Icons for this activity
         setVisibility(R.id.save_button, true);
+        Button button = findViewById(R.id.save_button);
+        button.setBackground(ContextCompat.getDrawable(button.getContext(), R.drawable.edit_board_dialog_edit_text));
         if(getAdapter().getList().size() == 0)
             setVisibility(R.id.place_holder_text, true);
         getView(R.id.keyboard).setAlpha(GlobalConstants.DISABLE_ALPHA);
@@ -324,15 +327,8 @@ public class AddEditActivity extends BaseBoardActivity<IAddEditView, IAddEditPre
         super.onCreate(savedInstanceState);
         setVisibleAct(AddEditActivity.class.getSimpleName());
         setupToolbarMenu();
+        setupJellowLogo();
     }
-
-    /*@Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.board_home_menu, menu);
-        menu.findItem(R.id.reposition_lock).setVisible(false);
-        menu.findItem(R.id.action_home_app).setVisible(false);
-        return true;
-    }*/
 
     @Override
     public void onBackPressed() {
