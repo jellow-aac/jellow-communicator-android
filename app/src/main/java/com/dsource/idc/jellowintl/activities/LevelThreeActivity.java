@@ -118,7 +118,7 @@ public class LevelThreeActivity extends LevelBaseActivity implements BasicCustom
         setupActionBarTitle(View.GONE, txtActionBarTitle);
         setupToolbarMenu();
         setupJellowLogo();
-        setupRecycler();
+        setupParent();
         applyMonochromeColor();
         setNavigationUiConditionally();
 

@@ -1,48 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/parent"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/app_background">
-    <include layout="@layout/app_bar"
-        android:id="@+id/custom_app_bar"/>
-    <LinearLayout
+    android:background="#000"
+    android:fitsSystemWindows="true">
+    <RelativeLayout
+        android:id="@+id/rlParent"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/lang_dl_parent_margin_lr"
-        android:layout_marginRight="@dimen/lang_dl_parent_margin_lr"
-        android:layout_marginBottom="@dimen/lang_dl_parent_margin_bottom"
-        android:layout_alignParentBottom="true"
-        android:layout_centerInParent="true"
-        android:gravity="center_horizontal"
-        android:fitsSystemWindows="true"
-        android:orientation="vertical">
-        <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
-            android:id="@+id/pg"
+        android:layout_height="match_parent"
+        android:background="@color/app_background">
+        <include layout="@layout/app_bar"
+            android:id="@+id/custom_app_bar"/>
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/lang_dl_pbar_height"
-            android:layout_marginBottom="@dimen/lang_dl_parent_margin_bottom"
-            app:rcBackgroundColor="@color/colorPrimary"
-            app:rcBackgroundPadding="@dimen/lang_dl_pbar_bg_padding"
-            app:rcProgressColor="@color/app_background"
-            app:rcRadius="@dimen/lang_dl_pbar_radius"
-            app:rcReverse="false"
-            app:rcSecondaryProgressColor="@color/app_background"
-            android:contentDescription="@string/language_download_in_process" />
-        <TextView
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="@dimen/lang_dl_txt_margin_top"
+            android:layout_marginLeft="@dimen/lang_dl_parent_margin_lr"
+            android:layout_marginRight="@dimen/lang_dl_parent_margin_lr"
             android:layout_marginBottom="@dimen/lang_dl_parent_margin_bottom"
-            android:visibility="gone"
-            style="@style/defaultTextViewStyle"/>
-        <TextView
-            android:id="@+id/progress_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            style="@style/defaultTextViewStyle"
-            android:text="@string/downloadErrorMsg"/>
-    </LinearLayout>
-</RelativeLayout>
+            android:layout_alignParentBottom="true"
+            android:layout_centerInParent="true"
+            android:gravity="center_horizontal"
+            android:fitsSystemWindows="true"
+            android:orientation="vertical">
+            <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+                android:id="@+id/pg"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/lang_dl_pbar_height"
+                android:layout_marginBottom="@dimen/lang_dl_parent_margin_bottom"
+                app:rcBackgroundColor="@color/colorPrimary"
+                app:rcBackgroundPadding="@dimen/lang_dl_pbar_bg_padding"
+                app:rcProgressColor="@color/app_background"
+                app:rcRadius="@dimen/lang_dl_pbar_radius"
+                app:rcReverse="false"
+                app:rcSecondaryProgressColor="@color/app_background"
+                android:contentDescription="@string/language_download_in_process" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/lang_dl_txt_margin_top"
+                android:layout_marginBottom="@dimen/lang_dl_parent_margin_bottom"
+                android:visibility="gone"
+                style="@style/defaultTextViewStyle"/>
+            <TextView
+                android:id="@+id/progress_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/defaultTextViewStyle"
+                android:text="@string/downloadErrorMsg"/>
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

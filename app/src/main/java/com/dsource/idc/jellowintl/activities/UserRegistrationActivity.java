@@ -132,6 +132,7 @@ public class UserRegistrationActivity extends BaseActivity implements CheckNetwo
     private void initializeScreenViewsAndListeners() {
         setContentView(R.layout.activity_user_registration);
         setupActionBarTitle(View.GONE, getString(R.string.menuUserRegistration));
+        setupParent();
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.VANILLA_ICE_CREAM) {
             // Setting up toolbar height for 10' & 7' device
             if (getScreenSize() == GlobalConstants.SCREEN_SIZE_TEN_INCH_TAB ||

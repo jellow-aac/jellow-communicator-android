@@ -28,6 +28,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.view.accessibility.AccessibilityManager;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -37,6 +38,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.graphics.Insets;
+import androidx.core.view.DisplayCutoutCompat;
 import androidx.core.view.MenuCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -327,39 +329,39 @@ public class BaseActivity extends AppCompatActivity{
             ((TextView)findViewById(R.id.tvActionbarTitle)).setText(title);
 
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
-            AppBarLayout appBarLayout = findViewById(R.id.app_bar);
-            if (appBarLayout != null) {
-                ViewCompat.setOnApplyWindowInsetsListener(appBarLayout, (v, windowInsets) -> {
-                    Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
-                    // Apply the insets as a margin to the view. This solution sets only the
-                    // bottom, left, and right dimensions, but you can apply whichever insets are
-                    // appropriate to your layout. You can also update the view padding if that's
-                    // more appropriate.
-                    ViewGroup.MarginLayoutParams mlp = (ViewGroup.MarginLayoutParams) v.getLayoutParams();
-                    mlp.leftMargin = insets.left;
-                    mlp.bottomMargin = insets.bottom;
-                    mlp.rightMargin = insets.right;
-                    mlp.topMargin = 0;
-                    v.setLayoutParams(mlp);
-                    // Return CONSUMED if you don't want the window insets to keep passing
-                    // down to descendant views.
-                    return WindowInsetsCompat.CONSUMED;
-                });
-                appBarLayout.setPadding(32,0,0,0);
-            }
-            MaterialToolbar toolbar = findViewById(R.id.toolbar);
-            if (toolbar != null) {
-                ViewCompat.setOnApplyWindowInsetsListener(toolbar, (v, windowInsets) -> {
-                    int right = windowInsets.getInsets(WindowInsetsCompat.Type.displayCutout()).left;
-                    v.post(() -> {
-                        v.setPadding(right, 0, right, 0);
-                        v.requestLayout();
-                    });
-                    // Return CONSUMED if you don't want the window insets to keep passing
-                    // down to descendant views.
-                    return WindowInsetsCompat.CONSUMED;
-                });
-            }
+//            AppBarLayout appBarLayout = findViewById(R.id.app_bar);
+//            if (appBarLayout != null) {
+//                ViewCompat.setOnApplyWindowInsetsListener(appBarLayout, (v, windowInsets) -> {
+//                    Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
+//                    // Apply the insets as a margin to the view. This solution sets only the
+//                    // bottom, left, and right dimensions, but you can apply whichever insets are
+//                    // appropriate to your layout. You can also update the view padding if that's
+//                    // more appropriate.
+//                    ViewGroup.MarginLayoutParams mlp = (ViewGroup.MarginLayoutParams) v.getLayoutParams();
+//                    mlp.leftMargin = insets.left;
+//                    mlp.bottomMargin = insets.bottom;
+//                    mlp.rightMargin = 32;
+//                    mlp.topMargin = 0;
+//                    v.setLayoutParams(mlp);
+//                    // Return CONSUMED if you don't want the window insets to keep passing
+//                    // down to descendant views.
+//                    return WindowInsetsCompat.CONSUMED;
+//                });
+//                appBarLayout.setPadding(32,0,0,0);
+//            }
+//            MaterialToolbar toolbar = findViewById(R.id.toolbar);
+//            if (toolbar != null) {
+//                ViewCompat.setOnApplyWindowInsetsListener(toolbar, (v, windowInsets) -> {
+//                    int right = windowInsets.getInsets(WindowInsetsCompat.Type.displayCutout()).left;
+//                    v.post(() -> {
+//                        v.setPadding(right, 0, right, 0);
+//                        v.requestLayout();
+//                    });
+//                    // Return CONSUMED if you don't want the window insets to keep passing
+//                    // down to descendant views.
+//                    return WindowInsetsCompat.CONSUMED;
+//                });
+//            }
         } else {
             findViewById(R.id.dummyStatusBar).setVisibility(View.GONE);
             if (getSupportActionBar() != null){
@@ -384,6 +386,31 @@ public class BaseActivity extends AppCompatActivity{
                 ViewGroup.LayoutParams toolbarParams = toolbar.getLayoutParams();
                 toolbarParams.height = heightInPx;
                 toolbar.setLayoutParams(toolbarParams);
+            }
+        }
+    }
+
+    public void setupParent(){
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+            if (findViewById(R.id.parent) != null) {
+                ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.parent), (v, windowInsets) -> {
+                    Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
+                    ViewGroup.MarginLayoutParams mlp = (ViewGroup.MarginLayoutParams) v.getLayoutParams();
+                    mlp.leftMargin = 0;
+                    mlp.bottomMargin = insets.bottom;
+                    mlp.rightMargin = insets.right;
+                    mlp.topMargin = 0;
+                    v.setLayoutParams(mlp);
+                    DisplayCutoutCompat cutout = windowInsets.getDisplayCutout();
+                    if (cutout != null) {
+                        int cameraPadding = cutout.getSafeInsetLeft();
+                        v.setPadding(cameraPadding,0,0,0);
+                    }
+                    // Return CONSUMED if you don't want the window insets to keep passing
+                    // down to descendant views.
+                    return WindowInsetsCompat.CONSUMED;
+                });
+
             }
         }
     }
@@ -458,9 +485,9 @@ public class BaseActivity extends AppCompatActivity{
 
     public void setupJellowLogo(){
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.UPSIDE_DOWN_CAKE && getScreenSize() == SCREEN_SIZE_PHONE) {
-            ImageView logo = findViewById(R.id.jellow_logo);
-            if (logo != null) {
-                ViewCompat.setOnApplyWindowInsetsListener(logo, (v, windowInsets) -> {
+            Button saveButton = findViewById(R.id.save_button);
+            if (saveButton != null) {
+                ViewCompat.setOnApplyWindowInsetsListener(saveButton, (v, windowInsets) -> {
                     ViewGroup.MarginLayoutParams mlp = (ViewGroup.MarginLayoutParams) v.getLayoutParams();
                     mlp.leftMargin = 0;
                     mlp.bottomMargin = 0;
@@ -468,64 +495,8 @@ public class BaseActivity extends AppCompatActivity{
                     mlp.topMargin = 0;
                     v.setLayoutParams(mlp);
                     ConstraintLayout.LayoutParams params = (ConstraintLayout.LayoutParams) v.getLayoutParams();
-                    DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
-                    int widthDp = 120;
-                    params.width = (int) TypedValue.applyDimension(
-                            TypedValue.COMPLEX_UNIT_DIP,
-                            widthDp,
-                            displayMetrics
-                    );
-
-                    int heightDp = 60;
-                    params.height = (int) TypedValue.applyDimension(
-                            TypedValue.COMPLEX_UNIT_DIP,
-                            heightDp,
-                            displayMetrics
-                    );
-
-                    int marginDp = -8;
-                    params.bottomMargin = (int) TypedValue.applyDimension(
-                            TypedValue.COMPLEX_UNIT_DIP,
-                            marginDp,
-                            displayMetrics
-                    );
                     return WindowInsetsCompat.CONSUMED;
                 });
-
-                DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
-                int paddingDp = 32;
-                int paddingInPx = (int) TypedValue.applyDimension(
-                        TypedValue.COMPLEX_UNIT_DIP,
-                        paddingDp,
-                        displayMetrics
-                );
-                logo.setPadding(paddingInPx,0,0,0);
-            }
-        }
-    }
-
-    public void setupRecycler(){
-        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.UPSIDE_DOWN_CAKE && getScreenSize() == SCREEN_SIZE_PHONE) {
-            RecyclerView recyclerView = findViewById(R.id.recycler_view);
-            if (recyclerView != null) {
-                ViewCompat.setOnApplyWindowInsetsListener(recyclerView, (v, windowInsets) -> {
-                    ViewGroup.MarginLayoutParams mlp = (ViewGroup.MarginLayoutParams) v.getLayoutParams();
-                    mlp.leftMargin = 0;
-                    mlp.bottomMargin = 0;
-                    mlp.rightMargin = 0;
-                    mlp.topMargin = 0;
-                    v.setLayoutParams(mlp);
-                    DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
-                    int paddingPx = (int) TypedValue.applyDimension(
-                            TypedValue.COMPLEX_UNIT_DIP,
-                            26,
-                            displayMetrics
-                    );
-                    recyclerView.setPadding(0,paddingPx,0,0);
-                    return WindowInsetsCompat.CONSUMED;
-                });
-
-                recyclerView.setPadding(0,0,0,0);
             }
         }
     }

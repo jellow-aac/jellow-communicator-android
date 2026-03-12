@@ -120,9 +120,8 @@ public class AddEditActivity extends BaseBoardActivity<IAddEditView, IAddEditPre
 
         manager = new SearchScrollManager(this, mRecyclerView);
 
-        setupToolBar(R.string.addicon_title);
-        if (getSupportActionBar() != null)
-            getSupportActionBar().setBackgroundDrawable(getResources().getDrawable(R.drawable.yellow_bg));
+//        if (getSupportActionBar() != null)
+//            getSupportActionBar().setBackgroundDrawable(getResources().getDrawable(R.drawable.yellow_bg));
 
         getView(R.id.save_button).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -326,8 +325,10 @@ public class AddEditActivity extends BaseBoardActivity<IAddEditView, IAddEditPre
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setVisibleAct(AddEditActivity.class.getSimpleName());
+        setupToolBar(R.string.addicon_title);
         setupToolbarMenu();
         setupJellowLogo();
+        setupSaveButton();
     }
 
     @Override

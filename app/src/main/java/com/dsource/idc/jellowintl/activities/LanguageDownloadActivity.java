@@ -43,6 +43,7 @@ public class LanguageDownloadActivity extends BaseActivity {
         setContentView(R.layout.activity_language_download);
         setupActionBarTitle(View.GONE, "");
         findViewById(R.id.toolbar).setVisibility(View.GONE);
+        setupParent();
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.VANILLA_ICE_CREAM) {
             getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.colorPrimary));
         }

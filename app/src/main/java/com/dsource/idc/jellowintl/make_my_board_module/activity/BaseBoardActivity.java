@@ -1,17 +1,22 @@
 package com.dsource.idc.jellowintl.make_my_board_module.activity;
 
 import static com.dsource.idc.jellowintl.make_my_board_module.utility.BoardConstants.BOARD_ID;
+import static com.dsource.idc.jellowintl.models.GlobalConstants.SCREEN_SIZE_PHONE;
 
 import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.util.SparseArray;
+import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -132,6 +137,54 @@ public abstract class BaseBoardActivity<V extends IBaseView, P extends IBasePres
             setNavigationUiConditionally();
         }
         findViewById(R.id.iv_action_bar_back).setOnClickListener(v -> onBackPressed());
+    }
+
+    public void setupSaveButton(){
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.UPSIDE_DOWN_CAKE && getScreenSize() == SCREEN_SIZE_PHONE) {
+            ImageView logo = findViewById(R.id.jellow_logo);
+            if (logo != null) {
+                ViewCompat.setOnApplyWindowInsetsListener(logo, (v, windowInsets) -> {
+                    ViewGroup.MarginLayoutParams mlp = (ViewGroup.MarginLayoutParams) v.getLayoutParams();
+                    mlp.leftMargin = 0;
+                    mlp.bottomMargin = 0;
+                    mlp.rightMargin = 0;
+                    mlp.topMargin = 0;
+                    v.setLayoutParams(mlp);
+                    ConstraintLayout.LayoutParams params = (ConstraintLayout.LayoutParams) v.getLayoutParams();
+                    DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
+                    int widthDp = 120;
+                    params.width = (int) TypedValue.applyDimension(
+                            TypedValue.COMPLEX_UNIT_DIP,
+                            widthDp,
+                            displayMetrics
+                    );
+
+                    int heightDp = 60;
+                    params.height = (int) TypedValue.applyDimension(
+                            TypedValue.COMPLEX_UNIT_DIP,
+                            heightDp,
+                            displayMetrics
+                    );
+
+                    int marginDp = -8;
+                    params.bottomMargin = (int) TypedValue.applyDimension(
+                            TypedValue.COMPLEX_UNIT_DIP,
+                            marginDp,
+                            displayMetrics
+                    );
+                    return WindowInsetsCompat.CONSUMED;
+                });
+
+                DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
+                int paddingDp = 32;
+                int paddingInPx = (int) TypedValue.applyDimension(
+                        TypedValue.COMPLEX_UNIT_DIP,
+                        paddingDp,
+                        displayMetrics
+                );
+                logo.setPadding(paddingInPx,0,0,0);
+            }
+        }
     }
 
     public int getNumberOfIconPerScreen() {
