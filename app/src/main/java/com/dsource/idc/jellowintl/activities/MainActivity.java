@@ -121,7 +121,10 @@ public class MainActivity extends LevelBaseActivity implements BasicCustomIconsC
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_levelx_layout);
+        setVisibleAct(MainActivity.class.getSimpleName());
         setupActionBarTitle(View.GONE, getString(R.string.action_bar_title));
+        setupToolbarMenu();
+        setupParent();
         applyMonochromeColor();
         setNavigationUiConditionally();
         mUec = new UserEventCollector();

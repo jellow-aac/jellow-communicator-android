@@ -132,7 +132,10 @@ public class LevelTwoActivity extends LevelBaseActivity implements BasicCustomIc
         mLevelOneItemPos = getIntent().getExtras().getInt(getString(R.string.level_one_intent_pos_tag));
         // Get and set title of category icons selected in level one.
         txtActionBarTitle = getIntent().getExtras().getString(getString(R.string.intent_menu_path_tag));
+        setVisibleAct(LevelTwoActivity.class.getSimpleName());
         setupActionBarTitle(View.GONE, txtActionBarTitle);
+        setupToolbarMenu();
+        setupParent();
         applyMonochromeColor();
         setNavigationUiConditionally();
         // when layout is loaded on activity, using the tag attribute of a parent view in layout
@@ -313,7 +316,7 @@ public class LevelTwoActivity extends LevelBaseActivity implements BasicCustomIc
     }
 
     @Override
-    public void onBackPressed() {
+    public void    onBackPressed() {
         super.onBackPressed();
         finish();
     }

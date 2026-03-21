@@ -2,11 +2,13 @@ package com.dsource.idc.jellowintl.make_my_board_module.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.core.view.ViewCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -26,6 +28,7 @@ import com.dsource.idc.jellowintl.make_my_board_module.utility.CustomPair;
 import com.dsource.idc.jellowintl.make_my_board_module.view_interfaces.IAddEditView;
 import com.dsource.idc.jellowintl.models.GlobalConstants;
 import com.dsource.idc.jellowintl.models.JellowIcon;
+import com.google.android.material.button.MaterialButton;
 
 import java.util.ArrayList;
 
@@ -95,6 +98,8 @@ public class AddEditActivity extends BaseBoardActivity<IAddEditView, IAddEditPre
 
     @Override
     public void initViewsAndEvents() {
+        applyMonochromeColor();
+        setNavigationUiConditionally();
         //Disable Expressive Icons for this activity
         setVisibility(R.id.save_button, true);
         if(getAdapter().getList().size() == 0)
@@ -115,10 +120,6 @@ public class AddEditActivity extends BaseBoardActivity<IAddEditView, IAddEditPre
         mPresenter.loadIcons();
 
         manager = new SearchScrollManager(this, mRecyclerView);
-
-        setupToolBar(R.string.addicon_title);
-        if (getSupportActionBar() != null)
-            getSupportActionBar().setBackgroundDrawable(getResources().getDrawable(R.drawable.yellow_bg));
 
         getView(R.id.save_button).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -319,11 +320,13 @@ public class AddEditActivity extends BaseBoardActivity<IAddEditView, IAddEditPre
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.board_home_menu, menu);
-        menu.findItem(R.id.reposition_lock).setVisible(false);
-        menu.findItem(R.id.action_home_app).setVisible(false);
-        return true;
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setVisibleAct(AddEditActivity.class.getSimpleName());
+        setupToolBar(R.string.addicon_title);
+        setupToolbarMenu();
+        setupParent();
+//        setupSaveButton();
     }
 
     @Override

@@ -1,95 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:id="@+id/parent"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/app_background">
-    <ScrollView
+    android:background="#000"
+    android:fitsSystemWindows="true">
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/key_set_scroll_margin_left"
-        android:layout_marginStart="@dimen/key_set_scroll_margin_left"
-        android:layout_marginRight="@dimen/key_set_scroll_margin_right"
-        android:layout_marginEnd="@dimen/key_set_scroll_margin_right"
-        android:layout_marginTop="@dimen/key_set_scroll_margin_vertical"
-        android:layout_marginBottom="@dimen/key_set_scroll_margin_vertical">
-        <LinearLayout
+        android:layout_height="match_parent"
+        android:background="@color/app_background">
+        <include
+            android:id="@+id/custom_app_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginRight="@dimen/key_ll_margin_right"
-            android:layout_marginEnd="@dimen/key_ll_margin_right">
+            android:layout_marginStart="-10dp"
+            layout="@layout/app_bar"/>
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/key_set_scroll_margin_left"
+            android:layout_marginStart="@dimen/key_set_scroll_margin_left"
+            android:layout_marginRight="@dimen/key_set_scroll_margin_right"
+            android:layout_marginEnd="@dimen/key_set_scroll_margin_right"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_marginBottom="@dimen/key_set_scroll_margin_vertical"
+            android:fitsSystemWindows="true">
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/serial_keyboard_title"
-                    android:fontFamily="@font/mukta_semibold"
-                    style="@style/defaultTextViewStyle"/>
+                android:orientation="vertical"
+                android:layout_marginRight="@dimen/key_ll_margin_right"
+                android:layout_marginEnd="@dimen/key_ll_margin_right">
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/serial_keyboard_title"
+                        android:fontFamily="@font/mukta_semibold"
+                        style="@style/defaultTextViewStyle"/>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black_eighty"
+                            android:text="@string/bullet"
+                            android:scaleX="@dimen/key_set_bullet_scale"
+                            android:scaleY="@dimen/key_set_bullet_scale"
+                            android:layout_marginTop="@dimen/key_set_bullet_margin_top"
+                            android:gravity="center"
+                            android:importantForAccessibility="no"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/serial_keyboard_info"
+                            style="@style/defaultTextViewStyle"
+                            android:layout_marginTop="@dimen/key_set_tv_margin_top"
+                            android:layout_marginLeft="@dimen/key_set_tv_margin_left"
+                            android:layout_marginStart="@dimen/key_set_tv_margin_left"
+                            android:paddingBottom="@dimen/key_set_tv_padding_bottom"/>
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="@dimen/key_set_ll_margin_top">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/black_eighty"
-                        android:text="@string/bullet"
                         android:scaleX="@dimen/key_set_bullet_scale"
                         android:scaleY="@dimen/key_set_bullet_scale"
-                        android:layout_marginTop="@dimen/key_set_bullet_margin_top"
-                        android:gravity="center"
+                        android:text="@string/bullet"
                         android:importantForAccessibility="no"/>
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/serial_keyboard_info"
-                        style="@style/defaultTextViewStyle"
-                        android:layout_marginTop="@dimen/key_set_tv_margin_top"
-                        android:layout_marginLeft="@dimen/key_set_tv_margin_left"
-                        android:layout_marginStart="@dimen/key_set_tv_margin_left"
-                        android:paddingBottom="@dimen/key_set_tv_padding_bottom"/>
+                        android:text="@string/keyboardControlTxt"
+                        android:layout_marginLeft="@dimen/key_set_tv1_margin_left"
+                        android:layout_marginStart="@dimen/key_set_tv1_margin_left"
+                        style="@style/defaultTextViewStyle"/>
                 </LinearLayout>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="@dimen/key_set_ll_margin_top">
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/black_eighty"
-                    android:scaleX="@dimen/key_set_bullet_scale"
-                    android:scaleY="@dimen/key_set_bullet_scale"
-                    android:text="@string/bullet"
-                    android:importantForAccessibility="no"/>
-                <TextView
+                    android:id="@+id/t2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/keyboardControlTxt"
-                    android:layout_marginLeft="@dimen/key_set_tv1_margin_left"
-                    android:layout_marginStart="@dimen/key_set_tv1_margin_left"
+                    android:layout_marginTop="@dimen/key_set_t2_margin_top"
+                    android:text="@string/step1"
                     style="@style/defaultTextViewStyle"/>
-            </LinearLayout>
-            <TextView
-                android:id="@+id/t2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/key_set_t2_margin_top"
-                android:text="@string/step1"
-                style="@style/defaultTextViewStyle"/>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="@dimen/key_set_ll_margin_bottom">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="@dimen/key_set_ll_margin_bottom">
+                    <Button
+                        android:id="@+id/qwerty"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/key_set_btn_height"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="@dimen/key_set_btn_margin_vertical"
+                        android:layout_marginBottom="@dimen/key_set_btn_margin_vertical"
+                        android:paddingLeft="@dimen/key_set_btn_padding_left"
+                        android:paddingRight="@dimen/key_set_btn_padding_left"
+                        android:text="@string/qwertyKeyboard"
+                        android:textSize="@dimen/key_set_btn_txt_size"/>
+                    <Button
+                        android:id="@+id/abc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/key_set_btn_height"
+                        android:layout_marginTop="@dimen/key_set_btn_margin_vertical"
+                        android:layout_marginBottom="@dimen/key_set_btn_margin_vertical"
+                        android:layout_marginLeft="@dimen/key_set_btn_margin_left"
+                        android:layout_marginStart="@dimen/key_set_btn_margin_left"
+                        android:paddingLeft="@dimen/key_set_btn_padding_left"
+                        android:paddingRight="@dimen/key_set_btn_padding_left"
+                        android:text="@string/serialKeyboard"
+                        android:textSize="@dimen/key_set_btn_txt_size"
+                        android:layout_gravity="center_vertical"/>
+                </LinearLayout>
+                <TextView
+                    android:id="@+id/t3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/step2"
+                    style="@style/defaultTextViewStyle"/>
                 <Button
-                    android:id="@+id/qwerty"
+                    android:id="@+id/default_button"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/key_set_btn_height"
                     android:layout_gravity="center_vertical"
@@ -97,39 +140,9 @@
                     android:layout_marginBottom="@dimen/key_set_btn_margin_vertical"
                     android:paddingLeft="@dimen/key_set_btn_padding_left"
                     android:paddingRight="@dimen/key_set_btn_padding_left"
-                    android:text="@string/qwertyKeyboard"
+                    android:text="@string/saveAsDefault"
                     android:textSize="@dimen/key_set_btn_txt_size"/>
-                <Button
-                    android:id="@+id/abc"
-                    android:layout_width="wrap_content"
-                    android:layout_height="@dimen/key_set_btn_height"
-                    android:layout_marginTop="@dimen/key_set_btn_margin_vertical"
-                    android:layout_marginBottom="@dimen/key_set_btn_margin_vertical"
-                    android:layout_marginLeft="@dimen/key_set_btn_margin_left"
-                    android:layout_marginStart="@dimen/key_set_btn_margin_left"
-                    android:paddingLeft="@dimen/key_set_btn_padding_left"
-                    android:paddingRight="@dimen/key_set_btn_padding_left"
-                    android:text="@string/serialKeyboard"
-                    android:textSize="@dimen/key_set_btn_txt_size"
-                    android:layout_gravity="center_vertical"/>
             </LinearLayout>
-            <TextView
-                android:id="@+id/t3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/step2"
-                style="@style/defaultTextViewStyle"/>
-            <Button
-                android:id="@+id/default_button"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/key_set_btn_height"
-                android:layout_gravity="center_vertical"
-                android:layout_marginTop="@dimen/key_set_btn_margin_vertical"
-                android:layout_marginBottom="@dimen/key_set_btn_margin_vertical"
-                android:paddingLeft="@dimen/key_set_btn_padding_left"
-                android:paddingRight="@dimen/key_set_btn_padding_left"
-                android:text="@string/saveAsDefault"
-                android:textSize="@dimen/key_set_btn_txt_size"/>
-        </LinearLayout>
-    </ScrollView>
+        </ScrollView>
+    </LinearLayout>
 </LinearLayout>

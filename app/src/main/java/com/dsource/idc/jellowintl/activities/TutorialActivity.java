@@ -26,8 +26,10 @@ public class TutorialActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tutorial);
-        enableNavigationBack();
+        setVisibleAct(TutorialActivity.class.getSimpleName());
         setupActionBarTitle(View.VISIBLE, getString(R.string.home)+"/ "+getString(R.string.menuTutorials));
+        setupToolbarMenu();
+        setupParent();
         applyMonochromeColor();
         setNavigationUiConditionally();
         setImagesToImageViewUsingGlide();
@@ -74,7 +76,6 @@ public class TutorialActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        setVisibleAct(TutorialActivity.class.getSimpleName());
         if(!isAnalyticsActive()){
             resetAnalytics(this, getSession().getUserId());
         }

@@ -57,8 +57,10 @@ public class LanguageSelectActivity extends SpeechEngineBaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_language_select);
-        enableNavigationBack();
+        setVisibleAct(LanguageSelectActivity.class.getSimpleName());
         setupActionBarTitle(View.VISIBLE, getString(R.string.home)+"/ "+getString(R.string.Language));
+        setupToolbarMenu();
+        setupParent();
         applyMonochromeColor();
         setNavigationUiConditionally();
         LanguageFactory.deleteOldLanguagePackagesInBackground(this);
@@ -137,7 +139,6 @@ public class LanguageSelectActivity extends SpeechEngineBaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        setVisibleAct(LanguageSelectActivity.class.getSimpleName());
         if(!isAnalyticsActive()){
             resetAnalytics(this, getSession().getUserId());
         }

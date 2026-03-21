@@ -8,10 +8,12 @@ import static com.dsource.idc.jellowintl.utility.Analytics.stopMeasuring;
 import static com.dsource.idc.jellowintl.utility.Analytics.validatePushId;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -39,6 +41,14 @@ public class BoardListActivity extends BaseBoardActivity<IBoardListView, IBoardL
     private boolean editMode = EDIT_DISABLED;
 
     @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setVisibleAct(BoardListActivity.class.getSimpleName());
+        setupToolbarMenu();
+        setupParent();
+    }
+
+    @Override
     public int getLayoutId() {
         return R.layout.activity_board_list;
     }
@@ -52,17 +62,10 @@ public class BoardListActivity extends BaseBoardActivity<IBoardListView, IBoardL
     public void initViewsAndEvents() {
         mPresenter.loadBoards("All");
         mAdapter.setOnItemClickListener(this);
-        enableNavigationBack();
         setupActionBarTitle(View.VISIBLE, getString(R.string.home) + "/ "+ getString(R.string.menuMyBoards));
         applyMonochromeColor();
         setNavigationUiConditionally();
-        getSupportActionBar().setBackgroundDrawable(getResources().getDrawable(R.drawable.yellow_bg));
-        findViewById(R.id.iv_action_bar_back).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
+        findViewById(R.id.iv_action_bar_back).setOnClickListener(v -> onBackPressed());
     }
 
     @Override
@@ -147,7 +150,6 @@ public class BoardListActivity extends BaseBoardActivity<IBoardListView, IBoardL
     @Override
     protected void onResume() {
         super.onResume();
-        setVisibleAct(BoardListActivity.class.getSimpleName());
         if(!isAnalyticsActive()){
             resetAnalytics(this, getSession().getUserId());
         }

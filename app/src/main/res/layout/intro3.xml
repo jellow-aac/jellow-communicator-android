@@ -8,10 +8,13 @@
     android:layout_weight="10"
     android:id="@+id/main"
     android:importantForAccessibility="yes">
+    <include layout="@layout/app_bar"
+        android:id="@+id/custom_app_bar"/>
     <ImageView
         android:id="@+id/btnMoveLeft"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
         android:onClick="changeDemoScreen"
         android:layout_gravity="start"
         android:paddingLeft="8dp"
@@ -21,8 +24,10 @@
         tools:ignore="RtlSymmetry"
         android:contentDescription="@string/previous_slide" />
     <LinearLayout
+        android:id="@+id/parent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="?attr/actionBarSize"
         android:orientation="vertical"
         android:layout_gravity="center_horizontal">
         <TextView
@@ -73,6 +78,7 @@
         android:id="@+id/btnMoveRight"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
         android:onClick="changeDemoScreen"
         android:layout_gravity="end"
         android:paddingRight="8dp"

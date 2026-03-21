@@ -4,8 +4,11 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Html;
+import android.util.DisplayMetrics;
+import android.util.TypedValue;
 import android.view.View;
 import android.view.Window;
 import android.view.accessibility.AccessibilityEvent;
@@ -13,10 +16,12 @@ import android.view.accessibility.AccessibilityManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.core.view.ViewCompat;
 
 import com.dsource.idc.jellowintl.BuildConfig;
@@ -43,6 +48,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.UUID;
 
+import static com.dsource.idc.jellowintl.models.GlobalConstants.SCREEN_SIZE_SEVEN_INCH_TAB;
 import static com.dsource.idc.jellowintl.utility.Analytics.bundleEvent;
 import static com.dsource.idc.jellowintl.utility.Analytics.getAnalytics;
 import static com.dsource.idc.jellowintl.utility.Analytics.setCrashlyticsCustomKey;
@@ -126,8 +132,33 @@ public class UserRegistrationActivity extends BaseActivity implements CheckNetwo
     private void initializeScreenViewsAndListeners() {
         setContentView(R.layout.activity_user_registration);
         setupActionBarTitle(View.GONE, getString(R.string.menuUserRegistration));
+        setupParent();
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.VANILLA_ICE_CREAM) {
+            // Setting up toolbar height for 10' & 7' device
+            if (getScreenSize() == GlobalConstants.SCREEN_SIZE_TEN_INCH_TAB ||
+                    getScreenSize() == SCREEN_SIZE_SEVEN_INCH_TAB) {
+                ScrollView scrollView = findViewById(R.id.scrollable);
+                if (scrollView != null){
+                    DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
+                    int startPadding = 16;
+                    int paddingLeft = (int) TypedValue.applyDimension(
+                            TypedValue.COMPLEX_UNIT_DIP,
+                            startPadding,
+                            displayMetrics
+                    );
+                    scrollView.setPadding(
+                            paddingLeft,
+                            scrollView.getPaddingTop(),
+                            scrollView.getPaddingRight(),
+                            scrollView.getPaddingBottom()
+                    );
+                }
+            }
+            getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.colorPrimary));
+        }
         setNavigationUiConditionally();
-        findViewById(R.id.iv_action_bar_back).setVisibility(View.GONE);
+
+
         languagesCodes = LanguageFactory.getAvailableLanguages();
         etName = findViewById(R.id.etName);
         ((TextView)findViewById(R.id.tv_pivacy_link)).setText(Html.fromHtml(getString(R.string.privacy_link_info)));
@@ -156,39 +187,36 @@ public class UserRegistrationActivity extends BaseActivity implements CheckNetwo
         ((Button)findViewById(R.id.btn_lang_select)).setText(languagesCodes[1]);
         selectedLanguage = languagesCodes[1];
 
-        bRegister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                bRegister.setEnabled(false);
+        bRegister.setOnClickListener(v -> {
+            bRegister.setEnabled(false);
 
-                if (etName.getText().toString().trim().isEmpty()) {
-                    bRegister.setEnabled(true);
-                    Toast.makeText(UserRegistrationActivity.this,
-                            getString(R.string.enterTheName), Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                if(!etEmergencyContact.getText().toString().matches("[0-9]+")){
-                    bRegister.setEnabled(true);
-                    Toast.makeText(UserRegistrationActivity.this,
-                            getString(R.string.enternonemptycontact), Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                CheckBox cb = findViewById(R.id.cb_privacy_consent);
-                if (!cb.isChecked()){
-                    bRegister.setEnabled(true);
-                    Toast.makeText(UserRegistrationActivity.this,
-                            getString(R.string.consent_privacy), Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                if(selectedLanguage == null)
-                    return;
-                internetTest = new InternetTest();
-                internetTest.registerReceiver(UserRegistrationActivity.this);
-                internetTest.execute(UserRegistrationActivity.this);
+            if (etName.getText().toString().trim().isEmpty()) {
+                bRegister.setEnabled(true);
+                Toast.makeText(UserRegistrationActivity.this,
+                        getString(R.string.enterTheName), Toast.LENGTH_SHORT).show();
+                return;
             }
+
+            if(!etEmergencyContact.getText().toString().matches("[0-9]+")){
+                bRegister.setEnabled(true);
+                Toast.makeText(UserRegistrationActivity.this,
+                        getString(R.string.enternonemptycontact), Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            CheckBox cb = findViewById(R.id.cb_privacy_consent);
+            if (!cb.isChecked()){
+                bRegister.setEnabled(true);
+                Toast.makeText(UserRegistrationActivity.this,
+                        getString(R.string.consent_privacy), Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            if(selectedLanguage == null)
+                return;
+            internetTest = new InternetTest();
+            internetTest.registerReceiver(UserRegistrationActivity.this);
+            internetTest.execute(UserRegistrationActivity.this);
         });
 
         if(!getSession().getName().isEmpty()){

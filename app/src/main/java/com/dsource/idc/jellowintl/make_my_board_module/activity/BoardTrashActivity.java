@@ -7,11 +7,13 @@ import static com.dsource.idc.jellowintl.utility.Analytics.stopMeasuring;
 import static com.dsource.idc.jellowintl.utility.Analytics.validatePushId;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -48,11 +50,10 @@ public class BoardTrashActivity extends BaseBoardActivity<IBoardListView, IBoard
     public void initViewsAndEvents() {
         mPresenter.loadBoards("Deleted");
         mAdapter.setOnItemClickListener(this);
-        enableNavigationBack();
         setupActionBarTitle(View.VISIBLE, getString(R.string.home) + "/ "+ getString(R.string.menuBoardsTrash));
         applyMonochromeColor();
+        setupParent();
         setNavigationUiConditionally();
-        getSupportActionBar().setBackgroundDrawable(getResources().getDrawable(R.drawable.yellow_bg));
         findViewById(R.id.iv_action_bar_back).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -129,9 +130,15 @@ public class BoardTrashActivity extends BaseBoardActivity<IBoardListView, IBoard
     public void onBoardEdit(int position) {}
 
     @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setVisibleAct(BoardTrashActivity.class.getSimpleName());
+        setupToolbarMenu();
+    }
+
+    @Override
     protected void onResume() {
         super.onResume();
-        setVisibleAct(BoardTrashActivity.class.getSimpleName());
         if(!isAnalyticsActive()){
             resetAnalytics(this, getSession().getUserId());
         }

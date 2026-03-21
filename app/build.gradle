@@ -51,6 +51,20 @@ android {
     buildFeatures{
         buildConfig true
     }
+
+    buildFeatures{
+        buildConfig true
+    }
+    configurations {
+        implementation.exclude group: 'org.jetbrains', module: 'annotations'
+    }
+}
+
+// Add this block after the 'android' block
+afterEvaluate {
+    tasks.named('mergeDebugResources') {
+        mustRunAfter tasks.named('processDebugGoogleServices')
+    }
 }
 
 dependencies {

@@ -33,6 +33,8 @@ public class LanguagePackUpdateActivity extends BaseActivity implements Progress
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_language_pack_update_activity);
+        setVisibleAct(LanguagePackUpdateActivity.class.getSimpleName());
+        setupParent();
         applyMonochromeColor();
         setNavigationUiConditionally();
         updateManager = new UpdateManager(this);
@@ -92,7 +94,6 @@ public class LanguagePackUpdateActivity extends BaseActivity implements Progress
     @Override
     protected void onResume() {
         super.onResume();
-        setVisibleAct(LanguagePackUpdateActivity.class.getSimpleName());
         if(!isAnalyticsActive()){
             resetAnalytics(this, getSession().getCaregiverNumber().substring(1));
         }

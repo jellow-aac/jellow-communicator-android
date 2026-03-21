@@ -21,8 +21,11 @@ public class ResetPreferencesActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reset_preferences);
-        enableNavigationBack();
+        setVisibleAct(ResetPreferencesActivity.class.getSimpleName());
         setupActionBarTitle(View.VISIBLE, getString(R.string.home)+"/ "+getString(R.string.menuResetPref));
+        setupToolbarMenu();
+        setupParent();
+        setupBottomBar();
         applyMonochromeColor();
         setNavigationUiConditionally();
 
@@ -51,7 +54,6 @@ public class ResetPreferencesActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        setVisibleAct(ResetPreferencesActivity.class.getSimpleName());
         if(!isAnalyticsActive()) {
             resetAnalytics(this, getSession().getUserId());
         }
