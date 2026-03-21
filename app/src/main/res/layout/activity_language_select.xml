@@ -1,123 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/parent"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/app_background"
-    tools:context="com.dsource.idc.jellowintl.activities.LanguageSelectActivity">
-    <include layout="@layout/app_bar"
-        android:id="@+id/custom_app_bar"/>
-    <ScrollView
+    android:background="#000"
+    tools:context="com.dsource.idc.jellowintl.activities.LanguageSelectActivity"
+    android:fitsSystemWindows="true">
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fadeScrollbars="false"
-        android:fillViewport="true"
-        android:layout_marginTop="?attr/actionBarSize"
-        android:layout_marginBottom="@dimen/lang_sel_scroll_margin_vertical"
-        android:layout_marginLeft="@dimen/lang_sel_scroll_margin_left"
-        android:layout_marginStart="@dimen/lang_sel_scroll_margin_left"
-        android:layout_marginRight="@dimen/lang_sel_scroll_margin_right"
-        android:layout_marginEnd="@dimen/lang_sel_scroll_margin_right"
-        android:fitsSystemWindows="true">
-        <LinearLayout
+        android:layout_height="match_parent"
+        android:background="@color/app_background">
+        <include
+            android:id="@+id/custom_app_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginRight="@dimen/lang_sel_parent_margin_right"
-            android:layout_marginEnd="@dimen/lang_sel_parent_margin_right">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/txtChangeLanguage"
-                style="@style/defaultTextViewStyle"
-                android:fontFamily="@font/mukta_semibold"/>
-            <TextView
-                android:id="@+id/tv_step1_info"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/change_language_line2"
-                android:layout_marginBottom="@dimen/lang_sel_tv_margin_bottom"
-                style="@style/defaultTextViewStyle"/>
-            <Button
-                android:id="@+id/btn_lang_select"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/profile_save_btn_height"
-                android:paddingLeft="8dp"
-                android:paddingRight="8dp"
-                android:paddingVertical="0dp"
-                android:layout_marginBottom="@dimen/lang_sel_tv_margin_bottom"
-                android:textSize="@dimen/lang_sel_btn_txt_size"
-                android:onClick="showAvailableLanguageDialog"
-                android:drawableEnd="@drawable/sharp_arrow_drop_down_black_18dp"
-                android:drawableRight="@drawable/sharp_arrow_drop_down_black_18dp" />
-            <TextView
-                android:id="@+id/tv_voic_step_info"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/change_language_voice"
-                android:layout_marginBottom="@dimen/lang_sel_tv_margin_bottom"
-                style="@style/defaultTextViewStyle"/>
-            <Button
-                android:id="@+id/btn_voic_select"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/profile_save_btn_height"
-                android:paddingVertical="0dp"
-                android:paddingLeft="8dp"
-                android:paddingRight="8dp"
-                android:layout_marginBottom="@dimen/lang_sel_tv_margin_bottom"
-                android:textSize="@dimen/lang_sel_btn_txt_size"
-                android:onClick="showVoiceSelectDialog"
-                android:drawableEnd="@drawable/sharp_arrow_drop_down_black_18dp"
-                android:drawableRight="@drawable/sharp_arrow_drop_down_black_18dp" />
-            <TextView
-                android:id="@+id/tv_step4_info"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/txtApplyChanges"
-                android:layout_marginBottom="@dimen/lang_sel_tv_margin_bottom"
-                style="@style/defaultTextViewStyle"/>
-            <Button
-                android:id="@+id/saveBut"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/profile_save_btn_height"
-                android:textSize="@dimen/lang_sel_btn_txt_size"
-                android:layout_marginBottom="@dimen/lang_sel_tv_margin_bottom"
-                android:paddingLeft="@dimen/lang_sel_btn_padding_horizontal"
-                android:paddingRight="@dimen/lang_sel_btn_padding_horizontal"
-                android:text="@string/saveLanguage" />
-            <TextView
-                android:id="@+id/tv_voice_warning"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/voice_warning"
-                android:layout_marginBottom="48dp"
-                style="@style/defaultTextViewStyle"/>
-            <TextView
-                android:id="@+id/more_setting_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/txtMoreLangSetting"
-                style="@style/defaultTextViewStyle"
-                android:fontFamily="@font/mukta_semibold"/>
-            <TextView
-                android:id="@+id/tv_language_not_working_info"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/language_not_working"
-                style="@style/defaultTextViewStyle"/>
+            android:layout_marginStart="-10dp"
+            layout="@layout/app_bar"/>
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fadeScrollbars="false"
+            android:fillViewport="true"
+            android:layout_marginTop="?attr/actionBarSize"
+            android:layout_marginBottom="@dimen/lang_sel_scroll_margin_vertical"
+            android:layout_marginLeft="@dimen/lang_sel_scroll_margin_left"
+            android:layout_marginStart="@dimen/lang_sel_scroll_margin_left"
+            android:layout_marginRight="@dimen/lang_sel_scroll_margin_right"
+            android:layout_marginEnd="@dimen/lang_sel_scroll_margin_right"
+            android:fitsSystemWindows="true">
             <LinearLayout
-                android:id="@+id/ll_hidden_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:layout_marginRight="@dimen/lang_sel_parent_margin_right"
+                android:layout_marginEnd="@dimen/lang_sel_parent_margin_right">
                 <TextView
-                    android:id="@+id/tv_step2_info"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/change_language_tts_wifi"
+                    android:text="@string/txtChangeLanguage"
+                    style="@style/defaultTextViewStyle"
+                    android:fontFamily="@font/mukta_semibold"/>
+                <TextView
+                    android:id="@+id/tv_step1_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/change_language_line2"
+                    android:layout_marginBottom="@dimen/lang_sel_tv_margin_bottom"
                     style="@style/defaultTextViewStyle"/>
+                <Button
+                    android:id="@+id/btn_lang_select"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/profile_save_btn_height"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:paddingVertical="0dp"
+                    android:layout_marginBottom="@dimen/lang_sel_tv_margin_bottom"
+                    android:textSize="@dimen/lang_sel_btn_txt_size"
+                    android:onClick="showAvailableLanguageDialog"
+                    android:drawableEnd="@drawable/sharp_arrow_drop_down_black_18dp"
+                    android:drawableRight="@drawable/sharp_arrow_drop_down_black_18dp" />
+                <TextView
+                    android:id="@+id/tv_voic_step_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/change_language_voice"
+                    android:layout_marginBottom="@dimen/lang_sel_tv_margin_bottom"
+                    style="@style/defaultTextViewStyle"/>
+                <Button
+                    android:id="@+id/btn_voic_select"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/profile_save_btn_height"
+                    android:paddingVertical="0dp"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:layout_marginBottom="@dimen/lang_sel_tv_margin_bottom"
+                    android:textSize="@dimen/lang_sel_btn_txt_size"
+                    android:onClick="showVoiceSelectDialog"
+                    android:drawableEnd="@drawable/sharp_arrow_drop_down_black_18dp"
+                    android:drawableRight="@drawable/sharp_arrow_drop_down_black_18dp" />
+                <TextView
+                    android:id="@+id/tv_step4_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/txtApplyChanges"
+                    android:layout_marginBottom="@dimen/lang_sel_tv_margin_bottom"
+                    style="@style/defaultTextViewStyle"/>
+                <Button
+                    android:id="@+id/saveBut"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/profile_save_btn_height"
+                    android:textSize="@dimen/lang_sel_btn_txt_size"
+                    android:layout_marginBottom="@dimen/lang_sel_tv_margin_bottom"
+                    android:paddingLeft="@dimen/lang_sel_btn_padding_horizontal"
+                    android:paddingRight="@dimen/lang_sel_btn_padding_horizontal"
+                    android:text="@string/saveLanguage" />
+                <TextView
+                    android:id="@+id/tv_voice_warning"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/voice_warning"
+                    android:layout_marginBottom="48dp"
+                    style="@style/defaultTextViewStyle"/>
+                <TextView
+                    android:id="@+id/more_setting_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/txtMoreLangSetting"
+                    style="@style/defaultTextViewStyle"
+                    android:fontFamily="@font/mukta_semibold"/>
+                <TextView
+                    android:id="@+id/tv_language_not_working_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/language_not_working"
+                    style="@style/defaultTextViewStyle"/>
+                <LinearLayout
+                    android:id="@+id/ll_hidden_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/tv_step2_info"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/change_language_tts_wifi"
+                        style="@style/defaultTextViewStyle"/>
                     <LinearLayout
                         android:id="@+id/ll_wifi_only_setting"
                         android:layout_width="wrap_content"
@@ -190,7 +198,8 @@
                         android:paddingRight="@dimen/lang_sel_btn_padding_horizontal"
                         android:text="@string/txt_actLangSel_downloadDat"
                         android:onClick="openSpeechDataSetting"/>
+                </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
-    </ScrollView>
-</RelativeLayout>
+        </ScrollView>
+    </RelativeLayout>
+</LinearLayout>

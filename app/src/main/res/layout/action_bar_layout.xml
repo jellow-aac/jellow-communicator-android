@@ -19,9 +19,9 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:gravity="center_vertical"
-        android:layout_toRightOf="@+id/iv_action_bar_back"
+        android:layout_toEndOf="@+id/iv_action_bar_back"
         android:maxLines="1"
         android:textColor="@color/color_app_bar_title"
         android:importantForAccessibility="yes"
-        android:text="Screen title"/>
+        android:text="title"/>
 </RelativeLayout>

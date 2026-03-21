@@ -164,19 +164,21 @@
             android:elevation="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="12dp"
             android:layout_marginEnd="8dp"
             android:fitsSystemWindows="true">
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/save_button"
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/profile_save_btn_height"
+                android:layout_height="48dp"
                 android:textSize="@dimen/profile_save_btn_txt_size"
-                android:paddingLeft="@dimen/mmb_btn_pad"
-                android:paddingRight="@dimen/mmb_btn_pad"
-                android:background="@drawable/edit_board_dialog_edit_text"
+                android:paddingHorizontal="@dimen/mmb_btn_pad"
+                android:paddingVertical="0dp"
                 android:textAllCaps="false"
+                android:layout_gravity="center_vertical"
                 android:text="@string/txtSave"
+                app:backgroundTint="@color/app_background"
+                app:cornerRadius="8dp"
                 android:visibility="gone"
                 android:textColor="@color/colorPrimary"/>
         </FrameLayout>

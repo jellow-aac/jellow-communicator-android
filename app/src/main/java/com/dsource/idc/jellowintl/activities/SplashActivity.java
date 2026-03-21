@@ -42,6 +42,7 @@ public class SplashActivity extends BaseActivity implements CheckNetworkStatus, 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+        setupParent();
         setupActionBarTitle(View.GONE, "");
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.VANILLA_ICE_CREAM) {
             getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.colorPrimary));

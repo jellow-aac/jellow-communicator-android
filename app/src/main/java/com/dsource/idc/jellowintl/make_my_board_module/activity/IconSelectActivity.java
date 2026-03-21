@@ -60,6 +60,8 @@ public class IconSelectActivity extends BaseBoardActivity<ISelectIconView, ISele
 
     @Override
     public void initViewsAndEvents() {
+        applyMonochromeColor();
+        setNavigationUiConditionally();
         searchScrollManager = new SearchManager(mRecyclerView);
 
         RecyclerView levelSelectRecycler = findViewById(R.id.rv_level_select);
@@ -322,6 +324,7 @@ public class IconSelectActivity extends BaseBoardActivity<ISelectIconView, ISele
         }
         setVisibleAct(IconSelectActivity.class.getSimpleName());
         setupToolbarMenu();
+        setupParent();
         adjustIconListParentView();
     }
 

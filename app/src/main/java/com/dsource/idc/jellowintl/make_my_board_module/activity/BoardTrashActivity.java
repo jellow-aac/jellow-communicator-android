@@ -52,6 +52,7 @@ public class BoardTrashActivity extends BaseBoardActivity<IBoardListView, IBoard
         mAdapter.setOnItemClickListener(this);
         setupActionBarTitle(View.VISIBLE, getString(R.string.home) + "/ "+ getString(R.string.menuBoardsTrash));
         applyMonochromeColor();
+        setupParent();
         setNavigationUiConditionally();
         findViewById(R.id.iv_action_bar_back).setOnClickListener(new View.OnClickListener() {
             @Override

@@ -28,6 +28,7 @@ import com.dsource.idc.jellowintl.make_my_board_module.utility.CustomPair;
 import com.dsource.idc.jellowintl.make_my_board_module.view_interfaces.IAddEditView;
 import com.dsource.idc.jellowintl.models.GlobalConstants;
 import com.dsource.idc.jellowintl.models.JellowIcon;
+import com.google.android.material.button.MaterialButton;
 
 import java.util.ArrayList;
 
@@ -97,10 +98,10 @@ public class AddEditActivity extends BaseBoardActivity<IAddEditView, IAddEditPre
 
     @Override
     public void initViewsAndEvents() {
+        applyMonochromeColor();
+        setNavigationUiConditionally();
         //Disable Expressive Icons for this activity
         setVisibility(R.id.save_button, true);
-        Button button = findViewById(R.id.save_button);
-        button.setBackground(ContextCompat.getDrawable(button.getContext(), R.drawable.edit_board_dialog_edit_text));
         if(getAdapter().getList().size() == 0)
             setVisibility(R.id.place_holder_text, true);
         getView(R.id.keyboard).setAlpha(GlobalConstants.DISABLE_ALPHA);
@@ -119,9 +120,6 @@ public class AddEditActivity extends BaseBoardActivity<IAddEditView, IAddEditPre
         mPresenter.loadIcons();
 
         manager = new SearchScrollManager(this, mRecyclerView);
-
-//        if (getSupportActionBar() != null)
-//            getSupportActionBar().setBackgroundDrawable(getResources().getDrawable(R.drawable.yellow_bg));
 
         getView(R.id.save_button).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -327,8 +325,8 @@ public class AddEditActivity extends BaseBoardActivity<IAddEditView, IAddEditPre
         setVisibleAct(AddEditActivity.class.getSimpleName());
         setupToolBar(R.string.addicon_title);
         setupToolbarMenu();
-        setupJellowLogo();
-        setupSaveButton();
+        setupParent();
+//        setupSaveButton();
     }
 
     @Override

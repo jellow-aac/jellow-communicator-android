@@ -52,6 +52,7 @@ public class SettingActivity extends SpeechEngineBaseActivity {
         setVisibleAct(SettingActivity.class.getSimpleName());
         setupActionBarTitle(View.VISIBLE, getString(R.string.home)+"/ "+getString(R.string.action_settings));
         setupToolbarMenu();
+        setupParent();
         setupBottomBar();
         applyMonochromeColor();
         setNavigationUiConditionally();

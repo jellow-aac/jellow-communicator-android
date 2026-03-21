@@ -93,6 +93,7 @@ public class HomeActivity extends SpeechEngineBaseActivity implements TextToSpee
         setContentView(R.layout.activity_levelx_layout);
         setVisibleAct(HomeActivity.class.getSimpleName());
         setupToolbarMenu();
+        setupParent();
         applyMonochromeColor();
         setNavigationUiConditionally();
 

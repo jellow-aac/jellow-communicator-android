@@ -29,6 +29,7 @@ public class TutorialActivity extends BaseActivity {
         setVisibleAct(TutorialActivity.class.getSimpleName());
         setupActionBarTitle(View.VISIBLE, getString(R.string.home)+"/ "+getString(R.string.menuTutorials));
         setupToolbarMenu();
+        setupParent();
         applyMonochromeColor();
         setNavigationUiConditionally();
         setImagesToImageViewUsingGlide();

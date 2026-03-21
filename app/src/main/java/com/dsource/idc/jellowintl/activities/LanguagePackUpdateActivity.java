@@ -34,6 +34,7 @@ public class LanguagePackUpdateActivity extends BaseActivity implements Progress
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_language_pack_update_activity);
         setVisibleAct(LanguagePackUpdateActivity.class.getSimpleName());
+        setupParent();
         applyMonochromeColor();
         setNavigationUiConditionally();
         updateManager = new UpdateManager(this);

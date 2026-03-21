@@ -169,16 +169,17 @@
             android:layout_marginBottom="10dp"
             android:layout_marginEnd="6dp"
             android:fitsSystemWindows="true">
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/save_button"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/profile_save_btn_height"
                 android:textSize="@dimen/profile_save_btn_txt_size"
                 android:paddingLeft="@dimen/mmb_btn_pad"
                 android:paddingRight="@dimen/mmb_btn_pad"
-                android:background="@drawable/edit_board_dialog_edit_text"
                 android:textAllCaps="false"
                 android:text="@string/txtSave"
+                app:backgroundTint="@color/app_background"
+                app:cornerRadius="8dp"
                 android:visibility="gone"
                 android:textColor="@color/colorPrimary"/>
         </FrameLayout>

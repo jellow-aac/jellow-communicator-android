@@ -35,6 +35,7 @@ public class SetupMMB extends BaseActivity {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.VANILLA_ICE_CREAM) {
             getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.colorPrimary));
         }
+        setupParent();
         applyMonochromeColor();
         setNavigationUiConditionally();
         if(getSupportActionBar()!=null) getSupportActionBar().hide();

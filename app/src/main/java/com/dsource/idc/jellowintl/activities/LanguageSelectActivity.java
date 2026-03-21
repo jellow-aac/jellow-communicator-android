@@ -58,8 +58,9 @@ public class LanguageSelectActivity extends SpeechEngineBaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_language_select);
         setVisibleAct(LanguageSelectActivity.class.getSimpleName());
-        setupToolbarMenu();
         setupActionBarTitle(View.VISIBLE, getString(R.string.home)+"/ "+getString(R.string.Language));
+        setupToolbarMenu();
+        setupParent();
         applyMonochromeColor();
         setNavigationUiConditionally();
         LanguageFactory.deleteOldLanguagePackagesInBackground(this);

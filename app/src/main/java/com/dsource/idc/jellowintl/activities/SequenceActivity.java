@@ -100,7 +100,6 @@ public class SequenceActivity extends LevelBaseActivity{
         txtActionBarTitle = getIntent().getExtras().getString(getString(R.string.intent_menu_path_tag));
         setupActionBarTitle(View.GONE, txtActionBarTitle);
         setupToolbarMenu();
-        setupJellowLogo();
         setupParent();
         applyMonochromeColor();
         setNavigationUiConditionally();

@@ -45,6 +45,7 @@ public class BoardListActivity extends BaseBoardActivity<IBoardListView, IBoardL
         super.onCreate(savedInstanceState);
         setVisibleAct(BoardListActivity.class.getSimpleName());
         setupToolbarMenu();
+        setupParent();
     }
 
     @Override

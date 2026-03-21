@@ -30,6 +30,7 @@ public class KeyboardInputActivity extends BaseActivity {
         setContentView(R.layout.activity_keyboard_input);
         setVisibleAct(KeyboardInputActivity.class.getSimpleName());
         setupToolbarMenu();
+        setupParent();
         setupActionBarTitle(View.VISIBLE, getString(R.string.home)+"/ "+getString(R.string.getKeyboardControl));
         applyMonochromeColor();
         setNavigationUiConditionally();

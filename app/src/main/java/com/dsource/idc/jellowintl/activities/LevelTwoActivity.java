@@ -135,7 +135,6 @@ public class LevelTwoActivity extends LevelBaseActivity implements BasicCustomIc
         setVisibleAct(LevelTwoActivity.class.getSimpleName());
         setupActionBarTitle(View.GONE, txtActionBarTitle);
         setupToolbarMenu();
-        setupJellowLogo();
         setupParent();
         applyMonochromeColor();
         setNavigationUiConditionally();
@@ -317,7 +316,7 @@ public class LevelTwoActivity extends LevelBaseActivity implements BasicCustomIc
     }
 
     @Override
-    public void onBackPressed() {
+    public void    onBackPressed() {
         super.onBackPressed();
         finish();
     }

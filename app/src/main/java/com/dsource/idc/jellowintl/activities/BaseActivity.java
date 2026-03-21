@@ -316,7 +316,6 @@ public class BaseActivity extends AppCompatActivity{
             return SCREEN_SIZE_PHONE;
     }
 
-
     public void setupActionBarTitle(String title) {
         ((TextView) findViewById(R.id.tvActionbarTitle)).setText(title);
     }
@@ -328,41 +327,7 @@ public class BaseActivity extends AppCompatActivity{
         else
             ((TextView)findViewById(R.id.tvActionbarTitle)).setText(title);
 
-        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
-//            AppBarLayout appBarLayout = findViewById(R.id.app_bar);
-//            if (appBarLayout != null) {
-//                ViewCompat.setOnApplyWindowInsetsListener(appBarLayout, (v, windowInsets) -> {
-//                    Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
-//                    // Apply the insets as a margin to the view. This solution sets only the
-//                    // bottom, left, and right dimensions, but you can apply whichever insets are
-//                    // appropriate to your layout. You can also update the view padding if that's
-//                    // more appropriate.
-//                    ViewGroup.MarginLayoutParams mlp = (ViewGroup.MarginLayoutParams) v.getLayoutParams();
-//                    mlp.leftMargin = insets.left;
-//                    mlp.bottomMargin = insets.bottom;
-//                    mlp.rightMargin = 32;
-//                    mlp.topMargin = 0;
-//                    v.setLayoutParams(mlp);
-//                    // Return CONSUMED if you don't want the window insets to keep passing
-//                    // down to descendant views.
-//                    return WindowInsetsCompat.CONSUMED;
-//                });
-//                appBarLayout.setPadding(32,0,0,0);
-//            }
-//            MaterialToolbar toolbar = findViewById(R.id.toolbar);
-//            if (toolbar != null) {
-//                ViewCompat.setOnApplyWindowInsetsListener(toolbar, (v, windowInsets) -> {
-//                    int right = windowInsets.getInsets(WindowInsetsCompat.Type.displayCutout()).left;
-//                    v.post(() -> {
-//                        v.setPadding(right, 0, right, 0);
-//                        v.requestLayout();
-//                    });
-//                    // Return CONSUMED if you don't want the window insets to keep passing
-//                    // down to descendant views.
-//                    return WindowInsetsCompat.CONSUMED;
-//                });
-//            }
-        } else {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.UPSIDE_DOWN_CAKE){
             findViewById(R.id.dummyStatusBar).setVisibility(View.GONE);
             if (getSupportActionBar() != null){
                 getSupportActionBar().hide();
@@ -472,31 +437,13 @@ public class BaseActivity extends AppCompatActivity{
                 });
 
                 DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
-                int padding = 62;
+                int padding = 8;
                 int paddingInPx = (int) TypedValue.applyDimension(
                         TypedValue.COMPLEX_UNIT_DIP,
                         padding,
                         displayMetrics
                 );
                 llBottom.setPadding(paddingInPx,0,0,0);
-            }
-        }
-    }
-
-    public void setupJellowLogo(){
-        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.UPSIDE_DOWN_CAKE && getScreenSize() == SCREEN_SIZE_PHONE) {
-            Button saveButton = findViewById(R.id.save_button);
-            if (saveButton != null) {
-                ViewCompat.setOnApplyWindowInsetsListener(saveButton, (v, windowInsets) -> {
-                    ViewGroup.MarginLayoutParams mlp = (ViewGroup.MarginLayoutParams) v.getLayoutParams();
-                    mlp.leftMargin = 0;
-                    mlp.bottomMargin = 0;
-                    mlp.rightMargin = 0;
-                    mlp.topMargin = 0;
-                    v.setLayoutParams(mlp);
-                    ConstraintLayout.LayoutParams params = (ConstraintLayout.LayoutParams) v.getLayoutParams();
-                    return WindowInsetsCompat.CONSUMED;
-                });
             }
         }
     }
@@ -552,7 +499,6 @@ public class BaseActivity extends AppCompatActivity{
             e.printStackTrace();
         }
     }
-
 
     public void finishCurrentActivity(View view) {
         finish();

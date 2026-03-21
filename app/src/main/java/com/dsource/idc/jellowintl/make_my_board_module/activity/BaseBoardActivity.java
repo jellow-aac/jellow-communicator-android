@@ -128,63 +128,12 @@ public abstract class BaseBoardActivity<V extends IBaseView, P extends IBasePres
     }
 
     public void setupToolBar(int stringResId){
-        if(getSupportActionBar()!=null) {
-//            enableNavigationBack();
-            setupActionBarTitle(View.VISIBLE, getString(R.string.home) + "/" +
-                    getString(R.string.my_boards) + "/" +
-                    currentBoard.getBoardName()+" "+getString(R.string.board) + "/" +
-                    getString(stringResId));
-            setNavigationUiConditionally();
-        }
+        setupActionBarTitle(View.VISIBLE, getString(R.string.home) + "/" +
+                getString(R.string.my_boards) + "/" +
+                currentBoard.getBoardName()+" "+getString(R.string.board) + "/" +
+                getString(stringResId));
+
         findViewById(R.id.iv_action_bar_back).setOnClickListener(v -> onBackPressed());
-    }
-
-    public void setupSaveButton(){
-        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.UPSIDE_DOWN_CAKE && getScreenSize() == SCREEN_SIZE_PHONE) {
-            ImageView logo = findViewById(R.id.jellow_logo);
-            if (logo != null) {
-                ViewCompat.setOnApplyWindowInsetsListener(logo, (v, windowInsets) -> {
-                    ViewGroup.MarginLayoutParams mlp = (ViewGroup.MarginLayoutParams) v.getLayoutParams();
-                    mlp.leftMargin = 0;
-                    mlp.bottomMargin = 0;
-                    mlp.rightMargin = 0;
-                    mlp.topMargin = 0;
-                    v.setLayoutParams(mlp);
-                    ConstraintLayout.LayoutParams params = (ConstraintLayout.LayoutParams) v.getLayoutParams();
-                    DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
-                    int widthDp = 120;
-                    params.width = (int) TypedValue.applyDimension(
-                            TypedValue.COMPLEX_UNIT_DIP,
-                            widthDp,
-                            displayMetrics
-                    );
-
-                    int heightDp = 60;
-                    params.height = (int) TypedValue.applyDimension(
-                            TypedValue.COMPLEX_UNIT_DIP,
-                            heightDp,
-                            displayMetrics
-                    );
-
-                    int marginDp = -8;
-                    params.bottomMargin = (int) TypedValue.applyDimension(
-                            TypedValue.COMPLEX_UNIT_DIP,
-                            marginDp,
-                            displayMetrics
-                    );
-                    return WindowInsetsCompat.CONSUMED;
-                });
-
-                DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
-                int paddingDp = 32;
-                int paddingInPx = (int) TypedValue.applyDimension(
-                        TypedValue.COMPLEX_UNIT_DIP,
-                        paddingDp,
-                        displayMetrics
-                );
-                logo.setPadding(paddingInPx,0,0,0);
-            }
-        }
     }
 
     public int getNumberOfIconPerScreen() {
@@ -224,31 +173,15 @@ public abstract class BaseBoardActivity<V extends IBaseView, P extends IBasePres
                     // down to descendant views.
                     return WindowInsetsCompat.CONSUMED;
                 });
-            } else {
-                MaterialToolbar toolbar = findViewById(R.id.toolbar);
-                if (toolbar == null) {
-                    return;
-                }
-                RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) parentView.getLayoutParams();
-                params.topMargin = 0;
-                parentView.setPadding(
-                        parentView.getPaddingLeft(),
-                        toolbar.getHeight() / 2,
-                        parentView.getPaddingRight(),
-                        parentView.getPaddingBottom()
-                );
-                parentView.setLayoutParams(params);
-            }
-        }
 
-        RelativeLayout sidePane = findViewById(R.id.left_level_select_pane);
-        if (sidePane != null) {
-            if (Build.VERSION.SDK_INT > Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
-                ViewCompat.setOnApplyWindowInsetsListener(sidePane, (v, windowInsets) -> {
-                    Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
-                    sidePane.setPadding(insets.right, 0, 0, 0);
-                    return WindowInsetsCompat.CONSUMED;
-                });
+                RelativeLayout sidePane = findViewById(R.id.left_level_select_pane);
+                if (sidePane != null) {
+                    ViewCompat.setOnApplyWindowInsetsListener(sidePane, (v, windowInsets) -> {
+                        Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
+                        sidePane.setPadding(insets.right, 0, 0, 0);
+                        return WindowInsetsCompat.CONSUMED;
+                    });
+                }
             }
         }
     }

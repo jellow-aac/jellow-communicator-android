@@ -1,126 +1,136 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/parent"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/app_background">
-    <include layout="@layout/app_bar"
-        android:id="@+id/custom_app_bar"/>
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fillViewport="false"
-        android:fadeScrollbars="false"
-        android:layout_marginTop="?attr/actionBarSize"
-        android:layout_marginBottom="@dimen/reset_pref_parent_margin_vertical"
-        android:layout_marginLeft="@dimen/reset_pref_parent_margin_left"
-        android:layout_marginStart="@dimen/reset_pref_parent_margin_left"
-        android:layout_marginRight="@dimen/reset_pref_parent_margin_right"
-        android:layout_marginEnd="@dimen/reset_pref_parent_margin_right"
-        android:fitsSystemWindows="true">
-        <LinearLayout
+    android:background="#000"
+    android:fitsSystemWindows="true">
+    <RelativeLayout
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/app_background">
+        <include
+            android:id="@+id/custom_app_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginRight="@dimen/reset_pref_ll_margin_right"
-            android:layout_marginEnd="@dimen/reset_pref_ll_margin_right"
-            android:orientation="vertical">
+            android:layout_marginStart="-10dp"
+            layout="@layout/app_bar"/>
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fillViewport="false"
+            android:fadeScrollbars="false"
+            android:layout_marginTop="?attr/actionBarSize"
+            android:layout_marginBottom="@dimen/reset_pref_parent_margin_vertical"
+            android:layout_marginLeft="@dimen/reset_pref_parent_margin_left"
+            android:layout_marginStart="@dimen/reset_pref_parent_margin_left"
+            android:layout_marginRight="@dimen/reset_pref_parent_margin_right"
+            android:layout_marginEnd="@dimen/reset_pref_parent_margin_right"
+            android:fitsSystemWindows="true">
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
+                android:layout_marginRight="@dimen/reset_pref_ll_margin_right"
+                android:layout_marginEnd="@dimen/reset_pref_ll_margin_right"
+                android:orientation="vertical">
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black_eighty"
-                    android:layout_marginEnd="@dimen/reset_pref_bullet_margin_right"
-                    android:layout_marginRight="@dimen/reset_pref_bullet_margin_right"
-                    android:scaleX="@dimen/reset_pref_bullet_scale"
-                    android:scaleY="@dimen/reset_pref_bullet_scale"
-                    android:importantForAccessibility="no"
-                    android:text="@string/bullet" />
-                <TextView
-                    android:id="@+id/tv1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    style="@style/defaultTextViewStyle"
-                    android:text="@string/resetPrefPointOne"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/reset_pref_ll_margin_top"
-                android:layout_marginBottom="@dimen/reset_pref_ll_margin_top"
-                android:orientation="horizontal">
-                <TextView
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black_eighty"
+                        android:layout_marginEnd="@dimen/reset_pref_bullet_margin_right"
+                        android:layout_marginRight="@dimen/reset_pref_bullet_margin_right"
+                        android:scaleX="@dimen/reset_pref_bullet_scale"
+                        android:scaleY="@dimen/reset_pref_bullet_scale"
+                        android:importantForAccessibility="no"
+                        android:text="@string/bullet" />
+                    <TextView
+                        android:id="@+id/tv1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@style/defaultTextViewStyle"
+                        android:text="@string/resetPrefPointOne"/>
+                </LinearLayout>
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black_eighty"
-                    android:layout_marginEnd="@dimen/reset_pref_bullet_margin_right"
-                    android:layout_marginRight="@dimen/reset_pref_bullet_margin_right"
-                    android:scaleX="@dimen/reset_pref_bullet_scale"
-                    android:scaleY="@dimen/reset_pref_bullet_scale"
-                    android:importantForAccessibility="no"
-                    android:text="@string/bullet" />
-                <TextView
-                    android:id="@+id/tv2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/resetPrefPointTwo"
-                    style="@style/defaultTextViewStyle"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
+                    android:layout_marginTop="@dimen/reset_pref_ll_margin_top"
+                    android:layout_marginBottom="@dimen/reset_pref_ll_margin_top"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black_eighty"
+                        android:layout_marginEnd="@dimen/reset_pref_bullet_margin_right"
+                        android:layout_marginRight="@dimen/reset_pref_bullet_margin_right"
+                        android:scaleX="@dimen/reset_pref_bullet_scale"
+                        android:scaleY="@dimen/reset_pref_bullet_scale"
+                        android:importantForAccessibility="no"
+                        android:text="@string/bullet" />
+                    <TextView
+                        android:id="@+id/tv2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/resetPrefPointTwo"
+                        style="@style/defaultTextViewStyle"/>
+                </LinearLayout>
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black_eighty"
-                    android:layout_marginEnd="@dimen/reset_pref_bullet_margin_right"
-                    android:layout_marginRight="@dimen/reset_pref_bullet_margin_right"
-                    android:scaleX="@dimen/reset_pref_bullet_scale"
-                    android:scaleY="@dimen/reset_pref_bullet_scale"
-                    android:importantForAccessibility="no"
-                    android:text="@string/bullet" />
-                <TextView
-                    android:id="@+id/tv3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/resetPrefPointThree"
-                    style="@style/defaultTextViewStyle"/>
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black_eighty"
+                        android:layout_marginEnd="@dimen/reset_pref_bullet_margin_right"
+                        android:layout_marginRight="@dimen/reset_pref_bullet_margin_right"
+                        android:scaleX="@dimen/reset_pref_bullet_scale"
+                        android:scaleY="@dimen/reset_pref_bullet_scale"
+                        android:importantForAccessibility="no"
+                        android:text="@string/bullet" />
+                    <TextView
+                        android:id="@+id/tv3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/resetPrefPointThree"
+                        style="@style/defaultTextViewStyle"/>
+                </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
-    </ScrollView>
-    <LinearLayout
-        android:id="@+id/llBottom"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/profile_view_height"
-        android:orientation="horizontal"
-        android:background="@color/menu_screen_bottom_bar"
-        android:layout_alignParentBottom="true"
-        android:importantForAccessibility="yes"
-        android:gravity="center_vertical">
+        </ScrollView>
+        <LinearLayout
+            android:id="@+id/llBottom"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/profile_view_height"
+            android:orientation="horizontal"
+            android:background="@color/menu_screen_bottom_bar"
+            android:layout_alignParentBottom="true"
+            android:importantForAccessibility="yes"
+            android:gravity="center_vertical">
 
-        <Button
-            android:id="@+id/yes"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/profile_save_btn_height"
-            android:textSize="@dimen/profile_save_btn_txt_size"
-            android:text="@string/yes_btn"
-            android:paddingVertical="0dp"
-            android:layout_marginTop="0dp"
-            android:layout_gravity="center_vertical"
-            android:paddingHorizontal="@dimen/profile_save_btn_padding_left"
-            android:layout_marginHorizontal="@dimen/profile_btn_save_margin_left"/>
-        <Button
-            android:id="@+id/no"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/profile_save_btn_height"
-            android:textSize="@dimen/profile_save_btn_txt_size"
-            android:text="@string/no_btn"
-            android:paddingVertical="0dp"
-            android:layout_marginTop="0dp"
-            android:layout_gravity="center_vertical"
-            android:paddingHorizontal="@dimen/profile_save_btn_padding_left"/>
-    </LinearLayout>
-</RelativeLayout>
+            <Button
+                android:id="@+id/yes"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/profile_save_btn_height"
+                android:textSize="@dimen/profile_save_btn_txt_size"
+                android:text="@string/yes_btn"
+                android:paddingVertical="0dp"
+                android:layout_marginTop="0dp"
+                android:layout_gravity="center_vertical"
+                android:paddingHorizontal="@dimen/profile_save_btn_padding_left"
+                android:layout_marginHorizontal="@dimen/profile_btn_save_margin_left"/>
+            <Button
+                android:id="@+id/no"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/profile_save_btn_height"
+                android:textSize="@dimen/profile_save_btn_txt_size"
+                android:text="@string/no_btn"
+                android:paddingVertical="0dp"
+                android:layout_marginTop="0dp"
+                android:layout_gravity="center_vertical"
+                android:paddingHorizontal="@dimen/profile_save_btn_padding_left"/>
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

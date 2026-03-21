@@ -39,6 +39,7 @@ public class FeedbackActivityTalkBack extends BaseActivity{
         setContentView(R.layout.activity_feedback_talkback);
         setVisibleAct(FeedbackActivityTalkBack.class.getSimpleName());
         setupToolbarMenu();
+        setupParent();
         setupBottomBar();
         setupActionBarTitle(View.VISIBLE, getString(R.string.home)+"/ "+getString(R.string.menuFeedback));
         applyMonochromeColor();

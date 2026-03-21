@@ -22,6 +22,7 @@ import android.widget.ImageView;
 import androidx.core.content.ContextCompat;
 
 import com.dsource.idc.jellowintl.R;
+import com.dsource.idc.jellowintl.activities.BaseActivity;
 import com.dsource.idc.jellowintl.activities.LevelBaseActivity;
 import com.dsource.idc.jellowintl.activities.LevelThreeActivity;
 import com.dsource.idc.jellowintl.activities.LevelTwoActivity;
@@ -38,7 +39,7 @@ public class DialogKeyboardUtterance{
         final Drawable speaker= ContextCompat.getDrawable(activity,R.drawable.ic_search_list_speaker);
         AlertDialog.Builder builder = new AlertDialog.Builder(activity);
         final View dialogView = LayoutInflater.from(activity).inflate(R.layout.keyboard_layout, null);
-        ((LevelBaseActivity)context).applyMonochromeColor(dialogView);
+        ((BaseActivity)context).applyMonochromeColor(dialogView);
 
         final ImageView mBtnPlay=dialogView.findViewById(R.id.speak_button);
         mBtnPlay.setOnClickListener(new View.OnClickListener() {
