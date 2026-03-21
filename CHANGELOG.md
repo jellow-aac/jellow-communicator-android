@@ -1,22 +1,23 @@
 # Changelog
 All notable changes to this project will be documented in this file.
-##[4.x.x] - Yet to release
-- Update build.gradle dependencies
+##[5.0.0] - 21 March 2026
+- api level 35 support 
 
-##[4.1.8] - Yet to release
+##[4.1.8] - 11 March 2026
 - Sinhalese language add
 
-##[4.1.7] - Yet to release
+##[4.1.7] - 03 December 2025
 - Marwadi and Nepali language add
 
-##[4.1.6] - Yet to release
+##[4.1.6] - 28 November 2025
 - Assamese and Arabic language add
 
-##[4.1.5] - Yet to release
+##[4.1.5] - 22 June 2025
 - Oriya, Maithili, and Urdu language add
 
-##[4.1.4] - Yet to release
+##[4.1.4] - 29 July 2024
 - Marathi text to speech language add
+- Upgrade issue fix
 
 ##[4.1.3] - 05 July 2024
 - Added Marathi language with Text-to-speech. We have kept Marathi language with voice recording as well.
