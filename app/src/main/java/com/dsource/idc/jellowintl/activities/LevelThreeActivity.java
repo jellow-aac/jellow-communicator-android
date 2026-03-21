@@ -114,7 +114,10 @@ public class LevelThreeActivity extends LevelBaseActivity implements BasicCustom
         setContentView(R.layout.activity_levelx_layout);
         txtActionBarTitle = getIntent().getExtras().getString(getString(R.string.intent_menu_path_tag));
         txtKeyboard = getString(R.string.keyboard);
+        setVisibleAct(LevelThreeActivity.class.getSimpleName());
         setupActionBarTitle(View.GONE, txtActionBarTitle);
+        setupToolbarMenu();
+        setupParent();
         applyMonochromeColor();
         setNavigationUiConditionally();
 

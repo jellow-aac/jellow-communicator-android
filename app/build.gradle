@@ -6,8 +6,8 @@ android {
         applicationId "com.dsource.idc.jellowintl"
         minSdkVersion 23
         targetSdkVersion 36
-        versionCode 103
-        versionName "4.1.8"
+        versionCode 104
+        versionName "5.0.0"
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -50,6 +50,20 @@ android {
 
     buildFeatures{
         buildConfig true
+    }
+
+    buildFeatures{
+        buildConfig true
+    }
+    configurations {
+        implementation.exclude group: 'org.jetbrains', module: 'annotations'
+    }
+}
+
+// Add this block after the 'android' block
+afterEvaluate {
+    tasks.named('mergeDebugResources') {
+        mustRunAfter tasks.named('processDebugGoogleServices')
     }
 }
 
@@ -100,7 +114,7 @@ dependencies {
     implementation 'androidx.room:room-runtime:2.3.0'
     annotationProcessor "androidx.room:room-compiler:2.3.0"
 
-    implementation 'org.jetbrains:annotations:16.0.2'
+    implementation 'org.jetbrains:annotations:26.1.0'
 
     // Optional -- JUnit test framework
     androidTestImplementation 'junit:junit:4.13.2'

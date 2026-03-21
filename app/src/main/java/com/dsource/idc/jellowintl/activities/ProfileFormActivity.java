@@ -43,7 +43,11 @@ public class ProfileFormActivity extends SpeechEngineBaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_form);
+        setVisibleAct(ProfileFormActivity.class.getSimpleName());
         setupActionBarTitle(View.VISIBLE, getString(R.string.home)+"/ "+getString(R.string.menuProfile));
+        setupToolbarMenu();
+        setupParent();
+        setupBottomBar();
         applyMonochromeColor();
         setNavigationUiConditionally();
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
@@ -149,7 +153,6 @@ public class ProfileFormActivity extends SpeechEngineBaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        setVisibleAct(ProfileFormActivity.class.getSimpleName());
         if(!isAnalyticsActive()){
             resetAnalytics(this, getSession().getUserId());
         }

@@ -118,7 +118,7 @@
     <dimen name="profile_spinner_right_padding">24dp</dimen>
     <dimen name="profile_view_height">56dp</dimen>
     <dimen name="profile_save_btn_padding_left">8dp</dimen>
-    <dimen name="profile_save_btn_height">30dp</dimen>
+    <dimen name="profile_save_btn_height">44dp</dimen>
     <dimen name="profile_btn_save_margin_left">8dp</dimen>
     <dimen name="profile_save_btn_txt_size">14sp</dimen>
 
@@ -139,7 +139,7 @@
     <dimen name="about_credit_title_ll_margin_bottom">14dp</dimen>
     <dimen name="about_extra_margin_bottom">32dp</dimen>
     <dimen name="about_bottom_bar_height">48dp</dimen>
-    <dimen name="about_btn_height">30dp</dimen>
+    <dimen name="about_btn_height">44dp</dimen>
     <dimen name="about_btn_padding_left">8dp</dimen>
     <dimen name="about_btn_txt_size">14sp</dimen>
     <dimen name="about_btn_margin_left">20dp</dimen>
@@ -223,7 +223,7 @@
     <dimen name="setting_spinner_icon_height">30dp</dimen>
     <dimen name="setting_bottom_bar_height">48dp</dimen>
     <dimen name="setting_extra_space_height">48dp</dimen>
-    <dimen name="setting_btn_height">30dp</dimen>
+    <dimen name="setting_btn_height">44dp</dimen>
     <dimen name="setting_btn_txt_size">14sp</dimen>
     <dimen name="setting_btn_margin_bottom">16dp</dimen>
     <dimen name="setting_btn_padding_horizontal">8dp</dimen>
@@ -408,5 +408,7 @@
     <dimen name="margin_fish_bottom">0dp</dimen>
     <dimen name="margin_dolphin_bottom">-72dp</dimen>
     <dimen name="margin_whale_bottom">-8dp</dimen>
+    <dimen name="_28dp">28dp</dimen>
+    <dimen name="_30dp">30dp</dimen>
 
 </resources>

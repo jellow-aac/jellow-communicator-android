@@ -7,6 +7,7 @@
     android:orientation="vertical"
     android:layout_marginLeft="@dimen/nineIcon_parentHorizontal"
     android:layout_marginRight="@dimen/nineIcon_parentHorizontal"
+    android:layout_marginVertical="2dp"
     android:focusable="true">
     <FrameLayout
         android:layout_width="wrap_content"
@@ -53,6 +54,7 @@
         android:text="festivals &amp; hodidays"
         android:gravity="center"
         android:textSize="@dimen/nineIcon_textSize"
+        android:layout_marginTop="2dp"
         android:textAlignment="center"
         android:lineSpacingExtra="1dp"
         android:lineSpacingMultiplier=".8"

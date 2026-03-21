@@ -60,6 +60,8 @@ public class IconSelectActivity extends BaseBoardActivity<ISelectIconView, ISele
 
     @Override
     public void initViewsAndEvents() {
+        applyMonochromeColor();
+        setNavigationUiConditionally();
         searchScrollManager = new SearchManager(mRecyclerView);
 
         RecyclerView levelSelectRecycler = findViewById(R.id.rv_level_select);
@@ -320,6 +322,10 @@ public class IconSelectActivity extends BaseBoardActivity<ISelectIconView, ISele
             SelectionManager.getInstance().setList(selectedIconList);
             levelManager.updateSelection(savedInstanceState.getInt(CURRENT_POSITION), -1);
         }
+        setVisibleAct(IconSelectActivity.class.getSimpleName());
+        setupToolbarMenu();
+        setupParent();
+        adjustIconListParentView();
     }
 
     @Override
@@ -347,12 +353,6 @@ public class IconSelectActivity extends BaseBoardActivity<ISelectIconView, ISele
 
         // Stop measuring user app screen timer.
         stopMeasuring(IconSelectActivity.class.getSimpleName());
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.my_board_select_icon_menu, menu);
-        return true;
     }
 
     @Override

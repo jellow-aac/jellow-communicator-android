@@ -96,11 +96,14 @@ public class SequenceActivity extends LevelBaseActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sequence);
+        setVisibleAct(SequenceActivity.class.getSimpleName());
         txtActionBarTitle = getIntent().getExtras().getString(getString(R.string.intent_menu_path_tag));
         setupActionBarTitle(View.GONE, txtActionBarTitle);
+        setupToolbarMenu();
+        setupParent();
         applyMonochromeColor();
-        txtKeyboard = getString(R.string.keyboard);
         setNavigationUiConditionally();
+        txtKeyboard = getString(R.string.keyboard);
 
         mUec = new UserEventCollector();
         /*get position of category icon selected in level two*/
