@@ -41,5 +41,7 @@
 
 
 -keep class org.jetbrains.annotations.** { *; }
-
+-dontwarn org.intellij.lang.annotations.**
 -dontpreverify
+-dontwarn org.jetbrains.annotations.NotNull
+-dontwarn org.jetbrains.annotations.Nullable
