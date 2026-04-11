@@ -21,7 +21,7 @@
             android:layout_height="wrap_content"
             android:fadeScrollbars="false"
             android:fillViewport="false"
-            android:layout_marginTop="?attr/actionBarSize"
+            android:layout_below="@+id/custom_app_bar"
             android:layout_marginBottom="@dimen/feedback_scroll_margin_top"
             android:layout_marginLeft="@dimen/feedback_scroll_margin_left"
             android:layout_marginStart="@dimen/feedback_scroll_margin_left"

@@ -19,11 +19,11 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/custom_app_bar"
             android:layout_marginLeft="@dimen/access_parent_margin_left"
             android:layout_marginStart="@dimen/access_parent_margin_left"
             android:layout_marginRight="@dimen/access_parent_margin_right"
             android:layout_marginEnd="@dimen/access_parent_margin_right"
-            android:layout_marginTop="?attr/actionBarSize"
             android:layout_marginBottom="@dimen/access_parent_margin_vertical"
             android:fitsSystemWindows="true">
             <ScrollView

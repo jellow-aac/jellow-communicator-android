@@ -23,7 +23,7 @@
             android:orientation="vertical"
             android:layout_marginLeft="@dimen/profile_parent_margin_left"
             android:layout_marginStart="@dimen/profile_parent_margin_left"
-            android:layout_marginTop="?attr/actionBarSize"
+            android:layout_below="@+id/custom_app_bar"
             android:layout_marginBottom="@dimen/profile_parent_margin_vertical"
             android:layout_marginRight="@dimen/profile_parent_margin_right"
             android:layout_marginEnd="@dimen/profile_parent_margin_right"
@@ -197,7 +197,6 @@
                 android:layout_marginTop="0dp"
                 android:layout_gravity="center_vertical"
                 android:paddingHorizontal="@dimen/profile_save_btn_padding_left"
-                android:layout_marginLeft="@dimen/profile_btn_save_margin_left"
                 android:layout_marginStart="@dimen/profile_btn_save_margin_left"/>
         </LinearLayout>
     </RelativeLayout>

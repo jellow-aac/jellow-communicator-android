@@ -128,24 +128,24 @@ public class LevelTwoActivity extends LevelBaseActivity implements BasicCustomIc
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_levelx_layout);
+        setVisibleAct(LevelTwoActivity.class.getSimpleName());
         // Get index of category icons (position in recycler view) selected in level one.
         mLevelOneItemPos = getIntent().getExtras().getInt(getString(R.string.level_one_intent_pos_tag));
         // Get and set title of category icons selected in level one.
         txtActionBarTitle = getIntent().getExtras().getString(getString(R.string.intent_menu_path_tag));
-        setVisibleAct(LevelTwoActivity.class.getSimpleName());
-        setupActionBarTitle(View.GONE, txtActionBarTitle);
-        setupToolbarMenu();
-        setupParent();
-        applyMonochromeColor();
-        setNavigationUiConditionally();
         // when layout is loaded on activity, using the tag attribute of a parent view in layout
         // the device size is identified. If device size is large (10' tablets) enable the
         // hardware acceleration. As seen in testing device, scrolling recycler items on 10' tab
         // have jagged views (lags in scrolling) hence hardware acceleration is enabled.
         if(findViewById(R.id.parent).getTag().toString().equals("large"))
             getWindow().setFlags(
-                WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED,
+                    WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED,
                     WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED);
+        setupActionBarTitle(View.GONE, txtActionBarTitle);
+        setupToolbarMenu();
+        setupParent();
+        applyMonochromeColor();
+        setNavigationUiConditionally();
         mUec = new UserEventCollector();
         // The below string has value "" in english (all regions) and "है।" in Hindi (India).
         // It is used when user select category "Help" -> "About me".

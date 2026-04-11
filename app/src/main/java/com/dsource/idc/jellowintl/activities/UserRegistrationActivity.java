@@ -134,27 +134,27 @@ public class UserRegistrationActivity extends BaseActivity implements CheckNetwo
         setupActionBarTitle(View.GONE, getString(R.string.menuUserRegistration));
         setupParent();
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.VANILLA_ICE_CREAM) {
-            // Setting up toolbar height for 10' & 7' device
-            if (getScreenSize() == GlobalConstants.SCREEN_SIZE_TEN_INCH_TAB ||
-                    getScreenSize() == SCREEN_SIZE_SEVEN_INCH_TAB) {
-                ScrollView scrollView = findViewById(R.id.scrollable);
-                if (scrollView != null){
-                    DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
-                    int startPadding = 16;
-                    int paddingLeft = (int) TypedValue.applyDimension(
-                            TypedValue.COMPLEX_UNIT_DIP,
-                            startPadding,
-                            displayMetrics
-                    );
-                    scrollView.setPadding(
-                            paddingLeft,
-                            scrollView.getPaddingTop(),
-                            scrollView.getPaddingRight(),
-                            scrollView.getPaddingBottom()
-                    );
-                }
-            }
             getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.colorPrimary));
+        }
+        // Setting up toolbar height for 10' & 7' device
+        if (getScreenSize() == GlobalConstants.SCREEN_SIZE_TEN_INCH_TAB ||
+                getScreenSize() == SCREEN_SIZE_SEVEN_INCH_TAB) {
+            ScrollView scrollView = findViewById(R.id.scrollable);
+            if (scrollView != null){
+                DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
+                int startPadding = 16;
+                int paddingLeft = (int) TypedValue.applyDimension(
+                        TypedValue.COMPLEX_UNIT_DIP,
+                        startPadding,
+                        displayMetrics
+                );
+                scrollView.setPadding(
+                        paddingLeft,
+                        scrollView.getPaddingTop(),
+                        scrollView.getPaddingRight(),
+                        scrollView.getPaddingBottom()
+                );
+            }
         }
         setNavigationUiConditionally();
 

@@ -70,9 +70,9 @@ public class Intro extends AppIntro {
 
         if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
             getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.colorPrimary));
-            if (getSupportActionBar() != null){
-                getSupportActionBar().hide();
-            }
+        }
+        if (getSupportActionBar() != null){
+            getSupportActionBar().hide();
         }
     }
 

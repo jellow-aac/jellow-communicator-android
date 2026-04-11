@@ -22,7 +22,7 @@
                     android:id="@+id/recycler_view"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="?attr/actionBarSize"
+                    android:layout_below="@+id/custom_app_bar"
                     android:layout_marginBottom="@dimen/list_recycler_margin"
                     android:layout_marginHorizontal="@dimen/list_recycler_margin"
                     android:fadeScrollbars="false"
