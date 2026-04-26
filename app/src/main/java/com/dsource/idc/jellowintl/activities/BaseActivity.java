@@ -387,6 +387,27 @@ public class BaseActivity extends AppCompatActivity{
                 });
 
             }
+            if (findViewById(R.id.cameraCropParent) != null) {
+                ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.cameraCropParent), (v, windowInsets) -> {
+                    Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
+                    ViewGroup.MarginLayoutParams mlp = (ViewGroup.MarginLayoutParams) v.getLayoutParams();
+                    mlp.leftMargin = 0;
+                    mlp.bottomMargin = insets.bottom;
+                    mlp.rightMargin = insets.right;
+                    mlp.topMargin = 0;
+                    v.setLayoutParams(mlp);
+                    DisplayCutoutCompat cutout = windowInsets.getDisplayCutout();
+                    if (cutout != null) {
+                        int cameraPadding = cutout.getSafeInsetLeft();
+                        v.setPadding(cameraPadding,0,0,0);
+                    }
+                    // Return CONSUMED if you don't want the window insets to keep passing
+                    // down to descendant views.
+                    return WindowInsetsCompat.CONSUMED;
+                });
+
+            }
+
         }
     }
 

@@ -519,4 +519,11 @@
     <string name="boards_trash_screen">ਬੋਰਡ ਰੱਦੀ ਸਕਰੀਨ</string>
     <string name="board_moved_to_trash">_ ਬੋਰਡ ਰੱਦੀ ਵਿੱਚ ਲਿਜਾਇਆ ਗਿਆ</string>
     <string name="board_restored_from_trash">_ ਬੋਰਡ ਨੂੰ ਬਹਾਲ ਕੀਤਾ</string>
+    <string name="crop_selected_image">ਚੁਣੀ ਗਈ ਤਸਵੀਰ ਨੂੰ ਕੱਟੋ</string>
+    <string name="crop_image">ਚਿੱਤਰ ਨੂੰ ਕੱਟੋ</string>
+    <string name="please_select_and_adjust_image_first">ਕਿਰਪਾ ਕਰਕੇ ਪਹਿਲਾਂ ਤਸਵੀਰ ਚੁਣੋ ਅਤੇ ਵਿਵਸਥਿਤ ਕਰੋ</string>
+    <string name="select_image_source">ਚਿੱਤਰ ਸਰੋਤ ਚੁਣੋ</string>
+    <string name="camera">ਕੈਮਰਾ</string>
+    <string name="gallery">ਗੈਲਰੀ</string>
+    <string name="please_crop_image_properly">ਕਿਰਪਾ ਕਰਕੇ ਤਸਵੀਰ ਨੂੰ ਸਹੀ ਢੰਗ ਨਾਲ ਕੱਟੋ</string>
 </resources>

@@ -491,4 +491,11 @@
     <string name="board_moved_to_trash">_ బోర్డు చెత్తకు తరలించబడింది</string>
     <string name="board_restored_from_trash">_ బోర్డు పునరుద్ధరించబడింది</string>
     <string name="voice_warning">ఎంచుకున్న భాషకు వాయిస్ అందుబాటులో లేకుంటే లేదా వాయిస్ డ్రాప్ డౌన్ కింద \\\"null\\\" కనిపిస్తే, దయచేసి Google Play Store నుండి Google Text to Speech యాప్‌ను అప్‌డేట్ చేయండి మరియు మీ పరికరంలో భాష కోసం యాడ్ వాయిస్ డేటాను ఇన్‌స్టాల్ చేయండి.</string>
+    <string name="crop_selected_image">ఎంచుకున్న చిత్రాన్ని కత్తిరించండి</string>
+    <string name="crop_image">చిత్రాన్ని కత్తిరించండి</string>
+    <string name="please_select_and_adjust_image_first">దయచేసి ముందుగా చిత్రాన్ని ఎంచుకుని, సర్దుబాటు చేయండి</string>
+    <string name="select_image_source">చిత్ర మూలాన్ని ఎంచుకోండి</string>
+    <string name="camera">కెమెరా</string>
+    <string name="gallery">గ్యాలరీ</string>
+    <string name="please_crop_image_properly">దయచేసి చిత్రాన్ని సరిగ్గా కత్తిరించండి</string>
 </resources>

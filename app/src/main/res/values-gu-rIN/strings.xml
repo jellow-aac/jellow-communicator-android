@@ -499,4 +499,11 @@
     <string name="boards_trash_screen">બોર્ડ ટ્રેશ સ્ક્રીન</string>
     <string name="board_moved_to_trash">_ બોર્ડ કચરાપેટીમાં ખસેડ્યું</string>
     <string name="board_restored_from_trash">_ બોર્ડ પુનઃસ્થાપિત કર્યું</string>
+    <string name="crop_selected_image">પસંદ કરેલી છબી કાપો</string>
+    <string name="crop_image">છબી કાપો</string>
+    <string name="please_select_and_adjust_image_first">કૃપા કરીને પહેલા છબી પસંદ કરો અને ગોઠવો</string>
+    <string name="select_image_source">છબી સ્રોત પસંદ કરો</string>
+    <string name="camera">કેમેરા</string>
+    <string name="gallery">ગેલેરી</string>
+    <string name="please_crop_image_properly">કૃપા કરીને છબીને યોગ્ય રીતે કાપો</string>
 </resources>

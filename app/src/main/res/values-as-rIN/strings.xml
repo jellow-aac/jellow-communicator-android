@@ -496,4 +496,12 @@
     <string name="txtCustomisationSetting">স্বনিৰ্বাচন সংহতিসমূহ</string>
     <string name="txtOtherSetting">Other Settings</string>
     <string name="change_language_line2">তলৰ ড্ৰপডাউনৰ পৰা যিকোনো ভাষা নিৰ্ব্বাচন কৰক:</string>
+    <string name="crop_selected_image">নিৰ্বাচিত ছবিখন ক্ৰপ কৰক</string>
+    <string name="crop_image">ছবিখন ক্ৰপ কৰক</string>
+    কেমেৰা
+    <string name="please_select_and_adjust_image_first">অনুগ্ৰহ কৰি প্ৰথমে ছবি নিৰ্বাচন আৰু সামঞ্জস্য কৰক</string>
+    <string name="select_image_source">ছবিৰ উৎস নিৰ্ব্বাচন কৰক</string>
+    <string name="camera">কেমেৰা</string>
+    <string name="gallery">গেলেৰী</string>
+    <string name="please_crop_image_properly">অনুগ্ৰহ কৰি ছবিখন সঠিকভাৱে ক্ৰপ কৰক</string>
 </resources>

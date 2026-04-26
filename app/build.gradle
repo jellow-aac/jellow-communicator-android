@@ -6,8 +6,8 @@ android {
         applicationId "com.dsource.idc.jellowintl"
         minSdkVersion 23
         targetSdkVersion 36
-        versionCode 104
-        versionName "5.0.0"
+        versionCode 105
+        versionName "5.0.1e"
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -58,6 +58,11 @@ android {
     configurations {
         implementation.exclude group: 'org.jetbrains', module: 'annotations'
     }
+    packagingOptions {
+        jniLibs {
+            useLegacyPackaging = false
+        }
+    }
 }
 
 // Add this block after the 'android' block
@@ -103,13 +108,13 @@ dependencies {
     implementation 'com.github.rey5137:material:1.2.5'
     implementation 'com.github.paolorotolo:appintro:4.1.0'
     implementation 'com.hbb20:ccp:2.5.0'
-    implementation 'com.github.CanHub:Android-Image-Cropper:4.0.0'
+    implementation "com.vanniktech:android-image-cropper:4.7.0"
     implementation 'com.bignerdranch.android:expandablerecyclerview:3.0.0-RC1'
 
     implementation('com.h6ah4i.android.widget.advrecyclerview:advrecyclerview:1.0.0@aar') {
         transitive = true
     }
-    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.23'
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.31'
 
     implementation 'androidx.room:room-runtime:2.3.0'
     annotationProcessor "androidx.room:room-compiler:2.3.0"

@@ -25,6 +25,12 @@ public class DialogCustom extends Dialog {
         this.context=context;
         prepareDialog();
     }
+    public DialogCustom(Context context,int theme){
+        super(context,theme);
+        this.context=context;
+        prepareDialog();
+    }
+
     private void prepareDialog()
     {
         final LayoutInflater dialogLayout = LayoutInflater.from(context);
@@ -36,21 +42,15 @@ public class DialogCustom extends Dialog {
         Button negativeButton = dialogContainerView.findViewById(R.id.negative);
         positiveButton.setText(R.string.yes);
         negativeButton.setText(R.string.no);
-        positiveButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(mPositiveClickListener!=null)
-                mPositiveClickListener.onPositiveClickListener();
-                dialog.dismiss();
-            }
+        positiveButton.setOnClickListener(v -> {
+            if(mPositiveClickListener!=null)
+            mPositiveClickListener.onPositiveClickListener();
+            dialog.dismiss();
         });
-        negativeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(mNegativeClickListener!=null)
-                mNegativeClickListener.onNegativeClickListener();
-                dialog.dismiss();
-            }
+        negativeButton.setOnClickListener(v -> {
+            if(mNegativeClickListener!=null)
+            mNegativeClickListener.onNegativeClickListener();
+            dialog.dismiss();
         });
         dialogText=dialogContainerView.findViewById(R.id.dialog_text);
         dialog = new Dialog(context,R.style.MyDialogBox);
@@ -84,8 +84,25 @@ public class DialogCustom extends Dialog {
         if(dialog!=null)
             dialog.show();
     }
+
     public void setText(String text)
     {
         dialogText.setText(text);
+    }
+
+    public void setPositiveText(String text) {
+       Button button = dialog.findViewById(R.id.positive);
+       if(button == null){
+           return;
+       }
+       button.setText(text);
+    }
+
+    public void setNegativeText(String text){
+        Button button = dialog.findViewById(R.id.negative);
+        if(button == null){
+            return;
+        }
+        button.setText(text);
     }
 }

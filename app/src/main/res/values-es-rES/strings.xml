@@ -490,4 +490,11 @@
     <string name="board_moved_to_trash">_ Tablero movido a la papelera</string>
     <string name="board_restored_from_trash">Restaurado el tablero _</string>
     <string name="voice_warning">Si no hay voz disponible para el idioma seleccionado o ve \\\"null\\\" en el menú desplegable de voz, actualice la aplicación Google Text to Speech desde Google Play Store e instale los datos de voz adicionales para el idioma en su dispositivo.</string>
+    <string name="crop_selected_image">Recortar imagen seleccionada</string>
+    <string name="crop_image">Recortar imagen</string>
+    <string name="please_select_and_adjust_image_first">Por favor, seleccione y ajuste la imagen primero</string>
+    <string name="select_image_source">Seleccionar origen de la imagen</string>
+    <string name="camera">Cámara</string>
+    <string name="gallery">Galería</string>
+    <string name="please_crop_image_properly">Por favor, recorta la imagen correctamente</string>
 </resources>

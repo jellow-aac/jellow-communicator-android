@@ -560,4 +560,11 @@
     <string name="txtCustomisationSetting">Customization Settings</string>
     <string name="txtOtherSetting">Other Settings</string>
     <string name="change_language_line2">Select any language from the dropdown below:</string>
+    <string name="crop_selected_image">Crop selected image</string>
+    <string name="crop_image">Crop image</string>
+    <string name="please_select_and_adjust_image_first">Please select and adjust image first</string>
+    <string name="select_image_source">Select image source</string>
+    <string name="camera">Camera</string>
+    <string name="gallery">Gallery</string>
+    <string name="please_crop_image_properly">Please crop image properly</string>
 </resources>

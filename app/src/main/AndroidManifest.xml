@@ -189,91 +189,107 @@
             android:screenOrientation="landscape"
             android:windowSoftInputMode="adjustPan|adjustNothing"
             tools:ignore="LockedOrientationActivity" />
+<!--        <activity-->
+<!--            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"-->
+<!--            android:configChanges="keyboardHidden|orientation|screenSize"-->
+<!--            android:screenOrientation="landscape"-->
+<!--            android:exported="true"-->
+<!--            android:theme="@style/Base.Theme.AppCompat"-->
+<!--            tools:ignore="LockedOrientationActivity" />-->
         <activity
-            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:name="com.canhub.cropper.CropImageActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="landscape"
             android:exported="true"
-            android:theme="@style/Base.Theme.AppCompat"
+            android:theme="@style/AppTheme"
             tools:ignore="LockedOrientationActivity" />
-        <activity
-            android:name=".make_my_board_module.activity.SetupMMB"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:label="@string/preparing_language_screen"
-            android:screenOrientation="landscape"
-            tools:ignore="LockedOrientationActivity" />
-        <activity
-            android:name=".make_my_board_module.custom_dialogs.DialogAddVerbiage"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="landscape"
-            android:theme="@style/Theme.AppCompat.Translucent"
-            tools:ignore="LockedOrientationActivity" />
-        <activity
-            android:name=".make_my_board_module.custom_dialogs.DialogAddEditIcon"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:label="@string/add_edit_icons_dialog"
-            android:screenOrientation="landscape"
-            android:theme="@style/Theme.AppCompat.Translucent"
-            tools:ignore="LockedOrientationActivity" />
-        <activity
-            android:name=".make_my_board_module.activity.BoardListActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:label="@string/my_boards_screen"
-            android:screenOrientation="landscape"
-            android:windowSoftInputMode="adjustPan|adjustNothing"
-            tools:ignore="LockedOrientationActivity" />
-        <activity
-            android:name=".make_my_board_module.activity.BoardTrashActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:label="@string/my_boards_screen"
-            android:screenOrientation="landscape"
-            android:windowSoftInputMode="adjustPan|adjustNothing"
-            tools:ignore="LockedOrientationActivity" />
-        <activity
-            android:name=".make_my_board_module.custom_dialogs.DialogNoOfIconPerScreen"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:label="@string/dialog"
-            android:screenOrientation="landscape"
-            android:theme="@style/Theme.AppCompat.Translucent"
-            tools:ignore="LockedOrientationActivity" />
-        <activity
-            android:name=".make_my_board_module.activity.IconSelectActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:label="@string/icon_select_screen"
-            android:screenOrientation="landscape"
-            android:windowSoftInputMode="adjustPan"
-            tools:ignore="LockedOrientationActivity" />
-        <activity
-            android:name=".make_my_board_module.activity.AddEditActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:label="@string/icon_add_edit_screen"
-            android:screenOrientation="landscape"
-            android:windowSoftInputMode="adjustPan"
-            tools:ignore="LockedOrientationActivity" />
-        <activity
-            android:name=".make_my_board_module.custom_dialogs.DialogAddBoard"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="landscape"
-            android:theme="@style/Theme.AppCompat.Translucent"
-            tools:ignore="LockedOrientationActivity" />
-
-        <meta-data
-            android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
-        <!--
-<service
-            android:name=".utility.SimpleIME"
-            android:label="@string/simple_ime"
-            android:permission="android.permission.BIND_INPUT_METHOD">
-            <intent-filter>
-                <action android:name="android.view.InputMethod" />
-            </intent-filter>
-
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
             <meta-data
-                android:name="android.view.im"
-                android:resource="@xml/method" />
-        </service>
-        -->
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"/>
+        </provider>
+                <activity
+                    android:name=".make_my_board_module.activity.SetupMMB"
+                    android:configChanges="keyboardHidden|orientation|screenSize"
+                    android:label="@string/preparing_language_screen"
+                    android:screenOrientation="landscape"
+                    tools:ignore="LockedOrientationActivity" />
+                <activity
+                    android:name=".make_my_board_module.custom_dialogs.DialogAddVerbiage"
+                    android:configChanges="keyboardHidden|orientation|screenSize"
+                    android:screenOrientation="landscape"
+                    android:theme="@style/Theme.AppCompat.Translucent"
+                    tools:ignore="LockedOrientationActivity" />
+                <activity
+                    android:name=".make_my_board_module.custom_dialogs.DialogAddEditIcon"
+                    android:configChanges="keyboardHidden|orientation|screenSize"
+                    android:label="@string/add_edit_icons_dialog"
+                    android:screenOrientation="landscape"
+                    android:theme="@style/Theme.AppCompat.Translucent"
+                    tools:ignore="LockedOrientationActivity" />
+                <activity
+                    android:name=".make_my_board_module.activity.BoardListActivity"
+                    android:configChanges="keyboardHidden|orientation|screenSize"
+                    android:label="@string/my_boards_screen"
+                    android:screenOrientation="landscape"
+                    android:windowSoftInputMode="adjustPan|adjustNothing"
+                    tools:ignore="LockedOrientationActivity" />
+                <activity
+                    android:name=".make_my_board_module.activity.BoardTrashActivity"
+                    android:configChanges="keyboardHidden|orientation|screenSize"
+                    android:label="@string/my_boards_screen"
+                    android:screenOrientation="landscape"
+                    android:windowSoftInputMode="adjustPan|adjustNothing"
+                    tools:ignore="LockedOrientationActivity" />
+                <activity
+                    android:name=".make_my_board_module.custom_dialogs.DialogNoOfIconPerScreen"
+                    android:configChanges="keyboardHidden|orientation|screenSize"
+                    android:label="@string/dialog"
+                    android:screenOrientation="landscape"
+                    android:theme="@style/Theme.AppCompat.Translucent"
+                    tools:ignore="LockedOrientationActivity" />
+                <activity
+                    android:name=".make_my_board_module.activity.IconSelectActivity"
+                    android:configChanges="keyboardHidden|orientation|screenSize"
+                    android:label="@string/icon_select_screen"
+                    android:screenOrientation="landscape"
+                    android:windowSoftInputMode="adjustPan"
+                    tools:ignore="LockedOrientationActivity" />
+                <activity
+                    android:name=".make_my_board_module.activity.AddEditActivity"
+                    android:configChanges="keyboardHidden|orientation|screenSize"
+                    android:label="@string/icon_add_edit_screen"
+                    android:screenOrientation="landscape"
+                    android:windowSoftInputMode="adjustPan"
+                    tools:ignore="LockedOrientationActivity" />
+                <activity
+                    android:name=".make_my_board_module.custom_dialogs.DialogAddBoard"
+                    android:configChanges="keyboardHidden|orientation|screenSize"
+                    android:screenOrientation="landscape"
+                    android:theme="@style/Theme.AppCompat.Translucent"
+                    tools:ignore="LockedOrientationActivity" />
+
+                <meta-data
+                    android:name="com.google.android.gms.version"
+                    android:value="@integer/google_play_services_version" />
+                <!--
+        <service
+                    android:name=".utility.SimpleIME"
+                    android:label="@string/simple_ime"
+                    android:permission="android.permission.BIND_INPUT_METHOD">
+                    <intent-filter>
+                        <action android:name="android.view.InputMethod" />
+                    </intent-filter>
+
+                    <meta-data
+                        android:name="android.view.im"
+                        android:resource="@xml/method" />
+                </service>
+                -->
         <service android:name=".utility.JellowFirebaseMessageService"
             android:exported="true">
             <intent-filter>
