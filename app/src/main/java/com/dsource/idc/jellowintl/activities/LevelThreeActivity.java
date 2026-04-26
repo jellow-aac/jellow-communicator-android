@@ -114,13 +114,6 @@ public class LevelThreeActivity extends LevelBaseActivity implements BasicCustom
         setContentView(R.layout.activity_levelx_layout);
         txtActionBarTitle = getIntent().getExtras().getString(getString(R.string.intent_menu_path_tag));
         txtKeyboard = getString(R.string.keyboard);
-        setVisibleAct(LevelThreeActivity.class.getSimpleName());
-        setupActionBarTitle(View.GONE, txtActionBarTitle);
-        setupToolbarMenu();
-        setupParent();
-        applyMonochromeColor();
-        setNavigationUiConditionally();
-
         // when layout is loaded on activity, using the tag attribute of a parent view in layout
         // the device size is identified. If device size is large (10' tablets) enable the
         // hardware acceleration. As seen in testing device, scrolling recycler items on 10' tab
@@ -128,7 +121,13 @@ public class LevelThreeActivity extends LevelBaseActivity implements BasicCustom
         if(findViewById(R.id.parent).getTag().toString().equals("large"))
             getWindow().setFlags(
                     WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED,
-                        WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED);
+                    WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED);
+        setVisibleAct(LevelThreeActivity.class.getSimpleName());
+        setupActionBarTitle(View.GONE, txtActionBarTitle);
+        setupToolbarMenu();
+        setupParent();
+        applyMonochromeColor();
+        setNavigationUiConditionally();
 
         // set app locale which is set in settings by user.
         mUec = new UserEventCollector();

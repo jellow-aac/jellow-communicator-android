@@ -493,4 +493,11 @@
     <string name="my_boards_board_home_info_cd">Das ausgewählte Bild zeigt den Startbildschirm des Boards. In diesem Bildschirm können Sie das erstellte Brett verwenden oder spielen. Außerdem können Sie im aktuellen Board nach einem Symbol suchen, die Einstellung „Anzahl der Symbole pro Bildschirm“ für das aktuelle Board ändern oder die Symbole im aktuellen Board neu positionieren. Diese Schaltflächen sind rechts oben auf dem Bildschirm verfügbar.</string>
     <string name="place_holder_no_icons_added">Das Board hat kein Symbol</string>
     <string name="voice_warning">Wenn die Stimme(n) der ausgewählten Sprache(n) nicht verfügbar sind oder unter dem Voice-Dropdown-Menü null angezeigt werden, aktualisieren Sie die Google Text-to-Speech-App aus dem Google Play Store und installieren Sie die Sprachdaten für die Sprache(n) auf Ihrem Gerät .</string>
+    <string name="crop_selected_image">Geselecteerde afbeelding bijsnijden</string>
+    <string name="crop_image">Afbeelding bijsnijden</string>
+    <string name="please_select_and_adjust_image_first">Selecteer en pas eerst de afbeelding aan</string>
+    <string name="select_image_source">Selecteer afbeeldingsbron</string>
+    <string name="camera">Camera</string>
+    <string name="gallery">Galerij</string>
+    <string name="please_crop_image_properly">Bitte schneiden Sie das Bild ordnungsgemäß zu</string>
 </resources>

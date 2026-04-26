@@ -20,13 +20,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:layout_below="@+id/custom_app_bar"
             android:fitsSystemWindows="true">
             <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fadeScrollbars="false"
                 android:fillViewport="true"
-                android:layout_marginTop="?attr/actionBarSize"
                 android:layout_marginBottom="@dimen/setting_scroll_margin_top"
                 android:layout_marginLeft="@dimen/setting_scroll_margin_left"
                 android:layout_marginStart="@dimen/setting_scroll_margin_left"

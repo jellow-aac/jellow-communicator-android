@@ -498,4 +498,11 @@
     <string name="txtCustomisationSetting">କଷ୍ଟମାଇଜେସନ୍ ସେଟିଂସମୂହ ୲</string>
     <string name="txtOtherSetting">ଅନ୍ୟ ସେଟିଂସମୂହ ୲</string>
     <string name="change_language_line2">ନିମ୍ନରେ ଥିବା ଡ୍ରପଡାଉନରୁ ଯେକୌଣସି ଭାଷା ଚୟନ କରନ୍ତୁ:</string>
+    <string name="crop_selected_image">ଚୟନିତ ଚିତ୍ରକୁ କ୍ରପ୍ କରନ୍ତୁ</string>
+    <string name="crop_image">ଚିତ୍ରକୁ କ୍ରପ୍ କରନ୍ତୁ</string>
+    <string name="please_select_and_adjust_image_first">ଦୟାକରି ପ୍ରଥମେ ଚିତ୍ରକୁ ଚୟନ କରନ୍ତୁ ଏବଂ ଆଡଜଷ୍ଟ କରନ୍ତୁ</string>
+    <string name="select_image_source">ଚିତ୍ର ଉତ୍ସ ଚୟନ କରନ୍ତୁ</string>
+    <string name="camera">କ୍ୟାମେରା</string>
+    <string name="gallery">ଗ୍ୟାଲେରୀ</string>
+    <string name="please_crop_image_properly">ଦୟାକରି ଚିତ୍ରକୁ ସଠିକ୍ ଭାବରେ କ୍ରପ୍ କରନ୍ତୁ</string>
 </resources>

@@ -492,4 +492,11 @@
     <string name="board_restored_from_trash">_ बोर्ड को पुनर्स्थापित किया</string>
     <string name="voice_warning">यदि चयनित भाषा(ओं) की आवाजें उपलब्ध नहीं हैं या आवाज ड्रॉप डाउन के नीचे \\\"null\\\"  दिख रही हैं, तो Google Play Store से Google टेक्स्ट टू स्पीच ऐप को अपडेट करें और अपने डिवाइस पर भाषा(ओं) के लिए ध्वनि डेटा स्थापित करें .</string>
     <string name="board_delete">बोर्ड डिलीट करें</string>
+    <string name="crop_selected_image">चुनी गई इमेज को क्रॉप करें</string>
+    <string name="crop_image">इमेज क्रॉप करें</string>
+    <string name="please_select_and_adjust_image_first">कृपया पहले इमेज चुनें और उसे एडजस्ट करें।</string>
+    <string name="select_image_source">इमेज का सोर्स चुनें</string>
+    <string name="camera">कैमरा</string>
+    <string name="gallery">गैलरी</string>
+    <string name="please_crop_image_properly">कृपया इमेज को ठीक से क्रॉप करें।</string>
 </resources>

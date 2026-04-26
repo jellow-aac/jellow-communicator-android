@@ -496,4 +496,11 @@
     <string name="board_moved_to_trash">_ बोर्ड ट्रॅशमध्ये हलवला</string>
     <string name="board_restored_from_trash">_ बोर्ड पुनर्संचयित केला</string>
     <string name="voice_warning">"निवडलेल्या भाषेसाठी आवाज उपलब्ध नसल्यास किंवा व्हॉइस ड्रॉप डाउन खाली \\\"null \\\" दिसत असल्यास, कृपया Google Play Store वरून Google Text to Speech अॅप अपडेट करा आणि तुमच्या डिव्हाइसवर भाषेसाठी आवाज जोडा डेटा स्थापित करा. "</string>
+    <string name="crop_selected_image">निवडलेली प्रतिमा क्रॉप करा</string>
+    <string name="crop_image">प्रतिमा क्रॉप करा</string>
+    <string name="please_select_and_adjust_image_first">कृपया आधी प्रतिमा निवडा आणि समायोजित करा</string>
+    <string name="select_image_source">प्रतिमेचा स्रोत निवडा</string>
+    <string name="camera">कॅमेरा</string>
+    <string name="gallery">गॅलरी</string>
+    <string name="please_crop_image_properly">कृपया प्रतिमा योग्यरित्या क्रॉप करा</string>
 </resources>

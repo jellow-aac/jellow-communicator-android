@@ -492,4 +492,11 @@
     <string name="board_moved_to_trash">_ ബോർഡ് ട്രാഷിലേക്ക് നീക്കി</string>
     <string name="board_restored_from_trash">_ ബോർഡ് പുനഃസ്ഥാപിച്ചു</string>
     <string name="voice_warning">തിരഞ്ഞെടുത്ത ഭാഷകളുടെ ശബ്ദങ്ങൾ ലഭ്യമല്ലെങ്കിലോ വോയ്സ് ഡ്രോപ്പ് ഡൗണിന് കീഴിൽ അസാധുവായി കാണിക്കുന്നുവെങ്കിലോ, ഗൂഗിൾ പ്ലേ സ്റ്റോറിൽ നിന്ന് ഗൂഗിൾ ടെക്സ്റ്റ് ടു സ്പീച്ച് ആപ്പ് അപ്ഡേറ്റ് ചെയ്ത് നിങ്ങളുടെ ഉപകരണത്തിൽ ഭാഷയ്ക്കായുള്ള വോയ്സ് ഡാറ്റ ഇൻസ്റ്റാൾ ചെയ്യുക .</string>
+    <string name="crop_selected_image">തിരഞ്ഞെടുത്ത ചിത്രം ക്രോപ്പ് ചെയ്യുക</string>
+    <string name="crop_image">ചിത്രം ക്രോപ്പ് ചെയ്യുക</string>
+    <string name="please_select_and_adjust_image_first">ആദ്യം ചിത്രം തിരഞ്ഞെടുത്ത് ക്രമീകരിക്കുക</string>
+    <string name="select_image_source">ചിത്രത്തിന്റെ ഉറവിടം തിരഞ്ഞെടുക്കുക</string>
+    <string name="camera">ക്യാമറ</string>
+    <string name="gallery">ഗാലറി</string>
+    <string name="please_crop_image_properly">ദയവായി ചിത്രം ശരിയായി ക്രോപ്പ് ചെയ്യുകs</string>
 </resources>

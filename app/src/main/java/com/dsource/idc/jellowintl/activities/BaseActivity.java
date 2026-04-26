@@ -326,32 +326,42 @@ public class BaseActivity extends AppCompatActivity{
             ((TextView)findViewById(R.id.tvActionbarTitle)).setText(title.substring(0,title.indexOf("(")));
         else
             ((TextView)findViewById(R.id.tvActionbarTitle)).setText(title);
+        if (getSupportActionBar() != null){
+            getSupportActionBar().hide();
+        }
 
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.UPSIDE_DOWN_CAKE){
             findViewById(R.id.dummyStatusBar).setVisibility(View.GONE);
-            if (getSupportActionBar() != null){
-                getSupportActionBar().hide();
-            }
+        }
+        // Setting up toolbar height for 10' & 7' device
+        if (getScreenSize() == GlobalConstants.SCREEN_SIZE_TEN_INCH_TAB ||
+                getScreenSize() == SCREEN_SIZE_SEVEN_INCH_TAB) {
+            MaterialToolbar toolbar = findViewById(R.id.toolbar);
+            if (toolbar == null)
+                return;
 
-            // Setting up toolbar height for 10' & 7' device
-            if (getScreenSize() == GlobalConstants.SCREEN_SIZE_TEN_INCH_TAB ||
-                    getScreenSize() == SCREEN_SIZE_SEVEN_INCH_TAB) {
-                MaterialToolbar toolbar = findViewById(R.id.toolbar);
-                if (toolbar == null)
-                    return;
-
-                DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
-                int height = 62;
-                int heightInPx = (int) TypedValue.applyDimension(
-                        TypedValue.COMPLEX_UNIT_DIP,
-                        height,
-                        displayMetrics
-                );
-
-                ViewGroup.LayoutParams toolbarParams = toolbar.getLayoutParams();
-                toolbarParams.height = heightInPx;
-                toolbar.setLayoutParams(toolbarParams);
-            }
+            DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
+            int height = 62;
+            int heightInPx = (int) TypedValue.applyDimension(
+                    TypedValue.COMPLEX_UNIT_DIP,
+                    height,
+                    displayMetrics
+            );
+            ViewGroup.LayoutParams toolbarParams = toolbar.getLayoutParams();
+            toolbarParams.height = heightInPx;
+            int startPadding = 32;
+            int StartPaddingInPx = (int) TypedValue.applyDimension(
+                    TypedValue.COMPLEX_UNIT_DIP,
+                    startPadding,
+                    displayMetrics
+            );
+            toolbar.setPadding(
+                    StartPaddingInPx,
+                    toolbar.getPaddingTop(),
+                    toolbar.getPaddingRight(),
+                    toolbar.getPaddingBottom()
+            );
+            toolbar.setLayoutParams(toolbarParams);
         }
     }
 
@@ -377,6 +387,27 @@ public class BaseActivity extends AppCompatActivity{
                 });
 
             }
+            if (findViewById(R.id.cameraCropParent) != null) {
+                ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.cameraCropParent), (v, windowInsets) -> {
+                    Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
+                    ViewGroup.MarginLayoutParams mlp = (ViewGroup.MarginLayoutParams) v.getLayoutParams();
+                    mlp.leftMargin = 0;
+                    mlp.bottomMargin = insets.bottom;
+                    mlp.rightMargin = insets.right;
+                    mlp.topMargin = 0;
+                    v.setLayoutParams(mlp);
+                    DisplayCutoutCompat cutout = windowInsets.getDisplayCutout();
+                    if (cutout != null) {
+                        int cameraPadding = cutout.getSafeInsetLeft();
+                        v.setPadding(cameraPadding,0,0,0);
+                    }
+                    // Return CONSUMED if you don't want the window insets to keep passing
+                    // down to descendant views.
+                    return WindowInsetsCompat.CONSUMED;
+                });
+
+            }
+
         }
     }
 
@@ -435,7 +466,7 @@ public class BaseActivity extends AppCompatActivity{
                     v.setLayoutParams(mlp);
                     return WindowInsetsCompat.CONSUMED;
                 });
-
+                if (getScreenSize() == SCREEN_SIZE_PHONE) {
                 DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
                 int padding = 8;
                 int paddingInPx = (int) TypedValue.applyDimension(
@@ -444,6 +475,7 @@ public class BaseActivity extends AppCompatActivity{
                         displayMetrics
                 );
                 llBottom.setPadding(paddingInPx,0,0,0);
+                }
             }
         }
     }

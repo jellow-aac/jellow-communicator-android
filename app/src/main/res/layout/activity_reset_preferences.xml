@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:fillViewport="false"
             android:fadeScrollbars="false"
-            android:layout_marginTop="?attr/actionBarSize"
+            android:layout_below="@+id/custom_app_bar"
             android:layout_marginBottom="@dimen/reset_pref_parent_margin_vertical"
             android:layout_marginLeft="@dimen/reset_pref_parent_margin_left"
             android:layout_marginStart="@dimen/reset_pref_parent_margin_left"
