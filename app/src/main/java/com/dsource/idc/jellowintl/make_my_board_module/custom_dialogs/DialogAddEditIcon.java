@@ -96,6 +96,7 @@ public class DialogAddEditIcon extends BaseActivity implements View.OnClickListe
     private boolean isCustomizedHomeIcon=false;
     private RadioGroup radioGroup;
     private CropImageView cropImageView;
+    private String selectedLibraryFileName = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -261,9 +262,13 @@ public class DialogAddEditIcon extends BaseActivity implements View.OnClickListe
                         .placeholder(R.drawable.ic_board_person)
                         .apply(RequestOptions
                                 .circleCropTransform()).into(iconImage);
+                // Clear library state when camera/gallery image is used
+                selectedLibraryFileName = null;
             } else {
                 Glide.with(context).load(getIconPath(context, fileName + EXTENSION))
                         .into(iconImage);
+                // Store library selection
+                selectedLibraryFileName = fileName;
             }
             iconImage.setBackground(context.getResources().getDrawable(R.drawable.icon_back_grey));
         };
@@ -412,10 +417,13 @@ public class DialogAddEditIcon extends BaseActivity implements View.OnClickListe
         final Bitmap bitmap = ((BitmapDrawable) iconImage.getDrawable()).getBitmap();
 
         Bitmap croppedBitmap = cropImageView.getCroppedImage();
-        if (croppedBitmap == null) {
+
+        // If no cropped image but we have a library selection, accept it
+        if (croppedBitmap == null && selectedLibraryFileName == null) {
             Toast.makeText(context, getString(R.string.please_crop_image_properly), Toast.LENGTH_SHORT).show();
             return;
         }
+
         final String name = titleText.getText().toString();
         if (addIcon) {
             FETCH_ENABLED = "NULL";

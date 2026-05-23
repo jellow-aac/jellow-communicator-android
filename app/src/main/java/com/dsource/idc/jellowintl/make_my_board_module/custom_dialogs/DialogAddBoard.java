@@ -45,12 +45,16 @@ import android.widget.Toast;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.FileProvider;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.resource.bitmap.CircleCrop;
+import com.bumptech.glide.request.RequestOptions;
+import com.bumptech.glide.request.target.CustomTarget;
+import com.bumptech.glide.request.transition.Transition;
 import com.canhub.cropper.CropImageView;
 import com.dsource.idc.jellowintl.R;
 import com.dsource.idc.jellowintl.activities.BaseActivity;
@@ -83,6 +87,7 @@ public class DialogAddBoard extends BaseActivity implements IAddBoardDialogView,
     private Context mContext;
     private OnPhotoResultCallBack reverseInterface;
     private boolean iconImageSelected = false;
+    private String selectedLibraryFileName = null;
     private ListView listView;
     private CropImageView cropImageView;
 
@@ -246,11 +251,40 @@ public class DialogAddBoard extends BaseActivity implements IAddBoardDialogView,
                     getAvailableVoicesForLanguage(SessionManager.LangMap.get(langCode));
             String voice = voiceList.split(",")[voiceSelect.getSelectedItemPosition()]+","
                     +voiceSelect.getSelectedItem().toString().trim();
+
+            // Check if we have a cropped image from camera/gallery
             Bitmap croppedBitmap = cropImageView.getCroppedImage();
-            if (croppedBitmap == null) {
-                Toast.makeText(mContext, "Please crop image properly", Toast.LENGTH_SHORT).show();
+
+            // If no cropped image but we have a library selection, use that
+            if (croppedBitmap == null && selectedLibraryFileName != null) {
+                Glide.with(mContext)
+                        .asBitmap()
+                        .load(getIconPath(mContext, selectedLibraryFileName + EXTENSION))
+                        .into(new CustomTarget<Bitmap>() {
+                            @Override
+                            public void onResourceReady(@NonNull Bitmap bitmap, @Nullable Transition<? super Bitmap> transition) {
+                                // Now we have the bitmap, proceed with save
+                                if (board == null)
+                                    saveNewBoard(boardName.getText().toString().trim(), bitmap, langCode, voice);
+                                else {
+                                    board.setBoardVoice(voice);
+                                    updateBoardDetails(board, boardName.getText().toString().trim(), bitmap);
+                                }
+                                finish();
+                            }
+
+                            @Override
+                            public void onLoadCleared(@Nullable android.graphics.drawable.Drawable placeholder) {}
+                        });
                 return;
             }
+
+            // Validate that we have a valid bitmap
+            if (croppedBitmap == null) {
+                Toast.makeText(mContext, getString(R.string.please_crop_image_properly), Toast.LENGTH_SHORT).show();
+                return;
+            }
+
             if (board == null)
                 saveNewBoard(boardName.getText().toString().trim(), croppedBitmap, langCode, voice);
             else {
@@ -295,12 +329,17 @@ public class DialogAddBoard extends BaseActivity implements IAddBoardDialogView,
                 ByteArrayOutputStream stream = new ByteArrayOutputStream();
                 bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
                 Glide.with(mContext).load(stream.toByteArray()).
-                        transform(new CircleCrop()).
+//                        transform(new CircleCrop()).
                         placeholder(R.drawable.ic_board_person).
                         error(R.drawable.ic_board_person).skipMemoryCache(true).
                         diskCacheStrategy(DiskCacheStrategy.NONE).
+                        apply(RequestOptions.circleCropTransform()).
                         into(boardIcon);
+                // Clear library selection when camera/gallery is used
+                selectedLibraryFileName = null;
             } else {
+                // Library icon selected - store it for later use
+                selectedLibraryFileName = fileName;
                 Glide.with(mContext).load(getIconPath(mContext, fileName + EXTENSION))
                         .into(boardIcon);
             }
