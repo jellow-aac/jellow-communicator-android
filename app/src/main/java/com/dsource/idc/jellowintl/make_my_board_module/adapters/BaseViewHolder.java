@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.resource.bitmap.CircleCrop;
+import com.bumptech.glide.request.RequestOptions;
 import com.dsource.idc.jellowintl.R;
 import com.dsource.idc.jellowintl.utility.SessionManager;
 
@@ -99,6 +100,7 @@ public class BaseViewHolder extends RecyclerView.ViewHolder {
                 .skipMemoryCache(true)
                 .centerCrop()
                 .dontAnimate()
+                .apply(RequestOptions.circleCropTransform())
                 .into(imageView);
     }
 
