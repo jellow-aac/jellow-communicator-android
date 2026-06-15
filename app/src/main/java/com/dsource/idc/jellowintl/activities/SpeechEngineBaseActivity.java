@@ -45,6 +45,7 @@ import static com.dsource.idc.jellowintl.utility.SessionManager.MAI_IN;
 import static com.dsource.idc.jellowintl.utility.SessionManager.ML_IN;
 import static com.dsource.idc.jellowintl.utility.SessionManager.MR_IN;
 import static com.dsource.idc.jellowintl.utility.SessionManager.MR_TTS;
+import static com.dsource.idc.jellowintl.utility.SessionManager.MS_MY;
 import static com.dsource.idc.jellowintl.utility.SessionManager.NE_NP;
 import static com.dsource.idc.jellowintl.utility.SessionManager.OR_IN;
 import static com.dsource.idc.jellowintl.utility.SessionManager.PA_IN;
@@ -152,6 +153,7 @@ public class SpeechEngineBaseActivity extends BaseActivity{
             case LUS_IN:
             case AS_IN:
             case SI_LK:
+            case MS_MY:
             default:
                 return (float) getSession().getPitch()/50;
         }
@@ -191,6 +193,7 @@ public class SpeechEngineBaseActivity extends BaseActivity{
             case LUS_IN:
             case AS_IN:
             case SI_LK:
+            case MS_MY:
             default:
                 return (float) (getSession().getSpeed()/50);
         }
@@ -230,6 +233,7 @@ public class SpeechEngineBaseActivity extends BaseActivity{
             case LUS_IN:
             case AS_IN:
             case SI_LK:
+            case MS_MY:
             default:
                 return "com.google.android.tts";
         }
@@ -556,6 +560,10 @@ public class SpeechEngineBaseActivity extends BaseActivity{
             put("kok-in-x-end-local", " (M)");
             put("as-in-x-end-local", " (M)");
             put("si-lk-x-sin-local", " (F)");
+            put("ms-my-x-msc-local", " (F)");
+            put("ms-my-x-msd-local", " (M)");
+            put("ms-my-x-mse-local", " (F)");
+            put("ms-my-x-msg-local", " (M)");
         }
     };
 }

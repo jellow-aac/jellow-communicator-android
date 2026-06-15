@@ -1,5 +1,8 @@
 # Changelog
 All notable changes to this project will be documented in this file.
+##[5.0.4] - 15 June, 2026
+- Kokani and Malay language add
+
 ##[5.0.3] - 23 May, 2026
 - Fixed Library image not able to apply
 - Image cropper fixes
