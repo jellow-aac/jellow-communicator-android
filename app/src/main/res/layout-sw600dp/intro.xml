@@ -67,7 +67,6 @@
         android:id="@+id/btnMoveRight"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:fitsSystemWindows="true"
         android:onClick="changeDemoScreen"
         android:layout_gravity="end"
         android:paddingRight="32dp"

@@ -36,7 +36,6 @@ public class LanguagePackUpdateActivity extends BaseActivity implements Progress
         setVisibleAct(LanguagePackUpdateActivity.class.getSimpleName());
         setupParent();
         applyMonochromeColor();
-        setNavigationUiConditionally();
         updateManager = new UpdateManager(this);
         statusText = findViewById(R.id.status);
         progressBar = findViewById(R.id.pg);
@@ -79,7 +78,7 @@ public class LanguagePackUpdateActivity extends BaseActivity implements Progress
                 getSession().setLanguageDataUpdateState(language,
                         GlobalConstants.LANGUAGE_STATE_CREATE_DB);
             }
-            startActivity(new Intent(getApplicationContext(), SplashActivity.class));
+            startActivity(new Intent(getApplicationContext(), AppActivity.class));
             finishAffinity();
         }else{
             finish();

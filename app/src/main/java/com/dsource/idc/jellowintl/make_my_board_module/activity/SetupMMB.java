@@ -1,7 +1,6 @@
 package com.dsource.idc.jellowintl.make_my_board_module.activity;
 
-import static com.dsource.idc.jellowintl.activities.UserRegistrationActivity.LCODE;
-import static com.dsource.idc.jellowintl.activities.UserRegistrationActivity.VCODE;
+// Imports removed
 import static com.dsource.idc.jellowintl.make_my_board_module.utility.BoardConstants.BOARD_ID;
 
 import android.content.Intent;
@@ -22,6 +21,8 @@ import com.dsource.idc.jellowintl.make_my_board_module.interfaces.SuccessCallBac
 import com.dsource.idc.jellowintl.models.GlobalConstants;
 
 public class SetupMMB extends BaseActivity {
+    private static final String LCODE = "LCODE";
+    private static final String VCODE = "VCODE";
     RoundCornerProgressBar progressBar;
     private String langCode, voiceCode;
     private String boardId;
@@ -37,9 +38,7 @@ public class SetupMMB extends BaseActivity {
         }
         setupParent();
         applyMonochromeColor();
-        setNavigationUiConditionally();
-        if(getSupportActionBar()!=null) getSupportActionBar().hide();
-        getWindow().setStatusBarColor(ContextCompat.getColor(this,R.color.colorPrimary));
+        applyMonochromeColor();
         progressBar = findViewById(R.id.pg);
         progressText = findViewById(R.id.progress_text);
         progressBar.setContentDescription(getString(R.string.setting_up_the_language));

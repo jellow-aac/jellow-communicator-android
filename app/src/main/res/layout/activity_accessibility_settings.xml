@@ -3,8 +3,7 @@
     android:id="@+id/parent"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000"
-    android:fitsSystemWindows="true">
+    >
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -24,8 +23,7 @@
             android:layout_marginStart="@dimen/access_parent_margin_left"
             android:layout_marginRight="@dimen/access_parent_margin_right"
             android:layout_marginEnd="@dimen/access_parent_margin_right"
-            android:layout_marginBottom="@dimen/access_parent_margin_vertical"
-            android:fitsSystemWindows="true">
+            android:layout_marginBottom="@dimen/access_parent_margin_vertical">
             <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -200,7 +198,7 @@
                             android:text="@string/play_video"
                             android:paddingLeft="@dimen/access_btn_padding_horizontal"
                             android:paddingRight="@dimen/access_btn_padding_horizontal"
-                            android:onClick="playInfoVideo"/>
+                            />
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -358,6 +356,7 @@
                                 android:paddingBottom="@dimen/access_tv_margin_bottom"/>
                         </LinearLayout>
                         <Button
+                            android:id="@+id/btn_access_video_two"
                             android:layout_width="wrap_content"
                             android:layout_height="@dimen/about_btn_height"
                             android:textSize="@dimen/about_btn_txt_size"
@@ -365,7 +364,7 @@
                             android:text="@string/play_video"
                             android:paddingLeft="@dimen/access_btn_padding_horizontal"
                             android:paddingRight="@dimen/access_btn_padding_horizontal"
-                            android:onClick="playInfoVideo"/>
+                            />
                     </LinearLayout>
                     <View
                         android:layout_width="wrap_content"
@@ -379,9 +378,9 @@
             android:layout_height="@dimen/profile_view_height"
             android:background="@color/menu_screen_bottom_bar"
             android:layout_alignParentBottom="true"
-            android:importantForAccessibility="yes"
-            android:fitsSystemWindows="true">
+            android:importantForAccessibility="yes">
             <Button
+                android:id="@+id/btn_system_accessibility"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/profile_save_btn_height"
                 android:textSize="@dimen/profile_save_btn_txt_size"
@@ -392,7 +391,7 @@
                 android:paddingHorizontal="@dimen/profile_save_btn_padding_left"
                 android:layout_marginLeft="@dimen/profile_btn_save_margin_left"
                 android:layout_marginStart="@dimen/profile_btn_save_margin_left"
-                android:onClick="openSystemAccessibilitySetting"/>
+                />
         </LinearLayout>
     </RelativeLayout>
 </LinearLayout>

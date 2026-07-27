@@ -3,8 +3,7 @@
     android:id="@+id/parent"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000"
-    android:fitsSystemWindows="true">
+    >
     <RelativeLayout
         android:orientation="vertical" android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -25,8 +24,7 @@
             android:layout_marginLeft="@dimen/reset_pref_parent_margin_left"
             android:layout_marginStart="@dimen/reset_pref_parent_margin_left"
             android:layout_marginRight="@dimen/reset_pref_parent_margin_right"
-            android:layout_marginEnd="@dimen/reset_pref_parent_margin_right"
-            android:fitsSystemWindows="true">
+            android:layout_marginEnd="@dimen/reset_pref_parent_margin_right">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

@@ -49,7 +49,6 @@ public class ProfileFormActivity extends SpeechEngineBaseActivity {
         setupParent();
         setupBottomBar();
         applyMonochromeColor();
-        setNavigationUiConditionally();
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
         etChildName = findViewById(R.id.etName);
         etCaregiverName = findViewById(R.id.etFathername);

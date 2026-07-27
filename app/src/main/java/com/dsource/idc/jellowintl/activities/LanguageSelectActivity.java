@@ -1,7 +1,6 @@
 package com.dsource.idc.jellowintl.activities;
 
-import static com.dsource.idc.jellowintl.activities.LanguageDownloadActivity.CLOSE;
-import static com.dsource.idc.jellowintl.activities.UserRegistrationActivity.LCODE;
+// Imports removed
 import static com.dsource.idc.jellowintl.utility.Analytics.bundleEvent;
 import static com.dsource.idc.jellowintl.utility.Analytics.isAnalyticsActive;
 import static com.dsource.idc.jellowintl.utility.Analytics.resetAnalytics;
@@ -46,6 +45,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class LanguageSelectActivity extends SpeechEngineBaseActivity {
+    private static final String LCODE = "LCODE";
+    private static final String CLOSE = "CLOSE";
     private String selectedLanguage, mLangChanged, availVoices, selectedVoice;
     private Button save, languageSelect, voiceSelect;
     // Variable hold strings from regional string.xml file.
@@ -62,7 +63,6 @@ public class LanguageSelectActivity extends SpeechEngineBaseActivity {
         setupToolbarMenu();
         setupParent();
         applyMonochromeColor();
-        setNavigationUiConditionally();
         LanguageFactory.deleteOldLanguagePackagesInBackground(this);
         new UpdatePackageCheckUtils().checkLanguagePackageUpdateAvailable(this);
         mStep2 = getString(R.string.change_language_tts_wifi);
@@ -113,7 +113,8 @@ public class LanguageSelectActivity extends SpeechEngineBaseActivity {
                 if(selectedLanguage.equals(LangValueMap.get(MR_IN)) && !LanguageFactory.isMarathiPackageAvailable
                         (LanguageSelectActivity.this)){
                     startActivity(new Intent(LanguageSelectActivity.this,
-                            LanguageDownloadActivity.class)
+                            AppActivity.class)
+                            .putExtra("destination", "LanguageDownloadFragment")
                             .putExtra(LCODE, MR_IN).putExtra(CLOSE, true));
                 } else {
                     saveLanguage();
@@ -242,7 +243,7 @@ public class LanguageSelectActivity extends SpeechEngineBaseActivity {
         Toast.makeText(this, mLangChanged, Toast.LENGTH_SHORT).show();
         CacheManager.clearCache();
         TextFactory.clearJson();
-        startActivity(new Intent(getApplicationContext(), SplashActivity.class));
+        startActivity(new Intent(getApplicationContext(), AppActivity.class));
         finishAffinity();
     }
 

@@ -3,9 +3,8 @@
     android:id="@+id/parent"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000"
-    android:tag="large"
-    android:fitsSystemWindows="true">
+    
+    android:tag="large">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/clParent"
         android:orientation="vertical"
@@ -32,8 +31,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="@+id/recycler_view"
             app:layout_constraintBottom_toBottomOf="@+id/recycler_view"
-            android:orientation="vertical"
-            android:fitsSystemWindows="true">
+            android:orientation="vertical">
             <ImageView
                 android:id="@+id/ivlike"
                 android:layout_width="138dp"
@@ -63,8 +61,7 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="@+id/recycler_view"
             app:layout_constraintBottom_toBottomOf="@+id/recycler_view"
-            android:orientation="vertical"
-            android:fitsSystemWindows="true">
+            android:orientation="vertical">
             <ImageView
                 android:id="@+id/ivdislike"
                 android:layout_width="138dp"
@@ -97,8 +94,7 @@
             app:layout_constraintTop_toBottomOf="@+id/custom_app_bar"
             app:layout_constraintBottom_toBottomOf="@+id/wave"
             app:layout_constraintLeft_toRightOf="@+id/positive"
-            app:layout_constraintRight_toLeftOf="@+id/negative"
-            android:fitsSystemWindows="true"/>
+            app:layout_constraintRight_toLeftOf="@+id/negative"/>
         <TextView
             android:id="@+id/place_holder_text"
             android:layout_width="800dp"
@@ -111,8 +107,7 @@
             android:visibility="gone"
             android:textAlignment="center"
             android:text="@string/place_holder_no_icons_added"
-            android:textColor="@color/light_grey"
-            android:fitsSystemWindows="true"/>
+            android:textColor="@color/light_grey"/>
         <LinearLayout
             android:id="@+id/navigation"
             android:layout_width="wrap_content"
@@ -124,8 +119,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.065"
-            android:fitsSystemWindows="true">
+            app:layout_constraintVertical_bias="1.065">
             <ImageView
                 android:id="@+id/ivback"
                 android:layout_width="170dp"
@@ -156,8 +150,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginBottom="-8dp"
             android:layout_marginStart="8dp"
-            android:importantForAccessibility="no"
-            android:fitsSystemWindows="true"/>
+            android:importantForAccessibility="no"/>
         <FrameLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -165,8 +158,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginBottom="12dp"
-            android:layout_marginEnd="8dp"
-            android:fitsSystemWindows="true">
+            android:layout_marginEnd="8dp">
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/save_button"
                 android:layout_width="wrap_content"
@@ -189,8 +181,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:fitsSystemWindows="true">
+            app:layout_constraintBottom_toBottomOf="parent">
             <include layout="@layout/activity_anim"/>
         </FrameLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

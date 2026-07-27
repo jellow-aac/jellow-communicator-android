@@ -99,7 +99,6 @@ public class AddEditActivity extends BaseBoardActivity<IAddEditView, IAddEditPre
     @Override
     public void initViewsAndEvents() {
         applyMonochromeColor();
-        setNavigationUiConditionally();
         //Disable Expressive Icons for this activity
         setVisibility(R.id.save_button, true);
         if(getAdapter().getList().size() == 0)

@@ -64,7 +64,6 @@ public class BoardListActivity extends BaseBoardActivity<IBoardListView, IBoardL
         mAdapter.setOnItemClickListener(this);
         setupActionBarTitle(View.VISIBLE, getString(R.string.home) + "/ "+ getString(R.string.menuMyBoards));
         applyMonochromeColor();
-        setNavigationUiConditionally();
         findViewById(R.id.iv_action_bar_back).setOnClickListener(v -> onBackPressed());
     }
 

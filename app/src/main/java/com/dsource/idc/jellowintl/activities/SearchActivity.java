@@ -172,7 +172,6 @@ public class SearchActivity extends SpeechEngineBaseActivity {
         }
         // Start measuring user app screen timer.
         startMeasuring();
-        setNavigationUiConditionally();
     }
 
     @Override

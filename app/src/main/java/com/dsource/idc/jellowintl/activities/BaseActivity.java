@@ -144,106 +144,127 @@ public class BaseActivity extends AppCompatActivity{
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int itemId = item.getItemId();
+        
+        androidx.navigation.NavController navController = null;
+        if (this instanceof AppActivity) {
+            androidx.navigation.fragment.NavHostFragment navHostFragment = (androidx.navigation.fragment.NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
+            if (navHostFragment != null) {
+                navController = navHostFragment.getNavController();
+            }
+        }
 
         if (itemId == R.id.search) {
             if (getLevelClass().contains(getVisibleAct())) {
                 startActivity(new Intent(this, SearchActivity.class));
             } else {
-                Intent searchIntent = new Intent(this, BoardSearchActivity.class);
-                searchIntent.putExtra(BoardSearchActivity.SEARCH_MODE, BoardSearchActivity.SEARCH_FOR_BOARD);
+                Intent searchIntent = new Intent(this, com.dsource.idc.jellowintl.make_my_board_module.activity.BoardSearchActivity.class);
+                searchIntent.putExtra(com.dsource.idc.jellowintl.make_my_board_module.activity.BoardSearchActivity.SEARCH_MODE, com.dsource.idc.jellowintl.make_my_board_module.activity.BoardSearchActivity.SEARCH_FOR_BOARD);
                 startActivityForResult(searchIntent, Integer.parseInt(getString(R.string.search_board)));
             }
         } else if (itemId == R.id.my_boards_icon || itemId == R.id.my_boards) {
-            if (getVisibleAct().equals(BoardListActivity.class.getSimpleName())) {
-                // Do nothing, already on the correct screen.
+            if (getVisibleAct().equals(com.dsource.idc.jellowintl.make_my_board_module.activity.BoardListActivity.class.getSimpleName())) {
+                // Do nothing
             } else {
-                startActivity(new Intent(this, BoardListActivity.class));
-                if (!getLevelClass().contains(getVisibleAct())) {
-                    finish();
-                }
+                startActivity(new Intent(this, com.dsource.idc.jellowintl.make_my_board_module.activity.BoardListActivity.class));
+                if (!getLevelClass().contains(getVisibleAct())) finish();
             }
         } else if (itemId == R.id.my_boards_trash) {
-            if (getVisibleAct().equals(BoardTrashActivity.class.getSimpleName())) {
-                // Do nothing, already on the correct screen.
+            if (getVisibleAct().equals(com.dsource.idc.jellowintl.make_my_board_module.activity.BoardTrashActivity.class.getSimpleName())) {
+                // Do nothing
             } else {
-                startActivity(new Intent(this, BoardTrashActivity.class));
-                if (!getLevelClass().contains(getVisibleAct())) {
-                    finish();
-                }
+                startActivity(new Intent(this, com.dsource.idc.jellowintl.make_my_board_module.activity.BoardTrashActivity.class));
+                if (!getLevelClass().contains(getVisibleAct())) finish();
             }
         } else if (itemId == R.id.number_of_icons) {
             showGridDialog((GridSelectListener) size -> {
                 getSession().setGridSize(size);
                 setGridSize();
-                startActivity(new Intent(getApplicationContext(), SplashActivity.class));
+                startActivity(new Intent(getApplicationContext(), AppActivity.class));
                 finish();
             }, getSession().getGridSize());
         } else if (itemId == R.id.profile) {
-            if (!getVisibleAct().equals(ProfileFormActivity.class.getSimpleName())) {
-                startActivity(new Intent(this, ProfileFormActivity.class));
-                if (!getLevelClass().contains(getVisibleAct())) {
-                    finish();
+            if (!getVisibleAct().equals(ProfileFormFragment.class.getSimpleName())) {
+                if (navController != null) navController.navigate(R.id.profileFormFragment);
+                else {
+                    Intent intent = new Intent(this, AppActivity.class);
+                    intent.putExtra("destination", "ProfileFormFragment");
+                    startActivity(intent);
+                    if (!getLevelClass().contains(getVisibleAct())) finish();
                 }
             }
         } else if (itemId == R.id.aboutJellow) {
-            if (!getVisibleAct().equals(AboutJellowActivity.class.getSimpleName())) {
-                startActivity(new Intent(this, AboutJellowActivity.class));
-                if (!getLevelClass().contains(getVisibleAct())) {
-                    finish();
+            if (!getVisibleAct().equals(AboutJellowFragment.class.getSimpleName())) {
+                if (navController != null) navController.navigate(R.id.aboutJellowFragment);
+                else {
+                    Intent intent = new Intent(this, AppActivity.class);
+                    intent.putExtra("destination", "AboutJellowFragment");
+                    startActivity(intent);
+                    if (!getLevelClass().contains(getVisibleAct())) finish();
                 }
             }
         } else if (itemId == R.id.tutorial) {
-            if (!getVisibleAct().equals(TutorialActivity.class.getSimpleName())) {
-                startActivity(new Intent(this, TutorialActivity.class));
-                if (!getLevelClass().contains(getVisibleAct())) {
-                    finish();
+            if (!getVisibleAct().equals("TutorialFragment")) {
+                if (navController != null) navController.navigate(R.id.tutorialFragment);
+                else {
+                    Intent intent = new Intent(this, AppActivity.class);
+                    intent.putExtra("destination", "TutorialFragment");
+                    startActivity(intent);
+                    if (!getLevelClass().contains(getVisibleAct())) finish();
                 }
             }
-        } /* else if (itemId == R.id.keyboardInput) { // Uncomment if you bring this feature back
-        if (!getVisibleAct().equals(KeyboardInputActivity.class.getSimpleName())) {
-            startActivity(new Intent(this, KeyboardInputActivity.class));
-            if (!getLevelClass().contains(getVisibleAct())) {
-                finish();
-            }
-        }
-    } */ else if (itemId == R.id.languageSelect) {
-            if (!getVisibleAct().equals(LanguageSelectActivity.class.getSimpleName())) {
-                startActivity(new Intent(this, LanguageSelectActivity.class));
-                if (!getLevelClass().contains(getVisibleAct())) {
-                    finish();
+        } else if (itemId == R.id.languageSelect) {
+            if (!getVisibleAct().equals(LanguageSelectFragment.class.getSimpleName())) {
+                if (navController != null) navController.navigate(R.id.languageSelectFragment);
+                else {
+                    Intent intent = new Intent(this, AppActivity.class);
+                    intent.putExtra("destination", "LanguageSelectFragment");
+                    startActivity(intent);
+                    if (!getLevelClass().contains(getVisibleAct())) finish();
                 }
             }
         } else if (itemId == R.id.settings) {
-            if (!getVisibleAct().equals(SettingActivity.class.getSimpleName())) {
-                startActivity(new Intent(this, SettingActivity.class));
-                if (!getLevelClass().contains(getVisibleAct())) {
-                    finish();
+            if (!getVisibleAct().equals(SettingFragment.class.getSimpleName())) {
+                if (navController != null) navController.navigate(R.id.settingFragment);
+                else {
+                    Intent intent = new Intent(this, AppActivity.class);
+                    intent.putExtra("destination", "SettingFragment");
+                    startActivity(intent);
+                    if (!getLevelClass().contains(getVisibleAct())) finish();
                 }
             }
         } else if (itemId == R.id.accessibilitySetting) {
-            if (!getVisibleAct().equals(AccessibilitySettingsActivity.class.getSimpleName())) {
-                startActivity(new Intent(this, AccessibilitySettingsActivity.class));
-                if (!getLevelClass().contains(getVisibleAct())) {
-                    finish();
+            if (!getVisibleAct().equals(AccessibilitySettingsFragment.class.getSimpleName())) {
+                if (navController != null) navController.navigate(R.id.accessibilitySettingsFragment);
+                else {
+                    Intent intent = new Intent(this, AppActivity.class);
+                    intent.putExtra("destination", "AccessibilitySettingsFragment");
+                    startActivity(intent);
+                    if (!getLevelClass().contains(getVisibleAct())) finish();
                 }
             }
         } else if (itemId == R.id.resetPreferences) {
-            if (!getVisibleAct().equals(ResetPreferencesActivity.class.getSimpleName())) {
-                startActivity(new Intent(this, ResetPreferencesActivity.class));
-                if (!getLevelClass().contains(getVisibleAct())) {
-                    finish();
+            if (!getVisibleAct().equals(ResetPreferencesFragment.class.getSimpleName())) {
+                if (navController != null) navController.navigate(R.id.resetPreferencesFragment);
+                else {
+                    Intent intent = new Intent(this, AppActivity.class);
+                    intent.putExtra("destination", "ResetPreferencesFragment");
+                    startActivity(intent);
+                    if (!getLevelClass().contains(getVisibleAct())) finish();
                 }
             }
         } else if (itemId == R.id.feedback) {
-            if (!getVisibleAct().equals(FeedbackActivity.class.getSimpleName()) &&
-                    !getVisibleAct().equals(FeedbackActivityTalkBack.class.getSimpleName())) {
-                if (isAccessibilityTalkBackOn((AccessibilityManager) getSystemService(ACCESSIBILITY_SERVICE))) {
-                    startActivity(new Intent(this, FeedbackActivityTalkBack.class));
-                } else {
-                    startActivity(new Intent(this, FeedbackActivity.class));
-                }
-                if (!getLevelClass().contains(getVisibleAct())) {
-                    finish();
+            if (!getVisibleAct().equals(FeedbackFragment.class.getSimpleName()) &&
+                    !getVisibleAct().equals(FeedbackTalkBackFragment.class.getSimpleName())) {
+                int destId = isAccessibilityTalkBackOn((android.view.accessibility.AccessibilityManager) getSystemService(ACCESSIBILITY_SERVICE)) ?
+                        R.id.feedbackTalkBackFragment : R.id.feedbackFragment;
+                String destName = destId == R.id.feedbackTalkBackFragment ? "FeedbackTalkBackFragment" : "FeedbackFragment";
+                
+                if (navController != null) navController.navigate(destId);
+                else {
+                    Intent intent = new Intent(this, AppActivity.class);
+                    intent.putExtra("destination", destName);
+                    startActivity(intent);
+                    if (!getLevelClass().contains(getVisibleAct())) finish();
                 }
             }
         } else if (itemId == android.R.id.home) {
@@ -331,7 +352,10 @@ public class BaseActivity extends AppCompatActivity{
         }
 
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.UPSIDE_DOWN_CAKE){
-            findViewById(R.id.dummyStatusBar).setVisibility(View.GONE);
+            int dummyId = getResources().getIdentifier("dummyStatusBar", "id", getPackageName());
+            if (dummyId != 0 && findViewById(dummyId) != null) {
+                findViewById(dummyId).setVisibility(View.GONE);
+            }
         }
         // Setting up toolbar height for 10' & 7' device
         if (getScreenSize() == GlobalConstants.SCREEN_SIZE_TEN_INCH_TAB ||
@@ -595,7 +619,7 @@ public class BaseActivity extends AppCompatActivity{
     }
 
     private String getNonMenuClass() {
-        return UserRegistrationActivity.class.getSimpleName();
+        return UserRegistrationFragment.class.getSimpleName();
     }
 
     public String getVisibleAct() {

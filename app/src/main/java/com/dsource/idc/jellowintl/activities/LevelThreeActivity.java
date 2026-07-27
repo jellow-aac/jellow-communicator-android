@@ -127,7 +127,6 @@ public class LevelThreeActivity extends LevelBaseActivity implements BasicCustom
         setupToolbarMenu();
         setupParent();
         applyMonochromeColor();
-        setNavigationUiConditionally();
 
         // set app locale which is set in settings by user.
         mUec = new UserEventCollector();

@@ -70,10 +70,23 @@ public class SampleSlideFragment extends Fragment {
         return view;
     }
 
-//    @Override
-//    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-//        super.onViewCreated(view, savedInstanceState);
-//    }
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        Fragment parent = getParentFragment();
+        if (parent instanceof IntroFragment) {
+            ((IntroFragment) parent).setupNextSlide(this);
+            
+            View btnRight = view.findViewById(R.id.btnMoveRight);
+            if (btnRight != null) {
+                btnRight.setOnClickListener(v -> ((IntroFragment) parent).changeDemoScreen(v));
+            }
+            View btnLeft = view.findViewById(R.id.btnMoveLeft);
+            if (btnLeft != null) {
+                btnLeft.setOnClickListener(v -> ((IntroFragment) parent).changeDemoScreen(v));
+            }
+        }
+    }
 
     public String getLayoutName() {
         return mLayoutName;
@@ -122,7 +135,6 @@ public class SampleSlideFragment extends Fragment {
             }
         } else {
             DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
-            view.findViewById(R.id.dummyStatusBar).setVisibility(View.GONE);
             // Setting up toolbar height for 10' & 7' device
             if (getScreenSize() == GlobalConstants.SCREEN_SIZE_TEN_INCH_TAB ||
                     getScreenSize() == SCREEN_SIZE_SEVEN_INCH_TAB) {

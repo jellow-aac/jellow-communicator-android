@@ -24,7 +24,6 @@ public class AccessibilitySettingsActivity extends BaseActivity {
         setupBottomBar();
         setupActionBarTitle(View.VISIBLE, getString(R.string.home)+"/ "+getString(R.string.menuAccessibility));
         applyMonochromeColor();
-        setNavigationUiConditionally();
     }
 
     @Override

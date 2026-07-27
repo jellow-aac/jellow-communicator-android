@@ -3,8 +3,7 @@
     android:id="@+id/parent"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000"
-    android:fitsSystemWindows="true">
+    >
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -24,8 +23,7 @@
             android:layout_marginRight="@dimen/key_set_scroll_margin_right"
             android:layout_marginEnd="@dimen/key_set_scroll_margin_right"
             android:layout_marginTop="@dimen/activity_vertical_margin"
-            android:layout_marginBottom="@dimen/key_set_scroll_margin_vertical"
-            android:fitsSystemWindows="true">
+            android:layout_marginBottom="@dimen/key_set_scroll_margin_vertical">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

@@ -102,7 +102,6 @@ public class SequenceActivity extends LevelBaseActivity{
         setupToolbarMenu();
         setupParent();
         applyMonochromeColor();
-        setNavigationUiConditionally();
         txtKeyboard = getString(R.string.keyboard);
 
         mUec = new UserEventCollector();

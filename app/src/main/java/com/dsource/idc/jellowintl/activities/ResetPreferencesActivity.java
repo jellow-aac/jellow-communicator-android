@@ -27,7 +27,6 @@ public class ResetPreferencesActivity extends BaseActivity {
         setupParent();
         setupBottomBar();
         applyMonochromeColor();
-        setNavigationUiConditionally();
 
         findViewById(R.id.no).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,7 +43,7 @@ public class ResetPreferencesActivity extends BaseActivity {
             public void onClick(View v) {
                 Toast.makeText(ResetPreferencesActivity.this, strIconsResetMsg, Toast.LENGTH_SHORT).show();
                 PreferencesHelper.clearPreferences(getAppDatabase());
-                startActivity(new Intent(getApplicationContext(), SplashActivity.class));
+                startActivity(new Intent(getApplicationContext(), AppActivity.class));
                 FirebaseCrashlytics.getInstance().log("ResetPref Yes");
                 finishAffinity();
             }

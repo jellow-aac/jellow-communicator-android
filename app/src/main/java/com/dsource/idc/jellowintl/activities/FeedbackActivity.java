@@ -45,7 +45,6 @@ public class FeedbackActivity extends BaseActivity {
         setupBottomBar();
         setupActionBarTitle(View.VISIBLE, getString(R.string.home)+"/ "+getString(R.string.menuFeedback));
         applyMonochromeColor();
-        setNavigationUiConditionally();
 
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
         findViewById(R.id.comments).clearFocus();

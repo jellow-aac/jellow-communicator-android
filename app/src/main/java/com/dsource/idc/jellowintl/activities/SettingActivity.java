@@ -55,7 +55,6 @@ public class SettingActivity extends SpeechEngineBaseActivity {
         setupParent();
         setupBottomBar();
         applyMonochromeColor();
-        setNavigationUiConditionally();
 
         mOpenSetting = false;
         mSpinnerViewMode = findViewById(R.id.spinner3);
@@ -242,7 +241,7 @@ public class SettingActivity extends SpeechEngineBaseActivity {
                     if(getSession().getMonochromeDisplayState() !=mEnableMonochromeDisplay)
                         getSession().setMonochromeDisplayState(mEnableMonochromeDisplay);
 
-                    startActivity(new Intent(getApplicationContext(), SplashActivity.class));
+                    startActivity(new Intent(getApplicationContext(), AppActivity.class));
                     finishAffinity();
                 }
                 if(getSession().getSpeed() != mSliderSpeed.getProgress()) {

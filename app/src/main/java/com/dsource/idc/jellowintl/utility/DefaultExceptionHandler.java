@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.util.Log;
 
-import com.dsource.idc.jellowintl.activities.UserRegistrationActivity;
+import com.dsource.idc.jellowintl.activities.AppActivity;
 import com.google.firebase.crashlytics.FirebaseCrashlytics;
 
 import java.util.Date;
@@ -31,7 +31,7 @@ public class DefaultExceptionHandler implements Thread.UncaughtExceptionHandler 
         // prevent app from crash loop.
         if (((new Date().getTime()) - session.getLastCrashReported()) > 10000L) {
             session.setLastCrashReported(new Date().getTime());
-            Intent intent = new Intent(activity, UserRegistrationActivity.class);
+            Intent intent = new Intent(activity, AppActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP
                     | Intent.FLAG_ACTIVITY_CLEAR_TASK
                     | Intent.FLAG_ACTIVITY_NEW_TASK);

@@ -4,9 +4,8 @@
     android:id="@+id/parent"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000"
-    android:tag="small"
-    android:fitsSystemWindows="true">
+    
+    android:tag="small">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/clParent"
         android:orientation="vertical"
@@ -33,8 +32,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/custom_app_bar"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:orientation="vertical"
-            android:fitsSystemWindows="true">
+            android:orientation="vertical">
             <ImageView
                 android:id="@+id/ivlike"
                 android:layout_width="76dp"
@@ -65,8 +63,7 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/custom_app_bar"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:orientation="vertical"
-            android:fitsSystemWindows="true">
+            android:orientation="vertical">
             <ImageView
                 android:id="@+id/ivdislike"
                 android:layout_width="76dp"
@@ -294,8 +291,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.08"
-            android:fitsSystemWindows="true">
+            app:layout_constraintVertical_bias="1.08">
 
             <ImageView
                 android:id="@+id/ivback"
@@ -330,8 +326,7 @@
             android:layout_marginBottom="-2dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:importantForAccessibility="no"
-            android:fitsSystemWindows="true"/>
+            android:importantForAccessibility="no"/>
 
         <FrameLayout
             android:id="@+id/anim_layout"
@@ -340,10 +335,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:fitsSystemWindows="true">
-            <include layout="@layout/activity_anim"
-                android:fitsSystemWindows="true"/>
+            app:layout_constraintBottom_toBottomOf="parent">
+            <include layout="@layout/activity_anim"/>
         </FrameLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>

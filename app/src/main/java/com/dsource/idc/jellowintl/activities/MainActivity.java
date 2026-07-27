@@ -126,7 +126,6 @@ public class MainActivity extends LevelBaseActivity implements BasicCustomIconsC
         setupToolbarMenu();
         setupParent();
         applyMonochromeColor();
-        setNavigationUiConditionally();
         mUec = new UserEventCollector();
         loadArraysFromResources();
         // Set the capacity of mRecyclerItemsViewList list to total number of category icons to be

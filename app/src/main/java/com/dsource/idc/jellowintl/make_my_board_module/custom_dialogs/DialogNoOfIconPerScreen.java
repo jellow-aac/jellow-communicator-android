@@ -108,6 +108,5 @@ public class DialogNoOfIconPerScreen extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        setNavigationUiConditionally();
     }
 }

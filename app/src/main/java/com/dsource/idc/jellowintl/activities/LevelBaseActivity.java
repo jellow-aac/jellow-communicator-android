@@ -218,7 +218,7 @@ public class LevelBaseActivity extends SpeechEngineBaseActivity implements TextT
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 getSession().setLanguage(SessionManager.ENG_US);
                                 startActivity(new Intent(LevelBaseActivity.this,
-                                        SplashActivity.class));
+                                        AppActivity.class));
                                 finishAffinity();
                             }
                         });

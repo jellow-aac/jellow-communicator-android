@@ -145,7 +145,6 @@ public class LevelTwoActivity extends LevelBaseActivity implements BasicCustomIc
         setupToolbarMenu();
         setupParent();
         applyMonochromeColor();
-        setNavigationUiConditionally();
         mUec = new UserEventCollector();
         // The below string has value "" in english (all regions) and "है।" in Hindi (India).
         // It is used when user select category "Help" -> "About me".

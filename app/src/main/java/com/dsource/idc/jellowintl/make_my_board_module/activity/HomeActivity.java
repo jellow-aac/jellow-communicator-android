@@ -95,7 +95,6 @@ public class HomeActivity extends SpeechEngineBaseActivity implements TextToSpee
         setupToolbarMenu();
         setupParent();
         applyMonochromeColor();
-        setNavigationUiConditionally();
 
         database = new BoardDatabase(getAppDatabase());
         try {

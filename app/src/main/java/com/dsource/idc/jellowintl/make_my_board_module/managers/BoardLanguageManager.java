@@ -14,11 +14,12 @@ import com.dsource.idc.jellowintl.make_my_board_module.dataproviders.databases.T
 import com.dsource.idc.jellowintl.models.AppDatabase;
 import com.dsource.idc.jellowintl.utility.SessionManager;
 
-import static com.dsource.idc.jellowintl.activities.UserRegistrationActivity.LCODE;
-import static com.dsource.idc.jellowintl.activities.UserRegistrationActivity.VCODE;
+// Imports removed
 import static com.dsource.idc.jellowintl.make_my_board_module.utility.BoardConstants.BOARD_ID;
 
 public class BoardLanguageManager {
+    private static final String LCODE = "LCODE";
+    private static final String VCODE = "VCODE";
 
     private final BoardModel currentBoard;
     private final Context context;
