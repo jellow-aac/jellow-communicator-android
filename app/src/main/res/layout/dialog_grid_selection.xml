@@ -4,8 +4,7 @@
     android:background="@color/translucent"
     android:id="@+id/parent"
     android:importantForAccessibility="no"
-    android:layout_height="match_parent"
-    android:onClick="closeDialog">
+    android:layout_height="match_parent">
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_centerInParent="true"
@@ -34,7 +33,6 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:src="@drawable/ic_close"
-                android:onClick="closeDialog"
                 android:contentDescription="@string/close"/>
         </LinearLayout>
         <LinearLayout

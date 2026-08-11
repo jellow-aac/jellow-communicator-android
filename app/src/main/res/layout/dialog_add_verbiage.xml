@@ -95,11 +95,11 @@
             </LinearLayout>
             <ImageView
                 android:id="@+id/close"
-                android:layout_width="@dimen/close_button_width"
-                android:layout_height="@dimen/close_button_width"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:layout_alignParentRight="true"
-                android:padding="2dp"
-                android:layout_marginRight="8dp"
+                android:padding="10dp"
+                android:layout_marginRight="4dp"
                 android:src="@drawable/ic_close"
                 tools:ignore="RtlHardcoded"
                 android:contentDescription="@string/close"/>

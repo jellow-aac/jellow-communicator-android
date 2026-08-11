@@ -383,7 +383,7 @@
     <!--Spoken Text Bar Toast-->
     <dimen name="spoken_text_text_bar">22sp</dimen>
     <dimen name="margin_fish_end">200dp</dimen>
-    <dimen name="margin_fish_bottom">-56dp</dimen>
-    <dimen name="margin_dolphin_bottom">-192dp</dimen>
+    <dimen name="margin_fish_bottom">24dp</dimen>
+    <dimen name="margin_dolphin_bottom">-164dp</dimen>
     <dimen name="margin_whale_bottom">-76dp</dimen>
 </resources>

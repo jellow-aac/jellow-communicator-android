@@ -114,7 +114,6 @@ dependencies {
     implementation('com.h6ah4i.android.widget.advrecyclerview:advrecyclerview:1.0.0@aar') {
         transitive = true
     }
-    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.31'
 
     implementation 'androidx.room:room-runtime:2.3.0'
     annotationProcessor "androidx.room:room-compiler:2.3.0"

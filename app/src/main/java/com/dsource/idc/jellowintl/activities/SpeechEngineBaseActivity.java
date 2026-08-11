@@ -56,7 +56,7 @@ import static com.dsource.idc.jellowintl.utility.SessionManager.TA_IN;
 import static com.dsource.idc.jellowintl.utility.SessionManager.TE_IN;
 import static com.dsource.idc.jellowintl.utility.SessionManager.UR_IN;
 
-public class SpeechEngineBaseActivity extends BaseActivity{
+public class SpeechEngineBaseActivity extends BaseActivity {
     private static TextToSpeech sTts;
     private static int mFailedToSynthesizeTextCount = 0;
 
@@ -73,26 +73,23 @@ public class SpeechEngineBaseActivity extends BaseActivity{
     }
 
     private void setupSpeechEngine(final String voice, String language) {
-        sTts = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
-            @Override
-            public void onInit(int status) {
-                try {
-                    if(status == TextToSpeech.ERROR || (sTts != null &&
-                            !sTts.getEngines().toString().contains(getTTsEngineNameForLanguage("")))){
-                        mErrorHandler.speechEngineNotFoundError();
-                        return;
-                    }
-                    if(sTts == null)
-                        return;
-
-                    sTts.setVoice(getVoiceObject(voice));
-                    sTts.setSpeechRate(getTTsSpeedForLanguage(language));
-                    sTts.setPitch(getTTsPitchForLanguage(language));
-                    if (voice.endsWith(MR_IN))
-                        createUserProfileRecordingsUsingTTS();
-                } catch (Exception e) {
-                    FirebaseCrashlytics.getInstance().recordException(e);
+        sTts = new TextToSpeech(getApplicationContext(), status -> {
+            try {
+                if(status == TextToSpeech.ERROR || (sTts != null &&
+                        !sTts.getEngines().toString().contains(getTTsEngineNameForLanguage("")))){
+                    mErrorHandler.speechEngineNotFoundError();
+                    return;
                 }
+                if(sTts == null)
+                    return;
+
+                sTts.setVoice(getVoiceObject(voice));
+                sTts.setSpeechRate(getTTsSpeedForLanguage(language));
+                sTts.setPitch(getTTsPitchForLanguage(language));
+                if (voice.endsWith(MR_IN))
+                    createUserProfileRecordingsUsingTTS();
+            } catch (Exception e) {
+                FirebaseCrashlytics.getInstance().recordException(e);
             }
         }, getTTsEngineNameForLanguage(language));
 
@@ -105,12 +102,12 @@ public class SpeechEngineBaseActivity extends BaseActivity{
 
             @Override
             public void onError(String utteranceId) {
-                /***
+                /**
                  * Text synthesize process failed two times and voice data not available for
                  * user selected language then
                  * send error callback to user to correct language setting for selected language
                  * from Language menu.
-                 ***/
+                 **/
                 if(++mFailedToSynthesizeTextCount > 1 &&
                         !isVoiceAvailableForLanguage(getSession().getLanguage())) {
                     mErrorHandler.sendSpeechEngineLanguageNotSetCorrectlyError();
@@ -266,7 +263,7 @@ public class SpeechEngineBaseActivity extends BaseActivity{
                 break;
             case AR_SA:
                 /*This correction is added for Arabic language as its voice name
-                * starts from ar-xa-..
+                * starts from ar-xa-.
                 **/
                 lang = "ar-rXA";
                 break;
@@ -285,7 +282,7 @@ public class SpeechEngineBaseActivity extends BaseActivity{
         stopSpeaking();
         /*Extra symbol '_' is appended to end of every string from custom keyboard utterances.
          *Extra symbol '-' is appended to end of every string from make my board speak request.
-         * Hence utterances will use tts engine to speak irrespective of type of language
+         * Hence, utterances will use tts engine to speak irrespective of type of language
          * (tts language or non tts) */
         if (speechText.contains("_") || speechText.contains("-") || !isNoTTSLanguage())
             sTts.speak(speechText.replace("_","").replace("-",""), TextToSpeech.QUEUE_FLUSH, map);
@@ -296,19 +293,17 @@ public class SpeechEngineBaseActivity extends BaseActivity{
     public void speakWithDelay(final String speechText){
         final int interval = 1000; // 1 Second
         Handler handler = new Handler();
-        Runnable runnable = new Runnable(){
-            public void run() {
-                stopSpeaking();
-                /*Extra symbol '_' is appended to end of every string from custom keyboard utterances.
-                 *Extra symbol '-' is appended to end of every string from make my board speak request.
-                 * Hence utterances will use tts engine to speak irrespective of type of language
-                 * (tts language or non tts) */
-                if (speechText.contains("_") || speechText.contains("-") || !isNoTTSLanguage())
-                    sTts.speak(speechText.replace("_","").
-                            replace("-",""), TextToSpeech.QUEUE_FLUSH, map);
-                else
-                    playAudio(getAudioPath(SpeechEngineBaseActivity.this)+speechText);
-            }
+        Runnable runnable = () -> {
+            stopSpeaking();
+            /*Extra symbol '_' is appended to end of every string from custom keyboard utterances.
+             *Extra symbol '-' is appended to end of every string from make my board speak request.
+             * Hence, utterances will use tts engine to speak irrespective of type of language
+             * (tts language or non tts) */
+            if (speechText.contains("_") || speechText.contains("-") || !isNoTTSLanguage())
+                sTts.speak(speechText.replace("_","").
+                        replace("-",""), TextToSpeech.QUEUE_FLUSH, map);
+            else
+                playAudio(getAudioPath(SpeechEngineBaseActivity.this)+speechText);
         };
         handler.postAtTime(runnable, System.currentTimeMillis()+interval);
         handler.postDelayed(runnable, interval);
@@ -415,21 +410,18 @@ public class SpeechEngineBaseActivity extends BaseActivity{
             mMediaPlayer = new MediaPlayer();
             mMediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
             mMediaPlayer.setDataSource(speechTextInQueue.split(",")[0]);
-            mMediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-                @Override
-                public void onCompletion(MediaPlayer mp) {
-                    if (count[0] < 2){
-                        mMediaPlayer.release();
-                        mMediaPlayer = null;mMediaPlayer = new MediaPlayer();
-                        try {
-                            mMediaPlayer.setDataSource(speechTextInQueue.split(",")[1]);
-                            mMediaPlayer.prepare();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                        mMediaPlayer.start();
-                        count[0]++;
+            mMediaPlayer.setOnCompletionListener(mp -> {
+                if (count[0] < 2){
+                    mMediaPlayer.release();
+                    mMediaPlayer = null;mMediaPlayer = new MediaPlayer();
+                    try {
+                        mMediaPlayer.setDataSource(speechTextInQueue.split(",")[1]);
+                        mMediaPlayer.prepare();
+                    } catch (IOException e) {
+                        e.printStackTrace();
                     }
+                    mMediaPlayer.start();
+                    count[0]++;
                 }
             });
             mMediaPlayer.prepare();
@@ -479,7 +471,7 @@ public class SpeechEngineBaseActivity extends BaseActivity{
         setupSpeechEngine(voice, language);
     }
 
-    static HashMap<String, String> voiceGender = new HashMap<String, String>(){
+    public static HashMap<String, String> voiceGender = new HashMap<String, String>(){
         {
             put("bn-bd-x-ban-local", " (M)");
             put("bn-in-x-bin-local", " (M)");

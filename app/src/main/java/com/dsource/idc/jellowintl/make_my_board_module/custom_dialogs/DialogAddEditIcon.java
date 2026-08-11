@@ -24,11 +24,12 @@ import static com.dsource.idc.jellowintl.utility.Analytics.validatePushId;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -37,9 +38,9 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.ContextThemeWrapper;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -50,8 +51,10 @@ import android.widget.Toast;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
-import androidx.core.app.ActivityCompat;
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
+import androidx.fragment.app.DialogFragment;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
@@ -60,15 +63,15 @@ import com.canhub.cropper.CropImageView;
 import com.dsource.idc.jellowintl.Presentor.CustomBasicIconHelper;
 import com.dsource.idc.jellowintl.R;
 import com.dsource.idc.jellowintl.activities.BaseActivity;
-import com.dsource.idc.jellowintl.make_my_board_module.activity.BoardSearchActivity;
+import com.dsource.idc.jellowintl.make_my_board_module.fragments.BoardSearchActivity;
 import com.dsource.idc.jellowintl.make_my_board_module.datamodels.ListItem;
 import com.dsource.idc.jellowintl.make_my_board_module.expandable_recycler_view.SimpleListAdapter;
 import com.dsource.idc.jellowintl.make_my_board_module.interfaces.AddIconCallback;
 import com.dsource.idc.jellowintl.make_my_board_module.interfaces.OnPhotoResultCallBack;
 import com.dsource.idc.jellowintl.models.GlobalConstants;
+import com.dsource.idc.jellowintl.make_my_board_module.utility.BoardConstants;
 import com.dsource.idc.jellowintl.models.JellowIcon;
 import com.dsource.idc.jellowintl.utility.SessionManager;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.appbar.MaterialToolbar;
 
 import java.io.ByteArrayOutputStream;
@@ -76,7 +79,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public class DialogAddEditIcon extends BaseActivity implements View.OnClickListener, View.OnFocusChangeListener {
+public class DialogAddEditIcon extends DialogFragment implements View.OnClickListener, View.OnFocusChangeListener {
 
     //Static variables to set the modes
     private Context context;
@@ -93,96 +96,163 @@ public class DialogAddEditIcon extends BaseActivity implements View.OnClickListe
     private String boardId;
     private OnPhotoResultCallBack revListener;
     private boolean addIcon = true;
-    private boolean isCustomizedHomeIcon=false;
+    private boolean isCustomizedHomeIcon = false;
     private RadioGroup radioGroup;
     private CropImageView cropImageView;
     private String selectedLibraryFileName = null;
+    private View rootView;
+    private Uri cameraUri;
+
+    private final ActivityResultLauncher<String> galleryLauncher =
+            registerForActivityResult(new ActivityResultContracts.GetContent(), uri -> {
+                if (uri != null && rootView != null) {
+                    View cameraCropParent = rootView.findViewById(R.id.cameraCropParent);
+                    cameraCropParent.setVisibility(View.VISIBLE);
+                    View cropContainer = rootView.findViewById(R.id.cropContainer);
+                    cropImageView.clearImage();
+                    cropContainer.setVisibility(View.VISIBLE);
+                    cropImageView.setImageUriAsync(uri);
+                }
+            });
+
+    private final ActivityResultLauncher<Uri> cameraLauncher =
+            registerForActivityResult(new ActivityResultContracts.TakePicture(), success -> {
+                if (success && cameraUri != null && rootView != null) {
+                    View cameraCropParent = rootView.findViewById(R.id.cameraCropParent);
+                    cameraCropParent.setVisibility(View.VISIBLE);
+                    View cropContainer = rootView.findViewById(R.id.cropContainer);
+                    cropImageView.clearImage();
+                    cropContainer.setVisibility(View.VISIBLE);
+                    cropImageView.setImageUriAsync(cameraUri);
+                }
+            });
+
+    private final ActivityResultLauncher<String> cameraPermissionLauncher =
+            registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
+                if (isGranted) {
+                    showImageSourceDialog();
+                } else {
+                    if (getContext() != null) {
+                        Toast.makeText(getContext(), "Permission denied", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+
+    public static DialogAddEditIcon newInstance(Bundle args, AddIconCallback addIconCallback) {
+        DialogAddEditIcon fragment = new DialogAddEditIcon();
+        if (args != null) {
+            fragment.setArguments(args);
+        }
+        callback = addIconCallback;
+        return fragment;
+    }
+
+    public static void subscribe(AddIconCallback addIconCallback) {
+        callback = addIconCallback;
+    }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.dialog_add_edit_icon);
-        applyMonochromeColor();
-        setupParent();
-        setupCropperTitleBar();
-        isCustomizedHomeIcon = getIntent().hasExtra(IS_HOME_CUSTOM_ICON);
-        boardId = getIntent().getStringExtra(BOARD_ID);
-        context = this;
+        setStyle(DialogFragment.STYLE_NORMAL, R.style.Theme_AppCompat_Translucent);
+    }
 
-        initViews();
-        initAddEditDialog();
-        if(isCustomizedHomeIcon){
-            setupRadioGroup();
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        rootView = inflater.inflate(R.layout.dialog_add_edit_icon, container, false);
+        return rootView;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        context = requireContext();
+        setupCropperTitleBar(view);
+        Bundle args = getArguments() != null ? getArguments() : new Bundle();
+        isCustomizedHomeIcon = args.containsKey(IS_HOME_CUSTOM_ICON);
+        boardId = args.getString(BOARD_ID);
+
+        initViews(view);
+        initAddEditDialog(view);
+        if (isCustomizedHomeIcon) {
+            setupRadioGroup(view);
         }
         /*If editing existing icon custom home icons*/
-        if (getIntent().getExtras() != null && getIntent().getExtras().getSerializable(JELLOW_ID) != null) {
-            JellowIcon icon = (JellowIcon) getIntent().getExtras().getSerializable(JELLOW_ID);
+        if (args.getSerializable(JELLOW_ID) != null) {
+            JellowIcon icon = (JellowIcon) args.getSerializable(JELLOW_ID);
             if (icon != null && isCustomizedHomeIcon) {
                 setAlreadyPresentIcon(icon, true);
-                radioGroup.setClickable(false);
-                radioGroup.setAlpha(RADIO_GROUP_DISABLE_ALPHA);
-                radioGroup.getChildAt(0).setEnabled(false);
-                radioGroup.getChildAt(1).setEnabled(false);
-            }else if (icon != null) {
+                if (radioGroup != null) {
+                    radioGroup.setClickable(false);
+                    radioGroup.setAlpha(RADIO_GROUP_DISABLE_ALPHA);
+                    radioGroup.getChildAt(0).setEnabled(false);
+                    radioGroup.getChildAt(1).setEnabled(false);
+                }
+            } else if (icon != null) {
                 setAlreadyPresentIcon(icon, false);
             }
         }
     }
 
-    /**
-     * This method setup the radio group on the dialog.
-     * Follow are conditions:-
-     * if user creating a new custom icon or editing an existing custom icon at in the
-     *      home (iconLocation ="00") or
-     *      inside categories such as :- Greet and feel (iconLocation ="0001"),
-     *          Daily Activities (iconLocation ="0002"), Eating (iconLocation ="0003"),
-     *          Fun (iconLocation ="0004"), Learning ( iconLocation= "0005"),
-     *          Places (iconLocation ="0007"), Time and Weather (iconLocation ="0008")
-     *      then set radio as category and disable its selection, alpha
-     * else if user creating a new custom icon or editing an existing custom icon at in any
-     *      level 3 (iconLocation.length =6) or People (iconLocation ="0005"),
-     *      Help (iconLocation ="0009")
-     *      then set radio as icon and disable its selection, alpha
-     * else if user creating a new custom icon or editing an existing custom icon at level 2
-     *      which parent is also custom icon
-     *      then set its radio based on the icons attribute "isCategory". This case is special case,
-     *      here user can either create a simple icon or category icon. If received
-     *      //@param icon, is empty it means, user creating a new icon, so no radio buttons are set;
-     *                   And all radio buttons are enabled.
-     *
-     ***/
-    private void setupRadioGroup() {
-        boolean isHomeIcon = getIntent().getBooleanExtra(IS_HOME_CATEGORY, false);
-        int levelOneIconPosition= getIntent().getIntExtra(getString(R.string.level_one_intent_pos_tag), -1);
-        int levelTwoIconPosition= getIntent().getIntExtra(getString(R.string.level_2_item_pos_tag), -1);
-        String iconId= getIntent().getStringExtra(BASIC_ICON_ID) != null ? getIntent().getStringExtra(BASIC_ICON_ID) : "";
-        radioGroup = findViewById(R.id.rgIconOptions);
+    @Override
+    public void onStart() {
+        super.onStart();
+        if (getDialog() != null && getDialog().getWindow() != null) {
+            getDialog().getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+            getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (getActivity() instanceof BaseActivity) {
+            SessionManager session = ((BaseActivity) getActivity()).getSession();
+            if (!isAnalyticsActive()) {
+                resetAnalytics(requireContext(), session.getUserId());
+            }
+        }
+        startMeasuring();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        if (getActivity() instanceof BaseActivity) {
+            SessionManager session = ((BaseActivity) getActivity()).getSession();
+            long sessionTime = validatePushId(session.getSessionCreatedAt());
+            session.setSessionCreatedAt(sessionTime);
+        }
+        stopMeasuring(DialogAddEditIcon.class.getSimpleName());
+    }
+
+    private void setupRadioGroup(View view) {
+        Bundle args = getArguments() != null ? getArguments() : new Bundle();
+        boolean isHomeIcon = args.getBoolean(IS_HOME_CATEGORY, false);
+        int levelOneIconPosition = args.getInt(getString(R.string.level_one_intent_pos_tag), -1);
+        int levelTwoIconPosition = args.getInt(getString(R.string.level_2_item_pos_tag), -1);
+        String iconId = args.getString(BASIC_ICON_ID) != null ? args.getString(BASIC_ICON_ID) : "";
+        radioGroup = view.findViewById(R.id.rgIconOptions);
         radioGroup.setVisibility(View.VISIBLE);
 
-        boolean radioState=false;
-        float radioAlpha=RADIO_GROUP_DISABLE_ALPHA;
-        // Adding an custom icon at home screen then user can add only categories there.
-        if(isHomeIcon){
+        boolean radioState = false;
+        float radioAlpha = RADIO_GROUP_DISABLE_ALPHA;
+        if (isHomeIcon) {
             radioGroup.check(R.id.rbIsCategory);
-        // Adding an custom icon inside People or Help category then user can add only icons there.
-        }else if (levelOneIconPosition == 5 || levelOneIconPosition == 8){
+        } else if (levelOneIconPosition == 5 || levelOneIconPosition == 8) {
             radioGroup.check(R.id.rbIsIcon);
-        // Adding an custom icon anywhere at level 3 then user can add only icons there.
-        }else if(levelOneIconPosition < 9 && levelTwoIconPosition != -1){
+        } else if (levelOneIconPosition < 9 && levelTwoIconPosition != -1) {
             radioGroup.check(R.id.rbIsIcon);
-        // Adding an custom icon anywhere inside level 2 apart from People and Help categories
-        // then user can add only categories there.
-        }else if (levelOneIconPosition < 9) {
+        } else if (levelOneIconPosition < 9) {
             radioGroup.check(R.id.rbIsCategory);
-        // Adding an custom icon at level 3 of any custom subcategory then user can add only icons there.
-        }else if(levelOneIconPosition > 8 && levelTwoIconPosition != -1){
+        } else if (levelOneIconPosition > 8 && levelTwoIconPosition != -1) {
             radioGroup.check(R.id.rbIsIcon);
-        // Adding an custom icon anywhere inside level 2 inside home screen custom icon
-        // then user can add categories as well as icons there.
-        }else{
+        } else {
             radioState = true;
             radioAlpha = ENABLE_ALPHA;
-            if(CustomBasicIconHelper.givenCustomIconIsCategory(getAppDatabase(), iconId))
+            BaseActivity baseAct = (BaseActivity) requireActivity();
+            if (CustomBasicIconHelper.givenCustomIconIsCategory(baseAct.getAppDatabase(), iconId))
                 radioGroup.check(R.id.rbIsCategory);
             else
                 radioGroup.check(R.id.rbIsIcon);
@@ -193,34 +263,6 @@ public class DialogAddEditIcon extends BaseActivity implements View.OnClickListe
         radioGroup.getChildAt(1).setEnabled(radioState);
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        if(!isAnalyticsActive()){
-            resetAnalytics(this, getSession().getUserId());
-        }
-        // Start measuring user app screen timer.
-        startMeasuring();
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        // Check if pushId is older than 24 hours (86400000 millisecond).
-        // If yes then create new pushId (user session)
-        // If no then do not create new pushId instead user existing and
-        // current session time is saved.
-        long sessionTime = validatePushId(getSession().getSessionCreatedAt());
-        getSession().setSessionCreatedAt(sessionTime);
-
-        // Stop measuring user app screen timer.
-        stopMeasuring(DialogAddEditIcon.class.getSimpleName());
-    }
-
-    public static void subscribe(AddIconCallback addIconCallback) {
-        callback = addIconCallback;
-    }
-
     public void setAlreadyPresentIcon(JellowIcon Icon, boolean isCustomizedHomeIcon) {
         this.thisIcon = Icon;
         this.addIcon = false;
@@ -229,27 +271,22 @@ public class DialogAddEditIcon extends BaseActivity implements View.OnClickListe
     }
 
     @SuppressLint("ResourceType")
-    public void initAddEditDialog() {
+    public void initAddEditDialog(View view) {
         titleText.setOnFocusChangeListener(this);
         titleText.setHint(context.getResources().getString(R.string.icon_name));
         titleText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(100)});
         iconImage.setOnClickListener(this);
 
-        //List on the dialog.
         listView.setVisibility(View.INVISIBLE);
-        //The list that will be shown with camera options
         final ArrayList<ListItem> list = new ArrayList<>();
         @SuppressLint("Recycle") TypedArray mArray = context.getResources().obtainTypedArray(R.array.add_photo_option);
         list.add(new ListItem(context.getResources().getString(R.string.photos), mArray.getDrawable(0)));
         list.add(new ListItem(context.getResources().getString(R.string.library), mArray.getDrawable(1)));
         SimpleListAdapter adapter = new SimpleListAdapter(context, list);
         listView.setAdapter(adapter);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                listView.setVisibility(View.INVISIBLE);
-                firePhotoIntent(position);
-            }
+        listView.setOnItemClickListener((parent, view1, position, id) -> {
+            listView.setVisibility(View.INVISIBLE);
+            firePhotoIntent(position);
         });
 
         revListener = (bitmap, code, fileName) -> {
@@ -260,61 +297,45 @@ public class DialogAddEditIcon extends BaseActivity implements View.OnClickListe
                         .asBitmap()
                         .load(stream.toByteArray())
                         .placeholder(R.drawable.ic_board_person)
-                        .apply(RequestOptions
-                                .circleCropTransform()).into(iconImage);
-                // Clear library state when camera/gallery image is used
+                        .apply(RequestOptions.circleCropTransform()).into(iconImage);
                 selectedLibraryFileName = null;
             } else {
                 Glide.with(context).load(getIconPath(context, fileName + EXTENSION))
                         .into(iconImage);
-                // Store library selection
                 selectedLibraryFileName = fileName;
             }
             iconImage.setBackground(context.getResources().getDrawable(R.drawable.icon_back_grey));
         };
-        createImageCropper();
+        createImageCropper(view);
     }
 
     public void setTitleText(String name) {
         if (titleText != null) titleText.setText(name);
     }
 
-    private void initViews() {
-        //Views related to the Dialogs
-        titleText = findViewById(R.id.board_name);
-        saveButton = findViewById(R.id.save_board);
-        cancelSaveBoard = findViewById(R.id.cancel_save_board);
-        editBoardIconButton = findViewById(R.id.edit_board);
-        iconImage = findViewById(R.id.board_icon);
-        listView = findViewById(R.id.camera_list);
-        findViewById(R.id.parent).setOnClickListener(this);
-        findViewById(R.id.icon_container).setOnClickListener(this);
+    private void initViews(View view) {
+        titleText = view.findViewById(R.id.board_name);
+        saveButton = view.findViewById(R.id.save_board);
+        cancelSaveBoard = view.findViewById(R.id.cancel_save_board);
+        editBoardIconButton = view.findViewById(R.id.edit_board);
+        iconImage = view.findViewById(R.id.board_icon);
+        listView = view.findViewById(R.id.camera_list);
+        view.findViewById(R.id.parent).setOnClickListener(this);
+        view.findViewById(R.id.icon_container).setOnClickListener(this);
         iconImage.setOnClickListener(this);
 
-        //Setting the image icon
-        /*if (thisIcon != null)
-            setIconImage(isCustomizedHomeIcon);*/
-
-        //Click Listeners
         saveButton.setOnClickListener(this);
         editBoardIconButton.setOnClickListener(this);
         cancelSaveBoard.setOnClickListener(this);
-        findViewById(R.id.parent).setOnClickListener(this);
-        findViewById(R.id.touch_inside).setOnClickListener(this);
+        view.findViewById(R.id.parent).setOnClickListener(this);
+        view.findViewById(R.id.touch_inside).setOnClickListener(this);
     }
 
-    /**
-     * This funtion takes name and bitmap array of a icon to be added and generates
-     * an icon for it and adds it to the position and scrolls to it.
-     *
-     * @param name   Name of the Icon
-     * @param bitmap bitmap array holding the image
-     */
     private void addNewIcon(int id, String name, Bitmap bitmap) {
         JellowIcon icon = new JellowIcon(name, "" + id, -1, -1, id);
         icon.setVerbiageId(id + "");
-        if (iconImageSelected)
-            storeImageToStorage(bitmap, id + "", this, isCustomizedHomeIcon);
+        if (iconImageSelected && bitmap != null)
+            storeImageToStorage(bitmap, id + "", context, isCustomizedHomeIcon);
         if (callback != null)
             callback.onAddedSuccessfully(icon);
     }
@@ -322,19 +343,17 @@ public class DialogAddEditIcon extends BaseActivity implements View.OnClickListe
     private void saveEditedIcon(String id, String name, Bitmap bitmapArray) {
         JellowIcon icon = new JellowIcon(name, id, -1, -1, Integer.parseInt(id));
         icon.setVerbiageId(id);
-        storeImageToStorage(bitmapArray, id + "", this, isCustomizedHomeIcon);
+        if (iconImageSelected && bitmapArray != null) {
+            storeImageToStorage(bitmapArray, id + "", context, isCustomizedHomeIcon);
+        }
         if (callback != null)
             callback.onAddedSuccessfully(icon);
         callback = null;
     }
 
-    /**
-     * Sets image for the Dialog
-     * @param isCustomizedHomeIcon
-     */
     private void setIconImage(boolean isCustomizedHomeIcon) {
-        if(isCustomizedHomeIcon) {
-            File en_dir = getBasicCustomIconsDirectory(this);
+        if (isCustomizedHomeIcon) {
+            File en_dir = getBasicCustomIconsDirectory(requireContext());
             String path = en_dir.getAbsolutePath();
             Glide.with(context)
                     .load(path + "/" + thisIcon.getIconDrawable() + EXTENSION)
@@ -344,8 +363,7 @@ public class DialogAddEditIcon extends BaseActivity implements View.OnClickListe
                     .dontAnimate()
                     .placeholder(R.drawable.ic_board_person)
                     .into(iconImage);
-        //Is a custom Icon
-        }else if (thisIcon.isCustomIcon()){
+        } else if (thisIcon.isCustomIcon()) {
             File en_dir = context.getDir(SessionManager.BOARD_ICON_LOCATION, Context.MODE_PRIVATE);
             String path = en_dir.getAbsolutePath();
             Glide.with(context)
@@ -364,12 +382,9 @@ public class DialogAddEditIcon extends BaseActivity implements View.OnClickListe
         iconImageSelected = true;
     }
 
-
     @Override
     public void onClick(View v) {
-
         if (listView.getVisibility() == View.VISIBLE) listView.setVisibility(View.INVISIBLE);
-
         editBoardIconButton.bringToFront();
 
         if (v == null) return;
@@ -380,20 +395,18 @@ public class DialogAddEditIcon extends BaseActivity implements View.OnClickListe
             else
                 listView.setVisibility(View.VISIBLE);
             isVisible = !isVisible;
-        }else if (v == editBoardIconButton && isCustomizedHomeIcon) {
+        } else if (v == editBoardIconButton && isCustomizedHomeIcon) {
             firePhotoIntent(0);
         } else if (v == saveButton)
             initSave();
         else if (v == cancelSaveBoard) {
-            finish();
-
+            dismiss();
         }
-
     }
 
     private void initSave() {
-        if(!iconImageSelected) {
-            Toast.makeText(context,getString(R.string.please_select_icon),Toast.LENGTH_SHORT).show();
+        if (!iconImageSelected) {
+            Toast.makeText(context, getString(R.string.please_select_icon), Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -404,24 +417,28 @@ public class DialogAddEditIcon extends BaseActivity implements View.OnClickListe
         final int id = (int) Calendar.getInstance().getTimeInMillis();
         String FETCH_ENABLED;
         String IS_PRIMARY;
-        Intent intent = new Intent(context, DialogAddVerbiage.class);
         Bundle bundle = new Bundle();
-        if(isCustomizedHomeIcon) {
-            intent.putExtra(ICON_POSITION, getIconPosition());
+        Bundle args = getArguments() != null ? getArguments() : new Bundle();
+        if (isCustomizedHomeIcon) {
+            bundle.putString(ICON_POSITION, getIconPosition());
             boolean isCategory = (radioGroup.getCheckedRadioButtonId() == R.id.rbIsCategory);
-            intent.putExtra(BASIC_IS_CATEGORY, isCategory);
-            intent.putExtra(IS_HOME_CUSTOM_ICON, getIntent().hasExtra(IS_HOME_CUSTOM_ICON));
-        }else
-            intent.putExtra(BOARD_ID, boardId);
+            bundle.putBoolean(BASIC_IS_CATEGORY, isCategory);
+            bundle.putBoolean(IS_HOME_CUSTOM_ICON, args.containsKey(IS_HOME_CUSTOM_ICON));
+        } else
+            bundle.putString(BOARD_ID, boardId);
 
-        final Bitmap bitmap = ((BitmapDrawable) iconImage.getDrawable()).getBitmap();
-
+        Bitmap tempBitmap = null;
+        if (iconImage.getDrawable() instanceof BitmapDrawable) {
+            tempBitmap = ((BitmapDrawable) iconImage.getDrawable()).getBitmap();
+        }
+        final Bitmap bitmap = tempBitmap;
         Bitmap croppedBitmap = cropImageView.getCroppedImage();
 
-        // If no cropped image but we have a library selection, accept it
         if (croppedBitmap == null && selectedLibraryFileName == null) {
-            Toast.makeText(context, getString(R.string.please_crop_image_properly), Toast.LENGTH_SHORT).show();
-            return;
+            if (addIcon) {
+                Toast.makeText(context, getString(R.string.please_crop_image_properly), Toast.LENGTH_SHORT).show();
+                return;
+            }
         }
 
         final String name = titleText.getText().toString();
@@ -430,61 +447,59 @@ public class DialogAddEditIcon extends BaseActivity implements View.OnClickListe
             IS_PRIMARY = "NULL";
             bundle.putSerializable(JELLOW_ID, new JellowIcon(name, String.valueOf(id), -1, -1, id));
         } else {
-            if(thisIcon.isCustomIcon() && isCustomizedHomeIcon){
-                FETCH_ENABLED = thisIcon.getVerbiageId();
+            JellowIcon iconToPass = new JellowIcon(thisIcon.getIconTitle(), thisIcon.getIconSpeech(), thisIcon.getIconDrawable(), thisIcon.getParent0(), thisIcon.getParent1(), thisIcon.getParent2());
+            iconToPass.setVerbiageId(thisIcon.getVerbiageId());
+            iconToPass.setType(thisIcon.isCategory() ? BoardConstants.CATEGORY_TYPE : BoardConstants.NORMAL_TYPE);
+            iconToPass.setSequenceIcon(thisIcon.isSequenceIcon());
+            if (iconToPass.isCustomIcon() && isCustomizedHomeIcon) {
+                FETCH_ENABLED = iconToPass.getVerbiageId();
                 IS_PRIMARY = "NULL";
-                thisIcon.setIconTitle(name);
-            }else if (thisIcon.isCustomIcon()) {
-                //Fetch flag is set for custom icon update.
-                FETCH_ENABLED = thisIcon.getVerbiageId();
+                iconToPass.setIconTitle(name);
+            } else if (iconToPass.isCustomIcon()) {
+                FETCH_ENABLED = iconToPass.getVerbiageId();
                 IS_PRIMARY = "NULL";
-                thisIcon.setIconTitle(name);
+                iconToPass.setIconTitle(name);
             } else {
-                //Both flags are set for primary icon to be edited
-                FETCH_ENABLED = thisIcon.getVerbiageId();
+                FETCH_ENABLED = iconToPass.getVerbiageId();
                 IS_PRIMARY = "TRUE";
-                thisIcon.setVerbiageId(id + "");
-                thisIcon.setDrawable(id + "");
-                thisIcon.setIconTitle(name);
+                iconToPass.setVerbiageId(id + "");
+                iconToPass.setDrawable(id + "");
+                iconToPass.setIconTitle(name);
             }
-            bundle.putSerializable(JELLOW_ID, thisIcon);
+            bundle.putSerializable(JELLOW_ID, iconToPass);
         }
 
-        //Both flags are unset for new icons or categories
-        intent.putExtra(DialogAddVerbiage.FETCH_FLAG, FETCH_ENABLED);
-        intent.putExtra(DialogAddVerbiage.IS_PRIMARY_FLAG, IS_PRIMARY);
+        bundle.putString(DialogAddVerbiage.FETCH_FLAG, FETCH_ENABLED);
+        bundle.putString(DialogAddVerbiage.IS_PRIMARY_FLAG, IS_PRIMARY);
 
-        intent.putExtras(bundle);
-        startActivity(intent);
-        finish();
+        final String verbiageIdForSave = addIcon ? null : ((JellowIcon) bundle.getSerializable(JELLOW_ID)).getVerbiageId();
 
-        DialogAddVerbiage.callback = new OnSuccessListener<String>() {
-            @Override
-            public void onSuccess(String s) {
-                if (addIcon)
-                    addNewIcon(id, name, bitmap);
-                else
-                    saveEditedIcon(thisIcon.getVerbiageId(), name, bitmap);
-            }
-        };
+        DialogAddVerbiage verbiageDialog = DialogAddVerbiage.newInstance(bundle, s -> {
+            if (addIcon)
+                addNewIcon(id, name, bitmap);
+            else
+                saveEditedIcon(verbiageIdForSave, name, bitmap);
+        });
+        verbiageDialog.show(getParentFragmentManager(), DialogAddVerbiage.class.getSimpleName());
+        dismiss();
     }
 
     private String getIconPosition() {
-        boolean isHomeIcon = getIntent().getBooleanExtra(IS_HOME_CATEGORY, false);
-        int levelOneIconPosition= getIntent().getIntExtra(getString(R.string.level_one_intent_pos_tag), -1);
-        int levelTwoIconPosition= getIntent().getIntExtra(getString(R.string.level_2_item_pos_tag), -1);
-        if(isHomeIcon)
-            return  "00";
-        else if(levelOneIconPosition != -1 && levelTwoIconPosition == -1)
-            return  "00,"+ (levelOneIconPosition < 10 ? "0"+levelOneIconPosition : levelOneIconPosition);
-        else if(levelOneIconPosition != -1)
-            return  "00," +
-                    (levelOneIconPosition < 10 ? "0"+levelOneIconPosition : levelOneIconPosition) +","+
-                    (levelTwoIconPosition < 10 ? "0"+levelTwoIconPosition : levelTwoIconPosition);
+        Bundle args = getArguments() != null ? getArguments() : new Bundle();
+        boolean isHomeIcon = args.getBoolean(IS_HOME_CATEGORY, false);
+        int levelOneIconPosition = args.getInt(getString(R.string.level_one_intent_pos_tag), -1);
+        int levelTwoIconPosition = args.getInt(getString(R.string.level_2_item_pos_tag), -1);
+        if (isHomeIcon)
+            return "00";
+        else if (levelOneIconPosition != -1 && levelTwoIconPosition == -1)
+            return "00," + (levelOneIconPosition < 10 ? "0" + levelOneIconPosition : levelOneIconPosition);
+        else if (levelOneIconPosition != -1)
+            return "00," +
+                    (levelOneIconPosition < 10 ? "0" + levelOneIconPosition : levelOneIconPosition) + "," +
+                    (levelTwoIconPosition < 10 ? "0" + levelTwoIconPosition : levelTwoIconPosition);
         else
             return "";
     }
-
 
     @Override
     public void onFocusChange(View v, boolean hasFocus) {
@@ -493,106 +508,79 @@ public class DialogAddEditIcon extends BaseActivity implements View.OnClickListe
 
     private void firePhotoIntent(int position) {
         if (position == 0) {
-            //Check if the device has a camera hardware
-            if(hasCameraHardware()) {
-                if(checkPermissionForCamera()){
+            if (hasCameraHardware()) {
+                if (checkPermissionForCamera()) {
                     showImageSourceDialog();
-                }else{
-                    ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, CAMERA_REQUEST);
+                } else {
+                    cameraPermissionLauncher.launch(Manifest.permission.CAMERA);
                 }
-            }else{
-                Toast.makeText(this, getResources().getString(R.string.camera_missing),Toast.LENGTH_LONG).show();
+            } else {
+                Toast.makeText(requireContext(), getResources().getString(R.string.camera_missing), Toast.LENGTH_LONG).show();
             }
-
         } else if (position == 1) {
-            Intent intent = new Intent(this, BoardSearchActivity.class);
-            intent.putExtra(BoardSearchActivity.SEARCH_MODE, BoardSearchActivity.ICON_SEARCH);
-            intent.putExtra(BOARD_ID, boardId);
-            startActivityForResult(intent, LIBRARY_REQUEST);
+            Bundle args = new Bundle();
+            args.putString(BoardSearchActivity.SEARCH_MODE, BoardSearchActivity.ICON_SEARCH);
+            args.putString(BOARD_ID, boardId);
+            BoardSearchActivity searchDialog = BoardSearchActivity.newInstance(args, (icon, resultString) -> {
+                if (resultString != null) {
+                    iconImageSelected = true;
+                    revListener.onPhotoResult(null, LIBRARY_REQUEST, resultString);
+                }
+            });
+            searchDialog.show(getParentFragmentManager(), BoardSearchActivity.class.getSimpleName());
         }
+    }
+
+    public boolean hasCameraHardware() {
+        return requireContext().getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_ANY);
     }
 
     public boolean checkPermissionForCamera() {
-        return Build.VERSION.SDK_INT < Build.VERSION_CODES.M || checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED;
+        return Build.VERSION.SDK_INT < Build.VERSION_CODES.M ||
+                ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED;
     }
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        // If request is cancelled, the result @grantResults arrays are empty.
-        if (requestCode == CAMERA_REQUEST && grantResults.length > 0) {
-            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                Bitmap bitmap = cropImageView.getCroppedImage();
-                if (bitmap != null) {
-                    iconImageSelected = true;
-                    revListener.onPhotoResult(bitmap, CAMERA_REQUEST, null);
-                } else {
-                    Log.e("Crop", "Bitmap null");
-                }
-            } else {
-                Toast.makeText(this, "Permission denied", Toast.LENGTH_SHORT).show();
-            }
-        }
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == LIBRARY_REQUEST) {
-            if (resultCode == RESULT_OK) {
-                String fileName = data.getStringExtra("result");
-                if (fileName != null) {
-                    iconImageSelected = true;
-                    revListener.onPhotoResult(null, requestCode, fileName);
-                }
-            }
-        }
-    }
-
-    //region image chooser
-    private void createImageCropper(){
-        cropImageView = findViewById(R.id.cropImageView);
-        cropImageView.setOnSetImageUriCompleteListener((view, uri, error) -> {
+    private void createImageCropper(View view) {
+        cropImageView = view.findViewById(R.id.cropImageView);
+        cropImageView.setOnSetImageUriCompleteListener((v, uri, error) -> {
             if (error == null) {
-                // Image is ready NOW
                 iconImageSelected = true;
             } else {
                 Log.e("Crop", "Image load error", error);
             }
         });
 
-        ImageView ivCrop = findViewById(R.id.iv_crop_image);
+        ImageView ivCrop = view.findViewById(R.id.iv_crop_image);
         ivCrop.setOnClickListener(v -> {
             Bitmap bitmap = cropImageView.getCroppedImage();
             if (bitmap != null) {
                 iconImageSelected = true;
                 revListener.onPhotoResult(bitmap, CAMERA_REQUEST, null);
-                View cropContainer = findViewById(R.id.cropContainer);
+                View cropContainer = view.findViewById(R.id.cropContainer);
                 cropContainer.setVisibility(View.INVISIBLE);
-                View cameraCropParent = findViewById(R.id.cameraCropParent);
+                View cameraCropParent = view.findViewById(R.id.cameraCropParent);
                 cameraCropParent.setVisibility(View.INVISIBLE);
-
             } else {
-                Toast.makeText(this, R.string.please_select_and_adjust_image_first, Toast.LENGTH_SHORT).show();
+                Toast.makeText(requireContext(), R.string.please_select_and_adjust_image_first, Toast.LENGTH_SHORT).show();
             }
         });
 
-        ImageView ivBack = findViewById(R.id.iv_action_bar_back);
+        ImageView ivBack = view.findViewById(R.id.iv_action_bar_back);
         ivBack.setOnClickListener(v -> {
-            View cropContainer = findViewById(R.id.cropContainer);
+            View cropContainer = view.findViewById(R.id.cropContainer);
             cropContainer.setVisibility(View.INVISIBLE);
-            View cameraCropParent = findViewById(R.id.cameraCropParent);
+            View cameraCropParent = view.findViewById(R.id.cameraCropParent);
             cameraCropParent.setVisibility(View.INVISIBLE);
             cropImageView.clearImage();
         });
     }
 
     private void showImageSourceDialog() {
-        Context context = new ContextThemeWrapper(this, R.style.AppTheme);
-        final DialogCustom dialog = new DialogCustom(context);
-        dialog.setText(context.getString(R.string.select_image_source));
-        dialog.setPositiveText(context.getString(R.string.camera));
-        dialog.setNegativeText(context.getString(R.string.gallery));
+        Context ctx = new ContextThemeWrapper(requireContext(), R.style.AppTheme);
+        final DialogCustom dialog = new DialogCustom(ctx);
+        dialog.setText(ctx.getString(R.string.select_image_source));
+        dialog.setPositiveText(ctx.getString(R.string.camera));
+        dialog.setNegativeText(ctx.getString(R.string.gallery));
         dialog.setOnNegativeClickListener(() -> {
             openGallery();
             dialog.dismiss();
@@ -604,65 +592,35 @@ public class DialogAddEditIcon extends BaseActivity implements View.OnClickListe
         dialog.show();
     }
 
-    private final ActivityResultLauncher<String> galleryLauncher =
-            registerForActivityResult(new ActivityResultContracts.GetContent(), uri -> {
-                if (uri != null) {
-                    View cameraCropParent = findViewById(R.id.cameraCropParent);
-                    cameraCropParent.setVisibility(View.VISIBLE);
-                    View cropContainer = findViewById(R.id.cropContainer);
-                    // ✅ Reset previous state
-                    cropImageView.clearImage();
-                    // ✅ Show crop UI
-                    cropContainer.setVisibility(View.VISIBLE);
-                    // ✅ Load new image
-                    cropImageView.setImageUriAsync(uri);
-                }
-            });
-
     private void openGallery() {
         galleryLauncher.launch("image/*");
     }
 
-    private Uri cameraUri;
-
-    private final ActivityResultLauncher<Uri> cameraLauncher =
-            registerForActivityResult(new ActivityResultContracts.TakePicture(), success -> {
-                if (success && cameraUri != null) {
-                    View cameraCropParent = findViewById(R.id.cameraCropParent);
-                    cameraCropParent.setVisibility(View.VISIBLE);
-                    View cropContainer = findViewById(R.id.cropContainer);
-                    // ✅ Reset
-                    cropImageView.clearImage();
-                    // ✅ Show
-                    cropContainer.setVisibility(View.VISIBLE);
-                    // ✅ Load
-                    cropImageView.setImageUriAsync(cameraUri);
-                }
-            });
-
     private void openCamera() {
         cameraUri = createImageUri();
-        cameraLauncher.launch(cameraUri);
+        if (cameraUri != null) {
+            cameraLauncher.launch(cameraUri);
+        }
     }
 
     private Uri createImageUri() {
-        File file = new File(getCacheDir(), "camera_" + System.currentTimeMillis() + ".jpg");
+        File file = new File(requireContext().getCacheDir(), "camera_" + System.currentTimeMillis() + ".jpg");
         return FileProvider.getUriForFile(
-                this,
-                getPackageName() + ".provider",
+                requireContext(),
+                requireContext().getPackageName() + ".provider",
                 file
         );
     }
 
-    public void setupCropperTitleBar(){
-        MaterialToolbar toolbar = findViewById(R.id.topBar);
+    public void setupCropperTitleBar(View view) {
+        MaterialToolbar toolbar = view.findViewById(R.id.topBar);
         if (toolbar == null)
             return;
 
         DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
         int height = 62;
         int startPadding = 32;
-        if (getScreenSize() == GlobalConstants.SCREEN_SIZE_PHONE) {
+        if (getActivity() instanceof BaseActivity && ((BaseActivity) getActivity()).getScreenSize() == GlobalConstants.SCREEN_SIZE_PHONE) {
             height = 40;
             startPadding = 24;
         }
@@ -687,7 +645,5 @@ public class DialogAddEditIcon extends BaseActivity implements View.OnClickListe
                 toolbar.getPaddingBottom()
         );
         toolbar.setLayoutParams(toolbarParams);
-
     }
-    //endregion
 }

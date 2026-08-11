@@ -14,7 +14,6 @@ import android.widget.ImageView;
 import androidx.core.content.ContextCompat;
 
 import com.dsource.idc.jellowintl.R;
-import com.dsource.idc.jellowintl.make_my_board_module.activity.BoardListActivity;
 import com.dsource.idc.jellowintl.make_my_board_module.dataproviders.data_models.BoardModel;
 import com.dsource.idc.jellowintl.make_my_board_module.interfaces.BoardClickListener;
 
@@ -24,8 +23,8 @@ public class BoardAdapter extends BaseRecyclerAdapter<BoardModel> {
 
     private BoardClickListener listener;
     private int selectedPosition = -1;
-    private boolean enableEditMode = BoardListActivity.EDIT_DISABLED;
-    private boolean enableDeleteMode = BoardListActivity.DELETE_DISABLED;
+    private boolean enableEditMode = false;
+    private boolean enableDeleteMode = false;
     private final boolean isInTrash;
 
     /**

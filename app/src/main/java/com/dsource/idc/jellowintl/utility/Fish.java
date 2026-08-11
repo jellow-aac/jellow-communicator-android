@@ -3,76 +3,40 @@ package com.dsource.idc.jellowintl.utility;
 import com.dsource.idc.jellowintl.R;
 
 public class Fish {
-    private final Long soundTime;
-    private final Long endTime;
-    private final int[] view;
-    private final int fishType;
-    private final String animSound;
+    public final long soundTime;
+    public final int animViewId, fishType;
+    public final String animSound;
 
-    public Fish(Long soundTime, Long endTime, int[] view, int fishType, String animSound){
+    private Fish(long soundTime, int view, int type, String snd) {
         this.soundTime = soundTime;
-        this.endTime = endTime;
-        this.view = view;
-        this.fishType = fishType;
-        this.animSound = animSound;
+        this.animViewId = view; this.fishType = type; this.animSound = snd;
     }
 
-    public static Fish getFish(String deviceType){
-        if(deviceType.equals("small")){
-            return new Fish(850L, 1700L, new int[]{R.id.animFish, R.id.animDolphin, R.id.animWhale},
-                    R.drawable.fish_jump,"fish_splash.mp3");
-        }else if(deviceType.equals("medium")) {
-            return new Fish(900L, 1850L, new int[]{R.id.animFish, R.id.animDolphin, R.id.animWhale},
-                    R.drawable.fish_jump,"fish_splash.mp3");
-        }else {
-            return new Fish(900L, 1850L, new int[]{R.id.animFish, R.id.animDolphin, R.id.animWhale},
-                    R.drawable.fish_jump,"fish_splash.mp3");
-        }
+    public static Fish get(int species, String size) {
+        if (species == 1) return Dolphin.get(size);
+        if (species == 2) return Whale.get(size);
+        return JellowFish.get(size);
     }
 
-    public static Fish getDolphin(String deviceType){
-        if(deviceType.equals("small")){
-            return new Fish(2000L, 1250L, new int[]{R.id.animDolphin, R.id.animFish, R.id.animWhale},
-                    R.drawable.dolphin_jump,"dolphin_splash.mp3");
-        }else if(deviceType.equals("medium")) {
-            return new Fish(2000L, 1000L, new int[]{R.id.animDolphin, R.id.animFish, R.id.animWhale},
-                    R.drawable.dolphin_jump,"dolphin_splash.mp3");
-        }else {
-            return new Fish(2000L, 1000L, new int[]{R.id.animDolphin, R.id.animFish, R.id.animWhale},
-                    R.drawable.dolphin_jump,"dolphin_splash.mp3");
-        }
+    private static Fish select(String size, Fish s, Fish m, Fish l) {
+        return "small".equalsIgnoreCase(size) ? s : ("medium".equalsIgnoreCase(size) ? m : l);
     }
 
-    public static Fish getWhale(String deviceType){
-        if(deviceType.equals("small")){
-            return new Fish(2300L, 2500L, new int[]{R.id.animWhale, R.id.animFish, R.id.animDolphin},
-                    R.drawable.whale_jump,"whale_splash.mp3");
-        }else if(deviceType.equals("medium")) {
-            return new Fish(2300L, 3100L, new int[]{R.id.animWhale, R.id.animFish, R.id.animDolphin},
-                    R.drawable.whale_jump,"whale_splash.mp3");
-        }else {
-            return new Fish(2300L, 3100L, new int[]{R.id.animWhale, R.id.animFish, R.id.animDolphin},
-                    R.drawable.whale_jump,"whale_splash.mp3");
-        }
+    public static class JellowFish extends Fish {
+        public static final Fish SMALL = new JellowFish(850), MEDIUM = new JellowFish(900), LARGE = new JellowFish(1000);
+        private JellowFish(long splashTime) { super(splashTime, R.id.animFish, R.drawable.fish_jump, "fish_splash.mp3"); }
+        public static Fish get(String s) { return select(s, SMALL, MEDIUM, LARGE); }
     }
 
-    public Long getSoundTime() {
-        return soundTime;
+    public static class Dolphin extends Fish {
+        public static final Fish SMALL = new Dolphin(2000), MEDIUM = new Dolphin(2000), LARGE = new Dolphin(3100);
+        private Dolphin(long splashTime) { super(splashTime, R.id.animDolphin, R.drawable.dolphin_jump, "dolphin_splash.mp3"); }
+        public static Fish get(String s) { return select(s, SMALL, MEDIUM, LARGE); }
     }
 
-    public Long getEndTime() {
-        return endTime;
-    }
-
-    public int[] getView() {
-        return view;
-    }
-
-    public int getFishType() {
-        return fishType;
-    }
-
-    public String getAnimSound() {
-        return animSound;
+    public static class Whale extends Fish {
+        public static final Fish SMALL = new Whale(3700), MEDIUM = new Whale(3700), LARGE = new Whale(3700);
+        private Whale(long splashTime) { super(splashTime, R.id.animWhale, R.drawable.whale_jump, "whale_splash.mp3"); }
+        public static Fish get(String s) { return select(s, SMALL, MEDIUM, LARGE); }
     }
 }

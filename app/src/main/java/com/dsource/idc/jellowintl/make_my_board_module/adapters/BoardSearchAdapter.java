@@ -6,7 +6,7 @@ import android.view.View;
 import androidx.annotation.NonNull;
 
 import com.dsource.idc.jellowintl.R;
-import com.dsource.idc.jellowintl.make_my_board_module.activity.BoardSearchActivity;
+import com.dsource.idc.jellowintl.activities.SpeechEngineBaseActivity;
 import com.dsource.idc.jellowintl.make_my_board_module.dataproviders.databases.IconDatabaseFacade;
 import com.dsource.idc.jellowintl.models.AppDatabase;
 import com.dsource.idc.jellowintl.models.JellowIcon;
@@ -40,7 +40,9 @@ public class BoardSearchAdapter extends BaseRecyclerAdapter<JellowIcon> {
             viewHolder.getView(R.id.speak_button).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    ((BoardSearchActivity)getContext()).speakOnly(position);
+                    if (getContext() instanceof SpeechEngineBaseActivity) {
+                        ((SpeechEngineBaseActivity) getContext()).speakFromMMB(icon.getIconSpeech());
+                    }
                 }
             });
         }else{
@@ -58,11 +60,10 @@ public class BoardSearchAdapter extends BaseRecyclerAdapter<JellowIcon> {
             return;
         }
 
-        if(!(getContext() instanceof BoardSearchActivity)){
-            viewHolder.setVisible(R.id.parent_directory, true);
-        }
         if(isSearchingBoardName()){
             viewHolder.setVisible(R.id.parent_directory, false);
+        } else {
+            viewHolder.setVisible(R.id.parent_directory, true);
         }
 
 

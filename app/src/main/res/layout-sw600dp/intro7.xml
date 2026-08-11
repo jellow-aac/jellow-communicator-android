@@ -1,80 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg"
     android:importantForAccessibility="yes"
     android:id="@+id/main">
-    <include layout="@layout/app_bar"
-        android:id="@+id/custom_app_bar"/>
-
-    <ImageView
-        android:id="@+id/btnMoveLeft"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:onClick="changeDemoScreen"
-        android:layout_gravity="start"
-        android:paddingLeft="32dp"
-        android:paddingStart="32dp"
-        android:src="@drawable/ic_chevron_left"
-        tools:ignore="RtlSymmetry"
-        android:contentDescription="@string/previous_slide" />
     <LinearLayout
+        android:id="@+id/parent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="?attr/actionBarSize"
         android:orientation="vertical"
         android:layout_gravity="center_horizontal">
-        <TextView
-            android:id="@+id/intro7_tvtop"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            style="@style/defaultTextViewStyle"
-            android:paddingLeft="32dp"
-            android:layout_weight="1"
-            android:paddingRight="32dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:text="@string/txt_intro7_getStartedDesc"/>
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="400dp"
             android:orientation="horizontal"
-            android:gravity="center"
-            android:layout_weight="29">
-
+            android:gravity="center">
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_gravity="center"
                 android:src="@drawable/jellow_swipe"
-                android:scaleX="0.8"
-                android:scaleY="0.8"/>
+                android:scaleX="0.4"
+                android:scaleY="0.4"
+                android:importantForAccessibility="no"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center"
-            android:layout_gravity="center"
-            android:layout_weight="7">
-            <Button
+            android:layout_gravity="center">
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_getStarted"
-                android:layout_marginTop="10dp"
                 android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginBottom="8dp"
+                android:layout_height="wrap_content"
+                android:minHeight="80dp"
+                app:cornerRadius="20dp"
+                app:backgroundTint="@color/colorAccent"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_gravity="center"
                 android:gravity="center"
-                android:paddingLeft="8dp"
-                android:paddingRight="8dp"
+                android:paddingLeft="32dp"
+                android:paddingRight="32dp"
+                android:textColor="@color/app_background"
                 android:textSize="20sp"
-                android:text="@string/txt_intro7_getStarted"
-                android:onClick="getStarted"/>
+                android:textAllCaps="false"
+                android:text="@string/txt_intro7_getStarted"/>
         </LinearLayout>
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="64dp" />
+            android:layout_width="fill_parent"
+            android:layout_height="60dp" />
     </LinearLayout>
 </FrameLayout>

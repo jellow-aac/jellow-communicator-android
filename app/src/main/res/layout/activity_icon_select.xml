@@ -3,9 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/parent"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    
-    tools:context="com.dsource.idc.jellowintl.make_my_board_module.activity.IconSelectActivity">
+    android:layout_height="match_parent">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">

@@ -12,13 +12,15 @@ import static com.dsource.idc.jellowintl.utility.Analytics.startMeasuring;
 import static com.dsource.idc.jellowintl.utility.Analytics.stopMeasuring;
 import static com.dsource.idc.jellowintl.utility.Analytics.validatePushId;
 
+
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -29,6 +31,7 @@ import android.util.Log;
 import android.util.TypedValue;
 import android.view.ContextThemeWrapper;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,8 +49,9 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
+import androidx.fragment.app.DialogFragment;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
@@ -57,16 +61,15 @@ import com.bumptech.glide.request.target.CustomTarget;
 import com.bumptech.glide.request.transition.Transition;
 import com.canhub.cropper.CropImageView;
 import com.dsource.idc.jellowintl.R;
+import com.dsource.idc.jellowintl.factories.LanguageFactory;
 import com.dsource.idc.jellowintl.activities.BaseActivity;
 import com.dsource.idc.jellowintl.activities.SpeechEngineBaseActivity;
-import com.dsource.idc.jellowintl.factories.LanguageFactory;
-import com.dsource.idc.jellowintl.make_my_board_module.activity.BoardSearchActivity;
-import com.dsource.idc.jellowintl.make_my_board_module.datamodels.BoardIconModel;
+import com.dsource.idc.jellowintl.make_my_board_module.fragments.BoardSearchActivity;
 import com.dsource.idc.jellowintl.make_my_board_module.datamodels.ListItem;
+import com.dsource.idc.jellowintl.make_my_board_module.datamodels.BoardIconModel;
 import com.dsource.idc.jellowintl.make_my_board_module.dataproviders.data_models.BoardModel;
 import com.dsource.idc.jellowintl.make_my_board_module.expandable_recycler_view.SimpleListAdapter;
 import com.dsource.idc.jellowintl.make_my_board_module.interfaces.OnPhotoResultCallBack;
-import com.dsource.idc.jellowintl.make_my_board_module.managers.BoardLanguageManager;
 import com.dsource.idc.jellowintl.make_my_board_module.models.AddBoardDialogModel;
 import com.dsource.idc.jellowintl.make_my_board_module.presenter_interfaces.IAddBoardDialogPresenter;
 import com.dsource.idc.jellowintl.make_my_board_module.view_interfaces.IAddBoardDialogView;
@@ -81,8 +84,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 
-public class DialogAddBoard extends BaseActivity implements IAddBoardDialogView,View.OnClickListener, View.OnFocusChangeListener {
+public class DialogAddBoard extends DialogFragment implements IAddBoardDialogView, View.OnClickListener, View.OnFocusChangeListener {
 
+    public interface AddBoardCallback {
+        void onBoardSaved(BoardModel board);
+    }
+
+    private AddBoardCallback callback;
     private IAddBoardDialogPresenter mPresenter;
     private Context mContext;
     private OnPhotoResultCallBack reverseInterface;
@@ -90,90 +98,157 @@ public class DialogAddBoard extends BaseActivity implements IAddBoardDialogView,
     private String selectedLibraryFileName = null;
     private ListView listView;
     private CropImageView cropImageView;
+    private View rootView;
+    private Uri cameraUri;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.dialog_add_board);
-        applyMonochromeColor();
-        mContext = this;
-        mPresenter = new AddBoardDialogModel(getAppDatabase());
-        mPresenter.attachView(this);
-        setupParent();
-        setupCropperTitleBar();
+    private final ActivityResultLauncher<String> galleryLauncher =
+            registerForActivityResult(new ActivityResultContracts.GetContent(), uri -> {
+                if (uri != null && rootView != null) {
+                    View cameraCropParent = rootView.findViewById(R.id.cameraCropParent);
+                    cameraCropParent.setVisibility(View.VISIBLE);
+                    View cropContainer = rootView.findViewById(R.id.cropContainer);
+                    cropImageView.clearImage();
+                    cropContainer.setVisibility(View.VISIBLE);
+                    cropImageView.setImageUriAsync(uri);
+                }
+            });
 
-        //Fetch Board Id
-        if (getIntent().getStringExtra(BOARD_ID) != null) {
-            String id = getIntent().getStringExtra(BOARD_ID);
-            if (TextUtils.isEmpty(id))
-                setUpAddBoardDialog(null);
-            else mPresenter.getBoardModel(id);
-        } else
-            setUpAddBoardDialog(null);
+    private final ActivityResultLauncher<Uri> cameraLauncher =
+            registerForActivityResult(new ActivityResultContracts.TakePicture(), success -> {
+                if (success && cameraUri != null && rootView != null) {
+                    View cameraCropParent = rootView.findViewById(R.id.cameraCropParent);
+                    cameraCropParent.setVisibility(View.VISIBLE);
+                    View cropContainer = rootView.findViewById(R.id.cropContainer);
+                    cropImageView.clearImage();
+                    cropContainer.setVisibility(View.VISIBLE);
+                    cropImageView.setImageUriAsync(cameraUri);
+                }
+            });
+
+    private final ActivityResultLauncher<String> cameraPermissionLauncher =
+            registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
+                if (isGranted) {
+                    showImageSourceDialog();
+                } else {
+                    if (getContext() != null) {
+                        Toast.makeText(getContext(), "Permission denied", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+
+    public static DialogAddBoard newInstance(Bundle args, AddBoardCallback callback) {
+        DialogAddBoard fragment = new DialogAddBoard();
+        if (args != null) {
+            fragment.setArguments(args);
+        }
+        fragment.callback = callback;
+        return fragment;
+    }
+
+    public void setCallback(AddBoardCallback callback) {
+        this.callback = callback;
     }
 
     @Override
-    protected void onResume() {
-        super.onResume();
-        if(!isAnalyticsActive()){
-            resetAnalytics(this, getSession().getUserId());
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setStyle(DialogFragment.STYLE_NORMAL, R.style.Theme_AppCompat_Translucent);
+    }
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        rootView = inflater.inflate(R.layout.dialog_add_board, container, false);
+        return rootView;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        mContext = requireContext();
+        BaseActivity baseAct = (BaseActivity) requireActivity();
+        mPresenter = new AddBoardDialogModel(baseAct.getAppDatabase());
+        mPresenter.attachView(this);
+        setupCropperTitleBar(view);
+
+        String id = getArguments() != null ? getArguments().getString(BOARD_ID) : null;
+        if (!TextUtils.isEmpty(id)) {
+            mPresenter.getBoardModel(id);
+        } else {
+            setUpAddBoardDialog(null, view);
         }
-        // Start measuring user app screen timer.
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        if (getDialog() != null && getDialog().getWindow() != null) {
+            getDialog().getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+            getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (getActivity() instanceof BaseActivity) {
+            SessionManager session = ((BaseActivity) getActivity()).getSession();
+            if (!isAnalyticsActive()) {
+                resetAnalytics(requireContext(), session.getUserId());
+            }
+        }
         startMeasuring();
     }
 
     @Override
-    protected void onPause() {
+    public void onPause() {
         super.onPause();
-        // Check if pushId is older than 24 hours (86400000 millisecond).
-        // If yes then create new pushId (user session)
-        // If no then do not create new pushId instead user existing and
-        // current session time is saved.
-        long sessionTime = validatePushId(getSession().getSessionCreatedAt());
-        getSession().setSessionCreatedAt(sessionTime);
-
-        // Stop measuring user app screen timer.
+        if (getActivity() instanceof BaseActivity) {
+            SessionManager session = ((BaseActivity) getActivity()).getSession();
+            long sessionTime = validatePushId(session.getSessionCreatedAt());
+            session.setSessionCreatedAt(sessionTime);
+        }
         stopMeasuring(DialogAddBoard.class.getSimpleName());
     }
 
     @SuppressLint("ResourceType")
-    private void setUpAddBoardDialog(final BoardModel board) {
-        final ImageView boardIcon = findViewById(R.id.board_icon);
-        final Button saveButton = findViewById(R.id.save_button);
-        final Button cancel = findViewById(R.id.cancel_button);
-        final ImageView imageChange = findViewById(R.id.edit_image);
-        final EditText boardName = findViewById(R.id.board_name);
-        final Spinner languageSelect = findViewById(R.id.langSelectSpinner);
-        final Spinner voiceSelect = findViewById(R.id.voiceSelectSpinner);
+    private void setUpAddBoardDialog(final BoardModel board, View view) {
+        final ImageView boardIcon = view.findViewById(R.id.board_icon);
+        final Button saveButton = view.findViewById(R.id.save_button);
+        final Button cancel = view.findViewById(R.id.cancel_button);
+        final ImageView imageChange = view.findViewById(R.id.edit_image);
+        final EditText boardName = view.findViewById(R.id.board_name);
+        final Spinner languageSelect = view.findViewById(R.id.langSelectSpinner);
+        final Spinner voiceSelect = view.findViewById(R.id.voiceSelectSpinner);
 
-        findViewById(R.id.parent).setOnClickListener(this);
-        findViewById(R.id.touch_inside).setOnClickListener(this);
+        view.findViewById(R.id.parent).setOnClickListener(this);
+        view.findViewById(R.id.touch_inside).setOnClickListener(this);
         boardName.setOnFocusChangeListener(this);
         boardIcon.setOnClickListener(this);
 
         boardName.setFilters(new InputFilter[]{new InputFilter.LengthFilter(60)});
-        listView = findViewById(R.id.camera_list);
+        listView = view.findViewById(R.id.camera_list);
         int voiceSelectPos = 0;
         {
             final ArrayList<String> languageList = new ArrayList<>(Arrays.asList(LanguageFactory.getAvailableLanguages()));
-            ArrayAdapter<String> langAdapter = new ArrayAdapter<>(this,
-                    android.R.layout.simple_spinner_item, languageList);
+            ArrayAdapter<String> langAdapter = new ArrayAdapter<>(requireContext(),
+                    R.layout.simple_spinner_item, languageList);
             langAdapter.setDropDownViewResource(R.layout.popup_menu_item);
             languageSelect.setAdapter(langAdapter);
             for (String lang : SessionManager.NoTTSLang)
                 languageList.remove(SessionManager.LangValueMap.get(lang));
-            String voices= "";
-            if(board != null){
+            String voices = "";
+            if (board != null) {
                 voices = SpeechEngineBaseActivity.getAvailableVoicesForLanguage(board.getLanguage());
-            }else{
+            } else {
                 voices = SpeechEngineBaseActivity.getAvailableVoicesForLanguage(
                         SessionManager.LangMap.get(languageList.get(0)));
             }
             ArrayList<String> voiceList = new ArrayList<>(voices.split(",").length);
             for (int i = 0; i < voices.split(",").length; i++) {
-                voiceList.add(i,"Voice "+ getRomanNumber(i+1)+getGender(voices.split(",")[i]));
+                voiceList.add(i, "Voice " + getRomanNumber(i + 1) + getGender(voices.split(",")[i]));
             }
-            if(board != null) {
+            if (board != null) {
                 String selectVoice = board.getBoardVoice().split(",")[1].trim();
                 for (int i = 0; i < voiceList.size(); i++) {
                     if (voiceList.get(i).contains(selectVoice)) {
@@ -182,28 +257,30 @@ public class DialogAddBoard extends BaseActivity implements IAddBoardDialogView,
                     }
                 }
             }
-            ArrayAdapter<String> voiceAdapter = new ArrayAdapter<>(this,
-                    android.R.layout.simple_spinner_item, voiceList);
+            ArrayAdapter<String> voiceAdapter = new ArrayAdapter<>(requireContext(),
+                    R.layout.simple_spinner_item, voiceList);
             voiceAdapter.setDropDownViewResource(R.layout.popup_menu_item);
             voiceSelect.setAdapter(voiceAdapter);
             voiceSelect.setSelection(voiceSelectPos);
-            if(board != null) {
+            if (board != null) {
                 int pos = languageList.indexOf(SessionManager.LangValueMap.get(board.getLanguage()));
                 languageSelect.setSelection(pos);
             }
             languageSelect.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
-                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                public void onItemSelected(AdapterView<?> parent, View view1, int position, long id) {
                     String voices = SpeechEngineBaseActivity.getAvailableVoicesForLanguage(
                             SessionManager.LangMap.get(languageList.get(position)));
                     ArrayList<String> voiceList = new ArrayList<>(voices.split(",").length);
                     for (int i = 0; i < voices.split(",").length; i++) {
-                        voiceList.add(i,"Voice "+ getRomanNumber(i+1)+getGender(voices.split(",")[i]));
+                        voiceList.add(i, "Voice " + getRomanNumber(i + 1) + getGender(voices.split(",")[i]));
                     }
-                    ArrayAdapter<String> voiceAdapter = new ArrayAdapter<>(DialogAddBoard.this,
-                            android.R.layout.simple_spinner_item, voiceList);
-                    voiceAdapter.setDropDownViewResource(R.layout.popup_menu_item);
-                    voiceSelect.setAdapter(voiceAdapter);
+                    if (getContext() != null) {
+                        ArrayAdapter<String> voiceAdapter = new ArrayAdapter<>(requireContext(),
+                                R.layout.simple_spinner_item, voiceList);
+                        voiceAdapter.setDropDownViewResource(R.layout.popup_menu_item);
+                        voiceSelect.setAdapter(voiceAdapter);
+                    }
                 }
 
                 @Override
@@ -227,35 +304,31 @@ public class DialogAddBoard extends BaseActivity implements IAddBoardDialogView,
                     .dontAnimate()
                     .into(boardIcon);
             languageSelect.setVisibility(View.GONE);
-            TextView tvLanguage = findViewById(R.id.tv_language);
+            TextView tvLanguage = view.findViewById(R.id.tv_language);
             tvLanguage.setVisibility(View.VISIBLE);
             tvLanguage.setText(SessionManager.LangValueMap.get(board.getLanguage()));
             saveButton.setText(getString(R.string.txtSave));
         }
 
         saveButton.setOnClickListener(v -> {
-
             if (boardName.getText().toString().trim().equals("")) {
                 Toast.makeText(mContext, getResources().getString(R.string.please_enter_name), Toast.LENGTH_LONG).show();
                 return;
             }
 
-            if(!iconImageSelected){
+            if (!iconImageSelected) {
                 Toast.makeText(mContext, getResources().getString(R.string.please_select_icon), Toast.LENGTH_LONG).show();
                 return;
             }
 
-            //Returns code for each language in board
             String langCode = languageSelect.getSelectedItem().toString();
-            String voiceList =  SpeechEngineBaseActivity.
+            String voiceList = SpeechEngineBaseActivity.
                     getAvailableVoicesForLanguage(SessionManager.LangMap.get(langCode));
-            String voice = voiceList.split(",")[voiceSelect.getSelectedItemPosition()]+","
-                    +voiceSelect.getSelectedItem().toString().trim();
+            String voice = voiceList.split(",")[voiceSelect.getSelectedItemPosition()] + ","
+                    + voiceSelect.getSelectedItem().toString().trim();
 
-            // Check if we have a cropped image from camera/gallery
             Bitmap croppedBitmap = cropImageView.getCroppedImage();
 
-            // If no cropped image but we have a library selection, use that
             if (croppedBitmap == null && selectedLibraryFileName != null) {
                 Glide.with(mContext)
                         .asBitmap()
@@ -263,14 +336,12 @@ public class DialogAddBoard extends BaseActivity implements IAddBoardDialogView,
                         .into(new CustomTarget<Bitmap>() {
                             @Override
                             public void onResourceReady(@NonNull Bitmap bitmap, @Nullable Transition<? super Bitmap> transition) {
-                                // Now we have the bitmap, proceed with save
                                 if (board == null)
                                     saveNewBoard(boardName.getText().toString().trim(), bitmap, langCode, voice);
                                 else {
                                     board.setBoardVoice(voice);
                                     updateBoardDetails(board, boardName.getText().toString().trim(), bitmap);
                                 }
-                                finish();
                             }
 
                             @Override
@@ -279,10 +350,11 @@ public class DialogAddBoard extends BaseActivity implements IAddBoardDialogView,
                 return;
             }
 
-            // Validate that we have a valid bitmap
             if (croppedBitmap == null) {
-                Toast.makeText(mContext, getString(R.string.please_crop_image_properly), Toast.LENGTH_SHORT).show();
-                return;
+                if (board == null) {
+                    Toast.makeText(mContext, getString(R.string.please_crop_image_properly), Toast.LENGTH_SHORT).show();
+                    return;
+                }
             }
 
             if (board == null)
@@ -291,159 +363,109 @@ public class DialogAddBoard extends BaseActivity implements IAddBoardDialogView,
                 board.setBoardVoice(voice);
                 updateBoardDetails(board, boardName.getText().toString().trim(), croppedBitmap);
             }
-            finish();
         });
-        cancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
+        cancel.setOnClickListener(v -> dismiss());
+
+        imageChange.setOnClickListener(v -> {
+            if (listView.getVisibility() == View.VISIBLE)
+                listView.setVisibility(View.INVISIBLE);
+            else {
+                listView.setVisibility(View.VISIBLE);
+                listView.requestFocus();
             }
         });
 
-        imageChange.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (listView.getVisibility() == View.VISIBLE)
-                    listView.setVisibility(View.INVISIBLE);
-                else{
-                    listView.setVisibility(View.VISIBLE);
-                    listView.requestFocus();
-                }
-            }
-        });
-
-        //List on the dialog.
         listView.setVisibility(View.INVISIBLE);
         if (board != null) {
             boardName.setText(board.getBoardName());
         }
-        //The list that will be shown with camera options
+
         final ArrayList<ListItem> list = new ArrayList<>();
         @SuppressLint("Recycle") TypedArray mArray = getResources().obtainTypedArray(R.array.add_photo_option);
         list.add(new ListItem(getResources().getString(R.string.photos), mArray.getDrawable(0)));
         list.add(new ListItem(getResources().getString(R.string.library), mArray.getDrawable(1)));
-        SimpleListAdapter adapter = new SimpleListAdapter(this, list);
+        SimpleListAdapter adapter = new SimpleListAdapter(requireContext(), list);
         listView.setAdapter(adapter);
         reverseInterface = (bitmap, code, fileName) -> {
             if (code != LIBRARY_REQUEST) {
                 ByteArrayOutputStream stream = new ByteArrayOutputStream();
                 bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
                 Glide.with(mContext).load(stream.toByteArray()).
-//                        transform(new CircleCrop()).
                         placeholder(R.drawable.ic_board_person).
                         error(R.drawable.ic_board_person).skipMemoryCache(true).
                         diskCacheStrategy(DiskCacheStrategy.NONE).
                         apply(RequestOptions.circleCropTransform()).
                         into(boardIcon);
-                // Clear library selection when camera/gallery is used
                 selectedLibraryFileName = null;
             } else {
-                // Library icon selected - store it for later use
                 selectedLibraryFileName = fileName;
                 Glide.with(mContext).load(getIconPath(mContext, fileName + EXTENSION))
                         .into(boardIcon);
             }
         };
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                listView.setVisibility(View.INVISIBLE);
-                firePhotoIntent(position);
-            }
+        listView.setOnItemClickListener((parent, view12, position, id) -> {
+            listView.setVisibility(View.INVISIBLE);
+            firePhotoIntent(position);
         });
 
-        View.OnTouchListener spinnerOnTouch = new View.OnTouchListener() {
-            public boolean onTouch(View v, MotionEvent event) {
-                if (event.getAction() == MotionEvent.ACTION_UP) {
-                    onClick(null);
-                }
-                return false;
+        View.OnTouchListener spinnerOnTouch = (v, event) -> {
+            if (event.getAction() == MotionEvent.ACTION_UP) {
+                onClick(null);
             }
+            return false;
         };
-        View.OnKeyListener spinnerOnKey = new View.OnKeyListener() {
-            public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if (keyCode == KeyEvent.KEYCODE_DPAD_CENTER) {
-                    onClick(null);
-                    return true;
-                } else {
-                    return false;
-                }
+        View.OnKeyListener spinnerOnKey = (v, keyCode, event) -> {
+            if (keyCode == KeyEvent.KEYCODE_DPAD_CENTER) {
+                onClick(null);
+                return true;
             }
+            return false;
         };
 
         languageSelect.setOnTouchListener(spinnerOnTouch);
         languageSelect.setOnKeyListener(spinnerOnKey);
-        createImageCropper();
+        createImageCropper(view);
     }
-
 
     private void firePhotoIntent(int position) {
         if (position == 0) {
-            //Check if the device has a camera hardware
-            if(hasCameraHardware()) {
-                if(checkPermissionForCamera()){
+            if (hasCameraHardware()) {
+                if (checkPermissionForCamera()) {
                     showImageSourceDialog();
-                }else{
-                    ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, CAMERA_REQUEST);
+                } else {
+                    cameraPermissionLauncher.launch(Manifest.permission.CAMERA);
                 }
-            }else{
-                Toast.makeText(this, getResources().getString(R.string.camera_missing),Toast.LENGTH_LONG).show();
+            } else {
+                Toast.makeText(requireContext(), getResources().getString(R.string.camera_missing), Toast.LENGTH_LONG).show();
             }
         } else if (position == 1) {
-            Intent intent = new Intent(this, BoardSearchActivity.class);
-            intent.putExtra(BoardSearchActivity.SEARCH_MODE, BoardSearchActivity.BASE_ICON_SEARCH);
-            startActivityForResult(intent, LIBRARY_REQUEST);
+            Bundle args = new Bundle();
+            args.putString(BoardSearchActivity.SEARCH_MODE, BoardSearchActivity.BASE_ICON_SEARCH);
+            BoardSearchActivity searchDialog = BoardSearchActivity.newInstance(args, (icon, resultString) -> {
+                if (resultString != null) {
+                    reverseInterface.onPhotoResult(null, LIBRARY_REQUEST, resultString);
+                    iconImageSelected = true;
+                }
+            });
+            searchDialog.show(getParentFragmentManager(), BoardSearchActivity.class.getSimpleName());
         }
+    }
+
+    private boolean hasCameraHardware() {
+        return requireContext().getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_ANY);
     }
 
     private boolean checkPermissionForCamera() {
-        return Build.VERSION.SDK_INT < Build.VERSION_CODES.M || checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED;
-    }
-
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        // If request is cancelled, the result @grantResults arrays are empty.
-        if (requestCode == CAMERA_REQUEST && grantResults.length > 0){
-            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                Bitmap bitmap = cropImageView.getCroppedImage();
-                if (bitmap != null) {
-                    iconImageSelected = true;
-                    reverseInterface.onPhotoResult(bitmap, CAMERA_REQUEST, null);
-                } else {
-                    Log.e("Crop", "Bitmap null");
-                }
-            } else {
-                Toast.makeText(this, "Permission denied", Toast.LENGTH_SHORT).show();
-            }
-        }
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == RESULT_OK) {
-            /*
-             * In this, we are collecting the name of the icon clicked on the search bar and using that to fetch the icon from the database.
-             */
-            if (requestCode == LIBRARY_REQUEST) {
-                String fileName = data.getStringExtra("result");
-                if (fileName != null) {
-                    reverseInterface.onPhotoResult(null, requestCode, fileName);
-                    iconImageSelected = true;
-                }
-            }
-        }
+        return Build.VERSION.SDK_INT < Build.VERSION_CODES.M ||
+                ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED;
     }
 
     private void updateBoardDetails(BoardModel board, String name, Bitmap boardIcon) {
-
         if (board != null) {
             if (!name.equals(""))
                 board.setBoardName(name);
-            if (iconImageSelected)
-                storeImageToStorage(boardIcon, board.getBoardId(), this, false);
+            if (iconImageSelected && boardIcon != null)
+                storeImageToStorage(boardIcon, board.getBoardId(), requireContext(), false);
             mPresenter.updateBoard(board);
         }
     }
@@ -452,7 +474,7 @@ public class DialogAddBoard extends BaseActivity implements IAddBoardDialogView,
         String boardID = (int) Calendar.getInstance().getTime().getTime() + "";
 
         if (iconImageSelected)
-            storeImageToStorage(boardIcon, boardID, this, false);
+            storeImageToStorage(boardIcon, boardID, requireContext(), false);
         BoardModel newBoard = new BoardModel();
         newBoard.setBoardName(boardName);
         newBoard.setBoardId(boardID);
@@ -465,17 +487,26 @@ public class DialogAddBoard extends BaseActivity implements IAddBoardDialogView,
 
     @Override
     public void boardRetrieved(BoardModel board) {
-        setUpAddBoardDialog(board);
+        if (rootView != null) {
+            setUpAddBoardDialog(board, rootView);
+        }
     }
 
     @Override
     public void savedSuccessfully(BoardModel boardId) {
-        new BoardLanguageManager(boardId,mContext,getAppDatabase()).checkLanguageAvailabilityInBoard();
-        finish();
+        if (callback != null) {
+            callback.onBoardSaved(boardId);
+        }
+        dismiss();
     }
 
     @Override
-    public void updatedSuccessfully(BoardModel board) {}
+    public void updatedSuccessfully(BoardModel board) {
+        if (callback != null) {
+            callback.onBoardSaved(board);
+        }
+        dismiss();
+    }
 
     @Override
     public void error(String msg) {
@@ -484,7 +515,7 @@ public class DialogAddBoard extends BaseActivity implements IAddBoardDialogView,
 
     @Override
     public void onClick(View v) {
-        if(listView.getVisibility()==View.VISIBLE)
+        if (listView != null && listView.getVisibility() == View.VISIBLE)
             listView.setVisibility(View.INVISIBLE);
     }
 
@@ -493,46 +524,43 @@ public class DialogAddBoard extends BaseActivity implements IAddBoardDialogView,
         onClick(null);
     }
 
-    //region image chooser
-    private void createImageCropper(){
-        cropImageView = findViewById(R.id.cropImageView);
-        cropImageView.setOnSetImageUriCompleteListener((view, uri, error) -> {
+    private void createImageCropper(View view) {
+        cropImageView = view.findViewById(R.id.cropImageView);
+        cropImageView.setOnSetImageUriCompleteListener((v, uri, error) -> {
             if (error == null) {
-                // Image is ready NOW
                 iconImageSelected = true;
             } else {
                 Log.e("Crop", "Image load error", error);
             }
         });
 
-        ImageView ivCrop = findViewById(R.id.iv_crop_image);
+        ImageView ivCrop = view.findViewById(R.id.iv_crop_image);
         ivCrop.setOnClickListener(v -> {
             Bitmap bitmap = cropImageView.getCroppedImage();
             if (bitmap != null) {
                 iconImageSelected = true;
                 reverseInterface.onPhotoResult(bitmap, CAMERA_REQUEST, null);
-                View cropContainer = findViewById(R.id.cropContainer);
+                View cropContainer = view.findViewById(R.id.cropContainer);
                 cropContainer.setVisibility(View.INVISIBLE);
-                View cameraCropParent = findViewById(R.id.cameraCropParent);
+                View cameraCropParent = view.findViewById(R.id.cameraCropParent);
                 cameraCropParent.setVisibility(View.INVISIBLE);
-
             } else {
-                Toast.makeText(this, R.string.please_select_and_adjust_image_first, Toast.LENGTH_SHORT).show();
+                Toast.makeText(requireContext(), R.string.please_select_and_adjust_image_first, Toast.LENGTH_SHORT).show();
             }
         });
 
-        ImageView ivBack = findViewById(R.id.iv_action_bar_back);
+        ImageView ivBack = view.findViewById(R.id.iv_action_bar_back);
         ivBack.setOnClickListener(v -> {
-            View cropContainer = findViewById(R.id.cropContainer);
+            View cropContainer = view.findViewById(R.id.cropContainer);
             cropContainer.setVisibility(View.INVISIBLE);
-            View cameraCropParent = findViewById(R.id.cameraCropParent);
+            View cameraCropParent = view.findViewById(R.id.cameraCropParent);
             cameraCropParent.setVisibility(View.INVISIBLE);
             cropImageView.clearImage();
         });
     }
 
     private void showImageSourceDialog() {
-        Context context = new ContextThemeWrapper(this, R.style.AppTheme);
+        Context context = new ContextThemeWrapper(requireContext(), R.style.AppTheme);
         final DialogCustom dialog = new DialogCustom(context);
         dialog.setText(context.getString(R.string.select_image_source));
         dialog.setPositiveText(context.getString(R.string.camera));
@@ -548,65 +576,35 @@ public class DialogAddBoard extends BaseActivity implements IAddBoardDialogView,
         dialog.show();
     }
 
-    private final ActivityResultLauncher<String> galleryLauncher =
-            registerForActivityResult(new ActivityResultContracts.GetContent(), uri -> {
-                if (uri != null) {
-                    View cameraCropParent = findViewById(R.id.cameraCropParent);
-                    cameraCropParent.setVisibility(View.VISIBLE);
-                    View cropContainer = findViewById(R.id.cropContainer);
-                    // ✅ Reset previous state
-                    cropImageView.clearImage();
-                    // ✅ Show crop UI
-                    cropContainer.setVisibility(View.VISIBLE);
-                    // ✅ Load new image
-                    cropImageView.setImageUriAsync(uri);
-                }
-            });
-
     private void openGallery() {
         galleryLauncher.launch("image/*");
     }
 
-    private Uri cameraUri;
-
-    private final ActivityResultLauncher<Uri> cameraLauncher =
-            registerForActivityResult(new ActivityResultContracts.TakePicture(), success -> {
-                if (success && cameraUri != null) {
-                    View cameraCropParent = findViewById(R.id.cameraCropParent);
-                    cameraCropParent.setVisibility(View.VISIBLE);
-                    View cropContainer = findViewById(R.id.cropContainer);
-                    // ✅ Reset
-                    cropImageView.clearImage();
-                    // ✅ Show
-                    cropContainer.setVisibility(View.VISIBLE);
-                    // ✅ Load
-                    cropImageView.setImageUriAsync(cameraUri);
-                }
-            });
-
     private void openCamera() {
         cameraUri = createImageUri();
-        cameraLauncher.launch(cameraUri);
+        if (cameraUri != null) {
+            cameraLauncher.launch(cameraUri);
+        }
     }
 
     private Uri createImageUri() {
-        File file = new File(getCacheDir(), "camera_" + System.currentTimeMillis() + ".jpg");
+        File file = new File(requireContext().getCacheDir(), "camera_" + System.currentTimeMillis() + ".jpg");
         return FileProvider.getUriForFile(
-                this,
-                getPackageName() + ".provider",
+                requireContext(),
+                requireContext().getPackageName() + ".provider",
                 file
         );
     }
 
-    public void setupCropperTitleBar(){
-        MaterialToolbar toolbar = findViewById(R.id.topBar);
+    public void setupCropperTitleBar(View view) {
+        MaterialToolbar toolbar = view.findViewById(R.id.topBar);
         if (toolbar == null)
             return;
 
         DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
         int height = 62;
         int startPadding = 32;
-        if (getScreenSize() == GlobalConstants.SCREEN_SIZE_PHONE) {
+        if (getActivity() instanceof BaseActivity && ((BaseActivity) getActivity()).getScreenSize() == GlobalConstants.SCREEN_SIZE_PHONE) {
             height = 40;
             startPadding = 24;
         }
@@ -631,7 +629,19 @@ public class DialogAddBoard extends BaseActivity implements IAddBoardDialogView,
                 toolbar.getPaddingBottom()
         );
         toolbar.setLayoutParams(toolbarParams);
-
     }
-    //endregion
+
+    private String getRomanNumber(int num) {
+        if (getActivity() instanceof BaseActivity) {
+            return ((BaseActivity) getActivity()).getRomanNumber(num);
+        }
+        return String.valueOf(num);
+    }
+
+    private String getGender(String voice) {
+        if (getActivity() instanceof BaseActivity) {
+            return ((BaseActivity) getActivity()).getGender(voice);
+        }
+        return SpeechEngineBaseActivity.voiceGender != null ? SpeechEngineBaseActivity.voiceGender.get(voice) : "";
+    }
 }

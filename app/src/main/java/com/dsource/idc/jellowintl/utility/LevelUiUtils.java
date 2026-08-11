@@ -36,10 +36,14 @@ public class LevelUiUtils {
         }
     }
 
+    private static boolean isVerbiageEmpty(String text) {
+        return text == null || text.trim().isEmpty() || text.equals(NA);
+    }
+
     public static void setExpressiveIconConditionally(ImageView[] btn, Icon icon) {
         String[] expr = {icon.getL(), icon.getY(), icon.getM(), icon.getD(), icon.getN(), icon.getS()};
         for (int i = 0; i < btn.length; i++) {
-            if (expr[i].equals(NA)){
+            if (isVerbiageEmpty(expr[i])){
                 btn[i].setAlpha(GlobalConstants.DISABLE_ALPHA);
                 btn[i].setEnabled(false);
             }else{
