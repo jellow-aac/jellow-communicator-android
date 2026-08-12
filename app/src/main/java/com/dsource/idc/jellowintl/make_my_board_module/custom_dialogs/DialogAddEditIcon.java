@@ -54,6 +54,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowCompat;
+import androidx.core.view.WindowInsetsCompat;
+import androidx.core.view.WindowInsetsControllerCompat;
 import androidx.fragment.app.DialogFragment;
 
 import com.bumptech.glide.Glide;
@@ -556,10 +560,10 @@ public class DialogAddEditIcon extends DialogFragment implements View.OnClickLis
             if (bitmap != null) {
                 iconImageSelected = true;
                 revListener.onPhotoResult(bitmap, CAMERA_REQUEST, null);
-                View cropContainer = view.findViewById(R.id.cropContainer);
-                cropContainer.setVisibility(View.INVISIBLE);
+                View container = view.findViewById(R.id.cropContainer);
+                if (container != null) container.setVisibility(View.INVISIBLE);
                 View cameraCropParent = view.findViewById(R.id.cameraCropParent);
-                cameraCropParent.setVisibility(View.INVISIBLE);
+                if (cameraCropParent != null) cameraCropParent.setVisibility(View.INVISIBLE);
             } else {
                 Toast.makeText(requireContext(), R.string.please_select_and_adjust_image_first, Toast.LENGTH_SHORT).show();
             }
@@ -567,10 +571,10 @@ public class DialogAddEditIcon extends DialogFragment implements View.OnClickLis
 
         ImageView ivBack = view.findViewById(R.id.iv_action_bar_back);
         ivBack.setOnClickListener(v -> {
-            View cropContainer = view.findViewById(R.id.cropContainer);
-            cropContainer.setVisibility(View.INVISIBLE);
+            View container = view.findViewById(R.id.cropContainer);
+            if (container != null) container.setVisibility(View.INVISIBLE);
             View cameraCropParent = view.findViewById(R.id.cameraCropParent);
-            cameraCropParent.setVisibility(View.INVISIBLE);
+            if (cameraCropParent != null) cameraCropParent.setVisibility(View.INVISIBLE);
             cropImageView.clearImage();
         });
     }
@@ -613,37 +617,34 @@ public class DialogAddEditIcon extends DialogFragment implements View.OnClickLis
     }
 
     public void setupCropperTitleBar(View view) {
-        MaterialToolbar toolbar = view.findViewById(R.id.topBar);
-        if (toolbar == null)
-            return;
-
-        DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
-        int height = 62;
-        int startPadding = 32;
-        if (getActivity() instanceof BaseActivity && ((BaseActivity) getActivity()).getScreenSize() == GlobalConstants.SCREEN_SIZE_PHONE) {
-            height = 40;
-            startPadding = 24;
+        // Red background for API 35+ is now handled via statusBarBackground view in XML
+        if (Build.VERSION.SDK_INT >= 35) {
+            View statusBarBg = view.findViewById(R.id.statusBarBackground);
+            if (statusBarBg != null) {
+                statusBarBg.setVisibility(View.VISIBLE);
+                ViewCompat.setOnApplyWindowInsetsListener(statusBarBg, (v, windowInsets) -> {
+                    androidx.core.graphics.Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
+                    ViewGroup.LayoutParams params = v.getLayoutParams();
+                    params.height = insets.top;
+                    v.setLayoutParams(params);
+                    return windowInsets;
+                });
+            }
+            // Ensure system bar icons are white
+            WindowInsetsControllerCompat controller = WindowCompat.getInsetsController(requireActivity().getWindow(), requireActivity().getWindow().getDecorView());
+            if (controller != null) {
+                controller.setAppearanceLightStatusBars(false);
+            }
         }
 
-        int heightInPx = (int) TypedValue.applyDimension(
-                TypedValue.COMPLEX_UNIT_DIP,
-                height,
-                displayMetrics
-        );
-        ViewGroup.LayoutParams toolbarParams = toolbar.getLayoutParams();
-        toolbarParams.height = heightInPx;
-
-        int StartPaddingInPx = (int) TypedValue.applyDimension(
-                TypedValue.COMPLEX_UNIT_DIP,
-                startPadding,
-                displayMetrics
-        );
-        toolbar.setPadding(
-                StartPaddingInPx,
-                toolbar.getPaddingTop(),
-                toolbar.getPaddingRight(),
-                toolbar.getPaddingBottom()
-        );
-        toolbar.setLayoutParams(toolbarParams);
+        // Apply bottom padding to the main cropper container
+        View cropContainer = view.findViewById(R.id.cropContainer);
+        if (cropContainer != null) {
+            ViewCompat.setOnApplyWindowInsetsListener(cropContainer, (v, windowInsets) -> {
+                androidx.core.graphics.Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
+                v.setPadding(insets.left, 0, insets.right, insets.bottom);
+                return WindowInsetsCompat.CONSUMED;
+            });
+        }
     }
 }

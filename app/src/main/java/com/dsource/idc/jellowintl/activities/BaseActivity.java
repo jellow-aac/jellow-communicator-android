@@ -33,10 +33,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
-import androidx.core.view.DisplayCutoutCompat;
 import androidx.core.view.MenuCompat;
 import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.core.view.WindowInsetsControllerCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -134,23 +135,33 @@ public class BaseActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Conditionally apply immersive navigation for gesture mode
-        if (isGestureNavigationEnabled()) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                getWindow().getDecorView().setSystemUiVisibility(
-                        View.SYSTEM_UI_FLAG_LAYOUT_STABLE |
-                        View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                );
-                getWindow().setNavigationBarColor(android.graphics.Color.TRANSPARENT);
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                    getWindow().setNavigationBarContrastEnforced(false);
-                }
+        // Modern edge-to-edge support for API 35+
+        if (Build.VERSION.SDK_INT >= 35) {
+            WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
+            // On API 35+, system bars are forced transparent. 
+            // We use the root background + padding to show brand colors.
+            getWindow().setStatusBarColor(android.graphics.Color.TRANSPARENT);
+            getWindow().setNavigationBarColor(android.graphics.Color.TRANSPARENT);
+
+            // Ensure system bar icons are white (for the red background)
+            WindowInsetsControllerCompat controller = WindowCompat.getInsetsController(getWindow(), getWindow().getDecorView());
+            if (controller != null) {
+                controller.setAppearanceLightStatusBars(false);
+                controller.setAppearanceLightNavigationBars(false);
+            }
+        } else if (isGestureNavigationEnabled()) {
+            // Legacy gesture mode support
+            getWindow().getDecorView().setSystemUiVisibility(
+                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE |
+                    View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+            );
+            getWindow().setNavigationBarColor(android.graphics.Color.TRANSPARENT);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                getWindow().setNavigationBarContrastEnforced(false);
             }
         } else {
-            // Restore default stable behavior for 2/3 button mode
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
-            }
+            // Restore default stable behavior for 2/3 button mode on legacy devices
+            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
         }
 
         final String APP_DB_NAME = "jellow_app_database";
@@ -505,22 +516,27 @@ public class BaseActivity extends AppCompatActivity{
 
     public void setupParent(){
         if (findViewById(R.id.parent) != null) {
-            ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.parent), (v, windowInsets) -> {
+            View vParent = findViewById(R.id.parent);
+            // On API 35+, we set the parent background to red to achieve solid red status/nav bars
+            if (Build.VERSION.SDK_INT >= 35) {
+                vParent.setBackgroundColor(androidx.core.content.ContextCompat.getColor(this, R.color.colorPrimary));
+            }
+            ViewCompat.setOnApplyWindowInsetsListener(vParent, (v, windowInsets) -> {
                 Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
-                ViewGroup.MarginLayoutParams mlp = (ViewGroup.MarginLayoutParams) v.getLayoutParams();
                 
-                mlp.leftMargin = insets.left;
-                mlp.rightMargin = insets.right;
-                mlp.topMargin = insets.top;
-                
-                // Only bleed behind navigation if gesture mode is on
-                if (isGestureNavigationEnabled()) {
-                    mlp.bottomMargin = 0; 
-                } else {
-                    mlp.bottomMargin = insets.bottom;
+                // On API 35+, edge-to-edge is forced. We use padding to expose the red root background.
+                int bottomInset = insets.bottom;
+                if (Build.VERSION.SDK_INT >= 35) {
+                    if (isGestureNavigationEnabled()) {
+                        // In gesture mode, we want the content to bleed through (transparent nav bar)
+                        bottomInset = 0;
+                    }
+                } else if (isGestureNavigationEnabled()) {
+                    // Legacy logic
+                    bottomInset = 0;
                 }
                 
-                v.setLayoutParams(mlp);
+                v.setPadding(insets.left, insets.top, insets.right, bottomInset);
                 return WindowInsetsCompat.CONSUMED;
             });
         }
@@ -529,22 +545,24 @@ public class BaseActivity extends AppCompatActivity{
     public void setupBottomBar(){
         LinearLayout llBottom = findViewById(R.id.llBottom);
         if (llBottom != null) {
+            // For API 35+, ensure the bottom bar container itself handles red padding if needed
+            if (Build.VERSION.SDK_INT >= 35) {
+                View vParent = findViewById(R.id.parent);
+                if (vParent != null) vParent.setBackgroundColor(androidx.core.content.ContextCompat.getColor(this, R.color.colorPrimary));
+            }
             ViewCompat.setOnApplyWindowInsetsListener(llBottom, (v, windowInsets) -> {
                 Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
-                ViewGroup.MarginLayoutParams mlp = (ViewGroup.MarginLayoutParams) v.getLayoutParams();
                 
-                mlp.leftMargin = insets.left;
-                mlp.rightMargin = insets.right;
-                mlp.topMargin = 0;
-                
-                // Only bleed behind navigation if gesture mode is on
-                if (isGestureNavigationEnabled()) {
-                    mlp.bottomMargin = 0; 
-                } else {
-                    mlp.bottomMargin = insets.bottom;
+                int bottomInset = insets.bottom;
+                if (Build.VERSION.SDK_INT >= 35) {
+                    if (isGestureNavigationEnabled()) {
+                        bottomInset = 0;
+                    }
+                } else if (isGestureNavigationEnabled()) {
+                    bottomInset = 0;
                 }
 
-                v.setLayoutParams(mlp);
+                v.setPadding(insets.left, 0, insets.right, bottomInset);
                 return WindowInsetsCompat.CONSUMED;
             });
             if (getScreenSize() == SCREEN_SIZE_PHONE) {

@@ -8,6 +8,7 @@ import static com.dsource.idc.jellowintl.utility.Analytics.stopMeasuring;
 import static com.dsource.idc.jellowintl.utility.Analytics.validatePushId;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
@@ -153,6 +154,43 @@ public class BoardListFragment extends BaseBoardFragment<IBoardListView, IBoardL
         Bundle bundle = new Bundle();
         bundle.putString(BOARD_ID, mAdapter.getList().get(position).getBoardId());
         NavHostFragment.findNavController(this).navigate(R.id.iconSelectFragment, bundle);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int itemId = item.getItemId();
+        if (itemId == R.id.enable_edit) {
+            editMode = !editMode;
+            if (editMode) {
+                deleteMode = DELETE_DISABLED;
+                mAdapter.setDeleteMode(DELETE_DISABLED);
+                if (getMenu() != null && getMenu().findItem(R.id.enable_delete) != null) {
+                    getMenu().findItem(R.id.enable_delete).setIcon(R.drawable.ic_board_delete_disabled);
+                }
+                item.setIcon(R.drawable.ic_edit_icon_enabled);
+            } else {
+                item.setIcon(R.drawable.ic_edit_icon_disabled);
+            }
+            mAdapter.setEditMode(editMode);
+            mAdapter.notifyDataSetChanged();
+            return true;
+        } else if (itemId == R.id.enable_delete) {
+            deleteMode = !deleteMode;
+            if (deleteMode) {
+                editMode = EDIT_DISABLED;
+                mAdapter.setEditMode(EDIT_DISABLED);
+                if (getMenu() != null && getMenu().findItem(R.id.enable_edit) != null) {
+                    getMenu().findItem(R.id.enable_edit).setIcon(R.drawable.ic_edit_icon_disabled);
+                }
+                item.setIcon(R.drawable.ic_board_delete_enabled);
+            } else {
+                item.setIcon(R.drawable.ic_board_delete_disabled);
+            }
+            mAdapter.setDeleteMode(deleteMode);
+            mAdapter.notifyDataSetChanged();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

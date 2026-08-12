@@ -6,6 +6,7 @@ import static com.dsource.idc.jellowintl.utility.Analytics.startMeasuring;
 import static com.dsource.idc.jellowintl.utility.Analytics.stopMeasuring;
 import static com.dsource.idc.jellowintl.utility.Analytics.validatePushId;
 
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -137,6 +138,23 @@ public class BoardTrashFragment extends BaseBoardFragment<IBoardListView, IBoard
 
     @Override
     public void onBoardEdit(int position) {}
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int itemId = item.getItemId();
+        if (itemId == R.id.enable_delete) {
+            deleteMode = !deleteMode;
+            if (deleteMode) {
+                item.setIcon(R.drawable.ic_board_delete_enabled);
+            } else {
+                item.setIcon(R.drawable.ic_board_delete_disabled);
+            }
+            mAdapter.setDeleteMode(deleteMode);
+            mAdapter.notifyDataSetChanged();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     @Override
     public void onResume() {
