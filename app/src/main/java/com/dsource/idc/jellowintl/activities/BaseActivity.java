@@ -133,6 +133,26 @@ public class BaseActivity extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Conditionally apply immersive navigation for gesture mode
+        if (isGestureNavigationEnabled()) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                getWindow().getDecorView().setSystemUiVisibility(
+                        View.SYSTEM_UI_FLAG_LAYOUT_STABLE |
+                        View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                );
+                getWindow().setNavigationBarColor(android.graphics.Color.TRANSPARENT);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                    getWindow().setNavigationBarContrastEnforced(false);
+                }
+            }
+        } else {
+            // Restore default stable behavior for 2/3 button mode
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
+            }
+        }
+
         final String APP_DB_NAME = "jellow_app_database";
         // Initialize default exception handler for this activity.
         // If any exception occurs during this activity usage,
@@ -484,59 +504,50 @@ public class BaseActivity extends AppCompatActivity{
     }
 
     public void setupParent(){
-        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
-            if (findViewById(R.id.parent) != null) {
-                ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.parent), (v, windowInsets) -> {
-                    Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
-                    ViewGroup.MarginLayoutParams mlp = (ViewGroup.MarginLayoutParams) v.getLayoutParams();
-                    mlp.leftMargin = 0;
+        if (findViewById(R.id.parent) != null) {
+            ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.parent), (v, windowInsets) -> {
+                Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
+                ViewGroup.MarginLayoutParams mlp = (ViewGroup.MarginLayoutParams) v.getLayoutParams();
+                
+                mlp.leftMargin = insets.left;
+                mlp.rightMargin = insets.right;
+                mlp.topMargin = insets.top;
+                
+                // Only bleed behind navigation if gesture mode is on
+                if (isGestureNavigationEnabled()) {
+                    mlp.bottomMargin = 0; 
+                } else {
                     mlp.bottomMargin = insets.bottom;
-                    mlp.rightMargin = insets.right;
-                    mlp.topMargin = 0;
-                    v.setLayoutParams(mlp);
-                    DisplayCutoutCompat cutout = windowInsets.getDisplayCutout();
-                    if (cutout != null) {
-                        int cameraPadding = cutout.getSafeInsetLeft();
-                        v.setPadding(cameraPadding,0,0,0);
-                    }
-                    return WindowInsetsCompat.CONSUMED;
-                });
-            }
-            if (findViewById(R.id.cameraCropParent) != null) {
-                ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.cameraCropParent), (v, windowInsets) -> {
-                    Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
-                    ViewGroup.MarginLayoutParams mlp = (ViewGroup.MarginLayoutParams) v.getLayoutParams();
-                    mlp.leftMargin = 0;
-                    mlp.bottomMargin = insets.bottom;
-                    mlp.rightMargin = insets.right;
-                    mlp.topMargin = 0;
-                    v.setLayoutParams(mlp);
-                    DisplayCutoutCompat cutout = windowInsets.getDisplayCutout();
-                    if (cutout != null) {
-                        int cameraPadding = cutout.getSafeInsetLeft();
-                        v.setPadding(cameraPadding,0,0,0);
-                    }
-                    return WindowInsetsCompat.CONSUMED;
-                });
-            }
+                }
+                
+                v.setLayoutParams(mlp);
+                return WindowInsetsCompat.CONSUMED;
+            });
         }
     }
 
     public void setupBottomBar(){
-        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
-            LinearLayout llBottom = findViewById(R.id.llBottom);
-            if (llBottom != null) {
-                ViewCompat.setOnApplyWindowInsetsListener(llBottom, (v, windowInsets) -> {
-                    Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
-                    ViewGroup.MarginLayoutParams mlp = (ViewGroup.MarginLayoutParams) v.getLayoutParams();
-                    mlp.leftMargin = insets.left;
+        LinearLayout llBottom = findViewById(R.id.llBottom);
+        if (llBottom != null) {
+            ViewCompat.setOnApplyWindowInsetsListener(llBottom, (v, windowInsets) -> {
+                Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
+                ViewGroup.MarginLayoutParams mlp = (ViewGroup.MarginLayoutParams) v.getLayoutParams();
+                
+                mlp.leftMargin = insets.left;
+                mlp.rightMargin = insets.right;
+                mlp.topMargin = 0;
+                
+                // Only bleed behind navigation if gesture mode is on
+                if (isGestureNavigationEnabled()) {
+                    mlp.bottomMargin = 0; 
+                } else {
                     mlp.bottomMargin = insets.bottom;
-                    mlp.rightMargin = insets.right;
-                    mlp.topMargin = 0;
-                    v.setLayoutParams(mlp);
-                    return WindowInsetsCompat.CONSUMED;
-                });
-                if (getScreenSize() == SCREEN_SIZE_PHONE) {
+                }
+
+                v.setLayoutParams(mlp);
+                return WindowInsetsCompat.CONSUMED;
+            });
+            if (getScreenSize() == SCREEN_SIZE_PHONE) {
                 DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
                 int padding = 8;
                 int paddingInPx = (int) TypedValue.applyDimension(
@@ -545,9 +556,19 @@ public class BaseActivity extends AppCompatActivity{
                         displayMetrics
                 );
                 llBottom.setPadding(paddingInPx,0,0,0);
-                }
             }
         }
+    }
+
+    private boolean isGestureNavigationEnabled() {
+        int mode = 0;
+        try {
+            int resourceId = getResources().getIdentifier("config_navBarInteractionMode", "integer", "android");
+            if (resourceId > 0) {
+                mode = getResources().getInteger(resourceId);
+            }
+        } catch (Exception ignored) {}
+        return mode == 2;
     }
 
     private void applyMenuVisibilityLogic(Menu menu) {

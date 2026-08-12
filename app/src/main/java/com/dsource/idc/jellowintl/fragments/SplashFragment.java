@@ -72,7 +72,6 @@ public class SplashFragment extends BaseFragment implements CheckNetworkStatus, 
                     .apply(new RequestOptions()
                             .format(DecodeFormat.PREFER_ARGB_8888)
                             .diskCacheStrategy(DiskCacheStrategy.RESOURCE))
-                    .fitCenter()
                     .into(pGif);
         }
 

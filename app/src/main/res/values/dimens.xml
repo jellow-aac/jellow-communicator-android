@@ -100,9 +100,9 @@
     <dimen name="lang_dl_txt_margin_top">-26dp</dimen>
 
     <!--activity_splash.xml dimensions-->
-    <dimen name="splash_anim_scale">0.4</dimen>
-    <dimen name="splash_img_scale">.4</dimen>
-    <dimen name="splash_anim_vbias">0.1</dimen>
+    <dimen name="splash_anim_scale">0.45</dimen>
+    <dimen name="splash_img_scale">0.18</dimen>
+    <dimen name="splash_anim_vbias">0.45</dimen>
     <dimen name="splash_logo_vbias">0.95</dimen>
 
     <!--activity_profile_form.xml dimensions-->
@@ -406,8 +406,8 @@
     <!--animations-->
     <dimen name="margin_fish_end">150dp</dimen>
     <dimen name="margin_fish_bottom">0dp</dimen>
-    <dimen name="margin_dolphin_bottom">-72dp</dimen>
-    <dimen name="margin_whale_bottom">-8dp</dimen>
+    <dimen name="margin_dolphin_bottom">-94dp</dimen>
+    <dimen name="margin_whale_bottom">-14dp</dimen>
     <dimen name="_28dp">28dp</dimen>
     <dimen name="_30dp">30dp</dimen>
 

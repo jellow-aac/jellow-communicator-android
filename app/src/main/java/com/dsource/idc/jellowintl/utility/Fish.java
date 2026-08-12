@@ -7,6 +7,9 @@ public class Fish {
     public final int animViewId, fishType;
     public final String animSound;
 
+    public static final int fish = 0;
+    public static final int dolphin = 1;
+    public static final int whale = 2;
     private Fish(long soundTime, int view, int type, String snd) {
         this.soundTime = soundTime;
         this.animViewId = view; this.fishType = type; this.animSound = snd;
@@ -23,19 +26,19 @@ public class Fish {
     }
 
     public static class JellowFish extends Fish {
-        public static final Fish SMALL = new JellowFish(850), MEDIUM = new JellowFish(900), LARGE = new JellowFish(1000);
+        public static final Fish SMALL = new JellowFish(1100), MEDIUM = new JellowFish(900), LARGE = new JellowFish(1000);
         private JellowFish(long splashTime) { super(splashTime, R.id.animFish, R.drawable.fish_jump, "fish_splash.mp3"); }
         public static Fish get(String s) { return select(s, SMALL, MEDIUM, LARGE); }
     }
 
     public static class Dolphin extends Fish {
-        public static final Fish SMALL = new Dolphin(2000), MEDIUM = new Dolphin(2000), LARGE = new Dolphin(3100);
+        public static final Fish SMALL = new Dolphin(3300), MEDIUM = new Dolphin(2000), LARGE = new Dolphin(3100);
         private Dolphin(long splashTime) { super(splashTime, R.id.animDolphin, R.drawable.dolphin_jump, "dolphin_splash.mp3"); }
         public static Fish get(String s) { return select(s, SMALL, MEDIUM, LARGE); }
     }
 
     public static class Whale extends Fish {
-        public static final Fish SMALL = new Whale(3700), MEDIUM = new Whale(3700), LARGE = new Whale(3700);
+        public static final Fish SMALL = new Whale(3800), MEDIUM = new Whale(3700), LARGE = new Whale(3700);
         private Whale(long splashTime) { super(splashTime, R.id.animWhale, R.drawable.whale_jump, "whale_splash.mp3"); }
         public static Fish get(String s) { return select(s, SMALL, MEDIUM, LARGE); }
     }

@@ -12,6 +12,7 @@
         android:layout_marginBottom="@dimen/margin_fish_bottom"
         android:layout_gravity="bottom|center_horizontal"
         android:adjustViewBounds="true"
+        android:clickable="false"
         android:contentDescription="animation"
         android:importantForAccessibility="no"/>
 
@@ -23,6 +24,7 @@
         android:layout_marginBottom="@dimen/margin_dolphin_bottom"
         android:layout_gravity="bottom|center_horizontal"
         android:adjustViewBounds="true"
+        android:clickable="false"
         android:contentDescription="animation"
         android:importantForAccessibility="no"/>
 
@@ -34,6 +36,7 @@
         android:layout_marginBottom="@dimen/margin_whale_bottom"
         android:layout_gravity="bottom|center_horizontal"
         android:adjustViewBounds="true"
+        android:clickable="false"
         android:contentDescription="animation"
         android:importantForAccessibility="no"/>
 

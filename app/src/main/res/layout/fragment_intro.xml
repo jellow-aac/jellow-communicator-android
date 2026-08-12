@@ -82,7 +82,10 @@
             app:tabBackground="@drawable/tab_selector"
             app:tabGravity="center"
             app:tabIndicatorHeight="0dp"
-            app:tabMaxWidth="24dp"
+            app:tabMaxWidth="16dp"
+            app:tabMinWidth="16dp"
+            app:tabPaddingStart="0dp"
+            app:tabPaddingEnd="0dp"
             app:tabMode="fixed"
             android:background="@android:color/transparent"/>
 
