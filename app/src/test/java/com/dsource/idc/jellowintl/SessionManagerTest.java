@@ -2,107 +2,109 @@ package com.dsource.idc.jellowintl;
 
 import android.content.Context;
 
-import androidx.test.platform.app.InstrumentationRegistry;
-import androidx.test.runner.AndroidJUnit4;
+import androidx.test.core.app.ApplicationProvider;
+import androidx.test.ext.junit.runners.AndroidJUnit4;
 
 import com.dsource.idc.jellowintl.utility.SessionManager;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import static com.dsource.idc.jellowintl.utility.SessionManager.ENG_IN;
 
-//@RunWith(AndroidJUnit4.class)
+@RunWith(AndroidJUnit4.class)
 public class SessionManagerTest {
     private SessionManager mSession;
 
     @Before
     public void setup(){
-        Context context = InstrumentationRegistry.getInstrumentation().getTargetContext();
+        Context context = ApplicationProvider.getApplicationContext();
         mSession = new SessionManager(context);
     }
 
     @Test
     public void checkSetUserLoggedIn(){
         mSession.setUserLoggedIn(true);
-        assert mSession.isUserLoggedIn();
+        assertTrue(mSession.isUserLoggedIn());
     }
 
     @Test
     public void checkSetBlood(){
         mSession.setBlood(0);
-        assert mSession.getBlood() == 0;
+        assertEquals(0, mSession.getBlood());
     }
 
     @Test
     public void checkSetName(){
         mSession.setName("Prakash");
-        assert mSession.getName().equals("Prakash");
+        assertEquals("Prakash", mSession.getName());
     }
 
     @Test
     public void checkSetEmailId(){
         mSession.setEmailId("jellowcommunicator@gmail.com");
-        assert mSession.getEmailId().equals("jellowcommunicator@gmail.com");
+        assertEquals("jellowcommunicator@gmail.com", mSession.getEmailId());
     }
 
     @Test
     public void checkSetCaregiverNumber(){
         mSession.setCaregiverNumber("9653238072");
-        assert mSession.getCaregiverNumber().equals("9653238072");
+        assertEquals("9653238072", mSession.getCaregiverNumber());
     }
 
     @Test
     public void checkSetCaregiverName(){
         mSession.setCaregiverName("Anjali");
-        assert mSession.getCaregiverName().equals("Anjali");
+        assertEquals("Anjali", mSession.getCaregiverName());
     }
 
     @Test
     public void checkSetAddress(){
-        mSession.setName("IIT Bombay");
-        assert mSession.getName().equals("IIT Bombay");
+        mSession.setAddress("IIT Bombay");
+        assertEquals("IIT Bombay", mSession.getAddress());
     }
 
     @Test
     public void checkSetLanguage(){
         mSession.setLanguage(ENG_IN);
-        assert mSession.getLanguage().equals(ENG_IN);
+        assertEquals(ENG_IN, mSession.getLanguage());
     }
 
     @Test
     public void checkSetPictureViewMode(){
         mSession.setPictureViewMode(0);
-        assert mSession.getPictureViewMode() == 0;
+        assertEquals(0, mSession.getPictureViewMode());
     }
 
     @Test
     public void checkSetGridSize(){
         mSession.setGridSize(0);
-        assert mSession.getGridSize() == 0;
+        assertEquals(0, mSession.getGridSize());
     }
 
     @Test
     public void checkSetSpeed(){
         mSession.setSpeed(10);
-        assert mSession.getSpeed() == 10;
+        assertEquals(10, mSession.getSpeed());
         mSession.setSpeed(0);
-        assert mSession.getSpeed() == 50;
+        assertEquals(50, mSession.getSpeed());
     }
 
     @Test
     public void checkSetPitch(){
         mSession.setPitch(20);
-        assert mSession.getPitch() == 20;
+        assertEquals(20, mSession.getPitch());
         mSession.setPitch(0);
-        assert mSession.getPitch() == 50;
+        assertEquals(50, mSession.getPitch());
     }
 
     @Test
     public void addressTest(){
         String address = "Test";
         mSession.setAddress(address);
-        assert mSession.getAddress().equals(address);
+        assertEquals(address, mSession.getAddress());
     }
 }
