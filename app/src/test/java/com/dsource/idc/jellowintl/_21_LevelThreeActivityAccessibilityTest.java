@@ -391,10 +391,5 @@ public class _21_LevelThreeActivityAccessibilityTest {
                 activityRule.getActivity().showAccessibleDialog(v, activityRule.getActivity());
             }
         });
-        try {
-            Thread.sleep(500);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
     }
 }

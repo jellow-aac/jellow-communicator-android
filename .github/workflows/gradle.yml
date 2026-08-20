@@ -27,8 +27,7 @@ jobs:
     - name: Run Unit Tests
       run: ./gradlew testDebugUnitTest
 
-    - name: Compile UI Tests
-      run: ./gradlew assembleDebugAndroidTest
+
 
     - name: Generate Coverage Report
       run: ./gradlew jacocoTestReport

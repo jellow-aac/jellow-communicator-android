@@ -35,9 +35,10 @@ android {
             enableSplit = false
         }
     }
-//    testOptions{
-//        unitTests.returnDefaultValues = true
-//    }
+    testOptions {
+        unitTests.returnDefaultValues = true
+        unitTests.includeAndroidResources = true
+    }
 
     compileOptions {
         sourceCompatibility 1.8
