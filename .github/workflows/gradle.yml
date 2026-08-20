@@ -30,10 +30,17 @@ jobs:
     - name: Compile UI Tests
       run: ./gradlew assembleDebugAndroidTest
 
-    - name: Upload Coverage to Codecov
-      uses: codecov/codecov-action@v4
+    - name: Generate Coverage Report
+      run: ./gradlew jacocoTestReport
+
+    - name: Add Coverage PR Comment
+      uses: madrapps/jacoco-report@v1.6.2
+      if: github.event_name == 'pull_request'
       with:
-        token: ${{ secrets.CODECOV_TOKEN }}
+        paths: ${{ github.workspace }}/app/build/reports/jacoco/jacocoTestReport/jacocoTestReport.xml
+        token: ${{ secrets.GITHUB_TOKEN }}
+        min-coverage-overall: 40
+        min-coverage-changed-files: 60
 
     - name: Build Debug Build (Pull Request)
       if: github.event_name == 'pull_request'

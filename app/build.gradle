@@ -148,36 +148,32 @@ dependencies {
 apply plugin: 'com.google.gms.google-services'
 apply plugin: 'com.google.firebase.crashlytics'
 apply plugin: 'androidx.navigation.safeargs'
-//apply plugin: 'com.hiya.jacoco-android'
-//
-//jacoco {
-//    toolVersion = "0.8.3"
-//}
-//
-//tasks.withType(Test).configureEach {
-//    jacoco.includeNoLocationClasses = true
-//}
-//
-//tasks.withType(Test).configureEach {
-//    jacoco.includeNoLocationClasses = true
-//}
+apply plugin: 'jacoco'
 
-//tasks.register('jacocoUnifiedUnitInstrumentationTestReport', JacocoReport) {
-//    dependsOn['testDebugUnitTest', 'createDebugCoverageReport']
-//    reports {
-//        xml.enabled = true
-//        html.enabled = true
-//    }
-//
-//    def fileFilter = ['**/R.class', '**/R$*.class', '**/BuildConfig.*', '**/Manifest*.*', '**/*Test*.*', 'android/**/*.*']
-//    def debugTree = fileTree(dir: "${buildDir}/intermediates/classes/debug", excludes: fileFilter)
-//    def mainSrc = "${project.projectDir}/src/main/java"
-//    def execDataTree = fileTree(dir: "$buildDir", includes: [
-//            "jacoco/testDebugUnitTest.exec",
-//            "outputs/code-coverage/connected/*coverage.ec"
-//    ])
-//
-//    getSourceDirectories().setFrom([mainSrc])
-//    getClassDirectories().setFrom([debugTree])
-//    getExecutionData().setFrom([execDataTree])
-//}
+jacoco {
+    toolVersion = "0.8.11"
+}
+
+tasks.withType(Test).configureEach {
+    jacoco.includeNoLocationClasses = true
+    jacoco.excludes = ['jdk.internal.*']
+}
+
+task jacocoTestReport(type: JacocoReport, dependsOn: 'testDebugUnitTest') {
+    reports {
+        xml.required.set(true)
+        html.required.set(true)
+    }
+
+    def fileFilter = ['**/R.class', '**/R$*.class', '**/BuildConfig.*', '**/Manifest*.*', '**/*Test*.*', 'android/**/*.*']
+    def debugTree = fileTree(dir: "${buildDir}/intermediates/javac/debug/classes", excludes: fileFilter)
+    def mainSrc = "${project.projectDir}/src/main/java"
+    def execDataTree = fileTree(dir: "$buildDir", includes: [
+            "jacoco/testDebugUnitTest.exec",
+            "outputs/unit_test_code_coverage/debugUnitTest/testDebugUnitTest.exec"
+    ])
+
+    sourceDirectories.setFrom(files([mainSrc]))
+    classDirectories.setFrom(files([debugTree]))
+    executionData.setFrom(files([execDataTree]))
+}
