@@ -34,7 +34,7 @@ jobs:
       run: ./gradlew jacocoTestReport
 
     - name: Add Coverage PR Comment
-      uses: madrapps/jacoco-report@v1.6.2
+      uses: Madrapps/jacoco-report@v1.8.0
       if: github.event_name == 'pull_request'
       with:
         paths: ${{ github.workspace }}/app/build/reports/jacoco/jacocoTestReport/jacocoTestReport.xml
