@@ -1,39 +1,60 @@
 package com.dsource.idc.jellowintl.utility;
 
-
 import android.content.Context;
+import android.content.res.Configuration;
 
-import androidx.test.platform.app.InstrumentationRegistry;
-import androidx.test.runner.AndroidJUnit4;
+import androidx.test.core.app.ApplicationProvider;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.robolectric.RobolectricTestRunner;
+import org.robolectric.annotation.Config;
 
 import java.util.Locale;
 
-import static com.dsource.idc.jellowintl.utility.SessionManager.ENG_IN;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
-@RunWith(AndroidJUnit4.class)
+@RunWith(RobolectricTestRunner.class)
+@Config(sdk = 28) // Use a stable SDK version for Robolectric
 public class LanguageHelperTest {
-    private Context mContext;
-    SessionManager sessionManager;
+
+    private Context context;
 
     @Before
-    public void setup(){
-        mContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        sessionManager = new SessionManager(mContext);
-        sessionManager.setLanguage(ENG_IN);
+    public void setUp() {
+        context = ApplicationProvider.getApplicationContext();
     }
 
     @Test
-    public void checkIfCorrectLocaleContext(){
-        Context context = LanguageHelper.setLanguage(mContext, Locale.US);
-        assert context.getResources().getConfiguration().locale.equals(Locale.US);
+    public void testSetLanguage() {
+        Locale newLocale = new Locale("hi", "IN");
+        Context newContext = LanguageHelper.setLanguage(context, newLocale);
+        
+        assertNotNull(newContext);
+        Configuration config = newContext.getResources().getConfiguration();
+        assertEquals("hi", config.locale.getLanguage());
+        assertEquals("IN", config.locale.getCountry());
     }
 
     @Test
-    public void leagcyTests(){
-     LanguageHelper.onAttach(mContext);
+    public void testOnAttachWithLanguageString() {
+        Context newContext = LanguageHelper.onAttach(context, "mr-rIN");
+        
+        assertNotNull(newContext);
+        Configuration config = newContext.getResources().getConfiguration();
+        assertEquals("mr", config.locale.getLanguage());
+        assertEquals("IN", config.locale.getCountry());
+    }
+    
+    @Test
+    public void testOnAttachWithEmptyLanguageString() {
+        Context newContext = LanguageHelper.onAttach(context, "");
+        
+        assertNotNull(newContext);
+        Configuration config = newContext.getResources().getConfiguration();
+        assertEquals("en", config.locale.getLanguage());
+        assertEquals("IN", config.locale.getCountry());
     }
 }
