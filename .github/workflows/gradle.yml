@@ -24,6 +24,14 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
 
+    - name: Run Unit Tests
+      run: ./gradlew testDebugUnitTest
+
+    - name: Upload Coverage to Codecov
+      uses: codecov/codecov-action@v4
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+
     - name: Build Debug Build (Pull Request)
       if: github.event_name == 'pull_request'
       run: ./gradlew assembleDebug
