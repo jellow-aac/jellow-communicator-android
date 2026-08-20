@@ -29,7 +29,7 @@ public class IndexSorter<T extends Comparable<T>> implements Comparator<Integer>
      * @param d
      */
     public IndexSorter(List<T> d){
-        this.values = (T[])d.toArray();
+        this.values = (T[]) new Comparable[d.size()];
         for ( int i = 0; i < values.length; i++ ){
             values[i] = d.get(i);
         }

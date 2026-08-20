@@ -1,38 +1,39 @@
 package com.dsource.idc.jellowintl.utility;
 
-import androidx.test.runner.AndroidJUnit4;
-
 import org.junit.Test;
-import org.junit.runner.RunWith;
 
-import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
-@RunWith(AndroidJUnit4.class)
+import static org.junit.Assert.assertArrayEquals;
+
 public class IndexSorterTest {
 
     @Test
-    public void isPreferencesSortedCorrectly(){
-        Integer[] prefArray = {4, 6, 2, 5, 8, 0, 1, 11, 45, 2, 77};
-        IndexSorter<Integer> is = new IndexSorter<Integer>(prefArray);
-        is.sort();
-        Integer[] sortArray = is.getIndexes();
-        Integer[] expectedSortArray = {10, 8, 7, 4, 1, 3, 0, 2, 9, 6, 5};
-        for (int i = 0; i < sortArray.length; i++) {
-            assert sortArray[i] == expectedSortArray[i];
-        }
-        assert true;
+    public void testIndexSorterWithArray() {
+        Integer[] data = {50, 20, 40, 10, 30};
+        IndexSorter<Integer> sorter = new IndexSorter<>(data);
+        sorter.sort();
+        
+        // Sorts descending by default (d2.compareTo(d1))
+        // Values: 50, 40, 30, 20, 10
+        // Indexes: 0,  2,  4,  1,  3
+        Integer[] expectedIndexes = {0, 2, 4, 1, 3};
+        
+        assertArrayEquals(expectedIndexes, sorter.getIndexes());
     }
 
     @Test
-    public void legacyTests(){
-        ArrayList<Integer> integerArrayList = new ArrayList<>();
-        integerArrayList.add(5);
-        integerArrayList.add(3);
-        integerArrayList.add(4);
-        try{
-            IndexSorter indexSorter = new IndexSorter(integerArrayList);
-        } catch (Exception e){
-            e.printStackTrace();
-        }
+    public void testIndexSorterWithList() {
+        List<String> data = Arrays.asList("apple", "orange", "banana", "kiwi");
+        IndexSorter<String> sorter = new IndexSorter<>(data);
+        sorter.sort();
+        
+        // Sorts descending
+        // Values descending: orange, kiwi, banana, apple
+        // Original Indexes:   1,      3,    2,      0
+        Integer[] expectedIndexes = {1, 3, 2, 0};
+        
+        assertArrayEquals(expectedIndexes, sorter.getIndexes());
     }
 }

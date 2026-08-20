@@ -22,7 +22,7 @@ public class JellowIconTest {
 
         JellowIcon jellowIcon = new JellowIcon(IconTitle,IconDrawable,parent0,parent1,parent2);
 
-        JellowIcon jellowIconC = new JellowIcon(IconTitle,IconSpeech,IconDrawable,p0,p1,p2);
+        JellowIcon jellowIconC = new JellowIcon(IconTitle,IconSpeech,IconDrawable + "C",p0,p1,p2);
 
         jellowIcon.setIconTitle(IconTitle);
 

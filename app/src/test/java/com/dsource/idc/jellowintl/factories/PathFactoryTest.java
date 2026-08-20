@@ -16,6 +16,7 @@ import java.io.File;
 
 import static com.dsource.idc.jellowintl.factories.PathFactory.AUDIO_FOLDER;
 import static com.dsource.idc.jellowintl.factories.PathFactory.DRAWABLE_FOLDER;
+import static com.dsource.idc.jellowintl.factories.PathFactory.UNIVERSAL_FOLDER;
 import static com.dsource.idc.jellowintl.utility.SessionManager.ENG_IN;
 
 @RunWith(AndroidJUnit4.class)
@@ -50,14 +51,14 @@ public class PathFactoryTest {
     public void getAudioPathTest(){
         String path = PathFactory.getAudioPath(mContext);
         assert  path.equals(
-                mContext.getDir(ENG_IN, Context.MODE_PRIVATE).getAbsolutePath()
+                mContext.getDir(UNIVERSAL_FOLDER, Context.MODE_PRIVATE).getAbsolutePath()
                         .concat("/"+AUDIO_FOLDER+"/"));
     }
 
     @Test
     public void getIconDirectoryTest(){
         File path = PathFactory.getIconDirectory(mContext);
-        File iconFile = new File(mContext.getDir(ENG_IN, Context.MODE_PRIVATE).getAbsolutePath()
+        File iconFile = new File(mContext.getDir(UNIVERSAL_FOLDER, Context.MODE_PRIVATE).getAbsolutePath()
                 .concat("/"+DRAWABLE_FOLDER+"/"));
         assert  path.equals(iconFile);
 
