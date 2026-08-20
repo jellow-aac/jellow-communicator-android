@@ -660,14 +660,19 @@ public class ActivitySequenceFragment extends BaseFragment {
                 speakAndShowTextBar_(mNavigationBtnTxt[1]);
                 mUec.createSendFbEventFromTappedView(27, "", "");
                 mIvBack.setImageResource(R.drawable.back_pressed);
-                NavHostFragment.findNavController(ActivitySequenceFragment.this).popBackStack();
+                if (!NavHostFragment.findNavController(ActivitySequenceFragment.this).popBackStack()) {
+                    Bundle args = new Bundle();
+                    args.putInt(getString(R.string.level_one_intent_pos_tag), 1 /* Daily Activities */);
+                    args.putString(getString(R.string.intent_menu_path_tag), txtActionBarTitle.substring(0, txtActionBarTitle.lastIndexOf("/")));
+                    NavHostFragment.findNavController(ActivitySequenceFragment.this).navigate(R.id.levelTwoFragment, args);
+                }
             }
         });
     }
 
     /**
      * <p>This function will initialize the click scrollListener to Navigation home button.
-     * When user press this button user navigated to {@link MainActivity} with
+     * When user press this button user navigated to {@link LevelOneFragment} with
      *  every state of views is like app launched as fresh. Action bar title is set
      *  to 'home'</p>
      * */
@@ -684,7 +689,9 @@ public class ActivitySequenceFragment extends BaseFragment {
                 }).start();
                 mIvHome.setImageResource(R.drawable.home_pressed);
                 mIvKeyboard.setImageResource(R.drawable.keyboard);
-                NavHostFragment.findNavController(ActivitySequenceFragment.this).popBackStack(R.id.levelOneFragment, false);
+                if (!NavHostFragment.findNavController(ActivitySequenceFragment.this).popBackStack(R.id.levelOneFragment, false)) {
+                    NavHostFragment.findNavController(ActivitySequenceFragment.this).navigate(R.id.levelOneFragment);
+                }
             }
         });
     }

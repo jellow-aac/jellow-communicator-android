@@ -253,28 +253,19 @@ public class SearchDialogFragment extends DialogFragment {
 
         if (navController != null) {
             Context ctx = requireContext();
-            int currentDestId = navController.getCurrentDestination() != null ? navController.getCurrentDestination().getId() : -1;
             
-            androidx.navigation.NavOptions.Builder baseNavOptions = new androidx.navigation.NavOptions.Builder()
-                    .setPopUpTo(R.id.levelOneFragment, false, true)
-                    .setRestoreState(true);
+            // This NavOptions will clear the entire stack.
+            // Using the nav_graph ID with inclusive=true clears all fragments.
+            androidx.navigation.NavOptions clearStackOptions = new androidx.navigation.NavOptions.Builder()
+                    .setPopUpTo(R.id.nav_graph, true)
+                    .build();
 
             if (icon.getLevelTwo() == -1 && icon.getLevelThree() == -1) {
                 Bundle args = new Bundle();
                 args.putInt(ctx.getString(R.string.search_parent_0), icon.getLevelOne());
                 args.putString(ctx.getString(R.string.from_search), ctx.getString(R.string.search_tag));
                 
-                androidx.navigation.NavOptions navOptions;
-                if (currentDestId == R.id.levelOneFragment) {
-                    navOptions = new androidx.navigation.NavOptions.Builder()
-                            .setPopUpTo(R.id.levelOneFragment, true)
-                            .setLaunchSingleTop(false)
-                            .build();
-                } else {
-                    navOptions = new androidx.navigation.NavOptions.Builder()
-                            .setPopUpTo(R.id.levelOneFragment, true).build();
-                }
-                navController.navigate(R.id.levelOneFragment, args, navOptions);
+                navController.navigate(R.id.levelOneFragment, args, clearStackOptions);
             } else if (icon.getLevelOne() != -1 && icon.getLevelTwo() != -1 && icon.getLevelThree() == -1) {
                 Bundle args = new Bundle();
                 args.putInt(ctx.getString(R.string.level_one_intent_pos_tag), icon.getLevelOne());
@@ -284,14 +275,7 @@ public class SearchDialogFragment extends DialogFragment {
                         getLevel1IconLabels()[icon.getLevelOne()].replace("…", "") + "/ ";
                 args.putString(ctx.getString(R.string.intent_menu_path_tag), breadCrumbPath);
                 
-                androidx.navigation.NavOptions navOptions = baseNavOptions.build();
-                if (currentDestId == R.id.levelTwoFragment) {
-                    navOptions = new androidx.navigation.NavOptions.Builder()
-                            .setPopUpTo(R.id.levelTwoFragment, true)
-                            .setLaunchSingleTop(false)
-                            .build();
-                }
-                navController.navigate(R.id.levelTwoFragment, args, navOptions);
+                navController.navigate(R.id.levelTwoFragment, args, clearStackOptions);
             } else if (!icon.isSequenceIcon()) {
                 Bundle args = new Bundle();
                 args.putString(ctx.getString(R.string.from_search), ctx.getString(R.string.search_tag));
@@ -303,21 +287,7 @@ public class SearchDialogFragment extends DialogFragment {
                         + getIconTitleLevel2(icon.getLevelOne())[icon.getLevelTwo()].replace("…", "") + "/ ";
                 args.putString(ctx.getString(R.string.intent_menu_path_tag), breadCrumbPath);
                 
-                Bundle l2Args = new Bundle();
-                l2Args.putInt(ctx.getString(R.string.level_one_intent_pos_tag), icon.getLevelOne());
-                l2Args.putString(ctx.getString(R.string.intent_menu_path_tag), ctx.getString(R.string.home) + "/ " + getLevel1IconLabels()[icon.getLevelOne()].replace("…", "") + "/ ");
-                
-                navController.navigate(R.id.levelTwoFragment, l2Args, baseNavOptions.build());
-                if (navController.getCurrentDestination() != null && navController.getCurrentDestination().getId() == R.id.levelTwoFragment) {
-                    androidx.navigation.NavOptions navOptions = null;
-                    if (currentDestId == R.id.levelThreeFragment) {
-                        navOptions = new androidx.navigation.NavOptions.Builder()
-                                .setPopUpTo(R.id.levelThreeFragment, true)
-                                .setLaunchSingleTop(false)
-                                .build();
-                    }
-                    navController.navigate(R.id.levelThreeFragment, args, navOptions);
-                }
+                navController.navigate(R.id.levelThreeFragment, args, clearStackOptions);
             } else {
                 Bundle args = new Bundle();
                 args.putString(ctx.getString(R.string.from_search), ctx.getString(R.string.search_tag));
@@ -328,21 +298,7 @@ public class SearchDialogFragment extends DialogFragment {
                         + getIconTitleLevel2(icon.getLevelOne())[icon.getLevelTwo()].replace("…", "") + "/ ";
                 args.putString(ctx.getString(R.string.intent_menu_path_tag), breadCrumbPath);
                 
-                Bundle l2Args = new Bundle();
-                l2Args.putInt(ctx.getString(R.string.level_one_intent_pos_tag), 1 /* Daily Activities */);
-                l2Args.putString(ctx.getString(R.string.intent_menu_path_tag), ctx.getString(R.string.home) + "/ " + getLevel1IconLabels()[1].replace("…", "") + "/ ");
-                
-                navController.navigate(R.id.levelTwoFragment, l2Args, baseNavOptions.build());
-                if (navController.getCurrentDestination() != null && navController.getCurrentDestination().getId() == R.id.levelTwoFragment) {
-                    androidx.navigation.NavOptions navOptions = null;
-                    if (currentDestId == R.id.activitySequenceFragment) {
-                        navOptions = new androidx.navigation.NavOptions.Builder()
-                                .setPopUpTo(R.id.activitySequenceFragment, true)
-                                .setLaunchSingleTop(false)
-                                .build();
-                    }
-                    navController.navigate(R.id.activitySequenceFragment, args, navOptions);
-                }
+                navController.navigate(R.id.activitySequenceFragment, args, clearStackOptions);
             }
         }
     }

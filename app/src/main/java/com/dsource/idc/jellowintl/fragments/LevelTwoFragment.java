@@ -470,7 +470,9 @@ public class LevelTwoFragment extends BaseFragment implements BasicCustomIconsCh
                 speakAndShowTextBar_(mNavigationBtnTxt[1]);
                 mUec.createSendFbEventFromTappedView(27, "", "");
                 mIvBack.setImageResource(R.drawable.back_pressed);
-                NavHostFragment.findNavController(LevelTwoFragment.this).popBackStack();
+                if (!NavHostFragment.findNavController(LevelTwoFragment.this).popBackStack()) {
+                    NavHostFragment.findNavController(LevelTwoFragment.this).navigate(R.id.levelOneFragment);
+                }
             }
         });
     }
@@ -488,7 +490,9 @@ public class LevelTwoFragment extends BaseFragment implements BasicCustomIconsCh
                 }).start();
                 mIvHome.setImageResource(R.drawable.home_pressed);
                 mIvKeyboard.setImageResource(R.drawable.keyboard);
-                NavHostFragment.findNavController(LevelTwoFragment.this).popBackStack(R.id.levelOneFragment, false);
+                if (!NavHostFragment.findNavController(LevelTwoFragment.this).popBackStack(R.id.levelOneFragment, false)) {
+                    NavHostFragment.findNavController(LevelTwoFragment.this).navigate(R.id.levelOneFragment);
+                }
             }
         });
     }

@@ -20,7 +20,6 @@ import static com.dsource.idc.jellowintl.utility.Analytics.stopMeasuring;
 import static com.dsource.idc.jellowintl.utility.Analytics.validatePushId;
 
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
@@ -70,8 +69,8 @@ import java.util.StringTokenizer;
 
 public class LevelThreeFragment extends BaseFragment implements BasicCustomIconsChangedListener {
 
-    /* This flags are used to identify respective expressive button is pressed either
-      once or twice. eg. mFlgLike used to identify Like expressive button pressed once or twice.*/
+    /* These flags are used to identify respective expressive button is pressed either
+      once or twice. e.g. mFlgLike used to identify Like expressive button pressed once or twice.*/
     private int mFlgLike = GlobalConstants.SHORT_SPEECH, mFlgYes = GlobalConstants.SHORT_SPEECH,
             mFlgMore = GlobalConstants.SHORT_SPEECH, mFlgDntLike = GlobalConstants.SHORT_SPEECH,
             mFlgNo = GlobalConstants.SHORT_SPEECH, mFlgLess = GlobalConstants.SHORT_SPEECH;
@@ -89,7 +88,7 @@ public class LevelThreeFragment extends BaseFragment implements BasicCustomIcons
     /*This variable indicates index of category icon selected in level one, two and three respectively*/
     private int mLevelOneItemPos, mLevelTwoItemPos, mLevelThreeItemPos = GlobalConstants.NOT_SELECTED;
     /*This variable indicates index of category icon in adapter in level 1. This variable is
-     different than mLevelOneItemPos. */
+     different from mLevelOneItemPos. */
     private int mSelectedItemAdapterPos = GlobalConstants.NOT_SELECTED;
     /* This flag is set to true, when user press the category icon and reset when user press the home
      button. When user presses expressive button and mShouldReadFullSpeech = true, it means that user
@@ -388,28 +387,28 @@ public class LevelThreeFragment extends BaseFragment implements BasicCustomIcons
 
     /**
      * <p>This function will initialize the adapter for recycler view.
-     * As per the category icon selected in the level one {@link MainActivity} and
-     * level two {@link LevelTwoActivity}, category icons are populated in this level.
+     * As per the category icon selected in the level one {@link LevelOneFragment} and
+     * level two {@link LevelTwoFragment}, category icons are populated in this level.
      * Also, if any category uses preferences then in that category icons are arranged
      * using preferences. If a category not uses preferences then in that category icons are
-     * populated directly. "Most tapped category icon will have highest preference value",
+     * populated directly. "Most tapped category icon will have the highest preference value",
      * in this fashion preferences are defined for category icons.
      * In level three, all category icon preferences are stored in SQLite database.
-     * Preferences are stored in the from comma separated values string.
+     * Preferences are stored in the form comma separated values string.
      *  e.g. "5,4,9,2,5"
      * This preference string is retrieved from database using category icon selected in level
-     * one {@link MainActivity} and level two {@link LevelTwoActivity}.
+     * one {@link LevelOneFragment} and level two {@link LevelTwoFragment}.
      * Then each value in preference string is converted into individual tokens and
      * followed by storing it into arrays. This array is known as Tap count array. Value
      * in 0th index of tap count array is tap count (number of times user tapped) for 0th element
      * in adapter array/speech array.
-     *  e.g mArrIconTapCount = [5,4,9,2,5]
+     *  e.g. mArrIconTapCount = [5,4,9,2,5]
      * Preferences are applied to a category during adapter setup only. To apply preferences to a
      * category below steps to be followed sequentially:
      *   1. Retrieve stored preferences from database as "savedString" for selected category.
      *   2. Convert savedString into tokens and then store individual tokens "savedString"
      *      into preference array.
-     *   3. From preference array create index array. Index array is a integer array, it
+     *   3. From preference array create index array. Index array is an integer array, it
      *      has index of most-preferred/most-tapped element first,
      *      then followed by second most-preferred/most-tapped element index and so on.
      *      e.g. Consider preference array as
@@ -442,7 +441,7 @@ public class LevelThreeFragment extends BaseFragment implements BasicCustomIcons
         mArrSort = new Integer[level3IconObjects.length];
 
         /// If category uses preferences to position icons and the category has only basic icons or
-        /// library icons then use preferences other wise do not use preferences position icons
+        /// library icons then use preferences otherwise do not use preferences position icons
         if (isCategoryWithPreference() && level3IconObjects.length == mIconCode.length) {
             count_flag = 1;
             mArrIconTapCount = new Integer[level3IconObjects.length];
@@ -527,7 +526,7 @@ public class LevelThreeFragment extends BaseFragment implements BasicCustomIcons
 
     /**
      * <p>This function will initialize the action listeners to the views which are populated on
-     * on this activity.</p>
+     * this activity.</p>
      * */
     private void initializeViewListeners() {
         initRecyclerViewListeners();
@@ -601,22 +600,22 @@ public class LevelThreeFragment extends BaseFragment implements BasicCustomIcons
         // When user scrolls into category, the child views are attached and detached from
         // recycler view. Also, the child views in recycler view have scrolled
         // off-screen are kept for reuse. Many times the reused view is assigned to
-        // on-screen view. In our app this behaviour be can seen as follows:
+        // on-screen view. In our app this behavior can be seen as follows:
         // When user scrolls into category, the child views are attached and detached from
         // recycler view. Also, the child views in recycler view have scrolled
         // off-screen are kept for reuse. Many times the reused view is assigned to
-        // on-screen view. In our app this behaviour be can seen as follows:
+        // on-screen view. In our app this behavior can be seen as follows:
         // Select "Dog" category icon in "Learning -> Animals & birds" then scrolled it off-screen
         // you will see selection border is appeared to another on-screen child of recycler view.
         // To overcome this situation a global list of state to every child of recycler view
         // is maintained.
         // When view is detached from recycler view it is removed from global list (mRecyclerItemsViewList)
         // and when child is attached to recycler view it is added to global list.
-        // If a category icon is selected and it is scrolled off-screen, other on-screen view reusing
+        // If a category icon is selected, and it is scrolled off-screen, other on-screen view reusing
         // same view will get selection border so its border is removed first before removing from
         // global list.
         // When recycler view is scrolled, every newly attached child is checked if it is selected
-        // previously or not. If the child is selected and it is reattached to recycler view then
+        // previously or not. If the child is selected, and it is reattached to recycler view then
         // set its border.
         mRecyclerView.addOnChildAttachStateChangeListener(new RecyclerView.OnChildAttachStateChangeListener() {
             @Override
@@ -643,7 +642,7 @@ public class LevelThreeFragment extends BaseFragment implements BasicCustomIcons
      *  a) If user is using custom keyboard input text then custom keyboard input text layout
      *     is closed.
      *  b) If user is not using custom keyboard input text then current level is closed returning
-     *  successful closure (RESULT_OK) of a screen. User will returned back to {@link LevelTwoActivity}.
+     *  successful closure (RESULT_OK) of a screen. User will returned back to {@link LevelTwoFragment}.
      * </p>
      * */
     private void initBackBtnListener() {
@@ -653,14 +652,19 @@ public class LevelThreeFragment extends BaseFragment implements BasicCustomIcons
                 speakAndShowTextBar_(mNavigationBtnTxt[1]);
                 mUec.createSendFbEventFromTappedView(27, "", "");
                 mIvBack.setImageResource(R.drawable.back_pressed);
-                NavHostFragment.findNavController(LevelThreeFragment.this).popBackStack();
+                if (!NavHostFragment.findNavController(LevelThreeFragment.this).popBackStack()) {
+                    Bundle args = new Bundle();
+                    args.putInt(getString(R.string.level_one_intent_pos_tag), mLevelOneItemPos);
+                    args.putString(getString(R.string.intent_menu_path_tag), txtActionBarTitle.substring(0, txtActionBarTitle.lastIndexOf("/")));
+                    NavHostFragment.findNavController(LevelThreeFragment.this).navigate(R.id.levelTwoFragment, args);
+                }
             }
         });
     }
 
     /**
      * <p>This function will initialize the click scrollListener to Navigation home button.
-     * When user press this button user navigated to {@link MainActivity} with
+     * When user press this button user navigated to {@link LevelOneFragment} with
      *  every state of views is like app launched as fresh. Action bar title is set
      *  to "home"</p>
      * */
@@ -677,7 +681,9 @@ public class LevelThreeFragment extends BaseFragment implements BasicCustomIcons
                 }).start();
                 mIvHome.setImageResource(R.drawable.home_pressed);
                 mIvKeyboard.setImageResource(R.drawable.keyboard);
-                NavHostFragment.findNavController(LevelThreeFragment.this).popBackStack(R.id.levelOneFragment, false);
+                if (!NavHostFragment.findNavController(LevelThreeFragment.this).popBackStack(R.id.levelOneFragment, false)) {
+                    NavHostFragment.findNavController(LevelThreeFragment.this).navigate(R.id.levelOneFragment);
+                }
             }
         });
     }
@@ -689,7 +695,7 @@ public class LevelThreeFragment extends BaseFragment implements BasicCustomIcons
      * When custom keyboard input text layout is enabled using keyboard button, is visible to user
      * and action bar title set to "keyboard".
      * When custom keyboard input text layout is disabled using keyboard button, the state of the
-     * {@link LevelThreeActivity} retrieved as it was before opening custom keyboard
+     * {@link LevelThreeFragment} retrieved as it was before opening custom keyboard
      * input text layout.
      * */
     private void initKeyboardBtnListener() {
@@ -810,7 +816,7 @@ public class LevelThreeFragment extends BaseFragment implements BasicCustomIcons
         mIvDontLike.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // When user press the don't like button all expressive button speech flag (except don't like)
+                // When user press don't like button all expressive button speech flag (except don't like)
                 // are set to reset.
                 mFlgLike = mFlgYes = mFlgMore = mFlgNo = mFlgLess = GlobalConstants.SHORT_SPEECH;
                 mFlgImage = GlobalConstants.DONT_LIKE;
@@ -818,13 +824,13 @@ public class LevelThreeFragment extends BaseFragment implements BasicCustomIcons
                 LevelUiUtils.setExpressiveIconPressedState(expressiveBtn, mFlgImage);
                 // if value of mShouldReadFullSpeech is false then do not speak full sentence verbiage.
                 if (!mShouldReadFullSpeech) {
-                    // if value of mFlgDntLike is 1, then should speak "really dont like".
+                    // if value of mFlgDntLike is 1, then should speak "really don't like".
                     if (mFlgDntLike == GlobalConstants.LONG_SPEECH) {
                         speakAndShowTextBar_(mExprBtnTxt[7]);
                         mFlgDntLike = GlobalConstants.SHORT_SPEECH;
                         //Firebase event
                         mUec.createSendFbEventFromTappedView(7, "", "");
-                    // if value of mFlgDntLike is 0, then should speak " dont like".
+                    // if value of mFlgDntLike is 0, then should speak " don't like".
                     } else {
                         speakAndShowTextBar_(mExprBtnTxt[6]);
                         mFlgDntLike = GlobalConstants.LONG_SPEECH;
@@ -852,7 +858,7 @@ public class LevelThreeFragment extends BaseFragment implements BasicCustomIcons
                                 +"_"+ mIconCode[getTagPos()]+"DD","");
 
                         speakAndShowTextBar_(level3IconObjects[mArrSort[mLevelThreeItemPos]].getDD());
-                        //reset mFlgDntLike to speak "dont like" expression
+                        //reset mFlgDntLike to speak "don't like" expression
                         mFlgDntLike = GlobalConstants.SHORT_SPEECH;
                     // if value of mFlgDntLike is 0 then Speak associated don't like expression
                     // verbiage for selected category icon.
@@ -1236,8 +1242,8 @@ public class LevelThreeFragment extends BaseFragment implements BasicCustomIcons
             // retained from speech array otherwise speech text is retained using preference sort array
             // and then text is sent to synthesis.
             // Categories not using preference sort in below if are stated respectively:
-            // Fun -> (Tv and Music)
-            // Time ans weather -> (Time, Day, Month, Weather, Season)
+            // Fun -> (TV and Music)
+            // Time and weather -> (Time, Day, Month, Weather, Season)
             // Learning -> (Money) .
             if ((mLevelOneItemPos == 3 && (mLevelTwoItemPos == 3 || mLevelTwoItemPos == 4)) ||
                     (mLevelOneItemPos == 7 && (mLevelTwoItemPos == 0 || mLevelTwoItemPos == 1 ||
@@ -1364,48 +1370,48 @@ public class LevelThreeFragment extends BaseFragment implements BasicCustomIcons
             }
         });
 
-        final ImageView[] expressiveBtns = {ivLike, ivYes, ivAdd, ivDisLike, ivNo, ivMinus};
+        final ImageView[] expressiveBtn = {ivLike, ivYes, ivAdd, ivDisLike, ivNo, ivMinus};
 
         ivLike.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mIvLike.performClick();
-                LevelUiUtils.setExpressiveIconPressedState(expressiveBtns, GlobalConstants.LIKE);
+                LevelUiUtils.setExpressiveIconPressedState(expressiveBtn, GlobalConstants.LIKE);
             }
         });
         ivYes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mIvYes.performClick();
-                LevelUiUtils.setExpressiveIconPressedState(expressiveBtns, GlobalConstants.YES);
+                LevelUiUtils.setExpressiveIconPressedState(expressiveBtn, GlobalConstants.YES);
             }
         });
         ivAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mIvMore.performClick();
-                LevelUiUtils.setExpressiveIconPressedState(expressiveBtns, GlobalConstants.MORE);
+                LevelUiUtils.setExpressiveIconPressedState(expressiveBtn, GlobalConstants.MORE);
             }
         });
         ivDisLike.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mIvDontLike.performClick();
-                LevelUiUtils.setExpressiveIconPressedState(expressiveBtns, GlobalConstants.DONT_LIKE);
+                LevelUiUtils.setExpressiveIconPressedState(expressiveBtn, GlobalConstants.DONT_LIKE);
             }
         });
         ivNo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mIvNo.performClick();
-                LevelUiUtils.setExpressiveIconPressedState(expressiveBtns, GlobalConstants.NO);
+                LevelUiUtils.setExpressiveIconPressedState(expressiveBtn, GlobalConstants.NO);
             }
         });
         ivMinus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mIvLess.performClick();
-                LevelUiUtils.setExpressiveIconPressedState(expressiveBtns, GlobalConstants.LESS);
+                LevelUiUtils.setExpressiveIconPressedState(expressiveBtn, GlobalConstants.LESS);
             }
         });
         ivBack.setOnClickListener(new View.OnClickListener() {
@@ -1435,7 +1441,7 @@ public class LevelThreeFragment extends BaseFragment implements BasicCustomIcons
                 dialog.dismiss();
             }
         });
-        LevelUiUtils.setExpressiveIconConditionally(expressiveBtns, level3IconObjects
+        LevelUiUtils.setExpressiveIconConditionally(expressiveBtn, level3IconObjects
                 [mArrSort[mLevelThreeItemPos]]);
 
         dialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
@@ -1475,7 +1481,7 @@ public class LevelThreeFragment extends BaseFragment implements BasicCustomIcons
         mFlgImage = GlobalConstants.NO_EXPR;
     }
 
-    /**<p> This function will returns the index of the item searched item in the sorted list
+    /**<p> This function will return the index of the item searched item in the sorted list
      * it takes default index of the searched item and returns the actual sorted index of the element.
      * @Author AyazAlam</p>
      *
