@@ -17,7 +17,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 @RunWith(RobolectricTestRunner.class)
-@Config(sdk = 28) // Use a stable SDK version for Robolectric
+@Config(sdk = 34) // Use a stable SDK version for Robolectric
 public class LanguageHelperTest {
 
     private Context context;
