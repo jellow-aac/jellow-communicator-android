@@ -247,7 +247,9 @@ public class IntroFragment extends BaseFragment {
                 if (btn == R.id.btn_getStarted) {
                     parent.getView().findViewById(btn).setOnClickListener(v -> {
                         getSession().setCompletedIntro(true);
-                        NavHostFragment.findNavController(IntroFragment.this).navigate(R.id.action_introFragment_to_splashFragment);
+                        NavHostFragment.findNavController(IntroFragment.this).navigate(R.id.action_introFragment_to_splashFragment, null,
+                                new androidx.navigation.NavOptions.Builder()
+                                        .setPopUpTo(R.id.introFragment, true).build());
                     });
                 }
             }

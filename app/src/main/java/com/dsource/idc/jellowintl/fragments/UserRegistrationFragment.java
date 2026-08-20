@@ -95,12 +95,14 @@ public class UserRegistrationFragment extends BaseFragment implements CheckNetwo
 
         if (getSession().isUserLoggedIn()) {
             if (LanguageFactory.isLanguageDataAvailable(requireContext()) && getSession().isCompletedIntro()) {
-                navController.navigate(R.id.action_userRegistrationFragment_to_splashFragment);
+                navController.navigate(R.id.action_userRegistrationFragment_to_splashFragment, null,
+                        new androidx.navigation.NavOptions.Builder().setPopUpTo(R.id.userRegistrationFragment, true).build());
             } else if (!LanguageFactory.isLanguageDataAvailable(requireContext())) {
                 Bundle args = new Bundle();
                 args.putString("LCODE", UNIVERSAL_PACKAGE);
                 args.putBoolean("TUTORIAL", true);
-                navController.navigate(R.id.action_userRegistrationFragment_to_languageDownloadFragment, args);
+                navController.navigate(R.id.action_userRegistrationFragment_to_languageDownloadFragment, args,
+                        new androidx.navigation.NavOptions.Builder().setPopUpTo(R.id.userRegistrationFragment, true).build());
                 
                 /* 0 represents old value of one by three config*/
                 if (getSession().getGridSize() == 0)
@@ -111,9 +113,11 @@ public class UserRegistrationFragment extends BaseFragment implements CheckNetwo
                 Bundle args = new Bundle();
                 args.putString("LCODE", MR_IN);
                 args.putBoolean("TUTORIAL", true);
-                navController.navigate(R.id.action_userRegistrationFragment_to_languageDownloadFragment, args);
+                navController.navigate(R.id.action_userRegistrationFragment_to_languageDownloadFragment, args,
+                        new androidx.navigation.NavOptions.Builder().setPopUpTo(R.id.userRegistrationFragment, true).build());
             } else if (LanguageFactory.isLanguageDataAvailable(requireContext()) && !getSession().isCompletedIntro()) {
-                navController.navigate(R.id.action_userRegistrationFragment_to_introFragment);
+                navController.navigate(R.id.action_userRegistrationFragment_to_introFragment, null,
+                        new androidx.navigation.NavOptions.Builder().setPopUpTo(R.id.userRegistrationFragment, true).build());
             }
         } else {
             getSession().setBlood(-1);

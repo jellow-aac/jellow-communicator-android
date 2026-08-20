@@ -96,7 +96,7 @@ public class LevelThreeAdapter extends RecyclerView.Adapter<LevelThreeAdapter.My
 
         Glide.with(mContext)
                 .load(getIconPath(mContext, iconNameArray[position] + EXTENSION))
-                .error(Drawable.createFromPath(getBasicCustomIconsPath(mContext, iconNameArray[position] + EXTENSION)))
+                .error(Glide.with(mContext).load(getBasicCustomIconsPath(mContext, iconNameArray[position] + EXTENSION)))
                 .into(holder.menuItemImage);
 
         if (iconNameArray[position].equals(ADD_BASIC_CUSTOM_ICON)){

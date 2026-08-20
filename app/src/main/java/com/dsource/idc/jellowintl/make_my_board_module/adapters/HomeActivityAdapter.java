@@ -168,6 +168,7 @@ public class HomeActivityAdapter extends RecyclerView.Adapter<HomeActivityAdapte
 
     private void setImageFromLibrary(ImageView imageView, String drawableId) {
         Glide.with(mContext).load(getIconPath(mContext, drawableId + EXTENSION))
+                .error(Glide.with(mContext).load(com.dsource.idc.jellowintl.factories.PathFactory.getBasicCustomIconsPath(mContext, drawableId + EXTENSION)))
                 .placeholder(R.drawable.ic_icon_placeholder)
                 .into(imageView);
     }

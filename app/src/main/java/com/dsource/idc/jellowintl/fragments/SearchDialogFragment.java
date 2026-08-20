@@ -19,6 +19,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.view.accessibility.AccessibilityManager;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -27,6 +28,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.core.view.ViewCompat;
 import androidx.fragment.app.DialogFragment;
 import androidx.navigation.NavController;
@@ -89,6 +91,10 @@ public class SearchDialogFragment extends DialogFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        if (getDialog() != null && getDialog().getWindow() != null) {
+            getDialog().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
+        }
 
         if (getActivity() instanceof BaseActivity) {
             ((BaseActivity) getActivity()).applyMonochromeColor();
@@ -251,8 +257,8 @@ public class SearchDialogFragment extends DialogFragment {
                 Bundle args = new Bundle();
                 args.putInt(ctx.getString(R.string.search_parent_0), icon.getLevelOne());
                 args.putString(ctx.getString(R.string.from_search), ctx.getString(R.string.search_tag));
-                navController.popBackStack(R.id.mainFragment, true);
-                navController.navigate(R.id.mainFragment, args);
+                navController.navigate(R.id.mainFragment, args, new androidx.navigation.NavOptions.Builder()
+                        .setPopUpTo(R.id.mainFragment, true).build());
             } else if (icon.getLevelOne() != -1 && icon.getLevelTwo() != -1 && icon.getLevelThree() == -1) {
                 Bundle args = new Bundle();
                 args.putInt(ctx.getString(R.string.level_one_intent_pos_tag), icon.getLevelOne());
@@ -261,8 +267,8 @@ public class SearchDialogFragment extends DialogFragment {
                 String breadCrumbPath = ctx.getString(R.string.home) + "/ " +
                         getLevel1IconLabels()[icon.getLevelOne()].replace("…", "") + "/ ";
                 args.putString(ctx.getString(R.string.intent_menu_path_tag), breadCrumbPath);
-                navController.popBackStack(R.id.mainFragment, false);
-                navController.navigate(R.id.action_mainFragment_to_levelTwoFragment, args);
+                navController.navigate(R.id.action_mainFragment_to_levelTwoFragment, args, new androidx.navigation.NavOptions.Builder()
+                        .setPopUpTo(R.id.mainFragment, false).build());
             } else if (!icon.isSequenceIcon()) {
                 Bundle args = new Bundle();
                 args.putString(ctx.getString(R.string.from_search), ctx.getString(R.string.search_tag));
@@ -273,12 +279,14 @@ public class SearchDialogFragment extends DialogFragment {
                         getLevel1IconLabels()[icon.getLevelOne()].replace("…", "") + "/ "
                         + getIconTitleLevel2(icon.getLevelOne())[icon.getLevelTwo()].replace("…", "") + "/ ";
                 args.putString(ctx.getString(R.string.intent_menu_path_tag), breadCrumbPath);
-                navController.popBackStack(R.id.mainFragment, false);
                 Bundle l2Args = new Bundle();
                 l2Args.putInt(ctx.getString(R.string.level_one_intent_pos_tag), icon.getLevelOne());
                 l2Args.putString(ctx.getString(R.string.intent_menu_path_tag), ctx.getString(R.string.home) + "/ " + getLevel1IconLabels()[icon.getLevelOne()].replace("…", "") + "/ ");
-                navController.navigate(R.id.action_mainFragment_to_levelTwoFragment, l2Args);
-                navController.navigate(R.id.action_levelTwoFragment_to_levelThreeFragment, args);
+                navController.navigate(R.id.action_mainFragment_to_levelTwoFragment, l2Args, new androidx.navigation.NavOptions.Builder()
+                        .setPopUpTo(R.id.mainFragment, false).build());
+                if (navController.getCurrentDestination() != null && navController.getCurrentDestination().getId() == R.id.levelTwoFragment) {
+                    navController.navigate(R.id.action_levelTwoFragment_to_levelThreeFragment, args);
+                }
             } else {
                 Bundle args = new Bundle();
                 args.putString(ctx.getString(R.string.from_search), ctx.getString(R.string.search_tag));
@@ -288,12 +296,14 @@ public class SearchDialogFragment extends DialogFragment {
                         getLevel1IconLabels()[icon.getLevelOne()].replace("…", "") + "/ "
                         + getIconTitleLevel2(icon.getLevelOne())[icon.getLevelTwo()].replace("…", "") + "/ ";
                 args.putString(ctx.getString(R.string.intent_menu_path_tag), breadCrumbPath);
-                navController.popBackStack(R.id.mainFragment, false);
                 Bundle l2Args = new Bundle();
                 l2Args.putInt(ctx.getString(R.string.level_one_intent_pos_tag), 1 /* Daily Activities */);
                 l2Args.putString(ctx.getString(R.string.intent_menu_path_tag), ctx.getString(R.string.home) + "/ " + getLevel1IconLabels()[1].replace("…", "") + "/ ");
-                navController.navigate(R.id.action_mainFragment_to_levelTwoFragment, l2Args);
-                navController.navigate(R.id.action_levelTwoFragment_to_sequenceFragment, args);
+                navController.navigate(R.id.action_mainFragment_to_levelTwoFragment, l2Args, new androidx.navigation.NavOptions.Builder()
+                        .setPopUpTo(R.id.mainFragment, false).build());
+                if (navController.getCurrentDestination() != null && navController.getCurrentDestination().getId() == R.id.levelTwoFragment) {
+                    navController.navigate(R.id.action_levelTwoFragment_to_sequenceFragment, args);
+                }
             }
         }
     }
@@ -387,11 +397,14 @@ class SearchDialogViewIconAdapter extends RecyclerView.Adapter<SearchDialogViewI
             holder.iconTitle.setText(R.string.icon_not_found);
             holder.speakIcon.setVisibility(View.GONE);
             holder.iconDir.setVisibility(View.GONE);
-            holder.iconImage.setImageDrawable(context.getResources().getDrawable(R.drawable.ic_icon_not_found));
+            holder.iconImage.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.ic_icon_not_found));
             return;
         } else {
+            String path = (thisIcon.isCustomIcon() ?
+                    com.dsource.idc.jellowintl.factories.PathFactory.getBasicCustomIconsPath(context, thisIcon.getIconDrawable()) :
+                    getIconPath(context, thisIcon.getIconDrawable())) + ".png";
             Glide.with(context)
-                    .load(getIconPath(context, thisIcon.getIconDrawable()) + ".png")
+                    .load(path)
                     .diskCacheStrategy(DiskCacheStrategy.NONE)
                     .skipMemoryCache(false)
                     .centerCrop()

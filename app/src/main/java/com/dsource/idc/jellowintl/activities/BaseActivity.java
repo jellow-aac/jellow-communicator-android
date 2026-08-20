@@ -229,8 +229,8 @@ public class BaseActivity extends AppCompatActivity{
                     NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
                     if (navController.getCurrentDestination() != null) {
                         int currentDest = navController.getCurrentDestination().getId();
-                        navController.popBackStack(currentDest, true);
-                        navController.navigate(currentDest);
+                        navController.navigate(currentDest, null, new androidx.navigation.NavOptions.Builder()
+                                .setPopUpTo(currentDest, true).build());
                     }
                 } else {
                     startActivity(new Intent(getApplicationContext(), AppActivity.class));
@@ -283,11 +283,14 @@ public class BaseActivity extends AppCompatActivity{
         if (!getVisibleAct().equals(fragmentName)) {
             if (this instanceof AppActivity) {
                 NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+                androidx.navigation.NavOptions.Builder builder = new androidx.navigation.NavOptions.Builder();
                 if (!getVisibleAct().isEmpty() && !getLevelClass().contains(getVisibleAct()) &&
                         !getNonMenuClass().contains(getVisibleAct())) {
-                    navController.popBackStack();
+                    if (navController.getCurrentDestination() != null) {
+                        builder.setPopUpTo(navController.getCurrentDestination().getId(), true);
+                    }
                 }
-                navController.navigate(destinationId);
+                navController.navigate(destinationId, null, builder.build());
             } else {
                 Intent intent = new Intent(this, AppActivity.class);
                 intent.putExtra("destination", fragmentName);

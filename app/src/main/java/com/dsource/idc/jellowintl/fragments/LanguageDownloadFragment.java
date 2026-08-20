@@ -109,12 +109,14 @@ public class LanguageDownloadFragment extends BaseFragment {
                     manager.start();
                 }else if(tutorial) {
                     NavHostFragment.findNavController(LanguageDownloadFragment.this)
-                        .navigate(R.id.action_languageDownloadFragment_to_introFragment);
+                        .navigate(R.id.action_languageDownloadFragment_to_introFragment, null,
+                                new androidx.navigation.NavOptions.Builder().setPopUpTo(R.id.languageDownloadFragment, true).build());
                 }else if(close){
                     NavHostFragment.findNavController(LanguageDownloadFragment.this).popBackStack();
                 }else if(finish) {
                     NavHostFragment.findNavController(LanguageDownloadFragment.this)
-                        .navigate(R.id.action_languageDownloadFragment_to_splashFragment);
+                        .navigate(R.id.action_languageDownloadFragment_to_splashFragment, null,
+                                new androidx.navigation.NavOptions.Builder().setPopUpTo(R.id.languageDownloadFragment, true).build());
                 }
             }
         };

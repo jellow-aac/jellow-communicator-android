@@ -20,6 +20,7 @@
             app:layout_constraintVertical_bias="1.1"
             android:src="@drawable/wave"
             android:elevation="8dp"
+            android:importantForAccessibility="no"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>
         <LinearLayout
