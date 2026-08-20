@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_background">
+
+    <include layout="@layout/app_bar"
+        android:id="@+id/custom_app_bar"/>
+
+    <TextView
+        android:id="@+id/tv_intro_title_static"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@id/custom_app_bar"
+        android:gravity="center"
+        style="@style/defaultTextViewStyle"
+        android:paddingLeft="32dp"
+        android:paddingRight="32dp"
+        android:textSize="13sp"/>
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/tv_intro_title_static"
+        android:layout_above="@+id/bottom_bar"/>
+
+    <ImageView
+        android:id="@+id/btnMoveLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/custom_app_bar"
+        android:layout_above="@id/bottom_bar"
+        android:paddingLeft="8dp"
+        android:paddingStart="8dp"
+        android:src="@drawable/ic_chevron_left"
+        android:visibility="gone"
+        android:contentDescription="@string/previous_slide"
+        tools:ignore="RtlSymmetry" />
+
+    <ImageView
+        android:id="@+id/btnMoveRight"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/custom_app_bar"
+        android:layout_above="@id/bottom_bar"
+        android:paddingRight="8dp"
+        android:paddingEnd="8dp"
+        android:src="@drawable/ic_chevron_right"
+        android:contentDescription="@string/next_slide"
+        tools:ignore="RtlSymmetry" />
+
+    <RelativeLayout
+        android:id="@+id/bottom_bar"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_alignParentBottom="true"
+        android:padding="8dp"
+        android:background="@color/app_background">
+
+<!--        <Button-->
+<!--            android:id="@+id/btnPrev"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_alignParentStart="true"-->
+<!--            android:layout_alignParentLeft="true"-->
+<!--            android:background="?attr/selectableItemBackground"-->
+<!--            android:text="@string/previous"-->
+<!--            android:visibility="gone"-->
+<!--            android:textColor="@color/colorPrimary"-->
+<!--            style="?android:attr/borderlessButtonStyle"/>-->
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            app:tabBackground="@drawable/tab_selector"
+            app:tabGravity="center"
+            app:tabIndicatorHeight="0dp"
+            app:tabMaxWidth="16dp"
+            app:tabMinWidth="16dp"
+            app:tabPaddingStart="0dp"
+            app:tabPaddingEnd="0dp"
+            app:tabMode="fixed"
+            android:background="@android:color/transparent"/>
+
+<!--        <Button-->
+<!--            android:id="@+id/btnNext"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_alignParentEnd="true"-->
+<!--            android:layout_alignParentRight="true"-->
+<!--            android:background="?attr/selectableItemBackground"-->
+<!--            android:text="@string/next"-->
+<!--            android:visibility="visible"-->
+<!--            android:textColor="@color/colorPrimary"-->
+<!--            style="?android:attr/borderlessButtonStyle"/>-->
+
+<!--        <Button-->
+<!--            android:id="@+id/btnDone"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_alignParentEnd="true"-->
+<!--            android:layout_alignParentRight="true"-->
+<!--            android:background="?attr/selectableItemBackground"-->
+<!--            android:text="@string/txt_intro7_getStarted"-->
+<!--            android:visibility="gone"-->
+<!--            android:textColor="@color/colorPrimary"-->
+<!--            style="?android:attr/borderlessButtonStyle"/>-->
+
+    </RelativeLayout>
+</RelativeLayout>

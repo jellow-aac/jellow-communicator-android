@@ -5,9 +5,8 @@
     android:id="@+id/parent"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000"
-    tools:context="com.dsource.idc.jellowintl.make_my_board_module.activity.BoardListActivity"
-    android:fitsSystemWindows="true">
+    
+    tools:context="com.dsource.idc.jellowintl.make_my_board_module.activity.BoardListActivity">
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -28,8 +27,7 @@
                     android:fadeScrollbars="false"
                     android:scrollbarSize="4dp"
                     android:scrollbars="vertical"
-                    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-                    android:fitsSystemWindows="true"/>
+                    app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -37,8 +35,7 @@
                     android:id="@+id/place_holder_text"
                     android:textSize="24sp"
                     android:text="@string/board_place_holder_text"
-                    android:textColor="@color/light_grey"
-                    android:fitsSystemWindows="true"/>
+                    android:textColor="@color/light_grey"/>
         </RelativeLayout>
 </LinearLayout>
 

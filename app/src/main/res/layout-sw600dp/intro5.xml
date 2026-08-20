@@ -1,70 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg"
-    android:id="@+id/main"
-    android:importantForAccessibility="yes">
-    <include layout="@layout/app_bar"
-        android:id="@+id/custom_app_bar"/>
-    <ImageView
-        android:id="@+id/btnMoveLeft"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:fitsSystemWindows="true"
-        android:onClick="changeDemoScreen"
-        android:layout_gravity="start"
-        android:paddingLeft="32dp"
-        android:paddingStart="32dp"
-        android:src="@drawable/ic_chevron_left"
-        tools:ignore="RtlSymmetry"
-        android:contentDescription="@string/previous_slide"/>
+    android:importantForAccessibility="yes"
+    android:id="@+id/main">
     <LinearLayout
+        android:id="@+id/parent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="?attr/actionBarSize"
         android:orientation="vertical"
         android:layout_gravity="center_horizontal">
-        <TextView
-            android:id="@+id/tv_intro5_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            style="@style/defaultTextViewStyle"
-            android:paddingLeft="32dp"
-            android:layout_weight="1"
-            android:paddingRight="32dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:textSize="20sp"
-            android:text="@string/txt_intro5_jellowUsageDesc"/>
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_width="wrap_content"
+            android:layout_height="400dp"
             android:orientation="horizontal"
             android:gravity="center"
-            android:layout_weight="29">
+            android:layout_gravity="center">
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_gravity="center"
                 android:src="@drawable/expressivebuttons"
                 android:contentDescription="@string/intro5_cd"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center">
+            android:gravity="center_horizontal">
             <TextView
                 android:id="@+id/tv_intro5_caption"
-                android:layout_width="0dp"
-                android:layout_weight="2"
-                android:layout_height="64dp"
-                android:layout_gravity="top"
-                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 style="@style/defaultTextViewStyle"
                 android:paddingLeft="64dp"
                 android:paddingRight="64dp"
@@ -76,16 +44,4 @@
             android:layout_width="match_parent"
             android:layout_height="64dp" />
     </LinearLayout>
-    <ImageView
-        android:id="@+id/btnMoveRight"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:fitsSystemWindows="true"
-        android:onClick="changeDemoScreen"
-        android:layout_gravity="end"
-        android:paddingRight="32dp"
-        android:paddingEnd="32dp"
-        android:src="@drawable/ic_chevron_right"
-        tools:ignore="RtlSymmetry"
-        android:contentDescription="@string/next_slide" />
 </FrameLayout>

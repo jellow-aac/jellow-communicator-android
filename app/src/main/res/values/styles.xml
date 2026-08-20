@@ -135,7 +135,7 @@
 
     <style name="customNavButtonStyle" parent="Widget.AppCompat.Button">
         <item name="android:background">@drawable/custom_seq_btn_view</item>
-        <item name="android:textColor">@color/black_eighty</item>
+        <item name="android:textColor">@color/app_background</item>
     </style>
 
     <style name="DialogAnimation">

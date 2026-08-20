@@ -4,8 +4,7 @@
     android:id="@+id/parent"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000"
-    android:fitsSystemWindows="true">
+    >
     <RelativeLayout
         android:id="@+id/rlParent"
         android:layout_width="match_parent"
@@ -22,7 +21,6 @@
             android:layout_alignParentBottom="true"
             android:layout_centerInParent="true"
             android:gravity="center_horizontal"
-            android:fitsSystemWindows="true"
             android:orientation="vertical">
             <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
                 android:id="@+id/pg"

@@ -6,61 +6,32 @@
     android:background="@drawable/bg"
     android:id="@+id/main"
     android:importantForAccessibility="yes">
-    <include layout="@layout/app_bar"
-        android:id="@+id/custom_app_bar"/>
-    <ImageView
-        android:id="@+id/btnMoveLeft"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:fitsSystemWindows="true"
-        android:onClick="changeDemoScreen"
-        android:layout_gravity="start"
-        android:paddingLeft="32dp"
-        android:paddingStart="32dp"
-        android:src="@drawable/ic_chevron_left"
-        tools:ignore="RtlSymmetry"
-        android:contentDescription="@string/previous_slide"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="?attr/actionBarSize"
         android:orientation="vertical"
         android:layout_gravity="center_horizontal">
-        <TextView
-            android:id="@+id/tv_intro3_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            style="@style/defaultTextViewStyle"
-            android:paddingLeft="32dp"
-            android:layout_weight="1"
-            android:paddingRight="32dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:text="@string/txt_intro3_level2CatDesc"/>
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="0dp"
+            android:layout_height="450dp"
             android:orientation="horizontal"
-            android:layout_gravity="center_horizontal"
-            android:layout_weight="32">
+            android:gravity="center"
+            android:layout_gravity="center">
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_gravity="center"
                 android:src="@drawable/image4"
                 android:contentDescription="@string/intro3_cd"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:gravity="center_horizontal">
             <TextView
                 android:id="@+id/tv_intro3_caption"
-                android:layout_width="0dp"
-                android:layout_weight="3"
-                android:layout_height="64dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="top"
                 android:gravity="center"
                 style="@style/defaultTextViewStyle"
@@ -71,18 +42,6 @@
         </LinearLayout>
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="64dp"/>
+            android:layout_height="64dp" />
     </LinearLayout>
-    <ImageView
-        android:id="@+id/btnMoveRight"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:fitsSystemWindows="true"
-        android:onClick="changeDemoScreen"
-        android:layout_gravity="end"
-        android:paddingRight="32dp"
-        android:paddingEnd="32dp"
-        android:src="@drawable/ic_chevron_right"
-        tools:ignore="RtlSymmetry"
-        android:contentDescription="@string/next_slide" />
 </FrameLayout>

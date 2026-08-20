@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/userRegistrationFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.dsource.idc.jellowintl.fragments.SplashFragment"
+        android:label="SplashFragment"
+        tools:layout="@layout/activity_splash">
+        <action
+            android:id="@+id/action_splashFragment_to_levelOneFragment"
+            app:destination="@id/levelOneFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/tutorialFragment"
+        android:name="com.dsource.idc.jellowintl.fragments.TutorialFragment"
+        android:label="TutorialFragment"
+        tools:layout="@layout/activity_tutorial" />
+
+    <fragment
+        android:id="@+id/userRegistrationFragment"
+        android:name="com.dsource.idc.jellowintl.fragments.UserRegistrationFragment"
+        android:label="UserRegistrationFragment"
+        tools:layout="@layout/activity_user_registration">
+        <action
+            android:id="@+id/action_userRegistrationFragment_to_languageDownloadFragment"
+            app:destination="@id/languageDownloadFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_userRegistrationFragment_to_introFragment"
+            app:destination="@id/introFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_userRegistrationFragment_to_splashFragment"
+            app:destination="@id/splashFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/languageDownloadFragment"
+        android:name="com.dsource.idc.jellowintl.fragments.LanguageDownloadFragment"
+        android:label="LanguageDownloadFragment"
+        tools:layout="@layout/activity_language_download">
+        <argument
+            android:name="LCODE"
+            app:argType="string" />
+        <argument
+            android:name="SPLASH"
+            app:argType="boolean"
+            android:defaultValue="true" />
+        <argument
+            android:name="TUTORIAL"
+            app:argType="boolean"
+            android:defaultValue="false" />
+        <argument
+            android:name="CLOSE"
+            app:argType="boolean"
+            android:defaultValue="false" />
+        <action
+            android:id="@+id/action_languageDownloadFragment_to_introFragment"
+            app:destination="@id/introFragment"
+            app:popUpTo="@id/languageDownloadFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_languageDownloadFragment_to_splashFragment"
+            app:destination="@id/splashFragment"
+            app:popUpTo="@id/languageDownloadFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/introFragment"
+        android:name="com.dsource.idc.jellowintl.fragments.IntroFragment"
+        android:label="IntroFragment"
+        tools:layout="@layout/fragment_intro">
+        <action
+            android:id="@+id/action_introFragment_to_splashFragment"
+            app:destination="@id/splashFragment" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.dsource.idc.jellowintl.fragments.SettingFragment"
+        android:label="SettingFragment"
+        tools:layout="@layout/activity_settings" />
+
+    <fragment
+        android:id="@+id/profileFormFragment"
+        android:name="com.dsource.idc.jellowintl.fragments.ProfileFormFragment"
+        android:label="ProfileFormFragment"
+        tools:layout="@layout/activity_profile_form" />
+
+    <fragment
+        android:id="@+id/aboutJellowFragment"
+        android:name="com.dsource.idc.jellowintl.fragments.AboutJellowFragment"
+        android:label="AboutJellowFragment"
+        tools:layout="@layout/activity_about_jellow" />
+
+    <fragment
+        android:id="@+id/languageSelectFragment"
+        android:name="com.dsource.idc.jellowintl.fragments.LanguageSelectFragment"
+        android:label="LanguageSelectFragment"
+        tools:layout="@layout/activity_language_select" />
+
+    <fragment
+        android:id="@+id/languagePackUpdateFragment"
+        android:name="com.dsource.idc.jellowintl.fragments.LanguagePackUpdateFragment"
+        android:label="LanguagePackUpdateFragment"
+        tools:layout="@layout/activity_language_pack_update_activity" />
+
+    <fragment
+        android:id="@+id/resetPreferencesFragment"
+        android:name="com.dsource.idc.jellowintl.fragments.ResetPreferencesFragment"
+        android:label="ResetPreferencesFragment"
+        tools:layout="@layout/activity_reset_preferences" />
+
+    <fragment
+        android:id="@+id/accessibilitySettingsFragment"
+        android:name="com.dsource.idc.jellowintl.fragments.AccessibilitySettingsFragment"
+        android:label="AccessibilitySettingsFragment"
+        tools:layout="@layout/activity_accessibility_settings" />
+
+    <fragment
+        android:id="@+id/feedbackFragment"
+        android:name="com.dsource.idc.jellowintl.fragments.FeedbackFragment"
+        android:label="FeedbackFragment"
+        tools:layout="@layout/activity_feedback" />
+
+    <fragment
+        android:id="@+id/feedbackTalkBackFragment"
+        android:name="com.dsource.idc.jellowintl.fragments.FeedbackTalkBackFragment"
+        android:label="FeedbackTalkBackFragment"
+        tools:layout="@layout/activity_feedback_talkback" />
+
+    <fragment
+        android:id="@+id/keyboardInputFragment"
+        android:name="com.dsource.idc.jellowintl.fragments.KeyboardInputFragment"
+        android:label="KeyboardInputFragment"
+        tools:layout="@layout/activity_keyboard_input" />
+
+    <dialog
+        android:id="@+id/searchDialogFragment"
+        android:name="com.dsource.idc.jellowintl.fragments.SearchDialogFragment"
+        android:label="SearchDialogFragment"
+        tools:layout="@layout/activity_search" />
+
+    <fragment
+        android:id="@+id/levelOneFragment"
+        android:name="com.dsource.idc.jellowintl.fragments.LevelOneFragment"
+        android:label="LevelOneFragment"
+        tools:layout="@layout/activity_levelx_layout">
+        <action
+            android:id="@+id/action_levelOneFragment_to_levelTwoFragment"
+            app:destination="@id/levelTwoFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/levelTwoFragment"
+        android:name="com.dsource.idc.jellowintl.fragments.LevelTwoFragment"
+        android:label="LevelTwoFragment"
+        tools:layout="@layout/activity_levelx_layout">
+        <argument
+            android:name="level_one_intent_pos_tag"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <argument
+            android:name="intent_menu_path_tag"
+            app:argType="string"
+            android:defaultValue="" />
+        <action
+            android:id="@+id/action_levelTwoFragment_to_levelThreeFragment"
+            app:destination="@id/levelThreeFragment" />
+        <action
+            android:id="@+id/action_levelTwoFragment_to_activitySequenceFragment"
+            app:destination="@id/activitySequenceFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/levelThreeFragment"
+        android:name="com.dsource.idc.jellowintl.fragments.LevelThreeFragment"
+        android:label="LevelThreeFragment"
+        tools:layout="@layout/activity_levelx_layout">
+        <argument
+            android:name="level_one_intent_pos_tag"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <argument
+            android:name="level_2_item_pos_tag"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <argument
+            android:name="intent_menu_path_tag"
+            app:argType="string"
+            android:defaultValue="" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/activitySequenceFragment"
+        android:name="com.dsource.idc.jellowintl.fragments.ActivitySequenceFragment"
+        android:label="ActivitySequenceFragment"
+        tools:layout="@layout/activity_sequence">
+        <argument
+            android:name="level_2_item_pos_tag"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <argument
+            android:name="intent_menu_path_tag"
+            app:argType="string"
+            android:defaultValue="" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/boardListFragment"
+        android:name="com.dsource.idc.jellowintl.make_my_board_module.fragments.BoardListFragment"
+        android:label="BoardListFragment"
+        tools:layout="@layout/activity_board_list" />
+
+    <fragment
+        android:id="@+id/boardTrashFragment"
+        android:name="com.dsource.idc.jellowintl.make_my_board_module.fragments.BoardTrashFragment"
+        android:label="BoardTrashFragment"
+        tools:layout="@layout/activity_board_list" />
+
+    <fragment
+        android:id="@+id/boardHomeFragment"
+        android:name="com.dsource.idc.jellowintl.make_my_board_module.fragments.BoardHomeFragment"
+        android:label="BoardHomeFragment"
+        tools:layout="@layout/activity_levelx_layout">
+        <argument
+            android:name="board_id"
+            app:argType="string"
+            android:defaultValue="" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addEditBoardFragment"
+        android:name="com.dsource.idc.jellowintl.make_my_board_module.fragments.AddEditBoardFragment"
+        android:label="AddEditBoardFragment"
+        tools:layout="@layout/activity_levelx_layout">
+        <argument
+            android:name="board_id"
+            app:argType="string"
+            android:defaultValue="" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/iconSelectFragment"
+        android:name="com.dsource.idc.jellowintl.make_my_board_module.fragments.IconSelectFragment"
+        android:label="IconSelectFragment"
+        tools:layout="@layout/activity_icon_select">
+        <argument
+            android:name="board_id"
+            app:argType="string"
+            android:defaultValue="" />
+    </fragment>
+
+</navigation>
+

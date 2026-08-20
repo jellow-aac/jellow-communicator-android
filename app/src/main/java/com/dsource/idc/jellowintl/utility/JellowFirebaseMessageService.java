@@ -12,7 +12,7 @@ import androidx.core.app.NotificationManagerCompat;
 
 import com.dsource.idc.jellowintl.BuildConfig;
 import com.dsource.idc.jellowintl.R;
-import com.dsource.idc.jellowintl.activities.UserRegistrationActivity;
+import com.dsource.idc.jellowintl.activities.AppActivity;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
@@ -47,7 +47,7 @@ public class JellowFirebaseMessageService extends FirebaseMessagingService {
                 if (!remoteMessage.getData().get("link").isEmpty()) {
                     intent = new Intent(Intent.ACTION_VIEW, Uri.parse(remoteMessage.getData().get("link")));
                 } else {
-                    intent = new Intent(this, UserRegistrationActivity.class);
+                    intent = new Intent(this, AppActivity.class);
                 }
             }
             PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_IMMUTABLE);

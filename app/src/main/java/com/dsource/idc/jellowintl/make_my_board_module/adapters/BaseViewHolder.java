@@ -133,6 +133,7 @@ public class BaseViewHolder extends RecyclerView.ViewHolder {
     public void setImageFromLibrary(int viewId, String drawableId) {
         ImageView imageView = getView(viewId);
         Glide.with(context).load(getIconPath(context, drawableId + EXTENSION))
+                .error(Glide.with(context).load(com.dsource.idc.jellowintl.factories.PathFactory.getBasicCustomIconsPath(context, drawableId + EXTENSION)))
                 .into(imageView);
     }
 

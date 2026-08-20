@@ -18,8 +18,8 @@ public class JellowIcon extends AbstractDataProvider.Data implements Serializabl
 
     /**
      * @iconType stores the type of the icon
-     * Normal Icon : BoardConstants.NORMAL_TYPE
-     * Category Icon : BoardConstants.CATEGORY_TYPE
+     *           Normal Icon : BoardConstants.NORMAL_TYPE
+     *           Category Icon : BoardConstants.CATEGORY_TYPE
      */
     @Keep
     private int iconType = BoardConstants.NORMAL_TYPE;
@@ -36,6 +36,7 @@ public class JellowIcon extends AbstractDataProvider.Data implements Serializabl
 
     public JellowIcon(String iconTitle, String speechText, String iconDrawable, int p1, int p2, int p3) {
         this.iconDrawable = iconDrawable;
+        this.verbiageId = iconDrawable;
         this.iconTitle = iconTitle;
         iconSpeech = speechText;
         this.parent0 = p1;
@@ -43,17 +44,17 @@ public class JellowIcon extends AbstractDataProvider.Data implements Serializabl
         this.parent2 = p3;
     }
 
-    public JellowIcon(String verbiageID,String IconTitle,String IconSpeech,String drawable){
+    public JellowIcon(String verbiageID, String IconTitle, String IconSpeech, String drawable) {
         this.iconDrawable = drawable;
-        this.iconTitle =IconTitle;
+        this.iconTitle = IconTitle;
         this.iconSpeech = IconSpeech;
-        this.verbiageId=verbiageID;
+        this.verbiageId = verbiageID;
         try {
-            parent0 = Integer.parseInt(verbiageID.substring(2,4))-1;
-            parent1 = Integer.parseInt(verbiageID.substring(4,6))-1;
-            parent2 = Integer.parseInt(verbiageID.substring(6,10))-1;
+            parent0 = Integer.parseInt(verbiageID.substring(2, 4)) - 1;
+            parent1 = Integer.parseInt(verbiageID.substring(4, 6)) - 1;
+            parent2 = Integer.parseInt(verbiageID.substring(6, 10)) - 1;
             isSequenceIcon = verbiageID.contains("SS") && parent2 != -1;
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -177,8 +178,8 @@ public class JellowIcon extends AbstractDataProvider.Data implements Serializabl
 
     @Override
     public boolean equals(@Nullable Object obj) {
-        if(obj instanceof JellowIcon)
-        return verbiageId.equals(((JellowIcon)obj).getVerbiageId());
+        if (obj instanceof JellowIcon)
+            return verbiageId.equals(((JellowIcon) obj).getVerbiageId());
         return false;
     }
 }

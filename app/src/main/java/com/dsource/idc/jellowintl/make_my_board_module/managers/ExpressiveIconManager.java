@@ -87,25 +87,29 @@ public class ExpressiveIconManager implements View.OnClickListener {
         this.mExpIconClickListener = expIconClickListener;
     }
 
+    private boolean isVerbiageEmpty(String text) {
+        return text == null || text.trim().isEmpty() || text.equals("NA");
+    }
+
     public void setAccordingVerbiage(Icon selectedIconVerbiage) {
         resetSelection();
         if (selectedIconVerbiage == null) return;
-        if (selectedIconVerbiage.getL().equals("NA"))
+        if (isVerbiageEmpty(selectedIconVerbiage.getL()))
             disableButton(expIconList.get(0), true);
         else disableButton(expIconList.get(0), false);
-        if (selectedIconVerbiage.getY().equals("NA"))
+        if (isVerbiageEmpty(selectedIconVerbiage.getY()))
             disableButton(expIconList.get(1), true);
         else disableButton(expIconList.get(1), false);
-        if (selectedIconVerbiage.getM().equals("NA"))
+        if (isVerbiageEmpty(selectedIconVerbiage.getM()))
             disableButton(expIconList.get(2), true);
         else disableButton(expIconList.get(2), false);
-        if (selectedIconVerbiage.getD().equals("NA"))
+        if (isVerbiageEmpty(selectedIconVerbiage.getD()))
             disableButton(expIconList.get(3), true);
         else disableButton(expIconList.get(3), false);
-        if (selectedIconVerbiage.getN().equals("NA"))
+        if (isVerbiageEmpty(selectedIconVerbiage.getN()))
             disableButton(expIconList.get(4), true);
         else disableButton(expIconList.get(4), false);
-        if (selectedIconVerbiage.getS().equals("NA"))
+        if (isVerbiageEmpty(selectedIconVerbiage.getS()))
             disableButton(expIconList.get(5), true);
         else disableButton(expIconList.get(5), false);
     }

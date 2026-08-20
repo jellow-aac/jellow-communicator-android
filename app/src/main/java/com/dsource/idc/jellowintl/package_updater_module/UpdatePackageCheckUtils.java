@@ -17,7 +17,8 @@ import androidx.appcompat.app.AlertDialog;
 
 import com.dsource.idc.jellowintl.R;
 import com.dsource.idc.jellowintl.activities.BaseActivity;
-import com.dsource.idc.jellowintl.activities.LanguagePackUpdateActivity;
+import com.dsource.idc.jellowintl.activities.AppActivity;
+import com.dsource.idc.jellowintl.fragments.LanguagePackUpdateFragment;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.storage.FileDownloadTask;
@@ -108,7 +109,9 @@ public class UpdatePackageCheckUtils {
             builder
                     .setPositiveButton(updateNow, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
-                            context.startActivity(new Intent(context, LanguagePackUpdateActivity.class));
+                            Intent intent = new Intent(context, AppActivity.class);
+                            intent.putExtra("destination", LanguagePackUpdateFragment.class.getSimpleName());
+                            context.startActivity(intent);
                             dialog.dismiss();
                         }
                     })

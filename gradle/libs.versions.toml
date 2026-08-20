@@ -1,0 +1,106 @@
+[versions]
+agp = "8.10.0"
+kotlin = "1.8.0"
+google-services = "4.4.4"
+crashlytics-gradle = "3.0.6"
+navigation = "2.7.7"
+
+multidex = "1.0.3"
+legacy-support-v4 = "1.0.0"
+appcompat = "1.7.1"
+material = "1.13.0"
+constraintlayout = "2.2.1"
+play-app-update = "2.1.0"
+recyclerview = "1.4.0"
+legacy-support-core-utils = "1.0.0"
+gson = "2.13.2"
+
+firebase-bom = "34.6.0"
+
+datastore-preferences = "1.2.0"
+round-corner-progress-bar = "2.0.3"
+glide = "4.9.0"
+glide-compiler = "4.11.0"
+mzip-android = "0.4.0"
+filedownloader = "1.7.7"
+rey5137-material = "1.2.5"
+appintro = "4.1.0"
+ccp = "2.5.0"
+android-image-cropper = "4.7.0"
+expandablerecyclerview = "3.0.0-RC1"
+advrecyclerview = "1.0.0"
+room = "2.3.0"
+annotations = "26.1.0"
+
+junit = "4.13.2"
+androidx-test-core = "1.4.0"
+espresso = "3.4.0"
+androidx-test-ext-junit = "1.1.3"
+mockito = "2.25.0"
+mockito-android = "2.7.22"
+testng = "6.9.6"
+robolectric = "4.13"
+
+[libraries]
+# Classpaths
+gradle-plugin = { group = "com.android.tools.build", name = "gradle", version.ref = "agp" }
+kotlin-gradle-plugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
+google-services = { group = "com.google.gms", name = "google-services", version.ref = "google-services" }
+crashlytics-gradle = { group = "com.google.firebase", name = "firebase-crashlytics-gradle", version.ref = "crashlytics-gradle" }
+navigation-safe-args = { group = "androidx.navigation", name = "navigation-safe-args-gradle-plugin", version.ref = "navigation" }
+
+# Dependencies
+multidex = { group = "com.android.support", name = "multidex", version.ref = "multidex" }
+legacy-support-v4 = { group = "androidx.legacy", name = "legacy-support-v4", version.ref = "legacy-support-v4" }
+appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+play-app-update = { group = "com.google.android.play", name = "app-update", version.ref = "play-app-update" }
+recyclerview = { group = "androidx.recyclerview", name = "recyclerview", version.ref = "recyclerview" }
+legacy-support-core-utils = { group = "androidx.legacy", name = "legacy-support-core-utils", version.ref = "legacy-support-core-utils" }
+gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
+
+firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version.ref = "firebase-bom" }
+firebase-analytics = { group = "com.google.firebase", name = "firebase-analytics" }
+firebase-storage = { group = "com.google.firebase", name = "firebase-storage" }
+firebase-auth = { group = "com.google.firebase", name = "firebase-auth" }
+firebase-database = { group = "com.google.firebase", name = "firebase-database" }
+firebase-messaging = { group = "com.google.firebase", name = "firebase-messaging" }
+firebase-crashlytics = { group = "com.google.firebase", name = "firebase-crashlytics" }
+
+datastore-preferences = { group = "androidx.datastore", name = "datastore-preferences", version.ref = "datastore-preferences" }
+round-corner-progress-bar = { group = "com.akexorcist", name = "RoundCornerProgressBar", version.ref = "round-corner-progress-bar" }
+glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glide" }
+glide-compiler = { group = "com.github.bumptech.glide", name = "compiler", version.ref = "glide-compiler" }
+mzip-android = { group = "com.github.ghost1372", name = "Mzip-Android", version.ref = "mzip-android" }
+filedownloader = { group = "com.liulishuo.filedownloader", name = "library", version.ref = "filedownloader" }
+rey5137-material = { group = "com.github.rey5137", name = "material", version.ref = "rey5137-material" }
+appintro = { group = "com.github.paolorotolo", name = "appintro", version.ref = "appintro" }
+ccp = { group = "com.hbb20", name = "ccp", version.ref = "ccp" }
+android-image-cropper = { group = "com.vanniktech", name = "android-image-cropper", version.ref = "android-image-cropper" }
+expandablerecyclerview = { group = "com.bignerdranch.android", name = "expandablerecyclerview", version.ref = "expandablerecyclerview" }
+advrecyclerview = { group = "com.h6ah4i.android.widget.advrecyclerview", name = "advrecyclerview", version.ref = "advrecyclerview" }
+
+room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
+room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
+annotations = { group = "org.jetbrains", name = "annotations", version.ref = "annotations" }
+
+navigation-fragment = { group = "androidx.navigation", name = "navigation-fragment", version.ref = "navigation" }
+navigation-ui = { group = "androidx.navigation", name = "navigation-ui", version.ref = "navigation" }
+
+# Test Dependencies
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-test-core = { group = "androidx.test", name = "core", version.ref = "androidx-test-core" }
+androidx-test-runner = { group = "androidx.test", name = "runner", version.ref = "androidx-test-core" }
+androidx-test-rules = { group = "androidx.test", name = "rules", version.ref = "androidx-test-core" }
+androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-test-ext-junit" }
+
+espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso" }
+espresso-intents = { group = "androidx.test.espresso", name = "espresso-intents", version.ref = "espresso" }
+espresso-contrib = { group = "androidx.test.espresso", name = "espresso-contrib", version.ref = "espresso" }
+
+mockito-core = { group = "org.mockito", name = "mockito-core", version.ref = "mockito" }
+mockito-android = { group = "org.mockito", name = "mockito-android", version.ref = "mockito-android" }
+testng = { group = "org.testng", name = "testng", version.ref = "testng" }
+robolectric = { group = "org.robolectric", name = "robolectric", version.ref = "robolectric" }
+robolectric-shadows-multidex = { group = "org.robolectric", name = "shadows-multidex", version.ref = "robolectric" }

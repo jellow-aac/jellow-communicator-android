@@ -1,7 +1,6 @@
 package com.dsource.idc.jellowintl.activities;
 
 import static android.view.View.LAYER_TYPE_HARDWARE;
-import static com.dsource.idc.jellowintl.make_my_board_module.utility.BoardConstants.GRID_SIZE;
 import static com.dsource.idc.jellowintl.models.GlobalConstants.SCREEN_SIZE_PHONE;
 import static com.dsource.idc.jellowintl.models.GlobalConstants.SCREEN_SIZE_SEVEN_INCH_TAB;
 import static com.dsource.idc.jellowintl.models.GlobalConstants.SCREEN_SIZE_TEN_INCH_TAB;
@@ -10,7 +9,6 @@ import static com.dsource.idc.jellowintl.utility.Analytics.setUserProperty;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.graphics.ColorMatrix;
 import android.graphics.ColorMatrixColorFilter;
 import android.graphics.Paint;
@@ -28,32 +26,45 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.view.accessibility.AccessibilityManager;
-import android.widget.Button;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.graphics.Insets;
-import androidx.core.view.DisplayCutoutCompat;
 import androidx.core.view.MenuCompat;
 import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.core.view.WindowInsetsControllerCompat;
+import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.room.Room;
 import androidx.room.migration.Migration;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import com.dsource.idc.jellowintl.R;
-import com.dsource.idc.jellowintl.make_my_board_module.activity.AddEditActivity;
-import com.dsource.idc.jellowintl.make_my_board_module.activity.BoardListActivity;
-import com.dsource.idc.jellowintl.make_my_board_module.activity.BoardSearchActivity;
-import com.dsource.idc.jellowintl.make_my_board_module.activity.BoardTrashActivity;
-import com.dsource.idc.jellowintl.make_my_board_module.activity.HomeActivity;
-import com.dsource.idc.jellowintl.make_my_board_module.activity.IconSelectActivity;
+import com.dsource.idc.jellowintl.fragments.AboutJellowFragment;
+import com.dsource.idc.jellowintl.fragments.AccessibilitySettingsFragment;
+import com.dsource.idc.jellowintl.fragments.FeedbackFragment;
+import com.dsource.idc.jellowintl.fragments.FeedbackTalkBackFragment;
+import com.dsource.idc.jellowintl.fragments.IntroFragment;
+import com.dsource.idc.jellowintl.fragments.LanguageDownloadFragment;
+import com.dsource.idc.jellowintl.fragments.LanguageSelectFragment;
+import com.dsource.idc.jellowintl.fragments.LevelOneFragment;
+import com.dsource.idc.jellowintl.fragments.LevelTwoFragment;
+import com.dsource.idc.jellowintl.fragments.LevelThreeFragment;
+import com.dsource.idc.jellowintl.fragments.ActivitySequenceFragment;
+import com.dsource.idc.jellowintl.fragments.ProfileFormFragment;
+import com.dsource.idc.jellowintl.fragments.ResetPreferencesFragment;
+import com.dsource.idc.jellowintl.fragments.SearchDialogFragment;
+import com.dsource.idc.jellowintl.fragments.SettingFragment;
+import com.dsource.idc.jellowintl.fragments.SplashFragment;
+import com.dsource.idc.jellowintl.fragments.TutorialFragment;
+import com.dsource.idc.jellowintl.fragments.UserRegistrationFragment;
+import com.dsource.idc.jellowintl.make_my_board_module.fragments.BoardSearchActivity;
 import com.dsource.idc.jellowintl.make_my_board_module.custom_dialogs.DialogNoOfIconPerScreen;
 import com.dsource.idc.jellowintl.make_my_board_module.interfaces.GridSelectListener;
 import com.dsource.idc.jellowintl.models.AppDatabase;
@@ -61,13 +72,11 @@ import com.dsource.idc.jellowintl.models.GlobalConstants;
 import com.dsource.idc.jellowintl.utility.DefaultExceptionHandler;
 import com.dsource.idc.jellowintl.utility.LanguageHelper;
 import com.dsource.idc.jellowintl.utility.SessionManager;
-import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.MaterialToolbar;
 
 import java.lang.reflect.Method;
 
 public class BaseActivity extends AppCompatActivity{
-    final private String APP_DB_NAME = "jellow_app_database";
     private static SessionManager sSession;
     private static String sVisibleAct ="";
     private static AppDatabase sAppDatabase;
@@ -117,7 +126,7 @@ public class BaseActivity extends AppCompatActivity{
     @Override
     protected void attachBaseContext(Context newBase) {
        SessionManager s = new SessionManager(newBase);
-       if(s.getCurrentBoardLanguage()==null||s.getCurrentBoardLanguage().equals(""))
+       if(s.getCurrentBoardLanguage()==null||s.getCurrentBoardLanguage().isEmpty())
            super.attachBaseContext((LanguageHelper.onAttach(newBase)));
        else super.attachBaseContext(LanguageHelper.onAttach(newBase,s.getCurrentBoardLanguage()));
     }
@@ -125,6 +134,37 @@ public class BaseActivity extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Modern edge-to-edge support for API 35+
+        if (Build.VERSION.SDK_INT >= 35) {
+            WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
+            // On API 35+, system bars are forced transparent. 
+            // We use the root background + padding to show brand colors.
+            getWindow().setStatusBarColor(android.graphics.Color.TRANSPARENT);
+            getWindow().setNavigationBarColor(android.graphics.Color.TRANSPARENT);
+
+            // Ensure system bar icons are white (for the red background)
+            WindowInsetsControllerCompat controller = WindowCompat.getInsetsController(getWindow(), getWindow().getDecorView());
+            if (controller != null) {
+                controller.setAppearanceLightStatusBars(false);
+                controller.setAppearanceLightNavigationBars(false);
+            }
+        } else if (isGestureNavigationEnabled()) {
+            // Legacy gesture mode support
+            getWindow().getDecorView().setSystemUiVisibility(
+                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE |
+                    View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+            );
+            getWindow().setNavigationBarColor(android.graphics.Color.TRANSPARENT);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                getWindow().setNavigationBarContrastEnforced(false);
+            }
+        } else {
+            // Restore default stable behavior for 2/3 button mode on legacy devices
+            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
+        }
+
+        final String APP_DB_NAME = "jellow_app_database";
         // Initialize default exception handler for this activity.
         // If any exception occurs during this activity usage,
         // handle it using default exception handler.
@@ -142,123 +182,129 @@ public class BaseActivity extends AppCompatActivity{
     }
 
     @Override
+    protected void onDestroy() {
+        View view = this.getCurrentFocus();
+        if (view != null) {
+            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            if (imm != null) {
+                imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+            }
+        }
+        super.onDestroy();
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int itemId = item.getItemId();
 
         if (itemId == R.id.search) {
             if (getLevelClass().contains(getVisibleAct())) {
-                startActivity(new Intent(this, SearchActivity.class));
+                SearchDialogFragment.newInstance().show(getSupportFragmentManager(), SearchDialogFragment.class.getSimpleName());
             } else {
-                Intent searchIntent = new Intent(this, BoardSearchActivity.class);
-                searchIntent.putExtra(BoardSearchActivity.SEARCH_MODE, BoardSearchActivity.SEARCH_FOR_BOARD);
-                startActivityForResult(searchIntent, Integer.parseInt(getString(R.string.search_board)));
+                Bundle args = new Bundle();
+                args.putString(BoardSearchActivity.SEARCH_MODE, BoardSearchActivity.SEARCH_FOR_BOARD);
+                BoardSearchActivity searchDialog =
+                        BoardSearchActivity.newInstance(args, (icon, resultString) -> {
+                            androidx.fragment.app.Fragment navHostFragment = getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
+                            if (navHostFragment != null) {
+                                androidx.fragment.app.Fragment currentFrag = navHostFragment.getChildFragmentManager().getFragments().isEmpty() ? null : navHostFragment.getChildFragmentManager().getFragments().get(0);
+                                if (currentFrag instanceof com.dsource.idc.jellowintl.make_my_board_module.fragments.BoardListFragment) {
+                                    ((com.dsource.idc.jellowintl.make_my_board_module.fragments.BoardListFragment) currentFrag).highlightSearchedBoard(resultString);
+                                } else if (currentFrag instanceof com.dsource.idc.jellowintl.make_my_board_module.fragments.BoardTrashFragment) {
+                                    ((com.dsource.idc.jellowintl.make_my_board_module.fragments.BoardTrashFragment) currentFrag).highlightSearchedBoard(resultString);
+                                }
+                            }
+                        });
+                searchDialog.show(getSupportFragmentManager(), "BoardSearchActivity");
             }
         } else if (itemId == R.id.my_boards_icon || itemId == R.id.my_boards) {
-            if (getVisibleAct().equals(BoardListActivity.class.getSimpleName())) {
-                // Do nothing, already on the correct screen.
-            } else {
-                startActivity(new Intent(this, BoardListActivity.class));
-                if (!getLevelClass().contains(getVisibleAct())) {
-                    finish();
-                }
-            }
+            navigateToDestination(com.dsource.idc.jellowintl.make_my_board_module.fragments.BoardListFragment.class.getSimpleName(), R.id.boardListFragment);
         } else if (itemId == R.id.my_boards_trash) {
-            if (getVisibleAct().equals(BoardTrashActivity.class.getSimpleName())) {
-                // Do nothing, already on the correct screen.
-            } else {
-                startActivity(new Intent(this, BoardTrashActivity.class));
-                if (!getLevelClass().contains(getVisibleAct())) {
-                    finish();
-                }
-            }
+            navigateToDestination(com.dsource.idc.jellowintl.make_my_board_module.fragments.BoardTrashFragment.class.getSimpleName(), R.id.boardTrashFragment);
         } else if (itemId == R.id.number_of_icons) {
             showGridDialog((GridSelectListener) size -> {
                 getSession().setGridSize(size);
                 setGridSize();
-                startActivity(new Intent(getApplicationContext(), SplashActivity.class));
-                finish();
+                if (this instanceof AppActivity) {
+                    NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+                    if (navController.getCurrentDestination() != null) {
+                        int currentDest = navController.getCurrentDestination().getId();
+                        navController.navigate(currentDest, null, new androidx.navigation.NavOptions.Builder()
+                                .setPopUpTo(currentDest, true).build());
+                    }
+                } else {
+                    startActivity(new Intent(getApplicationContext(), AppActivity.class));
+                    finish();
+                }
             }, getSession().getGridSize());
         } else if (itemId == R.id.profile) {
-            if (!getVisibleAct().equals(ProfileFormActivity.class.getSimpleName())) {
-                startActivity(new Intent(this, ProfileFormActivity.class));
-                if (!getLevelClass().contains(getVisibleAct())) {
-                    finish();
-                }
-            }
+            navigateToDestination(ProfileFormFragment.class.getSimpleName(), R.id.profileFormFragment);
         } else if (itemId == R.id.aboutJellow) {
-            if (!getVisibleAct().equals(AboutJellowActivity.class.getSimpleName())) {
-                startActivity(new Intent(this, AboutJellowActivity.class));
-                if (!getLevelClass().contains(getVisibleAct())) {
-                    finish();
-                }
-            }
+            navigateToDestination(AboutJellowFragment.class.getSimpleName(), R.id.aboutJellowFragment);
         } else if (itemId == R.id.tutorial) {
-            if (!getVisibleAct().equals(TutorialActivity.class.getSimpleName())) {
-                startActivity(new Intent(this, TutorialActivity.class));
-                if (!getLevelClass().contains(getVisibleAct())) {
-                    finish();
-                }
-            }
-        } /* else if (itemId == R.id.keyboardInput) { // Uncomment if you bring this feature back
-        if (!getVisibleAct().equals(KeyboardInputActivity.class.getSimpleName())) {
-            startActivity(new Intent(this, KeyboardInputActivity.class));
-            if (!getLevelClass().contains(getVisibleAct())) {
-                finish();
-            }
-        }
-    } */ else if (itemId == R.id.languageSelect) {
-            if (!getVisibleAct().equals(LanguageSelectActivity.class.getSimpleName())) {
-                startActivity(new Intent(this, LanguageSelectActivity.class));
-                if (!getLevelClass().contains(getVisibleAct())) {
-                    finish();
-                }
-            }
+            navigateToDestination(TutorialFragment.class.getSimpleName(), R.id.tutorialFragment);
+        } else if (itemId == R.id.languageSelect) {
+            navigateToDestination(LanguageSelectFragment.class.getSimpleName(), R.id.languageSelectFragment);
         } else if (itemId == R.id.settings) {
-            if (!getVisibleAct().equals(SettingActivity.class.getSimpleName())) {
-                startActivity(new Intent(this, SettingActivity.class));
-                if (!getLevelClass().contains(getVisibleAct())) {
-                    finish();
-                }
-            }
+            navigateToDestination(SettingFragment.class.getSimpleName(), R.id.settingFragment);
         } else if (itemId == R.id.accessibilitySetting) {
-            if (!getVisibleAct().equals(AccessibilitySettingsActivity.class.getSimpleName())) {
-                startActivity(new Intent(this, AccessibilitySettingsActivity.class));
-                if (!getLevelClass().contains(getVisibleAct())) {
-                    finish();
-                }
-            }
+            navigateToDestination(AccessibilitySettingsFragment.class.getSimpleName(), R.id.accessibilitySettingsFragment);
         } else if (itemId == R.id.resetPreferences) {
-            if (!getVisibleAct().equals(ResetPreferencesActivity.class.getSimpleName())) {
-                startActivity(new Intent(this, ResetPreferencesActivity.class));
-                if (!getLevelClass().contains(getVisibleAct())) {
-                    finish();
-                }
-            }
+            navigateToDestination(ResetPreferencesFragment.class.getSimpleName(), R.id.resetPreferencesFragment);
         } else if (itemId == R.id.feedback) {
-            if (!getVisibleAct().equals(FeedbackActivity.class.getSimpleName()) &&
-                    !getVisibleAct().equals(FeedbackActivityTalkBack.class.getSimpleName())) {
-                if (isAccessibilityTalkBackOn((AccessibilityManager) getSystemService(ACCESSIBILITY_SERVICE))) {
-                    startActivity(new Intent(this, FeedbackActivityTalkBack.class));
-                } else {
-                    startActivity(new Intent(this, FeedbackActivity.class));
-                }
-                if (!getLevelClass().contains(getVisibleAct())) {
-                    finish();
-                }
+            if (!getVisibleAct().equals(FeedbackFragment.class.getSimpleName()) &&
+                    !getVisibleAct().equals(FeedbackTalkBackFragment.class.getSimpleName())) {
+                int destId = isAccessibilityTalkBackOn((android.view.accessibility.AccessibilityManager) getSystemService(ACCESSIBILITY_SERVICE)) ?
+                        R.id.feedbackTalkBackFragment : R.id.feedbackFragment;
+                String destName = destId == R.id.feedbackTalkBackFragment ? FeedbackTalkBackFragment.class.getSimpleName() : FeedbackFragment.class.getSimpleName();
+                navigateToDestination(destName, destId);
             }
         } else if (itemId == android.R.id.home) {
-            finish();
+            getOnBackPressedDispatcher().onBackPressed();
         } else {
+            androidx.fragment.app.Fragment navHostFragment = getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
+            if (navHostFragment != null) {
+                androidx.fragment.app.Fragment primary = navHostFragment.getChildFragmentManager().getPrimaryNavigationFragment();
+                if (primary != null && primary.isVisible() && primary.onOptionsItemSelected(item)) {
+                    return true;
+                }
+                for (androidx.fragment.app.Fragment f : navHostFragment.getChildFragmentManager().getFragments()) {
+                    if (f != null && f.isVisible() && f.onOptionsItemSelected(item)) {
+                        return true;
+                    }
+                }
+            }
             return super.onOptionsItemSelected(item);
         }
         return true;
+    }
+
+    private void navigateToDestination(String fragmentName, int destinationId) {
+        if (!getVisibleAct().equals(fragmentName)) {
+            if (this instanceof AppActivity) {
+                NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+                androidx.navigation.NavOptions.Builder builder = new androidx.navigation.NavOptions.Builder();
+                if (!getVisibleAct().isEmpty() && !getLevelClass().contains(getVisibleAct()) &&
+                        !getNonMenuClass().contains(getVisibleAct())) {
+                    if (navController.getCurrentDestination() != null) {
+                        builder.setPopUpTo(navController.getCurrentDestination().getId(), true);
+                    }
+                }
+                navController.navigate(destinationId, null, builder.build());
+            } else {
+                Intent intent = new Intent(this, AppActivity.class);
+                intent.putExtra("destination", fragmentName);
+                startActivity(intent);
+                if (!getLevelClass().contains(getVisibleAct())) finish();
+            }
+        }
     }
 
     public SessionManager getSession(){
         return sSession;
     }
 
-    protected AppDatabase getAppDatabase(){
+    public AppDatabase getAppDatabase(){
         return sAppDatabase;
     }
 
@@ -268,9 +314,9 @@ public class BaseActivity extends AppCompatActivity{
     }
 
     /**
-     * <p>This function check whether user device is not wifi only and
+     * <p>This function check whether user device is not Wi-Fi only and
      * has sim card inserted into SIM slot and user can make a call.
-     * @return true if device can able to make phone calls.</p>
+     * @return true if device can make phone calls.</p>
      * */
     public boolean isDeviceReadyToCall(TelephonyManager tm){
         return tm != null
@@ -279,7 +325,7 @@ public class BaseActivity extends AppCompatActivity{
     }
 
     /**
-     * <p>This function check whether does Accessibility Talkback feature turned of or not.
+     * <p>This function check whether, does Accessibility Talkback feature turned off or not.
      * @return true if Accessibility Talkback feature is on.</p>
      * */
     public boolean isAccessibilityTalkBackOn(AccessibilityManager am) {
@@ -316,30 +362,81 @@ public class BaseActivity extends AppCompatActivity{
             return SCREEN_SIZE_PHONE;
     }
 
-    public void setupActionBarTitle(String title) {
-        ((TextView) findViewById(R.id.tvActionbarTitle)).setText(title);
+    public View getRootViewForCurrentDestination() {
+        Fragment navHost = getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
+        if (navHost != null) {
+            Fragment primary = navHost.getChildFragmentManager().getPrimaryNavigationFragment();
+            if (primary != null && primary.getView() != null) {
+                return primary.getView();
+            }
+            for (Fragment f : navHost.getChildFragmentManager().getFragments()) {
+                if (f != null && f.isVisible() && f.getView() != null) {
+                    return f.getView();
+                }
+            }
+        }
+        return getWindow() != null && getWindow().getDecorView() != null ? getWindow().getDecorView() : null;
     }
 
-    public void setupActionBarTitle(int isBackVisible, String title){
-        findViewById(R.id.iv_action_bar_back).setVisibility(isBackVisible);
-        if (title.contains("("))
-            ((TextView)findViewById(R.id.tvActionbarTitle)).setText(title.substring(0,title.indexOf("(")));
-        else
-            ((TextView)findViewById(R.id.tvActionbarTitle)).setText(title);
-        if (getSupportActionBar() != null){
-            getSupportActionBar().hide();
-        }
+    public void setupActionBarTitle(String title) {
+        setupActionBarTitle((View) null, title);
+    }
 
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.UPSIDE_DOWN_CAKE){
-            findViewById(R.id.dummyStatusBar).setVisibility(View.GONE);
+    public void setupActionBarTitle(int isBackVisible, String title) {
+        setupActionBarTitle((View) null, isBackVisible, title);
+    }
+
+    public void setupActionBarTitle(View view, String title) {
+        View target = (view != null) ? view : getRootViewForCurrentDestination();
+        if (target != null) {
+            TextView tvTitle = target.findViewById(R.id.tvActionbarTitle);
+            if (tvTitle != null) {
+                if (title != null && title.contains("("))
+                    tvTitle.setText(title.substring(0, title.indexOf("(")));
+                else
+                    tvTitle.setText(title != null ? title : "");
+            }
         }
+        setupToolbarMenu(view);
+    }
+
+    public void setupActionBarTitle(View view, int isBackVisible, String title) {
+        View target = (view != null) ? view : getRootViewForCurrentDestination();
+        if (target != null) {
+            View ivBack = target.findViewById(R.id.iv_action_bar_back);
+            if (ivBack != null) {
+                ivBack.setVisibility(isBackVisible);
+                ivBack.setOnClickListener(this::finishCurrentActivity);
+            }
+            TextView tvTitle = target.findViewById(R.id.tvActionbarTitle);
+            if (tvTitle != null) {
+                if (title != null && title.contains("("))
+                    tvTitle.setText(title.substring(0, title.indexOf("(")));
+                else
+                    tvTitle.setText(title != null ? title : "");
+            }
+            if (getSupportActionBar() != null) {
+                getSupportActionBar().hide();
+            }
+            
+            setupToolbarMenu(target);
+
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+                int dummyId = getResources().getIdentifier("dummyStatusBar", "id", getPackageName());
+                if (dummyId != 0 && target.findViewById(dummyId) != null) {
+                    target.findViewById(dummyId).setVisibility(View.GONE);
+                }
+            }
+            MaterialToolbar toolbar = target.findViewById(R.id.toolbar);
+            adjustToolbarForTablet(toolbar);
+        }
+    }
+
+    public void adjustToolbarForTablet(MaterialToolbar toolbar) {
+        if (toolbar == null) return;
         // Setting up toolbar height for 10' & 7' device
         if (getScreenSize() == GlobalConstants.SCREEN_SIZE_TEN_INCH_TAB ||
                 getScreenSize() == SCREEN_SIZE_SEVEN_INCH_TAB) {
-            MaterialToolbar toolbar = findViewById(R.id.toolbar);
-            if (toolbar == null)
-                return;
-
             DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
             int height = 62;
             int heightInPx = (int) TypedValue.applyDimension(
@@ -348,88 +445,56 @@ public class BaseActivity extends AppCompatActivity{
                     displayMetrics
             );
             ViewGroup.LayoutParams toolbarParams = toolbar.getLayoutParams();
-            toolbarParams.height = heightInPx;
-            int startPadding = 32;
-            int StartPaddingInPx = (int) TypedValue.applyDimension(
-                    TypedValue.COMPLEX_UNIT_DIP,
-                    startPadding,
-                    displayMetrics
-            );
-            toolbar.setPadding(
-                    StartPaddingInPx,
-                    toolbar.getPaddingTop(),
-                    toolbar.getPaddingRight(),
-                    toolbar.getPaddingBottom()
-            );
-            toolbar.setLayoutParams(toolbarParams);
-        }
-    }
-
-    public void setupParent(){
-        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
-            if (findViewById(R.id.parent) != null) {
-                ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.parent), (v, windowInsets) -> {
-                    Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
-                    ViewGroup.MarginLayoutParams mlp = (ViewGroup.MarginLayoutParams) v.getLayoutParams();
-                    mlp.leftMargin = 0;
-                    mlp.bottomMargin = insets.bottom;
-                    mlp.rightMargin = insets.right;
-                    mlp.topMargin = 0;
-                    v.setLayoutParams(mlp);
-                    DisplayCutoutCompat cutout = windowInsets.getDisplayCutout();
-                    if (cutout != null) {
-                        int cameraPadding = cutout.getSafeInsetLeft();
-                        v.setPadding(cameraPadding,0,0,0);
-                    }
-                    // Return CONSUMED if you don't want the window insets to keep passing
-                    // down to descendant views.
-                    return WindowInsetsCompat.CONSUMED;
-                });
-
+            if (toolbarParams != null && toolbarParams.height != heightInPx) {
+                toolbarParams.height = heightInPx;
+                int startPadding = 32;
+                int startPaddingInPx = (int) TypedValue.applyDimension(
+                        TypedValue.COMPLEX_UNIT_DIP,
+                        startPadding,
+                        displayMetrics
+                );
+                toolbar.setPadding(
+                        startPaddingInPx,
+                        toolbar.getPaddingTop(),
+                        toolbar.getPaddingRight(),
+                        toolbar.getPaddingBottom()
+                );
+                toolbar.setLayoutParams(toolbarParams);
             }
-            if (findViewById(R.id.cameraCropParent) != null) {
-                ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.cameraCropParent), (v, windowInsets) -> {
-                    Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
-                    ViewGroup.MarginLayoutParams mlp = (ViewGroup.MarginLayoutParams) v.getLayoutParams();
-                    mlp.leftMargin = 0;
-                    mlp.bottomMargin = insets.bottom;
-                    mlp.rightMargin = insets.right;
-                    mlp.topMargin = 0;
-                    v.setLayoutParams(mlp);
-                    DisplayCutoutCompat cutout = windowInsets.getDisplayCutout();
-                    if (cutout != null) {
-                        int cameraPadding = cutout.getSafeInsetLeft();
-                        v.setPadding(cameraPadding,0,0,0);
-                    }
-                    // Return CONSUMED if you don't want the window insets to keep passing
-                    // down to descendant views.
-                    return WindowInsetsCompat.CONSUMED;
-                });
-
-            }
-
         }
     }
 
     public void setupToolbarMenu() {
-        MaterialToolbar toolbar = findViewById(R.id.toolbar);
+        setupToolbarMenu(null);
+    }
+
+    public void setupToolbarMenu(View view) {
+        View target = (view != null) ? view : getRootViewForCurrentDestination();
+        if (target == null) {
+            return;
+        }
+        MaterialToolbar toolbar = target.findViewById(R.id.toolbar);
         if (toolbar == null) {
             return;
         }
-        if(getVisibleAct().contains(getIconSelectActivityClass())){
+        
+        adjustToolbarForTablet(toolbar);
+        
+        String visible = getVisibleAct();
+        toolbar.getMenu().clear();
+        if (!visible.isEmpty() && getIconSelectActivityClass().contains(visible)) {
             toolbar.inflateMenu(R.menu.my_board_select_icon_menu);
-        } else if (getVisibleAct().contains(getBoardAddEditActivityClass()) ||
-        getVisibleAct().contains(getBoardHomeActivityClass())) {
+        } else if (!visible.isEmpty() && (getBoardAddEditActivityClass().contains(visible) ||
+                getBoardHomeActivityClass().contains(visible))) {
             toolbar.inflateMenu(R.menu.board_home_menu);
-        }else{
+        } else {
             toolbar.inflateMenu(R.menu.menu_main);
         }
-        // 1. Inflate the menu into the toolbar
 
         Menu menu = toolbar.getMenu();
 
         // 2. Apply your existing logic to the menu instance
-        if(getBoardSearchClass().contains(getVisibleAct()) || getNonMenuClass().contains(getVisibleAct())) {
+        if (!visible.isEmpty() && (getBoardSearchClass().contains(visible) || getNonMenuClass().contains(visible))) {
             menu.clear(); // Hide menu if it's a non-menu activity
             return;
         }
@@ -452,21 +517,58 @@ public class BaseActivity extends AppCompatActivity{
         toolbar.setOnMenuItemClickListener(this::onOptionsItemSelected);
     }
 
+    public void setupParent(){
+        if (findViewById(R.id.parent) != null) {
+            View vParent = findViewById(R.id.parent);
+            // On API 35+, we set the parent background to red to achieve solid red status/nav bars
+            if (Build.VERSION.SDK_INT >= 35) {
+                vParent.setBackgroundColor(androidx.core.content.ContextCompat.getColor(this, R.color.colorPrimary));
+            }
+            ViewCompat.setOnApplyWindowInsetsListener(vParent, (v, windowInsets) -> {
+                Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
+                
+                // On API 35+, edge-to-edge is forced. We use padding to expose the red root background.
+                int bottomInset = insets.bottom;
+                if (Build.VERSION.SDK_INT >= 35) {
+                    if (isGestureNavigationEnabled()) {
+                        // In gesture mode, we want the content to bleed through (transparent nav bar)
+                        bottomInset = 0;
+                    }
+                } else if (isGestureNavigationEnabled()) {
+                    // Legacy logic
+                    bottomInset = 0;
+                }
+                
+                v.setPadding(insets.left, insets.top, insets.right, bottomInset);
+                return WindowInsetsCompat.CONSUMED;
+            });
+        }
+    }
+
     public void setupBottomBar(){
-        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
-            LinearLayout llBottom = findViewById(R.id.llBottom);
-            if (llBottom != null) {
-                ViewCompat.setOnApplyWindowInsetsListener(llBottom, (v, windowInsets) -> {
-                    Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
-                    ViewGroup.MarginLayoutParams mlp = (ViewGroup.MarginLayoutParams) v.getLayoutParams();
-                    mlp.leftMargin = insets.left;
-                    mlp.bottomMargin = insets.bottom;
-                    mlp.rightMargin = insets.right;
-                    mlp.topMargin = 0;
-                    v.setLayoutParams(mlp);
-                    return WindowInsetsCompat.CONSUMED;
-                });
-                if (getScreenSize() == SCREEN_SIZE_PHONE) {
+        LinearLayout llBottom = findViewById(R.id.llBottom);
+        if (llBottom != null) {
+            // For API 35+, ensure the bottom bar container itself handles red padding if needed
+            if (Build.VERSION.SDK_INT >= 35) {
+                View vParent = findViewById(R.id.parent);
+                if (vParent != null) vParent.setBackgroundColor(androidx.core.content.ContextCompat.getColor(this, R.color.colorPrimary));
+            }
+            ViewCompat.setOnApplyWindowInsetsListener(llBottom, (v, windowInsets) -> {
+                Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
+                
+                int bottomInset = insets.bottom;
+                if (Build.VERSION.SDK_INT >= 35) {
+                    if (isGestureNavigationEnabled()) {
+                        bottomInset = 0;
+                    }
+                } else if (isGestureNavigationEnabled()) {
+                    bottomInset = 0;
+                }
+
+                v.setPadding(insets.left, 0, insets.right, bottomInset);
+                return WindowInsetsCompat.CONSUMED;
+            });
+            if (getScreenSize() == SCREEN_SIZE_PHONE) {
                 DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
                 int padding = 8;
                 int paddingInPx = (int) TypedValue.applyDimension(
@@ -475,65 +577,71 @@ public class BaseActivity extends AppCompatActivity{
                         displayMetrics
                 );
                 llBottom.setPadding(paddingInPx,0,0,0);
-                }
             }
         }
+    }
+
+    private boolean isGestureNavigationEnabled() {
+        int mode = 0;
+        try {
+            int resourceId = getResources().getIdentifier("config_navBarInteractionMode", "integer", "android");
+            if (resourceId > 0) {
+                mode = getResources().getInteger(resourceId);
+            }
+        } catch (Exception ignored) {}
+        return mode == 2;
     }
 
     private void applyMenuVisibilityLogic(Menu menu) {
-        if (!getLevelClass().contains(getVisibleAct())
-                && !getVisibleAct().contains(getBoardListClass())
-                && !getVisibleAct().contains(getBoardTrashClass())
-                && !getVisibleAct().contains(getBoardAddEditActivityClass())
-                && !getVisibleAct().contains(getBoardHomeActivityClass())
-                && !getVisibleAct().contains(getIconSelectActivityClass())){
-            menu.findItem(R.id.search).setVisible(false);
-            menu.findItem(R.id.my_boards_icon).setVisible(false);
-            menu.findItem(R.id.number_of_icons).setVisible(false);
-        }else if(getVisibleAct().contains(getBoardListClass())) {
+        String visible = getVisibleAct();
+        if (visible.isEmpty()) {
+            return;
+        }
+        if (!getLevelClass().contains(visible)
+                && !getBoardListClass().contains(visible)
+                && !getBoardTrashClass().contains(visible)
+                && !getBoardAddEditActivityClass().contains(visible)
+                && !getBoardHomeActivityClass().contains(visible)
+                && !getIconSelectActivityClass().contains(visible)){
+            if (menu.findItem(R.id.search) != null) menu.findItem(R.id.search).setVisible(false);
+            if (menu.findItem(R.id.my_boards_icon) != null) menu.findItem(R.id.my_boards_icon).setVisible(false);
+            if (menu.findItem(R.id.number_of_icons) != null) menu.findItem(R.id.number_of_icons).setVisible(false);
+        }else if(getBoardListClass().contains(visible)) {
             setMenu(menu);
-            menu.findItem(R.id.enable_edit).setVisible(true);
-            menu.findItem(R.id.enable_delete).setVisible(true);
-            menu.findItem(R.id.my_boards_icon).setVisible(false);
-            menu.findItem(R.id.number_of_icons).setVisible(false);
-            menu.findItem(R.id.search).setTitle(R.string.search_board_in_jellow);
-        }else if(getVisibleAct().contains(getBoardTrashClass())){
+            if (menu.findItem(R.id.enable_edit) != null) menu.findItem(R.id.enable_edit).setVisible(true);
+            if (menu.findItem(R.id.enable_delete) != null) menu.findItem(R.id.enable_delete).setVisible(true);
+            if (menu.findItem(R.id.my_boards_icon) != null) menu.findItem(R.id.my_boards_icon).setVisible(false);
+            if (menu.findItem(R.id.number_of_icons) != null) menu.findItem(R.id.number_of_icons).setVisible(false);
+            if (menu.findItem(R.id.search) != null) menu.findItem(R.id.search).setTitle(R.string.search_board_in_jellow);
+        }else if(getBoardTrashClass().contains(visible)){
             setMenu(menu);
-            menu.findItem(R.id.enable_delete).setVisible(true);
-            menu.findItem(R.id.enable_edit).setVisible(false);
-            menu.findItem(R.id.my_boards_icon).setVisible(false);
-            menu.findItem(R.id.number_of_icons).setVisible(false);
-            menu.findItem(R.id.search).setTitle(R.string.search_board_in_jellow);
-        }else if(getVisibleAct().contains(getBoardAddEditActivityClass())){
-            menu.findItem(R.id.reposition_lock).setVisible(false);
-            menu.findItem(R.id.action_home_app).setVisible(false);
-        } else if (getVisibleAct().contains(getBoardHomeActivityClass())) {
+            if (menu.findItem(R.id.enable_delete) != null) menu.findItem(R.id.enable_delete).setVisible(true);
+            if (menu.findItem(R.id.enable_edit) != null) menu.findItem(R.id.enable_edit).setVisible(false);
+            if (menu.findItem(R.id.my_boards_icon) != null) menu.findItem(R.id.my_boards_icon).setVisible(false);
+            if (menu.findItem(R.id.number_of_icons) != null) menu.findItem(R.id.number_of_icons).setVisible(false);
+            if (menu.findItem(R.id.search) != null) menu.findItem(R.id.search).setTitle(R.string.search_board_in_jellow);
+        }else if(getBoardAddEditActivityClass().contains(visible)){
+            if (menu.findItem(R.id.reposition_lock) != null) menu.findItem(R.id.reposition_lock).setVisible(false);
+            if (menu.findItem(R.id.action_home_app) != null) menu.findItem(R.id.action_home_app).setVisible(false);
+        } else if (getBoardHomeActivityClass().contains(visible)) {
             setMenu(menu);
         }
         if (isAccessibilityTalkBackOn((AccessibilityManager) getSystemService(ACCESSIBILITY_SERVICE))) {
-            menu.findItem(R.id.closePopup).setVisible(true);
-        }
-    }
-
-    public void setNavigationUiConditionally() {
-        try {
-            int resourceId = getResources().getIdentifier("config_navBarInteractionMode", "integer", "android");
-            if (getResources().getInteger(resourceId) == 2) {
-                View view = findViewById(R.id.parent);
-                view.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION);
-                FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) view.getLayoutParams();
-                lp.topMargin = 68;
-                getWindow().setNavigationBarColor(getResources().getColor(R.color.transparent));
-            } else {
-                getWindow().setNavigationBarColor(getResources().getColor(R.color.navigation_bar_color));
-            }
-        }catch(Exception e){
-            e.printStackTrace();
+            if (menu.findItem(R.id.closePopup) != null) menu.findItem(R.id.closePopup).setVisible(true);
         }
     }
 
     public void finishCurrentActivity(View view) {
-        finish();
+        if (this instanceof AppActivity) {
+            NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+            if (navController.getCurrentDestination() != null && navController.getCurrentDestination().getId() == R.id.levelOneFragment) {
+                finish();
+            } else {
+                getOnBackPressedDispatcher().onBackPressed();
+            }
+        } else {
+            finish();
+        }
     }
 
     public void openPrivacyPolicyPage(View view){
@@ -564,10 +672,10 @@ public class BaseActivity extends AppCompatActivity{
     }
 
     private String getLevelClass() {
-        return MainActivity.class.getSimpleName() + "," +
-            LevelTwoActivity.class.getSimpleName() + "," +
-            LevelThreeActivity.class.getSimpleName() + "," +
-            SequenceActivity.class.getSimpleName();
+        return LevelOneFragment.class.getSimpleName() + "," +
+            LevelTwoFragment.class.getSimpleName() + "," +
+            LevelThreeFragment.class.getSimpleName() + "," +
+            ActivitySequenceFragment.class.getSimpleName();
     }
 
     private String getBoardSearchClass() {
@@ -575,31 +683,51 @@ public class BaseActivity extends AppCompatActivity{
     }
 
     private String getBoardListClass(){
-        return BoardListActivity.class.getSimpleName();
+        return com.dsource.idc.jellowintl.make_my_board_module.fragments.BoardListFragment.class.getSimpleName();
     }
 
     private String getIconSelectActivityClass(){
-        return IconSelectActivity.class.getSimpleName();
+        return com.dsource.idc.jellowintl.make_my_board_module.fragments.IconSelectFragment.class.getSimpleName();
     }
 
     private String getBoardAddEditActivityClass(){
-        return AddEditActivity.class.getSimpleName();
+        return com.dsource.idc.jellowintl.make_my_board_module.fragments.AddEditBoardFragment.class.getSimpleName();
     }
 
     private String getBoardHomeActivityClass(){
-        return HomeActivity.class.getSimpleName();
+        return com.dsource.idc.jellowintl.make_my_board_module.fragments.BoardHomeFragment.class.getSimpleName();
     }
 
     private String getBoardTrashClass(){
-        return BoardTrashActivity.class.getSimpleName();
+        return com.dsource.idc.jellowintl.make_my_board_module.fragments.BoardTrashFragment.class.getSimpleName();
     }
 
     private String getNonMenuClass() {
-        return UserRegistrationActivity.class.getSimpleName();
+        return UserRegistrationFragment.class.getSimpleName() + "," +
+               SplashFragment.class.getSimpleName() + "," +
+               IntroFragment.class.getSimpleName() + "," +
+               LanguageDownloadFragment.class.getSimpleName();
     }
 
     public String getVisibleAct() {
-        return sVisibleAct;
+        if (sVisibleAct != null && !sVisibleAct.isEmpty()) {
+            return sVisibleAct;
+        }
+        try {
+            androidx.fragment.app.Fragment navHost = getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
+            if (navHost != null) {
+                androidx.fragment.app.Fragment primary = navHost.getChildFragmentManager().getPrimaryNavigationFragment();
+                if (primary != null) {
+                    return primary.getClass().getSimpleName();
+                }
+                for (androidx.fragment.app.Fragment f : navHost.getChildFragmentManager().getFragments()) {
+                    if (f != null && f.isVisible()) {
+                        return f.getClass().getSimpleName();
+                    }
+                }
+            }
+        } catch (Exception ignored) {}
+        return sVisibleAct != null ? sVisibleAct : "";
     }
 
     public void setVisibleAct(String visibleAct) {
@@ -630,14 +758,8 @@ public class BaseActivity extends AppCompatActivity{
     }
 
     public void showGridDialog(GridSelectListener mGridSizeSelectListener, int gridSize) {
-        Intent gridDialog = new Intent(this, DialogNoOfIconPerScreen.class);
-        gridDialog.putExtra(GRID_SIZE, gridSize);
-        DialogNoOfIconPerScreen.mGridSelectionListener =mGridSizeSelectListener;
-        startActivity(gridDialog);
-    }
-
-    public boolean hasCameraHardware(){
-        return getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_ANY);
+        DialogNoOfIconPerScreen dialog = DialogNoOfIconPerScreen.newInstance(gridSize, mGridSizeSelectListener);
+        dialog.show(getSupportFragmentManager(), "DialogNoOfIconPerScreen");
     }
 
     public String getRomanNumber(int num){

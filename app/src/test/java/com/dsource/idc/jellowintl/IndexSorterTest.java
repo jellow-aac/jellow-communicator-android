@@ -5,11 +5,10 @@ import androidx.test.runner.AndroidJUnit4;
 import com.dsource.idc.jellowintl.utility.IndexSorter;
 
 import org.junit.Test;
-import org.junit.runner.RunWith;
+import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
 
-//@RunWith(AndroidJUnit4.class)
 public class IndexSorterTest {
 
     @Test
@@ -20,9 +19,8 @@ public class IndexSorterTest {
         Integer[] sortArray = is.getIndexes();
         Integer[] expectedSortArray = {10, 8, 7, 4, 1, 3, 0, 2, 9, 6, 5};
         for (int i = 0; i < sortArray.length; i++) {
-            assert sortArray[i] == expectedSortArray[i];
+            assertEquals(expectedSortArray[i], sortArray[i]);
         }
-        assert true;
     }
 
     @Test

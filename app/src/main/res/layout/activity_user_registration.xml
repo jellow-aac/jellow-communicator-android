@@ -5,8 +5,7 @@
     android:id="@+id/parent"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000"
-    android:fitsSystemWindows="true">
+    >
     <RelativeLayout
         android:id="@+id/rlParent"
         android:layout_height="match_parent"
@@ -21,7 +20,6 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/custom_app_bar"
             android:fillViewport="true"
-            android:fitsSystemWindows="true"
             android:layout_marginVertical="@dimen/user_reg_scroll_margin_top"
             android:layout_marginHorizontal="@dimen/user_reg_scroll_margin_left"
             android:paddingVertical="@dimen/user_reg_scroll_padding_top"

@@ -4,9 +4,8 @@
     android:id="@+id/parent"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000"
-    tools:context="com.dsource.idc.jellowintl.activities.LanguageSelectActivity"
-    android:fitsSystemWindows="true">
+    
+    tools:context="com.dsource.idc.jellowintl.fragments.LanguageSelectActivity">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -27,8 +26,7 @@
             android:layout_marginLeft="@dimen/lang_sel_scroll_margin_left"
             android:layout_marginStart="@dimen/lang_sel_scroll_margin_left"
             android:layout_marginRight="@dimen/lang_sel_scroll_margin_right"
-            android:layout_marginEnd="@dimen/lang_sel_scroll_margin_right"
-            android:fitsSystemWindows="true">
+            android:layout_marginEnd="@dimen/lang_sel_scroll_margin_right">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -57,7 +55,7 @@
                     android:paddingVertical="0dp"
                     android:layout_marginBottom="@dimen/lang_sel_tv_margin_bottom"
                     android:textSize="@dimen/lang_sel_btn_txt_size"
-                    android:onClick="showAvailableLanguageDialog"
+                    
                     android:drawableEnd="@drawable/sharp_arrow_drop_down_black_18dp"
                     android:drawableRight="@drawable/sharp_arrow_drop_down_black_18dp" />
                 <TextView
@@ -76,7 +74,7 @@
                     android:paddingRight="8dp"
                     android:layout_marginBottom="@dimen/lang_sel_tv_margin_bottom"
                     android:textSize="@dimen/lang_sel_btn_txt_size"
-                    android:onClick="showVoiceSelectDialog"
+                    
                     android:drawableEnd="@drawable/sharp_arrow_drop_down_black_18dp"
                     android:drawableRight="@drawable/sharp_arrow_drop_down_black_18dp" />
                 <TextView
@@ -170,7 +168,7 @@
                         android:paddingLeft="@dimen/lang_sel_btn_padding_horizontal"
                         android:paddingRight="@dimen/lang_sel_btn_padding_horizontal"
                         android:text="@string/txt_tts_stting"
-                        android:onClick="openSpeechSetting"/>
+                        />
                     <TextView
                         android:id="@+id/tv_step3_info"
                         android:layout_width="match_parent"
@@ -197,7 +195,7 @@
                         android:paddingLeft="@dimen/lang_sel_btn_padding_horizontal"
                         android:paddingRight="@dimen/lang_sel_btn_padding_horizontal"
                         android:text="@string/txt_actLangSel_downloadDat"
-                        android:onClick="openSpeechDataSetting"/>
+                        />
                 </LinearLayout>
             </LinearLayout>
         </ScrollView>

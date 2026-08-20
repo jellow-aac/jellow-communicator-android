@@ -7,7 +7,6 @@ import androidx.annotation.Nullable;
 import androidx.loader.content.AsyncTaskLoader;
 
 import com.dsource.idc.jellowintl.R;
-import com.dsource.idc.jellowintl.make_my_board_module.activity.HomeActivity;
 import com.dsource.idc.jellowintl.make_my_board_module.dataproviders.data_models.BoardModel;
 import com.dsource.idc.jellowintl.make_my_board_module.dataproviders.databases.BoardDatabase;
 import com.dsource.idc.jellowintl.make_my_board_module.presenter_interfaces.IAddEditPresenter;
@@ -70,7 +69,8 @@ public class AddEditModel extends BaseModel<IAddEditView> implements IAddEditPre
     public void nextPressed(Context mContext) {
         currentBoard.setSetupStatus(BoardModel.STATUS_L3);
         updateBoard(currentBoard);
-        Intent intent = new Intent(mContext, HomeActivity.class);
+        Intent intent = new Intent(mContext, com.dsource.idc.jellowintl.activities.AppActivity.class);
+        intent.putExtra("destination", com.dsource.idc.jellowintl.make_my_board_module.fragments.BoardHomeFragment.class.getSimpleName());
         intent.putExtra(BOARD_ID, currentBoard.getBoardId());
         mContext.startActivity(intent);
     }

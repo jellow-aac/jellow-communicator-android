@@ -6,8 +6,8 @@ android {
         applicationId "com.dsource.idc.jellowintl"
         minSdkVersion 23
         targetSdkVersion 36
-        versionCode 108
-        versionName "5.0.4"
+        versionCode 109
+        versionName "5.1.0"
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -35,13 +35,20 @@ android {
             enableSplit = false
         }
     }
-//    testOptions{
-//        unitTests.returnDefaultValues = true
-//    }
+    testOptions {
+        unitTests.returnDefaultValues = true
+        unitTests.includeAndroidResources = true
+        unitTests.all {
+            jvmArgs(
+                "--add-opens=java.base/java.lang=ALL-UNNAMED",
+                "--add-opens=java.base/java.util=ALL-UNNAMED"
+            )
+        }
+    }
 
     compileOptions {
-        sourceCompatibility 1.8
-        targetCompatibility 1.8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
     namespace 'com.dsource.idc.jellowintl'
     lint {
@@ -67,8 +74,8 @@ android {
 
 // Add this block after the 'android' block
 afterEvaluate {
-    tasks.named('mergeDebugResources') {
-        mustRunAfter tasks.named('processDebugGoogleServices')
+    tasks.matching { it.name == 'mergeDebugResources' }.all { task ->
+        task.mustRunAfter tasks.matching { it.name == 'processDebugGoogleServices' }
     }
 }
 
@@ -82,98 +89,102 @@ dependencies {
             because("kotlin-stdlib-jdk8 is now a part of kotlin-stdlib")
         }
     }
-    implementation 'com.android.support:multidex:1.0.3'
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'androidx.appcompat:appcompat:1.7.1'
-    implementation 'com.google.android.material:material:1.13.0'
-    implementation "androidx.constraintlayout:constraintlayout:2.2.1"
-    implementation 'com.google.android.play:app-update:2.1.0'
-    implementation 'androidx.recyclerview:recyclerview:1.4.0'
-    implementation 'androidx.legacy:legacy-support-core-utils:1.0.0'
-    implementation 'com.google.code.gson:gson:2.13.2'
-    implementation platform('com.google.firebase:firebase-bom:34.6.0')
-    implementation 'com.google.firebase:firebase-analytics'
-    implementation 'com.google.firebase:firebase-storage'
-    implementation 'com.google.firebase:firebase-auth'
-    implementation 'com.google.firebase:firebase-database'
-    implementation 'com.google.firebase:firebase-messaging'
-    implementation 'com.google.firebase:firebase-crashlytics'
-    implementation 'androidx.datastore:datastore-preferences:1.2.0'
-    implementation 'com.akexorcist:RoundCornerProgressBar:2.0.3'
-    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    implementation libs.multidex
+    implementation libs.legacy.support.v4
+    implementation libs.appcompat
+    implementation libs.material
+    implementation libs.constraintlayout
+    implementation libs.play.app.update
+    implementation libs.recyclerview
+    implementation libs.legacy.support.core.utils
+    implementation libs.gson
+    implementation platform(libs.firebase.bom)
+    implementation libs.firebase.analytics
+    implementation libs.firebase.storage
+    implementation libs.firebase.auth
+    implementation libs.firebase.database
+    implementation libs.firebase.messaging
+    implementation libs.firebase.crashlytics
+    implementation libs.datastore.preferences
+    implementation libs.round.corner.progress.bar
+    implementation libs.glide
     annotationProcessor 'androidx.annotation:annotation:1.3.0'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
-    implementation 'com.github.ghost1372:Mzip-Android:0.4.0'
-    implementation 'com.liulishuo.filedownloader:library:1.7.7'
-    implementation 'com.github.rey5137:material:1.2.5'
-    implementation 'com.github.paolorotolo:appintro:4.1.0'
-    implementation 'com.hbb20:ccp:2.5.0'
-    implementation "com.vanniktech:android-image-cropper:4.7.0"
-    implementation 'com.bignerdranch.android:expandablerecyclerview:3.0.0-RC1'
+    annotationProcessor libs.glide.compiler
+    implementation libs.mzip.android
+    implementation libs.filedownloader
+    implementation libs.rey5137.material
+    implementation libs.appintro
+    implementation libs.ccp
+    implementation libs.android.image.cropper
+    implementation libs.expandablerecyclerview
 
-    implementation('com.h6ah4i.android.widget.advrecyclerview:advrecyclerview:1.0.0@aar') {
+    implementation("${libs.advrecyclerview.get()}@aar") {
         transitive = true
     }
-    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.31'
 
-    implementation 'androidx.room:room-runtime:2.3.0'
-    annotationProcessor "androidx.room:room-compiler:2.3.0"
+    implementation libs.room.runtime
+    annotationProcessor libs.room.compiler
 
-    implementation 'org.jetbrains:annotations:26.1.0'
+    implementation libs.annotations
 
     // Optional -- JUnit test framework
-    androidTestImplementation 'junit:junit:4.13.2'
+    androidTestImplementation libs.junit
     // Optional -- Robolectric environment
-    androidTestImplementation 'androidx.test:core:1.4.0'
+    androidTestImplementation libs.androidx.test.core
     /* Required for Espresso library*/
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
-    androidTestImplementation 'androidx.test:runner:1.4.0'
-    androidTestImplementation 'androidx.test:rules:1.4.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-intents:3.4.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.4.0'
+    androidTestImplementation libs.espresso.core
+    androidTestImplementation libs.androidx.test.runner
+    androidTestImplementation libs.androidx.test.rules
+    androidTestImplementation libs.espresso.intents
+    androidTestImplementation libs.espresso.contrib
 
-    testImplementation 'androidx.test.espresso:espresso-intents:3.4.0'
+    testImplementation libs.espresso.intents
     // Optional -- Mockito framework
-    testImplementation 'org.mockito:mockito-core:2.25.0'
-    testImplementation 'org.testng:testng:6.9.6'
-    testImplementation 'org.robolectric:robolectric:4.3'
-    testImplementation "org.robolectric:shadows-multidex:4.0.1"
-    androidTestImplementation 'org.mockito:mockito-android:2.7.22'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    testImplementation libs.mockito.core
+    testImplementation libs.testng
+    testImplementation libs.robolectric
+    testImplementation libs.robolectric.shadows.multidex
+    testImplementation libs.androidx.test.ext.junit
+    testImplementation libs.espresso.core
+    testImplementation libs.espresso.intents
+    testImplementation libs.espresso.contrib
+    androidTestImplementation libs.mockito.android
+    androidTestImplementation libs.androidx.test.ext.junit
+
+    // version moved to catalog
+    implementation libs.navigation.fragment
+    implementation libs.navigation.ui
 }
 
 apply plugin: 'com.google.gms.google-services'
 apply plugin: 'com.google.firebase.crashlytics'
-//apply plugin: 'com.hiya.jacoco-android'
-//
-//jacoco {
-//    toolVersion = "0.8.3"
-//}
-//
-//tasks.withType(Test).configureEach {
-//    jacoco.includeNoLocationClasses = true
-//}
-//
-//tasks.withType(Test).configureEach {
-//    jacoco.includeNoLocationClasses = true
-//}
+apply plugin: 'androidx.navigation.safeargs'
+apply plugin: 'jacoco'
 
-//tasks.register('jacocoUnifiedUnitInstrumentationTestReport', JacocoReport) {
-//    dependsOn['testDebugUnitTest', 'createDebugCoverageReport']
-//    reports {
-//        xml.enabled = true
-//        html.enabled = true
-//    }
-//
-//    def fileFilter = ['**/R.class', '**/R$*.class', '**/BuildConfig.*', '**/Manifest*.*', '**/*Test*.*', 'android/**/*.*']
-//    def debugTree = fileTree(dir: "${buildDir}/intermediates/classes/debug", excludes: fileFilter)
-//    def mainSrc = "${project.projectDir}/src/main/java"
-//    def execDataTree = fileTree(dir: "$buildDir", includes: [
-//            "jacoco/testDebugUnitTest.exec",
-//            "outputs/code-coverage/connected/*coverage.ec"
-//    ])
-//
-//    getSourceDirectories().setFrom([mainSrc])
-//    getClassDirectories().setFrom([debugTree])
-//    getExecutionData().setFrom([execDataTree])
-//}
+jacoco {
+    toolVersion = "0.8.11"
+}
+
+tasks.withType(Test).configureEach {
+    jacoco.includeNoLocationClasses = true
+    jacoco.excludes = ['jdk.internal.*']
+}
+
+task jacocoTestReport(type: JacocoReport, dependsOn: 'testDebugUnitTest') {
+    reports {
+        xml.required.set(true)
+        html.required.set(true)
+    }
+
+    def fileFilter = ['**/R.class', '**/R$*.class', '**/BuildConfig.*', '**/Manifest*.*', '**/*Test*.*', 'android/**/*.*']
+    def debugTree = fileTree(dir: "${buildDir}/intermediates/javac/debug/compileDebugJavaWithJavac/classes", excludes: fileFilter)
+    def mainSrc = "${project.projectDir}/src/main/java"
+    def execDataTree = fileTree(dir: "$buildDir", includes: [
+            "jacoco/testDebugUnitTest.exec",
+            "outputs/unit_test_code_coverage/debugUnitTest/testDebugUnitTest.exec"
+    ])
+
+    sourceDirectories.setFrom(files([mainSrc]))
+    classDirectories.setFrom(files([debugTree]))
+    executionData.setFrom(files([execDataTree]))
+}

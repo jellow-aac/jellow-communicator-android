@@ -16,18 +16,24 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.DataSource;
+import com.bumptech.glide.load.DecodeFormat;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.load.engine.GlideException;
+import com.bumptech.glide.load.resource.gif.GifDrawable;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.RequestOptions;
+import com.bumptech.glide.request.target.Target;
 import com.dsource.idc.jellowintl.R;
+import com.dsource.idc.jellowintl.fragments.LanguageSelectFragment;
 import com.dsource.idc.jellowintl.utility.Fish;
 import com.dsource.idc.jellowintl.utility.SessionManager;
 import com.dsource.idc.jellowintl.utility.TextToSpeechErrorUtils;
 import com.dsource.idc.jellowintl.utility.interfaces.TextToSpeechCallBacks;
-
-import java.util.Timer;
-import java.util.TimerTask;
-
-import pl.droidsonroids.gif.GifDrawable;
 
 public class LevelBaseActivity extends SpeechEngineBaseActivity implements TextToSpeechCallBacks{
     private String mErrorMessage, mDialogTitle, mLanguageSetting, mSwitchLang;
@@ -71,74 +77,118 @@ public class LevelBaseActivity extends SpeechEngineBaseActivity implements TextT
                    !getSession().getMonochromeDisplayState()
         ) {
             animationCounter++;
-            int fish = 0, dolphin = 1, whale = 2;
             if (animationCounter % 25 == 0) {
-                showAnimation(whale);
+                showAnimation(Fish.whale);
                 animationCounter = 0;
             } else if (animationCounter % 10 == 0)
-                showAnimation(dolphin);
+                showAnimation(Fish.dolphin);
             else if (animationCounter % 5 == 0)
-                showAnimation(fish);
+                showAnimation(Fish.fish);
         }
     }
 
     private void showAnimation(int fishType) {
         final Fish fish;
+        String tag = "small";
+        View parentView = findViewById(R.id.parent);
+        if (parentView != null && parentView.getTag() != null) {
+            tag = parentView.getTag().toString().trim();
+        } else {
+            try {
+                androidx.fragment.app.Fragment navHost = getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
+                if (navHost != null) {
+                    androidx.fragment.app.Fragment primary = navHost.getChildFragmentManager().getPrimaryNavigationFragment();
+                    if (primary != null && primary.getView() != null && primary.getView().getTag() != null) {
+                        tag = primary.getView().getTag().toString().trim();
+                    }
+                }
+            } catch (Exception ignored) {}
+        }
+
         switch(fishType){
-            case 1:
-                fish = Fish.getDolphin(findViewById(R.id.parent).getTag().toString().trim());
-                break;
-            case 2:
-                fish = Fish.getWhale(findViewById(R.id.parent).getTag().toString().trim());
-                break;
+            case 1: fish = Fish.Dolphin.get(tag); break;
+            case 2: fish = Fish.Whale.get(tag); break;
             case 0:
-            default:
-                fish = Fish.getFish(findViewById(R.id.parent).getTag().toString().trim());
+            default: fish = Fish.JellowFish.get(tag); break;
         }
 
         try {
-            final GifDrawable gifFromResource = new GifDrawable(getResources(), fish.getFishType());
-            gifFromResource.setSpeed(.5f);
-            findViewById(fish.getView()[0]).setVisibility(View.VISIBLE);
-            ((ImageView)findViewById(fish.getView()[0])).setImageDrawable(gifFromResource);
-
-            findViewById(fish.getView()[1]).setVisibility(View.GONE);
-            findViewById(fish.getView()[2]).setVisibility(View.GONE);
+            final ImageView animView = findViewById(fish.animViewId);
+            if (animView == null) return;
+            
+            // Set visible so Glide starts the request, then clear to reset state
+            animView.setVisibility(View.VISIBLE);
+            Glide.with(this).clear(animView);
+            
             final MediaPlayer mp = new MediaPlayer();
-            new Timer().schedule(new TimerTask() {
-                @Override
-                public void run() {
-                    try {
-                        AssetFileDescriptor afd = getAssets().openFd(fish.getAnimSound());
-                        mp.setDataSource(afd.getFileDescriptor(), afd.getStartOffset(), afd.getLength());
-                        mp.prepare();
-                        mp.start();
-                        this.cancel();
-                    }catch (Exception e){
-                        e.printStackTrace();
-                    }
-                    new Timer().schedule(new TimerTask() {
-                        @Override
-                        public void run() {
+            try {
+                AssetFileDescriptor afd = getAssets().openFd(fish.animSound);
+                mp.setDataSource(afd.getFileDescriptor(), afd.getStartOffset(), afd.getLength());
+                mp.prepare();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
 
-                            runOnUiThread(new Runnable() {
+            Glide.with(this)
+                    .asGif()
+                    .load(fish.fishType)
+                    .apply(new RequestOptions()
+                            .format(DecodeFormat.PREFER_ARGB_8888)
+                            .diskCacheStrategy(DiskCacheStrategy.RESOURCE))
+                    .listener(new RequestListener<GifDrawable>() {
+                        @Override
+                        public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<GifDrawable> target, boolean isFirstResource) {
+                            runOnUiThread(() -> {
+                                animView.setVisibility(View.GONE);
+                                try { mp.release(); } catch (Exception ignored) {}
+                            });
+                            return false;
+                        }
+
+                        @Override
+                        public boolean onResourceReady(final GifDrawable resource, Object model, Target<GifDrawable> target, DataSource dataSource, boolean isFirstResource) {
+                            // Force the GIF to play exactly ONCE
+                            resource.setLoopCount(1);
+                            
+                            // Use Native Callback to eliminate manual endTime delay
+                            resource.registerAnimationCallback(new androidx.vectordrawable.graphics.drawable.Animatable2Compat.AnimationCallback() {
                                 @Override
-                                public void run() {
-                                    mp.release();
-                                    findViewById(fish.getView()[0]).setVisibility(View.GONE);
-                                    gifFromResource.stop();
+                                public void onAnimationEnd(android.graphics.drawable.Drawable drawable) {
+                                    runOnUiThread(() -> {
+                                        try {
+                                            mp.release();
+                                        } catch (Exception ignored) {}
+                                        animView.setVisibility(View.GONE);
+                                        Glide.with(LevelBaseActivity.this).clear(animView);
+                                    });
                                 }
                             });
-                            this.cancel();
-                        }
-                    }, fish.getEndTime());
-                }
+                            
+                            resource.startFromFirstFrame();
+                            
+                            runOnUiThread(() -> {
+                                int[] allViews = {R.id.animFish, R.id.animDolphin, R.id.animWhale};
+                                for (int id : allViews) {
+                                    if (id != fish.animViewId) {
+                                        View v = findViewById(id);
+                                        if (v != null) v.setVisibility(View.GONE);
+                                    }
+                                }
+                            });
 
-                @Override
-                public long scheduledExecutionTime() {
-                    return super.scheduledExecutionTime();
-                }
-            }, fish.getSoundTime());
+                            // Schedule splash sound relative to the actual animation start
+                            new android.os.Handler(android.os.Looper.getMainLooper()).postDelayed(() -> {
+                                try {
+                                    mp.start();
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                            }, fish.soundTime);
+
+                            return false;
+                        }
+                    })
+                    .into(animView);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -208,8 +258,10 @@ public class LevelBaseActivity extends SpeechEngineBaseActivity implements TextT
                         .setPositiveButton(mLanguageSetting, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                startActivity(new Intent(LevelBaseActivity.this,
-                                        LanguageSelectActivity.class));
+                                Intent intent = new Intent(LevelBaseActivity.this,
+                                        AppActivity.class);
+                                intent.putExtra("destination", LanguageSelectFragment.class.getSimpleName());
+                                startActivity(intent);
                                 dialogInterface.dismiss();
                             }
                         })
@@ -218,7 +270,7 @@ public class LevelBaseActivity extends SpeechEngineBaseActivity implements TextT
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 getSession().setLanguage(SessionManager.ENG_US);
                                 startActivity(new Intent(LevelBaseActivity.this,
-                                        SplashActivity.class));
+                                        AppActivity.class));
                                 finishAffinity();
                             }
                         });

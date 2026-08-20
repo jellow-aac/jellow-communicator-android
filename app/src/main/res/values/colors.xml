@@ -24,6 +24,7 @@
     <color name="black_eighty">#333333</color>
     <color name="menu_screen_bottom_bar">#EDD89F</color>
     <color name="white">#FFFFFF</color>
+    <color name="dot_inactive">#F2D0BC</color>
     <color name="seq_btn_background_unpressed">#FFBEBCB6</color>
     <color name="seq_btn_background_pressed">#93918C</color>
     <color name="colorSerialKeyboardBackground">#C9CED1</color>

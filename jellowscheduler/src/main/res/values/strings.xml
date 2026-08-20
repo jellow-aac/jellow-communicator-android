@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Jellow Scheduler</string>
+    <string name="title_activity_scheduler_home">SchedulerHomeActivity</string>
+    <string name="today_s_schedule">Today\'s Schedule</string>
+</resources>

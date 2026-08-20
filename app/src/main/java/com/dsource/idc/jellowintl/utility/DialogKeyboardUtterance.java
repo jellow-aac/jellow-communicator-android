@@ -23,13 +23,7 @@ import androidx.core.content.ContextCompat;
 
 import com.dsource.idc.jellowintl.R;
 import com.dsource.idc.jellowintl.activities.BaseActivity;
-import com.dsource.idc.jellowintl.activities.LevelBaseActivity;
-import com.dsource.idc.jellowintl.activities.LevelThreeActivity;
-import com.dsource.idc.jellowintl.activities.LevelTwoActivity;
-import com.dsource.idc.jellowintl.activities.MainActivity;
-import com.dsource.idc.jellowintl.activities.SequenceActivity;
 import com.dsource.idc.jellowintl.activities.SpeechEngineBaseActivity;
-import com.dsource.idc.jellowintl.make_my_board_module.activity.HomeActivity;
 import com.dsource.idc.jellowintl.utility.interfaces.TextToSpeechCallBacks;
 
 public class DialogKeyboardUtterance{
@@ -79,39 +73,32 @@ public class DialogKeyboardUtterance{
         });
         builder.setView(dialogView);
         final AlertDialog dialog = builder.create();
-        dialogView.findViewById(R.id.dialog_back).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss();
-            }
-        });
-        dialog.setOnShowListener(new DialogInterface.OnShowListener() {
-            @Override
-            public void onShow(DialogInterface dialog) {
-                dialogView.findViewById(R.id.dialogTitle).setVisibility(View.GONE);
-            }
-        });
-        dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
-            @Override
-            public void onDismiss(DialogInterface dialog) {
-                activity.stopSpeaking();
-                if (activity instanceof MainActivity){
-                    ((MainActivity)activity).hideCustomKeyboardDialog();
-                }else if (activity instanceof LevelTwoActivity){
-                    ((LevelTwoActivity)activity).hideCustomKeyboardDialog();
-                }else if (activity instanceof LevelThreeActivity){
-                    ((LevelThreeActivity)activity).hideCustomKeyboardDialog();
-                }else if (activity instanceof SequenceActivity){
-                    ((SequenceActivity)activity).hideCustomKeyboardDialog();
-                }else{
-                    ((HomeActivity)activity).hideCustomKeyboardDialog();
+        dialogView.findViewById(R.id.dialog_back).setOnClickListener(v -> dialog.dismiss());
+        dialog.setOnShowListener(dialog2 -> dialogView.findViewById(R.id.dialogTitle).setVisibility(View.GONE));
+        dialog.setOnDismissListener(dialog1 -> {
+            activity.stopSpeaking();
+            androidx.fragment.app.Fragment navHostFragment = activity
+                    .getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
+            if (navHostFragment != null) {
+                for (androidx.fragment.app.Fragment f : navHostFragment.getChildFragmentManager().getFragments()) {
+                    if (f instanceof com.dsource.idc.jellowintl.fragments.LevelOneFragment) {
+                        ((com.dsource.idc.jellowintl.fragments.LevelOneFragment) f).hideCustomKeyboardDialog();
+                    } else if (f instanceof com.dsource.idc.jellowintl.fragments.LevelTwoFragment) {
+                        ((com.dsource.idc.jellowintl.fragments.LevelTwoFragment) f).hideCustomKeyboardDialog();
+                    } else if (f instanceof com.dsource.idc.jellowintl.fragments.LevelThreeFragment) {
+                        ((com.dsource.idc.jellowintl.fragments.LevelThreeFragment) f).hideCustomKeyboardDialog();
+                    } else if (f instanceof com.dsource.idc.jellowintl.fragments.ActivitySequenceFragment) {
+                        ((com.dsource.idc.jellowintl.fragments.ActivitySequenceFragment) f).hideCustomKeyboardDialog();
+                    } else if (f instanceof com.dsource.idc.jellowintl.make_my_board_module.fragments.BoardHomeFragment) {
+                        ((com.dsource.idc.jellowintl.make_my_board_module.fragments.BoardHomeFragment) f).hideCustomKeyboardDialog();
+                    }
                 }
             }
         });
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.show();
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+        dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE | WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
         dialog.findViewById(R.id.dialog_back).sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_HOVER_ENTER);
         WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
         lp.copyFrom(dialog.getWindow().getAttributes());
@@ -131,12 +118,9 @@ public class DialogKeyboardUtterance{
 
             @Override
             public void speechSynthesisCompleted() {
-                activity.runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        mBtnPlay.setImageDrawable(speaker);
-                        mBtnPlay.refreshDrawableState();
-                    }
+                activity.runOnUiThread(() -> {
+                    mBtnPlay.setImageDrawable(speaker);
+                    mBtnPlay.refreshDrawableState();
                 });
             }
         };

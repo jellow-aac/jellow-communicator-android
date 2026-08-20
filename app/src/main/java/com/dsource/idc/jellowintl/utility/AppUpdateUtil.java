@@ -9,7 +9,7 @@ import android.widget.Button;
 import androidx.appcompat.app.AlertDialog;
 
 import com.dsource.idc.jellowintl.R;
-import com.dsource.idc.jellowintl.activities.SplashActivity;
+import com.dsource.idc.jellowintl.activities.BaseActivity;
 import com.google.android.gms.tasks.Task;
 import com.google.android.play.core.appupdate.AppUpdateInfo;
 import com.google.android.play.core.appupdate.AppUpdateManager;
@@ -23,48 +23,52 @@ public class AppUpdateUtil{
     private AppUpdateManager appUpdateManager;
     private AppUpdateInfo appUpdateInfo;
 
+    public interface AppUpdateCallback {
+        void continueLoadingTheApp();
+    }
+
     public enum UpdateStatus {
         INIT, SHOW_RATIONALE, START, RUNNING, CANCELED, FAILED, NOT_AVAILABLE
     }
 
-    public void executeUpdateFlow(UpdateStatus status, SplashActivity context){
+    public void executeUpdateFlow(UpdateStatus status, BaseActivity context, AppUpdateCallback callback){
             Log.i("JellowApp","Created appUpdateManager");
         switch(status){
             case INIT:
-                checkIfNewVersionAvailable(context);
+                checkIfNewVersionAvailable(context, callback);
                 break;
             case SHOW_RATIONALE:
-                showUpdateRationaleToUser(context);
+                showUpdateRationaleToUser(context, callback);
                 break;
             case START:
-                startUpdateProcess(context);
+                startUpdateProcess(context, callback);
                 break;
             case RUNNING:
-                callUpdateUIToForegroundIfRunning(context);
+                callUpdateUIToForegroundIfRunning(context, callback);
                 break;
             case CANCELED:
             case FAILED:
             case NOT_AVAILABLE:
-                context.continueLoadingTheApp();
+                callback.continueLoadingTheApp();
                 break;
         }
     }
 
-    public void checkIfNewVersionAvailable(final SplashActivity context) {
+    public void checkIfNewVersionAvailable(final BaseActivity context, final AppUpdateCallback callback) {
         appUpdateManager = AppUpdateManagerFactory.create(context);
         Task<AppUpdateInfo> appUpdateInfoTask = appUpdateManager.getAppUpdateInfo();
         appUpdateInfoTask.addOnSuccessListener(appUpdateInfo -> {
             AppUpdateUtil.this.appUpdateInfo = appUpdateInfo;
             if (appUpdateInfo.updateAvailability() == UpdateAvailability.UPDATE_AVAILABLE
                     && appUpdateInfo.isUpdateTypeAllowed(IMMEDIATE)) {
-                executeUpdateFlow(UpdateStatus.SHOW_RATIONALE, context);
+                executeUpdateFlow(UpdateStatus.SHOW_RATIONALE, context, callback);
             }else{
-                executeUpdateFlow(UpdateStatus.FAILED, context);
+                executeUpdateFlow(UpdateStatus.FAILED, context, callback);
             }
-        }).addOnFailureListener(e -> executeUpdateFlow(UpdateStatus.FAILED, context));
+        }).addOnFailureListener(e -> executeUpdateFlow(UpdateStatus.FAILED, context, callback));
     }
 
-    private void showUpdateRationaleToUser(final SplashActivity context) {
+    private void showUpdateRationaleToUser(final BaseActivity context, final AppUpdateCallback callback) {
         String updateNow = context.getString(R.string.update_now);
         String updateLater = context.getString(R.string.update_later);
         String message = context.getString(R.string.app_update_message);
@@ -73,11 +77,11 @@ public class AppUpdateUtil{
         // Add the buttons
         builder
             .setPositiveButton(updateNow, (dialog, id) -> {
-                executeUpdateFlow(UpdateStatus.START, context);
+                executeUpdateFlow(UpdateStatus.START, context, callback);
                 dialog.dismiss();
             })
             .setNegativeButton(updateLater, (dialog, i) -> {
-                executeUpdateFlow(UpdateStatus.CANCELED, context);
+                executeUpdateFlow(UpdateStatus.CANCELED, context, callback);
                 dialog.dismiss();
             })
             // Set other dialog properties
@@ -89,20 +93,24 @@ public class AppUpdateUtil{
         // Show the AlertDialog
         dialog.show();
         dialog.setOnCancelListener(dialog1 -> {
-            executeUpdateFlow(UpdateStatus.CANCELED, context);
+            executeUpdateFlow(UpdateStatus.CANCELED, context, callback);
             dialog1.dismiss();
         });
         Button positiveButton = dialog.getButton(AlertDialog.BUTTON_POSITIVE);
-        positiveButton.setTextColor(context.getResources().getColor(R.color.colorAccent));
-        positiveButton.setTextSize(18f);
+        if (positiveButton != null) {
+            positiveButton.setTextColor(context.getResources().getColor(R.color.colorAccent));
+            positiveButton.setTextSize(18f);
+            context.applyMonochromeColor(positiveButton);
+        }
         Button negativeButton = dialog.getButton(AlertDialog.BUTTON_NEGATIVE);
-        negativeButton.setTextColor(context.getResources().getColor(R.color.colorAccent));
-        negativeButton.setTextSize(18f);
-        context.applyMonochromeColor(positiveButton);
-        context.applyMonochromeColor(negativeButton);
+        if (negativeButton != null) {
+            negativeButton.setTextColor(context.getResources().getColor(R.color.colorAccent));
+            negativeButton.setTextSize(18f);
+            context.applyMonochromeColor(negativeButton);
+        }
     }
 
-    public void startUpdateProcess(SplashActivity context){
+    public void startUpdateProcess(BaseActivity context, AppUpdateCallback callback){
         try {
             appUpdateManager.startUpdateFlowForResult(
                     appUpdateInfo,
@@ -110,12 +118,12 @@ public class AppUpdateUtil{
                     AppUpdateOptions.newBuilder(AppUpdateType.IMMEDIATE).build(),
                      UPDATE_REQUEST_CODE);
         } catch (IntentSender.SendIntentException | NullPointerException e) {
-            executeUpdateFlow(UpdateStatus.FAILED, context);
+            executeUpdateFlow(UpdateStatus.FAILED, context, callback);
             e.printStackTrace();
         }
     }
 
-    public void callUpdateUIToForegroundIfRunning(final SplashActivity context) {
+    public void callUpdateUIToForegroundIfRunning(final BaseActivity context, final AppUpdateCallback callback) {
         appUpdateManager = AppUpdateManagerFactory.create(context);
         appUpdateManager
             .getAppUpdateInfo()
@@ -131,7 +139,7 @@ public class AppUpdateUtil{
                                 UPDATE_REQUEST_CODE
                         );
                     } catch (IntentSender.SendIntentException e) {
-                        executeUpdateFlow(UpdateStatus.FAILED, context);
+                        executeUpdateFlow(UpdateStatus.FAILED, context, callback);
                         e.printStackTrace();
                     }
                 }
