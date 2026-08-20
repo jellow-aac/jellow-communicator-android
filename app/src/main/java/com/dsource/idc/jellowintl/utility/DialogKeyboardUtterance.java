@@ -81,14 +81,14 @@ public class DialogKeyboardUtterance{
                     .getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
             if (navHostFragment != null) {
                 for (androidx.fragment.app.Fragment f : navHostFragment.getChildFragmentManager().getFragments()) {
-                    if (f instanceof com.dsource.idc.jellowintl.fragments.MainFragment) {
-                        ((com.dsource.idc.jellowintl.fragments.MainFragment) f).hideCustomKeyboardDialog();
+                    if (f instanceof com.dsource.idc.jellowintl.fragments.LevelOneFragment) {
+                        ((com.dsource.idc.jellowintl.fragments.LevelOneFragment) f).hideCustomKeyboardDialog();
                     } else if (f instanceof com.dsource.idc.jellowintl.fragments.LevelTwoFragment) {
                         ((com.dsource.idc.jellowintl.fragments.LevelTwoFragment) f).hideCustomKeyboardDialog();
                     } else if (f instanceof com.dsource.idc.jellowintl.fragments.LevelThreeFragment) {
                         ((com.dsource.idc.jellowintl.fragments.LevelThreeFragment) f).hideCustomKeyboardDialog();
-                    } else if (f instanceof com.dsource.idc.jellowintl.fragments.SequenceFragment) {
-                        ((com.dsource.idc.jellowintl.fragments.SequenceFragment) f).hideCustomKeyboardDialog();
+                    } else if (f instanceof com.dsource.idc.jellowintl.fragments.ActivitySequenceFragment) {
+                        ((com.dsource.idc.jellowintl.fragments.ActivitySequenceFragment) f).hideCustomKeyboardDialog();
                     } else if (f instanceof com.dsource.idc.jellowintl.make_my_board_module.fragments.BoardHomeFragment) {
                         ((com.dsource.idc.jellowintl.make_my_board_module.fragments.BoardHomeFragment) f).hideCustomKeyboardDialog();
                     }

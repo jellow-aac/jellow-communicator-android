@@ -63,7 +63,7 @@ import com.google.firebase.crashlytics.FirebaseCrashlytics;
 /**
  * Created by ekalpa on 6/22/2016.
  */
-public class SequenceFragment extends BaseFragment {
+public class ActivitySequenceFragment extends BaseFragment {
     /* This flags are used to identify respective expressive button is pressed either
       once or twice. eg. mFlgLike used to identify Like expressive button pressed once or twice.*/
     private int mFlgLike = GlobalConstants.SHORT_SPEECH, mFlgYes = GlobalConstants.SHORT_SPEECH,
@@ -108,7 +108,7 @@ public class SequenceFragment extends BaseFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        getLevelActivity().setVisibleAct(SequenceFragment.class.getSimpleName());
+        getLevelActivity().setVisibleAct(ActivitySequenceFragment.class.getSimpleName());
 
         if (getArguments() != null) {
             mLevelTwoItemPos = getArguments().getInt(getString(R.string.level_2_item_pos_tag), 0);
@@ -169,7 +169,7 @@ public class SequenceFragment extends BaseFragment {
     @Override
     public void onResume() {
         super.onResume();
-        getLevelActivity().setVisibleAct(SequenceFragment.class.getSimpleName());
+        getLevelActivity().setVisibleAct(ActivitySequenceFragment.class.getSimpleName());
         getLevelActivity().setupActionBarTitle(getView(), View.GONE, txtActionBarTitle);
         getLevelActivity().setupToolbarMenu(getView());
         if (!isAnalyticsActive()) {
@@ -187,7 +187,7 @@ public class SequenceFragment extends BaseFragment {
         super.onPause();
         long sessionTime = validatePushId(getSession().getSessionCreatedAt());
         getSession().setSessionCreatedAt(sessionTime);
-        stopMeasuring(SequenceFragment.class.getSimpleName());
+        stopMeasuring(ActivitySequenceFragment.class.getSimpleName());
     }
 
     @Override
@@ -660,7 +660,7 @@ public class SequenceFragment extends BaseFragment {
                 speakAndShowTextBar_(mNavigationBtnTxt[1]);
                 mUec.createSendFbEventFromTappedView(27, "", "");
                 mIvBack.setImageResource(R.drawable.back_pressed);
-                NavHostFragment.findNavController(SequenceFragment.this).popBackStack();
+                NavHostFragment.findNavController(ActivitySequenceFragment.this).popBackStack();
             }
         });
     }
@@ -684,7 +684,7 @@ public class SequenceFragment extends BaseFragment {
                 }).start();
                 mIvHome.setImageResource(R.drawable.home_pressed);
                 mIvKeyboard.setImageResource(R.drawable.keyboard);
-                NavHostFragment.findNavController(SequenceFragment.this).popBackStack(R.id.mainFragment, false);
+                NavHostFragment.findNavController(ActivitySequenceFragment.this).popBackStack(R.id.levelOneFragment, false);
             }
         });
     }

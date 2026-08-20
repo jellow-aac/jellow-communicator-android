@@ -42,7 +42,7 @@ public class TutorialFragment extends BaseFragment {
             @Override
             public void handleOnBackPressed() {
                 if (!NavHostFragment.findNavController(TutorialFragment.this).popBackStack()) {
-                    NavHostFragment.findNavController(TutorialFragment.this).navigate(R.id.mainFragment);
+                    NavHostFragment.findNavController(TutorialFragment.this).navigate(R.id.levelOneFragment);
                 }
             }
         });

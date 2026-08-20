@@ -66,7 +66,7 @@ public class ResetPreferencesFragment extends Fragment {
             @Override
             public void handleOnBackPressed() {
                 if (!NavHostFragment.findNavController(ResetPreferencesFragment.this).popBackStack()) {
-                    NavHostFragment.findNavController(ResetPreferencesFragment.this).navigate(R.id.mainFragment);
+                    NavHostFragment.findNavController(ResetPreferencesFragment.this).navigate(R.id.levelOneFragment);
                 }
             }
         });

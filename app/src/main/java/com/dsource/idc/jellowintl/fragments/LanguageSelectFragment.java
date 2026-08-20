@@ -155,7 +155,7 @@ public class LanguageSelectFragment extends Fragment {
             @Override
             public void handleOnBackPressed() {
                 if (!NavHostFragment.findNavController(LanguageSelectFragment.this).popBackStack()) {
-                    NavHostFragment.findNavController(LanguageSelectFragment.this).navigate(R.id.mainFragment);
+                    NavHostFragment.findNavController(LanguageSelectFragment.this).navigate(R.id.levelOneFragment);
                 }
             }
         });

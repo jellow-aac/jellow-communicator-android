@@ -86,7 +86,7 @@ public class SettingFragment extends Fragment {
                 getAppActivity().setSpeechPitch((float) getSession().getPitch()/50f);
                 getAppActivity().setSpeechRate((float) getSession().getSpeed()/50f);
                 if (!NavHostFragment.findNavController(SettingFragment.this).popBackStack()) {
-                    NavHostFragment.findNavController(SettingFragment.this).navigate(R.id.mainFragment);
+                    NavHostFragment.findNavController(SettingFragment.this).navigate(R.id.levelOneFragment);
                 }
             }
         });

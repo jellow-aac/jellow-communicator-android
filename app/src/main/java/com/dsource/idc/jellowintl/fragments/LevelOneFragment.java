@@ -14,7 +14,6 @@ import static com.dsource.idc.jellowintl.utility.Analytics.stopMeasuring;
 import static com.dsource.idc.jellowintl.utility.Analytics.validatePushId;
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.ConnectivityManager;
@@ -45,7 +44,7 @@ import com.dsource.idc.jellowintl.BuildConfig;
 import com.dsource.idc.jellowintl.Presentor.CustomBasicIconHelper;
 import com.dsource.idc.jellowintl.R;
 import com.dsource.idc.jellowintl.TalkBack.TalkbackHints_SingleClick;
-import com.dsource.idc.jellowintl.fragments.adapters.MainActivityAdapter;
+import com.dsource.idc.jellowintl.fragments.adapters.LevelOneFragmentAdapter;
 import com.dsource.idc.jellowintl.factories.IconFactory;
 import com.dsource.idc.jellowintl.factories.LanguageFactory;
 import com.dsource.idc.jellowintl.factories.PathFactory;
@@ -62,10 +61,7 @@ import com.dsource.idc.jellowintl.utility.DialogKeyboardUtterance;
 import com.dsource.idc.jellowintl.utility.LevelUiUtils;
 import com.dsource.idc.jellowintl.utility.UserEventCollector;
 import com.dsource.idc.jellowintl.utility.interfaces.BasicCustomIconsChangedListener;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -73,7 +69,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class MainFragment extends BaseFragment implements BasicCustomIconsChangedListener {
+public class LevelOneFragment extends BaseFragment implements BasicCustomIconsChangedListener {
 
     private int mFlgLike = GlobalConstants.SHORT_SPEECH, mFlgYes = GlobalConstants.SHORT_SPEECH,
             mFlgMore = GlobalConstants.SHORT_SPEECH, mFlgDntLike = GlobalConstants.SHORT_SPEECH,
@@ -108,7 +104,7 @@ public class MainFragment extends BaseFragment implements BasicCustomIconsChange
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        getLevelActivity().setVisibleAct(MainFragment.class.getSimpleName());
+        getLevelActivity().setVisibleAct(LevelOneFragment.class.getSimpleName());
         getLevelActivity().setupActionBarTitle(view, View.GONE, getString(R.string.action_bar_title));
         getLevelActivity().setupToolbarMenu(view);
         getLevelActivity().applyMonochromeColor(view);
@@ -135,8 +131,8 @@ public class MainFragment extends BaseFragment implements BasicCustomIconsChange
         requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), new OnBackPressedCallback(true) {
             @Override
             public void handleOnBackPressed() {
-                NavController navController = NavHostFragment.findNavController(MainFragment.this);
-                if (navController.getCurrentDestination() != null && navController.getCurrentDestination().getId() == R.id.mainFragment) {
+                NavController navController = NavHostFragment.findNavController(LevelOneFragment.this);
+                if (navController.getCurrentDestination() != null && navController.getCurrentDestination().getId() == R.id.levelOneFragment) {
                     requireActivity().finish();
                 } else {
                     navController.popBackStack();
@@ -158,8 +154,8 @@ public class MainFragment extends BaseFragment implements BasicCustomIconsChange
         int iconIndex = args.getInt(getString(R.string.search_parent_0));
         mRecyclerView.scrollToPosition(iconIndex);
         if (mRecyclerItemsViewList.size() <= iconIndex || mRecyclerItemsViewList.get(iconIndex) == null) {
-            mRecyclerView.addOnScrollListener(getListener(iconIndex));
-        } else {
+            /*mRecyclerView.addOnScrollListener(getListener(iconIndex));
+        } else {*/
             setSearchHighlight(iconIndex);
         }
     }
@@ -181,26 +177,23 @@ public class MainFragment extends BaseFragment implements BasicCustomIconsChange
         if (mRecyclerView.getAdapter() != null) {
             mRecyclerView.getAdapter().notifyDataSetChanged();
         }
-        populationDoneListener = new ViewTreeObserver.OnGlobalLayoutListener() {
-            @Override
-            public void onGlobalLayout() {
-                if (pos < mRecyclerItemsViewList.size()) {
-                    View searchedView = mRecyclerItemsViewList.get(pos);
-                    if (searchedView == null) {
-                        if (mRecyclerView.getLayoutManager() != null) {
-                            mRecyclerView.getLayoutManager().smoothScrollToPosition(mRecyclerView, null, pos);
-                        }
-                        mRecyclerView.getViewTreeObserver().removeOnGlobalLayoutListener(populationDoneListener);
-                        return;
-                    }
-                    tappedCategoryItemEvent(searchedView, pos);
-                    if (scrollListener != null) {
-                        mRecyclerView.removeOnScrollListener(scrollListener);
+        populationDoneListener = () -> {
+            if (pos < mRecyclerItemsViewList.size()) {
+                View searchedView = mRecyclerItemsViewList.get(pos);
+                if (searchedView == null) {
+                    if (mRecyclerView.getLayoutManager() != null) {
+                        mRecyclerView.getLayoutManager().smoothScrollToPosition(mRecyclerView, null, pos);
                     }
                     mRecyclerView.getViewTreeObserver().removeOnGlobalLayoutListener(populationDoneListener);
-                    if (isAdded() && getLevelActivity().isAccessibilityTalkBackOn((AccessibilityManager) requireContext().getSystemService(Context.ACCESSIBILITY_SERVICE))) {
-                        searchedView.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_HOVER_ENTER);
-                    }
+                    return;
+                }
+                tappedCategoryItemEvent(searchedView, pos);
+                if (scrollListener != null) {
+                    mRecyclerView.removeOnScrollListener(scrollListener);
+                }
+                mRecyclerView.getViewTreeObserver().removeOnGlobalLayoutListener(populationDoneListener);
+                if (isAdded() && getLevelActivity().isAccessibilityTalkBackOn((AccessibilityManager) requireContext().getSystemService(Context.ACCESSIBILITY_SERVICE))) {
+                    searchedView.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_HOVER_ENTER);
                 }
             }
         };
@@ -216,7 +209,7 @@ public class MainFragment extends BaseFragment implements BasicCustomIconsChange
     @Override
     public void onResume() {
         super.onResume();
-        getLevelActivity().setVisibleAct(MainFragment.class.getSimpleName());
+        getLevelActivity().setVisibleAct(LevelOneFragment.class.getSimpleName());
         getLevelActivity().setupActionBarTitle(getView(), View.GONE, getString(R.string.action_bar_title));
         getLevelActivity().setupToolbarMenu(getView());
         if (!isAnalyticsActive()) {
@@ -285,7 +278,7 @@ public class MainFragment extends BaseFragment implements BasicCustomIconsChange
                 mRecyclerView.setLayoutManager(new GridLayoutManager(requireContext(), 3));
                 break;
         }
-        mRecyclerView.setAdapter(new MainActivityAdapter(MainFragment.this, level1IconObjects));
+        mRecyclerView.setAdapter(new LevelOneFragmentAdapter(LevelOneFragment.this, level1IconObjects));
         mRecyclerView.setVerticalScrollBarEnabled(true);
         mRecyclerView.setScrollbarFadingEnabled(false);
         mRecyclerView.requestFocus();
@@ -318,7 +311,7 @@ public class MainFragment extends BaseFragment implements BasicCustomIconsChange
                         CustomBasicIconHelper.getCustomBasicIcons(getAppDatabase(), getSession().getLanguage(), "00"),
                         getSession().getBasicCustomIconAddState());
 
-                mRecyclerView.setAdapter(new MainActivityAdapter(MainFragment.this, level1IconObjects));
+                mRecyclerView.setAdapter(new LevelOneFragmentAdapter(LevelOneFragment.this, level1IconObjects));
                 if (mRecyclerView.getAdapter() != null) {
                     mRecyclerView.getAdapter().notifyItemRangeChanged(0, level1IconObjects.length);
                 }
@@ -679,7 +672,7 @@ public class MainFragment extends BaseFragment implements BasicCustomIconsChange
                 Bundle args = new Bundle();
                 args.putInt(getString(R.string.level_one_intent_pos_tag), position);
                 args.putString(getString(R.string.intent_menu_path_tag), title + "/");
-                NavHostFragment.findNavController(MainFragment.this).navigate(R.id.action_mainFragment_to_levelTwoFragment, args);
+                NavHostFragment.findNavController(LevelOneFragment.this).navigate(R.id.action_levelOneFragment_to_levelTwoFragment, args);
             } else {
                 getLevelActivity().animateIfEnabled();
                 if (!mSearched)
@@ -784,7 +777,7 @@ public class MainFragment extends BaseFragment implements BasicCustomIconsChange
             Bundle args = new Bundle();
             args.putInt(getString(R.string.level_one_intent_pos_tag), position);
             args.putString(getString(R.string.intent_menu_path_tag), getString(R.string.home) + "/ " + title + "/");
-            NavHostFragment.findNavController(MainFragment.this).navigate(R.id.action_mainFragment_to_levelTwoFragment, args);
+            NavHostFragment.findNavController(LevelOneFragment.this).navigate(R.id.action_levelOneFragment_to_levelTwoFragment, args);
             dialog.dismiss();
         });
 
@@ -885,7 +878,7 @@ public class MainFragment extends BaseFragment implements BasicCustomIconsChange
             temp.toArray(level1IconObjects);
             LevelUiUtils.setBorderToCategoryIcon(requireActivity(), mRecyclerView.getChildAt(position),
                     false, -1, -1);
-            mRecyclerView.setAdapter(new MainActivityAdapter(MainFragment.this, level1IconObjects));
+            mRecyclerView.setAdapter(new LevelOneFragmentAdapter(LevelOneFragment.this, level1IconObjects));
             if (mRecyclerView.getAdapter() != null) {
                 mRecyclerView.getAdapter().notifyItemRemoved(position);
             }
@@ -947,15 +940,12 @@ public class MainFragment extends BaseFragment implements BasicCustomIconsChange
 
     private void performManualLogin(FirebaseAuth mAuth) {
         mAuth.signInAnonymously()
-                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful() && isAdded()) {
-                            FirebaseDatabase db = FirebaseDatabase.getInstance();
-                            DatabaseReference ref = db.getReference(BuildConfig.DB_TYPE + "/users/" +
-                                    getSession().getUserId());
-                            ref.child("versionCode").setValue(BuildConfig.VERSION_CODE);
-                        }
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful() && isAdded()) {
+                        FirebaseDatabase db = FirebaseDatabase.getInstance();
+                        DatabaseReference ref = db.getReference(BuildConfig.DB_TYPE + "/users/" +
+                                getSession().getUserId());
+                        ref.child("versionCode").setValue(BuildConfig.VERSION_CODE);
                     }
                 });
     }

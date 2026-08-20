@@ -99,7 +99,7 @@ public class KeyboardInputFragment extends Fragment {
             @Override
             public void handleOnBackPressed() {
                 if (!NavHostFragment.findNavController(KeyboardInputFragment.this).popBackStack()) {
-                    NavHostFragment.findNavController(KeyboardInputFragment.this).navigate(R.id.mainFragment);
+                    NavHostFragment.findNavController(KeyboardInputFragment.this).navigate(R.id.levelOneFragment);
                 }
             }
         });

@@ -677,14 +677,14 @@ public class LevelThreeFragment extends BaseFragment implements BasicCustomIcons
                 }).start();
                 mIvHome.setImageResource(R.drawable.home_pressed);
                 mIvKeyboard.setImageResource(R.drawable.keyboard);
-                NavHostFragment.findNavController(LevelThreeFragment.this).popBackStack(R.id.mainFragment, false);
+                NavHostFragment.findNavController(LevelThreeFragment.this).popBackStack(R.id.levelOneFragment, false);
             }
         });
     }
 
     /**
      * <p>This function will initialize the click scrollListener to Navigation "keyboard" button.
-     * {@link LevelThreeActivity} navigation keyboard button either enable or disable
+     * {@link LevelThreeFragment} navigation keyboard button either enable or disable
      * the custom keyboard input text layout.
      * When custom keyboard input text layout is enabled using keyboard button, is visible to user
      * and action bar title set to "keyboard".

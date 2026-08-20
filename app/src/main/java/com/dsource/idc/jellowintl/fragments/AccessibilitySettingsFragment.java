@@ -69,7 +69,7 @@ public class AccessibilitySettingsFragment extends Fragment {
             @Override
             public void handleOnBackPressed() {
                 if (!NavHostFragment.findNavController(AccessibilitySettingsFragment.this).popBackStack()) {
-                    NavHostFragment.findNavController(AccessibilitySettingsFragment.this).navigate(R.id.mainFragment);
+                    NavHostFragment.findNavController(AccessibilitySettingsFragment.this).navigate(R.id.levelOneFragment);
                 }
             }
         });

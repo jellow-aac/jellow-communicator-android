@@ -53,13 +53,13 @@ import com.dsource.idc.jellowintl.fragments.FeedbackTalkBackFragment;
 import com.dsource.idc.jellowintl.fragments.IntroFragment;
 import com.dsource.idc.jellowintl.fragments.LanguageDownloadFragment;
 import com.dsource.idc.jellowintl.fragments.LanguageSelectFragment;
-import com.dsource.idc.jellowintl.fragments.LevelThreeFragment;
+import com.dsource.idc.jellowintl.fragments.LevelOneFragment;
 import com.dsource.idc.jellowintl.fragments.LevelTwoFragment;
-import com.dsource.idc.jellowintl.fragments.MainFragment;
+import com.dsource.idc.jellowintl.fragments.LevelThreeFragment;
+import com.dsource.idc.jellowintl.fragments.ActivitySequenceFragment;
 import com.dsource.idc.jellowintl.fragments.ProfileFormFragment;
 import com.dsource.idc.jellowintl.fragments.ResetPreferencesFragment;
 import com.dsource.idc.jellowintl.fragments.SearchDialogFragment;
-import com.dsource.idc.jellowintl.fragments.SequenceFragment;
 import com.dsource.idc.jellowintl.fragments.SettingFragment;
 import com.dsource.idc.jellowintl.fragments.SplashFragment;
 import com.dsource.idc.jellowintl.fragments.TutorialFragment;
@@ -634,7 +634,7 @@ public class BaseActivity extends AppCompatActivity{
     public void finishCurrentActivity(View view) {
         if (this instanceof AppActivity) {
             NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-            if (navController.getCurrentDestination() != null && navController.getCurrentDestination().getId() == R.id.mainFragment) {
+            if (navController.getCurrentDestination() != null && navController.getCurrentDestination().getId() == R.id.levelOneFragment) {
                 finish();
             } else {
                 getOnBackPressedDispatcher().onBackPressed();
@@ -672,10 +672,10 @@ public class BaseActivity extends AppCompatActivity{
     }
 
     private String getLevelClass() {
-        return MainFragment.class.getSimpleName() + "," +
+        return LevelOneFragment.class.getSimpleName() + "," +
             LevelTwoFragment.class.getSimpleName() + "," +
             LevelThreeFragment.class.getSimpleName() + "," +
-            SequenceFragment.class.getSimpleName();
+            ActivitySequenceFragment.class.getSimpleName();
     }
 
     private String getBoardSearchClass() {

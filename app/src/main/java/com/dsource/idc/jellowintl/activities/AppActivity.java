@@ -11,7 +11,7 @@ import com.dsource.idc.jellowintl.fragments.FeedbackTalkBackFragment;
 import com.dsource.idc.jellowintl.fragments.IntroFragment;
 import com.dsource.idc.jellowintl.fragments.LanguageDownloadFragment;
 import com.dsource.idc.jellowintl.fragments.LanguageSelectFragment;
-import com.dsource.idc.jellowintl.fragments.MainFragment;
+import com.dsource.idc.jellowintl.fragments.LevelOneFragment;
 import com.dsource.idc.jellowintl.fragments.ProfileFormFragment;
 import com.dsource.idc.jellowintl.fragments.ResetPreferencesFragment;
 import com.dsource.idc.jellowintl.fragments.SettingFragment;
@@ -49,9 +49,9 @@ public class AppActivity extends LevelBaseActivity {
                     if (destId != -1) navGraph.setStartDestination(destId);
                     navController.setGraph(navGraph);
                 } else {
-                    navGraph.setStartDestination(R.id.mainFragment);
+                    navGraph.setStartDestination(R.id.levelOneFragment);
                     navController.setGraph(navGraph);
-                    if (destId != -1 && destId != R.id.mainFragment) {
+                    if (destId != -1 && destId != R.id.levelOneFragment) {
                         Bundle args = new Bundle();
                         if (getIntent().getExtras() != null) {
                             args.putAll(getIntent().getExtras());
@@ -109,8 +109,8 @@ public class AppActivity extends LevelBaseActivity {
             destId = R.id.feedbackFragment;
         } else if (destination.equals(FeedbackTalkBackFragment.class.getSimpleName())) {
             destId = R.id.feedbackTalkBackFragment;
-        } else if (destination.equals(MainFragment.class.getSimpleName())) {
-            destId = R.id.mainFragment;
+        } else if (destination.equals(LevelOneFragment.class.getSimpleName())) {
+            destId = R.id.levelOneFragment;
         } else if (destination.equals(com.dsource.idc.jellowintl.make_my_board_module.fragments.BoardListFragment.class.getSimpleName())) {
             destId = R.id.boardListFragment;
         } else if (destination.equals(com.dsource.idc.jellowintl.make_my_board_module.fragments.BoardTrashFragment.class.getSimpleName())) {

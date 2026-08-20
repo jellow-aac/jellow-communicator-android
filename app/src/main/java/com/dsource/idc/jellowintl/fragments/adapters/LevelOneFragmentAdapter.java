@@ -9,7 +9,6 @@ import static com.dsource.idc.jellowintl.models.GlobalConstants.ADD_BASIC_CUSTOM
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Typeface;
-import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,9 +27,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.dsource.idc.jellowintl.R;
 import com.dsource.idc.jellowintl.TalkBack.TalkbackHints_SingleClick;
-import com.dsource.idc.jellowintl.fragments.MainFragment;
 import com.dsource.idc.jellowintl.factories.IconFactory;
 import com.dsource.idc.jellowintl.factories.TextFactory;
+import com.dsource.idc.jellowintl.fragments.LevelOneFragment;
 import com.dsource.idc.jellowintl.models.GlobalConstants;
 import com.dsource.idc.jellowintl.models.Icon;
 import com.dsource.idc.jellowintl.utility.SessionManager;
@@ -38,15 +37,15 @@ import com.dsource.idc.jellowintl.utility.SessionManager;
 /**
  * Created by ekalpa on 4/19/2016.
  */
-public class MainActivityAdapter extends RecyclerView.Adapter<MainActivityAdapter.MyViewHolder> {
+public class LevelOneFragmentAdapter extends RecyclerView.Adapter<LevelOneFragmentAdapter.MyViewHolder> {
     private final Context mContext;
-    private final MainFragment mFragment;
+    private final LevelOneFragment mFragment;
     private final SessionManager mSession;
     private final String[] iconNameArray;
     private final String[] belowTextArray;
     private final int libIconSize = 9;
 
-    public MainActivityAdapter(MainFragment fragment, Icon[] level1IconObjects) {
+    public LevelOneFragmentAdapter(LevelOneFragment fragment, Icon[] level1IconObjects) {
         mFragment = fragment;
         mContext = fragment.requireActivity();
         mSession = fragment.getSession();
@@ -69,11 +68,11 @@ public class MainActivityAdapter extends RecyclerView.Adapter<MainActivityAdapte
         } else {
             rowView = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_level_xadapter_9_icons, parent, false);
         }
-        return new MainActivityAdapter.MyViewHolder(rowView);
+        return new LevelOneFragmentAdapter.MyViewHolder(rowView);
     }
 
     @Override
-    public void onBindViewHolder(final MainActivityAdapter.MyViewHolder holder, final int position) {
+    public void onBindViewHolder(final LevelOneFragmentAdapter.MyViewHolder holder, final int position) {
         ViewCompat.setAccessibilityDelegate(holder.menuItemLinearLayout,
                 new TalkbackHints_SingleClick());
 

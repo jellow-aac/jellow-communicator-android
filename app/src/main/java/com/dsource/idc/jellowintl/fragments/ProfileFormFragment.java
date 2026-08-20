@@ -76,7 +76,7 @@ public class ProfileFormFragment extends Fragment {
             @Override
             public void handleOnBackPressed() {
                 if (!NavHostFragment.findNavController(ProfileFormFragment.this).popBackStack()) {
-                    NavHostFragment.findNavController(ProfileFormFragment.this).navigate(R.id.mainFragment);
+                    NavHostFragment.findNavController(ProfileFormFragment.this).navigate(R.id.levelOneFragment);
                 }
             }
         });

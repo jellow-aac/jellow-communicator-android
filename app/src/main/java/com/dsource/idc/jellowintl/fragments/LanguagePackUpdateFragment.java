@@ -143,7 +143,7 @@ public class LanguagePackUpdateFragment extends Fragment implements ProgressRece
 
     public void closeActivity(){
         if (!NavHostFragment.findNavController(LanguagePackUpdateFragment.this).popBackStack()) {
-            NavHostFragment.findNavController(LanguagePackUpdateFragment.this).navigate(R.id.mainFragment);
+            NavHostFragment.findNavController(LanguagePackUpdateFragment.this).navigate(R.id.levelOneFragment);
         }
     }
 }

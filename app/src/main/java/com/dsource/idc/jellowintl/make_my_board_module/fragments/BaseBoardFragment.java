@@ -86,7 +86,7 @@ public abstract class BaseBoardFragment<V extends IBaseView, P extends IBasePres
             @Override
             public void handleOnBackPressed() {
                 if (!NavHostFragment.findNavController(BaseBoardFragment.this).popBackStack()) {
-                    NavHostFragment.findNavController(BaseBoardFragment.this).navigate(R.id.mainFragment);
+                    NavHostFragment.findNavController(BaseBoardFragment.this).navigate(R.id.levelOneFragment);
                 }
             }
         });
@@ -163,7 +163,7 @@ public abstract class BaseBoardFragment<V extends IBaseView, P extends IBasePres
         if (ivBack != null) {
             ivBack.setOnClickListener(v -> {
                 if (!NavHostFragment.findNavController(BaseBoardFragment.this).popBackStack()) {
-                    NavHostFragment.findNavController(BaseBoardFragment.this).navigate(R.id.mainFragment);
+                    NavHostFragment.findNavController(BaseBoardFragment.this).navigate(R.id.levelOneFragment);
                 }
             });
         }

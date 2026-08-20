@@ -90,7 +90,7 @@ public class FeedbackTalkBackFragment extends Fragment{
             @Override
             public void handleOnBackPressed() {
                 if (!NavHostFragment.findNavController(FeedbackTalkBackFragment.this).popBackStack()) {
-                    NavHostFragment.findNavController(FeedbackTalkBackFragment.this).navigate(R.id.mainFragment);
+                    NavHostFragment.findNavController(FeedbackTalkBackFragment.this).navigate(R.id.levelOneFragment);
                 }
             }
         });

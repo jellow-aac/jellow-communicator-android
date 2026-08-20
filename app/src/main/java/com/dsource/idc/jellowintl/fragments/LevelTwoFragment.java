@@ -488,7 +488,7 @@ public class LevelTwoFragment extends BaseFragment implements BasicCustomIconsCh
                 }).start();
                 mIvHome.setImageResource(R.drawable.home_pressed);
                 mIvKeyboard.setImageResource(R.drawable.keyboard);
-                NavHostFragment.findNavController(LevelTwoFragment.this).popBackStack(R.id.mainFragment, false);
+                NavHostFragment.findNavController(LevelTwoFragment.this).popBackStack(R.id.levelOneFragment, false);
             }
         });
     }
@@ -1094,7 +1094,7 @@ public class LevelTwoFragment extends BaseFragment implements BasicCustomIconsCh
 
                 int CATEGORY_ICON_DAILY_ACT = 1;
                 if (mLevelOneItemPos == CATEGORY_ICON_DAILY_ACT && LevelUiUtils.isSequencePosition(position)) {
-                    NavHostFragment.findNavController(LevelTwoFragment.this).navigate(R.id.action_levelTwoFragment_to_sequenceFragment, args);
+                    NavHostFragment.findNavController(LevelTwoFragment.this).navigate(R.id.action_levelTwoFragment_to_activitySequenceFragment, args);
                 } else {
                     NavHostFragment.findNavController(LevelTwoFragment.this).navigate(R.id.action_levelTwoFragment_to_levelThreeFragment, args);
                 }
@@ -1355,7 +1355,7 @@ public class LevelTwoFragment extends BaseFragment implements BasicCustomIconsCh
 
                     int CATEGORY_ICON_DAILY_ACT = 1;
                     if (mLevelOneItemPos == CATEGORY_ICON_DAILY_ACT && LevelUiUtils.isSequencePosition(position)) {
-                        NavHostFragment.findNavController(LevelTwoFragment.this).navigate(R.id.action_levelTwoFragment_to_sequenceFragment, args);
+                        NavHostFragment.findNavController(LevelTwoFragment.this).navigate(R.id.action_levelTwoFragment_to_activitySequenceFragment, args);
                     } else {
                         NavHostFragment.findNavController(LevelTwoFragment.this).navigate(R.id.action_levelTwoFragment_to_levelThreeFragment, args);
                     }

@@ -11,8 +11,8 @@
         android:label="SplashFragment"
         tools:layout="@layout/activity_splash">
         <action
-            android:id="@+id/action_splashFragment_to_mainFragment"
-            app:destination="@id/mainFragment"
+            android:id="@+id/action_splashFragment_to_levelOneFragment"
+            app:destination="@id/levelOneFragment"
             app:popUpTo="@id/nav_graph"
             app:popUpToInclusive="true" />
     </fragment>
@@ -92,7 +92,7 @@
         android:id="@+id/settingFragment"
         android:name="com.dsource.idc.jellowintl.fragments.SettingFragment"
         android:label="SettingFragment"
-        tools:layout="@layout/activity_setting" />
+        tools:layout="@layout/activity_settings" />
 
     <fragment
         android:id="@+id/profileFormFragment"
@@ -155,12 +155,12 @@
         tools:layout="@layout/activity_search" />
 
     <fragment
-        android:id="@+id/mainFragment"
-        android:name="com.dsource.idc.jellowintl.fragments.MainFragment"
-        android:label="MainFragment"
+        android:id="@+id/levelOneFragment"
+        android:name="com.dsource.idc.jellowintl.fragments.LevelOneFragment"
+        android:label="LevelOneFragment"
         tools:layout="@layout/activity_levelx_layout">
         <action
-            android:id="@+id/action_mainFragment_to_levelTwoFragment"
+            android:id="@+id/action_levelOneFragment_to_levelTwoFragment"
             app:destination="@id/levelTwoFragment" />
     </fragment>
 
@@ -181,8 +181,8 @@
             android:id="@+id/action_levelTwoFragment_to_levelThreeFragment"
             app:destination="@id/levelThreeFragment" />
         <action
-            android:id="@+id/action_levelTwoFragment_to_sequenceFragment"
-            app:destination="@id/sequenceFragment" />
+            android:id="@+id/action_levelTwoFragment_to_activitySequenceFragment"
+            app:destination="@id/activitySequenceFragment" />
     </fragment>
 
     <fragment
@@ -205,9 +205,9 @@
     </fragment>
 
     <fragment
-        android:id="@+id/sequenceFragment"
-        android:name="com.dsource.idc.jellowintl.fragments.SequenceFragment"
-        android:label="SequenceFragment"
+        android:id="@+id/activitySequenceFragment"
+        android:name="com.dsource.idc.jellowintl.fragments.ActivitySequenceFragment"
+        android:label="ActivitySequenceFragment"
         tools:layout="@layout/activity_sequence">
         <argument
             android:name="level_2_item_pos_tag"
@@ -265,5 +265,4 @@
     </fragment>
 
 </navigation>
-
 

@@ -95,7 +95,7 @@ public class AboutJellowFragment extends Fragment {
             public void handleOnBackPressed() {
                 getAppActivity().stopSpeaking();
                 if (!NavHostFragment.findNavController(AboutJellowFragment.this).popBackStack()) {
-                    NavHostFragment.findNavController(AboutJellowFragment.this).navigate(R.id.mainFragment);
+                    NavHostFragment.findNavController(AboutJellowFragment.this).navigate(R.id.levelOneFragment);
                 }
             }
         });

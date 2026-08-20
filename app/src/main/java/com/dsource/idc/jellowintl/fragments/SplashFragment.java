@@ -178,11 +178,11 @@ public class SplashFragment extends BaseFragment implements CheckNetworkStatus, 
         if (isAdded()) {
             try {
                 androidx.navigation.fragment.NavHostFragment.findNavController(SplashFragment.this)
-                        .navigate(R.id.action_splashFragment_to_mainFragment);
+                        .navigate(R.id.action_splashFragment_to_levelOneFragment);
             } catch (Exception e) {
                 try {
                     androidx.navigation.fragment.NavHostFragment.findNavController(SplashFragment.this)
-                            .navigate(R.id.mainFragment);
+                            .navigate(R.id.levelOneFragment);
                 } catch (Exception ignored) {}
             }
         }
